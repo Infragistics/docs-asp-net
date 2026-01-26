@@ -18,7 +18,7 @@
 
 This walkthrough guides you through creating a simple custom data provider control for WebSchedule™ through inheritance. When you subclass an existing data provider, you gain control over much of the data provider's internal functionality. The procedure below describes data provider fundamentals to get you started.
 
-image::images/WebSchedule_Creating_a_Custom_Data_Provider_1.PNG[]
+image::images/WebSchedule_Creating_a_Custom_Data_Provider_1.png[]
 
 Before you begin, picture the WebSchedule data provider as a vital organ (like the brain) supplying the WebScheduleInfo control with up-to-date activity, resource, and reminder information that it then pumps (like the heart) to the WebSchedule view controls.
 

@@ -18,7 +18,7 @@ WebMonthView™ allows designers to specify a different day number format string
 
 The default FirstDayHeaderFormatString includes the abbreviated month. In this example, you will learn how to customize the FirstDayHeaderFormatString in code-behind to display only the day number (with no accompanying month.)
 
-image::Images/WebSchedule_How_to_Change_the_First_Day_of_Month_Formatting_in_WebMonthView_01.PNG[]
+image::Images/WebSchedule_How_to_Change_the_First_Day_of_Month_Formatting_in_WebMonthView_01.png[]
 
 *In Visual Basic:*
 

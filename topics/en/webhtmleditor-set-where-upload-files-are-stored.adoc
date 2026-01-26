@@ -19,7 +19,7 @@ Your Web server is responsible for storing uploaded files (e.g., images, and str
 [start=1]
 . In the Microsoft® Visual Studio® .NET Solution Explorer view of your project, right-click your Web project and select New Folder. The uploaded files directory must be a virtual directory, or underneath a virtual directory. Name this folder "uploads". For the purpose of this example, it is assumed your Web application is in a virtual directory and when you deploy the application you will create this subfolder.
 
-image::images/WebHtmlEditor_How_Do_I_Set_Where_Uploaded_Files_are_Stored_01.PNG[]
+image::images/WebHtmlEditor_How_Do_I_Set_Where_Uploaded_Files_are_Stored_01.png[]
 
 [start=2]
 . Next, in code-behind (for example, within your Page_Load event handler), initialize the UploadedFilesDirectory property with the following statement.

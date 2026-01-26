@@ -20,17 +20,17 @@ Most users are familiar with SQL authentication by the default login that Micros
 
 Many deployments will use SQL authentication in coordination with an application role. You can add an application role for WebSchedule by going to the database you wish to add a role to, right-clicking the "Roles" node beneath the database, and selecting "New Database Role..." from the context menu.
 
-image::Images/WebSchedule_Related_Topics_SQL_Authentication_in_Microsoft_SQL_Server_01.PNG[]
+image::Images/WebSchedule_Related_Topics_SQL_Authentication_in_Microsoft_SQL_Server_01.png[]
 
 Enter a name for the application role, such as "WebSchedule," and select the "Application role" radio button from the dialog displayed above. Then give the WebSchedule application role a good password and click the OK button.
 
 Next expand the "Security" node beneath your server and on the "Logins" node right-click and select "Add New Login..." from the context menu. On the New Login dialog that appears specify the name of the application role, "WebSchedule," and select the SQL Server Authentication radio button. Specify a password for the application role login (this will be used by the user, "WebScheduleUser," we shall add to the database.) Leave the default database set to "master," this will grant the application role certain permissions necessary to read the catalog listing other databases from the design-time environment.
 
-image::Images/WebSchedule_Related_Topics_SQL_Authentication_in_Microsoft_SQL_Server_03.PNG[]
+image::Images/WebSchedule_Related_Topics_SQL_Authentication_in_Microsoft_SQL_Server_03.png[]
 
 After entering the application role and giving it a login, go to the "Users" node underneath the database and right-click, then select "New Database User" from the context menu.
 
-image::Images/WebSchedule_Related_Topics_SQL_Authentication_in_Microsoft_SQL_Server_02.PNG[]
+image::Images/WebSchedule_Related_Topics_SQL_Authentication_in_Microsoft_SQL_Server_02.png[]
 
 On the dialog above specify the name of the application role as the login name, and then the name of an ordinary user for this role, "WebScheduleUser" in our example.
 
@@ -38,11 +38,11 @@ Next we need to grant permissions on the "WebSchedule" application role (and ind
 
 Go back to "Roles" and right-click, to edit the "Properties..." of the "WebSchedule" application role. On the dialog that appears, you want to click the "Permissions..." button and this takes you to the grid containing all database objects (tables, stored procedures and views). From here you want to place a green check mark in each check box in the EXECUTE column for the WebSchedule stored procedures only. When finished your dialog may look like the following screen shot:
 
-image::Images/WebSchedule_Related_Topics_SQL_Authentication_in_Microsoft_SQL_Server_04.PNG[]
+image::Images/WebSchedule_Related_Topics_SQL_Authentication_in_Microsoft_SQL_Server_04.png[]
 
 Now that you have configured the application role in SQL Server Enterprise Manager, return to the Microsoft Visual Studio .NET environment to your WebSchedule application's WebForm. If you haven't already done so, drag an SqlConnection component onto the form, and select it. In the Properties Editor, drop down the ConnectionString property list box and select "New Connection..." This should raise the Data Link property pages dialog where you can specify the parameters for your connection.
 
-image::Images/WebSchedule_Related_Topics_SQL_Authentication_in_Microsoft_SQL_Server_05.PNG[]
+image::Images/WebSchedule_Related_Topics_SQL_Authentication_in_Microsoft_SQL_Server_05.png[]
 
 For a local SQL Server you can enter "." in the first field, otherwise select the name of your SQL Server from the drop-down list. Select the radio button enabling the fields where you can specify a login name and password. For your login name you will use the application role, and for your password you will use the password you specified above when defining the application role login in SQL Server Enterprise Manager.
 

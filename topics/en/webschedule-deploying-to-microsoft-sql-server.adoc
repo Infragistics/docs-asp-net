@@ -41,7 +41,7 @@ When you execute the SQL install script to create your database, it will create 
 
 You configure this default location on your SQL Server by right-clicking your Server within SQL Server Enterprise Manager. Select "Properties" from the context menu to show the SQL Server Properties dialog. On the "Database Settings" tab there is a panel labeled "New database default location" where you can specify the initial data and transaction log directories.
 
-image::Images/WebSchedule_Related_Topics_Deploying_to_Microsoft_SQL_Server_01.PNG[]
+image::Images/WebSchedule_Related_Topics_Deploying_to_Microsoft_SQL_Server_01.png[]
 
 Database administrators more comfortable with Data Definition Language (DDL) can modify the SQL install script to specify more sophisticated deployments, including file groups, growth factors, and specific placement of data and transaction log files on RAID disk arrays. The statement to change is the CREATE DATABASE line within the SQL install script. The wide range of options available to you in customizing the CREATE DATABASE statement are beyond the scope of this topic, but you can find more information in the SQL Server Books Online.
 
@@ -72,7 +72,7 @@ osql -i WebSchedule1.sql -E -S "MACHINE\VSdotNET"
 
 Within the SQL Query Analyzer environment, you would first connect to the SQL Server instance on which you want to install the WebSchedule data model through the logon dialog which looks like this:
 
-image::Images/WebSchedule_Related_Topics_Deploying_to_Microsoft_SQL_Server_02.PNG[]
+image::Images/WebSchedule_Related_Topics_Deploying_to_Microsoft_SQL_Server_02.png[]
 
 Specify the correct authentication mode (SQL or Windows) and server name. You can leave the server name "." to refer to the default server on the local machine. If you are selecting a non-default SQL Server instance, you must specify both server name and instance name separated by a slash (\). Click the OK button to log on.
 
@@ -84,7 +84,7 @@ The SQL install script may take between 15 and 30 seconds to execute, and any er
 
 To find out whether Microsoft SQL Server is configured to use SQL authentication mode or Windows authentication mode, select the server in SQL Server Enterprise Manager. Right-click and select "Properties" from the context menu. Select the "Security" tab and check the active Authentication mode.
 
-image::Images/WebSchedule_Related_Topics_Deploying_to_Microsoft_SQL_Server_03.PNG[]
+image::Images/WebSchedule_Related_Topics_Deploying_to_Microsoft_SQL_Server_03.png[]
 
 For more information on the differences you need to know about between SQL and Windows authentication modes when using WebSchedule please see the 
 

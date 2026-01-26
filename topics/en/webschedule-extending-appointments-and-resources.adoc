@@ -20,7 +20,7 @@ Business demands for real-world scheduling applications must sometimes associate
 
 Before continuing you should feel comfortable using multiple WebSchedule views on a Web form that share a WebSchedule data provider, and working with existing properties on Appointment and  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.resource.html[Resource]"]  objects. You should also have experience extending .NET Framework types using inheritance, overriding virtual members, and applying custom attributes.
 
-image::images/WebSchedule_Extending_Appointments_and_Resources_1.PNG[]
+image::images/WebSchedule_Extending_Appointments_and_Resources_1.png[]
 
 Some background in the WebSchedule object model will help you see the big picture. Both Appointments and Resources extend a common abstract base type, the WebDataObject class. WebDataObjects can be identified by a string Key property, collected and databound with integrity checking. The Activity, Appointment, and Resource classes inherit these benefits and add their properties to this base class, just as you will.
 
