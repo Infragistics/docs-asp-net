@@ -1,0 +1,82 @@
+﻿////
+
+|metadata|
+{
+    "name": "persistenceframework-persist-control",
+    "controlName": ["PersistenceFramework"],
+    "tags": ["Persistence"],
+    "guid": "d91ae9bb-2d4b-449e-b2a6-961045199feb",  
+    "buildFlags": [],
+    "createdOn": "2011-03-31T07:54:25.5159086Z"
+}
+|metadata|
+////
+
+= コントロールを保持
+
+Persistence Framework は、デフォルトで自動的にすべてのコントロールを保持します。使用しているアプリケーションでフレームワークを有効にするには、 _web.config_  で  _enablePersistence_  の属性を true に設定する必要があります。
+
+[cols="a"]
+|====
+|*Web.config で:*
+
+|---- 
+<infragistics.web enablePersistence="true" />
+----
+
+|====
+
+この属性を false にすることもできます。この場合、自動パーシステンスはオフになります。その場合でも、Persistence Framework は、個別のページで使用するために提供されています。少ない数のコントロールだけの状態を保存したい場合、対象となるアプローチを使用することが理想的です。特に、ページに多くのコントロールがある場合、保持されるコントロールの数を制限すると、ページの応答を向上できます。
+
+また、自動パーシステンスを無効にすると、Persistence イベントは発生しません。このため、保持されたデータの読み込みおよび保存は手動で行う必要があります。保持されたデータを読み込むために Page オブジェクトの InitComplete イベントを使用し、保存するために *PreRenderComplete* を使用するのが最善の方法です。
+
+== コントロールの状態を保存
+
+必要なコントロールを保存するには、Persistence Framework クラスのインスタンスである  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.framework.persistence.persistencemanager.html[*PersistenceManager* ]"]  が必要です。このクラスは単一で実装されるので、常にインスタンスがひとつだけであることが保証されます。
+
+Persistence マネージャーによって、コントロールのデータを手動で読み込み、保存できます。リスト *1* は、3 つのコントロールのパーシステンスを説明し、それらの状態の取得を示します。
+
+*リスト 1: Persistence マネージャーにコントロールを保持*
+
+[cols="a"]
+|====
+|*C# の場合:*
+
+|---- 
+private void ManualLoad() 
+{ 
+ // 単一マネージャーを取得します 
+ PersistenceManager manager = PersistenceManager.GetInstance(); 
+ PersistenceData data = PersistenceData.FromJson(this.PersistedData); 
+ foreach (ControlData controlData in data.Controls) 
+ { 
+ if (!string.IsNullOrEmpty(controlData.ControlId)) 
+ { 
+ Control control = this.FindControl(controlData.ControlId); 
+ // コントロールの保持されたデータを読み込みます 
+ manager.LoadControl(control, controlData); 
+ } 
+ } 
+} 
+private void ManualPersistence() 
+{ 
+ // 単一マネージャーを取得します 
+ PersistenceManager manager = PersistenceManager.GetInstance(); 
+ PersistenceData data = new PersistenceData(); 
+ // 手動で必要なコントロールを保持します 
+ data.Controls.Add(manager.SaveControl(this.control1, this.control1.ID)); 
+ data.Controls.Add(manager.SaveControl(this.Control2, this.Control2.ID)); 
+ data.Controls.Add(manager.SaveControl(this.control3, this.Control3.ID)); 
+ this.PersistedData = data.ToJson(); 
+}
+----
+
+|====
+
+== 関連リンク
+
+link:{SamplesURL}/samples/persistenceframework/editingandselection/persistcontrolmanually/default.aspx?cn=persistence-framework&sid=99bb0e9c-157a-4a98-a090-19d436175c68[コントロールを手動で保持]
+
+link:persistenceframework-exclude-control.html[コントロールの除外]
+
+link:persistenceframework-exclude-control-properties.html[コントロール プロパティの除外]

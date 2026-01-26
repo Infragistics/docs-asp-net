@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-understanding-webgauge",
+    "controlName": [],
+    "tags": [],
+    "guid": "f41431a9-834b-46d8-9317-83f5b26dca7f",  
+    "buildFlags": [],
+    "createdOn": "2012-04-20T12:46:51.2043733Z"
+}
+|metadata|
+////
+
+= WebGauge の理解
+
+ここでは、WebGauge コントロール、およびその主な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションでゲージを使用する利点を理解できます。
+
+* link:webgauge-about-webgauge2.html[WebGauge について] -- WebGauge コントロールの概要を説明します。
+* link:webgauge-webgauge-smart-tag.html[WebGauge スマート タグ] -- WebGauge スマート タグで利用可能な機能性について説明します。

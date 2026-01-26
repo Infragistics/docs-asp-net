@@ -1,0 +1,357 @@
+﻿////
+
+|metadata|
+{
+    "name": "gridmigrationselection",
+    "controlName": [],
+    "tags": [],
+    "guid": "fd12f1e1-6c39-4c0f-9df5-eb0cc2409c86",  
+    "buildFlags": [],
+    "createdOn": "2016-03-01T12:49:38.9724828Z"
+}
+|metadata|
+////
+
+= グリッドの移行 - 選択
+
+インフラジスティックス グリッド コントロールの選択動作は、列、行、セル（単一および複数）を選択する機能を提供し、最終的には編集または変更されるグリッドの部分の視覚化に役立ちます。
+
+使用するには、最初にグリッドの選択動作を有効にする必要があります。
+
+WebGrid (UltraWebGrid) で選択動作を有効にするには:
+
+[SelectTypeCellDefault（セル選択）]、[SelectTypeRowDefault（行選択）]、[SelectTypeColDefault（列選択）] プロパティをグリッド プロパティ（DisplayLayout）で「None」から「Single/Extended」に変更、またはそれらを手動で .aspx ソース コードに追加します。
+
+*ASPX の場合:*
+
+[source,html]
+----
+<DisplayLayout Name="UltraWebGrid1" SelectTypeCellDefault="Single" >
+</DisplayLayout>
+<DisplayLayout Name="UltraWebGrid1" SelectTypeRowDefault="Extended">
+</DisplayLayout>
+<DisplayLayout Name="UltraWebGrid1" SelectTypeColDefault="Extended">
+</DisplayLayout>
+----
+
+WebDataGrid/WebHierarchicalDataGrid で選択動作を有効にするには:
+
+[start=1]
+. Microsoft® Visual Studio™ のプロパティ ウィンドウで、動作のプロパティを検索し、省略記号（...）ボタンをクリックして動作の編集ダイアログを起動します。
+[start=2]
+. 左側の選択の隣にあるチェック ボックスをチェックし、動作を追加して有効にします。
+
+*注* : この時点で、選択に関連する追加的なプロパティ（たとえば、許可する選択のタイプ）を構成できます。
+
+[start=3]
+. [CellClickAction] プロパティはデフォルトで Cell に設定されます。この例では、既定値のままにします。
+
+*注* : RowDeleting を有効にする際に、選択を追加するようプロンプトされます。選択の追加を選択すると、選択と行セレクターが有効になり、[RowSelectType] および [CellClickAction] の選択プロパティはそれぞれ、Single と Row に設定されます。
+
+[start=4]
+. [OK] をクリックして、ダイアログを閉じます。これで、WebDataGrid/WebHierarchicalDataGrid は、クリックされたセルを選択するように設定されました。
+
+「選択」動作は、WebDataGrid/WebHierarchicalDataGrid コントロールのために.aspx ソース コードに追加することもできます。
+
+*ASPX の場合:*
+
+[source,html]
+----
+<Behaviors>    
+   <ig:Selection CellSelectType="Single" Enabled="true">                                    
+   </ig:Selection>
+</Behaviors>
+----
+
+== クライアント側のコード スニペット:
+
+== UltraWebGrid の選択
+
+==== 列の選択
+
+*JavaScript の場合:*
+
+[source,js]
+----
+function MyFunction() {
+            var grid = igtbl_getGridById('UltraWebGrid1'); // グリッドを取得する
+            var column = grid.Bands[0].getColumnFromKey("Data"); // キーから列を取得する
+            column.Selected = true; // 選択する
+            column.Element.style.color = "green"; // カラーをビュー選択に変更する
+        }
+----
+
+==== 行の選択
+
+*JavaScript の場合:*
+
+[source,js]
+----
+function MyFunction() {
+            var grid = igtbl_getGridById('UltraWebGrid1'); // グリッドを取得する
+            var row = grid.Rows.getRow(1); // 行番号 1 を取得する
+            row.setSelected(true); // 行を選択する
+            row.Element.style.color = "red"; // カラーをビュー選択に変更する
+        }
+----
+
+==== セル選択
+
+*JavaScript の場合:*
+
+[source,js]
+----
+function MyFunction() {
+            var grid = igtbl_getGridById('UltraWebGrid1'); // グリッドを取得する
+            var row = grid.Rows.getRow(1); // 行番号 1 を取得する
+            row.setSelected(true); // 行を選択する
+            row.Element.style.color = "red"; // カラーをビュー選択に変更する
+            var cell = row.getCell(2); // 行 1 からセル 2 を取得する
+            cell.setSelected(true); // セルを選択する
+            cell.Element.style.color = "blue"; // カラーをビュー選択に変更する
+        }
+----
+
+== WebDataGrid の選択
+
+==== 列の選択
+
+*C# の場合:*
+
+[source,csharp]
+----
+// 列を選択するには、
+var grid = $find("WebDataGrid1");
+//列を選択する
+grid.get_behaviors().get_selection().get_selectedColumns().add(grid.get_columns().get_column(0));
+// 列を選択解除するには、
+// 最初に選択した列をコレクションから削除する
+grid.get_behaviors().get_selection().get_selectedColumns().remove(grid.get_behaviors().get_selection().get_selectedColumns().getItem(0));
+----
+
+==== 行の選択
+
+*JavaScript の場合:*
+
+[source,js]
+----
+// 行を選択するには、
+var grid = $find("WebDataGrid1");
+// 行を選択する
+grid.get_behaviors().get_selection().get_selectedRows().add(grid.get_rows().get_row(0));
+// 行を選択解除するには、
+// 最初に選択した行をコレクションから削除する
+grid.get_behaviors().get_selection().get_selectedRows().remove(grid.get_behaviors().get_selection().get_selectedRows().getItem(0));
+Cell Selection:
+// セルを選択するには、
+var grid = $find("WebDataGrid1");
+// セルを選択する
+grid.get_behaviors().get_selection().get_selectedCells().add(grid.get_rows().get_row(0).get_cell(1));
+// セルを選択解除するには、
+// 最初に選択したセルをコレクションから削除する
+grid.get_behaviors().get_selection().get_selectedCells().remove(grid.get_behaviors().get_selection().get_selectedCells().getItem(0));
+----
+
+*注* : 使用するには、最初にグリッドの選択動作を有効にする必要があります。
+
+== WebHierarchicalDataGrid の選択
+
+==== 列の選択
+
+*JavaScript の場合:*
+
+[source,js]
+----
+var grid = $find("WebHierarchicalDataGrid1");
+var parentGrid = grid.get_gridView();
+var childGrid = grid.get_gridView().get_rows().get_row(3).get_rowIslands(0)[0];
+// 親列の選択
+if (parentGrid!= null)
+parentGrid.get_behaviors().get_selection().get_selectedColumns().add(parentGrid.get_columns().get_column(0));
+// 子列の選択
+if (childGrid != null) childGrid.get_behaviors().get_selection().get_selectedColumns().add(childGrid.get_columns().get_column(0));
+----
+
+==== 行の選択
+
+*JavaScript の場合:*
+
+[source,js]
+----
+var grid = $find("WebHierarchicalDataGrid1");
+var parentGrid = grid.get_gridView();
+var childGrid = grid.get_gridView().get_rows().get_row(3).get_rowIslands(0)[0];
+// 親行の選択
+if (parentGrid!= null)
+parentGrid.get_behaviors().get_selection().get_selectedRows().add(parentGrid.get_rows().get_row(0));
+// 子行の選択
+if (childGrid != null) childGrid.get_behaviors().get_selection().get_selectedRows().add(childGrid.get_rows().get_row(0));
+----
+
+==== セル選択
+
+*JavaScript の場合:*
+
+[source,js]
+----
+var grid = $find("WebHierarchicalDataGrid1");
+var parentGrid = grid.get_gridView();
+var childGrid = grid.get_gridView().get_rows().get_row(0).get_rowIslands(0)[0];
+// 親セルの選択
+if (parentGrid!= null)
+parentGrid.get_behaviors().get_selection().get_selectedCells().add(parentGrid.get_rows().get_row(0).get_cell(0));
+// 子セルの選択
+if (childGrid != null) childGrid.get_behaviors().get_selection().get_selectedCells().add(childGrid.get_rows().get_row(0).get_cell(0));
+----
+
+*注* : 使用するには、最初にグリッドの選択動作を有効にする必要があります。
+
+== サーバー側のコードスニペット:
+
+== UltraWebGrid の選択
+
+==== 列の選択
+
+UltraWebGrid1.Bands[0].Columns[0].Selected = true; // または False で選択解除
+
+==== 行の選択
+
+UltraWebGrid1.Rows[1].Selected = true; // または False で選択解除
+
+==== セル選択
+
+UltraWebGrid1.Rows[1].Cells[0].Selected = true; // または False で選択解除
+
+== WebDataGrid の選択
+
+==== 列の選択
+
+*C# の場合:*
+
+[source,csharp]
+----
+// 列を選択するには、
+// 選択された列を取得する
+SelectedColumnCollection selectedColumns = this.WebDataGrid1.Behaviors.Selection.SelectedColumns;
+//列を選択する
+selectedColumns.Add(this.WebDataGrid1.Columns[0]);
+// 列を選択解除するには、
+// 最初に選択した列をコレクションから削除する
+selectedColumns.RemoveAt(0);
+----
+
+==== 行の選択
+
+*C# の場合:*
+
+[source,csharp]
+----
+// 行を選択するには、
+// 選択された行を取得する
+SelectedRowCollection selectedRows = this.WebDataGrid1.Behaviors.Selection.SelectedRows;
+// 行を選択する
+selectedRows.Add(this.WebDataGrid1.Rows[0]);
+// 行を選択解除するには、
+// 最初に選択した行をコレクションから削除する
+selectedRows.RemoveAt(0);
+----
+
+==== セル選択
+
+*C# の場合:*
+
+[source,csharp]
+----
+// セルを選択するには、
+// 選択されたセルを取得する
+SelectedCellCollection selectedCells = this.WebDataGrid1.Behaviors.Selection.SelectedCells;
+// セルを選択する
+selectedCells.Add(this.WebDataGrid1.Rows[0].Items[1]);
+// セルを選択解除するには、
+// 最初に選択したセルをコレクションから削除する
+selectedCells.RemoveAt(0);
+----
+
+*注* : 使用するには、最初にグリッドの選択動作を有効にする必要があります。
+
+== WebHierarchicalDataGrid の選択
+
+==== 列の選択
+
+*C# の場合:*
+
+[source,csharp]
+----
+// RowIslandDataBound イベントの取り込み
+this.WebHierarchicalDataGrid1.RowIslandDataBound += new RowIslandEventHandler(WebHierarchicalDataGrid1_RowIslandDataBound);
+protected void WebHierarchicalDataGrid1_RowIslandDataBound(object sender, RowIslandEventArgs e)
+{       
+   // 親バンドのセルの選択
+   if (e.RowIsland.DataMember == "SqlDataSource1_DefaultView")
+   {
+      Selection s = e.RowIsland.Behaviors.Selection;
+      s.SelectedColumns.Add(e.RowIsland.Columns[2]);
+   }
+   // 子バンドのセルの選択
+   if (e.RowIsland.DataMember == "SqlDataSource2_DefaultView"
+       && e.RowIsland.ParentRow == this.WebHierarchicalDataGrid1.GridView.Rows[0])
+   {
+      Selection s = e.RowIsland.Behaviors.Selection;
+      s.SelectedColumns.Add(e.RowIsland.Columns[2]);
+   }
+}
+----
+
+==== 行の選択
+
+*C# の場合:*
+
+[source,csharp]
+----
+// RowIslandDataBound イベントの取り込み
+this.WebHierarchicalDataGrid1.RowIslandDataBound += new RowIslandEventHandler(WebHierarchicalDataGrid1_RowIslandDataBound);
+protected void WebHierarchicalDataGrid1_RowIslandDataBound(object sender, RowIslandEventArgs e)
+{
+   // 親バンドのセルの選択
+   if (e.RowIsland.DataMember == "SqlDataSource1_DefaultView")
+   {
+      Selection s = e.RowIsland.Behaviors.Selection;
+      s.SelectedRows.Add(e.RowIsland.Rows[2]);
+   }
+   // 子バンドのセルの選択
+   if (e.RowIsland.DataMember == "SqlDataSource2_DefaultView"
+        && e.RowIsland.ParentRow == this.WebHierarchicalDataGrid1.GridView.Rows[0])
+   {
+      Selection s = e.RowIsland.Behaviors.Selection;
+      s.SelectedRows.Add(e.RowIsland.Rows[4]);
+   }
+}
+----
+
+==== セル選択
+
+*C# の場合:*
+
+[source,csharp]
+----
+// RowIslandDataBound イベントの取り込み
+this.WebHierarchicalDataGrid1.RowIslandDataBound += new RowIslandEventHandler(WebHierarchicalDataGrid1_RowIslandDataBound);
+protected void WebHierarchicalDataGrid1_RowIslandDataBound(object sender, RowIslandEventArgs e)
+{            
+   // 親バンドのセルの選択
+   if (e.RowIsland.DataMember == "SqlDataSource1_DefaultView")
+   {
+      Selection s = e.RowIsland.Behaviors.Selection;
+      s.SelectedCells.Add(e.RowIsland.Rows[5].Items[1]);
+   }
+   // 子バンドのセルの選択
+   if (e.RowIsland.DataMember == "SqlDataSource2_DefaultView"
+       && e.RowIsland.ParentRow == this.WebHierarchicalDataGrid1.GridView.Rows[0])
+   {
+      Selection s = e.RowIsland.Behaviors.Selection;
+      s.SelectedCells.Add(e.RowIsland.Rows[0].Items[3]);
+   }
+}
+----
+
+*注* : 使用するには、最初にグリッドの選択動作を有効にする必要があります。

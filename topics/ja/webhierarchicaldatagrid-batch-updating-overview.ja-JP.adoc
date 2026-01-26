@@ -1,0 +1,48 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatagrid-batch-updating-overview",
+    "controlName": ["WebHierarchicalDataGrid"],
+    "tags": ["Editing","Getting Started","Grids","Performance"],
+    "guid": "35bc5f1b-a605-446f-a06b-52b9f58f16e4",  
+    "buildFlags": [],
+    "createdOn": "2011-10-26T07:51:30.8783328Z"
+}
+|metadata|
+////
+
+= 概要
+
+== はじめに
+
+WebHierarchicalDataGrid™ コントロールの一括更新機能により、編集プロセス中に別の行に切り替える場合、サーバーを呼び出すことなく、行の変更、挿入、および削除ができます。つまり、行われた変更はクライアント側にのみ存在し、ポストバックが行われるまでサーバーには保存されていません。
+
+以下の図は、一括更新が有効な状態の WebHierarchicalDataGrid を示しています。変更された行 (追加、更新、削除など) は特別なスタイルで示されています。削除された行にも、マウスをホバーすると表示される Undo ボタンがあります。最初のポストバックがサーバーに行われるまでこのスタイルのままになります。
+
+image::images/WebHierarchicalDataGrid_Batch_Updating_Getting_Started_01.png[]
+
+== 一括更新の主な機能
+
+以下は一括更新機能の主要な機能です。
+
+* 変更がサーバーに保存される前に、数に制限なく行を変更する
+* 変更がサーバーに保存される前に、Undo 機能を無制限に使用できる (行われたすべての変更を元に戻すことができます)
+* 集計が有効な場合にクライントで動的な再計算をする
+* クライアント側イベントのサポート
+* 行の更新、追加、および削除に既存のサーバー イベントを使用する
+* 子バンドの一括更新ビヘイビアーを継承します
+
+== 関連トピック
+
+link:webhierarchicaldatagrid-cell-editing.html[WebHierarchicalDataGrid の編集]
+
+link:webhierarchicaldatagrid-batch-updating-enabling.html#_enabling_batch_updating[一括更新を有効にする]
+
+link:webhierarchicaldatagrid-batch-updating-events.html[WebHierarchicalDataGrid の一括更新イベント]
+
+link:webhierarchicaldatagrid-batch-updating-summaries.html[WebHierarchicalDataGrid の一括更新のまとめ]
+
+link:known-issues-known-issues-and-breaking-changes-revision-history.html[既知の問題と重大な変更]
+
+link:webhierarchicaldatagrid-accessibility-compliance.html[WebHierarchicalDataGrid アクセシビリティの遵守]

@@ -1,0 +1,165 @@
+﻿////
+
+|metadata|
+{
+    "name": "customizing-the-localization-of-asp-net-ajax-controls",
+    "controlName": [],
+    "tags": [],
+    "guid": "8ad706f4-5d9f-47d1-877b-367bb44cf3f0",  
+    "buildFlags": [],
+    "createdOn": "2014-11-05T09:40:26.7980841Z"
+}
+|metadata|
+////
+
+= ASP.NET AJAX コントロールのローカライズをカスタマイズ
+
+=== 概要
+
+このトピックでは、ASP.NET AJAX コントロールを他の言語にローカライズする方法について説明します。
+
+Infragistics は英語および日本語でローカライズされたコントロールを提供します。  他の言語を追加するにはカスタム サテライト アセンブリを作成し、GAC にインストールすることができます。
+
+以下の手順でドイツ (スイス) の de-CH カルチャのためのサテライト アセンブリを作成します。  de-CH を有効なlink:http://msdn.microsoft.com/en-us/library/ms533052(v=vs.85).aspx[カルチャ コード]に置き換える場合、この手順はどのカルチャーに適用します。  この例では WebDataGrid を使用しますが、このアプローチは各 {ProductName} AJAX コントロールに適用できます。
+
+=== 前提条件
+
+* {ProductName} 製品をインストールする必要があります。
+* 製品のソース コードをアクセスするには 登録さらた ASP.NET 製品を含むアカウントが必要です。
+
+=== プレビュー
+
+以下のスクリーンショットは最終結果のプレビューです。
+
+image::images/ajax-controls-localization-preview.png[]
+
+=== 手順
+
+1. *Localization* と呼ばれる空のフォルダーを作成します。  すべてのファイルを同じ場所に置くことでコマンド ラインの手順を簡略化します。
+2. link:http://jp.infragistics.com[Infragistics ウェブサイト]のlink:https://jp.infragistics.com/my-account/keys-and-downloads[キーとダウンロード]セクションから {ProductName} 製品のソース コードをダウンロードします。
+3. 手順 1 に作成された *Localization* フォルダーに `WebDataGridStrings_runtime.resx` ファイルをコピーします。  このファイルはソース コードの `Infragistics.Web.UI/Resources` 下のフォルダーにあります。
+4. `Infragistics4.Web.v{ProductVersion}.dll` ファイルを *Localization* フォルダーにコピーします。  このファイルは製品のインストール場所 (デフォルト: `C:\Program Files (x86)\Infragistics\20{ProductVersion}\ASP.NET\CLR4.0\Bin`) にあります。
+5. Windows エクスプローラーで *Localization* フォルダーを開きます。
+6. `WebDataGridStrings_runtime.resx` ファイルのコピーを作成し、ファイル名を `WebDataGridStrings_runtime.de-CH.resx` に変更します。
+
+image::images/ajax-controls-localization-localization-folder.png[]
+
+[start=7]
+7. Visual Studio などのエディターで WebDataGridStrings_runtime.de-CH.resx を開き、文字列を翻訳します。 フィルター ドロップダウン オプションの文字列は、`LS_FilterRule_` で始まり、その後にルール名が続きます (例: `LS_FilterRule_After`、 `LS_FilterRule_Before`、 `LS_FilterRule_Equals`)。
+8. 管理者として Visual Studio コマンド プロンプトを実行します。
+
+image::images/ajax-controls-localization-vs-command-prompt.png[]
+
+[start=9]
+9. `cd` コマンドで手順 1 で作成した Localization フォルダーへ移動します。
+
+----
+cd C:\Localization
+----
+
+[start=10]
+10. *Localization* ディレクトリで `Infragistics4.Web.v{ProductVersion}.dll` アセンブリのサインに使用されたパブリック キーを抽出することで `StrongName.key` ファイルを作成します。 このキー ファイルを使用してサテライト アセンブリのサインを遅延します。
+
+----
+sn -e Infragistics4.Web.v{ProductVersion}.dll StrongName.key
+----
+
+[start=11]
+11. *Localization* フォルダーで `WebDataGridStrings_runtime.de-CH.resources` ファイルを作成します。
+
+----
+Resgen WebDataGridStrings_runtime.de-CH.resx
+----
+
+image::images/ajax-controls-localization-resgen-result.png[]
+
+[start=12]
+12. *Localization* フォルダーで サテライト アセンブリ の　`Infragistics4.Web.v{ProductVersion}.resources.dll` を作成します。
+
+----
+Al.exe /t:lib /embed:WebDataGridStrings_runtime.de-CH.resources,Infragistics.Web.UI.Resources.WebDataGridStrings_runtime.de-CH.resources /culture:de-CH /out:Infragistics4.Web.v{ProductVersion}.resources.dll /template:Infragistics4.Web.v{ProductVersion}.dll /keyf:StrongName.key /delay+
+----
+
+image::images/ajax-controls-localization-al-result.png[]
+
+[start=13]
+13. サテライト アセンブリに厳密な名前の検証を追加します。  これで完全にサインされていない状態で `Infragistics4.Web.v{ProductVersion}.resources.dll` ファイルを GAC にインストールできます。
+
+----
+sn -Vr Infragistics4.Web.v{ProductVersion}.resources.dll
+----
+
+[start=14]
+14. サテライト アセンブリを GAC にインストールします。
+
+----
+gacutil -i Infragistics4.Web.v{ProductVersion}.resources.dll
+----
+
+image::images/ajax-controls-localization-command-line.png[]
+
+[start=15]
+15. ウェブサイトの .aspx ページを開きます。
+
+`Page`、 `UICulture`、および `Culture` の属性を `Auto` に設定します。
+
+*ASPX の場合:*
+
+[source,html]
+----
+<%@ Page Language="C#" AutoEventWireup="true" UICulture="Auto" Culture="Auto"  CodeFile="Default.aspx.cs" Inherits="_Default" %>
+----
+
+あるいはこれは web.config ファイルの `<system.web>` タッグの間に設定できます。
+
+`ScriptManager` `EnableScriptGlobalization` 属性を `true` に設定します。
+
+*ASPX の場合:*
+
+[source,html]
+----
+<asp:ScriptManager EnableScriptGlobalization="true" ID="ScriptManager1" runat="server"/>
+----
+
+=== テスト
+
+使用されているパソコンの言語はターゲットの言語と違い、アセンブリが正しく動作することを確認するご希望の場合、ブラウザーの言語を変更することができます。
+
+示している例は Windows 7 上の Firefox を使用しますが、ブラウザーおよび OS によって異なります。  Chrome の場合、右上にメニューから高度な設定をアクセスし言語と入力の設定をクリックします。  Windows 8 の場合、Internet Explorer はコントロール パネルを表示し、言語の優先順位を選択できます。
+
+[start=1]
+1. ブラウザーのオプション ダイアログへアクセスします。
+
+image::images/ajax-controls-localization-firefox-options.png[]
+
+[start=2]
+2. Languages の下の Content タブで Choose... をクリックします。
+
+image::images/ajax-controls-localization-firefox-choose-language.png[]
+
+[start=3]
+3. リストにない場合、 追加をクリックしターゲット言語を追加します。  ターゲット言語をリストの一番上に移動します。  一番上の言語は使用されている言語です。
+
+image::images/ajax-controls-localization-firefox-add-language.png[]
+
+[start=4]
+4. 言語の設定を適用するにはブラウザーのすべてのインスタンスを閉じます。
+5. 優先する言語を使用しウェブサイトをブラウザーでテストできます。
+
+image::images/ajax-controls-localization-preview.png[]
+
+=== 配備の注意事項
+
+注: 開発システムでアセンブリをビルドし、他のシステムでデプロイする場合、以下を行ってください。
+
+* 下記の手順に従いサーバーでサテライト アセンブリ をビルドしてください。
+* gacutil を使用し、サテライト アセンブリをサーバーの GAC に追加してください。  サーバに Visual Studio がインストールされていない場合、link:http://stackoverflow.com/questions/427686/how-do-you-install-files-in-the-assembly-in-windows-server-2008[必要のファイルをコピー/ペースト]できます。  サテライト アセンブリを GAC サーバーにインストールするにはインストーラーを作成できます。
+
+=== 関連リンク
+
+* link:web-deployment-overview.html[配置の概要]
+* link:http://msdn.microsoft.com/ja-jp/library/dd788548.aspx[Create a Strong-Name Key File]
+* link:https://msdn.microsoft.com/ja-jp/library/k5b5tt23(v=vs.110).aspx[厳密名ツール]
+* link:https://msdn.microsoft.com/ja-jp/library/ccec7sz1(v=vs.110).aspx[リソース ファイル ジェネレーター]
+* link:https://msdn.microsoft.com/ja-jp/library/c405shex(v=vs.110).aspx[アセンブリ リンカー]
+* link:https://msdn.microsoft.com/ja-jp/library/ex0ss12c(v=vs.110).aspx[GAC]

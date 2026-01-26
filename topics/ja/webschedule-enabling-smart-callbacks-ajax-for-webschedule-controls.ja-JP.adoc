@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-enabling-smart-callbacks-ajax-for-webschedule-controls",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Performance","Scheduling","Tips and Tricks"],
+    "guid": "{CE9F891D-14E1-444D-8DA2-8B7D939965C9}",  
+    "buildFlags": [],
+    "createdOn": "2006-10-04T00:00:00Z"
+}
+|metadata|
+////
+
+= WebSchedule コントロールのスマート コールバック (AJAX) を有効にする
+
+{ProductName} 2006 Volume 2 では、WebSchedule コントロールは AJAX を使用して、必要なデータのみをポストバックできます。この新しい機能は SmartCallbacks と呼ばれます。WebScheduleInfo コンポーネントの EnableSmartCallbacks というひとつのプロパティを変更することで、WebSchedule はシーンの背後ですべてのポストバックを処理して、Web ページ全体を更新する必要性を排除します。このように、Web ページのポストバックには気づきません。SmartCallbacks をオンにすることは簡単です。[プロパティ] ウィンドウで EnableSmartCallbacks プロパティを True に設定するだけです。あるいは、以下に示すように、コードでこのプロパティを設定できます。
+
+*Visual Basic の場合：*
+
+----
+Me.WebScheduleInfo1.EnableSmartCallbacks = True
+----
+
+*C# の場合：*
+
+----
+this.webScheduleInfo1.EnableSmartCallbacks = true;
+----

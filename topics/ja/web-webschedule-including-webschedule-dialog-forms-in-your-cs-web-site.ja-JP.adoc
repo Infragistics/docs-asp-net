@@ -1,0 +1,99 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webschedule-including-webschedule-dialog-forms-in-your-cs-web-site",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling"],
+    "guid": "{DD58036D-C7A8-4447-9605-46E4FDEC3156}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= CS ウェブ サイトに WebSchedule ダイアログ フォームを使用する
+
+== 始める前に
+
+さまざまな WebSchedule コントロールは、{ProductName} 製品ラインで提供される一連のポップアップ ダイアログ フォームに依存します。WebSchedule によって強化されたアプリケーションがこれらのフォームを表示するには、アプリケーションでアクセス可能にする必要があります。これを行うひとつの方法は、固有のアプリケーションにさまざまな WebSchedule プロジェクト ファイルを含めることです。
+
+== 達成すること
+
+このトピックを読めば、WebSchedule フォーム プロジェクト ファイルおよびアプリケーションへの関連する参照を正しく追加する方法を理解できます。
+
+*以下のコードの例の前提:*
+
+* IIS がコンピューターにインストールされていて、設定が完了していること。
+* Default.aspx という名前のひとつの WebForm でファイル システム配備のために ASP.NET アプリケーションを既に構成済みであることを前提とします。
+* Default.aspx には WebScheduleInfo™ のインスタンスに接続されている WebMonthView™ のインスタンスが含まれます。
+* WebScheduleInfo はインボックス Microsoft© AccessDataSource™ コントロールを使用する WebScheduleOleDbProvider インスタンスに接続されます。
+* アプリケーションは、WebSchedule のデータベースとして含まれる WebSchedule2.mdb Microsoft© Access™ データベース ファイルと共に `App_Data` フォルダーもあります。WebSchedule2.mdb Microsoft Access データベースを使用するために WebSchedule を構成する方法についての詳細は、 link:webschedule-connecting-webschedule-to-a-database-in-visual-studio-2005.html[Visual Studio 2005 で WebSchedule をデータベースに接続]を参照してください。  
+
+== 以下の手順を実行します。
+
+[start=1]
+. WebSchedule フォルダーを参照します。通常次に位置します: `C:\Inetpub\wwwroot\aspnet_client\Infragistics\20XXXCLRXX\Forms\WebSchedule` WebSchedule フォルダーおよびそのコンテンツのコピーをプロジェクトのフォルダーに作成します。WebSchedule のコード ファイルをアプリケーションの `App_Code` フォルダーに移動します。
+[start=2]
+. アプリケーションに `App_Code` フォルダーが存在しない場合、ソリューション エクスプローラーのアプリケーション ノードを右クリックしてメニューから [ASP.NET フォルダーの追加] を選択して `App_Code` を選択できます。アプリケーションに `App_Code` フォルダーが既に存在する場合があります。
+[start=3]
+. WebSchedule `App_Code` フォルダーから ComboBox.cs および MCListBox.cs ファイルをアプリケーションの `App_Code` フォルダーに移動します。`App_Code` フォルダーはソース コード ファイルが置かれる特別な ASP.NET フォルダーです。
+[start=4]
+. リソース ファイルをアプリケーションの `App_GlobalResources` フォルダーに移動します。`App_Code` フォルダーと同様、`App_GlobalResources` フォルダーがあることを確認します。確認できない場合、ソリューション エクスプローラーでアプリケーション ノードを右クリックしてメニューから [ASP.NET フォルダーの追加] を選択し、`App_GlobalResources` を選択します。既存のアプリケーションに `App_GlobalResources` フォルダーが既に存在する場合があります。
+[start=5]
+. WebSchedule `App_GlobalResources` フォルダーから strings.resx ファイルをアプリケーションの `App_GlobalResources` に移動します。`App_GlobalResources` フォルダーには、ローカライズのために分離および公開されるさまざまなリソースを表すファイルが含まれます。 
+[start=6]
+. WebSchedule フォルダーから `Bin`、`App_Code`、および `App_GlobalResources` フォルダーを削除します。
+[start=7]
+. WebSchedule フォルダーから Forms.sln、FormsVS08.sln、FormsVS08.suo、Global.asax、Global.asax.cs、Global.asax.resx、licenses.licx、および Web.config ファイルを削除します。メインの WebSchedule ファイルはメイン アプリケーションに統合されているので、これらのファイルを不要となって、安全に削除できます。サンプル アプリケーションは以下の画像のようになるはずです。これらの手順で変更した項目は黄色で強調表示されています： 
+
+image::images/Web_WebSchedule_Including_WebSchedule_Dialog_Forms_in_your_CS_Web_Site_01.png[]
+
+[start=8]
+. {ProductName} コントロールを含む複数のフォームが追加されているので、適切な参照がアプリケーションに追加されていることも確認する必要があります。WebSchedule アプリケーションには次の参照が含まれます:
+
+Infragistics.WebUI.Shared.{ProductVersion}
+
+Infragistics.WebUI.WebSchedule.{ProductVersion}
+
+ソリューション エクスプローラーで Application ノードを右クリックして Property ページを選択します。[プロパティ ページ] ダイアログで、参照ノードを選択し、アプリケーションに追加される参照を確認します。これらの 4 つの参照がアプリケーションに存在しない場合、[追加] ボタンをクリックし、.NET タブの下のダイアログから必要とする参照を指定して選択し、[OK] ボタンをクリックします。これでアプリケーションは必要とするすべての参照を含んでいるはずです。アプリケーションに他の Infragistics コントロールが含まれている場合には、これらの参照が既に追加されている可能性があります。 
+[start=9]
+. 既存の Web.Config ファイルの ConfigSections に以下の Infragistics セクションを追加します。
+
+*XML の場合:*
+
+----
+<configuration>
+ <configSections>
+ <!--以下の行を追加します-->
+ <section name="infragistics.web"
+     type="System.Configuration.SingleTagSectionHandler,System, 
+     Version=1.0.3300.0, 
+     Culture=neutral, 
+     PublicKeyToken=b77a5c561934e089" />
+  <sectionGroup name="system.web.extensions"
+    type="System.Web.Configuration.SystemWebExtensionsSectionGroup, System.Web.Extensions,
+    Version=3.5.0.0,
+    Culture=neutral,
+    PublicKeyToken=31BF3856AD364E35" >
+   <sectionGroup name="scripting"
+    type="System.Web.Configuration.ScriptingSectionGroup, System.Web.Extensions,
+    Version=3.5.0.0,
+    Culture=neutral,
+    PublicKeyToken=31BF3856AD364E35" >
+   <!--簡素にするためにその他の構成メンバーは省略しました-->
+   </sectionGroup>
+  </sectionGroup>
+</configSections>
+<!--以下の行を追加します-->
+<infragistics.web formsDirectory="~/WebSchedule" />
+----
+
+[start=10]
+. アプリケーションを保存、コンパイル、および実行します。
+[start=11]
+. WebMonthView コントロールの日をダブルクリックします。
+[start=12]
+. すべてが正しく構成されている場合、予約ダイアログが表示され、新しい予約を入力できます（以下の画像で示すように）。
+
+image::images/Web_WebSchedule_Including_WebSchedule_Dialog_Forms_in_your_VB_NET_Web_Site_02.png[プロパティ ウィンドウ]

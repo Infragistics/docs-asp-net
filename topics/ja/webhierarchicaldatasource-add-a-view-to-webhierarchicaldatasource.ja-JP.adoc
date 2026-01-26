@@ -1,0 +1,44 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatasource-add-a-view-to-webhierarchicaldatasource",
+    "controlName": ["WebHierarchicalDataSource"],
+    "tags": ["Data Presentation","Editing","Sample Data Source"],
+    "guid": "{07E4026E-038C-4D05-A27B-5D353766EB7C}",  
+    "buildFlags": [],
+    "createdOn": "2008-05-05T14:21:31Z"
+}
+|metadata|
+////
+
+= ビューを WebHierarchicalDataSource に追加
+
+ビューを WebHierarchicalDataSource™ に追加して、単一のデータ ソースとして使用する、またはデータ バインドされたコントロールと使用するためにその他のデータ ビューと結合することができます。デザイン タイムとランタイムの両方でビューを WebHierarchicalDataSource の  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.datasourcecontrols.dataviewcollection.html[DataViews]"]  コレクションに追加できます。デザイン タイムの場合は、構成ウィザードを開き [ビューの追加] を選択します。ランタイムの場合は、以下の例のコードを使用して、ビューを WebHierarchicalDataSource に追加することができます。
+
+*Visual Basic の場合：*
+
+----
+' ビューを作成します。 
+Dim view As New Infragistics.Web.UI.DataSourceControls.DataView() 
+' SQL データ ソースを使用するようにビューを設定します。 
+view.DataSourceID = Me.SqlDataSource1.ID 
+' ビューに ID を指定します。 
+view.ID = "SqlDataSource_View1" 
+' ビューを追加します。 
+Me.WebHierarchicalDataSource1.DataViews.Add(view)
+----
+
+*C# の場合：*
+
+----
+// ビューを作成します。
+Infragistics.Web.UI.DataSourceControls.DataView view = 
+new Infragistics.Web.UI.DataSourceControls.DataView();
+// SQL データ ソースを使用するようにビューを設定します。
+view.DataSourceID = this.SqlDataSource1.ID;
+// ビューに ID を指定します。
+view.ID = "SqlDataSource_View1";
+// ビューを追加します。
+this.WebHierarchicalDataSource1.DataViews.Add(view);
+----

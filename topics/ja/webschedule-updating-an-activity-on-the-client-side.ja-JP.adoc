@@ -1,0 +1,122 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-updating-an-activity-on-the-client-side",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling"],
+    "guid": "{FC7DC96B-7016-498B-9A3A-CC6DA6310AEC}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アクティビティを更新（クライアント側）
+
+== 始める前に
+
+WebSchedule は、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[アクティビティ]"] をクライアント側で更新できます。この詳細なガイドでは、クライアント側にアクティビティを更新するための方法を提供します。クライアント側にアクティビティを更新するために使用される主なメソッドは updateActivity です。
+
+updateActivity は以下の 3 つのパラメータを取ります。
+
+[start=1]
+. ActivityUpdateProps:更新したい予定のプロパティを含む動的なオブジェクト。
+[start=2]
+. Activity:更新したい実際のアクティビティ。
+[start=3]
+. id:Updating Client and Server イベントで取得可能な文字列値。
+
+以下はクライアント側の既存のアクティビティを更新する方法を手順ごとに説明します。
+
+== 以下の手順を実行します。
+
+[start=1]
+. *プロジェクトのセットアップ*
+
+ASP.NET プロジェクトを作成して、WebSchedule コントロールを設定します。設定方法については、 link:webschedule-using-the-webschedule-controls-quick-design.html[「Web フォーム デザイナを使用してクイック スタート」]または link:webschedule-creating-webschedule-controls-using-code.html[「コードで WebSchedule を設定」]を参照してください。
+[start=2]
+. プロジェクトのセットアップが完了した後で、JavaScript イベントを起動するためにクリックできるボタンのような物が必要となります。
+[start=3]
+. *WebScheduleInfo への参照の取得*
+
+まず、WebSchdeuleInfo オブジェクトへの参照が必要です。WebScheduleInfo の ClientId を以下のユーティリティ関数に渡すことによって、このオブジェクトを取得できます。
+
+*JavaScript の場合:*
+
+----
+var scheduleInfo = ig_getWebScheduleInfoById("WebScheduleInfo1");
+----
+
+[start=4]
+. *アクティビティ を取得*
+
+次に更新したいアクティビティを取得する必要があります。以下はアクティビティを取得するための一般的な 2 つの方法です。
+[start=5]
+. 最初に Activities コレクション内の各アクティビティでループできます。
+
+*JavaScript の場合:*
+
+----
+var activities = scheduleInfo.getActivities(); 
+var activity = null; 
+for(var i = 0; i < activities.length; i++) 
+{ 
+	if(activities[i].getSubject() == "New Appointment") 
+	{ 
+		activity = activities[i]; 
+		break;
+ 	}
+}
+----
+
+[start=6]
+. 2 番目に WebDayView および WebMonthView のいずれかを検出できる getSelectedActivity() メソッドを使用できます。
+
+*JavaScript の場合:*
+
+----
+var webDayView = ig_getWebDayViewById("WebDayView1"); 
+var activity = webDayView.getSelectedActivity();
+----
+
+[start=7]
+. *アクティビティのプロパティのオブジェクトを作成*
+
+次にアクティビティで更新したいプロパティを含む動的なオブジェクトを作成する必要があります。
+
+*注：* activityUpdateProps オブジェクトのあらゆるプロパティを含める必要も、この順番でプロパティを指定する必要もありません。ただし、コロンの左側の値は大文字と小文字を識別するため、以下に列挙するとおりに入力する必要があります。
+
+*JavaScript の場合:*
+
+----
+var activityUpdateProps =  {StartDateTime: new Date(),
+			Duration: 30,
+			Subject: "Update Appointment",
+			Location: "Here",
+			Description: "No Description",
+			AllDayEvent: false,
+			EnableReminder: true,
+			ShowTimeAs: 1,
+			Importance: 1,
+			ReminderInterval: 9000000000};
+----
+
+[start=8]
+. *アクティビティの更新*
+
+最後に updateActivity を呼び出すことができます。これは WebScheduleInfo オブジェクトのメソッドです。このメソッドはポストバック、ならびにクライアント側とサーバー側両方の Updating イベントを起動します。
+
+*JavaScript の場合:*
+
+----
+scheduleInfo.updateActivity(activityUpdateProps, activity, "" );
+----
+
+== 復習
+
+この詳細なガイドでは、クライアント側でアクティビティを更新するための手順を説明しました。
+
+== 関連トピック
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[WebSchedule 名前空間]"]

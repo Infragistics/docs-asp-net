@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-radius-pane",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{72D18C3F-EBE5-450F-9863-5E8CC50770C8}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 半径ペイン
+
+[半径] ペインによって、アンカーの半径のサイズを変更できます。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugeneedleanchor~radius.html[値]"]  -- 数値スライダを使用して、0 から 100 の整数にこの値を設定します。ただし、値をテキスト ボックスに入力することも可能です。この値はアンカーの半径のサイズです。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugeneedleanchor~radiusmeasure.html[単位]"]  -- 半径の測定の単位を指定するには [単位] ドロップダウン リストを使用します。半径は、ピクセルまたはラジアル ゲージのパーセントで測定できます。
+
+image::images/Anchor_Radius_Pane_01.png[]
+
+== 関連トピック
+
+link:webgauge-anchor-layout-tab.html[アンカー レイアウト タブ]

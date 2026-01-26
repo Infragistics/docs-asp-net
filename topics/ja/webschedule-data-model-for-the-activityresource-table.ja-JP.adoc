@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-data-model-for-the-activityresource-table",
+    "controlName": ["WebSchedule"],
+    "tags": ["Getting Started","Scheduling"],
+    "guid": "{E7126928-7CEE-447C-8B94-058BF60FEE0D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ActivityResource テーブルのデータ モデル
+
+ActivityResource の表は、ひとつまたは複数のアクティビティ行をプライマリ リソース行に関連付けます。この表は、WebSchedule オブジェクト モデルに類似するオブジェクトを持ちません。代わりにこの関係は、アプリケーションのアクティブなリソースに属するアクティビティに関連して WebSchedule が動作することを可能にする SQL joins をサポートします。
+
+[options="header", cols="a,a,a,a"]
+|====
+|列名|データ型|Null 値を許可|解説
+
+|ActivityID
+|int
+|いいえ
+|*合成プライマリ キー*（パート 1）*。* ResourceID によって識別されるリソースに結び付けられる多数のアクティビティのひとつを一意に識別する数値。
+
+|ResourceID
+|int
+|いいえ
+|*合成プライマリ キー*（パート 2）*。* ActivityID によって識別されるアクティビティに関連付けられたプライマリ リソースを一意に識別する数値。
+
+|====

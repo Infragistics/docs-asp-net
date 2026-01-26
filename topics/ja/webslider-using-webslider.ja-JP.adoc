@@ -1,0 +1,65 @@
+﻿////
+
+|metadata|
+{
+    "name": "webslider-using-webslider",
+    "controlName": ["WebSlider"],
+    "tags": ["Editing","How Do I","Selection"],
+    "guid": "{BC8ADB1E-67A9-468C-97C1-B8D0E9225C82}",  
+    "buildFlags": [],
+    "createdOn": "2008-12-05T12:09:13Z"
+}
+|metadata|
+////
+
+= WebSlider の使用
+
+このセクションは、WebSlider™ コントロールの重要な概念および機能を効果的に使用するためのタスク ベースの情報について説明します。
+
+link:webslider-webslider-smart-tag.html[WebSlider スマート タグ]
+
+このトピックは WebSlider スマート タグ アンカーとポップアップ パネルについて説明し、さまざまなコントロール プロパティと設定について示します。
+
+link:webslider-set-thumb-appearance.html[つまみの外観の設定]
+
+このトピックでは、CSS スタイルを定義して WebSlider のつまみの外観を設定する方法を学びます。
+
+link:webslider-set-thumb-interaction.html[つまみの操作の設定]
+
+WebSlider はスライドするつまみを 2 つ設定できます。このトピックでは、これらのつまみを相互に動作させる方法を学びます。
+
+link:webslider-customize-appearance-of-tick-marks.html[目盛の外観のカスタマイズ]
+
+WebSlider にはコントロール値を識別する目盛があります。このトピックでは、コントロールの目盛をカスタマイズできるオプションについて説明します。
+
+link:webslider-set-tick-mark-behavior.html[目盛の動作の設定]
+
+このトピックは WebSlider コントロール目盛の動作を変更する方法を学びます。
+
+link:webslider-set-websliders-track-appearance.html[Set WebSlider トラックの外観の設定]
+
+WebSlider には増加ボタンと減少ボタンを接続するトラックがあります。このトピックでは、トラックの外観を設定するプロパティについて説明します。
+
+link:webslider-set-websliders-track-behavior.html[WebSlider のトラック動作の設定]
+
+このトピックでは WebSlider トラックのエンド ユーザーによる操作に対するレスポンスを設定する方法を示します。
+
+link:webslider-change-websliders-increment-value.html[WebSlider の増加値の変更]
+
+WebSlider には WebSlider の値を変更できる範囲を指定するプロパティがあります。 このトピックではプロパティと使用できる値について示します。
+
+link:webslider-display-custom-formatted-values.html[カスタムな書式設定付きの値の表示]
+
+このトピックでは、 WebSlider コントロールのカスタムな書式設定付きの値を表示する方法を説明します。
+
+link:webslider-edit-two-values.html[2 つの値を編集]
+
+このトピックでは、WebSlider コントロールでエンドユーザーが第 2 の値を変更できるようにする方法を示します。
+
+link:webslider-set-min,-max,-and-starting-values.html[最大値、最小値、開始値の設定]
+
+このトピックでは、アプリケーションの最大値、最小値、開始値を設定するための WebSlider コントロールのオプションを示します。
+
+link:webslider-set-the-values-type.html[値の型の設定]
+
+このトピックでは、WebSlider コントロールの値のデフォルトの型を変更する方法を示します。

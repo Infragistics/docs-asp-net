@@ -1,0 +1,53 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-handle-an-event-in-webdatagrid",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Events","Grids"],
+    "guid": "{B1A335FC-9CAD-411C-9F28-12B721FD687B}",  
+    "buildFlags": [],
+    "createdOn": "2008-09-09T14:21:07Z"
+}
+|metadata|
+////
+
+= WebDataGrid でイベントを処理
+
+クライアント側とサーバー側イベントは、WebDataGrid™ でそれらが対応する動作に基づいてカテゴリーに区分されます。たとえば、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.editingcore~rowupdated_ev.html[RowUpdated]"]  イベントは  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.behaviors~editingcore.html[EditingCore]"]  動作の下にあります。
+
+いったん WebDataGrid に動作を追加したら、デザイン タイムに、プロパティ ウィンドウの [イベント] セクションでサーバー側イベントを見つけることができます。特定の動作の下の ClientEvents セクションでクライアント側イベントを見つけることができます。たとえば、RowUpdated クライアント側イベントは、EditingCore の  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.editingcore~editingclientevents.html[EditingClientEvents]"]  プロパティの下にあります。
+
+以下のコードは、RowUpdated クライアント側イベントおよびサーバー側イベントのためにランタイムにイベント ハンドラを追加する方法を示します。
+
+*注：* WebDataGrid のクライアント側イベントに渡されたパラメータは、イベントおよびイベント引数をその順序で発生させたオブジェクトです。
+
+*Visual Basic の場合：*
+
+----
+AddHandler Me.WebDataGrid1.Behaviors.EditingCore.RowUpdated, AddressOf EditingCore_RowUpdated 
+' クライアント側関数名をプロパティに指定します。 
+Me.WebDataGrid1.Behaviors.EditingCore.EditingClientEvents.RowUpdated = "WebDataGrid1_RowUpdated"
+----
+
+*C# の場合：*
+
+----
+this.WebDataGrid1.Behaviors.EditingCore.RowUpdated += new RowUpdatedHandler(EditingCore_RowUpdated);
+// クライアント側関数名をプロパティに指定します。
+this.WebDataGrid1.Behaviors.EditingCore.EditingClientEvents.RowUpdated = "WebDataGrid1_RowUpdated";
+----
+
+*JavaScript の場合*
+
+----
+function WebDataGrid1_RowUpdated(sender, e) {
+// sender はオブジェクトで、e は引数リストです。
+}
+----
+
+== 関連トピック
+
+link:webdatagrid-events.html[WebDataGrid でのイベントについて]
+
+link:webdatagrid-cancel-an-event-in-webdatagrid.html[WebDataGrid でイベントをキャンセル]

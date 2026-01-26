@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webexplorerbar",
+    "controlName": ["WebExplorerBar"],
+    "tags": [],
+    "guid": "{D8B9CD5F-225B-4F2D-A8CB-3E76E48FE5D6}",  
+    "buildFlags": [],
+    "createdOn": "2010-01-03T22:46:12Z"
+}
+|metadata|
+////
+
+= WebExplorerBar
+
+このページには、WebExplorerBar™ コントロール関連の概要/タスクベースの情報がすべて含まれています。このセクションには、コントロールが何を実行するのか、またアプリケーションでなぜコントロールを使用したくなるのかから、コントロールを使用して一般的なタスクを完了する方法に関するステップバイステップの手順まで、コントロールに関する貴重な情報が含まれています。
+
+WebExplorerBar コントロールについての詳細は、以下のリンクをクリックしてください。
+
+== link:webexplorerbar-about-webexplorerbar.html[WebExplorerBar について]
+
+このセクションには、WebExplorerBar コントロールの機能の理解を深めるのに役立つ情報があります。さらに、コントロールの目的も理解できます。
+
+== link:webexplorerbar-getting-started-with-webexplorerbar.html[WebExplorerBar で開始]
+
+このセクションは、WebExplorerBar コントロールで可能な限り迅速に起動および実行する方法についての情報を提供します。
+
+== link:webexplorerbar-using-webexplorerbar.html[WebExplorerBar の使用]
+
+このセクションは、WebExplorerBar で使用可能な機能を使用する方法を示すタスクベースの情報を提供します。
+
+== link:webexplorerbar-accessibility-compliance.html[WebExplorerBar アクセシビリティの遵守]
+
+このトピックは、WebExplorerBar が第 508 条の要件を満たす方法を概略します。このアクセシビリティの遵守によって、エンドユーザー、特に障害を持つユーザーが WebExplorerBar コントロールを使用して構築された Web アプリケーションにアクセスおよび使用することを可能にします。
+
+== link:webexplorerbar-api-overview.html[API の概要]
+
+このトピックでは、WebExplorerBar コントロールを使用してプログラミングするときに取り扱う名前空間とクラスのリストを掲載しています。このトピックにリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンスガイド」セクションに便宜的にリンクされています。
+
+== link:webexplorerbar~infragistics.web.ui_namespace.html[クライアント サイド オブジェクト モデル（CSOM）の概要]
+
+WebExplorerBar™ コントロールは、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを提供します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクトで構成され、開発者はサーバー側にポストバックしなくても、コントロールに関連する重要な機能単位をプログラムできます。

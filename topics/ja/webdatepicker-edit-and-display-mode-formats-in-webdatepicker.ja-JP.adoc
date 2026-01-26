@@ -1,0 +1,53 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatepicker-edit-and-display-mode-formats-in-webdatepicker",
+    "controlName": ["WebDatePicker"],
+    "tags": ["How Do I","Selection","Styling"],
+    "guid": "{BE0E32BB-1FFA-4FEC-9F6D-03A9BC68A774}",  
+    "buildFlags": [],
+    "createdOn": "2009-04-06T11:32:12Z"
+}
+|metadata|
+////
+
+= WebDatePicker での編集および表示モードの書式
+
+WebDatePicker™ によってコントロールが編集モードの時と表示モードの時に異なる書式文字列を指定できます。コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webdatetimeeditor~editmodeformat.html[EditModeFormat]"]  プロパティを設定するだけで、編集モード（コントロールに入力フォーカスがある時）に使用される日付の書式を設定できます。同様に、コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webdatetimeeditor~displaymodeformat.html[DisplayModeFormat]"]  プロパティを設定するだけで、表示モード（コントロールに入力フォーカスがない時）に使用される日付の書式を設定できます。
+
+
+*注：* EditModeFormat プロパティと DisplayModeFormat プロパティは System.Globalization.DateTimeFormatInfo クラスに依存します。
+
+
+Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、EditModeFormat プロパティと DisplayModeFormat プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+'DateTimeFormatInfo オブジェクトを作成します
+Dim format As New System.Globalization.DateTimeFormatInfo()
+'WebDatePicker の EditModeFormat プロパティを希望のパターンに設定します 
+WebDatePicker1.EditModeFormat = format.ShortDatePattern
+'WebDatePicker の DisplayModeFormat プロパティを希望のパターンに設定します
+WebDatePicker1.DisplayModeFormat = format.LongDatePattern
+----
+
+*C# の場合：*
+
+----
+//DateTimeFormatInfo オブジェクトを作成します
+System.Globalization.DateTimeFormatInfo format = new System.Globalization.DateTimeFormatInfo();
+//WebDatePicker の EditModeFormat プロパティを希望のパターンに設定します
+WebDatePicker1.EditModeFormat = format.ShortDatePattern;
+//WebDatePicker の DisplayModeFormat プロパティを希望のパターンに設定します
+WebDatePicker1.DisplayModeFormat = format.LongDatePattern;
+----
+
+== 編集モード:
+
+image::images\WebDatePicker_Edit_and_Display_Modes_in_WebDatePicker_01.png[]
+
+== 表示モード:
+
+image::images\WebDatePicker_Edit_and_Display_Modes_in_WebDatePicker_02.png[]

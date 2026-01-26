@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "webimageviewer-orientation-types",
+    "controlName": ["WebImageViewer"],
+    "tags": ["Layouts","Styling"],
+    "guid": "{FB55D0B7-8237-45E7-94E5-43C8D9FCCB39}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 方向のタイプ
+
+WebImageViewer™ は水平（デフォルト）と垂直に方向を設定することができます。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webimageviewer~orientation.html[Orientation]"]  プロパティが Horizontal に設定され、Infragistics Application Styling Framework によって提供されるようにデフォルト スタイルを使用すると、画像を水平にスクロールできます。これは、[左] または [右] ナビゲーション ボタンをクリックする、または画像を単に左右にクリック アンド ドラッグするのいずれかが可能であることを意味します。Orientation プロパティが Vertical に設定されると、ナビゲーション ボタンは WebImageViewer の上部と下部に配置されます。画像を上および下からクリック アンド ドラッグすることもできます。
+
+*注:* 方向に可能な限り最高の方法を選択して画像を表示するために WebImageViewer コントロールをリサイズするのは賢明です。
+
+以下の画像は Orientation プロパティを Vertical に設定した WebImageViewer を示しています。
+
+image::images/WebImageViewer_Change_Orientation_Vertical.png[]
+
+以下の画像は Orientation プロパティを Horizontal に設定した同じ WebImageViewer コントロールを示しています。
+
+image::images/WebImageViewer_Change_Orientation_Horizontal.png[]

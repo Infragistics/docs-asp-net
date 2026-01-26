@@ -1,0 +1,64 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatagrid-hide-a-column",
+    "controlName": ["WebHierarchicalDataGrid"],
+    "tags": ["Design Environment","Editing","Grids"],
+    "guid": "{1E133DE0-6FDE-4211-A798-6043B98A1A09}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 列を非表示
+
+WebHierarchicalDataGrid™ によって列をエンドユーザーに非表示にできます。たとえば、エンドユーザーに意味のない列を表示したくない場合があります。任意のタイプの列で  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.controldatafield~hidden.html[Hidden]"]  プロパティを True に設定することによってこれを実行できます。親および子レベルで列を非表示にできます。
+
+== デザイナーで列を非表示にするには:
+
+[start=1]
+. WebHierarchicalDataGrid を WebHierarchicalDataSource™ コンポーネントにバインドし、Categories および Products テーブルからデータを取得します。この詳細は、 link:webhierarchicaldatasource-using-webhierarchicaldatasource.html[「階層的なデータ ソースにバインド」]トピックを参照してください。
+[start=2]
+. [プロパティ] ウィンドウで、Bands プロパティを指定して、省略記号 (...) ボタンをクリックし、[WebHierarchicalDataGrid バンドの編集] ダイアログを起動します。
+
+image::Images/WebHierarchicalDataGrid_Hiding_a_Column_01.png[]
+
+[start=3]
+. このトピックでは、親バンドの Columns プロパティを指定し、省略記号 (...) ボタンをクリックして [グリッド列の編集] ダイアログを起動します。
+[start=4]
+. [選択したフィールド]（WebDataGrid.Columns）セクションから、非表示にしたい列を選択し、Hidden プロパティを True に設定します。この例では、説明を選択します。
+
+image::Images/WebHierarchicalDataGrid_Hiding_a_Column_02.png[]
+
+[start=5]
+. [適用] と [OK] をクリックして [グリッド列の編集] ダイアログを閉じます。
+[start=6]
+. アプリケーションを保存して実行します。列の説明が非表示されることを確認します。
+
+== プログラムで列を非表示にするには:
+
+*Visual Basic の場合：*
+
+----
+Me.WebHierarchicalDataGrid1.GridView.Columns(2).Hidden = True
+----
+
+*C# の場合：*
+
+----
+this.WebHierarchicalDataGrid1.GridView.Columns[2].Hidden = true;
+----
+
+*JavaScript の場合：*
+
+----
+var grid = $find("WebHierarchicalDataGrid1");
+var parentGrid = grid.get_gridView();
+// 親レベルで列を非表示にします
+parentGrid.get_columns().get_column(1).set_hidden(true);
+// 子レベルで列を非表示にします
+var childGrid = grid.get_gridView().get_rows().get_row(0).get_rowIslands(0)[0];
+childGrid.get_columns().get_column(1).set_hidden(true);
+----

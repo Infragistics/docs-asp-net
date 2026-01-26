@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webprogressbar",
+    "controlName": ["WebProgressBar"],
+    "tags": [],
+    "guid": "{12452F2F-54BC-4FEE-B3E2-A97874FD03EF}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebProgressBar
+
+このページには、WebProgressBar™ コントロール関連の概要/タスクベースの情報がすべて含まれています。このセクションには、コントロールが何を実行するのか、またアプリケーションでなぜコントロールを使用したくなるのかから、コントロールを使用して一般的なタスクを完了する方法に関するステップバイステップの手順まで、コントロールに関する貴重な情報が含まれています。
+
+WebProgressBar コントロールについての詳細は、以下のリンクをクリックしてください。
+
+== link:webprogressbar-about-webprogressbar.html[WebProgressBar について]
+
+このセクションには、WebProgressBar コントロールの機能の理解を深めるのに役立つ情報があります。さらに、コントロールの目的も理解できます。
+
+== link:webprogressbar-getting-started-with-webprogressbar.html[WebProgressBar で開始]
+
+このセクションは、WebProgressBar コントロールで可能な限り迅速に起動および実行する方法についての情報を提供します。
+
+== link:webprogressbar-using-webprogressbar.html[WebProgressBar の使用]
+
+このセクションは、WebProgressBar で使用可能な機能を使用する方法を示すタスクベースの情報を提供します。
+
+== link:webprogressbar-accessibility-compliance.html[WebProgressBar アクセシビリティの遵守]
+
+このトピックは、WebProgressBar が第 508 条の要件を満たす方法を概略します。このアクセシビリティの遵守によって、エンドユーザー、特に障害を持つユーザーが WebProgressBar コントロールを使用して構築された Web アプリケーションにアクセスおよび使用することを可能にします。
+
+== link:webprogressbar-api-overview.html[API の概要]
+
+このトピックは、WebProgressBar コントロールでプログラミング中に作業する名前空間とクラスをリストします。このトピックにリストされている名前空間とクラスは、{ProductName} ヘルプの「API 参照ガイド」セクションに便宜的にリンクされています。
+
+== link:webprogressbar~infragistics.web.ui_namespace.html[クライアント サイド オブジェクト モデル (CSOM) の概要]
+
+WebProgressBar™ コントロールは、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを提供します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクトで構成され、開発者はサーバー側にポストバックしなくても、コントロールに関連する重要な機能単位をプログラムできます。

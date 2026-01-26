@@ -1,0 +1,36 @@
+﻿////
+
+|metadata|
+{
+    "name": "websplitter-websplitter-accessibility-compliance",
+    "controlName": ["WebSplitter"],
+    "tags": ["Section 508"],
+    "guid": "{AA8FA6E7-AB4B-4E7B-BF4B-95E8B3FDCAAD}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebSplitter アクセシビリティの遵守
+
+弊社の ASP.NET コントロールおよびコンポーネントはすべて、1973 年のリハビリテーション法第 508 条第 1194 部 22 条を遵守しています。以下は、第 1194 部 22 条の 16 の規則と各規則を遵守する方法を含んだ表です。コントロールがすべての作業を実行するため、ユーザーは何もする必要がありません。
+
+[options="header", cols="a,a"]
+|====
+|規則|規則を遵守する方法
+
+|(a)
+|WebSplitter は、分割ペインに表示される縮小/展開画像のツールチップ（alt）をサポートします。これらは以下のプロパティによって定義されます。 
+
+WebSplitter.SplitterBar.CollapseNextPaneButton.CollapseAltText 
+
+WebSplitter.SplitterBar.CollapseNextPaneButton.ExpandAltText 
+
+WebSplitter.SplitterBar.CollapsePreviousPaneButton.CollapseAltText 
+
+WebSplitter.SplitterBar.CollapsePreviousPaneButton.ExpandAltText 
+
+これらのプロパティに対して値を設定していない場合、ツールチップは自動的に生成されません。たとえば、WebSplitter.SplitterBar.CollapsePreviousPaneButton.CollapseAltText プロパティの場合、デフォルト値は 'Collapse Left Pane' に設定されます。
+
+|====

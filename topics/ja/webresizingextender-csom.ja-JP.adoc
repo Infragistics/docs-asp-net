@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "webresizingextender-csom",
+    "controlName": [],
+    "tags": ["Getting Started","How Do I"],
+    "guid": "{00EB1EAF-CD77-4C7C-88C5-AC60756C9437}",  
+    "buildFlags": [],
+    "createdOn": "2007-08-02T08:01:29Z"
+}
+|metadata|
+////
+
+= WebResizingExtender CSOM
+
+WebResizeExtender は、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを公開します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクト、イベント、ユーティリティ関数から構成され、開発者はサーバー側にポストバックしなくても、カレンダー コントロールに関連する重要な機能単位をプログラムできます。
+
+一般的に、オブジェクト モデルは、サーバー上の場合と同じようにオブジェクト モデルから直接派生しています。プロパティ名、イベント、パラメータ、戻り値の意味は、サーバー上のそれらとほとんど同じです。ただし、注が付けられている一部のプロパティはクライアント上では読み取り専用です。これらのプロパティは、情報の提供を目的としており、値を変更することはできません。
+
+WebResizeExtender コントロールのクライアント サイド オブジェクト モデル参照の以下のセクションのいずれかを選択してください。
+
+link:webresizingextender-utility-functions.html[WebResizingExtender ユーティリティ関数]
+
+link:webresizingextender-object.html[WebResizingExtender オブジェクト]
+
+____
+link:webresizingextender-canceleventargs-object.html[CancelEventArgs オブジェクト]
+
+link:webresizingextender-resizeeventargs-object.html[ResizeEventArgs オブジェクト]
+____

@@ -1,0 +1,88 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-delete-a-recurring-appointment-server-side",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling"],
+    "guid": "{44E7C4DB-5E6C-4DE7-A70F-98B8AB58A541}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= サーバー側の繰り返し予定を削除
+
+繰り返し予定の削除は以下の 4 つの手順で実行します。
+
+[start=1]
+. 繰り返し pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[アクティビティ]"] を取得します。
+[start=2]
+. pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.recurrence.html[繰り返し]"] のルート アクティビティを取得します。
+[start=3]
+. 繰り返しを削除します。
+[start=4]
+. 変更でデータベースを更新します。
+
+繰り返し予定の削除における最初のタスクは、繰り返し予定を含むアクティビティを取得することです。このトピックのために、今日発生する繰り返し予定があると想定します。アクティビティを取得した後で、その繰り返しの RootActivity にアクセスする必要があります（recurrence オブジェクトはアクティビティから作成されるからです）。RootActivity に対する制御を持ったら、RecurrenceKey を空の文字列に設定することによって繰り返しを削除できます。データベースを変更で更新することで終了します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.WebUI.Shared
+Imports Infragistics.WebUI.WebSchedule
+...
+' 今日発生する予定を見つけ出すために、GetActivitiesForDate メソッド
+' を使用します。 
+Me.WebScheduleInfo1.DataBind()
+Dim activities As ActivitiesSubsetCollection = _
+  Me.WebScheduleInfo1.GetActivitiesForDate(Me.WebScheduleInfo1.ActiveResource, _
+  New SmartDate(DateTime.Now))
+Dim appointment As Appointment = CType(activities(0), Appointment)
+' 繰り返しのルート アクティビティを取得します。
+appointment = CType(appointment.Recurrence.RootActivity, Appointment)
+' 削除している繰り返し予定。
+appointment.Recurrence.MaxOccurrences = 5
+' Key を空の文字列に設定することによって繰り返しを削除します。
+appointment.RecurrenceKey = ""
+' Activities コレクションを更新するために、DataBind を再度呼び出す必要があります。
+' WebScheduleInfo は、一度呼び出した後では自動的に
+' 呼び出しません。 
+Me.WebScheduleInfo1.DataBind()
+----
+
+*C# の場合：*
+
+----
+using Infragistics.WebUI.Shared;
+using Infragistics.WebUI.WebSchedule;
+...
+// 以下の using ディレクティブを使用すると、完全に記述した名前を
+// 毎回入力する必要がありません。 
+using Infragistics.WebUI;
+using Infragistics.WebUI.WebSchedule;
+// 今日発生する予定を見つけ出すために、GetActivitiesForDate メソッド
+// を使用します。 
+this.WebScheduleInfo1.DataBind();
+ActivitiesSubsetCollection activities = 
+  this.WebScheduleInfo1.GetActivitiesForDate(this.WebScheduleInfo1.ActiveResource,
+  new SmartDate(DateTime.Now));
+Appointment appointment = (Appointment)activities[0];
+// 繰り返しのルート アクティビティを取得します。
+appointment = (Appointment)appointment.Recurrence.RootActivity;
+// 削除している繰り返し予定。
+appointment.Recurrence.MaxOccurrences = 5;
+// Key を空の文字列に設定することによって繰り返しを削除します。
+appointment.RecurrenceKey = "";
+// Activities コレクションを更新するために、DataBind を再度呼び出す必要があります。
+// WebScheduleInfo は、一度呼び出した後では自動的に
+// 呼び出しません。 
+this.WebScheduleInfo1.DataBind();
+----
+
+== 関連トピック
+
+link:webschedule-add-a-recurring-appointment-server-side.html[サーバー側で繰り返し予定を追加]
+
+link:webschedule-update-a-recurring-appointment-server-side.html[サーバー側で繰り返し予定を更新]

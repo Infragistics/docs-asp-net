@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-changing-the-annotations-on-your-webgauge",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{B6DBBB65-6E91-4DFC-A610-8733EF9660B6}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebGauge 上の注釈の変更
+
+[プロパティ] パネルでは [注釈] タブを使用することによって、注釈をゲージに追加できます。たとえば、[注釈] タブを使用して、ラジアル ゲージで注釈の位置を指定できます。
+
+以下のリンクをクリックして、[プロパティ] パネルで使用できる [注釈] タブについての情報を確認してください。
+
+* link:webgauge-annotations-tab.html[注釈タブ]

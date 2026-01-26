@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-understanding-webschedule-controls-and-components",
+    "controlName": ["WebSchedule"],
+    "tags": ["Getting Started","Scheduling"],
+    "guid": "{ACFD6E29-36F1-4B20-93A9-62232C290DF4}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WebSchedule コントロールとコンポーネントの理解
+
+これは、WebSchedule コントロールおよびコンポーネント（たとえば、WebCalendarView、WebMonthView、WebScheduleInfo）、ならびにその主要な特性と機能についての学習を開始するために絶好の場所です。
+
+* link:webschedule-about-webschedule-controls-and-components.html[WebSchedule コントロールとコンポーネントについて] -- WebSchedule コントロールとコンポーネント、その主要な機能、およびそれぞれがどのように関連しているかについて説明しています。

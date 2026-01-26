@@ -1,0 +1,24 @@
+﻿////
+|metadata|
+{
+    "name": "webmonthview-utility-functions-csom",
+    "controlName": [],
+    "tags": ["API","Scheduling"],
+    "guid": "{ADE6FA65-5C57-4E23-B53B-D3C222D3B843}",
+    "buildFlags": [],
+    "createdOn": "2005-07-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WebMonthView ユーティリティ関数
+
+== ユーティリティ関数
+
+=== 概要
+
+ここで説明するユーティリティ関数は、WebSchedule コントロールの JavaScript コードで使用されます。ユーティリティ関数を公開し解説するのは、開発者が可能な限り多くのロジックをクライアント マシン上に実装することで、パフォーマンスと機能性の両面で性能を引き出せるようにすることを意図しています。
+
+- `ig_getWebControlById()` すべてのスケジュール コントロール（WebScheduleInfo、WebDayView、WebCalendarView、WebMonthView）で機能します。
+
+- `ig_getWebMonthViewById(id)` メインの WebMonthView 要素の ID に基づいて、WebMonthView オブジェクトを取得します。

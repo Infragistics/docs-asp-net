@@ -1,0 +1,170 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatagrid-referencing-rows-when-using-outlook-groupby",
+    "controlName": ["WebHierarchicalDataGrid"],
+    "tags": ["Editing","Grids","Grouping"],
+    "guid": "{EA7D3665-DFD1-4EED-B643-1BEA5842EA95}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Outlook GroupBy を使用する時に行を参照
+
+== 行のグループ化
+
+WebHierarchicalDataGrid™ で GroupBy 機能を使用する時、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.containergrid.html[ContainerGrid] オブジェクトはタイプ link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.groupedrecordcollection.html[GroupedRecordCollection] の link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.containergrid~groupedrows.html[GroupedRows] プロパティによって表されるグループ化された行に列のデータをグループ化します。データ行にアクセスするには、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.groupedrecord.html[GroupedRecord] オブジェクトのこのコレクションに最初にアクセスする必要があります。
+
+== グループ化されたデータ行の取得
+
+列をグループ化する時、WebHierarchicalDataGrid はバインドされるデータ行にアクセスするために link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webhierarchicaldatagrid~rows.html[Rows] プロパティを使用して以前と変わらずに link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.containergridrecord.html[ContainerGridRecord] コレクションを提供します。ただし、特定のグループのデータ行だけほしい場合、GroupedRows プロパティを使用する必要があります。
+
+以下のコードは、グループ行コレクションの最初のグループ化された行のためにデータ行にアクセスする方法を示します。サーバー側のコードは GroupedRecord オブジェクトの link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.groupedrecord~rows.html[Rows] プロパティにアクセスします。これはデータ行の列挙子を返します。クライアント側コードは、データ行を取得するためにグループ行の get_rows メソッドを呼び出します。
+
+*Visual Basic の場合：*
+
+----
+Dim groupedRows As GroupedRecordCollection = Me.WebHierarchicalDataGrid1.GridView.GroupedRows
+While groupedRows(0).Rows.MoveNext()
+    Dim row As ContainerGridRecord = TryCast(groupedRows(0).Rows.Current, ContainerGridRecord)
+End While
+----
+
+*C# の場合：*
+
+----
+GroupedRecordCollection groupedRows = this.WebHierarchicalDataGrid1.GridView.GroupedRows;
+while (groupedRows[0].Rows.MoveNext())
+{
+    ContainerGridRecord row = groupedRows[0].Rows.Current as ContainerGridRecord;
+}
+----
+
+*JavaScript の場合：*
+
+----
+var grid = $find("WebHierarchicalDataGrid1");
+var groupRow = grid.get_gridView().get_groupRows().get_row(0);
+var row;
+for (var i = 0; i < groupRow.get_rows().length; i++) {
+    row = groupRow.get_rows()[i];
+}
+----
+
+== 子グループ行
+
+データに子グループがある場合、親の GroupedRecord オブジェクトの link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.groupedrecord~childgrouprows.html[ChildGroupRows] プロパティを使用して、子 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.groupedrecordcollection.html[GroupedRecordCollection] オブジェクトにアクセスすることによって、子グループにアクセスできます。
+
+以下のコードは最初の子グループ行のためにデータ行を取得する以外、上記のコードに似ています。
+
+*Visual Basic の場合：*
+
+----
+Dim groupedRows As GroupedRecordCollection = Me.WebHierarchicalDataGrid1.GridView.GroupedRows
+' 最初のグループ行のために子グループ行をチェックします。
+If groupedRows(0).HasChildGroupRows Then
+    ' 最初の子グループ行のデータ行を取得します。
+    Dim childGroupedRows As GroupedRecordCollection = groupedRows(0).ChildGroupRows
+    While childGroupedRows(0).Rows.MoveNext()
+        Dim row As ContainerGridRecord = TryCast(childGroupedRows(0).Rows.Current, ContainerGridRecord)
+    End While
+End If
+----
+
+*C# の場合：*
+
+----
+GroupedRecordCollection groupedRows = this.WebHierarchicalDataGrid1.GridView.GroupedRows;
+// 最初のグループ行のために子グループ行をチェックします。
+if (groupedRows[0].HasChildGroupRows)
+{
+// 最初の子グループ行のデータ行を取得します。
+    GroupedRecordCollection childGroupedRows = groupedRows[0].ChildGroupRows;
+    while (childGroupedRows[0].Rows.MoveNext())
+    {
+        ContainerGridRecord row = childGroupedRows[0].Rows.Current as ContainerGridRecord;
+    }
+}
+----
+
+*JavaScript の場合：*
+
+----
+var grid = $find("WebHierarchicalDataGrid1");
+var groupRow = grid.get_gridView().get_groupRows().get_row(0);
+var childGroupRow = groupRow.get_childGroupRows();
+// 最初のグループ行のために子グループ行をチェックします。
+if (groupRow.get_childGroupRows()) {
+// 最初の子グループ行のデータ行を取得します。
+    var childGroupRow = groupRow.get_childGroupRows().get_row(0);
+    var row;
+    for (var i = 0; i < childGroupRow.get_rows().length; i++) {
+        row = childGroupRow.get_rows()[i];
+    }
+}
+----
+
+== 親グループ行の取得
+
+データ行がある場合、データ行が属するグループ行を見つけることができます。サーバーで、GroupedRecordCollection オブジェクトの GetGroupedRow メソッドを使用します。クライアントで、コンテナーグリッドのグループ行のコレクションを検索します。次のコードはこれを実行する方法を示します。
+
+*注* :子グループ行がある場合、データ行の子グループ行をチェックする必要があります。たとえば、サーバーで、GetGroupRow メソッドはデータ行が属する GroupedRecord オブジェクトを返します。ただし、子グループ行の下にグループ化できます（複数のグループ化された列がある場合）。したがって、データ行が属する行をすぐにグループ化したい場合には、子グループ行でも GetGroupRow メソッドを呼び出さなければなりません。クライアントで、各子グループ行を列挙してセル値をチェックします。
+
+*Visual Basic の場合：*
+
+----
+' データ行。
+Dim row As ContainerGridRecord = Me.WebHierarchicalDataGrid1.GridView.Rows(0)
+' グループ行を取得します。
+Dim groupRow As GroupedRecord = Me.WebHierarchicalDataGrid1.GridView.GroupedRows.GetGroupedRow(row)
+----
+
+*C# の場合：*
+
+----
+// データ行。
+ContainerGridRecord row = this.WebHierarchicalDataGrid1.GridView.Rows[0];
+// グループ行を取得します。
+GroupedRecord groupRow = this.WebHierarchicalDataGrid1.GridView.GroupedRows.GetGroupedRow(row);
+----
+
+*JavaScript の場合：*
+
+----
+var grid = $find("WebHierarchicalDataGrid1");
+// データ行。
+var row = grid.get_gridView().get_rows().get_row(0);
+// コンテナー グリッドを取得します。
+var containerGrid = row.get_grid();
+// コンテナー グリッドの groupRows を取得します。
+var groupRows = containerGrid.get_groupRows();
+// GroupBy 列の列キーを取得します。
+var columnKey = groupRows.get_row(0).get_columnKey();
+// GroupBy セルの一致する値でグループ行を検索します。
+var dataRow, containerGroupRow;
+for (var i = 0; i < groupRows.get_length(); i++) {
+// グループ化されている値をチェックするために各グループ行の最初のデータ行を取得します。
+    dataRow = groupRows.get_row(i).get_rows()[0];
+// グループ化されている値に行の値をチェックします。
+    if (row.get_cellByColumnKey(columnKey).get_value() == dataRow.get_cellByColumnKey(columnKey).get_value()) {
+// データ行の値が一致する場合、現在のグループ行に属します。
+        containerGroupRow = groupRows.get_row(i);
+        break;
+    }
+}
+----
+
+== 関連トピック
+
+link:webhierarchicaldatagrid-about-outlook-groupby.html[Outlook GroupBy について]
+
+link:webhierarchicaldatagrid-custom-group-by-name.html[名前によるカスタム グループ]
+
+link:webhierarchicaldatagrid-custom-text-in-group-row.html[グループ行のカスタム テキスト]
+
+link:webhierarchicaldatagrid-group-columns-from-code-behind.html[コード ビハインドから列をグループ化]
+
+link:webhierarchicaldatagrid-outlook-groupby-with-behaviors.html[動作による Outlook GroupBy]

@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-font-brush-pane",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{C1DADFA4-8A9E-405F-A331-B051F1780FF0}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= フォント ブラシ ペイン
+
+[フォント ブラシ] ペインは、デジタル ゲージ上の数字をカスタマイズするために使用されます。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.digitalgauge~fontbrushelement.html[ブラシ タイプ]"]  -- このドロップダウン リストによって、デジタル ゲージ上の数字のブラシ タイプを変更できます。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.digitalgauge~fontbrushelement.html[ブラシの色]"]  -- 選択するブラシのタイプによって、ブラシの色のリストにそのブラシ タイプで使用可能な色が格納されます。
+
+image::images/Font_Brush_Pane_01.png[]
+
+== 関連トピック
+
+link:webgauge-digit-appearance-tab.html[数字外観タブ]

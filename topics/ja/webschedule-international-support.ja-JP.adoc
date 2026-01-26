@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-international-support",
+    "controlName": ["WebSchedule"],
+    "tags": ["Localization"],
+    "guid": "{B9143F0F-2ED4-4BD4-B0E3-9BC063B0FCEC}",  
+    "buildFlags": [],
+    "createdOn": "2005-01-08T00:00:00Z"
+}
+|metadata|
+////
+
+= 国際のサポート
+
+WebScheduleInfo™ コントロールは、日付と時刻の書式設定を行う時に適用されるカルチャーを駆動するプロパティをサポートします。Web アプリケーションは、エンド ユーザーの優先カルチャーを検出して、表示を適合させるために全ての WebSchedule™ ビューをカスタマイズできます。
+
+全ての WebSchedule ビューは、日時のためのカスタム形式の文字列プロパティを提供します。これらの形式文字列は、標準的な .NET Framework 形式の指定子 (例:「HH:mm」または「MMM dd」) を使用できます。
+
+* link:webschedule-format-the-first-day-of-the-month-in-webmonthview.html[WebMonthView で月の最初の日を書式設定]
+* link:webschedule-localize-the-webschedule-forms-project.html[WebSchedule フォーム プロジェクトをローカライズ]
+* link:webschedulegenericdataprovider-localize-multi-day-event-banner-caption.html[複数日イベント バナー キャプションのローカライズ]

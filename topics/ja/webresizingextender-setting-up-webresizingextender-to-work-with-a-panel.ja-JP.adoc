@@ -1,0 +1,38 @@
+﻿////
+
+|metadata|
+{
+    "name": "webresizingextender-setting-up-webresizingextender-to-work-with-a-panel",
+    "controlName": ["WebResizingExtender"],
+    "tags": ["Extending","How Do I"],
+    "guid": "{A3D0927C-859B-46D1-AE1A-58D3F5F31676}",  
+    "buildFlags": [],
+    "createdOn": "2007-10-01T15:00:32Z"
+}
+|metadata|
+////
+
+= パネルで作業するために WebResizingExtender を設定
+
+WebResizingExtender は、 link:http://ajax.asp.net/default.aspx?tabid=47[Microsoft® ASP.NET 2.0 AJAX 拡張]に基づいている新しいタイプのエクステンダ コントロールです。このコントロールは、それ自体ではランタイムの視覚的存在はありません。パネルまたはコンテナ エレメントのいずれかに関連付ける必要があります。このトピックは、パネルで作業するために WebResizingExtender を設定する手順を説明します。
+
+[start=1]
+. 新しい ASP.NET AJAX CTP 対応の Web サイトを作成します。あるいは、 link:webresizingextender-set-up-an-aspnet-web-site-to-run-aspnet-ajax.html[「ASP.NET AJAX を実行するように ASP.NET Web サイトを設定」]に従って 持っている既存の ASP.NET Web サイトに ASP.NET AJAX 機能を追加します。
+[start=2]
+. デザイン ビューに切り替えます。フォーム上に ScriptManager コンポーネントがすでにあることに気づきます。このコンポーネントは削除してはいけません。ASP.NET AJAX が適切に動作するためには、このコンポーネントがこのフォーム上の最初の要素にならなければならないからです。
+[start=3]
+. ツールボックスから、Microsoft Panel をドラッグして、フォーム上の ScriptManager コンポーネントの下に配置します。
+[start=4]
+. ランタイムにこのパネルをよりよく表示するために、[プロパティ] ウィンドウで、BorderColor プロパティを黒に変更し、BorderWidth プロパティを 1px に設定します。
+[start=5]
+. ツールボックスから、WebResizingExtender コンポーネントをドラッグして、フォーム上のパネルの下に配置します。
+[start=6]
+. 新たに作成した WebResizingExtender を選択します。[プロパティ] ウィンドウで、TargetControlID プロパティを "Panel1" の値に設定します。これは、手順 3 で作成したパネルの名前です。
+[start=7]
+. Web フォームをビルドして実行します。パネルが表示されて、右下隅にリサイズ ハンドルが表示されます。このハンドルの上にマウスを置くと、カーソルが通常の矢印からリサイズの矢印に変わります。ハンドルをクリックしてドラッグすると、パネル自体のサイズが変わります。
+
+== 追加情報
+
+異なる色を指定する、またはハンドルに画像を配置することによって、リサイズ ハンドルをカスタマイズすることができます。詳細は、 link:webresizingextender-modify-the-resize-handle.html[「リサイズ ハンドルを修正」]を参照してください。
+
+また、 pick:[asp-net="link:{ApiPlatform}webui.webresizingextender{ApiVersion}~infragistics.webui.webresizingextender~resizebordercolor.html[ResizeBorderColor]"]  プロパティを設定し、 pick:[asp-net="link:{ApiPlatform}webui.webresizingextender{ApiVersion}~infragistics.webui.webresizingextender~resizeborderwidth.html[ResizeBorderWidth]"]  プロパティの最小値 1 に指定することで、リサイジング コントロールの境界線が強調表示される効果を追加できます。

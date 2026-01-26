@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdayview-csom-overview",
+    "controlName": ["WebDayView"],
+    "tags": ["API","Getting Started"],
+    "guid": "{7B01C42D-BBBD-4C35-A7FE-B8B18A051245}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= CSOM 概要
+
+WebDayView は、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを公開します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクト、イベント、ユーティリティ関数から構成され、開発者はサーバー側にポストバックしなくても、WebDayView コントロールに関連する重要な機能単位をプログラムできます。
+
+一般的に、オブジェクト モデルは、サーバー上の場合と同じようにオブジェクト モデルから直接派生しています。プロパティ名、イベント、パラメータ、戻り値の意味は、サーバー上のそれらとほとんど同じです。ただし、注が付けられている一部のプロパティはクライアント上では読み取り専用です。これらのプロパティは、情報の提供を目的としており、値を変更することはできません。
+
+WebDayView コントロールのクライアント サイド オブジェクト モデルに関する参照トピック：
+
+link:webdayview-utility-functions-csom.html[WebDayView ユーティリティ関数]
+
+link:webdayview-object-csom.html[WebDayView オブジェクト]
+
+____
+link:webdayview-client-side-events-csom.html[クライアント側イベント]
+____

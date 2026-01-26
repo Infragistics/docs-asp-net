@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-enabling-application-styling-at-run-time",
+    "controlName": [],
+    "tags": ["Styling"],
+    "guid": "{07EAF2A7-0D2D-4C8B-A5F2-4412A3D0C54D}",  
+    "buildFlags": [],
+    "createdOn": "2006-01-12T08:30:26Z"
+}
+|metadata|
+////
+
+= ランタイムでアプリケーション スタイリングを有効にする
+
+アプリケーション スタイリングの強力な機能のひとつは、ランタイムにプロジェクトでアプリケーション スタイリングを有効および無効にするためにアプリケーション開発者が使用できるオプションです。これらの作業についての詳細は、以下のリンクを参照してください。
+
+* link:web-enabling-application-styling-using-the-appstylingmanager.html[AppStylingManager を使用してアプリケーション スタイリングを有効にする]
+* link:web-enabling-application-styling-using-the-web-config-file.html[web.config ファイルを使用してアプリケーション スタイリングを有効にする]

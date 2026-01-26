@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "webappstylist-netadvantage-appstylist-for-aspnet-options-dialog-box",
+    "controlName": ["WebAppStylist"],
+    "tags": [],
+    "guid": "{65844A63-8C49-4BBB-818E-FC689479C841}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Infragistics AppStylist for ASP.NET オプション ダイアログ ボックス
+
+[Infragistics AppStylist for ASP.NET オプション] ダイアログ ボックスでオプションを変更することによって、複数の主要な Infragistics AppStylist for ASP.NET の機能をカスタマイズできます。
+
+* *アプリケーションのスプラッシュ画面* -- Infragistics AppStylist を起動すると、貴重なアプリケーション情報とともにスプラッシュ画面が表示します。この情報には、現在使用している Infragistics AppStylist のバージョン情報と Infragistics AppStylist のステータスが含まれています。チェックボックスの選択が解除されると、Infragistics AppStylist はアプリケーション起動の間スプラッシュ画面を表示しなくなります。
+* *最近のファイルのリスト* -- [最近のファイルのリスト] は [ファイル] メニューと [開始] ページの [最近のファイルを開く] セクションの両方にあります。このリストは、Infragistics AppStylist で最近開いたすべてのファイルを表示します。最大 99 の最新ファイルを表示できます。
+* *デフォルト ライブラリの場所*  -- デフォルト ライブラリの場所は、新しいスタイル ライブラリを作成または既存のスタイル ライブラリを開くときに Infragistics AppStylist が表示される場所です。新しいスタイル ライブラリを作成するとき、これは [新しいライブラリを作成] ダイアログ ボックスの [既存のライブラリから開始] オプションに自動的に表示されるスタイル ライブラリになります。
+* *DocType* -- DocType コントロールは、キャンバスが描画される方法を制御します。ご使用の Web アプリケーションが HTML 4.0 Transitional を使用する場合、このオプションを変更しないでください。ご使用の Web アプリケーションがサポートする場合には Select XHTML 1.0 Transitional を選択します。このオプションによって、キャンバスは固有のアプリケーションでスタイルの変更がどのように表示されるのかをよりよく表すことができます。

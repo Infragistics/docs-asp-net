@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-regions-of-webhtmleditor",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing"],
+    "guid": "{0B89D46C-5697-420B-BA28-2661EA9B052F}",  
+    "buildFlags": [],
+    "createdOn": "2006-09-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor のさまざまな領域
+
+WebHtmlEditor コントロールには、知っておかなければならない 3 つの領域があります。次のスクリーンショットは、WebHtmlEditor のフォームを示したもので、3つの領域の輪郭とラベルが表示されています。
+
+各領域の機能と機能性の概要説明は、以下のトピックで説明されています。
+
+* link:webhtmleditor-webhtmleditor-toolbar.html[WebHtmlEditor ツールバー]
+* link:webhtmleditor-webhtmleditor-text-window.html[WebHtmlEditor テキスト ウィンドウ]
+* link:webhtmleditor-webhtmleditor-tab-strip.html[WebHtmlEditor タブ ストリップ]
+
+image::images/WebHtmlEditor_Layout_of_the_WebHtmlEditor_1.png[]

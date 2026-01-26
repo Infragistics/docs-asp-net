@@ -1,0 +1,84 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatamenu-binding-webdatamenu-to-webhierarchicaldatasource",
+    "controlName": ["WebDataMenu"],
+    "tags": ["Data Binding","Data Presentation","Navigation"],
+    "guid": "{C54C246A-DBB9-4F92-B686-86F4E9BBC7AE}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDataMenu を WebHierarchicalDataSource にバインド
+
+== 始める前に
+
+WebDataMenu™ はメニューのような構造で階層データを表すために使用することができます。Datasets、カスタム オブジェクト、xml ファイルおよび ObjectDataSource など（2、3 例を挙げると）の多くのソースによって階層データを提供できます。WebHierarchicalDataSource™ コンポーネントは階層データ モデルを作成および表すためにも使用できます。
+
+== 達成すること
+
+WebHierarchicalDataSource データを表示するメニューを作成します。WebHierarchicalDataSource コントロールは 2 つのフラットなデータ ソースで構成されます。
+
+このトピックでは、Northwind Access データベースの Categories および Products テーブルを使用して、それぞれの CategoryID フィールドによってリンクされる 2 レベルの階層を作成します。
+
+== 次の手順を実行します
+
+[start=1]
+. Visual Studio™ ツールボックスから、ひとつの ScriptManager コンポーネント、2 つの AccessDataSource コンポーネント、ひとつの WebHierarchicalDataSource コンポーネント、そしてひとつの WebDataMenu コントロールを Web フォームにドラッグ アンド ドロップします。AccessDataSource コンポーネントを categoriesDataSource と productsDataSource に命名します。
+[start=2]
+. この手順で、AccessDataSources は構成されます:
+
+** categoriesDataSource コンポーネントのスマート タグをクリックして、[データ ソースの構成] を選択します。[データ ソースの構成] ウィザードが表示します。
+** [参照...] ボタンをクリックして、[Microsoft Access Database を選択] ダイアログを開きます。Northwind データベース ファイルを選択して（アクセス データベース ファイルを App_Data フォルダーにコピーしてあることを前提とします）[OK] をクリックします。
+** [次へ] をクリックして、[Select ステートメントの構成] を開きます。ここで Categories テーブルからすべての列を選択するような Select ステートメントを構成します。
+** [次へ] をクリックして、[クエリのテスト] ボタンをクリックすることでクエリをテストします。[終了] をクリックして [データ ソースの構成] ダイアログを閉じます。
+
+Products テーブルからすべての列を選択するように productsDataSource を構成するために上記の手順を繰り返します。
+
+[start=3]
+. WebHierarchicalDataSource を構成します:
+
+** WebHeierarchicalDataSource コンポーネントのスマート タグをクリックして、[リレーションシップの編集] を選択します。WebHierarchicalDataSource デザイナーが表示されます。
+** [表示の追加] をクリックして使用可能なデータ ソースを選択します。[データ ソース] ドロップダウン リストから categoriesDataSource を選択して [OK] をクリックします。
+** [子の追加] をクリックして次のノード レベルを作成します。[子データ ソース] ドロップダウン リストから productsDataSource を選択します。
+** 今度は関係のための列を選択することによって、2 つのデータ ソースの間の関係を追加します。
+
+*** [親列] ドロップダウン リストで [CategoryID] を選択します。
+*** [子列] ドロップダウン リストで [CategoryID] を選択します。
+
+** [OK] をクリックして 2 つのデータ ソース間の関係の追加を終了します。これで WebHierarchicalDataSource デザイナーは以下の画像のようになります。
+
+image::images\WebDataMenu_Binding_WebDataMenu_to_WebHierarchicalDataSource_01.png[]
+
+** [適用] そして [OK] ボタンをクリックしてデザイナーを閉じます。
+
+[start=4]
+. この時点で WebDataMenu はデータを表示しません。データ バインディングを指定するには、WebDataMenu デザイナー ダイアログを開くために WebDataMenu コントロールのスマート タグから [DataBindings の編集] をクリックします。
+[start=5]
+. categoriesDataSource_DefaultView を選択して [データバインディングの追加] をクリックします。これによってノードが選択されたバインディング領域に追加されます。CategoryName がノードの表示テキストとなるように [プロパティ] ウィンドウでドロップダウン リストをクリックすることによって、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.navitembinding~textfield.html[TextField]"]  プロパティを CategoryName に設定します。同様に、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.navitembinding~valuefield.html[ValueField]"]  プロパティを CategoryID に設定します。
+[start=6]
+. 上記の手順を繰り返して以下のデータ バインディングを productsDataSource_DefaultView に追加します:
+
+[options="header", cols="a,a"]
+|====
+|TextField|ValueField
+
+|ProductName
+|ProductID
+
+|====
+
+[start=7]
+. WebDataMenu デザイナーは以下の画像のようになります。
+
+image::images\WebDataMenu_Binding_WebDataMenu_to_WebHierarchicalDataSource_02.png[]
+
+[start=8]
+. [OK] をクリックしてデザイナーを終了します。
+[start=9]
+. アプリケーションを保存して実行します。WebDataMenu は以下の画像のようになるはずです。
+
+image::images\WebDataMenu_Binding_WebDataMenu_to_WebHierarchicalDataSource_03.png[]

@@ -1,0 +1,237 @@
+﻿////
+
+|metadata|
+{
+    "name": "webscheduleinfo-object-csom",
+    "controlName": [],
+    "tags": ["API","How Do I","Scheduling"],
+    "guid": "{67C3EA3B-1701-4427-94D6-FB88462479D2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebScheduleInfo オブジェクト
+
+== WebScheduleInfo
+
+WebScheduleInfo オブジェクトは、WebScheduleInfo コントロールのコントロールレベル機能へのアクセスを提供します。
+
+=== WebScheduleInfo メソッド
+
+[cols="a,a"]
+|====
+|*addActivity* 
+|アクティビティを追加します。 
+
+*パラメータ*
+
+_activity_ 
+
+追加されるアクティビティ。 _id_ 
+
+クライアントとサーバーの両方で Adding イベントにアクセスできる文字列値。 
+
+*解説*
+
+コントロールで呼び出される場合、コントロールの ClientId が ID で使用されます。
+
+|*deleteActivity* 
+|アクティビティを削除します。 
+
+*パラメータ*
+
+_activity_ 
+
+削除されるアクティビティ。 _id_ 
+
+クライアントとサーバーの両方で Deleting イベントにアクセスできる文字列値。 
+
+*解説*
+
+コントロールで呼び出される場合、コントロールの ClientId が ID で使用されます。
+
+|*fetchReminders* 
+|サーバーに移動する SmartCallback を実行して、アラームが期限になったことを確認します。
+
+|*getActiveDay* 
+|ActiveDay を表す Date オブジェクトを返します。
+
+|*getActiveDayClientSynchronization* 
+|ActiveDayClientSynchronization が Always に設定されている場合は 0、Never の場合は 1 を返します。
+
+|*getActiveResourceDataKey* 
+|ActiveResources Datakey を返します。
+
+|*getActiveResourceName* 
+|ActiveResource 名を返します。
+
+|*getActivities* 
+|クライアントに渡される Activites のすべての ig_ActivityCollection を返します。
+
+|*getAllowAllDayEvents* 
+|All Day Events が許可される場合は True を返します。
+
+|*getAppointmentDialogID* 
+|予約ダイアログの ClientID を返します。
+
+|*getClientID* 
+|WebScheduleInfo の ClientId を返します。
+
+|*getDefaultActivityDuration* 
+|アクティビティのデフォルト時間を分で返します。デフォルト値は 30 です。
+
+|*getDefaultReminderInterval* 
+|アラームのデフォルト間隔を目盛単位で返します。
+
+|*getDefaultSnoozeInterval* 
+|再通知値のデフォルト間隔を目盛単位で返します。
+
+|*getEnableProgressIndicator* 
+|プログレス インジケータが SmartCallback 中に表示されるかどうかを決定するブール値を返します。
+
+|*getEnableSmartCallbacks* 
+|SmartCallbacks がオンかどうかを決定するブール値を返します。
+
+|*getImageDirectory* 
+|WebScheduleInfo で指定される画像ディレクトリの文字列値を返します。
+
+|*getProgressIndicator* 
+|SmartCallback の間に表示される Progress Indicator オブジェクトを返します。
+
+|*getReminderDialogID* 
+|ReminderDialog の ClientID を返します。
+
+|*getReminders* 
+|クライアントに渡される Reminders のすべての ig_ReminderCollection を返します。
+
+|*getTimeDisplayFormat* 
+|TimeDisplayFormat が 12Hours に設定されている場合は 0、24Hours の場合は 1 を返します。
+
+|*getUniqueID* 
+|WebScheduleInfo の UniqueId を返します。
+
+|*getWorkDayEndTime* 
+|WorkDayEndTime の Date オブジェクトを返します。または設定されていない場合は null を返します。
+
+|*getWorkDayStartTime* 
+|WorkDayStartTime の Date オブジェクトを返します。または設定されていない場合は null を返します。
+
+|*navigate* 
+|activeday を指定した時間にナビゲートします。 
+
+*パラメータ*
+
+_years_ 
+
+ナビゲートする年数。 _months_ 
+
+ナビゲートする月数。 _days_ 
+
+ナビゲートする日数。 _id_ 
+
+クライアントとサーバーの両方で ActiveDayChanging/Navigation イベントにアクセスできる文字列値。 
+
+*解説*
+
+コントロールで呼び出される場合、コントロールの ClientId が ID で使用されます。
+
+|*setActiveDay* 
+|ActiveDay を指定日に設定します。 
+
+*パラメータ*
+
+_dateTime_ 
+
+ActiveDay を設定する新しい日付。このパラメータは Date オブジェクトでなければなりません。 _post_ 
+
+ポストバックが発生する場合は True。 _id_ 
+
+クライアントとサーバーの両方で ActiveDayChanging イベントにアクセスできる文字列値。 
+
+*解説*
+
+コントロールで呼び出される場合、コントロールの ClientId が ID で使用されます。
+
+|*setDefaultActivityDuration* 
+|アクティビティのデフォルト期間を設定します。 
+
+*パラメータ*
+
+_duration_ 
+
+アクティビティのデフォルト期間の分数。 
+
+*解説*
+
+このメソッドはクライアント側のみで、各ポストでリセットする必要があります。
+
+|*setFetchReminderInterval* 
+|SmartCallbacks がオンの場合、WebScheduleInfo がアラームをチェックする頻度を設定します。 
+
+*パラメータ*
+
+_interval_ 
+
+ミリ秒で設定する間隔。 
+
+*解説*
+
+デフォルト値は 2 分です。間隔をゼロ以下に設定することで自動フェッチ アラームをオフにすることができます。
+
+|*showAddAppointmentDialog* 
+|予約ダイアログを開きます。 
+
+*パラメータ*
+
+_appointment_ 
+
+ダイアログに表示する予定。 _id_ 
+
+クライアントで Dialog イベントにアクセスできる文字列値。 
+
+*解説*
+
+コントロールで呼び出される場合、コントロールの ClientId が ID で使用されます。
+
+|*showReminders* 
+|ReminderDialog を開きます。
+
+|*showUpdateAppointmentDialog* 
+|予約ダイアログを開きます。 
+
+*パラメータ*
+
+_dataKey_ 
+
+予定ダイアログに表示する予定の DataKey。 _id_ 
+
+クライアントで Dialog イベントにアクセスできる文字列値。 
+
+*戻り値*
+
+クライアントで渡された Datakey を使用して予定が見つからない場合は False。 
+
+*解説*
+
+コントロールで呼び出される場合、コントロールの ClientId が ID で使用されます。
+
+|*updateActivity* 
+|アクティビティを更新します。 
+
+*パラメータ*
+
+_activityUpdateProps_ 
+
+更新すべきプロパティと値を含む動的なオブジェクト。 _activity_ 
+
+更新されるアクティビティ。 _id_ 
+
+クライアントとサーバーの両方で Updating イベントにアクセスできる文字列値。 
+
+*解説*
+
+注：これは Activity オブジェクトではありません。 Activity オブジェクトは修正すべきではありません。更新すべきプロパティは、activityUpdateProps オブジェクトに配置すべきです。 コントロールで呼び出される場合、コントロールの ClientId が ID で使用されます。
+
+|====

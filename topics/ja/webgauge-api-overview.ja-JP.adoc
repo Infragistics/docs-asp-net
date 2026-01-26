@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-api-overview",
+    "controlName": ["WebGauge"],
+    "tags": ["API"],
+    "guid": "{F13F9B41-9A17-4387-B8C7-D8B4F74B89B7}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションでは WebGauge™ コントロールに関連する各名前空間を示します。このコントロールでプログラムする間に使用するいくつかのキークラスも提供します。このページの名前空間とクラスは、ヘルプの「API 参照ガイド」に直接リンクしています。
+
+[cols="a,a"]
+|====
+|*WebGauge 名前空間:* 
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.webui.ultrawebgauge_namespace.html[Infragistics.WebUI.UltraWebGauge]"]
+|*キー クラス:* 
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.webui.ultrawebgauge.ultragauge.html[UltraGauge]"] 
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.webui.ultrawebgauge.gaugeimagepipe.html[GaugeImagePipe]"]
+
+|*リソース名前空間:* 
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources_namespace.html[Infragistics.UltraGauge.Resources]"]
+|*キー クラスとインタフェース:* 
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.igaugecomponent.html[IGaugeComponent]"] 
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.digitalgauge.html[DigitalGauge]"] 
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.lineargauge.html[LinearGauge]"] 
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgauge.html[RadialGauge]"]
+
+|====

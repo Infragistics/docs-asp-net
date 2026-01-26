@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "webtab-load-on-demand",
+    "controlName": ["WebTab"],
+    "tags": ["How Do I","Performance"],
+    "guid": "{D2BB6F90-CF3B-4C3A-B31D-542B1A194DFD}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ロードオンデマンド
+
+WebTab™ はロードオンデマンド機能を提供します。これは最初のロード中にコンテンツのすべてをフェッチしないという意味で、選択したタブのコンテンツに限定されます。エンドユーザーが他のタブを選択すると、選択したタブのコンテンツがクライアントに配信されます。ただし、クライアントにすでに存在するコンテンツの呼び出しを回避するために、以前のタブのコンテンツ ページはキャッシュされます。
+
+*注：* pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.tabpostbackoptions~enableloadondemand.html[EnableLoadOnDemand]"]  が True である場合、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.tabpostbackoptions~enableloadondemandviewstate.html[EnableLoadOnDemandViewState]"]  プロパティはすべての以前にロードされた（選択された）タブをリロードするために使用されます。そうでなければ、選択したタブのコンテンツだけがロードされ、アプリケーションはコンテンツ ペインの子コントロールの表示状態の保持に責任を持ちます。ただし、EnableAjax が有効である場合、非同期ポストバック中は、すべての以前にロードしたタブのコンテンツ ペインは、EnableLoadOnDemandViewState プロパティの値に関係なくリロードされます。これは、.NET の失敗した EventValidation 機能によって発生する例外を回避するために必要です。
+
+以下のリンクをクリックして WebTab でロードオンデマンドを使用する方法の詳細を確認します:
+
+* link:webtab-using-load-on-demand-in-webtab.html[WebTab でロードオンデマンドを使用]
+* link:webtab-using-load-on-demand-for-tabs-with-content-url-set.html[コンテンツ Url を設定してタブにロードオンデマンドを使用]

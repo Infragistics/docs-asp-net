@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-client-side-programming",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["API","Editing"],
+    "guid": "{1384DC14-ACC0-4426-8CBF-A9A62091A4C2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= クライアント側プログラミング
+
+このセクションでは、WebHtmlEditor™ のクライアント側の特徴および機能の情報を提供します。
+
+以下のリンクをクリックすると、それぞれの領域についての説明を読むことができます。
+
+* link:webhtmleditor-csom-overview.html[CSOM の概要]
+* link:webhtmleditor-change-the-default-action-of-a-button.html[ボタンのデフォルトのアクションを変更]
+* link:webhtmleditor-insert-objects-into-webhtmleditor.html[オブジェクトを WebHtmlEditor に挿入]

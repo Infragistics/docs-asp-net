@@ -1,0 +1,242 @@
+﻿////
+
+|metadata|
+{
+    "name": "gridmigrationrowdelete",
+    "controlName": [],
+    "tags": [],
+    "guid": "222154c3-539f-4bd4-b935-f59c86dc5995",  
+    "buildFlags": [],
+    "createdOn": "2016-03-01T12:49:26.6840932Z"
+}
+|metadata|
+////
+
+= グリッドの移行 - 行の削除
+
+行の削除機能を作成して使用すると、キーボードの [Delete] キーを押す、または行の削除に必要なイベントを発生させる他のページ要素（ボタンやリンク）を機能させることにより、容易に特定の行をグリッドから削除できます。
+
+WebGrid で行の削除機能を使用するには、「DisplayLayout」オブジェクトの [AllowDeleteDefault] プロパティを設定して行の削除を有効にする、または特定のバンドで [AllowDelete] プロパティを「はい」に設定する必要があります選択した行を削除する場合は、最初にグリッドの選択を有効にし、行セレクターに設定する必要があります。
+
+WebDataGrid/WebHierarchicalDataGrid のデータを削除するには、「RowDeleting」動作を Behaviors コレクションに追加する必要があります。この動作により、WebDataGrid/WebHierarchicalDataGrid の行を削除できます。また、UI で機能するように、削除に対して有効化された選択動作が必要です。「RowDeleting」がデザイナーで有効な場合は、「選択」動作も追加するようにプロンプトされます。行を選択して [Delete] キーを押す、またはユーザー定義のイベントから必要な関数を呼び出すことにより、行を削除できます。
+
+== クライアント側のコード スニペット:
+
+==== UltraWebGrid 行の削除:
+
+JavaScript でクライアント側の行を削除するには、JavaScript の関数 igtbl_deleteRow(gridName,rowID) を使用する必要があります。まず、「DisplayLayout」オブジェクトの [AllowDeleteDefault] プロパティ、または特定のバンドで AllowDelete を設定することにより、削除を許可します。
+
+WebGrid の名前および削除する行の ID を、関数に渡す必要があります。
+
+次のサンプルの JavaScript コードでは、クライアントで最初の行とそのサブ行を削除します。
+
+WebGrid 内のすべての選択行も削除できます。選択行を削除する場合は、次の関数を使用します: igtbl_deleteSelRows(gridName)。
+
+*JavaScript の場合:*
+
+[source,js]
+----
+function DeleteRow() {
+      // 行の削除を許可することが必要。
+      igtbl_getGridById("UltraWebGrid1").AllowDelete=1;
+      // グリッド内の最初の行を取得する。
+      var row=igtbl_getRowById("UltraWebGrid1r_0");
+      // グリッド内の最初の行を削除する。
+      igtbl_deleteRow("UltraWebGrid1","UltraWebGrid1r_0");
+      // 行 ID のカウンターを作成する。
+      var cnt=0;
+      // ループを作成する。行に次の兄弟がある場合は削除が必要。
+      while(row.NextSibling!=null)
+      {
+            // 次の rowID のカウンターを増分する。
+            cnt+=1;
+            // 兄弟の有無を確認するために、グリッドの名前とカウンターの
+            // 行番号を使用して、現在の行を取得する。
+            row=igtbl_getRowById("UltraWebGrid1r_"+cnt)
+            // 行を削除する。
+            igtbl_deleteRow("UltraWebGrid1","UltraWebGrid1r_"+cnt);
+      }
+}
+----
+
+行を完全に削除せずに切り離す場合は、次の関数を使用できます。
+
+*JavaScript の場合:*
+
+[source,js]
+----
+function removeRow() {
+var row=igtbl_getRowById("UltraWebGrid1r_0");
+row.remove();
+}
+----
+
+または、行コレクションから削除する場合:
+
+*JavaScript の場合:*
+
+[source,js]
+----
+function removeRow_Collection() {
+var grid=igtbl_getGridById("UltraWebGrid1");
+var removedRow=grid.Rows.remove(0);
+}
+----
+
+== WebDataGrid 行の削除:
+
+Behaviors コレクションに「RowDeleting」動作を追加する必要があります。この動作によって、WebDataGrid の行を削除できます。また、UI で機能するように、削除に対して有効化された選択動作が必要です。
+
+*ASPX の場合:*
+
+[source,html]
+----
+<Behaviors>
+      <ig:Activation />
+      <ig:Selection RowSelectType="Multiple" CellClickAction="Row" />
+      <ig:EditingCore Enabled="true">
+          <Behaviors>
+              <ig:RowDeleting Enabled="true" />
+          </Behaviors>
+      </ig:EditingCore>
+</Behaviors>
+----
+
+この関数を使用して、選択行を削除します。
+
+*JavaScript の場合:*
+
+[source,js]
+----
+function DeleteRow() {
+            var grid = $find('<%= WebDataGrid1.ClientID %>');
+            var gridRows = grid.get_rows()
+            var selectedRows = grid.get_behaviors().get_selection().get_selectedRows();
+            var rows = new Array();
+            var i1 = 0;
+            for (var i = selectedRows.get_length() - 1; i >= 0; i--) {
+                rows[i1] = selectedRows.getItem(i);
+                i1++;
+            }
+            grid.get_behaviors().get_editingCore().get_behaviors().get_rowDeleting().deleteRows(rows);
+}
+----
+
+選択行の削除には、[remove()] メソッドも使用できます。
+
+*JavaScript の場合:*
+
+[source,js]
+----
+function DeleteRow_Remove() {
+            var grid = $find('<%= WebDataGrid1.ClientID %>');
+            var gridRows = grid.get_rows()
+            var selectedRows = grid.get_behaviors().get_selection().get_selectedRows();
+            for (var i = selectedRows.get_length() - 1; i >= 0; i--) {
+                var row = selectedRows.getItem(i);
+                gridRows.remove(row);
+            }
+}
+----
+
+選択されていない特定の行を削除する場合は、このコードを使用できます。
+
+*C# の場合:*
+
+[source,csharp]
+----
+// 最初の行を削除する。
+grid.get_rows().remove(grid.get_rows().get_row(0));
+----
+
+*注* : WebDataGrid でデータ ソースを自動更新できない場合は、更新イベントを操作し、手動でデータを更新する必要があります。
+
+== WebHierarchicalDataGrid 行の削除
+
+Behaviors コレクションに「RowDeleting」動作を追加する必要があります。この動作によって、エンドユーザーは WebHierarchicalDataGrid の行を削除できます。また、UI で機能するように、削除に対して有効化された選択動作が必要です。
+
+*ASPX の場合:*
+
+[source,html]
+----
+<Behaviors>
+      <ig:Activation />
+      <ig:Selection RowSelectType="Multiple" CellClickAction="Row" />
+      <ig:EditingCore Enabled="true">
+          <Behaviors>
+              <ig:RowDeleting Enabled="true" />
+          </Behaviors>
+      </ig:EditingCore>
+</Behaviors>
+----
+
+この関数を使用して、選択行（親、子など、グリッドの任意のレベルから）を削除します。
+
+*JavaScript の場合:*
+
+[source,js]
+----
+function DeleteRow_Hier_Selected() {
+       var grid = $find('<%= Me.WebHierarchicalDataGrid1.ClientID %>');
+       var selection = grid.get_gridView().get_behaviors().get_selection();
+       /* これらはすべてのグリッドの選択行で、これは行の配列 * /
+       var selectedRows = selection.get_selectedRowsResolved(); 
+       for (var i=0; i < selectedRows.length; i++)
+       {
+           var row = selectedRows[i];
+           var containerGrid = row.get_grid();
+           var gridRows = containerGrid.get_rows();
+           gridRows.remove(row);
+        }           
+}
+----
+
+選択されていない行をグリッドから削除する場合は、次のコードを使用できます。
+
+*JavaScript の場合:*
+
+[source,js]
+----
+var grid = $find("WebHierarchicalDataGrid1");
+var parentGrid = grid.get_gridView();
+// 最初の PARENT 行を削除する
+parentGrid.get_rows().remove(parentGrid.get_rows().get_row(0));
+var childGrid = grid.get_gridView().get_rows().get_row(0).get_rowIslands(0)[0];
+// 最初の CHILD 行を削除する
+childGrid.get_rows().remove(childGrid.get_rows().get_row(0));
+----
+
+*注* : WebHierarchicalDataGrid でデータ ソースを自動更新できない場合は、更新イベントを操作し、手動でデータを更新する必要があります。
+
+== サーバー側のコードスニペット:
+
+== UltraWebGrid 行の削除:
+
+UltraWebGrid では、サーバー側から行を削除するために、[Delete()] メソッドを使用できます。
+
+このメソッドはグリッドから行を削除します。また、削除が許可され、コントロールがレコードの削除を実装するように正しく設定されている場合は、対応するレコードをレコードソースから削除します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+private void UltraWebGrid1_ClickCellButton(object sender, Infragistics.WebUI.UltraWebGrid.CellEventArgs e)
+{
+        // セル ボタンがクリックされたセルの行を削除する。
+        e.Cell.Row.Delete();
+}
+----
+
+*注* : 行を削除するには、グリッドの [AllowDelete] プロパティを「はい」に設定する必要があります。
+
+*C# の場合:*
+
+[source,csharp]
+----
+// ユーザーが最初のバンドの行を削除することを許可する。
+UltraWebGrid1.Bands[0].AllowDelete = Infragistics.WebUI.UltraWebGrid.AllowDelete.Yes;
+----
+
+== WebDataGrid/WebHierarchicalDataGrid 行の削除:
+
+使用できません。

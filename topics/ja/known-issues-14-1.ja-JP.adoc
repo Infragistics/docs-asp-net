@@ -1,0 +1,191 @@
+﻿////
+|metadata|
+{
+    "name": "known-issues-14-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "754fa254-644c-4cb1-8ebd-142bb8e690f5",
+    "buildFlags": [],
+    "createdOn": "2014-03-11T14:45:23.8634277Z"
+}
+|metadata|
+////
+
+= ASP.NET 14.1 既知の問題と制限
+
+== 既知の問題点と制限の概要
+
+=== 既知の問題点と制約の概要表
+
+以下の表に、Infragistics® ASP.NET 2014.1 リリースの既知の問題と制限事項の概要を示します。以下の表は、すべての問題の詳細な説明とその回避策を示します。
+
+=== 凡例:
+
+- image:images\workaround.png[alt="Workaround"] - 回避策
+- image:images\noworkaround.png[alt="No Workaround"] - 既知の回避策はありません
+- image:images\fix.png[alt="Fix Planned"] - 修正予定です
+
+
+==== _WebDataGrid_
+
+[options="header", cols="a,a,a"]
+|====
+|問題|説明|状態
+
+|<<_Ref381785860,グリッドの高さが小さい場合、行編集の [完了] / [キャンセル] ボタンを表示しません>>
+|_WebDataGrid_™、 _WebHierarchicalDataGrid_™、または _WebHierarchicalDataGrid_ の子グリッドの高さが 2 つ以下の行のみを表示する場合、行コンテナーの境界線によってクリップされるため、[完了] / [キャンセル] ボタンのダイアログが全体表示されない可能性があります。
+|image::images/workaround.png[]
+
+|<<_Ref381886973,IE 7 で編集した行が正しくスクロールしない>>
+|Internet Explorer® 7 は相対的な位置がない親コンテナーに相対的な位置を設定された要素を描画する方法のため、スクロールする場合に子要素は親コンテナーの境界線をオーバーフローします。
+|image::images/workaround.png[]
+
+|<<_Ref38188697311,行編集テンプレートが開くときに列は移動できません。>>
+|_WebDataGrid_™ の行編集テンプレートが開いている場合、グリッドの列は移動できません。
+|image::images/noworkaround.png[]
+
+|====
+
+==== _WebDataTree_
+
+[options="header", cols="a,a,a"]
+|====
+|問題|説明|状態
+
+|<<_Ref381785829,ノードをコンテナー以外にドラッグする場合、自動スクロールしません>>
+|_WebDataTree_ でコネクター線が有効の場合、ノードのドラッグ操作で自動スクロールはサポートされていません。
+|image::images/fix.png[] 
+
+image::images/workaround.png[]
+
+|====
+
+==== _WebHierarchicalDataGrid_
+
+[options="header", cols="a,a,a"]
+|====
+|問題|説明|状態
+
+|<<_Ref381785860,グリッドの高さが小さい場合、行編集の [完了] / [キャンセル] ボタンを表示しません>>
+|_WebDataGrid_™、 _WebHierarchicalDataGrid_™、または _WebHierarchicalDataGrid_ の子グリッドの高さが 2 つ以下の行のみを表示する場合、行コンテナーの境界線によってクリップされるため、[完了] / [キャンセル] ボタンのダイアログが全体表示されない可能性があります。
+|image::images/workaround.png[]
+
+|<<_Ref382597340,IE 7 で編集した行が正しくスクロールしない>>
+|Internet Explorer 7 は相対的な位置がない親コンテナーに相対的な位置を設定された要素を描画する方法のため、スクロールする場合に子要素は親コンテナーの境界線をオーバーフローします。
+|image::images/noworkaround.png[]
+
+|====
+
+==== _WebScriptManager_
+
+[options="header", cols="a,a,a"]
+|====
+|問題|説明|状態
+
+| _WebScriptManager_ Intellisense は Visual Studio 2012 以後でサポートされません。
+|WebScriptManager Intellisense の表示は Visual Studio 2012 以後でサポートされません。この制限は Visual Studio 2012 デザイナーのソース ビューの処理によるものです。
+|image::images/noworkaround.png[]
+
+|====
+
+==== _WebScriptManager_
+
+[options="header", cols="a,a,a"]
+|====
+|問題|説明|状態
+
+| _WebScriptManager_ Intellisense は Visual Studio 2012 以後でサポートされません。
+|WebScriptManager Intellisense の表示は Visual Studio 2012 以後でサポートされません。この制限は Visual Studio 2012 デザイナーのソース ビューの処理によるものです。
+|image::images/noworkaround.png[]
+
+|====
+
+[[_Ref367305781]]
+
+== _WebDataGrid_
+
+[[_Ref381785860]]
+
+=== グリッドの高さが小さい場合、行編集の [完了] / [キャンセル] ボタンを表示しません
+
+_WebDataGrid_  、 _WebHierarchicalDataGrid_  、または  _WebHierarchicalDataGrid_   の子グリッドの高さが 2 つ以下の行のみを表示する場合、行コンテナーの境界線によってクリップされるため、[完了] / [キャンセル] ボタンのダイアログが全体表示されない可能性があります。
+
+回避方法
+
+.注:
+[NOTE]
+ダイアログを完全に表示するためにグリッドの高さを大きくするか、行編集動作の代わりにセル編集動作を使用できます。また、行編集動作の link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.rowediting~enabledialog.html[EnableDialog] プロパティによって [完了] / [キャンセル] ボタンを非表示できます。
+====
+
+[[_Ref381886973]]
+
+=== IE 7 で編集した行が正しくスクロールしない
+
+Internet Explorer 7 は相対的な位置がない親コンテナーに相対的な位置を設定された要素を描画する方法のため、スクロールする場合に子要素は親コンテナーの境界線をオーバーフローします。行が編集モードの場合、コンテナーをスクロールすると、編集した行は親コンテナーをオーバーフローします。この問題は、相対配置を使用しないスクロール可能な親コンテナーにネストされる  _WebDataGrid_   に影響します。
+
+回避方法
+
+.注:
+[NOTE]
+_WebDataGrid_   がスクロール可能な親コンテナーにある場合、親コンテナーは相対配置を使用することを確認します。
+
+[[_Ref38188697311]]
+
+=== 行編集テンプレートが開いているときは列を移動できません。
+
+_WebDataGrid_™、 _WebHierarchicalDataGrid_™、または  _WebHierarchicalDataGrid_   の子グリッドの高さが 2 行以下のみの表示できる場合、行コンテナーの境界線によってクリップされるため、[完了] / [キャンセル] ボタンのダイアログが全体表示されない場合があります。
+
+== _WebDataTree_
+
+[[_Ref381785829]]
+
+=== ノードをコンテナー以外にドラッグする場合、自動スクロールしません
+
+_WebDataTree_   コンポーネントを使用し、ドラッグ アンド ドロップ機能およびコネクター線が有効の場合、自動スクロールの制限があります。ノードをドラッグし、マウスをツリー コンテナー以外に移動する場合、自動スクロールはサポートされていません。
+
+回避方法
+
+.注:
+[NOTE]
+プロジェクトで自動スクロールの必要がある場合、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatatree~enableconnectorlines.html[EnableConnectorLines] プロパティを  _false_   に設定できます。コネクター線が無効になりますが、ノードをコンテナー以外にドラッグする場合の自動スクロールはサポートされます。
+
+== _WebHierarchicalDataGrid_
+
+=== グリッドの高さが小さい場合、行編集の [完了] / [キャンセル] ボタンを表示しません
+
+_WebDataGrid_  、 _WebHierarchicalDataGrid_  、または  _WebHierarchicalDataGrid_   の子グリッドの高さが 2 つ以下の行のみを表示する場合、行コンテナーの境界線によってクリップされるため、[完了] / [キャンセル] ボタンのダイアログが全体表示されない可能性があります。
+
+回避方法
+
+
+.注:
+[NOTE]
+ダイアログを完全に表示するためにグリッドの高さを大きくするか、行編集動作の代わりにセル編集動作を使用できます。また、行編集動作の link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.rowediting~enabledialog.html[EnableDialog] プロパティによって [完了] / [キャンセル] ボタンを非表示できます。
+====
+
+[[_Ref382597340]]
+
+=== IE 7 で編集した行が正しくスクロールしない
+
+Internet Explorer 7 は相対的な位置がない親コンテナーに相対的な位置を設定された要素を描画する方法のため、スクロールする場合に子要素は親コンテナーの境界線をオーバーフローします。行が編集モードの場合、コンテナーをスクロールすると、編集した行は親コンテナーをオーバーフローします。
+
+== 関連コンテンツ
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+|_ link:web-webdatagrid-webdatagrid.html[WebDataGrid]_
+|これは、 _WebDataGrid_ コントロールを説明するトピックのグループです。
+
+| _link:web-webhierarchicaldatagrid.html[WebHierarchicalDataGrid]_ 
+|これは、 _WebHierarchicalDataGrid_ コントロールを説明するトピックのグループです。
+
+| _link:web-webdatatree.html[WebDataTree]_ 
+|これは、 _WebDataTree_ コントロールを説明するトピックのグループです。
+
+|====

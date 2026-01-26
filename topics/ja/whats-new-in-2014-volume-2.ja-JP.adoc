@@ -1,0 +1,54 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-in-2014-volume-2",
+    "controlName": [],
+    "tags": ["Charting","CTP","Data Binding","Data Presentation","Design Environment"],
+    "guid": "ec056f5c-07bd-4a71-8b5b-48ffa84cc3a1",  
+    "buildFlags": [],
+    "createdOn": "2014-09-16T12:26:19.2522493Z"
+}
+|metadata|
+////
+
+= 2014 Volume 2 の新機能
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、Infragistics® ASP.NET 2014 Volume 2 リリースの新機能の概要について紹介します。
+
+== 新機能の概要
+
+=== 新機能の概要表
+
+以下の表は 2014 Volume 2 リリースの新機能の概要を提供します。詳細については、概要表の後をご覧ください。
+
+==== <<_Ref367305754,全般>>
+
+[options="header", cols="a,a"]
+|====
+|機能|説明
+
+|<<wrapper-igniteui,Ignite UI データ チャートの ASP.NET Web Forms ラッパー>>
+|WebDataChart は Ignite UI データ チャートおよび ASP.NET Web Forms サーバー コントロールに基づくコンポーネントです。コンポーネントを簡単に構成し、Visual Studio のデザイン ビューでプレビューできます。
+
+|====
+
+[[_Ref367305754]]
+
+== 全般
+
+[[wrapper-igniteui]]
+
+=== Ignite UI データ チャートの ASP.NET Web Forms ラッパー
+
+WebDataChart は Ignite UI データ チャートおよび ASP.NET Web Forms サーバー コントロールに基づくコンポーネントです。コンポーネントを簡単に構成し、Visual Studio のデザイン ビューでプレビューできます。以下の機能は、データ チャート プレビューに含まれています。
+
+* データ チャートの高さおよび幅のサイズ変更
+* データ チャートをデータ ソースにバインド (軸およびシリーズはデータ ソース スキーマに基づいて生成されます)
+* データ チャートの軸およびシリーズのカスタマイズ化
+
+このコンポーネントは、一部の機能が含まれていません。別のインストーラーで利用可能です。

@@ -1,0 +1,63 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdropdown-custom-values-and-persistence",
+    "controlName": ["WebDropDown"],
+    "tags": ["Persistence"],
+    "guid": "{6EFA1EED-8DA3-40FC-977D-C92F273FC4C9}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= カスタム値および保持
+
+WebDropDown™ によってカスタムのエンドユーザーが入力した値を保持することが可能となります。たとえば、エンドユーザーが初期のドロップダウンリストにない値を入力したい場合があります。ここでさらに重要なのは再度入力せずに項目を後で選択できるように値を保持したい場合があることです。エンドユーザーが入力したカスタム値を他のエンドユーザーが選択できるようにしたい場合さえあります。WebDropDown は、アプリケーションを使用することによって保持して任意の人が再度選択できるように、エンドユーザーが入力したカスタム値をバックエンドに保持することを可能にするために簡単に使用できる高度なイベント処理メカニズムを公開しています。
+
+== ドロップダウン リストにカスタム値を保持するには:
+
+[start=1]
+. フォームに WebDropDown コントロールを配置して、デフォルト名のままにしておきます。
+[start=2]
+. ドロップダウンを Northwind データベースの Categories テーブルにバインドします。WebDropDown を SqlDataSource にバインドする方法の詳細は、 link:webdropdown-binding-webdropdown-to-a-sql-data-source.html[「WebDropDown を SQL データ ソースにバインド」]を参照してください。名前が SqlDataSource1 の SqlDataSource コンポーネントができます。
+[start=3]
+. Microsoft® Visual Studio® [プロパティ] ウィンドウで、WebDropDown の  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~textfield.html[TextField]"]  プロパティを CategoryName に、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~valuefield.html[ValueField]"]  プロパティを CategoryID に設定します。
+[start=4]
+. WebDropDown コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~enablepersistingcustomvalues.html[EnablePersistingCustomValues]"]  プロパティと  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~enablecustomvalueselection.html[EnableCustomValueSelection]"]  プロパティを True に設定します。
+[start=5]
+. WebDropDown コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~itemadded_ev.html[ItemAdded]"]  イベントのためにイベント ハンドラーを追加します。このイベントは、エンドユーザーが値を WebDropDown エディターに入力して値がリストに存在しない時には常に EnablePersistingCustomValues プロパティと共に発生します。
+
+
+*注:* 項目がクライアントで追加された時、または EnablePersistingCustomValues プロパティが True に設定され、カスタム値が入力されるときに限り、ItemAdded イベントは発生します。
+
+
+[start=6]
+. WebDropDown コントロールの ItemAdded イベント ハンドラーで、以下のコードを追加して、カスタムのエンドユーザーが入力した値をバックエンドに挿入します:
+
+*Visual Basic の場合：*
+
+[source]
+----
+              SqlDataSource1.InsertCommand = "insert into Categories (CategoryName) Values  ('" & DirectCast(e.Value, DropDownItem).Text & "')"              SqlDataSource1.Insert()
+----
+
+*C# の場合：*
+
+[source]
+----
+               SqlDataSource1.InsertCommand = "insert into Categories (CategoryName) Values  ('" +((DropDownItem)e.Value).Text + "')";               SqlDataSource1.Insert();
+----
+
+上記のコードで、ItemAdded イベントを発生させている項目の値を  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.dropdownitem.html[DropDownItem]"]  クラスのオブジェクトに最初にキャストし、項目の Text を取得してデータベースに挿入します。
+[start=7]
+. アプリケーションを保存して実行します。以下の画像のように入力するカスタム値が保持されるのを確認します:
+
+*カスタム値を入力する前:*
+
+image::images\WebDropDown_Custom_Values_and_Presistence_01.png[]
+
+*"Biryani" というカスタム値を入力した後:*
+
+image::images\WebDropDown_Custom_Values_and_Presistence_02.png[]

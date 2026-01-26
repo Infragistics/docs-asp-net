@@ -1,0 +1,28 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-digit-appearance-tab",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{6937A68D-D999-4CAA-9CD9-CF4517336AB7}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 数字外観タブ
+
+[数字外観] タブは、デジタル ゲージ上のデータをカスタマイズするために使用されます。ゲージ エクスプローラで [デジタル ゲージ] をクリックする、またはインタラクティブなプレビュー領域でデジタル ゲージをクリックするのいずれかによって、このタブにアクセスできます。
+
+タブは以下の 2 つのペインに分割されています。
+
+* link:webgauge-font-brush-pane.html[フォント ブラシ]
+* link:webgauge-unlit-brush-pane.html[アンリット ブラシ]
+
+image::images/Digit_Appearance_Tab_01.png[]
+
+以下のスクリーンショットは、上記のスクリーンショットで指定された数字外観設定に基づいて作成されたデジタル ゲージを示しています。
+
+image::images/Digit_Appearance_Tab_02.png[]

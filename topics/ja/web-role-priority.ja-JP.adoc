@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-role-priority",
+    "controlName": [],
+    "tags": ["How Do I","Styling"],
+    "guid": "{B193F95F-A3E2-4421-A56A-9A42710E0C8A}",  
+    "buildFlags": [],
+    "createdOn": "2006-01-12T08:38:28Z"
+}
+|metadata|
+////
+
+= ロール優先
+
+ロールについて理解すべき重要事項は、「プロパティ」がロールに割り当てられることです。Application Styling Framework™（ASF）は優先順位を使用してそのロールを描画すべき時期を判断します。この描画順位は重要です。ロール継承を機能させることができるのが描画順位であるからです。
+
+Infragistics AppStylist™ for ASP.NET でスタイル ライブラリを作成した後、左手のペインのツリー構造に "Roles" ノードが表示されます。この Roles ノードの下で、コントロールを展開すると、そのコントロールで使用可能なロールが表示されます。優先順位は最初から最後です。つまりコントロールのセクションの最初のロールが最初に優先され、2 番目のロールが次に優先されるというようになります。
+
+以下の示す例のスクリーンショットは、WebTree のロールの優先順位を示しています。この優先順位にしたがって、ロールは Control、Island、Node、Parent、Leaf、Edit、Root、Hover、Selected、Disabled という順序で適用されます。したがって、Node ロールに定義するカスケード スタイル シート（CSS）ロールは、Parent ロールの同様のロールによって無効にされます。この例では、Node ロールの背景色を設定し、次に Parent ロールの背景色を定義すると、Parent Roleの背景色が表示されます。
+
+image::images/ASF_Role_Priority_01.png[]
+
+== 関連トピック
+
+link:web-ui-roles.html[UI ロール]
+
+link:web-role-inheritance.html[ロール継承]

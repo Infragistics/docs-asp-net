@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-about-webschedule-controls-and-components",
+    "controlName": ["WebSchedule"],
+    "tags": [],
+    "guid": "{6197D6FF-021D-4429-AD00-88D31EEFCDFE}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WebSchedule コントロールとコンポーネントについて
+
+WebSchedule™ コントロールでは、さまざまなユーザー/リソースについてスケジュールや予定を作成できます。WebSchedule は複数のコントロールおよびコンポーネントで構成されます。このコントロールのグループは、Microsoft® Outlook のカレンダーと同様のルック アンド フィールを持ちます。以下は機能および関連するコントロールおよびコンポーネントのリストです。
+
+予定およびアラーム - ダイアログが内蔵され、自動的に起動できます。
+
+定期的な予定 - Outlook スタイルの定期的な予定です。
+
+Multiple Resource View - アクティビティをチェックおよび比較するために複数のリソースを一緒に表示できます。AJAX サポート - すべての UI 操作は、単純なプロパティ設定から AJAX コールバックを使用して実行できます。
+
+Cascading Style Sheets（CSS）のサポート - ビューの外観をカスタマイズするために使用できるスタイル プロパティのフルセットも用意されています。
+
+WebSchedule™ コントロール群には、4 つのコントロールと 3 つのコンポーネントが含まれています。
+
+* link:web-webcalendarview.html[WebCalendarView]™ - このコントロールには 1 か月分の予定を表示できます。このビューを使用すると、予定が追加される日を強調表示スタイルで表示できます。WebSchedule ビューのすべてのビューと同じように、WebCalendarView は CSS スタイル ファイル、プリセット、およびランタイム スタイル オブジェクトで完全なスタイル サポートを提供します。
+* link:web-webdayview.html[WebDayView]™ - このコントロールにはスケジュールとカレンダーの情報が 1 日ずつ表示されます。各日は、予定が表示される時間間隔のタイムスロットに分割されます。自動的に表示される組み込み予定ダイアログに予定を追加または編集します。予定は全日にしたり複数日に延長することができます。予定は Microsoft Outlook と同じように重複させることもできます。
+* link:web-webmonthview.html[WebMonthView]™ -- スケジュールとカレンダーの情報が月単位で表示されます。各月は日に分割され、各日の中に表示され、そして関連するカレンダーおよび予定情報です。ユーザーは MonthView ヘッダー領域のナビゲーション矢印を使用して月をナビゲートできます。
+* link:web-webscheduleinfo.html[WebScheduleInfo]™ -- このコンポーネントは、さまざまな View 要素にすべてのスケジュール情報を提供します。複数の WebSchedule UI コントロールは、WebScheduleInfo のひとつのインスタンスに接続できます。このデザインで、データおよびナビゲーション位置は、すべての WebSchedule コントロールで自動的に同期されます。
+* link:web-webscheduleoledbprovider.html[WebScheduleOleDbProvider]™ -- OLEDB を使用して WebScheduleInfo の Activity/Resource オブジェクトをデータ ストアの中の表や行にバインドします。
+* link:web-webschedulesqlclientprovider.html[WebScheduleSqlProvider]™ -- SQL を使用して WebScheduleInfo の Activity/Resource オブジェクトをデータ ストアの中の表や行にバインドします。
+* link:webschedulegenericdataprovider-webschedulegenericdataprovider.html[WebScheduleGenericDataProvider]™ -- アクティビティ/リソース情報を任意のデータ ソースから取得できるようにします。
+
+== 関連トピック
+
+link:webschedule-getting-started-with-webschedule-controls-and-components.html[WebScheduleコントロールとコンポーネントを使用した作業の開始]
+
+link:webschedule-using-the-webschedule-controls-and-components.html[WebSchedule コントロールとコンポーネントの使用]
+
+link:web-deploying-webschedule-controls-and-components-landing.html[WebSchedule コントロールとコンポーネントの配備]

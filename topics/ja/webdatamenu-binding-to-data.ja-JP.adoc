@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatamenu-binding-to-data",
+    "controlName": ["WebDataMenu"],
+    "tags": ["Data Binding","Navigation"],
+    "guid": "{CF4E40E1-9C57-43F3-88B5-A63300B1C7B2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= データにバインド
+
+WebDataMenu™ は標準的な Microsoft データ ソース コントロールを含み広範なバインド可能なデータ ソースをサポートします。
+
+以下のリンクをクリックして、WebDataMenu をデータ ソースとバインドすることについてさらに学習します:
+
+* link:webdatamenu-binding-webdatamenu-to-webhierarchicaldatasource.html[WebDataMenu を WebHierarchicalDataSource にバインド]
+* link:webdatamenu-binding-webdatamenu-to-an-xml-data-source.html[XML データ ソースに WebDataMenu をバインド]

@@ -1,0 +1,81 @@
+﻿////
+
+|metadata|
+{
+    "name": "webtab-using-load-on-demand-in-webtab",
+    "controlName": ["WebTab"],
+    "tags": ["How Do I","Performance"],
+    "guid": "{0E55DDB1-F2AF-4EC6-AF50-2D46C12B42DF}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebTab でロードオンデマンドを使用
+
+WebTab™ は、ロードオンデマンド機能を有効にすることで、パフォーマンスを低下させることなく、非常に多数のタブを処理します。
+
+=== ロードオンデマンド機能を有効にするには
+
+[start=1]
+. Visual Studio™ ツールボックスから、ScriptManager コンポーネントと WebTab コントロールをページにドラッグ アンド ドロップします。
+[start=2]
+. link:webtab-getting-started-with-webtab.html[「タブを WebTab に追加」]トピックで説明されているようにタブを WebTab に追加します。
+[start=3]
+. [プロパティ] ウィンドウで  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.webtab~postbackoptions.html[PostBackOptions]"]  を展開し、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.tabpostbackoptions~enableloadondemand.html[EnableLoadOnDemand]"]  プロパティを選択して True に設定し、WebTab でロードオンデマンド機能を有効にします。以下のコードから、この機能を有効にすることもできます。
+
+*HTML の場合:*
+
+----
+<PostBackOptions EnableLoadOnDemand="True" />
+----
+
+*Visual Basic の場合：*
+
+----
+WebTab1.PostBackOptions.EnableLoadOnDemand = True
+----
+
+*C# の場合：*
+
+----
+WebTab1.PostBackOptions.EnableLoadOnDemand = true;
+----
+
+[start=4]
+. アプリケーションを保存して実行します。タブが選択されると、タブのコンテンツがフェッチされます。
+
+== 関連トピック
+
+link:webtab-about-webtab.html[WebTab について]
+
+link:webtab-getting-started-with-webtab.html[WebTabで開始]
+
+link:webtab-header-and-content-panes.html[ヘッダー ペイントとコンテンツ ペイン]
+
+link:webtab-tab-states.html[タブの状態]
+
+link:webtab-ajax-indicator-support-for-webtab.html[WebTab の Ajax インジケーターのサポート]
+
+link:webtab-display-modes.html[表示モード]
+
+link:webtab-animations.html[アニメーション]
+
+link:webtab-handling-overflow-in-webtab.html[WebTab でオーバーフローを処理]
+
+link:webtab-using-load-on-demand-for-tabs-with-content-url-set.html[コンテンツ Url を設定してタブにロードオンデマンドを使用]
+
+link:webtab-orientation-and-alignment.html[方向と配置]
+
+link:webtab-overlapping-tabs.html[タブの重複]
+
+link:webtab-tab-moving.html[タブの移動]
+
+link:webtab-scrolling.html[スクロール]
+
+link:webtab-validation-in-webtab.html[WebTab で検証]
+
+link:webtab-api-overview.html[API の概要]
+
+link:webtab-client-side-object-model.html[クライアント サイド オブジェクト モデル（CSOM）の概要]

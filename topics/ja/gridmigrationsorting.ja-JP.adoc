@@ -1,0 +1,223 @@
+﻿////
+
+|metadata|
+{
+    "name": "gridmigrationsorting",
+    "controlName": [],
+    "tags": [],
+    "guid": "1a29cc1f-db10-4778-9e01-153607e635fe",  
+    "buildFlags": [],
+    "createdOn": "2016-03-01T12:50:41.7182164Z"
+}
+|metadata|
+////
+
+= グリッドの移行 - 並べ替え
+
+並べ替え動作を使用すると、WebDataGrid (WDG) または WebHierarchicalDataGrid (WHDG) で 1 つ以上の列を並べ替えることができます。また、デベロッパーは、JavaScript またはコードビハインドのいずれかで、データを並べ替えることもできます。この機能を使用するためには、並べ替え動作を WDG または WHDG 動作コレクションに追加し、有効にする必要があります。
+
+[[_Toc292460955]]
+== 動作の有効化
+
+動作は、WDG または WHDG のプロパティ ウィンドウから有効にできます。
+
+[start=1]
+. Microsoft® Visual Studio™ のプロパティ ウィンドウで、動作のプロパティを検索し、省略記号（...）ボタンをクリックして動作の編集ダイアログを起動します。
+[start=2]
+. 左側の並べ替えの隣にあるチェック ボックスをチェックし、動作を追加して有効にします。
+
+*注* : この時点で、並べ替えに関連する他のプロパティ（たとえば、複数の列を同時に並べ替えることができるかどうかを制御する SortingMode）を構成できます。
+
+[start=2]
+. [OK] をクリックして、ダイアログを閉じます。WebDataGrid/WebHierarchicalDataGrid が、並べ替えのために設定されました。
+
+「並べ替え」動作は、WebDataGrid/WebHierarchicalDataGrid コントロールの.aspx ソース コードに追加することもできます。
+
+*ASPX の場合:*
+
+[source,html]
+----
+<Behaviors>               
+       <ig:Sorting>
+       </ig:Sorting>
+</Behaviors>
+----
+
+[[_Toc292460956]]
+==== WDG の並べ替えた列の追加
+
+*JavaScript の場合:*
+
+[source,js]
+----
+var grid = $find("WebDataGrid1");
+/* 並べ替え動作への参照を取得する * /
+var sorting = grid.get_behaviors().get_sorting();
+/* Sort a column, the second parameter is the sort direction and can
+be one of the following:
+0 - None, 1 - Ascending, 2 - Descending
+The third parameter is a boolean value indicating whether the 
+previous sort of column needs to be removed or not. */
+sorting.sortColumn(grid.get_columns().get_column(0), 1, false);
+----
+
+コールバックを使用せずに複数の列を並べ替えるには
+
+*JavaScript の場合:*
+
+[source,js]
+----
+var grid = $find("WebDataGrid1");
+/* 並べ替え動作への参照を取得する * /
+var sorting = grid.get_behaviors().get_sorting();
+/* Add several columns to be sorted.
+The second parameter is the sort direction and can
+be one of the following:
+0 - None, 1 - Ascending, 2 - Descending */ 
+sorting.addSortColumn(grid.get_columns().get_column(0), 1);
+sorting.addSortColumn(grid.get_columns().get_column(1), 2);
+/* apply sort を呼び出してサーバーに移動し、並べ替えを実行する* /
+sorting.applySort();
+----
+
+sorting clear() を呼び出して、すべての並べ替えを中止することができます。
+
+[[_Toc292460958]]
+==== コード ビハインド
+
+これは、データ バインディングの前に実行します。データ バインディングの後で実行した場合は、並べ替えを即座に有効にするために、グリッドで DataBind() を呼び出す必要があります。
+
+*C# の場合:*
+
+[source,csharp]
+----
+Sorting sorting = this.WebDataGrid1.Behaviors.Sorting;
+sorting.SortedColumns.Add("Column1", Infragistics.Web.UI.SortDirection.Ascending);
+----
+
+[[_Toc292460959]]
+==== WHDG の並べ替えた列の追加
+
+==== 最上位
+
+*JavaScript の場合:*
+
+[source,js]
+----
+/* コントロールを検索する * /
+var grid = $find("WebHierarchicalDataGrid1");
+/* ---------- トップの行アイランドの行を追加 -------- * /
+var topRowIsland = grid.get_gridView();
+/* 並べ替え動作への参照を取得する * /
+var sorting = topRowIsland.get_behaviors().get_sorting();
+/* Sort a column, the second parameter is the sort direction and can
+be one of the following:
+0 - None, 1 - Ascending, 2 - Descending
+The third parameter is a boolean value indicating whether the 
+previous sort of column needs to be removed or not. */
+sorting.sortColumn(grid.get_columns().get_column(0), 1, false);
+----
+
+==== 子レベル
+
+*JavaScript の場合:*
+
+[source,js]
+----
+/* コントロールを検索する * /
+var grid = $find("WebHierarchicalDataGrid1");
+/* トップの行アイランドの行を追加  * /
+var topRowIsland = grid.get_gridView();             
+var childGrid = topRowIsland.get_rows().get_row(3).get_rowIslands()[0];
+/* 並べ替え動作への参照を取得する * /
+var sorting = childGrid.get_behaviors().get_sorting();
+/* Sort a column, the second parameter is the sort direction and can
+be one of the following:
+0 - None, 1 - Ascending, 2 - Descending
+The third parameter is a boolean value indicating whether the 
+previous sort of column needs to be removed or not. */ 
+sorting.sortColumn(grid.get_columns().get_column(0), 1, false);
+----
+
+並べ替え動作への参照を取得後、WDG の場合と同じ方法で複数の列を 1 度に並べ替え、並べ替えをクリアすることができます
+
+[[_Toc292460961]]
+==== コード ビハインド
+
+列は、バンド レベルまたは行アイランド レベルで並べ替えることができます。行アイランド レベルで列を並べ替えるには、WDG と同じ方法で、RowIslandDataBinding イベントの並べ替え動作を取得し、列を行アイランドの並べ替え動作に追加しますこれをバンド レベルで実行するには、InitializeBand イベントを処理し、並べ替えた列をバンドの動作コレクションの並べ替え動作に追加します。
+
+[[_Toc292460962]]
+== 並べ替え動作のカスタマイズ
+
+並べ替え動作は、列ごとにカスタマイズできます。これは、SortingColumnSetting オブジェクトを作成し、並べ替え動作の ColumnSettings に追加することにより、実行できます。ASPX またはコード ビハインドで、動作の編集ダイアログから実行できます。
+
+ASPX では、次のようになります。
+
+*ASPX の場合:*
+
+[source,html]
+----
+<Behaviors>               
+          <ig:Sorting>
+        <ColumnSettings>
+            <ig:SortingColumnSetting ColumnKey="Time_Start" Sortable=" />
+        </ColumnSettings>
+    </ig:Sorting>
+</Behaviors>
+----
+
+[[_Toc292460964]]
+==== WDG コード ビハインド
+
+WDG の場合、これは、ページ ロード イベントで実行します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+/* 使用を容易にするための並べ替え動作の保存 * /            
+Sorting sorting = this.WebDataGrid1.Behaviors.Sorting;
+/* Column1 で並べ替えを許可しないこと * /
+SortingColumnSetting setting = new SortingColumnSetting();
+setting.ColumnKey = "Column1";
+setting.Sortable = false;
+sorting.ColumnSettings.Add(setting);
+----
+
+[[_Toc292460965]]
+==== WHDG コード ビハインド
+
+WHDG の場合、これは WHDG の InitializeBand イベントで実行します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+protected void Page_Load(object sender, EventArgs e)
+{
+      this.WebHierarchicalDataGrid1.InitializeBand += new InitializeBandEventHandler(WebHierarchicalDataGrid1_InitializeBand);
+}
+void WebHierarchicalDataGrid1_InitializeBand(object sender, BandEventArgs e)
+{
+      if (e.Band.DataMember == "Root")
+      {
+             /* 使用を容易にするための並べ替え動作の保存 * /            
+             Sorting sorting = e.Band.Behaviors.Sorting;
+             /* Column1 で並べ替えを許可しないこと * /
+             SortingColumnSetting setting = new SortingColumnSetting();
+             setting.ColumnKey = "Column1";
+             setting.Sortable = false;
+             sorting.ColumnSettings.Add(setting);
+      }
+      else if (e.Band.DataMember == "SecondLevel")
+      {
+             /* 使用を容易にするための並べ替え動作の保存 * /            
+             Sorting sorting = e.Band.Behaviors.Sorting;
+             /* ChildColumn1 で並べ替えを許可しないこと * /
+             SortingColumnSetting setting = new SortingColumnSetting();
+             setting.ColumnKey = "ChildColumn1";
+             setting.Sortable = false;
+             sorting.ColumnSettings.Add(setting);
+      }
+}
+----

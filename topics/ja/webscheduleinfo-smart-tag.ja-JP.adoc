@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "webscheduleinfo-smart-tag",
+    "controlName": ["WebScheduleInfo"],
+    "tags": [],
+    "guid": "{A267F335-A3A3-4C01-B02F-E29975D8E0B3}",  
+    "buildFlags": [],
+    "createdOn": "2007-04-02T21:36:03Z"
+}
+|metadata|
+////
+
+= WebScheduleInfo スマート タグ
+
+Visual Studio 2005（.NET Framework 2.0）では、それぞれの {ProductName} コントロール/コンポーネントが固有のスマート タグを備えています。コントロール/コンポーネントを選択するだけで、Smart Tag のアンカーが表示されます。このアンカーをクリックするとポップアップ パネルが表示され、そこからコントロール/コンポーネントの最もよく使用するプロパティや設定にすばやく簡単にアクセスできます。
+
+WebScheduleInfo のスマート タグには次のセクションが含まれています。
+
+* アクション -- よく使うタスク（クイック デザイナへのアクセスなど）を実行できます。
+
+各セクションの項目（フィールド、ドロップダウン リスト、チェックボックスなど）の説明は、下記を参照してください。
+
+image::images/WebScheduleInfo_The_WebScheduleInfo_Smart_Tag_01.png[]
+
+[options="header", cols="a,a,a"]
+|====
+|アクション|説明|対応するプロパティ
+
+|クイック デザイン
+|［クイック デザイン］をクリックすると、WebScheduleInfo デザイナが表示されます。これは、コントロールを右クリックしてコンテキスト メニューから [クイック デザイン] を選択するのと同じです。
+|なし
+
+|====

@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-recurrence",
+    "controlName": ["WebSchedule"],
+    "tags": [],
+    "guid": "{7BA76BDB-07FF-47A6-9A04-AF40F49B6CFD}",  
+    "buildFlags": [],
+    "createdOn": "2006-10-04T00:00:00Z"
+}
+|metadata|
+////
+
+= 定期的
+
+WebSchedule は繰り返し予定をサポートします。これらの予定は、繰り返し予定が動作する方法を制御する特定の規則セットに従います。[繰り返し] ダイアログで選択することによって、またはコードで予定を作成している場合には予定で設定することによって、これらの規則を有効または修正できます。
+
+* link:webschedule-how-recurrence-logic-is-executed.html[繰り返しロジックの実行方法]
+* link:webschedule-using-the-recurrence-pattern-dialog-box.html[定期的なパターン ダイアログ ボックスの使用]
+* link:webschedule-add-a-recurring-appointment-client-side.html[クライアント側の繰り返し予定を追加]
+* link:webschedule-add-a-recurring-appointment-server-side.html[サーバー側の繰り返し予定を追加]
+* link:webschedule-creating-and-modifying-a-recurring-appointment.html[繰り返し予定を作成および編集]
+* link:webschedule-delete-a-recurring-appointment-client-side.html[クライアント側の繰り返し予定を削除]
+* link:webschedule-delete-a-recurring-appointment-server-side.html[サーバー側の繰り返し予定を削除]
+* link:webschedule-update-a-recurring-appointment-client-side.html[クライアント側の定期的な予定をアップデート]
+* link:webschedule-update-a-recurring-appointment-server-side.html[サーバー側の定期的な予定をアップデート]

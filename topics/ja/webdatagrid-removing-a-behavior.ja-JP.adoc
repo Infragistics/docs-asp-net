@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-removing-a-behavior",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Grids"],
+    "guid": "{0CBF13F8-5A9F-4038-A948-8C75F20707EF}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 動作の削除
+
+動作を無効にするために  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.behaviors.html[Behaviors]"]  コレクションから動作を削除できます。削除する時に動作に依存した動作がある場合、これらの依存した動作も同時に削除することになります。Enabled プロパティを False に設定することによって削除することなく動作を無効にすることもできます。
+
+デザイン タイムに [動作エディター] ダイアログが表示して、削除したい動作のチェックマークを解除します。
+
+以下のコードは、WebDataGrid™ から Pager 動作を削除する方法を示します。 Paging プロパティは動作を参照するために使用されます。これはその他の動作を削除するのと同じプロセスです。動作の完全なリストについては link:webdatagrid-adding-a-behavior-at-runtime.html[ランタイムで動作を追加]を参照してください。
+
+*Visual Basic の場合:*
+
+----
+Me.WebDataGrid1.Behaviors.Remove(Me.WebDataGrid1.Behaviors.Paging)
+----
+
+*C# の場合:*
+
+----
+this.WebDataGrid1.Behaviors.Remove(this.WebDataGrid1.Behaviors.Paging);
+----

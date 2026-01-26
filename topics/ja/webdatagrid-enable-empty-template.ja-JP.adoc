@@ -1,0 +1,67 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-enable-empty-template",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Grids"],
+    "guid": "{9E5BC353-34DB-42B8-AD9B-93F9D8354714}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 空テンプレートを有効
+
+WebDataGrid™ には、データ ソースに行がない場合に表示されるカスタム表示をエンド ユーザーに提供するために使用できる空のテンプレートがあります。すべてのテンプレートと同様、カスタム メッセージをエンド ユーザーに提供するために空のテンプレート内にコントロールを配置できます。
+
+WebDataGrid を右クリックし、[テンプレートの編集] にマウスオーバーし、[テンプレートの制御] を選択してデザイン タイムに空のテンプレートを設定できます。これでコントロールを空のテンプレート表面にドラッグできます。
+
+以下のコードは、WebDataGrid がバインドされているが行がない場合にエンド ユーザーにメッセージを表示するカスタム テンプレートの作成方法を示します。テンプレートの作成と同様、ITemplate インタフェースを実装するクラスが必要です。
+
+image::images\WebDataGrid_Using_Empty_Template_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Protected Overloads Overrides Sub OnInit(ByVal e As EventArgs) 
+    MyBase.OnInit(e) 
+    'テンプレートはポストバックごとにインスタンス化される必要があります。 
+    Me.WebDataGrid1.EmptyRowsTemplate = New CustomEmptyRowsTemplate() 
+End Sub 
+Private Class CustomEmptyRowsTemplate 
+    Implements ITemplate 
+    #Region "ITemplate Members" 
+    Public Sub InstantiateIn(ByVal container As Control) Implements ITemplate.InstantiateIn
+        Dim label1 As New System.Web.UI.WebControls.Label() 
+        label1.Text = "No Records Exist in Data Source" 
+        label1.ID = "Label1" 
+        container.Controls.Add(label1) 
+    End Sub 
+    #End Region
+End Class
+----
+
+*C# の場合：*
+
+----
+protected override void OnInit(EventArgs e)
+{
+	base.OnInit(e);
+	//テンプレートはポストバックごとにインスタンス化される必要があります。
+	this.WebDataGrid1.EmptyRowsTemplate = new CustomEmptyRowsTemplate();
+}
+private class CustomEmptyRowsTemplate : ITemplate
+{
+	#region ITemplate Members
+	public void InstantiateIn(Control container)
+	{
+		System.Web.UI.WebControls.Label label1 = new System.Web.UI.WebControls.Label();
+		label1.Text = "No Records Exist in Data Source";
+		label1.ID = "Label1";
+		container.Controls.Add(label1);
+	}
+	#endregion
+}
+----

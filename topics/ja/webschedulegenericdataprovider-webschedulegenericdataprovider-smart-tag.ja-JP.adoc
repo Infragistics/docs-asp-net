@@ -1,0 +1,66 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedulegenericdataprovider-webschedulegenericdataprovider-smart-tag",
+    "controlName": [],
+    "tags": ["How Do I"],
+    "guid": "{FBAE144F-55AF-4342-8099-25F66E9C4F28}",  
+    "buildFlags": [],
+    "createdOn": "2009-12-10T17:17:42Z"
+}
+|metadata|
+////
+
+= WebScheduleGenericDataProvider スマート タグ
+
+各 {ProductName} コントロール/コンポーネントは、スマート タグが装備されています。コントロールやコンポーネントを選択するだけで、スマート タグのアンカーが表示されます。このアンカーをクリックするとポップアップ パネルが表示され、そこからコントロール/コンポーネントの最もよく使うプロパティや設定にすばやく簡単にアクセスできます。
+
+WebScheduleGenericDataProvider™ のスマート タグには次のセクションが含まれています。
+
+* アクション -- よく使うタスク（クイック デザイナーへのアクセスなど）を実行できます。
+* プロパティ -- よく使うプロパティへの容易なアクセスを提供します。
+
+各セクションの項目（フィールド、ドロップダウン リスト、チェックボックスなど）の説明は、下記を参照してください。
+
+image::images/WebScheduleGenericDataProvider_WebScheduleGenericDataProvider_Smart_Tag_01.png[]
+
+[options="header", cols="a,a,a"]
+|====
+|操作|説明|対応するプロパティ
+
+|クイック デザイン
+|［クイック デザイン］をクリックすると、WebScheduleGenericDataProvider デザイナーが表示されます。これは、コントロールを右クリックしてコンテキスト メニューから ［クイック デザイン］ を選択するのと同じです。
+|なし
+
+|====
+
+[options="header", cols="a,a,a"]
+|====
+|プロパティ|説明|対応するプロパティ
+
+|WebScheduleInfoID
+|ドロップダウン リストを使用して WebScheduleGenericDataProvider に関連付けるために WebScheduleInfo を選択します。
+| link:{ApiPlatform}webui.webscheduledataprovider{ApiVersion}~infragistics.webui.data.webscheduledataproviderbase~webscheduleinfoid.html[WebScheduleInfoID]
+
+|ActivityDataSourceID
+|ドロップダウン ボックスを使用して、Activity データにバインドするためのデータ ソース コントロールを選択します。
+| link:{ApiPlatform}webui.webscheduledataprovider{ApiVersion}~infragistics.webui.data.webschedulegenericdataprovider~activitydatasourceid.html[ActivityDataSourceID]
+
+|VarianceDataSourceID
+|ドロップダウン ボックスを使用して、Variance データにバインドするためのデータ ソース コントロールを選択します。
+| link:{ApiPlatform}webui.webscheduledataprovider{ApiVersion}~infragistics.webui.data.webschedulegenericdataprovider~variancedatasourceid.html[VarianceDataSourceID]
+
+|ResourceDataSourceId
+|ドロップダウン ボックスを使用して、Resource データにバインドするためのデータ ソース コントロールを選択します。
+| link:{ApiPlatform}webui.webscheduledataprovider{ApiVersion}~infragistics.webui.data.webschedulegenericdataprovider~resourcedatasourceid.html[ResourceDataSourceID]
+
+|====
+
+== 関連トピック
+
+link:webschedulegenericdataprovider-webschedulegenericdataprovider.html[WebScheduleGenericDataProvider]
+
+link:webschedule-webschedulegenericdataprovider-crud-statements-for-sql-data-source.html[SQL データ ソース用の WebScheduleGenericDataProvider CRUD ステートメント]
+
+link:webschedule-binding-to-access-data-source-using-webschedulegenericdataprovider.html[WebScheduleGenericDataSource を使用して Access データ ソースにバインド]

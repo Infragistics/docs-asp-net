@@ -1,0 +1,47 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-column-templates",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Grids","Templating"],
+    "guid": "{698B10A6-F26E-45F1-90C7-4F5491C84F94}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 列テンプレート
+
+== カスタム列
+
+WebDataGrid™ は列テンプレートを使用してカスタム列を作成するための機能を提供します。カスタム機能と共に列にユニークなルック アンド フィールを作成してテンプレート内にコントロールを埋め込むことができます。
+
+== 列のテンプレート
+
+列にセル、隔行セル、ヘッダー、およびフッター テンプレートを提供できます。列に固有のテンプレートを設定することは、テンプレートが要素の代わりに描画されることを意味します。たとえば、列のための項目テンプレートを指定することで、その列内のすべてのセルのためのテンプレートが作成されます。
+
+列全体をテンプレート列にすることなく、項目テンプレートを指定することもできます。列内の各セルには、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.controldataitem~template.html[Template]"]  プロパティと  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.controldataitem~templateid.html[TemplateId]"]  プロパティがあります。個々のセルのテンプレートを定義するためにこれらのプロパティのいずれかを設定できます。
+
+== テンプレート内のコントロールの参照
+
+項目テンプレート内のコントロールにアクセスするには、その項目にアクセスし  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.controldataitem~findcontrol.html[FindControl]"]  メソッドを呼び出すことによって可能となります。
+
+pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.gridfieldcaption.html[Header]"]  テンプレートと  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.gridfieldcaption.html[Footer]"]  テンプレートに関しては、各オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.fieldcaption~templatecontainer.html[TemplateContainer]"]  プロパティを使用して、テンプレートへの参照を取得できます。FindControl メソッドを使用してコントロールを探してください。
+
+== テンプレートの編集
+
+列のテンプレートは列の内の HTML に過ぎません。HTML を編集できないようにするには列を読み取り専用にする必要があります。これを実行することによってエンドユーザーはテンプレートで任意のエディターを使用して編集することが可能となりますが、テンプレートの実際的なマークアップを編集できません。動作の列設定の追加の詳細は、 link:webdatagrid-setting-column-settings-for-a-behavior.html[動作に列設定を設定]を参照してください。
+
+== データ バインディング
+
+列テンプレートを使用することは、テンプレートのエディター コントロールと WebDataGrid のフィールドからのデータの間でデータ バインディングを取得するのではないことを意味します。エディターコントロールでその列からデータを表示するためにエディターがバインドする必要がある列を指定する必要があります。
+
+データ バインディング エディターを使用してバインディングを指定できます。カスタム バインディングの詳細は、 link:webdatagrid-template-control-bindings.html[テンプレート コントロールバインディング]を参照してください。
+
+== 関連トピック
+
+link:webdatagrid-refrence-a-cell-when-creating-an-item-template.html[項目テンプレートの作成時にセルを参照]
+
+link:webdatagrid-using-item-template.html[項目テンプレートの使用]

@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcalendarview-use-editable-designer-regions-in-webcalendarview",
+    "controlName": ["WebCalendarView"],
+    "tags": ["How Do I"],
+    "guid": "{1C791E2B-B257-4F7B-B4C9-C35D879C73DA}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebCalendarView で編集可能なデザイナ領域を使用
+
+Visual Studio 2005（.NET Framework 2.0）では、デザインタイム テンプレートの代わりに、編集可能な領域が使用されます。この編集可能領域は、常に編集モードで表示される単なるテンプレートです。Visual Studio 2005 では、すべての Web 要素を 1 回の操作で編集可能領域へドラッグできるので、Visual Studio 2002/2003 のように編集テンプレート機能を使用する必要はありません。
+
+WebCalendarView には、カレンダーのフッタに編集可能なデザイナ領域があります。フッタをクリックするだけで、この領域が青い境界線で囲まれます。その後、フッタでの編集を行えます。
+
+image::images/WebSchedule_Using_Editable_Designer_Regions_in_the_WebCalendarView_01.png[]
+
+image::images/WebSchedule_Using_Editable_Designer_Regions_in_the_WebCalendarView_02.png[]

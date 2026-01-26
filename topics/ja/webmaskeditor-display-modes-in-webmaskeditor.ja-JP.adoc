@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "webmaskeditor-display-modes-in-webmaskeditor",
+    "controlName": ["WebMaskEditor"],
+    "tags": ["Editing","How Do I","Styling"],
+    "guid": "{9CF62C6C-B2A4-4A32-946C-9CEEBC2BA563}",  
+    "buildFlags": [],
+    "createdOn": "2009-03-06T16:13:23Z"
+}
+|metadata|
+////
+
+= WebMaskEditor の表示モード
+
+WebMaskEditor™ は、コントロールがフォーカスおよびデータを持たない時にテキストを表示する方法について 2 つの異なるオプションをユーザーに提供します。コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webmaskeditor~displaymode.html[DisplayMode]"]  プロパティを設定するだけで、このオプションを設定できます。
+
+Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、DisplayMode プロパティを  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.maskdisplaymode.html[MaskDisplayMode]"]  列挙体のいずれかのメンバーに設定できます。
+
+*Visual Basic の場合：*
+
+----
+WebMaskEditor1.DisplayMode = Infragistics.Web.UI.EditorControls.MaskDisplayMode.Mask
+----
+
+*C# の場合：*
+
+----
+WebMaskEditor1.DisplayMode = Infragistics.Web.UI.EditorControls.MaskDisplayMode.Mask;
+----

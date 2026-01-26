@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-setting-up-the-image-deployment",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{9D6299CE-996A-4E41-AB58-81AD91337758}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 画像配備の設定
+
+この時点で、アプリケーションを実行する前に、配備シナリオを選択および構成する必要があります。使用可能な配備のシナリオは 2 つあります。ひとつのシナリオで、ゲージ画像を作成して、Web サーバーのハードディスクに書き込むことができます。もうひとつのシナリオでは、画像を作成してセッション状態で保存できます。この例を起動および実行するには、以下のいずれかの配備のシナリオを選択してください。
+
+* link:webgauge-file-system-deployment.html[ファイル システム配備]
+* link:webgauge-session-deployment.html[セッション配備]

@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatagrid-editing-behavior-overview",
+    "controlName": [],
+    "tags": [],
+    "guid": "b76092fd-7d30-4a29-bdf7-9045fe9cd586",  
+    "buildFlags": [],
+    "createdOn": "2014-03-10T17:09:53.6330301Z"
+}
+|metadata|
+////
+
+= 編集動作の概要
+
+WebHierarchicalDataGrid™ はデフォルトで読み取り専用です。コントロールによる操作を可能にするために、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.behaviors~editingcore.html[EditingCore]"]  動作を有効にする必要があります。EditingCore を有効にした後に WebHierarchicalDataGrid をコードで編集できます。ただし、WebHierarchicalDataGrid の UI を使用してデータを編集、削除、追加することをエンド ユーザーに許可する場合は、追加の動作を有効にする必要があります。ユーザー操作特有の依存動作です。編集が有効になると、データ ソースへのデータの更新がただちにコミットされます。
+
+*注:*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.framework.data.flatdataboundcontrol~datakeyfields.html[DataKeyFields]"]  プロパティをデータ ソースの主要なキー列名に設定して、WebHierarchicalDataGrid での変更がデータ ソースで更新可能であることを保証します。
+
+== 依存動作
+
+* *セル編集* – WebHierarchicalDataGrid のセルでデータ操作を可能にします。エンド ユーザーはこの動作が有効な時にデータを編集することができます。
+* *行編集* - 行全体を編集モードに入る編集オプション。変更を保存するには [完了] ボタンを使用し、変更をキャンセルするには [キャンセル] ボタンを使用します。
+* *行の追加* - この動作を有効にする場合、ユーザーが WebHierarchicalDataGrid に新しい行を追加するインターフェイスを作成します。空の行はコントロールの上または下に配置されます。
+* *行の削除* – データ削除を可能にします。削除するには、エンド ユーザーは行を選択して Delete キーを押すことができます。
+* *行編集テンプレート* – 作成するテンプレートによって行のデータ操作を可能にします。
+
+*注:* これらの動作はすべて EditCore 動作に依存します。EditCore 動作を削除すると、これらの動作も削除されます。
+
+WebHierarchicalDataGrid での編集の詳細は、以下のリンクをクリックしてください。
+
+* link:webhierarchicaldatagrid-cell-editing.html[セルの編集]
+* link:whdg-row-editing.html[行編集]
+* link:webhierarchicaldatagrid-batch-updating.html[一括更新]
+* link:whdg-row-deleting.html[行削除]
+* link:whdg-row-adding.html[行の追加]

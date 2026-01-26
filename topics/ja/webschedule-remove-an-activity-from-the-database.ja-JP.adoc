@@ -1,0 +1,66 @@
+﻿////
+|metadata|
+{
+    "name": "webschedule-remove-an-activity-from-the-database",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling"],
+    "guid": "{970F415E-02FA-4964-9B02-798B929578E4}",
+    "buildFlags": [],
+    "createdOn": "2005-07-09T00:00:00Z"
+}
+|metadata|
+////
+
+= アクティビティをデータベースから削除
+
+サーバー側ののコードビハインドで、データベースから既存の pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[アクティビティ]"] を削除できます。[予定の編集] ダイアログの外でアクティビティを削除するように、またはメンテナンスの一環として年のしきい値（ _つまり_  12 カ月）を超えたアクティビティをクリーンアップするようにアプリケーションに指示する時にこれが必要となる場合があります。
+
+この例は、 link:webschedule-locate-an-activity.html[「アクティビティを見つけ出す方法」]のトピックを使用します。
+
+ASP.NET ボタンを「RemoveButton1」という名前の WebForm に追加し、その Click イベントを処理します。イベントハンドラ RemoveButton1_Click で、削除する Activity オブジェクトを探して（TextBox への入力またはその他のユーザー選択基準からこのオブジェクトを取得することができます）、データ プロバイダで  pick:[asp-net="link:{ApiPlatform}webui.webscheduledataprovider{ApiVersion}~infragistics.webui.data.webscheduledbprovider~removeactivity.html[RemoveActivity]"]  メソッドを呼び出します。
+
+*Visual Basic の場合：* 
+
+---- 
+Imports Infragistics.WebUI.Shared 
+Imports Infragistics.WebUI.WebSchedule 
+... 
+Private Sub RemoveButton1_Click(ByVal sender As Object, _ 
+	ByVal e As EventArgs) Handles RemoveButton1.Click 
+	'削除する Appointment オブジェクトを見つけ出します。 
+	Dim appt As Appointment = Me.FindAppointment() 
+	'データベースからその Appointment を削除します。 
+	Me.WebScheduleSqlClientDataProvider1.RemoveActivity(appt) 
+End Sub
+---- 
+
+*C# の場合：*
+
+---- 
+using Infragistics.WebUI.Shared; 
+using Infragistics.WebUI.WebSchedule; 
+... 
+private void RemoveButton1_Click(object sender, EventArgs e) 
+{ 
+	// 削除する Appointment オブジェクトを見つけ出します。 
+	Appointment appt = this.FindAppointment(); 
+	// データベースからその Appointment を削除します。 
+	this.WebScheduleSqlClientDataProvider1.RemoveActivity(appt); 
+}
+---- 
+
+*注：* この例は Microsoft SQL Server データプロバイダが使用されていることを示していますが、これは OLE DB を含む WebScheduleDbProvider から派生した任意のデータプロバイダと連動します。 
+
+== 関連トピック
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[WebSchedule 名前空間]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo.html[WebScheduleInfo クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webdayview.html[WebDayView クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webmonthview.html[WebMonthView クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.appointment.html[Appointment クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[Activity オブジェクト]"]

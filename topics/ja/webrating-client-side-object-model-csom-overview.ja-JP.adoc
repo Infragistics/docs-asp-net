@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "webrating-client-side-object-model-csom-overview",
+    "controlName": ["WebRating"],
+    "tags": ["API","Selection"],
+    "guid": "34a73ba5-2c3b-480e-aa90-fd6af50637c2",  
+    "buildFlags": [],
+    "createdOn": "2010-06-01T04:48:56.0607535Z"
+}
+|metadata|
+////
+
+= クライアント側オブジェクト モデル（CSOM）の概要
+
+WebRating™ コントロールは、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを提供します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクトで構成され、開発者はサーバー側にポストバックしなくても、コントロールに関連する重要な機能単位をプログラムできます。
+
+link:webrating~infragistics.web.ui_namespace.html[WebRating CSOM の概要]

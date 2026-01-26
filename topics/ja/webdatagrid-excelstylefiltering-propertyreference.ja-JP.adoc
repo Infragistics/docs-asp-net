@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-excelstylefiltering-propertyreference",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Filtering","Grids"],
+    "guid": "1c76a9d5-d7ac-4d35-8ddf-a489ed734f16",  
+    "buildFlags": [],
+    "createdOn": "2012-07-16T12:51:56.3146029Z"
+}
+|metadata|
+////
+
+= Excel フィルタリングのプロパティ リファレンス
+
+== プロパティ リファレンス
+
+=== はじめに
+
+このトピックは、 _WebDataGrid_™ コントロールの link:webdatagrid-excelstylefiltering-overview.html[Excel フィルタリング]機能のプロパティについての情報を提供します。
+
+=== プロパティ リファレンス表
+
+以下の表は、 _WebDataGrid_   コントロールの Excel フィルタリング機能のプロパティの目的と機能を説明します。
+
+[options="header", cols="a,a"]
+|====
+|プロパティ|解説
+
+| link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.filtering~uniquevaluecasing.html[UniqueValueCasing]
+|フィルタリング ドロップダウンの項目の大文字化を設定します。利用可能な値: 
+
+* _Lower_ (デフォルト) – 項目は小文字で表示されます 
+
+* _Upper_ - 項目は大文字で表示されます 
+
+* _Camel_ - 項目は英語の文字の大文字化で表示されます。項目の最初の文字のみは大文字で表示されます。 
+
+| link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.filtering~nullvaluetext.html[NullValueText]
+|データ ソースで Null 値がある列のフィルタリング ドロップダウンの項目の値を構成します。
+
+|====

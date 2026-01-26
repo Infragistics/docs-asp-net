@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcaptcha-protection-modes",
+    "controlName": ["WebCaptcha"],
+    "tags": ["Validation"],
+    "guid": "cb4b3b45-a16e-41d4-8785-d5939b1ed284",  
+    "buildFlags": [],
+    "createdOn": "2010-05-31T12:54:49.0672229Z"
+}
+|metadata|
+////
+
+= 保護モード
+
+WebCaptcha™ コントロールは、自動化されたフォームの提出に対して以下のような 3 種類の基本的な保護を提供します。
+
+[start=1]
+. キャプチャ link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webcaptcha~protectionmode.html[ProtectionMode] - これはデフォルトのモードです。このモードでは、エンドユーザーはランダムに生成された文字、ワード、または事前に定義した質問に対する回答を入力する必要があります。これらのいずれかを指定する方法については、 link:webcaptcha-dictionary-modes.html[「辞書モード」]トピックを参照してください。
+[start=2]
+. Invisible Input Field link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webcaptcha~protectionmode.html[ProtectionMode] - このモードでは、コントロールは追加の入力要素を描画します。これはエンドユーザーには非表示です。したがって、このフィールドに対して編集を行うと、ボットによって行われたと想定されて、検証が失敗します。
+[start=3]
+. Form Submission Timeout link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webcaptcha~protectionmode.html[ProtectionMode] - このモードでは、コントロールは link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webcaptcha~formsubmissiontimeoutseconds.html[FormSubmissionTimeoutSeconds] プロパティによって定義された秒数をカウントします。これらの秒数が経過する前にフォームが提出されると、検証は失敗します。
+
+*注:* Invisible Input Field および Form Submission Timeout Protection モードの両方では、UI 要素は描画されません。
+
+
+== 関連トピック
+
+link:webcaptcha-dictionary-modes.html[辞書モード]
+
+link:webcaptcha-captcha-validation.html[キャプチャの検証]
+
+link:webcaptcha-configuring-captcha-buttons.html[キャプチャ ボタンの構成]
+
+link:webcaptcha-configuring-captcha-image-properties.html[キャプチャ画像プロパティの構成]
+
+link:webcaptcha-configuring-captcha-input-field.html[キャプチャ入力フィールドの構成]
+
+link:webcaptcha-configuring-captcha-audio.html[キャプチャ オーディオの構成]

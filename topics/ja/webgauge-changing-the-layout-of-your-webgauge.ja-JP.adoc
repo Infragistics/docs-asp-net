@@ -1,0 +1,30 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-changing-the-layout-of-your-webgauge",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{1C48DCD6-43F4-49A4-91FC-62EDA702BF91}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebGauge のレイアウトの変更
+
+[プロパティ] パネルは、ゲージのコンポーネントのレイアウト方法を修正するために使用できる多数の異なるレイアウト タブを提供します。たとえば、[目盛レイアウト] タブを使用して、ラジアル ゲージの目盛の間にどのくらいスペースをあけるのかを指定できます。
+
+[プロパティ] パネルで使用可能な [レイアウト] タブそれぞれの説明については、以下のリンクをクリックしてください。
+
+* link:webgauge-anchor-layout-tab.html[アンカー レイアウト タブ]
+* link:webgauge-back-anchor-layout-tab.html[バック アンカー レイアウト タブ]
+* link:webgauge-bar-marker-layout-tab.html[バー マーカー レイアウト タブ]
+* link:webgauge-dial-layout-tab.html[目盛盤レイアウト タブ]
+* link:webgauge-gauge-layout-tab.html[ゲージ レイアウト タブ]
+* link:webgauge-labels-layout-tab.html[ラベル レイアウト タブ]
+* link:webgauge-needle-marker-layout-tab.html[針マーカー レイアウト タブ]
+* link:webgauge-range-layout-tab.html[レンジ レイアウト タブ]
+* link:webgauge-scale-layout-tab.html[スケール レイアウト タブ]
+* link:webgauge-tickmark-layout-tab.html[目盛レイアウト タブ]

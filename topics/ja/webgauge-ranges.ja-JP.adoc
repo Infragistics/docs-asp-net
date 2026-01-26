@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-ranges",
+    "controlName": ["WebGauge"],
+    "tags": [],
+    "guid": "929706ec-c075-4e30-9a31-cb2cfd0f1b33",  
+    "buildFlags": [],
+    "createdOn": "2012-04-23T12:13:59.6304005Z"
+}
+|metadata|
+////
+
+= 範囲
+
+このセクションは、レンジをゲージのスケールに追加する方法に関するタスクベースの手順だけでなく、Gauge コントロールの  pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.gaugerange.html[Ranges]"]  プロパティについて役に立つ情報を提供します。
+
+* link:webgauge-about-gauge-ranges.html[ゲージ レンジについて]
+* link:webgauge-add-a-range-to-a-gauge.html[範囲をゲージに追加]

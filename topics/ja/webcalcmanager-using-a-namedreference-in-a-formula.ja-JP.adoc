@@ -1,0 +1,47 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcalcmanager-using-a-namedreference-in-a-formula",
+    "controlName": ["WebCalcManager"],
+    "tags": ["Application Scenarios","How Do I"],
+    "guid": "{979F0A6F-25C0-4CE3-A40A-967083A4E7CD}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 数式で NamedReference を使用する
+
+NamedReferenceとは、実質的にはコントロールに依存しない数式です。NamedReferences にはさまざまな用途があります。たとえば、計算式の中だけで使用し、エンド ユーザーに見せる必要がない定数や数式を定義する際に使用できます。
+
+NamedReferences の最も重要なプロパティを以下に示します。
+
+[options="header", cols="a,a"]
+|====
+|プロパティ名|説明
+
+|Category
+|フォーミュラ ビルダーによって NamedReferences を分類するために使用します。
+
+|Key
+|この NamedReference の一意のキー。Key は、数式内で NamedReference を参照するときに使用します。
+
+|Formula
+|この NamedReference の数式。NamedReference を定数として使用するため、Formula にはリテラルを指定できます。
+
+|FormulaResult（ランタイムのみ）
+|FormulaResult は数式の計算結果を返します。
+
+|====
+
+[start=1]
+. NamedReference を追加するには、 pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.ultrawebcalcmanager.ultrawebcalcmanager.html[UltraWebCalcManager]"]  コンポーネントの NamedReferences プロパティで、省略（...）ボタンをクリックしてコレクションエディターを開きます。[追加] ボタンをクリックすると、新しい NamedReference がコレクションに追加されます。
+[start=2]
+. 定数を作成するには、単にリテラル値を Formula に割り当てます。たとえば、"Pi" という Key を持つ NamedReference を定義し、Formula を "3.1415" に設定します。
+
+image::Images\WebCalcManager_Overview_Named_References_01.png[]
+
+[start=3]
+. 数式の中でNamedReferenceを使用するには、NamedReferenceのKeyを角カッコで囲み、2重のスラッシュを付けます（例："[//Pi] $$*$$ [//Radius]^2"）。

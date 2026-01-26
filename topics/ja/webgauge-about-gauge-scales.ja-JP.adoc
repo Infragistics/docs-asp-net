@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-about-gauge-scales",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{46202CBB-8C14-459A-85CA-A8358F41768B}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ゲージ スケールについて
+
+Gauge コントロールの  pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgauge~scales.html[Scales]"]  プロパティは、リニア ゲージまたはラジアル ゲージに値のレンジを表示するために使用されます。スケールは、ゲージの開始および終了の測定点を示すために使用されます。
+
+以下のスクリーンショットは、スケールが付いたラジアル ゲージの例を示しています。
+
+image::images/Gauge_Scales_01.png[]
+
+== 関連トピック
+
+link:webgauge-add-a-scale-to-a-gauge.html[スケールをゲージに追加]

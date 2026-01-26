@@ -1,0 +1,60 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-understanding-styles",
+    "controlName": [],
+    "tags": ["Getting Started","How Do I","Styling"],
+    "guid": "{C4F6FFB1-B2E9-451D-8534-D9D7BB9800EC}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-06T00:00:00Z"
+}
+|metadata|
+////
+
+= スタイルの理解
+
+{ProductName} 要素は、コントロールにスタイルを追加する複数の強力であるが柔軟な手段を提供します。
+
+=== アプリケーション スタイリング
+
+アプリケーション スタイリングは、開発者とグラフィック デザイナーのより効率的な協力を可能にする ASP.NET 開発の画期的な概念です。開発者はアプリケーションを作成しますが、その間同時にグラフィックデザイナーはそのアプリケーションで使用できるスタイルを作成します。終了すると、グラフィックデザイナーはスタイル ライブラリを、コード 1 行のみでアプリケーションにロードする開発者に渡します。スタイリッシュなルック アンドフィールの世界クラスのアプリケーションを開発することがこれほど簡単なことは今までありませんでした。個人商店または大企業のいずれを経営しているかにかかわらず、すべての人が Infragistics® link:web-application-styling-framework-asf.html[Application Styling Framework (ASF)] のメリットを享受できます。メリットの鍵が、Infragistics の Infragistics AppStylist® の中にあります。
+
+Infragistics AppStylist は、Microsoft® Visual Studio® IDE の外で実行するスタンドアローンのアプリケーションです。単純なポイント アンド クリックのインターフェイスを使用してキャンバスのスタイル変更を確認します。ユーザー インターフェイスは 3 つの直感的なセクションに分割されています。
+* 
+
+link:webappstylist-canvas.html[キャンバス] – このセクションは、スタイルの設定を変更した時に動的に更新する現在のスタイルの例を示します。
+link:webappstylist-style-explorer.html[スタイル エクスプローラ] – このセクションでは、修正したいスタイルを選択でき、ユーザー インターフェイスまたは個々のコンポーネントとしての役割を果たすロールに基づいてスタイルを変更できます。
+link:webappstylist-properties-panel.html[プロパティ パネル] – このセクションで、異なる状態のルック アンド フィールを変更するためにほとんどの時間を費やします。
+
+アプリケーション スタイリング API に反して開発を行っている開発者は、 link:web-setting-up-your-project-for-styling.html[スタイリングのためにプロジェクトを設定]を参照してください。一方、グラフィック デザイナーの場合には、 link:web-styling-your-application.html[アプリケーションのスタイリング]を参照してください。
+
+=== Style オブジェクト
+
+{ProductName} 要素はしばしば独自のコントロールと要素を組み合わせて作られることがあります。そのため、ユーザーは個々の要素のスタイルを作り出すことができることになります。これらのスタイル オブジェクトを理解すると、AppStylist の使用方法を理解する上で役に立ちます。一般に、コントロール各部のスタイル情報にはコントロールのプロパティを通じてアクセスします。これらのプロパティは、Infragistics.WebUI.Shared.Style オブジェクトから継承したオブジェクトを公開します。基本の Style オブジェクトには、コントロールのすべてのオブジェクトに適用できる書式設定が含まれます。通常のスタイル属性には、前景色、背景色、フォント設定、枠スタイルの各属性が含まれます。Style クラスのコントロール固有の派生クラスによってコントロールの特定領域のスタイルを指定できます。
+
+たとえば、UltraWebTab コントロールで選択したタブの背景色を変更したい場合、UltraWebTab が提供する SelectedTabStyle オブジェクトの BackColor プロパティを変更します。
+
+*Visual Basic の場合：*
+
+----
+Me.UltraWebTab1.SelectedTabStyle.BackColor = Color.LightGray
+----
+
+*C# の場合：*
+
+----
+this.UltraWebTab1.SelectedTabStyle.BackColor = Color.LightGray;
+----
+
+=== CSS スタイル
+
+{ProductName} コントロールによって提供されるすべてのスタイル オブジェクトは、書式を指定するために Cascading StyleSheets の使用を許可します。
+
+たとえば、WebGrid で以下に示すコードを使用する場合、Cascading StyleSheet で定義した自分自身のスタイルに CellStyle を設定できます。
+
+----
+grid.Bands(0).Columns(0).CellStyle.CssClass = "Headline"
+----
+
+CSS クラス名にこの値を設定する場合、スタイル オブジェクト書式定義の代わりに Cascading StyleSheet の書式定義を使用します。

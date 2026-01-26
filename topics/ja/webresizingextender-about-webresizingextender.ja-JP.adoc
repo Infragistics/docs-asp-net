@@ -1,0 +1,38 @@
+﻿////
+
+|metadata|
+{
+    "name": "webresizingextender-about-webresizingextender",
+    "controlName": ["WebResizingExtender"],
+    "tags": ["Extending","Getting Started"],
+    "guid": "{30421DED-BE84-4A91-ADBD-97E1E472D0F1}",  
+    "buildFlags": [],
+    "createdOn": "2006-08-12T14:12:57Z"
+}
+|metadata|
+////
+
+= WebResizingExtender について
+
+WebResizingExtender コントロールは、 link:http://ajax.asp.net/default.aspx?tabid=47[Microsoft® ASP.NET 2.0 AJAX 拡張]に基づいており、任意のパネル、または DIV エレメントなどのコンテナのサイズを変更する機能を提供します。サポートされるパネルのリストは以下のとおりです。
+
+* Microsoft® Panel
+* Microsoft UpdatePanel
+* Infragistics WebPanel™
+* Infragistics WebAsyncRefreshPanel™
+* 以下の HTML 要素
+
+** TABLE
+** SPAN
+** TD
+** DIV
+** INPUT
+
+以下は WebResizingExtender の使用例です。
+
+Web フォームには、以下の 2 つの領域があります:
+
+* すべてのコンテンツが表示されるメイン ウィンドウ
+* メイン ウィンドウに表示されるコンテンツへの変更を指定するサイド ウィンドウ。サイド ウィンドウのコンテンツはパネル コントロール内にすべて含まれます。
+
+アプリケーションの一部のエンド ユーザーが経験する問題は、モニタ サイズの解像度の違いによって、サイド ウィンドウが使用する画面領域が多すぎることが原因です。WebResizingExtender をそのパネルに関連づけることによって、エンド ユーザーは希望のサイズに領域のサイズを変更できます。

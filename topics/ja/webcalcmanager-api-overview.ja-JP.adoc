@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcalcmanager-api-overview",
+    "controlName": ["WebCalcManager"],
+    "tags": ["API"],
+    "guid": "{8CCBF312-D1C7-48FD-B3CF-10397D24DAF6}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションではコントロールに関連する各名前空間を示します。このコントロールでプログラムする間に使用するいくつかのキー クラスも提供します。このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+[cols="a,a"]
+|====
+|*CalcEngine 名前空間:* 
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine_namespace.html[Infragistics.WebUI.CalcEngine]"]
+|*キー クラス：* 
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunction.html[UltraCalcFunction]"]
+
+|*WebCalcManager 名前空間:* 
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.ultrawebcalcmanager_namespace.html[Infragistics.WebUI.UltraWebCalcManager]"]
+|*キー クラス：* 
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.ultrawebcalcmanager.ultrawebcalcmanager.html[UltraWebCalcManager]"] 
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.ultrawebcalcmanager.calcsettings.html[CalcSettings]"]
+
+|====

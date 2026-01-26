@@ -1,0 +1,116 @@
+﻿////
+
+|metadata|
+{
+    "name": "webexplorerbar-clientside-api",
+    "controlName": ["WebExplorerBar"],
+    "tags": ["API","Events","How Do I"],
+    "guid": "{EB50FE39-EEE8-4F1A-A33F-EDD39000C147}",  
+    "buildFlags": [],
+    "createdOn": "2010-01-03T22:51:56Z"
+}
+|metadata|
+////
+
+= ClientSide API
+
+このトピックの目的は、WebExplorerBar™ の基本的なクライアント側メソッドの使用を説明することです。
+
+== 次の手順を実行します
+
+[start=1]
+. すべての {ProductName} AJAX ベースのコントロールのように、WebExplorerBar はコントロールの ClientID でクライアント側オブジェクトを作成します。参照を取得するには、以下のコードを使用してください。
+
+*JavaScript の場合*
+
+----
+var explorerBar = $find('<%= WebExplorerBar1.ClientID %>');
+----
+
+[start=2]
+. クライアント側オブジェクトでコントロールを取得したら、 link:webexplorerbar~infragistics.web.ui.webexplorerbar~selectgroup.html[selectGroup] を使用してグループまたは項目を選択/切り替えることができます。このメソッドには次の 3 つの引数を取得します。
+
+** 指定したグループのインデックス。
+** ブール値。項目が選択/選択解除されるかどうかを指定します。
+** 任意のブール値。グループを展開または縮小するかを指定します。
+
+*JavaScript の場合*
+
+----
+var explorerBar = $find('<%= WebExplorerBar1.ClientID %>');
+explorerBar.selectGroup(0, true, true);
+----
+
+[start=3]
+. 特定のグループまたは項目のインスタンスを取得するには、WebExplorerBar および Items オブジェクト コレクションの参照を最初に取得する必要があります。これは link:webexplorerbar~infragistics.web.ui.webexplorerbar~getexplorerbaritems.html[getExplorerBarItems] メソッドを使用して実行されます。その後で、インデックスを引数として取得する、 link:webexplorerbar~infragistics.web.ui.explorerbaritemcollection~getitem.html[getItem] メソッドを使用してグループまたは項目を取得することができるようになります。
+
+*JavaScript の場合*
+
+----
+var explorerBar = $find('<%= WebExplorerBar1.ClientID %>');
+var groupCollection = explorerBar.getExplorerBarItems();
+var group = groupCollection.getItem(0);
+----
+
+[start=4]
+. これで参照したグループのテキストを選択、選択を解除、展開、縮小または変更できるようになります。
+
+** 選択または選択を解除するには、set_selected メソッドを使用します。選択する場合は True、選択を解除する場合は False を選択します。
+
+*JavaScript の場合*
+
+----
+group.set_selected(true);
+----
+
+** 展開または縮小するには、toggle メソッドを使用します。
+
+*JavaScript の場合*
+
+----
+group.toggle();
+----
+
+** テキストを変更するには、set_text メソッドを使用します。
+
+*JavaScript の場合*
+
+----
+group.set_text();
+----
+
+[start=5]
+. グループへの参照を取得したら、get_childItem を使用することによって、このグループに属している特定の項目のインスタンスを取得できます。これにより項目のインデックスを引数として取得します。以下の例は、最初のグループの最初の項目をインスタンス化する方法を示します。
+
+*JavaScript の場合*
+
+----
+var explorerBar = $find('<%= WebExplorerBar1.ClientID %>');
+var groupCollection = explorerBar.getExplorerBarItems();
+var firstGroup = groupCollection.getItem(0);
+var firstItem = firstGroup.get_childItem(0);
+----
+
+== 関連トピック
+
+link:webexplorerbar-smart-tag.html[WebExplorerBar スマートタグ]
+
+link:webexplorerbar-keyboard-navigation.html[キーボード ナビゲーション]
+
+link:webexplorerbar-height-properties.html[WebExplorerBar の高さのプロパティ]
+
+link:webexplorerbar-setting-navigateurl-and-target-properties.html[NavigateURL と Target プロパティの設定]
+
+link:webexplorerbar-binding-to-an-xml-data-source.html[XML データ ソースにバインドする]
+
+link:webexplorerbar-binding-to-webhierarchcialdatasource.html[WebHierarchcialDataSource にバインド]
+
+link:webexplorerbar-serverevents.html[サーバー側イベント]
+
+link:webexplorerbar-selection-behavior.html[選択動作]
+
+link:webexplorerbar-clientside-api.html[ClientSide API]
+
+link:webexplorerbar-clientevents.html[クライアント側イベント]
+
+link:webexplorerbar-styling.html[CSS クラス プロパティ]

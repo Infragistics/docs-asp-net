@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-client-side-programming",
+    "controlName": ["WebGauge"],
+    "tags": ["Events","How Do I"],
+    "guid": "{36C54596-DC49-463E-9736-C78226356503}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= クライアント側プログラミング
+
+このセクションでは、WebGauge™ のクライアント側の特徴および機能の情報を提供します。
+
+以下のリンクをクリックすると、それぞれの領域についての説明を読むことができます。
+
+* link:webgauge-csom-overview.html[CSOM の概要]
+* link:webgauge-reference-the-control.html[コントロールの参照]

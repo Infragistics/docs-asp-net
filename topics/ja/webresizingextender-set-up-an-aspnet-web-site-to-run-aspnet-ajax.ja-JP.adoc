@@ -1,0 +1,190 @@
+﻿////
+
+|metadata|
+{
+    "name": "webresizingextender-set-up-an-aspnet-web-site-to-run-aspnet-ajax",
+    "controlName": ["WebResizingExtender"],
+    "tags": ["Extending","How Do I","Tips and Tricks"],
+    "guid": "{1C7C7829-99E1-4E35-B08C-A12FD794E8C5}",  
+    "buildFlags": [],
+    "createdOn": "2007-10-01T14:52:58Z"
+}
+|metadata|
+////
+
+= ASP.NET AJAX を実行するために ASP.NET Webサイトを設定
+
+WebResizingExtender は link:http://ajax.asp.net/default.aspx?tabid=47[Microsoft® ASP.NET AJAX 拡張]に基づいており、このフレームワークに依存するすべてのコントロールは、ScriptManager と呼ばれるコンポーネントに依存します。ScriptManager コンポーネントは、WebResizingExtender を含み従属コントロールが機能するためには、ページの最初のコンポーネントでなければなりません。
+
+この従属関係を支援するために、Microsoft® は Web サイトが ASP.NET AJAX CTP 対応 Web サイトを呼び出すフレームワークをリリースしています。この Web サイトにはフォーム上にすでにこのコントロールと、このコントロールが動作するために Web.config ファイルで必要なすべての設定が含まれています。問題は、ほとんどの人が新しい Web サイト タイプにすべてのコンテンツを移動できないことです。したがって、このトピックでは、ASP.NET AJAX 拡張フレームワークを実行するために、必要な修正を標準の ASP.NET Web サイトに行うための手順を説明します。これによって、既存のプロジェクト内で WebResizingExtender を活用できます。
+
+*注：* 以下の情報は、ASP.NET AJAX 拡張フレームワークの 1.0 RC に基づいています。これ以降のバージョンを実行している場合には、バージョンに合わせるためにタグでバージョン番号を修正する必要があります。
+
+[start=1]
+. 必要な修正のほとんどは Web.config ファイル内で発生し、開始の <configuration> タグ内に直接配置しなければならない以下の抜粋で開始します。
+
+*XML の場合:*
+
+----
+<configSections>
+        <sectionGroup name="system.web.extensions" 
+          type="System.Web.Configuration.SystemWebExtensionsSectionGroup, System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+                <sectionGroup name="scripting" 
+                  type="System.Web.Configuration.ScriptingSectionGroup, System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+                        <section name="scriptResourceHandler" 
+                          type="System.Web.Configuration.ScriptingScriptResourceHandlerSection, System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" requirePermission="/>
+                        <sectionGroup name="webServices" 
+                          type="System.Web.Configuration.ScriptingWebServicesSectionGroup, System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+                                <section name="jsonSerialization" 
+                                  type="System.Web.Configuration.ScriptingJsonSerializationSection, System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" requirePermission=" />
+                                <section name="profileService" 
+                                  type="System.Web.Configuration.ScriptingProfileServiceSection, System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" requirePermission=" />
+                                <section name="authenticationService" 
+                                  type="System.Web.Configuration.ScriptingAuthenticationServiceSection, System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" requirePermission=" />
+                        </sectionGroup>
+                </sectionGroup>
+        </sectionGroup>
+</configSections>
+----
+
+[start=2]
+. 開始および終了の <system.web> タグ間に以下の XML の抜粋を配置します。
+
+*XML の場合:*
+
+----
+<pages>
+        <controls>
+                <add tagPrefix="asp" namespace="System.Web.UI" 
+                  assembly="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                <add tagPrefix="asp" namespace="Microsoft.Web.Preview.UI" 
+                  assembly="Microsoft.Web.Preview"/>
+                <add tagPrefix="asp" namespace="Microsoft.Web.Preview.UI.Controls" 
+                  assembly="Microsoft.Web.Preview"/>
+        </controls>
+        <tagMapping>
+                <add tagtype="System.Web.UI.WebControls.CompareValidator" 
+                  mappedTagtype="System.Web.UI.Compatibility.CompareValidator, System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                <add tagtype="System.Web.UI.WebControls.CustomValidator" 
+                  mappedTagtype="System.Web.UI.Compatibility.CustomValidator, System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                <add tagtype="System.Web.UI.WebControls.RangeValidator" 
+                  mappedTagtype="System.Web.UI.Compatibility.RangeValidator, System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                <add tagtype="System.Web.UI.WebControls.RegularExpressionValidator" 
+                  mappedTagtype="System.Web.UI.Compatibility.RegularExpressionValidator, System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                <add tagtype="System.Web.UI.WebControls.RequiredFieldValidator" 
+                  mappedTagtype="System.Web.UI.Compatibility.RequiredFieldValidator, System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                <add tagtype="System.Web.UI.WebControls.ValidationSummary" 
+                  mappedTagtype="System.Web.UI.Compatibility.ValidationSummary, System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+        </tagMapping>
+</pages>
+<!--
+        Set compilation debug="true" to insert debugging
+        symbols into the compiled page. Because this
+        affects performance, set this value to true only
+        during development.
+-->
+<compilation debug=">
+        <assemblies>
+                <add assembly="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+        </assemblies>
+        <buildProviders>
+                <add extension="$$*$$.asbx" type="Microsoft.Web.Preview.Services.BridgeBuildProvider"/>
+        </buildProviders>
+</compilation>
+<httpHandlers>
+        <remove verb="$$*$$" path="$$* $$.asmx"/>
+                <add verb="$$*$$" path="$$* $$.asmx" validate=" 
+                  type="System.Web.Script.Services.ScriptHandlerFactory, System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                <add verb="GET,HEAD" path="ScriptResource.axd" 
+                  type="System.Web.Handlers.ScriptResourceHandler, System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" validate="/>
+                <add verb="GET,HEAD,POST" path="$$*$$.asbx" 
+                  type="System.Web.Script.Services.ScriptHandlerFactory, System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" validate="/>
+</httpHandlers>
+<httpModules>
+        <add name="ScriptModule" 
+          type="System.Web.Handlers.ScriptModule, System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+</httpModules>
+----
+
+[start=3]
+. 終了の <system.web> タグに後、終了の <configuration> の前に以下の XML の抜粋を配置します。
+
+*XML の場合:*
+
+----
+<system.web.extensions>
+        <scripting>
+                <webServices>
+<!-- Uncomment this line to customize maxJsonLength and add a custom converter -->
+                <!--
+                <jsonSerialization maxJsonLength="500">
+                        <converters>
+                                <add name="DataSetConverter" 
+                                  type="Microsoft.Web.Preview.Script.Serialization.Converters.DataSetConverter, Microsoft.Web.Preview, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                                <add name="DataRowConverter" 
+                                  type="Microsoft.Web.Preview.Script.Serialization.Converters.DataRowConverter, Microsoft.Web.Preview, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                                <add name="DataTableConverter" 
+                                  type="Microsoft.Web.Preview.Script.Serialization.Converters.DataTableConverter, Microsoft.Web.Preview, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                        </converters>
+                </jsonSerialization>
+                -->
+                <!-- Uncomment this line to enable the authentication service. Include requireSSL="true" if appropriate. -->
+                <!--
+                <authenticationService enabled="true" requireSSL = "true|/>
+                -->
+                <!-- Uncomment these lines to enable the profile service. To allow profile properties to be retrieved
+                  and modified in ASP.NET AJAX applications, you need to add each property name to the readAccessProperties and
+                  writeAccessProperties attributes. -->
+                <!--
+                <profileService enabled="true"
+                  readAccessProperties="propertyname1,propertyname2"
+                  writeAccessProperties="propertyname1,propertyname2" />
+                -->
+                </webServices>
+<!-- 
+                <scriptResourceHandler enableCompression="true" enableCaching="true" />
+                -->
+        </scripting>
+</system.web.extensions>
+----
+
+[start=4]
+. 最後の Web.config 修正は、<system.web.extensions> 終了タグの下で、終了の <configuration> タグの前に以下の XML の抜粋を配置することです。
+
+*XML の場合:*
+
+----
+<system.webServer>
+        <validation validateIntegratedModeConfiguration="/>
+        <modules>
+                <add name="ScriptModule" preCondition="integratedMode" 
+                  type="System.Web.Handlers.ScriptModule, System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+        </modules>
+        <handlers>
+                <remove name="WebServiceHandlerFactory-ISAPI-2.0"/>
+                <add name="ScriptHandlerFactory" verb="*" path="* .asmx" preCondition="integratedMode"
+                  type="System.Web.Script.Services.ScriptHandlerFactory, System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+                <add name="ScriptResource" verb="GET" path="ScriptResource.axd" 
+                  type="System.Web.Handlers.ScriptResourceHandler, System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+                <add name="ASBXHandler" verb="GET,HEAD,POST" path="*.asbx" preCondition="integratedMode"
+                  type="System.Web.Script.Services.ScriptHandlerFactory, System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+        </handlers>
+</system.webServer>
+----
+
+[start=5]
+. Microsoft.Web.Preview.dll をプロジェクトの Bin フォルダに追加します。このアセンブリは Global Assembly Cache にはないのでプロジェクトに対してローカルである必要があるからです。
+[start=6]
+. 以下のサンプル コードに示すように、<ScriptManager> タグを ASPX ページに追加します。
+
+*XML の場合:*
+
+----
+<form id="form1" runat="server">
+    <asp:ScriptManager id="ScriptManager1" runat="server" />
+    <div>   
+    </div>
+</form>
+----
+
+*注：* ScriptManager タグは適切に動作させるために <form> タグ内に直接配置する必要があり、フォーム上のその他のいかなるタブの前に配置する必要があります。

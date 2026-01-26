@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatatree-animations-for-expanding-and-collapsing-nodes",
+    "controlName": ["WebDataTree"],
+    "tags": [],
+    "guid": "{28F03FEE-47F8-4BD8-B939-4B003CADBC30}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ノードの展開および縮小のアニメーション
+
+WebDataTree™ はノードの展開および縮小のためにさまざまなアニメーション タイプをサポートします。WebDataTree コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatatree~animationduration.html[AnimationDuration]"]  プロパティを設定することによってアニメーションの時間を簡単に設定できます。以下は、ノードの展開と縮小に設定できる  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatatree~animationequationtype.html[AnimationEquationType]"]  オブジェクトのさまざまなタイプのアニメーション プロパティです:
+
+* *None* -- WebDataTree にアニメーションはありません。
+* *Linear* -- アニメーションの時間に基づいて一定の速度でノードの展開/縮小が発生します。
+* *EaseIn* -- アニメーションの時間に基づいてノードの展開/縮小は最初はゆっくりとしていますが、後で速くなります。
+* *EaseOut* -- アニメーションの時間に基づいてノードの展開/縮小は最初は速いですが、後で遅くなります。
+* *EaseInOut* -- アニメーションの時間に基づいてノードの展開/縮小は最初はゆっくりとしていますが、後で速くなり、終わりに再度遅くなります。
+* *Bounce* -- 展開/縮小の間、ノードが最初に展開/縮小され、次に一部のノードが縮小/展開され、ボールが跳ね返るように再度展開/縮小されます。

@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "webscheduleinfo-disable-asynchronous-callbacks-for-reminders",
+    "controlName": ["WebScheduleInfo"],
+    "tags": [],
+    "guid": "{07A959D2-8C32-41F8-8826-95E435AE59AB}",  
+    "buildFlags": [],
+    "createdOn": "2007-10-04T16:27:07Z"
+}
+|metadata|
+////
+
+= アラームの非同期コールバックを無効にする
+
+WebScheduleInfo は、EnableSmartCallbacks および EnableReminders が True に設定されている場合、サーバーから非同期に 2 分毎にアラームを取得します。ユーザーが Web ページで作業するかどうかに関係なく、ページのロード サーバー側イベントは非同期要求が実行されるたびに発生します。ユーザーがフル ページ ポストバックを見ることがなくとも、このアクションはページのロード サーバー側イベント内に置かれたロジックを妨げます。
+
+アラームの非同期の取得を無効にするには、WebSchedulesInfo の setFetchReminderInterval 関数を呼び出し、クライアント側のパラメータとして 0（ゼロ）を渡します。
+
+以下のコードは、この関数を達成できる方法を示しています。
+
+*注：* この関数は、Web ページをロードする毎に呼び出す必要があります。したがって、body のオンロード イベントで呼び出すことができます。
+
+*JavaScript の場合:*
+
+----
+function MyFunction()
+{
+    var oWebScheduleInfo = ig_getWebScheduleInfoById("WebScheduleInfo1");
+    oWebScheduleInfo.setFetchReminderInterval(0);     
+}
+----
+
+*HTML の場合:*
+
+----
+...
+<body onload="MyFunction()">
+...
+----
+
+== 関連トピック
+
+link:webschedule-checking-for-reminders.html[アラームのチェック]

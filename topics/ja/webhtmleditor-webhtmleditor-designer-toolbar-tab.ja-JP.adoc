@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-webhtmleditor-designer-toolbar-tab",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Design Environment","Editing"],
+    "guid": "{E039ED96-8D70-499C-8455-BA5929003D80}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor デザイナ（ツールバー タブ）
+
+[ツールバー] タブを選択すると、WebHtmlEditor の上部の領域に表示されるツールバー項目のプロパティをカスタマイズできます。中央のリスト ボックスには、WebHtmlEditor でサポートされているすべてのツールバー項目が入っており、ここでプロパティと振る舞いをカスタマイズしようとするツールバー項目を選択できます。右側には、使い慣れている Microsoft® Visual Studio® .NET の [プロパティ] ウィンドウと同様の機能を持ったプロパティ エディタがあります。クイック デザインを使用すると、特定のツールバー項目の個々の設定を表示して、変更できます。
+
+image::images/WebHtmlEditor_Using_the_Property_Builder_of_WebHtmlEditor_07.jpg[]
+
+開発する Web アプリケーションでサポートしないツールバー項目は、無効にする習慣をつけるようお勧めします。たとえば、Web アプリケーションでユーザーがドキュメントに添付された画像ファイルのアップロードすることを禁止するのであれば、[画像の挿入] ツールバー ボタンは不要なので削除します。
+
+[ツールバー] タブで、[ツールバー項目] リストから [画像の挿入] 項目を選択します（添付ファイルのアップロードに関連した他のボタンの近くにあります。その中にも削除してかまわないボタンがあるはずです）。[プロパティ] ウィンドウで  pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.basechildcontrol~enabled.html[Enabled]"]  プロパティを見つけて False に設定します。[適用] をクリックして変更を確定したら、Web アプリケーションを実行して [画像の挿入] ボタンが表示されなくなったことを確認します。
+
+上記の方法の代わりに、コーディングによりツールバー項目を動的に削除する方法については、 link:webhtmleditor-remove-toolbar-buttons-of-webhtmleditor.html[「ツールバーボタンの削除」]を参照してください。

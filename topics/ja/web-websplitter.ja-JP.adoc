@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-websplitter",
+    "controlName": ["WebSplitter"],
+    "tags": [],
+    "guid": "{3FC9E674-AD1C-4CAE-94FA-B6FF55C6990A}",  
+    "buildFlags": [],
+    "createdOn": "2008-12-01T20:41:56Z"
+}
+|metadata|
+////
+
+= WebSplitter
+
+WebSplitter™ コントロールに関連した概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。その内容は、WebSplitter コントロールの機能、このコントロールをアプリケーションに使用することの利点、このコントロールを使用する一般的なタスクの手順を追った作成方法などです。
+
+以下のリンクをクリックすると、WebSplitter コントロールに関する重要な説明を読むことができます。
+
+== link:websplitter-about-websplitter.html[WebSplitter について]
+
+このセクションの説明を読むと、WebSplitter コントロールの機能性と、それをアプリケーションに使用することの利点についてよく理解できます。
+
+== link:websplitter-getting-started-with-the-websplitter.html[WebSplitter で開始]
+
+WebSplitter コントロールで出来る限り素早く起動して実行するために、コントロール（つまり、フォームに WebSplitter を追加）を使用する方法についての情報を提供します。
+
+== link:websplitter-using-websplitter.html[WebSplitter の使用]
+
+このセクションは、WebSplitter コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+== link:websplitter-websplitter-accessibility-compliance.html[WebSplitter アクセシビリティの遵守]
+
+このトピックは、WebSplitter が第 508 条の要件を満たす方法を概略します。このアクセシビリティの遵守によって、エンドユーザー、特に障害を持つユーザーが WebSplitter コントロールを使用して構築された Web アプリケーションにアクセスおよび使用することを可能にします。
+
+== link:websplitter-api-overview.html[API の概要]
+
+このトピックは、WebSplitter コントロールでプログラミング中に作業する名前空間とクラスをリストします。このトピックにリストされる名前空間とクラスは、{ProductName} ヘルプの link:web-api-reference-guide.html[API 参照ガイド]に便宜上リンクします。
+
+== link:websplitter~infragistics.web.ui_namespace.html[CSOM の概要]
+
+WebSplitter™ コントロールは、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを提供します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクトで構成され、開発者はサーバー側にポストバックしなくても、分割バーに関連する重要な機能単位をプログラムできます。

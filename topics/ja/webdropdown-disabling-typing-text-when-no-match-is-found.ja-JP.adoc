@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdropdown-disabling-typing-text-when-no-match-is-found",
+    "controlName": ["WebDropDown"],
+    "tags": [],
+    "guid": "{4AD6DC65-C6E5-46BD-A777-03BF2833446B}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 一致が見つからなかった場合にテキスト入力を無効にする
+
+エンドユーザーが値表示にいかなる種類の不要なテキストを入力できないように WebDropDown™ を簡単に構成できます。一行もコードを記述せずにこれを実行できます。WebDropDown コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~enablecustomvalues.html[EnableCustomValues]"]  プロパティを False に設定することでこの機能を達成できます。デフォルトで、このプロパティは True に設定されます。EnableCustomValues プロパティが False に設定されると、エンドユーザーはドロップダウン リストのいかなる項目のテキストに一致しないテキストを入力できません。
+
+Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、EnableCustomValues プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+[source]
+----
+WebDropDown1.EnableCustomValues = false
+----
+
+*C# の場合：*
+
+[source]
+----
+WebDropDown1.EnableCustomValues = false;
+----

@@ -1,0 +1,56 @@
+﻿////
+
+|metadata|
+{
+    "name": "webmonthcalendar-using-webmonthcalendar",
+    "controlName": ["WebMonthCalendar"],
+    "tags": [],
+    "guid": "{1FF81861-B87A-45C7-A2E6-43339675A78D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebMonthCalendar の使用
+このセクションは、WebMonthCalendar™ コントロールの重要な概念および機能を効果的に使用するためのタスク ベースの情報について説明します。 
+
+link:webmonthcalendar-webmonthcalendar-smart-tag.html[WebMonthCalendar スマート タグ]
+
+このトピックは WebMonthCalendar スマート タグ アンカーとポップアップ パネルについて説明し、さまざまなコントロール プロパティと設定について示します。
+
+link:webmonthcalendar-keyboard-navigation.html[キーボード ナビゲーション]
+
+このトピックでは、WebMonthCalendar でサポートされるキーボード ナビゲーション機能を説明します。
+
+link:webmonthcalendar-creating-custom-days-in-webmonthcalendar.html[WebMonthCalendar でカスタムの日を作成]
+
+このトピックでは、WebMonthCalendar で特定の日をカスタマイズする方法を学びます。
+
+link:webmonthcalendar-day-name-formats-in-webmonthcalendar.html[WebMonthCalendar の曜日の書式]
+
+このトピックでは、曜日の書式を設定するための WebMonthCalendar プロパティについて説明します。
+
+link:webmonthcalendar-hiding-days-of-previous-and-next-months-in-webmonthcalendar.html[WebMonthCalendar で前月と次月の日を非表示にする]
+
+このトピックは、WebMonthCalendar プロパティを設定して他の月の日を非表示にする方法について説明します。
+
+link:webmonthcalendar-hiding-header-and-footer-of-webmonthcalendar.html[WebMonthCalendar のヘッダーとフッターを非表示にする]
+
+このトピックでは、WebMonthCalendar ヘッダーを非表示にする方法について説明します。
+
+link:webmonthcalendar-list-animations-in-webmonthcalendar.html[WebMonthCalendar で使用できるアニメーション]
+
+このトピックでは WebMonthCalendar コントロールに適用できるアニメーションの一覧を示します。
+
+link:webmonthcalenadar-set-a-custom-day-as-the-first-day-of-the-week.html[週の最初の日の設定]
+
+このトピックでは週の最初の日を設定する方法を示します。
+
+link:webmonthcalendar-enable-week-numbers-in-webmonthcalendar.html[WebMonthCalendar の週番号を有効にする]
+
+このトピッでは、WebMonthCalendar の週番号を有効にする方法を学びます。
+
+link:webmonthcalendar-setting-min-and-max-dates-for-webmonthcalendar.html[WebMonthCalendar の最大/最小の日の設定]
+
+このトピックでは、WebMonthCalendar コントロールで表示したい日の範囲を設定する方法を示します。

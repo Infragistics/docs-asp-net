@@ -1,0 +1,150 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdropdown-autocomplete-and-auto-filtering",
+    "controlName": ["WebDropDown"],
+    "tags": [],
+    "guid": "{F6184A30-C023-437E-A146-B8715CF1C18B}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= オート コンプリートおよびオート フィルタリング
+
+== Autocomplete
+
+WebDropDown™ はオート コンプリート機能をサポートします。この機能によってドロップダウンコンテナが自動的に表示して、入力ボックスに入力すると、最初の可能性のある一致を値表示に示します。また項目をスクロールすることによって最初の一致がリストの先頭に来ます。ただし、ドロップダウン項目はこの場合に変更されません。この機能は、デフォルトで有効になっています。
+
+
+*注:* WebDropDown コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~displaymode.html[DisplayMode]"  プロパティが DropDown に設定される時に限りオート コンプリート機能は動作します。
+
+
+エンドユーザーが WebDropDown への入力を開始すると、ドロップダウン リストからの最初の可能な一致が値表示に表示され、追加された文字が値表示で選択されます（デルタ文字）。  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~enableautocompletefirstmatch.html[EnableAutoCompleteFirstMatch]"]  プロパティを設定することによって有効になるこの機能は、ドロップダウン コンテナが表示されないまたは無効の時でさえ動作します。
+
+Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、EnableAutoCompleteFirstMatch プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+[source]
+----
+WebDropDown1.EnableAutoCompleteFirstMatch = false
+----
+
+*C# の場合：*
+
+[source]
+----
+WebDropDown1.EnableAutoCompleteFirstMatch = false;
+----
+
+== オート フィルタリング
+
+WebDropDown はクライアント側またはサーバー側のオート フィルタリングをサポートします。エンドユーザーが編集可能なテキストボックスへの入力を開始すると、WebDropDown は AJAX コールバックを起動することによって基本データソース内の入力した値を一致させようとします。これは、WebDropDown コントロールの  link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~enableautofiltering.html[EnableAutoFiltering]  プロパティを Client または Server に設定することで構成できます。デフォルトで、このプロパティは Off に設定されます。EnableAutoFiltering プロパティは以下に設定されます :
+
+* *Off* -- 最初の一致を見つけ出す、選択する、アクティブ化する、スクロールすることだけが実行されます。
+* *Client* -- ポストバックは一切発生することなく、クライアント側項目コレクション コンテンツのみでフィルタリングが実行されます。
+* *Server* -- AJAX コールバックを行うことによって、サーバーでドロップダウン リスト内のすべての項目でフィルタリングが実行されます。 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~autofiltertimeoutms.html[AutoFilterTimeoutMs]  プロパティは、AJAX リクエストが行われるまでタイムアウトを制御します。これは特にゆっくりとした接続に、またはエンドユーザーがゆっくりと入力する時に役立ちます。
+
+
+*注:* ページングやロードオンデマンドが有効な時に、AJAX コールバックが開始されてサーバーのデータセット全体でフィルタリングが実行されます。
+
+
+Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、EnableAutoFiltering プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+[source]
+----
+WebDropDown1.EnableAutoFiltering = Infragistics.Web.UI.ListControls.AutoFiltering.Client
+----
+
+*C# の場合：*
+
+[source]
+----
+WebDropDown1.EnableAutoFiltering = Infragistics.Web.UI.ListControls.AutoFiltering.Client;
+----
+
+== フィルタリング クエリの構成:
+
+オート コンプリート機能はデフォルトで StartsWith クエリを使用して動作します。ただし、これは WebDropDown コントロールの  link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~autofilterquerytype.html[AutoFilterQueryType]  プロパティを以下のいずれかのオプションに設定することで構成できます:
+
+* StartsWith
+* EndsWith
+* Contains
+* DoesNotContain
+* Equals
+* DoesNotEqual
+
+Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、AutoFilterQueryType プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+WebDropDown1.AutoFilterQueryType = Infragistics.Web.UI.ListControls.AutoFilterQueryTypes.EndsWith
+----
+
+*C# の場合：*
+
+----
+WebDropDown1.AutoFilterQueryType = Infragistics.Web.UI.ListControls.AutoFilterQueryTypes.EndsWith;
+----
+
+== ドロップダウン コンテナに表示される検索結果数を設定:
+
+WebDropDown コントロールの  link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~autofilterresultsize.html[AutoFilterResultSize]  プロパティを設定することによって、ドロップダウン コンテナに表示される検索結果数を設定できます。Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、AutoFilterResultSize プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+WebDropDown1.AutoFilterResultSize = 10
+----
+
+*C# の場合：*
+
+----
+WebDropDown1.AutoFilterResultSize = 10;
+----
+
+== 検索結果の並べ替え順:
+
+WebDropDown コントロールの  link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~autofiltersortorder.html[AutoFilterSortOrder]  プロパティを *Ascending* または *Descending* を設定することによって、検索結果の並べ替えを昇順または降順に構成できます。デフォルトでこのプロパティは None に設定されます。
+
+Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、AutoFilterSortOrder プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+[source]
+----
+WebDropDown1.AutoFilterSortOrder = Infragistics.Web.UI.ListControls.DropDownAutoFilterSortOrder.Descending
+----
+
+*C# の場合：*
+
+[source]
+----
+WebDropDown1.AutoFilterSortOrder = Infragistics.Web.UI.ListControls.DropDownAutoFilterSortOrder.Descending;
+----
+
+== クライアントでのフィルタリング結果のキャッシュ:
+
+クライアントでのフィルタリング結果のキャッシュは  link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~enablecachingonclient.html[EnableCachingOnClient]  プロパティを設定することで可能となります。EnableAutoFiltering プロパティを Server に設定するときに限り機能します。たとえば、同じ文字列に対する以降のクエリが実行されると、2 番目およびその他のフィルタリング操作の結果はクライアントキャッシュから取得され、ポストバックはサーバーに行われません。デフォルトでこのプロパティは False に設定されます。
+
+Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、EnableCachingOnClient プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+[source]
+----
+ WebDropDown1.EnableCachingOnClient = false
+----
+
+*C# の場合：*
+
+[source]
+----
+WebDropDown1.EnableCachingOnClient = false;
+----

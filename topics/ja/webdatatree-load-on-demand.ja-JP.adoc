@@ -1,0 +1,70 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatatree-load-on-demand",
+    "controlName": ["WebDataTree"],
+    "tags": [],
+    "guid": "{8545E3C6-F754-43C9-AB37-B20CD0FA2782}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ロード オン デマンド
+
+WebDataTree™ はロード オン デマンド機能をサポートします。ロード オン デマンドが有効になると、ページを初期に過度に処理することを回避できます。
+
+*WebDataTree でロード オン デマンドを使用*
+
+WebDataTree™ は、ロードオンデマンド機能を有効にすることで、パフォーマンスを低下させることなく、非常に大量のデータを処理します。WebDataTree コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatatree~initialdatabinddepth.html[InitialDataBindDepth]"]  プロパティを設定することによって初めにロードするノード数を決定できます。デフォルトで InitialDataBindDepth プロパティを -1 に設定されます。これはすべてのノードが当初ロードされることを意味します。InitialDataBindDepth プロパティに指定する値は最初にロードされる最後のレベルのインデックスを表します。たとえば、このプロパティを 1 の値に設定すると、初めてのページ描画でレベル 0（ノードの最初のレベル）とレベル 1（ノードの 2 番目のレベル）がロードされます。インデックスが 2、3 というように以降のレベルはオンデマンドでロードされます。
+
+WebDataTree のロードオンデマンドは以下の手順に従ってください。
+
+[start=1]
+. Visual Studio™ ツールボックスから、ScriptManager コンポーネント、WebDataTree コントロールおよび WebHierarchicalDataSource コントロールをフォームにドラッグ アンド ドロップします。
+[start=2]
+. link:webdatatree-binding-webdatatree-to-webhierarchicaldatasource.html[WebDataTree を WebHierarchicalDataSource バインド]に示すように、WebDataTree を WebHierarchicalDataSource にバインドします。
+[start=3]
+. 以下のコードに示すように InitialDataBindDepth プロパティと DataLoadingMessage プロパティを設定します:
+
+*Visual Basic の場合:*
+
+----
+        WebDataTree1.InitialDataBindDepth = 0
+        WebDataTree1.DataLoadingMessage = "Loading...Please wait!"
+----
+
+*C# の場合:*
+
+----
+        WebDataTree1.InitialDataBindDepth = 0;
+        WebDataTree1.DataLoadingMessage = "Loading...Please wait!";
+----
+
+上記のコードで、InitialDataBind プロパティを 0 に設定するとノードの最初のレベルだけをツリーにバインドできます。残りのノードはオンデマンドでバインドされます。
+[start=4]
+. アプリケーションを保存して実行します。ノードを展開すると、データ ローディング メッセージ「Loading...Please wait!」が最初に現れ、次に対応する子ノードがロードされることが分かります。
+
+*WebDataTree でデータ ローディング テンプレートを使用*
+
+ロード オン デマンド機能を使用する場合、WebDropDown™ によって  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatatree~dataloadingmessage.html[DataLoadingMessage]"]  プロパティを設定することでカスタマイズされた読み込みメッセージを示すことができます。ただし、WebDropDown コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatatree~dataloadingtemplate.html[DataLoadingTemplate]"]  プロパティを使用することによって、ローディング項目メッセージ テンプレートをローディング メッセージに適用することもできます。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatatree~dataloadingtemplatecontainer.html[DataLoadingTemplateContainer]"]  は WebDataTree コントロールのデータ ローディング テンプレートのコンテナ コントロールです。WebDataTree 読み込みメッセージにテンプレートを設定して使用したい場合は以下の手順に従ってください。
+
+[start=1]
+. Visual Studio™ ツールボックスから、ScriptManager コンポーネントと WebDataTree コントロールをフォームにドラッグ アンド ドロップします。
+[start=2]
+. ソース コードで、DataLoadingTemplate タグを使用してローディング メッセージを示すために WebDataTree タグ間に以下のコードを含めます。
+
+*HTML の場合:*
+
+----
+<DataLoadingTemplate>
+                <div id="loadTemplate" style="background-color : Aqua">
+                    <span id="actualMsg">Loading, please wait…</span>
+                </div>
+</DataLoadingTemplate>
+----
+
+[start=3]
+. アプリケーションを保存して実行します。初めてノードを展開すると、データ ローディング テンプレートがローディング メッセージに適用されることが分かります。

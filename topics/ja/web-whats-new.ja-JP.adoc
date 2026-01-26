@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-whats-new",
+    "controlName": [],
+    "tags": ["Getting Started","How Do I"],
+    "guid": "{524EBC65-94AC-4595-BFAD-0D34FEDA3FAB}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 新機能
+
+== link:web-revision-history.html[改訂履歴]
+
+特定の機能がコントロールに追加されたバージョンなど、2008 Volume 1 以降の各リリースで追加された新しい機能を確認できます。

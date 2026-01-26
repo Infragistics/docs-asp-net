@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatepicker-setting-prompt-character-for-webdatepicker",
+    "controlName": ["WebDatePicker"],
+    "tags": ["How Do I","Styling"],
+    "guid": "{4DE6285D-9741-477B-933E-4C203AECE782}",  
+    "buildFlags": [],
+    "createdOn": "2009-04-06T11:34:11Z"
+}
+|metadata|
+////
+
+= WebDatePicker のプロンプト文字を設定
+
+WebDatePicker™ によってコントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webdatetimeeditor~promptchar.html[PromptChar]"]  プロパティを設定するだけでコントロールにフォーカスがある時に欠落した日付フィールドを埋めるために使用されるプロンプト文字を設定できます。デフォルトで、プロンプト文字は '_' に設定されます。
+
+Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、PromptChar プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+WebDatePicker1.PromptChar = "*"c
+----
+
+*C# の場合：*
+
+----
+WebDatePicker1.PromptChar = '*';
+----
+
+image::images\WebDatePicker_Setting_Prompt_Character_for_WebDatePicker_01.png[]

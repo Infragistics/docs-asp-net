@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-back-anchor-extent-pane",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{9A51A179-A81D-4E7C-A159-CD2469FF43D5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 範囲ペイン
+
+[範囲] ペインによって、バック アンカーの位置を決定できます。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugeneedleanchor~extent.html[範囲]"]  -- この値を 0 から 100 の整数に設定します。範囲が 0 に設定されると、バック アンカーはラジアル ゲージの中央に配置されます。値が大きくなると、バック アンカーは針の方向でゲージの端に向けて移動します。値が小さくなると、バック アンカーは反対方向に移動します。100 よりも大きい値を入力すると、バック アンカーはゲージに表示されません。
+
+image::images/Extent_Pane_01.png[]
+
+== 関連トピック
+
+link:webgauge-back-anchor-layout-tab.html[バック アンカー レイアウト タブ]

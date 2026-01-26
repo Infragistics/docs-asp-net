@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-linear-orientation-pane",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{2EA2BD7C-2E95-4D2D-A3A0-B34F36B0F41A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 方向ペイン
+
+[方向] ペインは、Gauge コントロールでリニア ゲージの位置を設定するために使用されます。
+
+方向 -- この値はゲージの位置を指定します。方向は [水平] または [垂直] に設定できます。
+
+image::images/Orientation_Pane_01.png[]
+
+== 関連トピック
+
+link:webgauge-linear-gauge.html[リニア ゲージ]

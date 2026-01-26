@@ -1,0 +1,53 @@
+﻿////
+
+|metadata|
+{
+    "name": "webslider-display-custom-formatted-values",
+    "controlName": ["WebSlider"],
+    "tags": ["Editing","How Do I"],
+    "guid": "{1327214E-17C4-4972-889E-01D4F7B1C9A6}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= カスタム書式の値を表示
+
+WebSlider™ は値をセカンダリ値が後続するプライマリ値としてラベルに表示します。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.slidervaluelabel.html[ValueLabel]"]  オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.slidervaluelabel~format.html[Format]"]  プロパティを設定することによって WebSlider が値を表示する方法をカスタマイズできます。プライマリ値とセカンダリ値に文字列 {0} と {1} をそれぞれ使用して値にアクセスできます。
+
+ラベルのデフォルト サイズよりも長いカスタム値を使用する場合、値ラベルをリサイズすることも必要となります。
+
+以下の例のコードは、2 つのドル値を個別の行にそれぞれ表示し、値が大きくなるにしたがって値ラベルをリサイズする方法を示します。
+
+image::images/WebSlider_Display_Custom_Formatted_Values_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Me.WebSlider1.EnableSecondaryValue = True 
+Me.WebSlider1.ValueLabel.Format = "Value 1: ${0} <br/> Value 2: ${1}" 
+Me.WebSlider1.ValueLabel.Location = Infragistics.Web.UI.EditorControls.SliderValueLabelLocation.LeftOrTop 
+Me.WebSlider1.ValueLabel.CssClass = "LabelStyle"
+----
+
+*C# の場合：*
+
+----
+this.WebSlider1.EnableSecondaryValue = true;
+this.WebSlider1.ValueLabel.Format = "Value 1: ${0} <br/> Value 2: ${1}";
+this.WebSlider1.ValueLabel.Location = Infragistics.Web.UI.EditorControls.SliderValueLabelLocation.LeftOrTop;
+this.WebSlider1.ValueLabel.CssClass = "LabelStyle";
+----
+
+*注：* 使用される LabelStyle は style width:auto とその名前によって定義された css スタイルを持っていることが前提となっています。
+
+== 関連トピック
+
+link:webslider-change-websliders-increment-value.html[WebSlider の増加値を変更]
+
+link:webslider-edit-two-values.html[2 つの値を編集]
+
+link:webslider-set-min,-max,-and-starting-values.html[最小、最大、開始値を設定]
+
+link:webslider-set-the-values-type.html[値のタイプを設定]

@@ -1,0 +1,26 @@
+﻿////
+|metadata|
+{
+    "name": "webgauge-anchor-extent-pane",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{971BE97C-C470-4E72-9314-B3C4A3E42B4F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 範囲ペイン
+
+[範囲] ペインによって、アンカーの位置を決定できます。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugeneedleanchor~spokedepth.html[深さ]"]  -- 値を 0 から 100 までの.整数に設定します。 この値は、ラジアル ゲージの中央とスポーク間の間隔です。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugeneedleanchor~spokesweep.html[スイープ]"]  -- 値を 0 から 360 までの整数に設定します。 この値は各スポークの角度測定です。 スイープ値が 100 以下の場合にのみ、アンカーの「スポーク」外観が表示されます。
+
+image::images/Extent_Pane_01.png[]
+
+== 関連トピック
+
+link:webgauge-anchor-layout-tab.html[アンカー レイアウト タブ]

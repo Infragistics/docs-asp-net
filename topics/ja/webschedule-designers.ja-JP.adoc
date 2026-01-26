@@ -1,0 +1,28 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-designers",
+    "controlName": ["WebSchedule"],
+    "tags": ["Design Environment"],
+    "guid": "{DE3565EF-781F-4B00-AEAB-51679F94C0A1}",  
+    "buildFlags": [],
+    "createdOn": "2005-01-08T00:00:00Z"
+}
+|metadata|
+////
+
+= デザイナー
+
+WebSchedule™ コントロールは、希望の外観と機能を設定する際に役に立つ、非常に有用で強固なデザイナーを提供します。デザイナーを使用すると、デザイナーの[機能ピッカー]オプションを使用して、コントロールでどの主要な機能を有効にするかを簡単に選択することができます。これによって、WebScheduleコントロールそれぞれの主な機能を素早く設定できます。
+
+デザイナーでは、コントロールで事前に定義されたプリセットのいずれかも設定できます。[プリセット]オプションを使用して、プロジェクトでコントロールのその他のインスタンスで使用するために固有のカスタムプリセットを保存することも可能です。
+
+Visual Studio .NETの[プロパティ]ダイアログボックスと同様に、[コントロール設定]オプションによって、特定のコントロールで使用可能なすべてのプロパティを確認することができます。
+
+[コントロール設定]オプションの中央にある列には、特定のコントロールスタイル設定を簡単にナビゲートするために使用できる展開可能なツリーがあります。特定のスタイルを選択すると、右のプロパティグリッドが更新され、設定に使用可能なスタイルのプロパティが表示されます。
+
+* link:webcalendarview-using-webcalendarviews-designer.html[WebCalendarViewのデザイナーの使用]
+* link:webschedule-using-webdayviews-designer.html[WebDayView のデザイナーの使用]
+* link:webschedule-using-webmonthviews-designer.html[WebMonthViewのデザイナーの使用]
+* link:webscheduleinfo-using-webscheduleinfos-designer.html[WebScheduleInfoのデザイナーの使用]

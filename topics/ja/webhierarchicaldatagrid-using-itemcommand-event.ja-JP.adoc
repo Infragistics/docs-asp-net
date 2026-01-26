@@ -1,0 +1,184 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatagrid-using-itemcommand-event",
+    "controlName": [],
+    "tags": [],
+    "guid": "268f348a-d28c-4ee5-bfab-d43353c4f3de",  
+    "buildFlags": [],
+    "createdOn": "2015-02-25T13:23:55.3980417Z"
+}
+|metadata|
+////
+
+= WebHierarchicalDataGrid - ItemCommand イベントの使用
+
+=== 始める前に
+
+WebHierarchicalDataGrid の link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webdatagrid~itemcommand_ev.html[ItemCommand] サーバー サイド イベントでは、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.templatedatafield.html[TemplateField] 列にあるコントロールから簡単にイベント (ボタン クリックなど) に応答できます。
+
+=== 達成すること
+
+このチュートリアルは、バインドした TemplatedField 列内に ASP.NET ボタンを追加し、ボタンがクリックされたときに情報を表示するために WebHierarchicalDataGrid の ItemCommand サーバー サイド イベントを処理する方法について説明します。
+
+=== 次の手順を実行します
+
+*注:* このチュートリアルは、WebHierarchicalDataGrid を DataSet オブジェクトにデザイン タイムでバインドしていることが前提です。WebHierarchicalDataGrid コントロールを生成する方法については、このトピックの最後にある
+
+== 関連トピック
+クションをご覧ください。
+
+*TemplateField を親バンドに追加*
+
+link:webdatagrid-using-itemcommand-event.html[ItemCommand イベントを使用してセル項目にアクセス (WebDataGrid)] の手順に従ってください。
+
+*TemplateField を子バンドに追加:*
+
+[start=1]
+. デザイン ビューでコントロール/コンポーネントを選択すると、スマート タグ アンカーが表示されます。[バンドを編集] を選択します。
+[start=2]
+. [WebHierarchicalDataGrid バンドを編集] が表示されます。必要なバンドを選択を選択します。
+[start=3]
+. プロパティ ウィンドウで Columns コレクションの省略記号 (…) ボタンをクリックします。
+
+image::images/Using_ItemCommand_Event_to_Access_Cell_Item_[WHDG]_1.png[]
+
+[start=4]
+. コレクションに TemplateField を追加します。
+
+.. 利用可能なセクションから TemplateField を選択し、フィールド ボタンの追加をクリックします。
+.. タイプ TemplateField の新しい列が列コレクションに追加されます。
+
+image::images/Using_ItemCommand_Event_to_Access_Cell_Item_[WHDG]_2.png[]
+.. TemplateField を追加する他の方法として、Grid フィールドを Template フィールドへ変換します。
+
+image::images/Using_ItemCommand_Event_to_Access_Cell_Item_[WHDG]_3.png[]
+.. グリッド フィールドを選択し、選択したグリッド フィールドをテンプレート フィールドへ押します。
+.. [OK] ボタンをクリックして列コレクション エディターを閉じます。
+
+[start=2]
+. ASP.NET Button コントロールをページに追加します。
+
+.. ページのデザイン ビューから WebHierarchicalDataGrid のスマート タグを選択し、[テンプレートの編集] をクリックします。
+.. テンプレート編集モードを開いた後にテンプレート フィールド Freight を検索します。
+
+image::images/Using_ItemCommand_Event_to_Access_Cell_Item_[WHDG]_4.png[]
+.. ツールボックスから標準 ASP.NET ボタン コントロールを ItemTemplate へドラッグします。
+.. [テンプレート編集の終了] を選択して編集を終了します。
+
+[start=3]
+. サーバー サイド イベント ハンドラーを ItemCommand イベント (コード ビハインド) に追加します。
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Protected Sub WebHierarchicalDataGrid1_ItemCommand(sender As Object, 
+                        e As HandleCommandEventArgs)
+      End Sub
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+protected void WebHierarchicalDataGrid1_ItemCommand(object sender, 
+                        HandleCommandEventArgs e)
+          {
+          }
+----
+
+[start=7]
+. ItemCommand イベントにコードを追加し、行情報を取得します。コントロールがイベントを送り返す際にサーバーはそのイベントに応答する必要があります。ItemCommand は、サーバーで発生され、HandleCommandEventArgs オブジェクトを介してイベント引数を公開します。
+
+_親 TemplateDataField_
+
+*ASPX の場合:*
+
+[source,html]
+----
+<ig:TemplateDataField Key="Freight">
+            <ItemTemplate>
+<asp:Button ID="Button1" runat="server" Text="Show Freight" 
+CommandArgument='<%# Eval("Freight") %>' CommandName="Button1Click" />
+            </ItemTemplate>
+            <Header Text="Freight">
+            </Header>
+</ig:TemplateDataField>
+----
+
+_子 TemplateDataField_
+
+*ASPX の場合:*
+
+[source,html]
+----
+<ig:TemplateDataField Key="Country">
+              <ItemTemplate>
+                              <asp:Button ID="Button2" runat="server" 
+Text="Show country" 
+CommandArgument='<%# Eval("Country") %>' 
+                                      CommandName="ChildButtonClick" />
+              </ItemTemplate>
+              <Header Text="Country">
+              </Header>
+</ig:TemplateDataField>
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Protected Sub WebHierarchicalDataGrid1_ItemCommand(sender As Object, e As HandleCommandEventArgs)
+        If (e.CommandName = "ChildButtonClick") Then
+            '子グリッドから
+            'e.CommandArgument は、対応するボタンの CommandArgument 属性から値を提供します。
+            Dim commandArgument As Object = e.CommandArgument
+            ' Freight フィールド値で計算を実行し、それを Label へ渡します。
+            CountryValueLbl.Text = commandArgument.ToString()
+        Else
+            '親グリッドから
+            Dim commandArgument As Object = e.CommandArgument
+            FreightValueLbl.Text = commandArgument.ToString()
+        End If
+ End Sub
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+protected void WebHierarchicalDataGrid1_ItemCommand(object sender, HandleCommandEventArgs e)
+{
+      if (e.CommandName == "ChildButtonClick")
+      {
+                  //子グリッドから
+                  //e.CommandArgument は、対応するボタンの CommandArgument 属性から値を提供します。
+                  object commandArgument = e.CommandArgument;
+                  // Freight フィールド値で計算を実行し、それを Label へ渡します。
+                  CountryValueLbl.Text = commandArgument.ToString();
+      }
+      else
+      {
+            //親グリッドから
+                  object commandArgument = e.CommandArgument;
+                  FreightValueLbl.Text = commandArgument.ToString();
+      }
+}
+----
+
+[start=8]
+. アプリケーションを実行します。ボタンの 1 つをクリックし、以下のイメージのように Freight フィールド値が WebDataGrid の上に表示されます。
+
+image::images/Using_ItemCommand_Event_to_Access_Cell_Item_[WHDG]_5.png[]
+
+関連トピック
+
+link:webdatagrid-using-itemcommand-event.html[ItemCommand イベントを使用してセル項目にアクセス]
+
+link:webdatagrid-using-item-template.html[項目テンプレートの使用]
+
+link:webhierarchicaldatagrid-data-binding.html[WebHierarchicalDataGrid データ バインディング]
+
+link:webhierarchicaldatagrid-binding-to-xml-data-source.html[WHDG を XMLA データ ソースにバインド]

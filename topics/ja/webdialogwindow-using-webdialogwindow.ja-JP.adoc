@@ -1,0 +1,73 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdialogwindow-using-webdialogwindow",
+    "controlName": ["WebDialogWindow"],
+    "tags": ["How Do I"],
+    "guid": "{AB38C933-7EC8-4BDA-AEB5-F1CE61CF11EF}",  
+    "buildFlags": [],
+    "createdOn": "2008-12-01T20:58:10Z"
+}
+|metadata|
+////
+
+= WebDialogWindow の使用
+
+このセクションは、WebDialogWindow™ コントロールの重要な概念および機能を効果的に使用するためのタスク ベースの情報について説明します。
+
+link:webdialogwindow-add-a-caption-to-the-dialog-windows-header.html[ダイアログ ウィンドウ ヘッダーにキャプションを追加]
+
+このセクションでは、コントロールにキャプションを追加する方法とプロパティを公開する方法を紹介します。
+
+link:webdialogwindow-allow-the-end-user-to-resize-the-dialog-window.html[ユーザーにダイアログ ウィンドウのサイズ変更を許可する]
+
+WebDialogWindow コントロールで表示する情報のサイズによってはサイズ変更が必要な場合があります。このセクションでは、コントロールがサイズ変更可能かどうかを決定するプロパティの編集方法を説明します。
+
+link:webdialogwindow-center-the-dialog-window.html[ダイアログ ウィンドウを中央に表示]
+
+このセクションはコントロールの配置について説明します。
+
+link:webdialogwindow-display-the-dialog-window.html[ダイアログ ウィンドウの表示]
+
+WebDialogWindow コントロールをポップアップ ダイアログとして使用する場合は特に、表示/非表示が必要になります。このセクションでは、表示/非表示の方法を説明します。
+
+link:webdialogwindow-displaying-the-webdialogwindow-client-side.html[WebDialogWindow クライアント側で表示]
+
+このセクションでは、コントロールをクライアント側で使用する方法について詳しく説明します。
+
+link:webdialogwindow-hide-the-dialog-window.html[ダイアログ ウィンドウを非表示]
+
+WebDialogWindow を非表示にする方法を説明します。コントロールがポップアップ ダイアログ ボックスとして使用する場合に重要です。
+
+link:webdialogwindow-maintain-the-headers-width-on-minimize.html[最小化でヘッダー幅を保持]
+
+ユーザーが WebDialogWindow を最小化したときに、そのヘッダー幅を保持できます。このセクションでは、最小化について説明します。
+
+link:webdialogwindow-make-the-dialog-window-modal.html[ダイアログ ウィンドウのモーダル化]
+
+このセクションでは、WebDialogWindow をモーダル ダイアログとして表示する方法を説明します。
+
+link:webdialogwindow-prevent-the-end-user-from-moving-the-dialog-window.html[ユーザーのダイアログ ウィンドウの移動を禁止する]
+
+このセクションでは、WebDialogWindow が移動できないように設定する方法を説明します。このセクションでは、その設定方法を説明します。
+
+link:webdialogwindow-remove-the-header.html[ヘッダーの削除]
+
+WebDialogWindow コントロールのヘッダーの削除できます。このセクションではその方法について学びます。
+
+link:retrieving-a-reference-to-a-client-side-html-element.html[クライアント側 HTML 要素への参照を取得]
+
+このセクションでは、 WebDialogWindow コントロールからクライアント側 HTML 要素への参照を取得する方法について control.
+
+link:setting-up-a-client-side-event.html[クライアント側イベントの設定]
+
+{ProductName} コントロールはリッチなクライアントサイド オブジェクト モデルが含まれ、ユーザーがコントロールと対話する方法を管理できます。
+
+link:webdialogwindow-show-the-minimize-and-maximize-buttons.html[最大化/最小化ボタンの表示]
+
+このセクションは WebDialogWindow コントロールで、最大化/最小化ボタンを非表示にするプロパティについて説明します。
+
+link:webdialogwindow-smart-tag.html[WebDialogWindow スマート タグ]
+
+このセクションでは、WebDialogWindow スマート タグについて説明します。

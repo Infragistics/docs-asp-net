@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgroupbox-understanding-webgroupbox",
+    "controlName": ["WebGroupBox"],
+    "tags": ["Getting Started","Layouts"],
+    "guid": "{28F34827-A675-431B-968D-44AA21E17E3C}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebGroupBox の理解
+
+WebGroupBox コントロール、およびその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WebGroupBox コントロールを使用することの利点を理解できます。
+
+WebGroupBox コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:webgroupbox-about-webgroupbox.html[WebGroupBox について] -- WebGroupBox コントロールの概要を説明しています。
+* link:webgroupbox-smart-tag.html[WebListbar スマート タグ] -- WebGroupBox スマート タグで利用可能な機能性について説明しています。

@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-activeday-events",
+    "controlName": ["WebSchedule"],
+    "tags": ["Events","Scheduling"],
+    "guid": "{0B331061-8CA3-4841-B0AD-92C190789427}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ActiveDay イベント
+
+pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.shared.smartdate~utcnow.html[ActiveDayUtc]"]  プロパティには、コントロールがアクティブ日を切り替える時にクライアント側とサーバー側の両方を発生させる2つのイベントがあります。
+
+サーバーとクライアントで、値が実際に変更される前に  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~activedaychanging_ev.html[ActiveDayChanging]"]  イベントは発生します。これによって、変更をキャンセルできます。ActiveDayChanging イベントには、置き換えられる ActiveDay の OldDate だけでなく、ActiveDay として設定されている NewDate へのアクセスもあります。
+
+ActiveDay 値が変更された時に、新しい ActiveDay の通知を提供するために、クライアント側とサーバー側の両方で  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~activedaychanged_ev.html[ActiveDayChanged]"]  イベントが発生します。ActiveDayChanged イベントには ActiveDay として設定される NewDate へのアクセスがあります。

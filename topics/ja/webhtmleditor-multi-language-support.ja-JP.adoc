@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-multi-language-support",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing","Localization"],
+    "guid": "{77EF9582-57D2-4C0F-92FA-8ED1A2115D79}",  
+    "buildFlags": [],
+    "createdOn": "2006-11-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 複数言語のサポート
+
+The WebHtmlEditor コントロールには、複数の言語をサポートする機能が組み込まれており、 pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.webhtmleditor~localizationtype.html[LocalizationType]"]  プロパティの簡単な設定で使用できます。これにより、すべてのラベル、ツールチップ、メニュー、ダイアログ ボックス、およびドロップダウン リストがいくつかの言語に変換されます。言語ファイルは XML のプレーン テキストなので、簡単にカスタマイズできます。
+
+WebHtmlEditor には、次の言語の言語ファイルが用意されています。
+
+* 英語
+* フランス語
+* ドイツ語
+* スペイン語

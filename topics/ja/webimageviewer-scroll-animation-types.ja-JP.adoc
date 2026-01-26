@@ -1,0 +1,52 @@
+﻿////
+
+|metadata|
+{
+    "name": "webimageviewer-scroll-animation-types",
+    "controlName": ["WebImageViewer"],
+    "tags": ["Layouts","Selection","Styling"],
+    "guid": "{D4734C16-317F-40C4-91F7-2B87501E9FF9}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= スクロール アニメーションのタイプ
+
+WebImageViewer™ の ScrollAnimation オブジェクトによって、WebImageViewer をナビゲートする時に常に発生する動作を構成することができます。
+
+以下のとおり 3 つの異なるタイプのスクロールアニメーションがあります。
+
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.scrollanimations~continuous.html[Continuous]"] 
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.scrollanimations~nextitem.html[NextItem]"] 
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.scrollanimations~page.html[Page]"] 
+
+== Continuous
+
+ScrollAnimations オブジェクトで Type プロパティをこの値に設定すると、[次へ]/[前へ] ボタンを押している間画像ビューアは連続してスクロールします。
+
+以下のプロパティを設定できます。
+
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.continuousanimation~equationtype.html[EquationType]"]  -- アニメーションの方程式のタイプを指定します（例、EaseOutQuart、EaseInBounce および Linear）。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.animationobject~duration.html[Duration]"]  -- アニメーションが最大速度に達するためにかかる時間をミリ秒単位で指定します。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.continuousanimation~maxspeed.html[MaxSpeed]"]  -- アニメーションの速度を指定します。
+
+== NextItem
+
+ScrollAnimations オブジェクトの Type プロパティをこの値に設定したときに、[次へ] ボタンまたは [前へ] ボタンをクリックすると、その画像がスクロールして次に画像に移動します。つまり、[次へ] ボタンをクリックすると、リストがスクロールして、次の画像が完全に表示されるとすぐに停止します。
+
+以下のプロパティを設定できます。
+
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.nextitemanimation~equationtype.html[EquationType]"]  -- アニメーションの方程式のタイプを指定します（例、EaseOutQuart、EaseInBounce および Linear）。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.animationobject~duration.html[Duration]"]  -- 次の画像がスクロールして整列するのにかかる時間をミリ秒単位で指定します。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.nextitemanimation~alignment.html[Alignment]"]   -- 次の画像の整列を指定します（つまり、Near、Center および Far）。
+
+== Page
+
+ScrollAnimations オブジェクトで Type プロパティをこの値に設定した時に、[次へ] ボタンまたは [前へ] ボタンをクリックすると、現在表示されている画像すべてをスクロールしてリスト内の次の画像セットまたは前の画像セットが表示されます。この関数は、一般的な「ページング」メタファに似ており、大きいデータ コレクションを分割するために使用されます。
+
+以下のプロパティを設定できます。
+
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.pageanimation~equationtype.html[EquationType]"]  - アニメーションの方程式のタイプを指定します（例、EaseOutQuart、EaseInBounce および Linear）。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.animationobject~duration.html[Duration]"]  - 次の画像がスクロールして表示されるのにかかる時間をミリ秒単位で指定します。

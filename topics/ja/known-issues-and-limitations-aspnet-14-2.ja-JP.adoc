@@ -1,0 +1,233 @@
+﻿////
+|metadata|
+{
+    "name": "known-issues-and-limitations-aspnet-14-2",
+    "controlName": [],
+    "tags": ["Breaking Changes","Grids","Known Issues","Paging"],
+    "guid": "09727d89-55de-4f02-9776-1a3c9e3156dc",
+    "buildFlags": [],
+    "createdOn": "2014-09-16T13:46:01.2107343Z"
+}
+|metadata|
+////
+
+= ASP.NET 14.2 既知の問題と制限
+
+== 既知の問題点と制限の概要
+
+=== 既知の問題点と制約の概要表
+
+以下の表に、Infragistics® ASP.NET 2014.2 リリースの既知の問題と制限事項の概要を示します。以下の表は、すべての問題の詳細な説明とその回避策を示します。
+
+=== 凡例:
+
+- image:images\workaround.png[alt="Workaround"] - 回避策
+- image:images\noworkaround.png[alt="No Workaround"] - 既知の回避策はありません
+- image:images\fix.png[alt="Fix Planned"] - 修正予定です
+
+==== _WebDataGrid_
+
+[options="header", cols="a,a,a"]
+|====
+|問題|説明|状態
+
+|<<drop-down-editor-donot-support-multiselection,WebDataGrid のドロップダウン エディター プロバイダーは複数選択をサポートしません>>
+|_WebDataGrid_ のドロップダウン プロバイダーは複数選択をサポートしません。
+|image::images/noworkaround.png[]
+
+|<<unbound_column_event_handler,非バインド列および OnInitializeRow イベント ハンドラー>>
+|非バインド列がある場合、OnInitializeRow イベントを処理すると、ページングおよび並べ替え機能は正しく操作しません。
+|image::images/noworkaround.png[]
+
+|<<_Ref398735988,ページングが有効な場合、ドロップダウン項目のテキストが WebDataGrid の DropDownProvider によって正しく取得されません>>
+|セル値が DropDownProvider の現在ページに表示されない場合、テキストがグリッド セルから取得可能でも、ドロップダウン項目の値は表示されます。 _WebDataGrid_ がセルに表示されるコンテンツと異なる値にバインドされるため、この動作は正しいです。
+|image::images/workaround.png[]
+
+|<<_Ref39873598813,行の追加で RowEditTemplate をコードによって開く場合、テンプレートで使用される WebTextEditor の値は保持されます。>>
+| _RowEditTemplate_ が _WebTextEditors_ を含み、行を追加するために手動的に開いた場合、 _WebTextEditors_ の値は編集の後にクリアされません。結果的として編集モードに入る場合に、以前の値は保持されます。
+|image::images/workaround.png[]
+
+|====
+
+==== _WebHierarchicalDataGrid_
+
+[options="header", cols="a,a,a"]
+|====
+|問題|説明|状態
+
+|<<expanded-rows,HierarchicalDataGrid で展開した行は Firefox で特定の深さを超えると描画されません>>
+|_ _HierarchicalDataGrid_ _ の行は Firefox で深さが 200 レベルを超える場合に描画されません。
+|image::images/noworkaround.png[]
+
+|====
+
+==== _WebTab_
+
+[options="header", cols="a,a,a"]
+|====
+|問題|説明|状態
+
+|WebDataTree を WebTab 内で使用する場合、ViewState は破損されます
+|_WebDataTree_ コントロールを WebTab 内で使用する場合、ViewState は破損されます。 
+
+
+*回避策**:* Page_Init() で _WebTab_ の InstantiateTemplates() メソッドを呼び出します。 
+
+
+|image::images/workaround.png[]
+
+|InstantiateTemplates() メソッドが呼び出されるまでポストバックでテンプレート付きのコントロールにアクセスできません。
+|WebTab の InstantiateTemplates() メソッドが呼び出されるまでテンプレートでインスタンス化されるコントロールにアクセスできません。 
+
+*回避策:* テンプレートからコントロールをアクセスする前に _WebTab_ の InstantiateTemplates() メソッドを呼び出します。 
+
+====
+|image::images/workaround.png[]
+
+|====
+
+==== _WebUpload / WebCaptcha_
+
+[options="header", cols="a,a,a"]
+|====
+|問題|説明|状態
+
+|<<http-error,IIS7 以後の場合、ツールボックスから WebUpload/WebCaptcha を追加すると、HTTP エラー 500.22 が発生されます>>
+|_WebUpload_ _/WebCaptcha_ コントロールをデザイン ペインにドロップするとき、自動的にコントロールの httpModules および httpHandlers を system.web セクションに追加します。その構成は統合モードで実行する IIS7 以後のバージョンで無効です。
+|image::images/workaround.png[]
+
+|====
+
+==== _Infragistics Excel Engine_
+
+[options="header", cols="a,a,a"]
+|====
+|問題|説明|状態
+
+|重大な変更
+|14.2 リリースでは、 _Workbook_ 、 _Worksheet_ 、設定クラス、および _WorksheetCollection_ などの複数の Excel クラスの _INotifyPropertyChanged_ および _INotifyCollectionChanged_ インターフェイスをすべてのプラットフォームで実装しました。 
+
+WPF プラットフォームに必要な通知および元に戻す動作のために実装しましたが、ASP.NET プラットフォームに影響する可能性があるため、2014 年 10 月のサービス リリースで最適化として削除されます。
+|image::images/fix.png[]
+
+|====
+
+[[_Ref367305781]]
+
+== _WebDataGrid_
+
+[[drop-down-editor-donot-support-multiselection]]
+
+=== WebDataGrid のドロップダウン エディター プロバイダーは複数選択をサポートしません
+
+_WebDataGrid_   のドロップダウン プロバイダーは複数選択をサポートしません。WebDropDown エディターおよびグリッドの間に値を送信する値の取得/設定操作は単一選択のみがサポートされます。エディターに複数の選択した項目がある場合、エディター プロバイダーが破損し、結果が無効になります。
+
+[[unbound_column_event_handler]]
+
+=== 非バインド列および OnInitializeRow イベント ハンドラー
+
+__UnboundColumn + OnInitializeRow__  イベントが処理され、ページングおよび並べ替え機能が有効な場合に正しく動作しない可能性があります。非バインドされるレコードが更新される前に Rows コレクションを並べ替えることなどの予期しない動作が起こり、例外が発生する場合があります。
+
+[[_Ref398735988]]
+
+=== ページングが有効な場合、ドロップダウン項目のテキストが WebDataGrid の DropDownProvider によって正しく取得されません
+
+セル値が DropDownProvider の現在のページに表示されない場合、テキストがグリッド セルから取得可能な場合でも、ドロップダウン項目の値は表示されます。 _WebDataGrid_   がセルに表示されるコンテンツと異なる値にバインドされるため、この動作は正しいです。
+
+この問題の回避策は、初期読み込みで行の初期化を処理し、指定の値で WebDropDown のデータ ソースをクエリすることによって指定の列のセルの Text プロパティを設定するカスタム ロジックを実装することです。以下のコードは実装の例です。
+
+*ASPX の場合:*
+
+[source,html]
+----
+<EditorProviders>
+      <ig:DropDownProvider ID="ddp1">
+            <EditorControl
+                  ClientIDMode="Predictable"
+                  EnableAutoFiltering="Server"
+                  AutoFilterResultSize="2"
+                  AutoFilterTimeoutMs="1000"
+                  EnableAnimations="
+                  EnablePaging="true"
+                  PageSize="4"
+                  AutoFilterQueryType="Contains"
+                  DataSourceID="SqlDataSource2"
+                  DropDownContainerMaxHeight="200px">
+                  <DropDownItemBinding TextField="CAtegoryName" ValueField="CategoryID" />
+            </EditorControl>
+      </ig:DropDownProvider>
+</EditorProviders>
+----
+
+回避策:
+
+*ASPX の場合:*
+
+[source,html]
+----
+<ig:WebDataGrid AutoGenerateColumns=" ID="WebDataGrid1" runat="server"  OnInitializeRow="WebDataGrid1_InitializeRow">
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+ protected void WebDataGrid1_InitializeRow(object sender, RowEventArgs e)
+    {
+        if (!this.Page.IsPostBack)
+        {
+            if (e.Row.Index < 8)
+            {
+                e.Row.Items[3].Text = texts[e.Row.Index];
+            }
+        }
+    }
+      // This is only an example. Actual usage would have to extract these from a data source provider.
+    string[] texts = new string[] {
+        "Beverages",
+        "Condiments",
+        "Confections",
+        "Dairy Products",
+        "Grains/Cereals",
+        "Meat/Poultry",
+        "Produce",
+        "Seafood"
+    };
+----
+
+[[_Ref39873598813]]
+
+=== 行の追加で RowEditTemplate をコードによって開く場合、テンプレートで使用される WebTextEditor の値は保持されます。
+
+_RowEditTemplate_   が  _WebTextEditors_   を含み、行を追加するために手動的に開いた場合、 _WebTextEditors_   の値は編集の後にクリアされません。結果的として編集モードに入る場合に、以前の値は保持されます。
+
+*In C#:*
+
+[source,csharp]
+----
+ protected void Page_PreRender(object sender, EventArgs e)
+    {
+        var templateContainer=  this.WebDataGrid.Behaviors.EditingCore.Behaviors.RowEditTemplate.TemplateContainer;
+                WebTextEditor editor =(WebTextEditor)templateContainer.FindControl( "control_Item");
+                   editor.Value = null;        
+                                }
+                              
+----
+
+== _HierarchicalDataGrid_
+
+[[expanded-rows]]
+
+=== HierarchicalDataGrid で展開した行は Firefox で特定の深さを超えると描画されません
+
+HierarchicalDataGrid の行は Firefox で深さが200 レベル以上の場合は描画されません。このブラウザーの DOM レベルの制限のためです。この制限は Firefox で link:https://bugzilla.mozilla.org/show_bug.cgi?id=354161#c3[ここに]ログされます。
+
+== _WebUpload / WebCaptcha_
+
+[[http-error]]
+
+=== IIS7 以後の場合、ツールボックスから WebUpload/WebCaptcha を追加すると、HTTP エラー 500.22 が発生されます
+
+この問題を処理する複数の方法があります。ツールボックスを使用しないでコントロールを追加し、手動的に link:webupload-http-module-and-handler.html[HTTP ハンドラーとモジュール]を追加できます。デザイナーでコントロールをドロップするには、モジュールを system.WebServer $$->$$ modules セクションに変更できます。または、エラー メッセージの命令によりコマンド ラインで AppCmd を使用してアプリケーションを移行できます。
+
+link:webcaptcha-getting-started-with-webcaptcha.html[WebCaptcha コントロールの HTTP ハンドラー]の回避策は同じです。

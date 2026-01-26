@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-webhtmleditor-toolbar",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing"],
+    "guid": "{3A7E57D2-F20B-4642-8FA7-7ABA1D803ABD}",  
+    "buildFlags": [],
+    "createdOn": "2006-09-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor ツールバー
+
+WebHtmlEditor コントロールの上部にツールバーがあります。このツールバーにはいくつかのボタンとドロップダウン リストが表示され、それぞれが、別の WYSIWYG（What You See Is What You Get）編集環境で作業を行うエンド ユーザーが操作し慣れている固有の機能を提供します。ツールバー ボタンの機能を説明したリストは、 link:webhtmleditor-general-purpose-buttons-of-webhtmleditors-toolbar.html[WebHtmlEditor ツールバーの汎用ボタン]に掲載されています。
+
+アプリケーションでは、サポートする必要がないボタンを Toolbar items コレクションから削除して、非表示にすることができます。詳しくは、 link:webhtmleditor-remove-toolbar-buttons-of-webhtmleditor.html[ツールバー ボタンの削除方法]を参照してください。
+
+image::images/WebHtmlEditor_Layout_of_the_WebHtmlEditor_2.png[]
+
+*関連トピック*
+
+link:webhtmleditor-customize-the-help-dialog-box-of-webhtmleditor.html[WebHtmlEditor のヘルプ ダイアログ ボックスのカスタマイズ]

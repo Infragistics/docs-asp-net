@@ -1,0 +1,70 @@
+﻿////
+
+|metadata|
+{
+    "name": "gridsmigrationcustomoutlookgroupby",
+    "controlName": [],
+    "tags": [],
+    "guid": "277dbf19-4432-4d74-91fb-9734d7d2b379",  
+    "buildFlags": [],
+    "createdOn": "2016-03-01T12:50:07.9447129Z"
+}
+|metadata|
+////
+
+= グリッドの移行 - カスタムの Outlook Group By
+
+OutlookGroupBy 機能により、カスタム グループ化ロジックを持つ列をグループ化できます。そのためには、最初に OutlookGroupBy を有効にします。次の手順では、独自のカスタム グループ比較演算子を実装します。比較演算子は、GroupEqualityComparer<T> クラスを継承する必要があります。グループ比較演算子を実装する 2 つの方法を次に示します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+public class AlphabetGroupComparer : GroupEqualityComparer<string>
+{
+      public override bool Equals(string x, string y)
+      {
+            if (x.Substring(0, 1).ToLower() == y.Substring(0, 1).ToLower())
+                  return true;
+            return false;
+      }
+      public override string GroupName(string value)
+      {
+            if (value.Length == 0)
+                  return string.Empty;
+            return value.Substring(0, 1).ToUpper();
+      }      
+}
+public class DateGroupComparer : GroupEqualityComparer<DateTime>
+{
+      string[] _groups = new string[] { "1901 - 1950", "1951 - 2000" };
+      public override bool Equals(DateTime x, DateTime y)
+      {
+            if (x.Year < 1951 && y.Year < 1951 || x.Year > 1950 && y.Year > 1950)
+                  return true;
+            return false;
+      }
+      public override string GroupName(DateTime value)
+      {
+            if (value.Year < 1951)
+                  return this._groups[0];
+            return this._groups[1];
+      }
+}
+----
+
+次の手順では、列でカスタム グループ比較演算子を使用するために ColumnGroupingSetting を作成し、これらの設定をバンドの GroupingSettings.ColumnSettings コレクションに追加します。次のように実行します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ColumnGroupingSetting setting = new ColumnGroupingSetting();
+setting.ColumnKey = "FirstName";
+setting.GroupComparer = new AlphabetGroupComparer();
+this.WebHierarchicalDataGrid1.GroupingSettings.ColumnSettings.Add(setting);
+setting = new ColumnGroupingSetting();
+setting.ColumnKey = "DOB";
+setting.GroupComparer = new DateGroupComparer();
+this.WebHierarchicalDataGrid1.GroupingSettings.ColumnSettings.Add(setting);
+----

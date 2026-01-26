@@ -1,0 +1,46 @@
+﻿////
+
+|metadata|
+{
+    "name": "webprogressbar-orientation",
+    "controlName": ["WebProgressBar"],
+    "tags": ["Styling"],
+    "guid": "{DEB3ADCB-EF8A-4071-AF61-783A96C6E7BD}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 方向
+
+WebProgressBar™ は、  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.displaycontrols.webprogressbar~orientation.html[Orientation]"]  プロパティを Horizontal または Vertical に設定することで水平または垂直に方向付けることができます。デフォルトでは、Orientation プロパティは Horizontal に設定され、  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.displaycontrols.webprogressbar~fillmode.html[FillMode]"]  は FromLeftOrTop に設定されます。Orientation プロパティが以下に設定されると：
+
+* Horizontal -- デフォルトでは、進行状況バーは左から右に塗りつぶされます。
+* Vertical -- デフォルトでは、進行状況バーは上から下に塗りつぶされます。
+
+*注：* Orientation プロパティを Horizontal または Vertical に設定しても WebProgressBar の  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.displaycontrols.webprogressbar~height.html[Height]"]  および  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.displaycontrols.webprogressbar~width.html[Width]"]  は入れ替わりません。ただし、Height および Width プロパティを設定することで高さと幅を変更できます。
+
+Orientation プロパティは、スマート タグを使用するか、Microsoft® Visual Studio® [プロパティ] ウィンドウを介して、または以下のコードを使用して設定できます。
+
+*Visual Basic の場合：*
+
+----
+WebProgressBar1.Orientation = Orientation.Vertical
+----
+
+*C# の場合：*
+
+----
+WebProgressBar1.Orientation = Orientation.Vertical;
+----
+
+以下の画像は、  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.displaycontrols.webprogressbar~value.html[Value]"]  プロパティが 30 に設定される場合に水平および垂直方向の WebProgressBar を示します。
+
+*Horizontal*
+
+image::images\WebProgressBar_Orientation_01.png[]
+
+*Vertical*
+
+image::images\WebProgressBar_Orientation_02.png[]

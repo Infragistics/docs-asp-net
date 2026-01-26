@@ -1,0 +1,122 @@
+﻿////
+
+|metadata|
+{
+    "name": "webmonthview-object-csom",
+    "controlName": [],
+    "tags": ["API","How Do I"],
+    "guid": "{DE63EBD0-1E9F-44DA-ABE3-77D1A0366AD0}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebMonthView オブジェクト
+
+== WebMonthView
+
+WebMonthView オブジェクトは、WebMonthView コントロールのコントロール レベル機能へのアクセスを提供します。
+
+=== WebMonthView のメソッド
+
+[cols="a,a"]
+|====
+|*getActiveDayHeaderStyle* 
+|ActiveDayHeaderStyle の css クラス名を返します。
+
+|*getActiveDayStyle* 
+|ActiveDayStyle の css クラス名を返します。
+
+|*getAllDayEventStyle* 
+|AllDayEventStyle の css クラス名を返します。
+
+|*getAppointmentStyle* 
+|AppointmentStyle の css クラス名を返します。
+
+|*getCaptionHeaderStyle* 
+|CaptionHeaderStyle の css クラス名を返します。
+
+|*getCaptionHeaderVisible* 
+|MonthView のキャプション ヘッダが表示される場合「True」を返します。
+
+|*getClientID* 
+|WebMonthView の ClientId を返します。
+
+|*getCompressedDayStyle* 
+|CompressedDayStyle の css クラス名を返します。
+
+|*getDayHeaderStyle* 
+|DayHeaderStyle の css クラス名を返します。
+
+|*getDayStyle* 
+|DayStyle の css クラス名を返します。
+
+|*getElement* 
+|WebMonthView の HTML 要素を返します。
+
+|*getEnableAutoActivityDialog* 
+|ユーザーが Day または DayHeader をダブルクリックした時に WebMonthView によって [予定] ダイアログを開くことができる場合「True」を返します。
+
+|*getFirstVisibleDay* 
+|WebMonthView の First Visible Day を表す Date オブジェクトを返します。
+
+|*getMonthDayOfWeekHeaderStyle* 
+|MonthDayOfWeekHeaderStyle の css クラス名を返します。
+
+|*getMonthStyle* 
+|MonthStyle の css クラス名を返します。
+
+|*getNavigationAnimation* 
+|ビュー コントロールがナビゲートされた時に発生するアニメーションの型。 
+
+*解説*
+
+0－None 
+
+1 - Accelerate 
+
+2 - Decelerate 
+
+3 - AccelDecel 
+
+4 - Linear
+
+|*getOtherCompressedDayStyle* 
+|OtherCompressedDayStyle の css クラス名を返します。
+
+|*getOtherMonthDayHeaderStyle* 
+|OtherMonthDayHeaderStyle の css クラス名を返します。
+
+|*getOtherMonthDayStyle* 
+|MonthDayStyle の css クラス名を返します。
+
+|*getSelectedActivity* 
+|WebMonthView の選択されたアクティビティを返します。 
+
+*解説*
+
+アクティビティが選択されていない場合には、このメソッドは null を返します。
+
+|*getSelectedAppointmentStyle* 
+|SelectedAppointmentStyle の css クラス名を返します。
+
+|*getTodayHeaderStyle* 
+|TodayHeaderStyle の css クラス名を返します。
+
+|*getTodayStyle* 
+|TodayStyle の css クラス名を返します。
+
+|*getUniqueID* 
+|WebMonthView の UniqueID を返します。
+
+|*getWebScheduleInfo* 
+|WebMonthView が関連付けられている WebScheduleInfo オブジェクトを返します。
+
+|*getWebScheduleInfoID* 
+|WebMonthView が関連付けられている WebScheduleInfo オブジェクトの ID を返します。
+
+|*getWeekNumbersVisible* 
+|WeekNumbers が WebMonthView に表示される場合「True」を返します。
+
+|====

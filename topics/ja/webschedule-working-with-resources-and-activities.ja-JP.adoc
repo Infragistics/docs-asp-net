@@ -1,0 +1,130 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-working-with-resources-and-activities",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling"],
+    "guid": "{CFF0E2FB-F79A-441D-A587-BD422222E764}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= リソースおよびアクティビティの操作
+
+== 始める前に
+
+この詳細なガイドの目的は、WebSchedule の pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.resource.html[リソース]"] と pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[アクティビティ]"] の概念をよく理解することです。
+
+この詳細なガイドは、以下の WebSchedule クイック スタートの詳細なガイドのいずれかを完了していることを前提とします。
+
+* link:webschedule-using-the-webschedule-controls-quick-design.html[デザイナを使用した WebSchedule クイック スタート]
+* link:webschedule-creating-webschedule-controls-using-code.html[コードを使用した WebSchedule クイック スタート]
+
+== 次の手順を実行します。
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに using/imports のディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.WebUI.Shared
+Imports Infragistics.WebUI.WebSchedule
+----
+
+*C# の場合：*
+
+----
+using Infragistics.WebUI.Shared;
+using Infragistics.WebUI.WebSchedule;
+----
+
+[start=2]
+. *リソースを WebSchedule データベースに追加します。*
+
+デフォルトで、WebSchedule サンプル データベースには、「未割り当て」というリソースがひとつしか含まれていません。WebSchedule は多くのユーザーを持つアプリケーションのために設計されています。データ プロバイダの  pick:[asp-net="link:{ApiPlatform}webui.webscheduledataprovider{ApiVersion}~infragistics.webui.data.webscheduledbprovider~addresource.html[AddResource]"]  メソッドを使用して、WebSchedule API を通してリソースを追加できます。
+
+このサンプルで使用するためにリソースを追加するには、ASP.NET Samples Browser で WebSchedule Admin Sample をブラウズします。[リソースの管理]タブで、[リソースの追加] ボタンをクリックして、ダイアログボックスに値を入力し、新しいリソースを作成します。
+
+image::images/WebSchedule_Walk_Through_Resources_and_Activities_01.png[]
+
+以下は新しいリソースを追加するために管理サンプルによって使用されるコードです。
+
+*Visual Basic の場合：*
+
+----
+' 新しいリソースを作成して、そのプロパティを設定します。
+Dim resourceToAdd As New Resource()
+resourceToAdd.Name = row.Cells.FromKey("Name").Text
+resourceToAdd.Description = row.Cells.FromKey("Description").Text
+resourceToAdd.EmailAddress = row.Cells.FromKey("EmailAddress").Text
+' WebScheduleDataProvider の AddResource メソッドを使用してリソースを追加します。
+Me.WebScheduleOleDbProvider1.AddResource(resourceToAdd)
+----
+
+*C# の場合：*
+
+----
+// 新しいリソースを作成して、そのプロパティを設定します。
+Resource resourceToAdd = new Resource();
+resourceToAdd.Name = row.Cells.FromKey("Name").Text;
+resourceToAdd.Description = row.Cells.FromKey("Description").Text;
+resourceToAdd.EmailAddress = row.Cells.FromKey("EmailAddress").Text;
+// WebScheduleDataProvider の AddResource メソッドを使用してリソースを追加します。
+this.WebScheduleOleDbProvider1.AddResource(resourceToAdd);
+----
+
+[start=3]
+. *WebScheduleInfo オブジェクトの ActiveResourceName プロパティを設定します。*
+
+WebSchedule クイック スタートの詳細なガイドで作成されたプロジェクトに戻り、Page.Load イベントに以下のコード行を追加します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub Page_Load(ByVal sender As Object, _
+  ByVal e As EventArgs) Handles MyBase.Load
+        Me.WebScheduleInfo1.ActiveResourceName = "Sample User"
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void Page_Load(object sender, System.EventArgs e)
+{
+        this.WebScheduleInfo1.ActiveResourceName = "Sample User";
+}
+----
+
+[start=4]
+. *プロジェクトを実行します。*
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~activeresource.html[ActiveResource]"]  が「未割り当て」だった時に、この結果はクイック スタートの詳細なガイドとは同じように表示されます。ただし、WebSchedule コントロールで「サンプル ユーザー」のアクティビティのみを表示して編集できます。
+
+この時点で、この詳細なガイドの手順を繰り返して別のリソースを追加することができます。
+
+一般的な WebSchedule アプリケーションで、WebSchedule Admin Sample などの Administration インタフェースを通してリソースが追加されたり、ユーザー固有の情報を入力し自身で作成する機能が提供されます。WebSchedule コントロールを使用して、ユーザーがログインして固有のアクティビティを表示または編集するためにログイン画面、または Windows 認証でさえ使用できます。
+
+== 復習
+
+WebSchedule Admin Sample を使用して、新しいリソースを作成し、アクティブなリソースとして使用するようにサンプル プロジェクトを構成します。
+
+これで WebSchedule でリソースおよびアクティビティの概念、API を使用してどのようにリソースを追加することができるのか、また WebSchedule コントロールを使用して特定のリソースでアクティビティを表示または編集する方法をよく理解できたはずです。
+
+== 関連トピック
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[WebSchedule 名前空間]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo.html[WebScheduleInfo クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webdayview.html[WebDayView クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webmonthview.html[WebMonthView クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.appointment.html[Appointment クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[Activity オブジェクト]"]

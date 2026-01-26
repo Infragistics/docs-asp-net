@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-csom-overview",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["API","Editing"],
+    "guid": "{641B927F-02F1-44BD-BBE8-79ABFBF6F9B9}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= CSOM 概要
+
+WebHtmlEditor は、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを公開します。クライアント サイド オブジェクト モデル（CSOM）は、十分な機能を備えた JavaScript オブジェクト、イベント、ユーティリティ関数から構成され、開発者はサーバー側でポストバックしなくても、WebHtmlEditor コントロールに関連する重要な機能単位をプログラムできます。
+
+一般的に、オブジェクト モデルは、サーバー上の場合と同じようにオブジェクト モデルから直接派生しています。プロパティ名、イベント、パラメータ、戻り値の意味は、サーバー上のそれらとほとんど同じです。ただし、注が付けられている一部のプロパティはクライアント上では読み取り専用です。これらのプロパティは情報提供のみを目的としています。したがって修正できません。
+
+以下は WebHtmlEditor コントロールの CSOM 参照情報へのリンクです。
+
+link:webhtmleditor-utility-functions-csom.html[WebHtmlEditor ユーティリティ関数]
+
+link:webhtmleditor-object-csom.html[WebHtmlEditor オブジェクト]
+
+____
+link:webhtmleditor-client-side-events-csom.html[クライアント側イベント]
+____

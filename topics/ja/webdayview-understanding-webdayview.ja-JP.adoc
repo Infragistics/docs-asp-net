@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdayview-understanding-webdayview",
+    "controlName": ["WebDayView"],
+    "tags": [],
+    "guid": "{368A1FF6-C0CD-4995-8BF5-52FDC5AE42BD}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDayView の理解
+
+WebDayView コントロール、およびその主要な特性と機能について解説しています。
+
+* link:webdayview-about-webdayview.html[WebDayView について] -- WebDayView コントロールの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:webschedule-navigating-using-next-and-previous-navigational-buttons.html[次のナビゲーション ボタンと前のナビゲーション ボタンを使用してナビゲート] -- コントロールの一番上にあるナビゲーション矢印がどのように機能するかを説明します。
+* link:webschedule-styling-webdayview.html[WebDayView のスタイル] -- このトピックは、WebDayView をスタイルできる方法を説明します。
+link:webdayview-smart-tag.html[WebDayView スマート タグ] -- WebDayView スマート タグで使用可能な機能を説明します。

@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "webresizingextender-aspnet-ajax-extenders",
+    "controlName": ["WebResizingExtender"],
+    "tags": ["Extending","Performance"],
+    "guid": "{22198E4A-C30F-4B23-9700-B8C679B3CE7B}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ASP.NET AJAX エクステンダ
+
+link:http://ajax.asp.net/default.aspx?tabid=47[Microsoft® ASP.NET AJAX 拡張]の登場によって、全く新しいコントロールが出現しました。これらの新しいタイプのひとつがエクステンダ タイプのコントロールで、これは基本的にフォーム上のもうひとつのコントロールをターゲットとし、新しいプロパティ、メソッドまたはイベントを追加することによって、機能を拡張することを意味します。
+
+WebResizingExtender はエクステンダ コントロールです。いくつかの新しいプロパティとクライアント側イベントを使用して、関連づけられているパネルを拡張するからです。
+
+エクステンダ コントロールは通常小さい JavaScript コードで、Web ページ上の特定の機能のために作成されています。その JavaScript コードをエクステンダにすることによって複数のページで使用することができるようになり、バックエンドがどのように機能するのか、また異なるブラウザでどのように機能するのかを心配することなく、他の人たちもこれを使用することができます。 link:http://ajax.asp.net/default.aspx?tabid=47&subtabid=477[ASP.NET AJAX コントロール ツールキット]が（これらの新しいコントロールを作成するために使用される）JavaScript の生成を処理するため、懸念が排除されます。したがって、遵守の問題を肩から下ろして、ASP.NET AJAX 拡張ライブラリで配置されます。

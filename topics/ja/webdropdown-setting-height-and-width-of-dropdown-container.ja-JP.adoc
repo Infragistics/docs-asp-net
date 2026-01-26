@@ -1,0 +1,55 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdropdown-setting-height-and-width-of-dropdown-container",
+    "controlName": ["WebDropDown"],
+    "tags": [],
+    "guid": "{3DD14039-85E4-4C0F-A1CF-D3CF5CBC0803}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ドロップダウン コンテナの高さと幅を設定
+
+WebDropDown™ のドロップダウン コンテナは、すべての使用可能なデータ項目のリストを表示します。デフォルトで、すべての項目が表示されるようにドロップダウン コンテナは自動的にリサイズします。ただし、大きい項目リストがある場合には、すべての項目を同時に表示できません。このシナリオでは、  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~dropdowncontainerheight.html[DropDownContainerHeight]"]  プロパティと  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~dropdowncontainerwidth.html[DropDownContainerWidth]"]  プロパティを使用してドロップダウン コンテナの高さと幅を設定できます。値リストが開発者によって設定された高さと幅を超える場合、高さと幅を設定すると垂直および水平スクロールバーを表示することになります。
+
+WebDropDown によって、プロパティ DropDownContainerMaxHeight を使用してドロップダウン コンテナの最大限の高さを設定することも可能です。  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~dropdowncontainermaxheight.html[DropDownContainerMaxHeight]"]  プロパティは以下の結果があります:
+
+* 値リストの高さが最大の高さプロパティ値未満の場合、スクロールバーがないだけ、またはこれらの項目の下の空き領域があるこれらの項目になるように高さが設定されます。
+* 値リストの高さが最大の高さプロパティ値よりも大きい場合、高さは最大の高さプロパティ値に設定され、WebDropDown は垂直スクロールバーを表示します。
+
+*ドロップダウン コンテナの高さと幅を設定するには、次の手順に従ってください。*
+
+* WebDropDown によって Microsoft® Visual Studio® [プロパティ] ウィンドウを使用して、または以下のコードを使用することによって、ドロップダウン コンテナの幅と高さを設定できます:
+
+*Visual Basic の場合：*
+
+----
+WebDropDown1.DropDownContainerWidth = 200; 
+WebDropDown1.DropDownContainerHeight = 300;
+----
+
+
+*C# の場合：*
+
+----
+WebDropDown1.DropDownContainerWidth = 200;
+WebDropDown1.DropDownContainerHeight = 300;
+----
+
+* [プロパティ] ウィンドウを使用して、または以下のコードを使用することによって、ドロップダウン コンテナの最大の高さを設定することも可能です:
+
+*Visual Basic の場合：*
+
+----
+WebDropDown1.DropDownContainerMaxHeight = 500;
+----
+
+*C# の場合：*
+
+----
+WebDropDown1.DropDownContainerMaxHeight = 500;
+----

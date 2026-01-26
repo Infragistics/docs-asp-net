@@ -1,0 +1,76 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-locate-an-activity",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling"],
+    "guid": "{0F9A4DC8-8E96-4001-8C4E-107D41ADC868}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アクティビティを指定
+
+WebScheduleInfo の  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activitiescollection.html[Activitiesコレクション]"] に含まれている  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[Activity]"]  オブジェクトを取得しなければならない場合があります。必要なアクティビティを探すために、このコレクションのコンテンツでループを実行して、アクティビティ（または  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.appointment.html[Appointment]"]  などのアクティビティの基本クラスを拡張する任意のオブジェクト）でプロパティをチェックします。
+
+以下のコードは、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity~importance.html[Importance]"]  プロパティ値を Low に設定した最初のアクティビティを見つけ出します。それによってアプリケーションはそのアクティビティでアクションを実行することができます。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.WebUI.Shared
+Imports Infragistics.WebUI.WebSchedule
+...
+Private Function FindAppointment() As Appointment
+	' アクティビティでループを実行し、
+	' Importance が Low の最初のアクティビティを返します。
+	Dim index As Integer
+	For index = 0 To Me.WebScheduleInfo1.Activities.Count
+		Dim current As Activity = Me.WebScheduleInfo1.Activities(index)
+		If ( current.Importance = Importance.Low ) Then
+			Return CType(current, Appointment)
+		End If
+	Next index
+	' 一致するアクティビティが見つからなかった場合は何も返しません。
+	Return Nothing	
+End Function	
+----
+
+*C# の場合：*
+
+----
+using Infragistics.WebUI.Shared;
+using Infragistics.WebUI.WebSchedule;
+...
+private Appointment FindAppointment()
+{
+	// アクティビティでループを実行し、
+	// Importance が Low の最初のアクティビティを返します。
+	int index;
+	for( index = 0; index < this.WebScheduleInfo1.Activities.Count; ++index)
+	{
+		Activity current = this.WebScheduleInfo1.Activities[index];
+		if ( current.Importance == Importance.Low )
+			return current as Appointment;
+	}
+	// 一致するアクティビティが見つからなかった場合は何も返しません。
+	return null;
+}
+----
+
+== 関連トピック
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[WebSchedule 名前空間]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo.html[WebScheduleInfo クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webdayview.html[WebDayView クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webmonthview.html[WebMonthView クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.appointment.html[Appointment クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[Activity オブジェクト]"]

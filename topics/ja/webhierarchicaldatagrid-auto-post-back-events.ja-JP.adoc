@@ -1,0 +1,70 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatagrid-auto-post-back-events",
+    "controlName": ["WebHierarchicalDataGrid"],
+    "tags": ["Editing","Events","Grids","Selection"],
+    "guid": "{E6476387-5FB1-4B37-A23D-A2F82F192933}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 自動ポストバック イベント
+
+WebHierarchicalDataSource™ は、デフォルトでポストバックしない動作がありますが、自動的にポストバックを起動したい場合があります。この理由から、この動作は対応するサーバー側イベントを起動するために設定できる AutoPostBack プロパティを公開しています。
+
+以下に AutoPostBack プロパティがある動作とその動作が起動するイベントをリストします。
+
+* アクティブ化 - セルがアクティブになると ActiveCellChanged イベントが発生します。
+* 選択 - セルが選択されると CellSelectionChanged、ColumnSelectionChanged または RowSelectionChanged が発生します。
+
+Ajax が有効な場合、イベントは非同期に発生します。有効でない場合、フル ページ ポストバックを取得します。
+
+以下のコードは、セル選択に AutoPostBack プロパティを設定し CellSelectionChanged イベントを処理する方法を示します。
+
+*HTML の場合:*
+
+----
+<ig:WebHierarchicalDataGrid ID="WebHierarchicalDataGrid1" runat="server" Height="350px"
+    Width="800px" oncellselectionchanged="WebHierarchicalDataGrid1_CellSelectionChanged">
+    <Behaviors>
+        <ig:Selection>
+            <AutoPostBackFlags CellSelectionChanged="True" />
+        </ig:Selection>
+    </Behaviors>
+</ig:WebHierarchicalDataGrid>
+----
+
+*In Visual Basic:*
+
+----
+AddHandler Me.WebHierarchicalDataGrid1.CellSelectionChanged, _
+    AddressOf Me.WebHierarchicalDataGrid1_CellSelectionChanged
+Me.WebHierarchicalDataGrid1.Behaviors.Selection.AutoPostBackFlags.CellSelectionChanged = True
+----
+
+*In C#:*
+
+----
+this.WebHierarchicalDataGrid1.CellSelectionChanged +=     new SelectedCellEventHandler(WebHierarchicalDataGrid1_CellSelectionChanged);
+this.WebHierarchicalDataGrid1.Behaviors.Selection.AutoPostBackFlags.CellSelectionChanged = true;
+----
+
+== 関連トピック
+
+link:webhierarchicaldatagrid-activation.html[アクティブ化]
+
+link:webhierarchicaldatagrid-cell-editing.html[セルの編集]
+
+link:webhierarchicaldatagrid-enabling-paging.html[ページングを有効にする]
+
+link:webhierarchicaldatagrid-enabling-row-adding.html[行の追加を有効にする]
+
+link:webhierarchicaldatagrid-enabling-row-deleting.html[行の削除を有効にする]
+
+link:webhierachicaldatagrid-selection.html[選択]
+
+link:webhierarchicaldatagrid-sorting.html[並べ替え]

@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-tickmark-orientation-pane",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{2662EE00-E3B9-4CBD-A8F3-3FBAB99F2E34}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 方向ペイン
+
+[方向] ペインによって、ラジアル ゲージまたはリニア ゲージで目盛の間隔、開始点、および終了点を設定することができます。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.gaugescaletickmarkappearance~preterminal.html[プリターミナル]"]  -- この値を 0 から 100 の整数に設定します。この値は、目盛の終了値を設定するために使用されます。反時計回りの方向に回転し、 link:webgauge-formatting-pane.html[[フォーマッティング]] ペインの [頻度] 値で指定された間隔だけ減っていきます。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.gaugescaletickmarkappearance~postinitial.html[ポストイニシャル]"]  -- この値を 0 から 100 の整数に設定します。この値は目盛の開始値を決定し、時計回りの方向に回転して、 link:webgauge-formatting-pane.html[[フォーマッティング] ペイン]の [頻度] 値で指定された間隔だけ増えていきます。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.gaugescaletickmarkappearance~frequency.html[頻度]"]  -- この値を 0 から 100 の整数に設定します。この値はスケール上の目盛間の間隔を決定します。
+
+image::images/Tickmark_Orientation_Pane_01.png[]
+
+== 関連トピック
+
+link:webgauge-tickmark-layout-tab.html[目盛レイアウト タブ]

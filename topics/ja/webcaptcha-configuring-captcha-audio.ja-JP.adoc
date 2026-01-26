@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcaptcha-configuring-captcha-audio",
+    "controlName": ["WebCaptcha"],
+    "tags": ["Styling","Validation"],
+    "guid": "6dc91855-785a-4cf7-a940-07e9d9504436",  
+    "buildFlags": [],
+    "createdOn": "2010-05-31T13:07:34.4958633Z"
+}
+|metadata|
+////
+
+= キャプチャ オーディオの構成
+
+WebCaptcha™ コンポーネントは、使用される link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webcaptcha~captchadictionarymode.html[CaptchaDictionaryMode] に基づいて、ランダムに生成されるテキスト コード、ワード、または質問の回答を綴る機能をサポートします。このコントロールはあらゆる文字（アルファベットのみ）にサウンドを埋め込んでおり、英語で綴られます。オーディオ ファイルは ".wav" ファイルを連結することによって生成され、各ファイルはテキスト コードからの文字に対応します。
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webcaptcha~captchasoundspath.html[CaptchaSoundsPath] プロパティを使用して固有のサウンドを指定できます。これを実行するには、キャプチャ画像に表示できるあらゆる可能な文字のための ".wav" ファイルを含むフォルダーがなければなりません。これらのファイル名は文字自体で指定する必要があります。
+
+image::images/WebCaptcha_COnfiguring_Captcha_Audio_01.png[WebCaptcha_COnfiguring_Captcha_Audio_01]
+
+== 関連トピック
+
+link:webcaptcha-protection-modes.html[保護モード]
+
+link:webcaptcha-dictionary-modes.html[辞書モード]
+
+link:webcaptcha-captcha-validation.html[キャプチャの検証]
+
+link:webcaptcha-configuring-captcha-buttons.html[キャプチャ ボタンの構成]
+
+link:webcaptcha-configuring-captcha-image-properties.html[キャプチャ画像プロパティの構成]
+
+link:webcaptcha-configuring-captcha-input-field.html[キャプチャ入力フィールドの構成]

@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-gaugeimagepipe",
+    "controlName": ["WebGauge"],
+    "tags": ["Getting Started"],
+    "guid": "{248D08A8-7553-4AEB-911D-802C4BEAE1E2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= GaugeImagePipe
+
+GaugeImagePipe™ コンポーネントの紹介、および WebGauge コントロールに関連した情報は以下のリンクをクリックしてください。
+
+* link:gaugeimagepipe-about-gaugeimagepipe.html[GaugeImagePipe について] -- GaugeImagePipe コントロールが実行する機能について、そしてアプリケーションで使用したくなる理由についての情報を提供します。

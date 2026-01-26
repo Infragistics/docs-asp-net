@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicladatagrid-column-templates",
+    "controlName": ["WebHierarchicalDataGrid"],
+    "tags": ["Grids","Templating"],
+    "guid": "{1E1C751B-DF4F-41E5-AD80-4E462411AEBA}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 列テンプレート
+
+WebHierarchicalDataGrid™ には、ヘッダー、フッター、項目、代替え項目テンプレートの、列のための 4 種類のテンプレートがあります。名前が示すように、これらのテンプレートは、ヘッダー、フッター、そして列の個々の項目の代わりをします。
+
+== カスタム列
+
+WebHierarchicalDataGrid™ は列テンプレートを使用してカスタム列を作成するための機能を提供します。カスタム機能と共に列にユニークなルック アンド フィールを作成してテンプレート内にコントロールを埋め込むことができます。
+
+== 列のテンプレート
+
+列にセル、隔行セル、ヘッダー、およびフッター テンプレートを提供できます。列に固有のテンプレートを設定することは、テンプレートが要素の代わりに描画されることを意味します。たとえば、列のための項目テンプレートを指定することで、その列内のすべてのセルのためのテンプレートが作成されます。
+
+列全体をテンプレート列にすることなく、項目テンプレートを指定することもできます。列のセルは  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.itemtemplate~template.html[Template]"]  および  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.itemtemplate~templateid.html[TemplateId]"]  プロパティがあります。個々のセルのテンプレートを定義するためにこれらのプロパティのいずれかを設定できます。
+
+== テンプレート内のコントロールの参照
+
+項目テンプレート内のコントロールにアクセスするには、その項目にアクセスし  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.controldataitem~findcontrol.html[FindControl]"]  メソッドを呼び出すことによって可能となります。
+
+Header テンプレートと Footer テンプレートに関しては、各オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.fieldcaption~templatecontainer.html[TemplateContainer]"]  プロパティを使用して、テンプレートへの参照を取得できます。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.controldataitem~findcontrol.html[FindControl]"]  メソッドを使用してコントロールを探してください。
+
+== テンプレートの編集
+
+列のテンプレートは列の内の HTML に過ぎません。HTML を編集できないようにするには列を読み取り専用にする必要があります。これを実行することによってエンド ユーザーはテンプレートで任意のエディターを使用して編集することが可能となりますが、テンプレートの実際的なマークアップを編集できません。
+
+== データ バインディング
+
+列テンプレートを使用することは、テンプレートのエディタ コントロールと WebHierarchicalDataGrid のフィールドからのデータの間でデータバインドを取得するのではないことを意味します。エディタコントロールでその列からデータを表示するためにエディタがバインドする必要がある列を指定する必要があります。
+
+== 関連トピック
+
+link:webhierarchicaldatagrid-using-item-template.html[項目テンプレートの使用]

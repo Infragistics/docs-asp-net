@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-load-a-custom-skin",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing","Styling","Theming"],
+    "guid": "{47CC2E6C-03F4-4298-B457-9A34DA40077A}",  
+    "buildFlags": [],
+    "createdOn": "2006-09-01T00:00:00Z"
+}
+|metadata|
+////
+
+= カスタム スキンのロード
+
+WebHtmlEditor では、開発者は、skin という外部 .xml ファイルから定義済みの外観をロードすることができます。このトピックでは、プログラム的に実行時に外部 .xml ファイル名に基づいてスキンを適用する方法について説明します。
+
+たとえば、アプリケーションには Aqua、Windows XP、Office 2003 など、何種類かの外観が使用される場合があります。エンド ユーザーが好みのルック＆フィールに応じて外観を 1 つ選択できるようなアプリケーションを開発するのであれば、WebHtmlEditor コントロールでは、個々のエンド ユーザーにその好みのスキンファイルを関連付けることにより、簡単にエンド ユーザーが希望する外観を適用することができます。
+
+Page_Load イベント ハンドラに、次の文を追加して、Web アプリケーション プロジェクトの "skins" というサブフォルダからカスタム スキンを WebHtmlEditor コントロールに適用します。
+
+*Visual Basic の場合：*
+
+----
+Me.WebHtmlEditor1.LoadSkin(Server.MapPath("./skins/Aqua.xml"))
+----
+
+*C# の場合：*
+
+----
+this.WebHtmlEditor1.LoadSkin(Server.MapPath("./skins/Aqua.xml"));
+----
+
+Aqua.xml などのカスタム スキンの作成についての詳しい説明は、 link:webhtmleditor-creating-custom-skins-for-webhtmleditor.html[カスタム スキンの作成]を参照してください。

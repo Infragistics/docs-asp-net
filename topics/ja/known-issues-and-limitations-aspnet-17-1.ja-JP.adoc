@@ -1,0 +1,301 @@
+﻿////
+|metadata|
+{
+    "name": "known-issues-and-limitations-aspnet-17-1",
+    "controlName": [],
+    "tags": [],
+    "buildFlags": []
+}
+|metadata|
+////
+
+= ASP.NET 17.1 既知の問題と制限
+
+== 既知の問題点と制限の概要
+
+以下の表に、Infragistics® ASP.NET 2017.1 リリースの既知の問題と制限事項の概要を示します。以下の表は、すべての問題の詳細な説明とその回避策を示します (link:https://jp.infragistics.com/support/online-documentation/revision-history[改訂履歴])。
+
+=== 凡例:
+
+- image:images\workaround.png[alt="Workaround"] - 回避策
+- image:images\noworkaround.png[alt="No Workaround"] - 既知の回避策なし
+- image:images\fix.png[alt="Fix Planned"] - 修正予定です
+
+=== WebDataGrid
+
+[options="header", cols="a,a,a"]
+|=======
+|問題 | 説明 | 状態
+
+|<<drop-down-editor-donot-support-multiselection, WebDataGrid のドロップダウン エディター プロバイダーは複数選択をサポートしません>>
+|WebDataGrid のドロップダウン プロバイダーは複数選択をサポートしません。
+|image:images\noworkaround.png[alt="No Workaround"]
+
+|<<unbound_column_event_handler, 非バインド列および `OnInitializeRow` イベント ハンドラー>>
+|非バインド列があり、`OnInitializeRow` イベントが処理されている場合、ページングおよび並べ替え機能が正しく動作しません。
+|image:images\noworkaround.png[alt="No Workaround"]
+
+|<<_Ref398735988, ページングが有効な場合、ドロップダウン項目のテキストが WebDataGrid の DropDownProvider によって正しく取得されません。>>
+|セル値が DropDownProvider の現在ページに表示されない場合、テキストがグリッド セルから取得可能でも、ドロップダウン項目の値は表示されます。WebDataGrid がセルに表示されるコンテンツと異なる値にバインドされるため、この動作は正しいです。
+|image:images\workaround.png[alt="Workaround"]
+
+|<<_Ref39873598813, 行の追加で RowEditTemplate をコードによって開く場合、テンプレートで使用される WebTextEditor の値は保持されます。>>
+|`RowEditTemplate` が WebTextEditor を含み、行を追加するために手動的に開いた場合、WebTextEditor の値は編集後にクリアされません。結果として、編集モードに入ると以前の値が保持されます。
+|image:images\workaround.png[alt="Workaround"]
+
+|<<missing-client-side-handler, ClientSide イベント ハンドラーは aspx スクリプト ブロック セクションへ自動的には追加されない>>
+|ソース ビューから動作デザイナーが開かれて新規クライアント側イベント ハンドラーが追加された場合、スクリプト セクション ブロックは JavaScript ハンドラー関数で編集されません。
+|image:images\workaround.png[alt="Workaround"]
+
+|<<missing-keyboard-events-during-ime-composition, IME コンポジション時に DropDownProvider キーボードのイベントがない問題>>
+|Firefox でコンポジションの時のキー イベントを有効にします。コンポジション時にキーボードのイベントを有効にするために Firefox about:config のページで *Dom.keyboardevent.dispatch_during_composition* 値を true に設定します。
+|image:images\workaround.png[alt="Workaround"]
+
+|=======
+
+=== WebHierarchicalDataGrid
+
+[options="header", cols="a,a,a"]
+|=======
+|問題 | 説明 | 状態
+
+|<<expanded-rows, HierarchicalDataGrid で展開した行は Firefox で特定の深さを超えると描画されません。>>
+|HierarchicalDataGrid の行は Firefox で深さが 200 レベルを超える場合描画されません。
+|image:images\noworkaround.png[alt="No Workaround"]
+
+|=======
+
+=== WebTab
+
+[options="header", cols="a,a,a"]
+|=======
+|問題 | 説明 | 状態
+
+|WebDataTree を WebTab 内で使用した際に `ViewState` が破損します。
+|WebDataTree コントロールを WebTab 内で使用した場合、ViewState が破損されます。
+
+*回避策*: `Page_Init()` で WebTab の `InstantiateTemplates()` メソッドを呼び出します。
+|image:images\workaround.png[alt="Workaround"]
+
+|`InstantiateTemplates()` メソッドが呼び出されるまでポストバックでテンプレート付きのコントロールにアクセスできません。
+|WebTab の `InstantiateTemplates()` メソッドが呼び出されるまでテンプレートでインスタンス化されるコントロールにアクセスできません。
+
+*回避策*: テンプレートからコントロールをアクセスする前に WebTab の `InstantiateTemplates()` メソッドを呼び出します。
+|image:images\workaround.png[alt="Workaround"]
+
+|=======
+
+=== WebUpload / WebCaptcha
+
+[options="header", cols="a,a,a"]
+|=======
+|問題 | 説明 | 状態
+
+|<<http-error, IIS7 以後の場合、ツールボックスから WebUpload/WebCaptcha を追加すると、HTTP エラー 500.22 が発生されます。>>
+|`WebUpload/WebCaptcha` コントロールをデザイン ペインにドロップするとき、自動的にコントロールの `httpModules` および `httpHandlers` を `system.web` セクションに追加します。その構成は統合モードで実行する IIS7 以後のバージョンで無効です。
+|image:images\workaround.png[alt="Workaround"]
+
+|=======
+
+=== WebEditors
+
+[options="header", cols="a,a,a"]
+|=======
+|問題 | 説明 | 状態
+
+|<<editors-ime, デフォルトでテキストおよびマスク エディター以外のすべてのエディターで IME は無効ですが、WebKit ブラウザーで IME がすべてで有効なため、入力時に予期しない結果となる可能性があります。>>
+|デフォルトでテキストおよびマスク エディター以外のすべてのエディターで IME は無効ですが、WebKit ブラウザーで IME がすべてで有効なため、入力時に予期しない結果となる可能性があります。
+|image:images\noworkaround.png[alt="No Workaround"]
+
+
+|=======
+
+=== WebNumericEditor
+
+[options="header", cols="a,a,a"]
+|=======
+|問題 | 説明 | 状態
+
+|<<web-num-editor, WebNumericEditor `MaxValue/MinValue` オプションはクライアントに指数近似として表示されない値に制限されます。>>
+|WebNumericEditor `MaxValue` オプションは `1000000000000000` 以下のみに設定される場合、正しく動作します。WebNumericEditor `MinValue` オプションは `-1000000000000000` 以上のみに設定される場合、正しく動作します。
+|image:images\noworkaround.png[alt="No Workaround"]
+
+|=======
+
+=== Trident
+
+[options="header", cols="a,a,a"]
+|=======
+|問題 | 説明 | 状態
+
+|<<drop-down-selection, Trident レイアウト エンジンは状態を一回のみ変更することで HTML のチェックボックス上のダブルクリックを処理します。>>
+|link:http://stackoverflow.com/questions/9908000/why-internet-explorer-checkbox-accepts-double-click-but-changing-state-only-once[Trident レイアウト エンジンは状態を一回のみ変更することで HTML のチェックボックス上のダブルクリックを処理します。] これはチェックボックスを描画する Infragistics のコントロールの動作に一貫性を欠く場合があります。たとえば、WebDropDown で複数選択が有効な場合に WebDropDown 項目のチェックボックスをダブルクリックすると項目が選択されます。ただしドロップダウン入力の項目は選択および選択解除されます。
+
+*回避策:* WebDropDown 内 (またその他のコントロール) のチェックボックスは Internet Explorer でダブル クリックされた場合、チェックボックスの状態を手動的に変更する必要があります。
+|image:images\workaround.png[alt="Workaround"]
+
+|=======
+
+
+== WebDataGrid
+
+[[drop-down-editor-donot-support-multiselection]]
+=== WebDataGrid のドロップダウン エディター プロバイダーは複数選択をサポートしません
+WebDataGrid のドロップダウン
+プロバイダーは複数選択をサポートしません。WebDropDown エディターおよびグリッドの間に値を送信する値の取得/設定操作は単一選択のみサがポートされます。エディターに複数の選択した項目がある場合、エディター プロバイダーが破損し、結果が無効になります。
+
+[[unbound_column_event_handler]]
+=== 非バインド列および OnInitializeRow イベント ハンドラー
+
+`UnboundColumn` + `OnInitializeRow` イベントが処理され、ページングおよび並べ替え機能が有効な場合に正しく動作しない場合があります。非バインドされるレコードが更新される前に Rows コレクションを並べ替えることなどの予期しない動作が起こり、例外が発生する場合があります。
+
+[[Ref398735988]]
+=== ページングが有効な場合、ドロップダウン項目のテキストが WebDataGrid の DropDownProvider によって正しく取得されません。
+
+セル値が DropDownProvider の現在のページに表示されない場合、テキストがグリッド セルから取得可能な場合も、ドロップダウン項目の値は表示されます。WebDataGrid がセルに表示されるコンテンツと異なる値にバインドされるため、この動作は正しいです。この問題の回避策は、初期読み込みでカスタム ロジックを実装することにより、指定した値でウェブ ドロップダウン データソースをクエリして、指定した列のセルの Text プロパティを初期化し、塗りつぶすことです。以下のコードは実装の例です。
+
+*ASPX の場合:*
+
+[source,html]
+----
+<EditorProviders>
+      <ig:DropDownProvider ID="ddp1">
+            <EditorControl
+                  ClientIDMode="Predictable"
+                  EnableAutoFiltering="Server"
+                  AutoFilterResultSize="2"
+                  AutoFilterTimeoutMs="1000"
+                  EnableAnimations="false"
+                  EnablePaging="true"
+                  PageSize="4"
+                  AutoFilterQueryType="Contains"
+                  DataSourceID="SqlDataSource2"
+                  DropDownContainerMaxHeight="200px">
+                  <DropDownItemBinding TextField="CAtegoryName" ValueField="CategoryID" />
+            </EditorControl>
+      </ig:DropDownProvider>
+</EditorProviders>
+----
+
+回避策: 
+
+*ASPX の場合:*
+
+[source,html]
+----
+<ig:WebDataGrid AutoGenerateColumns="False" ID="WebDataGrid1" runat="server"  OnInitializeRow="WebDataGrid1_InitializeRow">
+----
+
+*C# の場合:*
+
+[source, csharp]
+----
+protected void WebDataGrid1_InitializeRow(object sender, RowEventArgs e)
+{
+    if (!this.Page.IsPostBack)
+    {
+        if (e.Row.Index < 8)
+        {
+            e.Row.Items[3].Text = texts[e.Row.Index];
+        }
+    }
+}
+
+// これは例です。実際の使用はデータソース プロバイダーから抽出する必要があります。
+string[] texts = new string[] {
+    "Beverages",
+    "Condiments",
+    "Confections",
+    "Dairy Products",
+    "Grains/Cereals",
+    "Meat/Poultry",
+    "Produce",
+    "Seafood"
+};
+----
+
+[[Ref39873598813]]
+=== 行の追加で RowEditTemplate をコードによって開く場合、テンプレートで使用される WebTextEditor の値は保持されます。
+RowEditTemplate が WebTextEditor を含み、行を追加するために手動的に開いた場合、WebTextEditor の値は編集後にクリアされません。結果として、編集モードに入ると以前の値が保持されます。
+
+*C# の場合:*
+
+[source, csharp]
+----
+protected void Page_PreRender(object sender, EventArgs e)
+{
+    var templateContainer=  this.WebDataGrid.Behaviors.EditingCore.Behaviors.RowEditTemplate.TemplateContainer;
+    WebTextEditor editor =(WebTextEditor)templateContainer.FindControl( "control_Item");
+    editor.Value = null;        
+}
+----
+
+[[missing-client-side-handler]]
+=== ClientSide イベント ハンドラーが aspx スクリプト ブロック セクションに自動的に追加されない
+
+クライアント イベントボックスをダブルクリックして動作デザイナーから特定の動作にクライアント イベントを追加するには、WebDataGrid のデザイナーは*ソース ビュー*からではなく*デザイン ビュー*から開く必要があります。
+
+Visual Studio の*プロパティ ウィンドウ*で*ソース ビュー*からクライアント イベントを追加する方法があります。
+
+例: *ソース ビュー*にページを開きます -> *WebDataGrid マークアップタグ*を選択し、*動作*へ移動します -> *EditingCore* -> プロパティ ウィンドウの *EditingClientEvents リスト*、生成するには *RowDeleted イベント* をダブルクリックします。
+
+この制限は WebHierarchicalDataGrid コントロールにも適用されます。
+
+[[missing-keyboard-events-during-ime-composition]]
+=== IME コンポジション時に DropDownProvider キーボードのイベントがない問題
+Firefox でコンポジションの時のキー イベントを有効にします。コンポジション時にキーボードのイベントを有効にするために Firefox about:config のページで *Dom.keyboardevent.dispatch_during_composition* 値を true に設定します。
+
+== HierarchicalDataGrid
+
+[[expanded-rows]]
+=== HierarchicalDataGrid で展開した行は Firefox で特定の深さを超えると描画されません
+HierarchicalDataGrid の行は Firefox で深さが200 レベル以上の場合は描画されません。このブラウザーの DOM レベルの制限のためです。link:https://bugzilla.mozilla.org/show-bug.cgi?id=354161#c3[この制限は Firefox でここにログされます。]
+
+== WebUpload/WebCaptcha
+
+[[http-error]]
+=== IIS7 以後の場合、ツールボックスから WebUpload/WebCaptcha を追加すると、HTTP エラー 500.22 が発生されます。
+この問題を処理する複数の方法があります。ツールボックスを使用しないでコントロールを追加し、手動的に link:https://fiddle.jshell.net/-display/6423ea36-dac6-41f6-be9a-b77c191e0446[HTTP ハンドラーとモジュール]を追加できます。デザイナーでコントロールをドロップするには、モジュールを system.WebServer -> modules セクションに変更できます。または、エラー メッセージの命令によりコマンド ラインで AppCmd を使用してアプリケーションを移行できます。
+
+link:https://fiddle.jshell.net/-display/169f0356-69bb-43d8-8559-55685980be02[WebCaptcha コントロールの HTTP ハンドラー]の回避策は同じです。
+
+== WebEditors
+
+[[editors-ime]]
+=== デフォルトでテキストおよびマスク エディター以外のすべてのエディターで IME は無効ですが、WebKit ブラウザーで IME がすべてで有効なため、入力時に予期しない結果となる可能性があります。
+デフォルトでテキストおよびマスク エディター以外のすべてのエディターで IME は無効ですが、WebKit ブラウザーで IME がすべてで有効なため、入力時に予期しない結果となる可能性があります。
+
+
+== WebNumericEditor
+
+[[web-num-editor]]
+=== WebNumericEditor `MaxValue/MinValue` オプションはクライアントに指数近似として表示されない値に制限されます。
+WebNumericEditor `MaxValue` は `1000000000000000` より大きい数字で正しく動作しません。`1000000000000000` より大きい数字は指数表記で表示されるためです。E 表記の数字はクライアント側に四捨五入されますので、誤った使用可能な最大値になる可能性があります。WebNumericEditor `MinValue` は `-1000000000000000` より大きい数字で正しく動作しません。`-1000000000000000` より大きい数字は指数表記で表示されるためです。E 表記の数字はクライアント側に四捨五入されますので、誤った使用可能な最小値になる可能性があります。
+
+== Trident
+
+[[drop-down-selection]]
+=== Trident レイアウト エンジンは状態を一回のみ変更することで HTML のチェックボックス上のダブルクリックを処理します。
+link:http://stackoverflow.com/questions/9908000/why-internet-explorer-checkbox-accepts-double-click-but-changing-state-only-once[Trident レイアウト エンジンは状態を一回のみ変更することで HTML のチェックボックス上のダブルクリックを処理します。] これはチェックボックスを描画する Infragistics のコントロールの動作において一貫性を欠く場合があります。たとえば、WebDropDown で複数選択が有効な場合に WebDropDown 項目のチェックボックスをダブルクリックすると項目が選択されます。ただしドロップダウン入力の項目は一度選択されてから選択解除されます。
+
+WebDropDown 内 (またその他のコントロール) のチェックボックスは、 Internet Explorer でダブル クリックした場合チェックボックスの状態を手動的に変更する必要があります。
+
+回避策:  
+
+*ASPX の場合:*
+[source,html]
+----
+<ig:WebDropDown ID="WebDropDown1" MultipleSelectionType="Checkbox" EnableMultipleSelection="true" runat="server" >
+    <ClientEvents Initialize="WebDropDown1_Initialize" />
+</ig:WebDropDown>
+
+<script>
+function WebDropDown1_Initialize(event) {
+ $addHandler($find("WebDropDown1")._elements["List"], 'dblclick', function (e) {
+  if (e.target.type === "checkbox" && ($util.IsIE || $util.IsEdge)) {
+   e.target.checked = !e.target.checked;
+  }
+ });
+}
+</script>
+----

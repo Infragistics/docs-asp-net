@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-managing-file-uploads",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing","Selection"],
+    "guid": "{73BA8BB3-E5B5-4AA1-897E-D9794BA5CBD2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ファイル アップロードの管理
+
+WebHtmlEditor では、エンド ユーザーは添付ファイル（画像ファイル、Microsoft® Windows Media® Player ストリーミング メディア ファイル、Macromedia® Flash® ファイルなど）をドキュメントにアップロードすることができます。ファイルは、アプリケーションの Web サーバーにアップロード フォルダを構成すると、そこに格納されます。この操作については、 link:webhtmleditor-set-where-upload-files-are-stored.html[「アップロードファイル格納位置の設定方法」]および link:webhtmleditor-configuring-the-upload-area-in-iis.html[「アップロードのための IIS の構成」]のトピックを参照してください。
+
+WebHtmlEditor のアップロード機能を提供する Web アプリケーションをデザインするときには、そのアップロード パスを設定する必要があります。この作業には、セキュリティ ポリシの設定、ユーザーがアップロードしたファイルのプライバシ保護、ファイルに対するウィルス スキャン、ファイルのバックアップ、回復、ハウスキーピングなどが含まれます。このようなシステム管理タスクの作業の一部は、Web サイト管理者との協力が必要になることがあります。
+
+非常に大きなファイル（通常は 2MB 以上）のアップロードを可能にするには、IIS で HTTP 要求の maxRequestLength を大きめに設定して、ユーザーが Web サーバーにそのようなファイルをポストで切るようにする必要があります。この設定は、machine.config ファイルの httpRuntime セクションで行います。IIS は、セキュリティ上の理由で、デフォルトでこの制限を超える HTTP 要求を拒否するように設定されています。この制限を緩めると、Web アプリケーションがサービス拒否（DoS）攻撃に対して脆弱になる恐れがあります。
+
+WebHtmlEditor では、アップロードされたファイルをドキュメントに埋め込むことができます。 このコントロールでは、ユーザーがファイルをポストするための [アップロード] ダイアログ ボックスも提供されています。ただし、WebHtmlEditor には、このような設定を行ったときのサーバーのリソースを管理する機能はありません。
+
+ファイルのアップロードを禁止したい場合は、WebHtmlEditor からアップロード関連のツールバーボタンを削除してください。 link:webhtmleditor-remove-toolbar-buttons-of-webhtmleditor.html[「ツールバー ボタンの削除方法」]に、その方法が説明されています。

@@ -1,0 +1,158 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-assemblies",
+    "controlName": [],
+    "tags": ["API","FAQ","Getting Started"],
+    "guid": "{851315D9-F0D9-450D-91B2-70BC90D4E937}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-12T00:00:00Z"
+}
+|metadata|
+////
+
+= アセンブリ
+
+アセンブリは、共通言語ランタイム（CLR）のコア部分です。これは、アプリケーションを実行するために CLR が必要とするタイプとリソースの集合で、通常はひとつの実行可能ファイル（.exe）または DLL（dynamic-link library）の形で格納されています。アセンブリは、配備、バージョンコントロール、セキュリティのパーミッションを含むアプリケーションの重要な側面を制御します。
+
+以下の表は、{ProductName} 製品スイートに含まれるすべての ASP.NET アセンブリの一覧です。この表には、各アセンブリに含まれるASP.NETコントロールとコンポーネントも指定され、アセンブリのすべてのリソース文字列のリストを含むリソース文字列ヘルプトピックへのクロスリファレンスが含まれています。
+
+[options="header", cols="a,a"]
+|====
+|アセンブリ名|ASP.NET コントロール/コンポーネント
+
+|Infragistics4.WebUI.Documents.Excel.v{ProductVersion} 
+
+*追加の参照アセンブリ*
+
+____ 
+
+Infragistics4.WebUI.Documents.Core.v{ProductVersion} 
+
+____
+| link:waw-infragistics-excel-engine.html[Infragistics Excel Engine]
+
+|Infragistics4.WebUI.Documents.Reports.v{ProductVersion}
+| link:waw-infragistics-document-engine.html[Infragistics Document Engine]
+
+|Infragistics4.WebUI.Documents.Word.v{ProductVersion} 
+
+*追加の参照アセンブリ*
+
+____ 
+
+Infragistics4.WebUI.Documents.Core.v{ProductVersion} 
+
+Infragistics4.WebUI.Documents.IO.v{ProductVersion} 
+
+____
+| link:word-infragistics-word-library.html[Infragistics Word Engine]
+
+|Infragistics4.Web.v{ProductVersion}
+| 
+
+link:web-webcaptcha.html[WebCaptcha] 
+
+link:web-webcurrencyeditor.html[WebCurrencyEditor] 
+
+link:web-webdatagrid-webdatagrid.html[WebDataGrid] 
+
+link:web-webdatamenu.html[WebDataMenu] 
+
+link:web-webdatatree.html[WebDataTree] 
+
+link:web-webdatepicker.html[WebDatePicker] 
+
+link:web-webdatetimeeditor.html[WebDateTimeEditor] 
+
+link:web-webdialogwindow.html[WebDialogWindow] 
+
+link:web-webdropdown.html[WebDropDown] 
+
+link:web-webexplorerbar.html[WebExplorerBar] 
+
+link:web-webhierarchicaldatagrid.html[WebHierarchicalDataGrid] 
+
+link:web-webhierarchicaldatasource.html[WebHierarchicalDataSource] 
+
+link:web-webimageviewer.html[WebImageViewer] 
+
+link:web-webmaskeditor.html[WebMaskEditor] 
+
+link:web-webmonthcalendar.html[WebMonthCalendar] 
+
+link:web-webnumericeditor.html[WebNumericEditor] 
+
+link:web-webpercenteditor.html[WebPercentEditor] 
+
+link:web-webprogressbar.html[WebProgressBar] 
+
+link:web-webrating.html[WebRating] 
+
+link:web-webslider.html[WebSlider] 
+
+link:web-websplitter.html[WebSplitter] 
+
+link:web-webtab.html[WebTab] 
+
+link:web-webtexteditor.html[WebTextEditor]
+
+|Infragistics4.WebUI.Misc.v{ProductVersion}
+| link:web-webgroupbox.html[WebGroupBox] 
+
+link:web-webpagestyler.html[WebPageStyler]
+
+|Infragistics4.WebUI.UltraWebCalcManager.v{ProductVersion}
+| link:web-webcalcmanager.html[WebCalcManager]
+
+|Infragistics4.WebUI.UltraWebChart.v{ProductVersion}
+| link:web-secureimagepipe.html[SecureImagePipe] 
+
+link:waw-chart.html[WebChart]
+
+|Infragistics4.WebUI.UltraWebGauge.v{ProductVersion}
+| link:web-gaugeimagepipe.html[GaugeImagePipe] 
+
+link:web-webgauge.html[WebGauge]
+
+|Infragistics4.WebUI.WebDataInput.v{ProductVersion}
+| link:web-webimagebutton.html[WebImageButton]
+
+|Infragistics4.WebUI.WebHtmlEditor.v{ProductVersion}
+| link:web-webhtmleditor.html[WebHtmlEditor]
+
+|Infragistics4.WebUI.WebSchedule.v{ProductVersion}
+| link:web-webcalendarview.html[WebCalendarView] 
+
+link:web-webdayview.html[WebDayView] 
+
+link:web-webmonthview.html[WebMonthView] 
+
+link:web-webscheduleinfo.html[WebScheduleInfo]
+
+|Infragistics4.WebUI.WebScheduleDataProvider.v{ProductVersion} 
+
+*追加の参照アセンブリ*
+
+____ 
+
+Infragistics4.WebUI.WebSchedule.v{ProductVersion} 
+
+____
+| link:web-webscheduleoledbprovider.html[WebScheduleOleDbProvider] 
+
+link:web-webschedulesqlclientprovider.html[WebScheduleSqlClientProvider]
+
+|Infragistics4.WebUI.WebResizingExtender.v{ProductVersion}
+| link:web-webresizingextender.html[WebResizingExtender]
+
+|====
+
+*注:* Infragistics4.WebUI.Shared はすべての Infragistics web アセンブリによって参照されます。
+
+== 関連トピック
+
+link:web-asp-net-aptca-assemblies.html[ASP.NET APTCA アセンブリ] -- Partial-trust 環境でアプリケーションを配備することを可能にする APTCA アセンブリの概要を提供します。
+
+link:web-adding-an-assembly-to-a-project.html[アセンブリのプロジェクトへの追加] -- Infragistics の .NET アセンブリを Visual Studio® .NET のプロジェクトにすばやく追加する方法を説明します。

@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "webnumericeditor-using-webnumericeditor",
+    "controlName": ["WebNumericEditor"],
+    "tags": ["Editing","Getting Started"],
+    "guid": "{CDB2CDBB-5EEF-4CD3-9687-09253598CDFD}",  
+    "buildFlags": [],
+    "createdOn": "2009-03-06T10:05:13Z"
+}
+|metadata|
+////
+
+= WebNumericEditor の使用
+
+このセクションは、WebNumericEditor™ コントロールの重要な概念および機能を効果的に使用するためのタスク ベースの情報について説明します。
+
+link:webnumericeditor-setting-minimum-and-maximum-values-for-webnumericeditor.html[WebNumericEditor の最大値/最小値の設定]
+
+このセクションでは、WebNumericEditor コントロールに最大値および最小値を設定する方法を学びます。
+
+link:webnumericeditor-setting-minimum-number-of-decimal-places-for-webnumericeditor.html[WebNumericEditor に小数位の最大値および最小値を設定]
+
+このセクションでは、WebNumericEditor コントロールに小数位の最大値および最小値を設定する方法を学びます。
+
+link:webnumericeditor-spinning-through-a-list-of-values-in-webnumericeditor.html[WebNumericEditor の値リストのスピン]
+
+このセクションでは、値リストで回転するスピン ボタンを使用する方法を学びます。
+
+link:webnumericeditor-styling-negative-text-in-webnumericeditor.html[WebNumericEditor の負数テキストのスタイル設定]
+
+このセクションでは、負数テキストのカスタム スタイルを設定する方法を学びます。
+
+link:webnumericeditor-using-custom-button-in-webnumericeditor.html[WebNumericEditor でカスタムボタンを使用する]
+
+このセクションでは、カスタマイズされたボタンを実装してカスタムなアクションを実行する方法を学びます。
+
+link:webnumericeditor-using-display-factor-in-webnumericeditor.html[WebNumericEditor で表示係数を使用する]
+
+WebNumericEditor コントロールは、ユーザー入力を編集する表示係数値の使用をサポートします。このセクションはその使用方法について説明します。
+
+link:webnumericeditor-webnumericeditor-smart-tag.html[WebNumericEditor スマート タグ]
+
+このセクションでは WebNumericEditor スマート タグについて学びます。

@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "webtab-about-webtab",
+    "controlName": ["WebTab"],
+    "tags": ["How Do I"],
+    "guid": "{B55E0307-A205-4243-AA94-44123EC3FF8E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebTab について
+
+WebTab™ はさまざまな外観および動作ベースのプロパティで複数行タブ付きレイアウトを提供するコントロールです。WebTab は優れたパフォーマンスと応答性の高いエンドユーザー エクスペリエンスを促進する証明済みのコード ベースを利用するために {ProductName} AJAX フレームワークを使用して構築されます。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols_namespace.html[Infragistics.Web.UI.LayoutControls]"]  名前空間で WebTab を見つけることができます。
+
+すべての {ProductName} AJAX コントロールのように、WebTab は Infragistics® Application Styling Framework にシームレスに統合します。CSS ベースのプロパティを使用すると、既存のスタイルシートを利用することによって、WebTab を手動でカスタマイズできます。
+
+WebTab は、クライアント側の JavaScript プログラミング環境に強固なオブジェクト モデルも提供します。クライアント サイド オブジェクトモデル（CSOM）は、十分な機能を備えたプロパティとメソッドで構成され、開発者はサーバー側でポストバックしなくても、重要な機能単位をプログラムできます。
+
+WebTab コントロールの機能の一部には以下が含まれます:
+
+* *ハイ パフォーマンス* -- 軽量のマークアップと最適化されたコードがパフォーマンスを向上します。
+* *コンテンツ ペイン* -- テンプレート領域またはターゲット URL としてコンテンツ ペインをサポートします。
+* *表示モード* -- 単一行または複数行タブを表示できます。
+* *ロードオンデマンド* -- 初期ロードの間すべてのコンテンツをフェッチできるわけではありません。選択されたタブのコンテンツだけです。Ajax 機能（更新パネルを使用）はロードオンデマンド機能と組み合わせることができます。
+* *タブの向き* -- 水平または垂直のいずれかに向けることができます。
+* *アニメーション* -- タブを開く、また閉じる時にアニメーションをサポートします。
+* *スクロール ボタン* -- スクロール ボタンを使用してスクロール可能なタブを持つことができます。
+* *タブの移動* --単一行でタブを移動できます。
+* *自動サイズ* -- ペインのコンテンツを収めるために WebTab をリサイズできます。
+* *タブの位置* -- タブは左または右のいずれかにタブを揃えるオプションを付けて、上側または下側に配置できます。
+* *タブの追加* -- ポストバックすることなくクライアントでタブを追加することができます。
+
+image::images/Whats_New_WebTab_01.png[]
+
+== 関連トピック
+
+link:webtab-webtab-smart-tag.html[WebTab スマートタグ]
+
+link:webtab-getting-started-with-webtab.html[WebTabで開始]
+
+link:webtab-using-webtab.html[WebTab の使用]

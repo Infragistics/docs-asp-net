@@ -1,0 +1,28 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-webhtmleditor-designer-format-tab",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Data Presentation","Editing"],
+    "guid": "{DCA84AC7-1177-4B58-BBD2-3D32AA5CBBE7}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor デザイナ（書式タブ）
+
+次に [フォーマット] タブを見てみましょう。このタブには、WebHtmlEditor のスタイルを変更できるオブジェクトのサイズ、色、フォント、境界線を操作するためのプロパティがいくつか含まれています。フォーマットを指定できる、スタイルの変更可能なオブジェクトが、中央のリストボックスに表示されます。クイック デザインの一番右のパネルで選択を行うと、選択したオブジェクトに反映されます。
+
+*注：*   通常は、ほとんどのオブジェクトはそれぞれフォーマット値が異なるので、たとえば 1 つの背景色を複数のオブジェクトに適用することはできません。
+
+image::images/WebHtmlEditor_Using_the_Property_Builder_of_WebHtmlEditor_05.jpg[]
+
+ツールバーの背景色をシルバー グレーにしたい場合は、スタイル変更可能なオブジェクトのリストから [ツールバー] を選択し、[背景色] ドロップダウン リストから [シルバー] を選択します。[適用] をクリックすると、WebHtmlEditor のデザイナ ビューへのすべての変更が確定されます。
+
+image::images/WebHtmlEditor_Using_the_Property_Builder_of_WebHtmlEditor_06.jpg[]
+
+
+*注：* ドロップダウン リストには、よく使われる色の名前だけが表示されます。もっと多くの色の境界線パレットを表示したい場合は、ドロップダウン リストの横の省略記号をクリックすると、[カラー ピッカー] ダイアログ ボックスが表示されます。

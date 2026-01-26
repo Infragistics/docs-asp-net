@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-menu-buttons-of-webhtmleditors-toolbar",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing"],
+    "guid": "{832BD714-0DC1-4EA0-B70C-48ECE13FE034}",  
+    "buildFlags": [],
+    "createdOn": "2006-03-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor のツールバーのメニュー ボタン
+
+ToolbarMenuButton クラスのインスタンスは、アプリケーションのエンド ユーザーがクリックするとコンテキスト メニューを開きます。これらのボタンは、ユーザーが 1 つのパラメータに値を入力するタスクの編集と表示をサポートしていますが、エンド ユーザーが選択できる値の数が比較的小さいときに使用します。このコンテキスト メニューに適した操作の例としては、ドキュメントのズームに 50%、100%、200% などの値を選択する場合が挙げられます。
+
+次の表に、WebHtmlEditor コントロールのツールバーの CategoryName ボタンのリストを示します。各ボタンの説明は、 link:webhtmleditor-list-of-webhtmleditors-toolbar-buttons.html[WebHtmlEditor のツールバー ボタンのリスト]をお読みください。
+
+[options="header", cols="a,a"]
+|====
+|Button|ボタン名
+
+|image::Images/custom.gif[] 
+
+|カスタムメニューボタン
+
+|image::Images/inserttable.gif[] 
+
+|表の挿入
+
+|image::Images/zoom.gif[] 
+
+|ズーム
+
+|====

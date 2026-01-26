@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-row-editing",
+    "controlName": [],
+    "tags": [],
+    "guid": "e85b5896-9efd-4cf2-9419-aa78226205f5",  
+    "buildFlags": [],
+    "createdOn": "2014-03-10T16:12:51.1649674Z"
+}
+|metadata|
+////
+
+= 行編集
+
+== このグループのトピックについて
+
+=== はじめに
+
+このグループのトピックは、  _WebDataGrid_™ の行編集動作およびその使用方法を説明します。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:webdatagrid-row-editing-overview.html[行編集の概要]
+|このトピックでは、 _WebDataGrid_ の行編集動作の機能の概要を提供します。
+
+| link:webdatagrid-enabling-row-editing.html[行編集を有効にする]
+|このトピックは、 _WebDataGrid_ で行編集動作を有効にする方法を説明します。
+
+|====

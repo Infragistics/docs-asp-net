@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-tick-marks",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{8791CD0C-6AC3-405E-BCA0-CFFCD00593B4}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 目盛
+
+このセクションは、目盛をスケールに追加する方法に関するタスクベースの手順だけでなく、WebGauge コントロールの  pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.gaugescaletickmarkappearance.html[TickMark]"]  プロパティについて役に立つ情報を提供します。
+
+* link:webgauge-about-gauge-tick-marks.html[ゲージの目盛について]
+* link:webgauge-add-tick-marks-to-a-scale-on-a-gauge.html[ゲージ上のスケールに目盛を追加]

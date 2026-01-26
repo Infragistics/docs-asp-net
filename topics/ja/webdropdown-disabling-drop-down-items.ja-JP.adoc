@@ -1,0 +1,58 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdropdown-disabling-drop-down-items",
+    "controlName": ["WebDropDown"],
+    "tags": [],
+    "guid": "{040D42D9-AFA3-4F82-969D-EB03D74E72DB}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ドロップ ダウン項目を無効にする
+
+WebDropDown™ によって個々の項目を無効にできます。たとえば、ドロップダウン コンテナ内の特定の項目をエンドユーザーに選択またはアクティブ化させたくない場合があります。特定の項目でオート フィルタリングを回避したい場合さえあります。この機能は、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.dropdownitem.html[DropDownItem]"]  オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.dropdownitem~disabled.html[Disabled]"]  プロパティを設定することで達成できます。
+
+== 個々のドロップダウン項目を無効にするには:
+
+[start=1]
+. ScriptManger コンポーネントと WebDropDown コントロールをフォームに配置してデフォルト名のままにします。
+[start=2]
+. DropDownItem インスタンスを作成することによって項目を WebDropDown に追加し、Add メソッドを使用して Items コレクションに追加します。
+
+*Visual Basic の場合:*
+
+[source]
+----
+        Dim india As New DropDownItem()        india.Text = "India"        WebDropDown1.Items.Add(india)        Dim usa As New DropDownItem()        usa.Text = "U.S.A"        WebDropDown1.Items.Add(usa)        Dim singapore As New DropDownItem()        singapore.Text = "Singapore"        WebDropDown1.Items.Add(singapore)        Dim bulgaria As New DropDownItem()        bulgaria.Text = "Bulgaria"        WebDropDown1.Items.Add(bulgaria)
+----
+
+*C# の場合:*
+
+[source]
+----
+        DropDownItem india = new DropDownItem();        india.Text = "India";        WebDropDown1.Items.Add(india);        DropDownItem usa = new DropDownItem();        usa.Text = "U.S.A";        WebDropDown1.Items.Add(usa);        DropDownItem Singapore = new DropDownItem();        Singapore.Text = "Singapore";        WebDropDown1.Items.Add(Singapore);        DropDownItem Bulgaria = new DropDownItem();        Bulgaria.Text = "Bulgaria";        WebDropDown1.Items.Add(Bulgaria);
+----
+
+[start=3]
+. Disabled プロパティを True に設定することで singapore ドロップダウン項目を無効にします。
+
+*Visual Basic の場合：*
+
+----
+singapore.Disabled = True
+----
+
+*C# の場合：*
+
+----
+singapore.Disabled = true;
+----
+
+[start=4]
+. アプリケーションを保存して実行します。singapore 項目を選択もアクティブ化もできないことを確認します。
+
+image::images\WebDropDown_Disabling_Drop_Down_Items_01.png[]

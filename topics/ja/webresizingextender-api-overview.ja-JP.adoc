@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "webresizingextender-api-overview",
+    "controlName": ["WebResizingExtender"],
+    "tags": ["API"],
+    "guid": "{B45DDF1A-1395-4DFA-8EE8-3DD4DE765EB3}",  
+    "buildFlags": [],
+    "createdOn": "2006-08-12T14:14:25Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、{ProductName} の API ドキュメントに直接リンクされています。
+
+=== WebResizingExtender 名前空間:
+
+link:{ApiPlatform}webui.webresizingextender{ApiVersion}~infragistics.webui_namespace.html[Infragistics.WebUI]
+
+=== キー クラス:
+
+link:{ApiPlatform}webui.webresizingextender{ApiVersion}~infragistics.webui.webresizingextender.html[WebResizingExtender]
+
+link:{ApiPlatform}webui.webresizingextender{ApiVersion}~infragistics.webui.extenderbase.html[ExtenderBase]

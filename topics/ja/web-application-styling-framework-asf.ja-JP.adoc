@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-application-styling-framework-asf",
+    "controlName": [],
+    "tags": ["Getting Started","Styling"],
+    "guid": "{67831C12-D2FC-49FE-9114-2B5045C13FA0}",  
+    "buildFlags": [],
+    "createdOn": "2006-01-12T08:28:11Z"
+}
+|metadata|
+////
+
+= Application Styling Framework (ASF)
+
+できる限りシンプルにアプリケーションのスタイリングができるように弊社は Application Styling Framework™ (ASF) を設計しました。ASF を使用すると、ひとつのスタイル（スタイルセットとして知られる）を作成して、任意のアプリケーションに適用できます。Infragistics AppStylist™ for ASP.NET でスタイルセットを作成して、 pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.shared.appstyling_namespace.html[Infragistics.WebUI.Shared.AppStyling 名前空間]"]  にあるカスタム API を使用して、そのスタイルセットをアプリケーションに適用します。
+
+* link:web-asf-overview.html[ASF 概要] -- ASF 概要は ASF の基本と異なるコンポーネントがどのように互いに作用するかについて説明します。
+* link:web-setting-up-your-project-for-styling.html[スタイリングのためにプロジェクトを設定] -- アプリケーション開発者が知っておく必要がある事柄で、たとえば、プロジェクトのためにアプリケーション スタイリングを有効にする方法やランタイムにスタイルセットを変更する方法です。情報はここで見つけることができます。
+* link:web-netadvantage-application-styling-configuration-tool.html[Visual Studio 内からプロジェクトをスタイリング] -- Microsoft® Visual Studio® 内から直接プロジェクトをスタイルする機能を活用したい場合には、Infragistics Application Styling Configuration ツールを使用することができます。このセクションは、ツールおよびツールのインストール方法についての情報を提供します。

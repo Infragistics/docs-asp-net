@@ -1,0 +1,36 @@
+﻿////
+|metadata|
+{
+    "name": "webschedule-get-the-selected-activity-on-the-client-side",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling"],
+    "guid": "{15DB6018-9139-4739-8569-A02D8C959B62}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 選択されたアクティビティを取得（クライアント側）
+
+WebDayView および WebMonthView はすべて、クライアント側に getSelectedActivity と呼ばれるメソッドがあり、選択した pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[アクティビティ]"] にアクセスするために使用できます。このメソッドはクライアント側でアクティビティを削除または更新するときに使用できます。
+
+以下のコードはこのメソッドの使用を示しています。null エラーを回避するためにアクティビティが選択されていることを確認するためのテストに注意してください。
+
+*JavaScript の場合:*
+
+----
+function GetSelectedActivity()
+{
+	var webDayView = ig_getWebControlById("WebDayView1");
+	var activity = webDayView.getSelectedActivity();
+	if(activity != null)
+		alert(activity.getSubject());
+	else
+		alert("You must select an Activity first");
+}
+----
+
+== 関連トピック
+
+link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[WebSchedule 名前空間]

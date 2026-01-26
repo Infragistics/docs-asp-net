@@ -1,0 +1,146 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdayview-object-csom",
+    "controlName": [],
+    "tags": ["API","How Do I"],
+    "guid": "{9CB974DC-093D-46CF-839A-759833CDC4FF}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDayView オブジェクト
+
+== WebDayView
+
+WebDayView オブジェクトは、WebDayView コントロールのコントロール レベル機能へのアクセスを提供します。
+
+=== WebDayView メソッド
+
+[cols="a,a"]
+|====
+|*getActivityEdgeBusyStyle* 
+|ActivityEdgeBusyStyle の css クラス名を返します。
+
+|*getActivityEdgeFreeStyle* 
+|ActivityEdgeFreeStyle の css クラス名を返します。
+
+|*getActivityEdgeOutofOfficeStyle* 
+|ActivityEdgeOutofOfficeStyle の css クラス名を返します。
+
+|*getActivityEdgeTentativeStyle* 
+|ActivityEdgeTentativeStyle の css クラス名を返します。
+
+|*getActivityHeightMinimum* 
+|予定の最小の高さ（ピクセル単位）を返します。 
+
+*解説*
+
+値がゼロの場合は TimeSlot 行の高さが使用されます。
+
+|*getActivityHoverStyle* 
+|ActivityHoverStyle の css クラス名を返します。
+
+|*getActivitySelectedStyle* 
+|ActivitySelectedStyle の css クラス名を返します。
+
+|*getActivityWidthMinimum* 
+|予定の最小の幅（ピクセル単位）を返します。 
+
+*解説*
+
+このプロパティは、特定のタイムスロットに複数の予定が割り当てられていて、それらの予定の幅が非常に狭くなる場合のみ有効です。
+
+|*getAllDayEventAreaSelectedStyle* 
+|AllDayEventAreaSelectedStyle の css クラス名を返します。
+
+|*getAllDayEventSelectedStyle* 
+|AllDayEventsSelectedStyle の css クラス名を返します。
+
+|*getCaptionHeaderVisible* 
+|WebDayView のキャプションヘッダが表示される場合「True」を返します。
+
+|*getClientID* 
+|WebDayView の ClientID を返します。
+
+|*getElement* 
+|WebDayView に使われている HTML 要素を返します。
+
+|*getEnableActivityMoving* 
+|アクティビティをマウスで移動できるかどうかを決定するブール値を返します。 
+
+*解説*
+
+予定の開始時刻を変更できます。
+
+|*getEnableActivityResizing* 
+|アクティビティをマウスでサイズ変更できるかどうかを決定するブール値を返します。 
+
+*解説*
+
+アクティビティの開始時刻とその長さを変更できます。
+
+|*getEnableAutoActivityDialog* 
+|日またはアクティビティをダブルクリックすると [予定] ダイアログが表示されるかどうかを決定するブール値を返します。
+
+|*getEnabled* 
+|コントロールの Enabled 状態を決定するブール値を返します。
+
+|*getFirstDay* 
+|DayView の最初の日を返します。
+
+|*getNavigationAnimation* 
+|ビュー コントロールがナビゲートされた時に発生するアニメーションの型。 
+
+*解説*
+
+0－None 
+
+1 - Accelerate 
+
+2 - Decelerate 
+
+3 - AccelDecel 
+
+4 - Linear
+
+|*getScrollPosition* 
+|垂直方向のスクロール位置（ピクセル単位）を返します。 
+
+*解説*
+
+負の値の場合は webDayView を就業時間内の最初のタイムスロットにスクロールします。
+
+|*getSelectedActivity* 
+|WebDayView の選択されたアクティビティを返します。 
+
+*解説*
+
+アクティビティが選択されていない場合には、このメソッドは null を返します。
+
+|*getTimeSlotInterval* 
+|分単位で各タイムスロットで使用される時間間隔を返します。 
+
+*解説*
+
+時間間隔は最小 1 分から最大 4 時間までです。
+
+|*getUniqueID* 
+|WebDayView の UniqueID を返します。
+
+|*getWebScheduleInfo* 
+|WebDayView が関連付けられている WebScheduleInfo オブジェクトを返します。
+
+|*setScrollPosition* 
+|垂直方向のスクロール位置を設定します。 
+
+*パラメータ*
+
+_position_ 
+
+位置をスクロールします（ピクセル単位）。
+
+|====

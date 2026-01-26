@@ -1,0 +1,30 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-client-side-programming",
+    "controlName": ["WebSchedule"],
+    "tags": [],
+    "guid": "{4F273417-F12C-4139-B714-356FE37030BC}",  
+    "buildFlags": [],
+    "createdOn": "2005-01-08T00:00:00Z"
+}
+|metadata|
+////
+
+= クライアント側のプログラミング
+
+WebSchedule オブジェクトには堅牢なサーバー側の動作に合致させるために使用できる豊富なクライアント側の機能があります。この機能には、クライアント側の予定のサイズを設定および移動するための機能が含まれています。
+
+クライアント側は強力なクライアント側イベント モデルも提供します。
+
+WebScheduleInfo オブジェクトのクライアント側イベントとしては、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfoclientevents~activedaychanged.html[ActiveDayChanged]"] 、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfoclientevents~activitydialogopening.html[ActivityDialogOpening]"] 、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfoclientevents~activityadding.html[ActivityAdded]"] 、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfoclientevents~activitydeleting.html[ActivityDeleted]"] 、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfoclientevents~activityupdating.html[ActivityUpdating]"]  が挙げられます。
+
+* link:webschedule-csom-overview.html[CSOM 概要]
+* link:webschedule-adding-an-activity-on-the-client-side.html[アクティビティを追加（クライアント側）]
+* link:webschedule-create-an-object-the-updates-an-activitys-properties.html[アクティビティのプロパティを更新するオブジェクトを作成]
+* link:webschedule-deleting-an-activity-on-the-client-side.html[アクティビティを削除（クライアント側）]
+* link:webschedule-get-the-selected-activity-on-the-client-side.html[選択されたアクティビティを取得（クライアント側）]
+* link:webschedule-limiting-appointment-dates-and-times.html[予定の日時を制限]
+* link:webscheduleinfo-retrieve-a-reference-to-the-webscheduleinfo-object-on-the-client-side.html[WebScheduleInfo オブジェクトへの参照を取得（クライアント側）]
+* link:webschedule-updating-an-activity-on-the-client-side.html[アクティビティを更新（クライアント側）]

@@ -1,0 +1,83 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdropdown-load-on-demand",
+    "controlName": ["WebDropDown"],
+    "tags": [],
+    "guid": "{068BDA6B-9E98-4A83-9DFE-DB1C53BAFB5C}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ロード オン デマンド
+
+WebDropDown™ はロード オンデマンドをサポートします。ロードオンデマンドが有効な場合、エンドユーザーはドロップダウンコンテナにスクロールバーを最初に表示可能にすべきで、リストの最後までスクロールすると、非同期コールバックを介してより多くの項目がフェッチされてリストの一番下に追加されます。ロードオンデマンドを有効にするとサーバーとクライアントの両方で帯域幅と処理のオーバーヘッドを大幅に削減します。データローディングメッセージは、WebDropDown コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~loadingitemsmessagetext.html[LoadingItemsMessageText]"]  プロパティによって設定できます。
+
+ロード オン デマンドを有効にするには、WebDropDown コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~enableloadondemand.html[EnableLoadOnDemand]"]  プロパティを True に設定する必要があります。デフォルトでこのプロパティは False に設定されます。Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、EnableLoadOnDemand プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+[source]
+----
+WebDropDown1.EnableLoadOnDemand = true
+----
+
+*C# の場合：*
+
+[source]
+----
+WebDropDown1.EnableLoadOnDemand = true;
+----
+
+
+注：ロード オン デマンドはページングと併用できません。ロード オン デマンドとページングの両方が有効な場合には予期せぬ結果が発生します。
+
+
+== WebDropDown でロード オン デマンドを使用する
+
+この事例では、Northwind データベースの Customers テーブルを使用します。
+
+[start=1]
+. Visual Studio™ ツールボックスから、ScriptManager コンポーネント、WebDropDown コントロールおよび SqlDataSource コンポーネントをドラッグ アンド ドロップします。
+[start=2]
+. WebDropDown を Northwind データベースの Categories テーブルにバインドします。WebDropDown を SqlDataSource にバインドする方法の詳細は、 link:webdropdown-binding-webdropdown-to-a-sql-data-source.html[WebDropDown を SQL データ ソースにバインド]を参照してください。
+[start=3]
+. WebDropDown コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~textfield.html[TextField]"]  プロパティを CompanyName に設定します。
+[start=4]
+. WebDropDown コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~dropdowncontainerheight.html[DropDownContainerHeight]"]  および  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~dropdowncontainerwidth.html[DropDownContainerWidth]"]  プロパティを 200px に設定します。[プロパティ] ウィンドウまたは以下のコードからこれらのプロパティを設定できます。
+
+*Visual Basic の場合：*
+
+[source]
+----
+WebDropDown1.DropDownContainerHeight = 200;WebDropDown1.DropDownContainerWidth = 200;
+----
+
+*C# の場合：*
+
+----
+WebDropDown1.DropDownContainerHeight = 200;
+WebDropDown1.DropDownContainerWidth = 200;
+----
+
+[start=5]
+. [プロパティ] ウィンドウまたは以下のコードを使用して EnableDropDown プロパティを設定することでロード オン デマンドを有効にします。
+
+*Visual Basic の場合：*
+
+[source]
+----
+WebDropDown1.EnableLoadOnDemand = true
+----
+
+*C# の場合：*
+
+----
+WebDropDown1.EnableLoadOnDemand = true;
+----
+
+[start=6]
+. アプリケーションを保存して実行します。リストの終わりまでスクロールダウンすると、ドロップダウン コンテナに項目が追加されていることが分かります。

@@ -1,0 +1,194 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-clipboard",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Editing","Grids"],
+    "guid": "36c142d4-d1f8-40da-8df7-1b04475a2b45",  
+    "buildFlags": [],
+    "createdOn": "2011-10-21T07:55:12.8699112Z"
+}
+|metadata|
+////
+
+= クリップボード
+
+=== 目的
+
+このトピックでは、WebDataGrid™ および WebHierarchicalDataGrid™ コントロールでの Clipboard サポートの構成方法を説明します。
+
+[[_anchor_1]]
+
+=== このトピックの構成
+
+このトピックには次のセクションがあります。
+
+* <<_Clipboard_Configuration_Overview,Clipboard 構成の概要>>
+* <<_Enabling_Clipboard_Support,Clipboard サポートの有効化>>
+* <<_Configuring_the_cut,切り取り/コピー/貼り付け機能の個別構成>>
+
+** <<_Individual_clipboard_functionalitie,個々のクリップボード機能のサポート>>
+** <<_Configuring_the_property,部分的なクリップボード サポートを目的としたプロパティ設定値の構成>>
+** <<_Example_allowing_only,例: コピー操作のみを可能にする>>
+
+* <<_Copying_Column_Headers,列ヘッダーのコピー>>
+
+** <<_Copying_column_headers_1,列ヘッダーのコピーの概要>>
+** <<_Copying_column_headers_2,列ヘッダー プロパティ設定値のコピー>>
+
+* <<_Related_Topics,関連トピック>>
+
+=== 前提条件
+
+まず以下のトピックを読む必要があります。
+
+* link:webdatagrid-getting-started-with-webdatagrid.html[WebDataGrid を使用した作業の開始]
+* link:webdatagrid-using-behaviors.html[デザイン時における動作の追加]
+* link:webdatagrid-adding-a-behavior-at-runtime.html[ランタイムに動作を追加]
+* link:known-issues-known-issues-and-breaking-changes-revision-history.html[既知の問題と重大な変更]
+
+注*:* ブラウザーからの Clipboard の呼び出しには数多くの制約があります。ブラウザー サポートの詳細については、 link:known-issues-known-issues-and-breaking-changes-revision-history.html[既知の問題点と解決策]というトピックを参照してください。
+
+== Clipboard 構成の概要
+
+=== はじめに
+
+ユーザーは、コピーには CTRL + C、貼り付けには CTRL + V、切り取りには CTRL + X という標準的なキーボード ショートカットを使用してクリップボードでグリッドのデータを操作できます。
+
+Clipboard 動作は、他のグリッド動作と同じように、マークアップやコードによって、またはデザイナーを介してグリッドに追加されます。コピーするセルを選択するには、Selection および Activation 動作が必要です。ホスト バックが完了するまで貼り付けられたデータを記憶しておくためには、Editing コア動作が必要です。
+
+=== Clipboard 構成表
+
+次の表は、WebDataGrid および WebHierarchicalDataGrid の Clipboard の動作のうち、ユーザーが制御できる動作をまとめたものです。
+
+[options="header", cols="a,a,a"]
+|====
+|構成可能な動作|構成の詳細|構成プロパティ
+
+|*Clipboard サポート*
+|Clipboard 動作をグリッドに追加します。
+|
+* 動作 
+
+|切り取り/コピー/貼り付け機能の個別構成
+|切り取り、コピー、および貼り付け操作は、互いに独立した形でオン/オフを切り替えることができます。
+|
+* EnableCopy 
+
+* EnableCut 
+
+* EnablePaste 
+
+|*列ヘッダーのコピー*
+|列ヘッダーのテキストをコピーして別のアプリケーションに貼り付けるためのコピー アンド ペースト操作を構成します。
+|
+* CopyColumnHeader 
+
+|====
+
+== Clipboard サポートの有効化
+
+*ASPX の場合:*
+
+----
+<ig:WebDataGrid ID="wdg1" runat="server">
+    <Behaviors>
+        <ig:Clipboard />
+    </Behaviors> 
+</ig:WebDataGrid>
+----
+
+*C# の場合：*
+
+----
+Clipboard gridClipboard = this.WebDataGrid1.Behaviors.CreateBehavior<Clipboard>();
+----
+
+*Visual Basic の場合:*
+
+----
+Dim gridClipboard As Clipboard = Me.WebDataGrid1.Behaviors.CreateBehavior(Of Clipboard)()
+----
+
+== 切り取り/コピー/貼り付け機能の個別構成
+
+=== 個々のクリップボード機能のサポート
+
+コピー操作は、他の動作とは個別にオン/オフを切り替えることができます。切り取り動作と貼り付け動作も個別に構成できます。コピー操作のみを有効にするには、切り取り操作と貼り付け操作を無効にしておく必要があります。Clipboard 動作を追加した時点では、すべてのクリップボード機能がデフォルトで有効になっています。
+
+=== 部分的なクリップボード サポートを目的としたプロパティ設定値の構成
+
+以下の表は、要求ビヘイビアーをプロパティ設定にマップしています。プロパティの設定画面は、WebDataGrid の Clipboard 動作から呼び出します。 
+
+[options="header", cols="a,a,a"]
+|====
+|以下を行うために...|このプロパティの使用:|設定値
+
+|*切り取り操作を無効にします*
+|EnableCut
+|_False_
+
+|*コピー操作を無効にします*
+|EnableCopy
+|_False_
+
+|*貼り付け操作を無効にします*
+|EnablePaste
+|_False_
+
+|====
+
+=== 例: コピー操作のみを可能にする
+
+以下の設定を行うと、グリッド内ではコピー操作のみが有効になります。
+
+[options="header", cols="a,a"]
+|====
+|プロパティ|設定
+
+|EnableCut
+|_False_
+
+|EnablePaste
+|_False_
+
+|====
+
+こうしたプロパティの詳細については、プロパティ リファレンス セクションにあるプロパティの一覧を参照してください。
+
+* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.clipboard.html[Clipboard API ドキュメンテーション ]
+
+[[_anchor_7]]
+== 列ヘッダーのコピー
+
+=== 列ヘッダーのコピーの概要
+
+Excel® などの別のアプリケーションに列値を貼り付けるときにはそうしたデータがコピー元のヘッダー情報と共に貼り付けられていくように、列ヘッダー情報をコピーする Clipboard 動作を構成しておくことができます。
+
+image::Images/WebDataGrid_Clipboard_01.png[]
+
+image::Images/WebDataGrid_Clipboard_02.png[]
+
+=== 列ヘッダー プロパティ設定値のコピー
+
+以下の表は、要求ビヘイビアーをプロパティ設定にマップしています。プロパティの設定画面はClipboard 動作から呼び出します。
+
+[options="header", cols="a,a,a"]
+|====
+|以下を行うために...|このプロパティの使用:|設定値
+
+|*列ヘッダーをコピーできるようにします*
+|CopyColumnHeader
+|_True_
+
+|====
+
+== 関連トピック
+
+以下は、その他の役立つトピックです。
+
+* link:webdatagrid-removing-a-behavior.html[動作の削除]
+* link:webdatagrid-activation.html[アクティベーション]
+* link:webdatagrid-selection.html[選択]
+* link:webdatagrid-editting.html[編集]

@@ -1,0 +1,26 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-data-providers",
+    "controlName": ["WebSchedule"],
+    "tags": [],
+    "guid": "{88144478-C795-426C-BF04-40A5113B3C52}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-09T00:00:00Z"
+}
+|metadata|
+////
+
+= データ プロバイダ
+
+データ アクセス レイヤに含まれる WebSchedule データ プロバイダは、WebScheduleInfo 内の  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[Activity]"]  オブジェクトと  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.resource.html[Resource]"]  オブジェクトをデータストア内のテーブルと行にバインドする役割を果たします。
+
+データ プロバイダ クラス モデルは、拡張性を考慮して作成されているので、データ プロバイダを拡張して他のデータソースや拡張オブジェクト モデルを処理できます。
+
+* link:webschedule-about-webdataproviders.html[WebDataProviders について]
+* link:webschedule-storing-snooze-values.html[再通知値を保存]
+* link:webschedule-add-an-activity-to-the-database.html[アクティビティをデータベースに追加]
+* link:webschedule-handle-concurrency-conflicts.html[並行性競合の処理]
+* link:webschedule-remove-an-activity-from-the-database.html[アクティビティをデータベースから削除]
+* link:webschedule-creating-a-custom-data-provider.html[カスタム データ プロバイダの作成]

@@ -1,0 +1,325 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-configuring-multi-column-footers",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Getting Started","Grids"],
+    "guid": "47cf4f66-55cf-4d88-8c1a-2ca572d1da21",  
+    "buildFlags": [],
+    "createdOn": "2012-04-16T02:13:18.0439667Z"
+}
+|metadata|
+////
+
+= 複数列フッターの構成
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、コード例を示して、 _WebDataGrid_™ で複数列フッターを構成する方法を説明します。
+
+=== 前提条件
+
+以下の表に、このトピックを理解するための前提条件として求められるトピックをリストします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:webdatagrid-about-webdatagrid.html[WebDataGrid について]
+|このトピックでは、 _WebDataGrid_ の機能について説明します。
+
+| link:webdatagrid-getting-started-with-webdatagrid.html[WebDataGrid で開始]
+|このトピックでは、 _WebDataGrid_ を Northwind サンプル データベースにバインドする方法について説明します。
+
+| link:webdatagrid-columns.html[列]
+|このトピックでは、デザイナーを使用して _WebDataGrid_ 列を構成する方法について説明します。
+
+| link:webdatagrid-add-or-remove-a-column.html[列を追加または削除]
+|このトピックでは、コード内で _WebDataGrid_ に対して列を追加または削除する方法について説明します。
+
+|====
+
+=== 本トピックの内容
+
+このトピックには次のセクションがあります。
+
+* <<_Ref321761870, 複数列フッターの構成 - 概念的概要 >>
+** <<_Ref321833477,複数列フッターの構成の概要>>
+** <<_Ref321833481,要件>>
+** <<_Ref321833485,プロパティ設定>>
+
+* link:webdatagrid-configuring-multi-column-footers.html#code_example[ *複数列フッターの構成 - コード例* ]
+** <<_Ref321761894,概要>>
+** <<_Ref321761898,プレビュー>>
+** <<_Ref321761901,前提条件>>
+** <<_Ref321761906,概要>>
+** <<_Ref321761909,手順>>
+
+* <<_Ref321765186, 関連内容 >>
+** <<_Ref321833490,トピック>>
+** <<_Ref321833493,サンプル>>
+
+[[_Control_Configuration_Summary]]
+[[_Ref321761870]]
+== 複数列フッターの構成 - 概念的概要
+
+[[_Ref321833477]]
+
+=== 複数列フッターの構成の概要
+
+複数列フッター機能によって、複数列フッターを結合できます。つまり、ひとつの列のフッター テキストが複数列に及ぶことになります。
+
+複数列フッターの構成には、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.gridfield_members.html[GridField] またはその子孫インスタンスの作成、および link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.gridfield~footer.html[Footer] プロパティ オブジェクトの設定が伴います。 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.gridfield~footer.html[Footer] プロパティ オブジェクトは link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.gridfieldfootercaption_members.html[GridFieldFooterCaption] クラスであり、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.gridfieldfootercaption~colspan.html[ColSpan] プロパティを持っています。このプロパティは、複数列フッターの構成を行います。このプロパティの設定後に必要なことは、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.gridfield~footer.html[Footer] の Text プロパティでのフッター設定のみです。
+
+複数列ヘッダー機能とは異なり、グループ内にフッターのネスティングはありません。複数列フッターを構成する場合、以下に留意してください。
+
+*  *結合は左から右へ行います。*
+
+結合された列の重複がある場合、左列のルールが右列のルールに優先し、その結果、右のルールは破棄されます。
+
+*  *列のスパンは固定領域を超えることはできません。*
+
+列の固定と共に複数列フッターを使用する場合は、列のスパンは固定領域を超えることはできません。たとえば、2 列が固定されており、3 列のフッター スパンを定義した場合、2 列のみがスパンすることになります
+
+*  *列のスパンは、表示された列にのみ影響を与えます。*
+
+つまり、列は、コレクション内の順序ではなく、表示された順序で処理されます。たとえば、列スパン 2 を持つ表示された列、非表示の列、別の表示された列の順序の場合、2 番目の表示された列が列スパンに含まれます。
+
+* 列のスパンは、グリッドの終わりを超えることはできません。
+
+たとえば、グリッドの右側に 2 列あり、3 列スパンを定義した場合、結果は 2 列スパンになります。
+
+*注:*
+_GridField_   インスタンスまたはその子孫でフッターをスパンできます。
+
+[[_Ref321833481]]
+
+=== 要件
+
+_true_   に設定された link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webdatagrid~showfooter.html[ShowFooter] プロパティを使用してデータにバインドされた  _WebDataGrid_  。
+
+[[_Ref321833485]]
+
+=== プロパティ設定
+
+以下の表に、複数列フッターの設定可能な項目と、それを管理するための該当するプロパティへのマッピングを示します。
+
+[options="header", cols="a,a"]
+|====
+|構成可能な項目|プロパティ
+
+|列の数
+|
+* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.gridfieldfootercaption~colspan.html[ColSpan] 
+
+|====
+
+[[_Configuring_Multi-Column_Footers]]
+[[code_example]]
+== 複数列フッターの構成 - コード例
+
+[[_Ref321761894]]
+
+=== 概要
+
+この例では、 _WebDataGrid_   は、 _Northwind_   サンプル データベース内の  _Suppliers_   テーブルにバインドされます。複数列フッターを表示するには、列フッターはグリッドに対して有効になり、列スパンは、列の内の 2 列に対して定義されます。これらは  _SupplierID_   および  _Address_  列です。
+
+[[_Ref321761898]]
+
+=== プレビュー
+
+以下のスクリーンショットは最終結果のプレビューです。
+
+image::images/Configuring_Multi-Column_Footers.docx(WDG)_1.png[]
+
+[[_Ref321761901]]
+
+=== 前提条件
+
+手順を完了するには、以下が必要です:
+
+*  _Northwind_   サンプル データベースの  _Suppliers_   テーブルにバインドされた  _WebDataGrid_  。
+
+[[_Ref321761906]]
+
+=== 概要
+
+このトピックでは、 _WebDataGrid_   の複数列フッターの構成について、ステップごとに説明します。以下はプロセスの概念的概要です。
+
+*1.<<Configure_footer_visibility,フッターの表示状態を構成します。>>*
+
+*2.<<Define_fields,グリッドのフィールド定義します。>>*
+
+*3.<<Configure_Multi_column_footer,複数列フッターを構成します。>>*
+
+[[_Ref321761909]]
+
+=== 手順
+
+以下のステップは、 _WebDataGrid_   における複数列フッターの構成方法を示します。
+
+=== 1.フッターの表示状態を構成します。
+
+フッター セット  _ShowFooter_   プロパティを  _true_   に設定する方法。
+
+*ASPX の場合:*
+
+[source,html]
+----
+<ig:WebDataGrid ID="WebDataGridView" runat="server" ShowFooter="True" >
+</ig:WebDataGrid>
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+WebDataGridView.ShowFooter = true;
+----
+
+=== 2.グリッドのフィールド定義します。
+
+グリッドのフィールドを定義します。
+
+*ASPX の場合:*
+
+[source,html]
+----
+<Columns>
+    <ig:BoundDataField DataFieldName="SupplierID" Key="SupplierID">
+        <Header Text="SupplierID" />
+    </ig:BoundDataField>
+    <ig:BoundDataField DataFieldName="CompanyName" Key="CompanyName">
+        <Header Text="Company" />
+    </ig:BoundDataField>
+    <ig:BoundDataField DataFieldName="Address" Key="Address">
+        <Header Text="Address" />
+    </ig:BoundDataField>
+    <ig:BoundDataField DataFieldName="City" Key="City">
+        <Header Text="City" />
+    </ig:BoundDataField>
+    <ig:BoundDataField DataFieldName="PostalCode" Key="PostalCode">
+        <Header Text="Postal Code" />
+    </ig:BoundDataField>
+</Columns>
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+BoundDataField supplierId = new BoundDataField();
+supplierId.DataFieldName = "SupplierID";
+supplierId.Key = "SupplierID";
+supplierId.Header.Text = "SupplierID";
+WebDataGridView.Columns.Add(supplierId);
+BoundDataField companyName = new BoundDataField();
+companyName.DataFieldName = "CompanyName";
+companyName.Key = "CompanyName";
+companyName.Header.Text = "Company";
+WebDataGridView.Columns.Add(companyName);
+BoundDataField address = new BoundDataField();
+address.DataFieldName = "Address";
+address.Key = "Address";
+address.Header.Text = "Address";
+WebDataGridView.Columns.Add(address);
+BoundDataField city = new BoundDataField();
+city.DataFieldName = "City";
+city.Key = "City";
+city.Header.Text = "City";
+WebDataGridView.Columns.Add(city);
+BoundDataField postalCode = new BoundDataField();
+postalCode.DataFieldName = "PostalCode";
+postalCode.Key = "PostalCode";
+postalCode.Header.Text = "Postal Code";
+WebDataGridView.Columns.Add(postalCode);
+----
+
+=== 3.複数列フッターを構成します。
+
+フッターをそれぞれの列に追加します。この例では、フッターは  _SupplierID_   および  _Address_   列に追加されます。 *1.*  *フッターを*  _SupplierID_    *列に追加し、*  _ColSpan_    *プロパティを 2 に設定します。* 
+
+*ASPX の場合:*
+
+[source,html]
+----
+<ig:BoundDataField DataFieldName="SupplierID" Key="SupplierID">
+    <Header Text="SupplierID" />
+    <Footer Text="SupplierID and Company Name footer" ColSpan="2" />
+</ig:BoundDataField>
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+BoundDataField supplierId = new BoundDataField();
+supplierId.DataFieldName = "SupplierID";
+supplierId.Key = "SupplierID";
+supplierId.Header.Text = "SupplierID";
+supplierId.Footer.Text = "SupplierID and Company Name footer";
+supplierId.Footer.ColSpan = 2;
+WebDataGridView.Columns.Add(supplierId);
+----
+
+*2.*  *フッターを*   _Address_    *列に追加し、*  _ColSpan_    *プロパティを 3 に設定します。*
+
+*ASPX の場合:*
+
+[source,html]
+----
+<ig:BoundDataField DataFieldName="Address" Key="Address">
+    <Header Text="Address" />
+    <Footer Text="Address and City and Postal Code footer" ColSpan="3" />
+</ig:BoundDataField>
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+BoundDataField address = new BoundDataField();
+address.DataFieldName = "Address";
+address.Key = "Address";
+address.Header.Text = "Address";
+address.Footer.Text = "Address and City and Postal Code footer";
+address.Footer.ColSpan = 3;
+WebDataGridView.Columns.Add(address);
+----
+
+[[_Related_Content]]
+[[_Ref321765186]]
+== 関連内容
+
+[[_Ref321833490]]
+
+=== トピック
+
+以下のトピックでは、このトピックに関連する情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:webdatagird-multi-column-headers.html[WebDataGrid 複数列ヘッダーの構成]
+|このトピックでは、 _WebDataGrid_ における複数列ヘッダーの構成方法を示します。
+
+|====
+
+[[_Ref321833493]]
+
+=== サンプル
+
+以下のサンプルでは、このトピックに関連する情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|サンプル|目的
+
+| link:{SamplesURL}/samples/webdatagrid/display/multicolumnfooters/default.aspx?cn=data-grid&sid=bd7a3ca7-3396-4cc3-8e79-a4e2a36df682[複数列のフッター]
+|これは、複数列フッターを使用した _WebDataGrid_ の構成を示しています。
+
+|====

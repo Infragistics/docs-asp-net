@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdialogwindow-remove-the-header",
+    "controlName": ["WebDialogWindow"],
+    "tags": ["How Do I"],
+    "guid": "{1C66EFF4-3F75-4EC2-B815-0897576C8880}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ヘッダを削除
+
+ダイアログ ウィンドウのヘッダは、ダイアログ ウィンドウ自体の管理に関してエンド ユーザーにとって極めて貴重になる可能性があります。ただし、アプリケーションのニーズとして必要に迫られる場合には、ダイアログ ウィンドウからヘッダを完全に削除してすべてのダイアログ ウィンドウの状態を  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.webdialogwindow~windowstate.html[WindowState]"]  プロパティによって処理することができます。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.webdialogwindow~header.html[Header]"]  オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.layoutheader~visible.html[Visible]"]  プロパティを False に設定することによって、ダイアログ ウィンドウのヘッダを削除することができます。ただし、いったんヘッダが削除されると、エンド ユーザーがダイアログ ウィンドウを最小化、最大化または閉じるその他の方法を公開する必要があります。説明のキャプションを表示する機能も失います。
+
+以下のコードは、ダイアログ ウィンドウからヘッダを削除する方法を例示します。
+
+*Visual Basic の場合：*
+
+----
+' ヘッダを削除します。
+Me.WebDialogWindow1.Header.Visible = False
+----
+
+*C# の場合：*
+
+----
+ // ヘッダを削除します。
+this.WebDialogWindow1.Header.Visible = false;
+----

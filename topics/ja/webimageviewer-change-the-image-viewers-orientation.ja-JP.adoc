@@ -1,0 +1,44 @@
+﻿////
+
+|metadata|
+{
+    "name": "webimageviewer-change-the-image-viewers-orientation",
+    "controlName": ["WebImageViewer"],
+    "tags": ["Editing","Layouts","Styling"],
+    "guid": "{E0A7F67C-95A8-43AB-9CD5-0A10C04F4928}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 画像ビューアの方向を変更
+
+WebImageViewer™ コントロールは以下の 2 つの方向モードをサポートします。
+
+* Horizontal
+* Vertical
+
+詳細は、 link:webimageviewer-orientation-types.html[「方向のタイプ」]を参照してください。
+
+pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webimageviewer~orientation.html[Orientation]"]  プロパティを Horizontal に設定すると、各画像の高さは使用可能な垂直方向の領域を埋めるために 100% に設定されます。
+
+Orientation プロパティが Vertical に設定されると、各画像の幅は使用可能な水平領域を埋めるために 100% に設定されます。
+
+以下の例のコードは、Orientation プロパティを Vertical に設定します。
+
+image::images/WebImageViewer_Change_Orientation_01.png[WebImageViewer_Change_Orientaion_01]
+
+*Visual Basic の場合：*
+
+----
+' Orientation を Vertical に設定します。
+Me.WebImageViewer1.Orientation = Orientation.Vertical
+----
+
+*C# の場合：*
+
+----
+// Orientation を Vertical に設定します。
+this.WebImageViewer1.Orientation = Orientation.Vertical;
+----

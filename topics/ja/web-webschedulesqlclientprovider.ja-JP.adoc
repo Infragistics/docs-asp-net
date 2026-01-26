@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webschedulesqlclientprovider",
+    "controlName": ["WebScheduleSqlProvider"],
+    "tags": ["Data Presentation","Persistence","Sample Data Source"],
+    "guid": "{28F1135A-47E4-4CF0-BA7D-7040062AA546}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WebScheduleSqlClientProvider
+
+WebScheduleSqlClientProvider コンポーネントの紹介については以下のリンクをクリックしてください。
+
+* link:webschedulesqlclientprovider-about-webschedulesqlclientprovider.html[WebScheduleSqlClientProvider について] -- WebScheduleSqlClientProvider コンポーネントの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:webschedulesqlclientprovider-smart-tag.html[WebScheduleSqlClientProvider スマート タグ] -- WebScheduleSqlClientProvider スマート タグで使用可能な機能を説明します。
+
+WebScheduleSqlClientProvider コンポーネントは、コントロールおよびコンポーネントの WebSchedule グループの一部です。複数の WebSchedule コントロールおよびコンポーネント（WebCalendarView、ScheduleOleDbProvider）に共通する概要/タスクベースの情報を収めているセクションを探している場合には、以下のリンクをクリックします。
+
+link:web-webschedule.html[WebSchedule]

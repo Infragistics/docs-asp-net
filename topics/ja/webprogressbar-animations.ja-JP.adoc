@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "webprogressbar-animations",
+    "controlName": ["WebProgressBar"],
+    "tags": [],
+    "guid": "{2F9B866A-2F92-49E8-94AC-CDB817C28CD8}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アニメーション
+
+WebProgressBar™ は、進行状況を示すためにさまざまなタイプのアニメーションをサポートします。WebProgressBar コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.displaycontrols.webprogressbar~animationduration.html[AnimationDuration]"]  および  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.displaycontrols.webprogressbar~animationthreshold.html[AnimationThreshold]"]  プロパティをそれぞれ設定することでアニメーションの時間としきい値を簡単に設定することができます。以下は進行状況を示すために設定できるさまざまなタイプの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.displaycontrols.webprogressbar~animationtype.html[AnimationType]"]  オブジェクトのアニメーション プロパティです。
+
+* *Linear* -- アニメーション時間に基づいて進行状況は一定の速度で示されます。
+* *EaseIn* -- アニメーション時間に基づいて進行状況は最初はゆっくりとしていますが、後で速くなります。
+* *EaseOut* -- アニメーション時間に基づいて進行状況は最初は速いですが、後で遅くなります。
+* *EaseInOut* -- アニメーションの時間に基づいて進行状況は最初はゆっくりとしていますが、後で速くなり、終わりに再度遅くなります。
+* *Bounce* -- 進行状況値は最初に最大値に到達し、次に特定の値まで減少し、再び最大値に到達します。
+
+*注：* アニメーションはクライアント側でのみ使用可能で、AnimationDuration プロパティを -1 に設定することでオフにすることができます。

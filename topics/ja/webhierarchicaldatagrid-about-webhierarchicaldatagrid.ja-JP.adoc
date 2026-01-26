@@ -1,0 +1,133 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatagrid-about-webhierarchicaldatagrid",
+    "controlName": ["WebHierarchicalDataGrid"],
+    "tags": ["Getting Started","Grids","How Do I"],
+    "guid": "{E044D668-DDC5-4019-9860-2B8C4589C314}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHierarchicalDataGrid について
+
+WebHierarchicalDataGrid™ コントロールによって、階層データを表示できます。これは WebDataGrid™ コントロールから派生し、多くの関連機能があります。WebHierarchicalDataGrid は、階層データ構造を表すためにバンドおよびコンテナグリッドを導入しています。バンドはデータ メンバーを表し、コンテナ グリッドは指定行に対するネストされた行アイランドを表します。以下のリストに WebHierarchicalDataGrid 機能の一部を示します。
+
+* *複数のバンド* – ユーザーのデータ ソースは、必要数のネストされたレベルを含むことができます。さらに、WebHierarchicalDataGrid で兄弟の子データを表示できます。兄弟の子バンドのサポートでは、標準の WebGrid コントロールには存在しない非常に求められている機能ですが、WebHierarchicalDataGrid に確かに存在します。
+* *階層的なデータ ソースのサポート* – Dataset オブジェクトや IEnumerable インターフェイスを実装するオブジェクトだけでなくすべての階層的なデータ ソース コントロールをサポートします。
+* *AJAX を有効化* – より円滑なデータ検索と人目にわからないデータ操作のためにコントロールで AJAX を完全に有効にできます。
+* *クライアント サイド オブジェクト モデル* - 広範な JavaScript API を使用してクライアント側でコントロールで動的に作業します。
+* *バンドおよび列の自動生成* - WebHierarchicalDataGrid はバンドと列を自動的に生成するために階層的なデータをオプションで調べます。
+* *WebDataGrid™ 機能* - バンドおよびデータ アイランドで WebDataGrid から多くの動作を利用できます。
+
+image::images/WebHierarchicalDataGrid_Binding_to_Data_03.png[]
+
+== 階層表示
+
+WebHierarchicalDataGrid コントロールは、WebDataGrid 上に構築されます。WebHierarchcalDataGrid は、異なる階層ビューを表示するために、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.containergrid.html[ContainerGrid]"]  オブジェクトのコレクションを作成します。これらのオブジェクトは、それ自体の子 ContainerGrid オブジェクトを持つことができます。
+
+===== ContainerGrid
+
+ContainerGrid オブジェクトは、標準データ行間で非表示の子行の挿入を許可する変更されたレンダリング エンジンで WebDataGrid をオーバーライドします。これらの子行は、データ行が展開される時にネストされたデータを表示します。
+
+2 つのレベルの階層データ構造がある場合、WebHierarchicalDataGrid はルート レベルのために ContainerGrid オブジェクトを作成し、各親行のネストされたデータの追加的な ContainerGrid オブジェクトも作成します。
+
+WebHierarchicalDataGrid コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webhierarchicaldatagrid~gridview.html[GridView]"]  プロパティを参照することで、ルート ContainerGrid オブジェクトにアクセスできます。さらに、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.containergridrecord.html[ContainerGridRecord]"]  オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.containergridrecord~rowislands.html[RowIslands]"]  プロパティを使用することで、行の子 ContainerGrid オブジェクトにアクセスできます。ロードオンデマンドを使用している場合、ContainerGrid が存在することを確認してください。つまり、親行は、行アイランドにアクセスしようとする前に展開されます。
+
+===== バンド
+
+pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.band.html[Band]"]  オブジェクトは、階層のひとつのレベルに属しているすべてのデータ アイランドを表します。Band オブジェクトを使用して、各データ レベルに固有のプロパティ、スタイル、および動作を設定できます。各 Band オブジェクトは、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.iband.html[IBand]"]  インターフェイスを実装します。WebHierarchicalDataGrid は IBand を実装し、ルートバンドを表します。
+
+ContainerGrid オブジェクトは、コントロールに異なるデータ バンドを含む  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.bandcollection.html[BandCollection]"]  タイプの Bands プロパティを公開します。親子の関係があるデータソースがある場合、WebHierarchicalDataGrid の Bands コレクションには、子データの 1 Band オブジェクトが含まれ、親バンドは WebHierarchicalDataGrid 自体であり、このオブジェクトの設定は親データレベルだけに適用されます。異なるバンドの設定を構成する方法については、 link:webhierarchicaldatagrid-behaviors.html[動作]を参照してください。
+
+===== 行
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.containergridrecordcollection.html[ContainerGridRecordCollection] タイプの ContainerGrid オブジェクトの link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.containergrid~rows.html[Rows] プロパティは、グリッドに属している各行を表す ContainerGridRecord オブジェクトを保持します。各行には、データ セルおよび任意のネストされたデータの ContainerGrid が含まれます。
+
+===== 行アイランドへのアクセス
+
+以下のコードは、WebHierarchicalDataGrid の最初の親行でネストされたデータ コレクションにアクセスする方法を示します。コンテナ グリッド コレクションでコンテナ グリッドを参照するために、DataMember またはデータ バンドのインデックスを使用できます。
+
+*Visual Basic の場合：*
+
+----
+Dim childGrid As ContainerGrid = Me.WebHierarchicalDataGrid1.GridView.Rows(0).RowIslands(0)
+' データ メンバーを使用して行アイランドを取得します
+Dim childGrid2 As ContainerGrid = Me.WebHierarchicalDataGrid1.GridView.Rows(1).RowIslands("SqlDataSource2_DefaultView")
+----
+
+*C# の場合：*
+
+----
+ContainerGrid childGrid = this.WebHierarchicalDataGrid1.GridView.Rows[0].RowIslands[0];
+// データ メンバーを使用して行アイランドを取得します
+ContainerGrid childGrid2 = this.WebHierarchicalDataGrid1.GridView.Rows[1].RowIslands["SqlDataSource2_DefaultView"];
+----
+
+*JavaScript の場合：*
+
+----
+// トップ レベルのグリッド表示を取得します
+var grid = $find("WebHierarchicalDataGrid1");
+var containerGrid = grid.get_gridView();
+// 最初の行の子コンテナ グリッド コレクションを取得します
+var rowIslands = containerGrid.get_rows().get_row(0).get_rowIslands(0);
+// データ メンバーを使用して、2 番目の行の子コンテナ グリッド コレクションを取得します
+var rowIslands2 = containerGrid.get_rows().get_row(1).get_rowIslands("SqlDataSource2_DefaultView");
+// 最初の行の子コンテナ グリッドを取得します
+var childGrid = rowIslands[0];
+// 2 番目の行の子コンテナ グリッドを取得します
+var childGrid2 = rowIslands2[0];
+----
+
+行アイランドにアクセスするために使用できる 2 つの追加的なサーバー側メソッドもあります。
+
+* RowIslands.FindByDataMember - バンドのデータ メンバーを使用して行アイランドを検索します。
+* RowIslands.FindByKey - バンドのキーを使用して行アイランドを検索します。
+
+===== 親行へのアクセス
+
+ContainerGrid オブジェクトへの参照があれば、データ アイランドのデータ行にプロパティおよび動作を設定できます。ContainerGrid の Rows プロパティを使用することによって、その行アイランドの行にアクセスすることもできます。行アイランドで、その親行にアクセスする必要がある場合、ContainerGrid オブジェクトの ParentRow プロパティを使用します。さらに、オーナー行コレクションにアクセスして ControlMain プロパティを参照することによって、行の ContainerGrid オブジェクトにアクセスできます。
+
+以下のコードは、上記のコードに直接続き、行の親行を参照する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Dim row As ContainerGridRecord = childGrid.Rows(0)
+' 行のオーナー行コレクションを取得します 
+Dim rowCollection As ContainerGridRecordCollection = row.Owner
+' オーナーの Container Grid に最初にアクセスすることによって、親行を取得します 
+Dim parentRow As ContainerGridRecord = rowCollection.ControlMain.ParentRow
+----
+
+*C# の場合：*
+
+----
+ContainerGridRecord row = childGrid.Rows[0];
+// 行のオーナー行コレクションを取得します
+ContainerGridRecordCollection rowCollection = row.Owner;
+// オーナーの Container Grid に最初にアクセスすることによって、親行を取得します
+ContainerGridRecord parentRow = rowCollection.ControlMain.ParentRow;
+----
+
+*JavaScript の場合：*
+
+----
+var row = childGrid.get_rows().get_row(0);
+// コンテナ オーナーの Container Grid を取得します
+ var g = row.get_grid();
+// 親行を取得します
+ var parentRow = g.get_parentRow();
+----
+
+== 関連トピック
+
+link:webhierarchicaldatagrid-getting-started-with-webhierarchicaldatagrid.html[WebHierarchicalDataGrid で開始]
+
+link:webhierarchicaldatagrid-using-webhierarchicaldatagrid.html[WebHierarchicalDataGrid の使用]
+
+link:webhierarchicaldatagrid-behaviors.html[動作]

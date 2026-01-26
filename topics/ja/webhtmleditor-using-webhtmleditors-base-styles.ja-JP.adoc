@@ -1,0 +1,122 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-using-webhtmleditors-base-styles",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing","Styling"],
+    "guid": "{AE3385A8-8767-42BC-BEDD-4BE37F0F6F84}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor の基本スタイルの使用
+
+このトピックでは、WebHtmlEditor の基本スタイルとスタイルの継承の仕組みについて説明します。このトピックを読むと、WebHtmlEditor のツールバー領域内のオブジェクト スタイルが格納されている場所、およびスタイルをベース レベルで適用すべき場合と個々の項目に適用すべき場合について理解することができます。
+
+このトピックに入る前に、WebHtmlEditor を Microsoft® Visual Studio® .NET のデザイン表面にドラッグして簡単な WebHtmlEditor アプリケーションを作成する方法、および [プロパティ] ウィンドウでプロパティを設定する方法を習得してください。また、WebHtmlEditor のレイアウト（ link:webhtmleditor-layout-of-webhtmleditor.html[WebHtmlEditor のレイアウト]を参照）、およびツールバーで使用できるさまざまな種類の項目（ link:webhtmleditor-working-with-webhtmleditors-toolbar.html[WebHtmlEditor のツールバーの機能]を参照）も確認しておいてください。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.WebUI.WebHtmlEditor
+----
+
+*C# の場合：*
+
+----
+using Infragistics.WebUI.WebHtmlEditor;
+----
+
+image::images/WebHtmlEditor_Walkthrough_Using_the_Base_Styles_1.png[]
+
+このトピックでは、上図のようなカラフルなインターフェイスを作成します。作成作業の各段階で新しい背景色を設定することにより、新しい基本スタイルや個別スタイルについて学習します。
+
+以下に示すコードのすべてを Web アプリケーションの Page_Load イベント ハンドラに含めることができます。このイベント ハンドラの本文はデザイン表面をダブルクリックすると Visual Studio .NET により自動的に生成されます。
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに using/imports のディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+[start=2]
+. 基本スタイルは、共通ツールバー項目タイプを共有するすべてのツールバー項目に適用されます。最も一般的な要素はボタンで、その基本スタイルは WebHtmlEditor コントロールの  pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.webhtmleditor~buttonstyle.html[ButtonStyle]"]  プロパティです。すべてのボタンの背景色を、次の文で黄緑（LightYellow）に設定します。
+
+*Visual Basic の場合：*
+
+----
+Me.WebHtmlEditor1.ButtonStyle.BackColor = Color.LightYellow
+----
+
+*C# の場合：*
+
+----
+this.WebHtmlEditor1.ButtonStyle.BackColor = Color.LightYellow;
+----
+
+[start=3]
+. 各スタイルは、一度に 1 つのツールバーに適用されます。特定のボタンに対して行った設定は、一般的な基本スタイルよりも優先されます。[切り取り] ボタンについて BaseToolbarItem（BackColor プロパティがあります）を参照して、その背景色を金色（Gold）に設定してください。
+
+*Visual Basic の場合：*
+
+----
+Me.WebHtmlEditor1.Toolbar.Items.GetByType( _
+  ToolbarItemType.Cut).BackColor = Color.Gold
+----
+
+*C# の場合：*
+
+----
+this.WebHtmlEditor1.Toolbar.Items.GetByType(
+  ToolbarItemType.Cut).BackColor = Color.Gold;
+----
+
+[start=4]
+. ドロップダウン リストは、ボタンではないので、ButtonStyle の影響は受けません。その基本スタイルは DropDownStyle プロパティであって、これも WebHtmlEditor コントロールにあります。ここで、すべてのドロップダウン リストの背景色を黄色（Yellow）に設定してください。
+
+*Visual Basic の場合：*
+
+----
+Me.WebHtmlEditor1.DropDownStyle.BackColor = Color.Yellow
+----
+
+*C# の場合：*
+
+----
+this.WebHtmlEditor1.DropDownStyle.BackColor = Color.Yellow;
+----
+
+[start=5]
+. 個々のドロップダウン リストは、個々のボタンと同じ方法で設定できます。どちらも同じ特別な BaseToolbarItem です。再度 FontName ドロップダウンを探し、ここではその背景色を淡い灰色（LightGray）に変更します。
+
+*Visual Basic の場合：*
+
+----
+Me.WebHtmlEditor1.Toolbar.Items.GetByType( _
+  ToolbarItemType.FontName).BackColor = Color.LightGray
+----
+
+*C# の場合：*
+
+----
+this.WebHtmlEditor1.Toolbar.Items.GetByType(
+  ToolbarItemType.FontText).BackColor = Color.LightGray;
+----
+
+[start=6]
+. メニューもツールバー項目の 1 種で、 pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.webhtmleditor~menustyle.html[MenuStyle]"]  プロパティに独自の基本スタイルがあります。ここまでで理解されたように、すべての基本スタイル プロパティは WebHtmlEditor のコントロールレベルで提供されており、個々のツールバー項目をカスタマイズするためのスタイル プロパティは、それぞれに含まれている Toolbar item オブジェクトに含まれています。
+
+*Visual Basic の場合：*
+
+----
+Me.WebHtmlEditor1.MenuStyle.BackColor = Color.Aqua
+----
+
+*C# の場合：*
+
+----
+this.WebHtmlEditor1.MenuStyle.BackColor = Color.Aqua;
+----
+
+以上で、スタイルの WebHtmlEditor のツールバーへの適用方法、1 つのツールバー項目タイプのすべての項目に継承されるスタイルプロパティを設定するタイミング、およびスタイル プロパティを無効にする方法について学習しました。また、2 つ以上のスタイル設定可能なオブジェクトを持つ高度なツールバー項目があること、およびこれらの内部プロパティへのアクセス方法も学習しました。続けて別のスタイル プロパティも設定して、開発する Web アプリケーションに希望する外観を設定できるようにしてください。
+
+さらに高度なツールバー項目を設定するには、ToolbarDialogButton クラスを理解する必要があります。このクラスの基本スタイルは DialogStyle プロパティです。

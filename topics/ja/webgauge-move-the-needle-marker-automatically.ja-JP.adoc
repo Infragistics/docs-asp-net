@@ -1,0 +1,55 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-move-the-needle-marker-automatically",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{0F36EEFE-6395-4DAA-94FE-0CD4EA30DDD0}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 針マーカーを自動的に移動
+
+このトピックは、ラジアル ゲージ上の針を自動的に移動できるように構成する方法を説明します。たとえば、時計を表すためにラジアル ゲージを作成した場合、本物の時計の印象を与えるために時計の針が自動的に移動するように構成できます。
+
+このトピックは、ラジアル ゲージを作成済みであることを前提としています。ゲージの作成方法については、 link:webgauge-creating-a-radial-webgauge-in-design-view.html[デザイン ビューでラジアル ゲージを作成]を参照してください。
+
+*ゲージで針マーカーを自動的に移動するには、次の手順に従ってください。*
+
+[start=1]
+. [プロパティ] ウィンドウで、RefreshInterval プロパティを 10秒に設定します。これにより、これらの間隔ごとにサーバーで AsyncRefresh イベントが発生します。
+[start=2]
+. 以下の例のコードは、ラジアル ゲージ上の針マーカーにアクセスして、値を 5 ずつ増やします。
+
+*Visual Basic の場合：*
+
+----
+Protected Sub UltraGauge1_AsyncRefresh(ByVal sender As Object, _
+  ByVal e As Infragistics.WebUI.UltraWebGauge.RefreshEventArgs) _
+  Handles UltraGauge1.AsyncRefresh
+	Dim gauge As RadialGauge = Me.UltraGauge1.Gauges(0)
+	Dim marker As RadialGaugeMarker = gauge.Scales(0).Markers(0)
+	Dim value As Integer = Convert.ToInt32(marker.Value)
+	marker.Value = value + 5
+End Sub
+----
+
+*C# の場合：*
+
+----
+protected void UltraGauge1_AsyncRefresh(object sender, 
+  Infragistics.WebUI.UltraWebGauge.RefreshEventArgs e)
+{
+	RadialGauge gauge = this.UltraGauge1.Gauges[0] as RadialGauge;
+	RadialGaugeMarker marker = gauge.Scales[0].Markers[0];
+	int value = Convert.ToInt32(marker.Value);
+	marker.Value = value+5;
+}
+----
+
+[start=3]
+. アプリケーションを保存して実行します。

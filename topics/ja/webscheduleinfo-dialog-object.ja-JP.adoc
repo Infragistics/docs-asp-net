@@ -1,0 +1,51 @@
+﻿////
+
+|metadata|
+{
+    "name": "webscheduleinfo-dialog-object",
+    "controlName": [],
+    "tags": ["API","How Do I","Scheduling"],
+    "guid": "{39D8B4D7-DF83-4EBC-AE94-00C1DBC2F8EC}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Dialog オブジェクト
+
+== ダイアログ
+
+ActivityDialogOpeningクライアント側イベントで引数として渡されるオブジェクト。
+
+=== Dialog メソッド
+
+[cols="a,a"]
+|====
+|*getContentUrl* 
+|showDialog が呼び出されるときに開く URL。
+
+|*getCaption*
+|ダイアログのキャプション。
+
+|*setCaption*
+|ダイアログのキャプションを設定します。 
+
+*パラメタ*
+
+_文字列_ 
+
+新しいキャプションとして表示する文字列値。
+
+|*showDialog*
+|指定した高さと幅でダイアログを表示します。 
+
+*パラメタ*
+
+_height_ 
+
+整数値。 _width_ 
+
+整数値。
+
+|====

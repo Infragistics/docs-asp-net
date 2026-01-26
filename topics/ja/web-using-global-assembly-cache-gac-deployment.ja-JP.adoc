@@ -1,0 +1,59 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-using-global-assembly-cache-gac-deployment",
+    "controlName": [],
+    "tags": ["How Do I"],
+    "guid": "{FBB07E69-21DD-4E38-ADBC-A9FF07114ECB}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-06T00:00:00Z"
+}
+|metadata|
+////
+
+= グローバル アセンブリ キャッシュ（GAC）配備の使用
+
+アプリケーション コンポーネントのグローバル アセンブリ キャッシュ（GAC）へのインストールが有効になるのは、複数のアプリケーションが使用するコンポーネントを同一マシン上にインストールする場合や、同一アセンブリの複数のバージョンをひとつのマシン上で実行しなければならない場合です。
+
+デフォルトでは、{ProductName} ツールセットをインストールすると、コントロールのアセンブリは GAC にインストールされます。アプリケーションの一部をなす Infragistics コンポーネントをクライアント コンピューターの GAC に配備したい場合、主要な方法は 3 つあります。
+
+=== Gacutil.exe を使ってコンポーネントを GAC に追加する
+
+Gacutil.exe ツールは基本の .NET フレームワークの一部としてインストールされるコマンドライン ユーティリティで、アプリケーション コンポーネントを GAC に追加したり、GAC から削除したりする際に使用できます。このツールは .NET Framework インストールディレクトリにあります。デフォルトの場所は  _C:\Windows\Microsoft.NET\Framework\v4.0.30319\_  です。
+
+Gacutil.exe tool を使用するには、次の手順に従ってください。
+
+[start=1]
+. Visual Studioのコマンド プロントを開きます
+
+（ _［スタート］ > ［プログラム］ > ［Microsoft Visual Studio .NET 2005］ > ［Visual Studio .NET ツール］ > ［Visual Studio .NET 2005 コマンド プロンプト］_ ）
+[start=2]
+. Gacutil.exe コマンドを入力します。以下の行は、MyApplication と呼ばれるアプリケーション フォルダから Infragistics WebChart コンポーネントを GAC に追加することを示しています。gacutil -i C:\Projects\MyApplication\Infragistics4.WebUI.UltraWebChart.v{ProductVersion}.dll
+
+Gacutil.exe コマンドラインは Gacutil.exe に実行させたい操作を指定できるいくつかのコマンドからなります。以下のリストは、使用可能なコマンドを説明します。
+
+* /i - アセンブリを GAC にインストールします。
+* /il - ひとつ以上のアセンブリを GAC にインストールします。
+* /u - アセンブリを GAC からアンインストールします。
+* /ul - ひとつ以上のアセンブリを GAC からアンインストールします。
+* /ungen - NGEN ユーティリティによってインストールされたネーティブ イメージをアンインストールします。
+* /l - <assembly_name> によってフィルタリングされた GAC をリストします。
+* /lr - GAC をリストします（トレースされた参照をすべて含む）。
+* /cdl - ダウンロード キャッシュの内容を削除します。
+* /ldl - ダウンロード キャッシュの内容をリストします。
+
+Gacutil.exe では、コマンドライン上でいくつかのオプションを指定できます。
+
+* /r - インストールまたはアンインストールするトレース済み参照を指定します。
+* /f - アセンブリを強制的に再インストールします。
+* /nologo - ロゴ バナーの表示を抑止します。
+* /silent - すべての出力の表示を抑止します。
+
+=== 詳細なグローバル アセンブリ キャッシュ情報
+
+GAC の使用およびアプリケーションの GAC へのインストールに関する詳細については、以下のリソースを参照してください。
+
+* link:http://msdn2.microsoft.com/ja-jp/library/yf1d93sz(vs.80).aspx[.NET Framework 開発者ガイド:グローバル アセンブリ キャッシュ]
+* link:http://msdn2.microsoft.com/ja-jp/library/dkkx7f79(vs.80).aspx[アセンブリをグローバル アセンブリ キャッシュにインストール]
+* link:http://msdn2.microsoft.com/ja-jp/library/ex0ss12c(vs.80).aspx[.NET Framework ツール:グローバル アセンブリ キャッシュ ツール（Gacutil.exe）]

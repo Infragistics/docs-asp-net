@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "webprogressbar-csom-overview",
+    "controlName": ["WebProgressBar"],
+    "tags": ["API"],
+    "guid": "{13878591-E28D-4549-BD74-6F9BC59DCB85}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= クライアント サイド オブジェクト モデル (CSOM) の概要
+
+WebProgressBar™ コントロールは、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを提供します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクトで構成され、開発者はサーバー側にポストバックしなくても、コントロールに関連する重要な機能単位をプログラムできます。
+
+link:webprogressbar~infragistics.web.ui_namespace.html[WebProgressBar CSOM の概要]

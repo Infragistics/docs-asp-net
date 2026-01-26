@@ -1,0 +1,44 @@
+﻿////
+
+|metadata|
+{
+    "name": "webupload-working-with-webupload",
+    "controlName": ["WebUpload"],
+    "tags": [],
+    "guid": "42067883-bec1-4be7-977c-b36ec74a201f",  
+    "buildFlags": [],
+    "createdOn": "2013-03-21T12:05:11.0710808Z"
+}
+|metadata|
+////
+
+= WebUpload を使用した作業
+
+== このグループのトピックについて
+
+=== はじめに
+
+このグループ トピックは、 _WebUpload_™ の構成とその他の関連するタスクを説明します。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:webupload-configuring-webupload.html[WebUpload の構成]
+|このトピックは、コード例を示して、 _WebUpload_ コントロールを構成する方法を説明します。
+
+| link:webupload-http-module-and-handler.html[HTTP ハンドラーとモジュールの使用]
+|このトピックは、 _web.config_ ファイルで _WebUpload_ HTTP モジュールとハンドラーを構成する方法を示します。MVC ラッパーの `UploadProgressManager` クラスのアップロード、および `FileStatus` と `Error` の列挙体について説明します。
+
+| link:webupload-using-client-side-events.html[クライアント サーバー イベントの使用]
+|このトピックは、 _WebUpload_ コントロールで発生するクライアント側イベントを処理する方法を説明します。イベントの説明およびクライアント側/サーバー側エラーコードとアップロード状況の一覧を示します。
+
+| link:webupload-using-server-side-events.html[サーバー側イベントの使用]
+|このトピックは、 _WebUpload_ コントロールで発生するサーバー側イベントを処理する方法を説明します。 _WebUpload の_  `UploadProgressManager` クラス、および `FileStatus` と `Error` の列挙体について説明します。
+
+| link:webupload-saving-files-as-stream.html[ファイルをストリームとして保存 (WebUpload)]
+|このトピックは、アップロード ファイルをファイルまたはメモリストリームとして処理し、保存する方法を説明します。詳細な手順は、各プロセスでメモリストリームとしてファイルの一部を保存トピックをご参照ください。
+
+|====

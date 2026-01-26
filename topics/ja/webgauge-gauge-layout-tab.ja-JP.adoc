@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-gauge-layout-tab",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{80878181-9D21-4FA2-8C9D-9B9D8FC60417}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ゲージ レイアウト タブ
+
+[プロパティ] パネルを使用してさまざまなゲージ タイプのレイアウトを変更する方法についての情報は、以下のリンクをクリックしてください。
+
+* link:webgauge-digital-gauge.html[デジタル ゲージ]
+* link:webgauge-linear-gauge.html[リニア ゲージ]
+* link:webgauge-radial-gauge.html[ラジアル ゲージ]

@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "webprogressbar-getting-started-with-webprogressbar",
+    "controlName": ["WebProgressBar"],
+    "tags": ["Getting Started"],
+    "guid": "{83F50EB6-87E9-4200-B137-A35CFCA1F924}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebProgressBar で開始
+
+WebProgressBar は最小値から開始し、最大値で終了する進行状況を示すことによって作業範囲がどこまで完了したかをエンドユーザーに示すインジケータとして機能します。アプリケーションに必要な最小値、最大値、および現在値を持つために設定する必要があるいくつかの WebProgressBar プロパティがあります。
+
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.displaycontrols.webprogressbar~minimum.html[Minimum]"]  -- バーの開始値。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.displaycontrols.webprogressbar~maximum.html[Maximum]"]  -- バーの終了値。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.displaycontrols.webprogressbar~value.html[Value]"]  -- バーの現在の進行状況。
+
+*注：* Minimum、Maximum および Value のデフォルト値は、それぞれ 0、100 および 0 です。
+
+Minimum、Maximum および Value のプロパティは、スマート タグを使用するか、Microsoft® Visual Studio® [プロパティ] ウィンドウを介して、または以下のコードを使用して設定できます。
+
+*Visual Basic の場合：*
+
+----
+WebProgressBar1.Minimum = 0    
+WebProgressBar1.Maximum = 200
+WebProgressBar1.Value = 100
+----
+
+*C# の場合：*
+
+----
+WebProgressBar1.Minimum = 0;
+WebProgressBar1.Maximum = 200;
+WebProgressBar1.Value = 100;
+----

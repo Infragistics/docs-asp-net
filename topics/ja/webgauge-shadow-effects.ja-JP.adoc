@@ -1,0 +1,106 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-shadow-effects",
+    "controlName": ["WebGauge"],
+    "tags": ["Design Environment","How Do I"],
+    "guid": "{91F5636E-3F23-42EF-AB87-F160D6BDE26F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= シャドー効果
+
+シャドー効果は、ゲージ上のプロパティに深みを追加して視覚的に強化し、プロパティに 3D の外観を提供します。
+
+このトピックは、ラジアル ゲージを作成済みであることを前提としています。ラジアル ゲージを作成する方法については、 link:webgauge-getting-started-with-webgauge.html[「WebGauge で開始」]を参照してください。
+
+以下でシャドー効果をゲージ上のプロパティに適用することができます。
+
+* <<gaugeDesigner,ゲージ デザイナーの使用>>
+* <<designTime,デザイン タイムに>>
+* <<runTime,ランタイムに>>
+
+以下の手順を完了した後でアプリケーションを保存および実行すると、ゲージは以下のゲージのようになります。
+
+image::images/Gauge_Create_Shadow_Effects.png[シャドー効果を表示する完成したラジアル ゲージ。]
+
+[[gaugeDesigner]]
+*ゲージ デザイナーを使用してラジアル ゲージの Range プロパティにシャドー効果を適用するためには、次の手順に従ってください。*
+
+[start=1]
+. ゲージ エクスプローラーまたはインタラクティブなプレビュー領域で、シャドー効果を適用したいプロパティを選択します。
+[start=2]
+. プロパティ パネルの link:webgauge-effects-tab.html[[効果] タブ]で、 link:webgauge-shadow-brush-pane.html[[シャドー ブラシ] ペイン]の [種類] ドロップダウン リストから link:webgauge-solid-brush-element.html[[塗りつぶし]] を選択します。
+[start=3]
+. [詳細] ドロップダウン矢印をクリックします。
+[start=4]
+. カラー ピッカーが表示します。左側で、[Web] をクリックし、次に [シルバー] を選択します。
+[start=5]
+. 色の指定が終了したら、[シャドー ブラシ] ペインの任意の場所をクリックします。
+[start=6]
+. インタラクティブなプレビュー領域でゲージの Range プロパティに適用されたシャドー効果を確認できます。
+
+[[designTime]]
+*デザイン タイムにラジアル ゲージの Range プロパティにシャドー効果を適用するためには、次の手順に従ってください。*
+
+[start=1]
+. ゲージ コレクション エディターの左側のペインで、[ラジアル ゲージ] をクリックします。
+[start=2]
+. pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgauge~scales.html[Scales]"]  プロパティを指定して、省略記号（...）ボタンをクリックし、Scales コレクション エディターを起動します。
+[start=3]
+. pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugescale~ranges.html[Ranges]"]  プロパティを指定して、省略記号（...）ボタンをクリックし、 Ranges コレクション エディターを起動します。
+[start=4]
+. pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugescale~shadow.html[Shadow]"]  プロパティを指定して展開します。
+[start=5]
+. pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.gauge~brushelement.html[BrushElement]"]  プロパティを指定します。
+[start=6]
+. BrushElement ドロップダウン リストから、[塗りつぶし] を選択します。これで新しい Solid Fill BrushElement が作成されます。
+[start=7]
+. 新たに作成された BrushElement プロパティを展開し、 pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.solidfillbrushelement~color.html[Color]"]  プロパティを指定します。
+[start=8]
+. Color プロパティをシルバーに設定します。
+[start=9]
+. pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.shadow~angle.html[Angle]"]  プロパティを 45 に、 pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.shadow~depth.html[Depth]"]  プロパティを 5 に設定します。
+
+[[runTime]]
+*コードを使用してラジアル ゲージの Range プロパティにシャドー効果を適用するためには、次の手順に従ってください。*
+
+[start=1]
+. 以下のクラスをインスタンス化します。
+
+*Visual Basic の場合：*
+
+----
+Dim mySolidFillBrushElement As New SolidFillBrushElement()
+Dim myRadialGauge As RadialGauge = Me.UltraGauge1.Gauges(0)
+Dim myRange As RadialGaugeRange = myRadialGauge.Scales(0).Ranges(0)
+----
+
+*C# の場合：*
+
+----
+SolidFillBrushElement mySolidFillBrushElement = new SolidFillBrushElement();
+RadialGauge myRadialGauge = this.ultraGauge1.Gauges[0] as RadialGauge;
+RadialGaugeRange myRange = myRadialGauge.Scales[0].Ranges[0];
+----
+
+[start=2]
+. Color プロパティをシルバーに設定します。
+
+*Visual Basic の場合：*
+
+----
+mySolidFillBrushElement.Color = System.Drawing.Color.Silver
+myRange.Shadow.BrushElement = mySolidFillBrushElement
+----
+
+*C# の場合：*
+
+----
+mySolidFillBrushElement.Color = System.Drawing.Color.Silver;
+myRange.Shadow.BrushElement = mySolidFillBrushElement;
+----

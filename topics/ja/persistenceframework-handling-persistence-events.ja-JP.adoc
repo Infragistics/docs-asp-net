@@ -1,0 +1,207 @@
+﻿////
+
+|metadata|
+{
+    "name": "persistenceframework-handling-persistence-events",
+    "controlName": ["PersistenceFramework"],
+    "tags": ["Persistence"],
+    "guid": "ed3a3291-b9eb-4224-a833-9bf0dba6af79",  
+    "buildFlags": [],
+    "createdOn": "2011-03-31T07:48:45.355896Z"
+}
+|metadata|
+////
+
+= パーシステンス イベントの処理
+
+{ProductName} Persistence Framework コンポーネントには、ページ ライフサイクルのさまざまな機会に発生し、特定の引数を装備する 4 つのイベント タイプがあります。2 つのイベントは、保持されたデータの保存プロセス中に発生し、他のイベントはデータの読み込み中に発生します。
+
+== PersistenceLoading イベント
+
+pick:[asp-net="* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.framework.persistence.apppersistencemanager~persistenceloading_ev.html[PersistenceLoading]*"] イベントは、ページの *PageLoad* イベントの後に発生します。PageLoad 中、保持されたデータは Persistence Framework で確実に使用できます。ポストバックのイベントでは、コントロールの状態は ViewState から復元されますが、ページが初めて要求される場合、Persistence Framework は ViewState の動作をシミュレートして状態を復元するための手順をとります。
+
+*PersistenceLoading* イベントは、Web.config ファイルの *persistenceIgnoreLoadingOnPostBack* 属性値に基づいて、ページに対する最初の要求で発生します。この値が *false* の場合、ポストバックを含みページに対する要求ごとにイベントが発生します。場合によっては、ViewState を使用すると、ポストバック中にコントロールの状態を保存します。したがって、*persistenceIgnoreLoadingOnPostBack* を *true* に設定するとパフォーマンスが向上します。Persistence Loading イベントは初めて要求した時だけ発生するからです。
+
+*リスト 1: コード ビハインドで LoadingHandlers を作成*
+
+[cols="a"]
+|====
+|*C# の場合:*
+
+|---- 
+protected void LoadingHandler(object sender, PersistenceLoadingEventArgs e) {}
+----
+
+|====
+
+[cols="a"]
+|====
+|*Visual Basic の場合:*
+
+|---- 
+Protected Sub LoadingHandler(sender As Object, e As PersistenceLoadingEventArgs)End Sub
+----
+
+|====
+
+以下の項目は、*リスト 1* に示すように LoadingHandler メソッドの引数で予測される値を説明しています。
+
+*  _sender_  - 現在のページを参照します
+*  _e_  - このイベントのタイプは、pick:[asp-net="* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.framework.persistence.persistenceloadingeventargs.html[PersistenceLoadingEventArgs]*"] です。これは .NET *CancelEventArgs* オブジェクトを継承します。ひとつの一般的な目的は、特に必要がある場合にデータの読み込み処理をキャンセルするためにこのイベントを使用することです。*PersistenceLoadingEventArgs* は、読み込みが必要となる保持されるデータもラップします。
+
+リスト *2* は、保持する対象のデータにアクセスするため、そしてイベントをキャンセルするオプションを公開するために使用される *PersistenceLoadingEventArgs* プロパティを示します。
+
+リスト *2: PersistenceLoadingEventArgs* *プロパティ*
+
+[cols="a"]
+|====
+|*C# および Visual Basic の場合:*
+
+|---- 
+e.Cancel e.PersistenceData
+----
+
+|====
+
+== Persistence Loaded イベント
+
+pick:[asp-net="* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.framework.persistence.apppersistencemanager~persistenceloaded_ev.html[PersistenceLoaded]*"] イベントは、PersistenceLoading イベントの後に発生します。手順のこの段階では、Persistence Framework はすべてのコントロールの状態で保持されるデータを復元しています。例外のために復元に失敗すると、*PersistenceLoaded* ハンドラー内でそのエラーを処理できます。
+
+*リスト 3: コード ビハインドで LoadedHandler を作成*
+
+[cols="a"]
+|====
+|*C# の場合:*
+
+|---- 
+protected void LoadedHandler (object sender, PersistenceEventArgs e) {}
+----
+
+|====
+
+[cols="a"]
+|====
+|*Visual Basic の場合:*
+
+|---- 
+Protected Sub LoadedHandler (sender As Object, e As PersistenceEventArgs)End Sub
+----
+
+|====
+
+以下の項目は、*リスト 3* に示すように LoadedHandler メソッドの引数で予測される値を説明しています。
+
+*  _sender_  - 現在のページを参照します
+* e - このイベントのタイプは、pick:[asp-net="* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.framework.persistence.persistenceeventargs.html[PersistenceEventArgs]*"] です。パーシステンス データは例外となります。これは保持されるデータの読み込み中に発生する場合があります。
+
+*リスト 4* は、保持する対象のデータにアクセスするため、そしてイベント起動中に発生した可能性のある例外へのアクセスを公開するために使用される *PersistenceEventArgs* プロパティを示します。
+
+*リスト 4: PersistenceEventArgs プロパティ*
+
+[cols="a"]
+|====
+|*C# および Visual Basic の場合:*
+
+|---- 
+e.Exception e.PersistenceData
+----
+
+|====
+
+*注:* Persistence Loading イベント中に保持されるデータが取得されない場合、Persistence Loaded イベントは全く発生しません。
+
+== Persistence Saving イベント
+
+pick:[asp-net="* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.framework.persistence.apppersistencemanager~persistencesaving_ev.html[PersistenceSaving]*"] イベントは、*SaveStateComplete* イベントの後に発生します。*PersistenceSaved* イベントを含み、両方のイベントは、ページが要求されるたびに発生します。この段階では、Persistence Framework は、すべてのコントロールの状態を保持します。イベントの *EventArgs* パラメーターは .NET *CancelEventArgs* オブジェクトを継承するので、特に必要である場合に保存プロセスをキャンセルできます。
+
+*リスト 5: コード ビハインドで SavingHandler を作成*
+
+[cols="a"]
+|====
+|*C# の場合:*
+
+|---- 
+protected void SavingHandler(object sender, PersistenceSavingEventArgs e) {}
+----
+
+|====
+
+[cols="a"]
+|====
+|*Visual Basic の場合:*
+
+|---- 
+Protected Sub SavingHandler(sender As Object, e As PersistenceSavingEventArgs)End Sub
+----
+
+|====
+
+以下の項目は、*リスト 5* に示すように SavingHandler メソッドの引数で予測される値を説明しています。
+
+*  _sender_  - 現在のページを参照します
+* e - このイベントのタイプは、pick:[asp-net="* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.framework.persistence.persistencesavingeventargs.html[PersistenceSavingEventArgs]*"] です。これは .NET CancelEventArgs オブジェクトを継承します。つまり、ページを保持したくない場合、データの保存処理をキャンセルできます。
+
+リスト *6* は、イベントをキャンセルするオプションを公開する PersistenceSavingEventArgs プロパティを示します。
+
+*リスト 6: PersistenceSavingEventArgs プロパティ*
+
+[cols="a"]
+|====
+|*C# および Visual Basic の場合:*
+
+|---- 
+e.Cancel
+----
+
+|====
+
+== Persistence Saved イベント
+
+pick:[asp-net="* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.framework.persistence.apppersistencemanager~persistencesaved_ev.html[PersistenceSaved]*"] イベントは、*PersistenceSaving* イベントの後に発生します。繰り返しますが、*PersistenceLoaded* イベントと同様、データを保持している間に例外が発生すると、例外を処理できます。リスト 7 は、保持されたデータを安定的なソース（ファイル、セッション、アプリケーション、または SQL）に保存できる構造を示します。最終的にデータを保存する前に、データを変更したり、コントロールやプロパティを追加/削除できます。
+
+*リスト 7: コード ビハインドで SavedHandler を作成*
+
+[cols="a"]
+|====
+|*C# の場合:*
+
+|---- 
+protected void SavedHandler(object sender, PersistenceEventArgs e) {}
+----
+
+|====
+
+[cols="a"]
+|====
+|*Visual Basic の場合:*
+
+|---- 
+Protected Sub SavedHandler(sender As Object, e As PersistenceEventArgs)End Sub
+----
+
+|====
+
+以下の項目は、*リスト 5* に示すように SavedHandler メソッドの引数で予測される値を説明しています。
+
+*  _sender_  - 現在のページを参照します
+* e - このイベントのタイプは、pick:[asp-net="* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.framework.persistence.persistenceeventargs.html[PersistenceEventArgs]*"] です。パーシステンス データが例外となることを除いて、これは保持されたデータの保存中に発生する場合があります。*PersistenceSaved* イベント中、保持されたデータをコレクションに取得したり、一部のデータをコレクションに含めたり除外することができます。
+
+*リスト 8* は、保持する対象のデータにアクセスするため、そしてイベント起動中に発生した可能性のある例外へのアクセスを公開するために使用される PersistenceEventArgs プロパティを示します。
+
+*リスト 8: PersistenceEventArgs プロパティ*
+
+[cols="a"]
+|====
+|*C# および Visual Basic の場合:*
+
+|---- 
+e.Exception e.PersistenceData
+----
+
+|====
+
+== 関連リンク
+
+link:{SamplesURL}/samples/persistenceframework/data/persistenceevents/default.aspx?cn=persistence-framework&sid=43cfafc5-4390-4a81-b487-ce8f14b24505[パーシステンス イベントの例]
+
+link:persistenceframework-getting-started-with-persistence-framework.html[Persistence Framework で開始]

@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-font-pane",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{6FD3710C-9423-4D8A-8DD4-AE344A090062}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= フォント ペイン
+
+[フォント] ペインは、ゲージ上のレベルのフォント設定を編集するために使用されます。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.labelappearance~font.html[フォント]"]  -- この値は、ラベルのフォント（例、Trebuchet MS）を指定します。
+
+サイズ -- この値を 0 から 100 の整数に設定します。この値は、ラベルのフォントのサイズを設定します。
+
+タイプ --この値は、フォント サイズの測定のタイプを指定します。
+
+スタイル -- この値は、フォントのフォーマッティングを指定します（例、太字および斜体）。
+
+image::images/Font_Pane_01.png[]
+
+== 関連トピック
+
+link:webgauge-labels-appearance-tab.html[ラベル外観タブ]

@@ -1,0 +1,90 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-adding-an-activity-on-the-client-side",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling"],
+    "guid": "{8A8DCCA9-4892-45BF-B868-D33935763F1E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アクティビティを追加（クライアント側）
+
+== 始める前に
+
+WebSchedule は、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[アクティビティ]"]  をクライアント側に追加できます。この詳細なガイドでは、クライアント側にアクティビティを追加するための方法を提供します。クライアント側にアクティビティを追加するために使用される主なメソッドは addActivity です。
+
+addActivity メソッドは以下の 2 つのパラメータを取ります。
+
+[start=1]
+. Activity:追加したい実際の Activity オブジェクト。
+[start=2]
+. id:Adding Client and Server イベントで取得可能な文字列値。
+
+以下の JavaScript コードは、クライアント側でアクティビティを動的に追加する方法を示します。
+
+== 以下の手順を実行します。
+
+[start=1]
+. *プロジェクトのセットアップ*
+
+ASP.NET プロジェクトを作成して、WebSchedule コントロールを設定します。設定方法については、 link:webschedule-using-the-webschedule-controls-quick-design.html[「Web フォーム デザイナを使用してクイックスタート」]または link:webschedule-creating-webschedule-controls-using-code.html[「コードで WebSchedule を設定」]を参照してください。
+[start=2]
+. プロジェクトのセットアップが完了した後で、JavaScriptイベントを起動するためにクリックできるボタンのような物が必要となります。
+[start=3]
+. *WebScheduleInfoへの参照の取得*
+
+まず、WebSchdeuleInfo オブジェクトへの参照が必要です。WebScheduleInfo の ClientId を以下のユーティリティ関数に渡すことによって、このオブジェクトを取得できます。
+
+*JavaScript の場合:*
+
+----
+var scheduleInfo = ig_getWebScheduleInfoById("WebScheduleInfo1");
+----
+
+[start=4]
+. *新しい Activity を作成*
+
+次に新しい空のアクティビティを作成する必要があります。これは、activities コレクションを取得して、関数 createActivity() を呼び出すことで実行できます。
+
+*JavaScript の場合:*
+
+----
+var appointment = scheduleInfo.getActivities().createActivity();
+----
+
+[start=5]
+. これで予定オブジェクトで setter メソッドを使用してさまざまなプロパティを設定できます。
+
+*JavaScript の場合:*
+
+----
+appointment.setStartDateTime(new Date());
+appointment.setSubject("New Appointment");
+----
+
+[start=6]
+. *アクティビティの追加*
+
+最後に addActivity を呼び出すことができます。これは WebScheduleInfo オブジェクトのメソッドです。このメソッドはポストバック、ならびにクライアント側とサーバー側両方の Adding イベントを起動します。
+
+*JavaScript の場合:*
+
+----
+scheduleInfo.addActivity(appointment, "");
+----
+
+[start=7]
+. これはクライアント側でアクティビティを追加する基本です。
+
+== 復習
+
+この詳細なガイドは、クライアント側でアクティビティを追加するための手順を説明しています。
+
+== 関連トピック
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[WebSchedule 名前空間]"]

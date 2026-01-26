@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-add-a-recurring-appointment-client-side",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling"],
+    "guid": "{866F37B4-D320-47B4-8634-FDEF7F91C92A}",  
+    "buildFlags": [],
+    "createdOn": "2006-10-04T00:00:00Z"
+}
+|metadata|
+////
+
+= クライアント側の繰り返し予定を追加
+
+WebSchedule のクライアント サイド オブジェクト モデル（CSOM）を使用すると、クライアント側で繰り返し予定を作成できます。これを実行するには、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.appointment.html[Appointment]"]  オブジェクトを取得する必要があります。新しい予定を作成する、または Activities コレクションから予定を取得することによって、これを実行できます。予定への参照を取得したら、CreateRecurrence 関数を使用してこれから recurrence オブジェクトを作成することができます。recurrence オブジェクトを設定したら、setRecurrence 関数を使用して作成された recurrence オブジェクトに予定の繰り返しを設定します。最後に、このアクティビティを Activities コレクションに追加します。
+
+*JavaScript の場合:*
+
+----
+// 予定を作成して、件名と開始日を設定します。
+var appointment = oWebScheduleInfo1.getActivities().createActivity();
+appointment.setStartDateTime(new Date());
+appointment.setSubject("My Recurring Appointment");
+// recurrence オブジェクトを予定から作成します。
+var recurrence = appointment.createRecurrence();
+// recurrence オブジェクトを設定します。この繰り返し予定は、
+// 3 日間毎日発生します。
+recurrence.setPeriod(0); 		
+recurrence.setPeriodMultiple(1);
+recurrence.setMaxOccurrences(3);
+// アクティビティの Recurrence オブジェクトを、作成したばかりの繰り返しに設定します。 
+appointment.setRecurrence(recurrence);
+// この予定を Activities コレクションに追加します。
+oWebScheduleInfo1.addActivity(appointment,"");
+----
+
+== 関連トピック
+
+link:webschedule-update-a-recurring-appointment-client-side.html[クライアント側で繰り返し予定を更新]
+
+link:webschedule-delete-a-recurring-appointment-client-side.html[クライアント側で繰り返し予定を削除]

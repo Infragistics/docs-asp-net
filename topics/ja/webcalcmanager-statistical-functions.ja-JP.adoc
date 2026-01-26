@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcalcmanager-statistical-functions",
+    "controlName": ["WebCalcManager"],
+    "tags": ["How Do I"],
+    "guid": "{4707D114-FD1A-445B-B78C-B0549D2DF995}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 統計関数
+
+以下は WebCalcManager™ コントロールで提供されるすべての Microsoft® Excel® スタイルの統計関数のリストです。これらの link:https://support.office.com/ja-jp/article/Excel-%E9%96%A2%E6%95%B0-%E6%A9%9F%E8%83%BD%E5%88%A5-5f91f4e9-7b42-46d2-9bd1-63f26a86c0eb?ui=ja-JP&rs=ja-JP&ad=JP#__toc309306716[統計関数] の詳細は、Microsoft のウェブ サイトを参照してください。
+
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionaverage.html[AVERAGE]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctioncount.html[COUNT]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionmax.html[MAX]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionmedian.html[MEDIAN]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionmin.html[MIN]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionstdev.html[STDEV]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionvar.html[VAR]"] 
+
+== 関連トピック
+
+link:webcalcmanager-date-and-time-functions.html[日付&時間関数]
+
+link:webcalcmanager-financial-functions.html[財務関数]
+
+link:webcalcmanager-information-functions.html[情報関数]
+
+link:webcalcmanager-logical-functions.html[論理関数]
+
+link:webcalcmanager-math-functions.html[算術関数]
+
+link:webcalcmanager-text-and-data-functions.html[テキスト&データ関数]

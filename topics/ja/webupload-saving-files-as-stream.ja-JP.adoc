@@ -1,0 +1,661 @@
+﻿////
+|metadata|
+{
+    "name": "webupload-saving-files-as-stream",
+    "controlName": ["WebUpload"],
+    "tags": [],
+    "guid": "71145166-4da3-45ac-8690-a9008bf2ad47","buildFlags": [],  
+    "createdOn": "2013-03-21T12:07:26.1485717Z"
+}
+|metadata|
+////
+
+= ファイルをストリームとして保存 (WebUpload)
+
+== トピックの概要
+
+=== 目的
+
+このトピックは、アップロード ファイルをファイルまたはメモリストリームとして処理し、保存する方法を説明します。詳細な手順は、各プロセスでメモリストリームとしてファイルを保存トピックをご参照ください。
+
+=== 前提条件
+
+このトピックをより理解するために、以下のトピックを参照することをお勧めします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+|link:webupload-overview.html[WebUpload 概要]
+|このトピックは _WebUpload_ コントロールおよびその機能について紹介します。このトピックでは、コントロールを ASPX ページに追加する方法について説明します。
+
+| link:webupload-configuring-webupload.html[WebUpload の構成]
+|このトピックは、コード例を示して、 _WebUpload_ コントロールを構成する方法を説明します。
+
+| link:webupload-http-module-and-handler.html[HTTP ハンドラーとモジュールの使用]
+|このトピックは、HTTP モジュールおよび HTTP ハンドラーを構成し、 _WebUpload_ コントロールでアップロードされたデータを受け入れるサーバー イベントを処理する方法を示します。
+
+| link:webupload-using-client-side-events.html[クライアント側イベントを使用]
+|このトピックは、 _WebUpload_ コントロールで発生するクライアント側イベントを処理する方法を説明します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref338325303, ファイルをストリームとして保存 - 概要 >>
+
+** <<_Ref345066991,ストリームの概要としてファイルを保存>>
+** <<_Ref345066999,手順>>
+
+* <<_Ref347847661, ファイル処理の概要 >>
+
+** <<_Ref350549617,ファイル処理の要約>>
+** <<file_stream_processing,ファイル ストリーム処理>>
+** <<memory_stream_processing,メモリ ストリーム処理>>
+
+* <<_Ref350531192, アップロード済みの各ファイルの一部を処理してメモリ ストリームとしてファイルを保存 >>
+
+** <<_Ref347847669,はじめに>>
+** <<_Ref351118502,要件>>
+** <<prerequisites,前提条件>>
+** <<overview,概要>>
+** <<_Ref347847683,手順>>
+
+[[_Ref338325303]]
+== ファイルをストリームとして保存 - 概要
+
+[[_Ref345066991]]
+
+=== ストリームの概要としてファイルを保存
+
+ファイルをアップロードする際に、通常サーバーで処理します。たとえば、ファイル システムに保存する前にデータベースに保存または圧縮します。
+
+_WebUpload_   コントロールは、明示的に定義されたアプリケーション設定は必要がありません。ただし、次のような構成をお勧めします。
+
+*  *一時ファイルを保存するフォルダー*
+
+これは代替フォルダーにファイルを保存するために構成できます。定義しない場合、ファイルはデフォルト位置 ( _<project folder>\Uploads_ ) に保存されます。
+
+*  *ファイル サイズの制限*
+
+アップロード ファイルの最大サイズは `maxFileSizeLimit` プロパティで設定します。デフォルト値は 4 Mb です。
+
+*  *ファイル保存モード*
+
+ファイル保存モードは、ファイルの処理方法 (ファイル ストリームまたはメモリ ストリーム) を指定します。(詳細については、<<_Ref347847661,ファイル処理の概要>>を参照してください)。ファイル保存モードは、`FileSaveType` プロパティによって管理され、許可される値はファイル処理の各方法に対応する  _filestream_   および  _memorystream_   になります。デフォルト値は _ファイルストリーム_  です。
+
+ASPX ページでは、各ファイルのデータ群を処理するメソッドを実装する必要があります。
+
+[[_Ref345066999]]
+
+=== 手順
+
+以下は、 _WebUpload_   でファイルをストリームとして保存する機能の一般的な手順です。
+
+*1.*   *_WebUpload_*   *コントロールをページに*  *追加*
+
+*2.*  _(オプション)_    *_WebUpload_*   *アプリケーション設定の*  *構成*
+
+*3.ファイル キャッシュ機能の実装*
+
+*4.  _WebUpload_   *イベント  の処理*
+
+[[_Ref350541412]]
+[[_Ref347847661]]
+== ファイル処理の概要
+
+[[_Ref350549617]]
+
+=== ファイル処理の要約
+
+_WebUpload_   コントロールは、アップロード時にファイルがオンデマンドで処理されるかどうかに基づいて、あるいはサーバーに一時ファイルを保存した後にファイル アップロードを処理する以下の方法を提供します。
+
+*  *ファイル ストリーム処理*  - アップロードされるファイルは  _WebUpload_  コントロールでまず一時ファイルとして保存されます。保存したらファイルを処理できます。このモードはファイルをサーバーファイルシステムに保存する場合に使用します。
+*  *メモリ ストリーム処理*  - アップロードしたファイルは、アップロード時 (その後保存) またはメモリにアップロードした後のいずれかのオンデマンドで処理されます。このモードは、アップロード処理に詳細な制御が必要な場合に使用します (ディスクまたはデータベースに保存する前にファイルを圧縮するなど)。
+
+[[file_stream_processing]]
+
+=== ファイル ストリーム処理
+
+ファイル ストリーム モードは、一時的な場所にファイルをアップロード (`fileUploadPath` アプリケーション設定によって示します) し、処理を選択するまで保持されます。アップロードされるファイルを処理するために、`UploadFinishing` イベントを処理する必要があります。`UploadFinishing` イベントには `FilesStream` タイプのパラメーターがあり、アップロードしたファイルにアクセスできます。このパラメーターを使用すると、ファイルを他の場所へ移動できます。ファイルを手動で処理する場合、`UploadFinishingEventArgs.Cancel` プロパティを true に設定する必要があります。これによって一時ファイルが  _Web_  _Upload_  で削除されます。
+
+`UploadFinishing` イベントが処理されない場合、一時ファイルの名前が同じ名前の既存のファイル名を元の名前で上書きして変更されます。
+
+[[memory_stream_processing]]
+
+=== メモリ ストリーム処理
+
+メモリ ストリーム処理を使用する場合、ファイルは手動で処理できる `MemoryStream` オブジェクトにアップロードされます。 _WebUpload_   コンポーネントは、`MemoryStream` オブジェクトへアップロードするために以下の方法を提供します (処理するイベントとそのイベントを処理する方法に基づいて)。
+
+*  _(推奨)_    *各グループを処理します。*
+
+ファイルを手動で処理するには、`FileUploading` イベントを処理する必要があります。 _FileUploading_   の `FileUploadingEventArgs` パラメーターにタイプ バイト配列の `FileChunk` プロパティが必要です。(このプロパティは、現在/最後のアップロードされたデータ群を保存します。)`FileUploading` はキャンセル可能なイベントで、ファイルの一部が処理されているかどうかにかかわらず、 _WebUpload_   コントロールにフィードバックを返すために使用できます。イベントのキャンセルを選択するかどうかは、ファイルの一部を自動または手動で処理するかによります。
+
+*  *ファイルの一部を手動で処理*
+
+ファイルの一部を手動で処理する場合、イベントをキャンセルする必要があります。このような場合、 _WebUpload_   は、内部 `MemoryStream` オブジェクトに追加します。この方法は、<<_Ref350531192,アップロード済みの各ファイルの一部を処理してメモリ ストリームとしてファイルを保存 - 手順>>) をご参照ください。
+
+*  *ファイルの一部を自動処理*
+
+`FileUploading` イベントをキャンセルしない場合、ファイルの一部は
+
+`FileUploading` イベントを処理するには、`UploadProgressManager` クラスの `AddFileUploadingEventHandler` メソッドを使用します。`UploadProgressManager` は、シングルトン クラス インスタンスで、`Instance` プロパティからアクセスできます。
+
+*  *一度にすべてのファイルを処理できます。*
+
+これは `UploadFinishing` イベントを処理して達成できます。 _UploadFinishing_   の `UploadFinishingEventArgs` パラメーターには、`FileStream` プロパティがあり、`MemoryStream` オブジェクトとしてアップロード ファイルを保持します。このプロパティ (`UploadFinishingEventArgs.FileStream`) を使用してファイル データを処理します。
+
+*注:* この方法は、すべてのファイルがサーバーにアップロードされるまでメモリにファイル データを保持するというデメリットがあります。
+
+
+[[_Ref347936175]]
+[[_Ref349930634]]
+[[_Ref350531192]]
+== アップロード済みの各ファイルの一部を処理してメモリ ストリームとしてファイルを保存 - 手順
+
+[[_Ref347847669]]
+
+=== はじめに
+
+この例は、`FileUploading` イベントを処理するメモリ ストリーム プロセスを使用し、各ファイルの一部を個別に処理するために  _WebUpload_   コントロールを構成する例です。アップロードされたファイルの一部は、ASP.NET キャッシュ バッファーに追加されます。バッファーが特定のしきい値に達するとディスク上のファイルに書き込みます。この方法は、 _WebUpload_   の RAM 使用量を最適化し、それによってより多くのファイル アップロードを同時に処理できます。
+
+この例は、ファイル キャッシュ機能を実装するためにカスタム クラスを作成します。`UploadUtils` は静的なクラスで、現在アップロードしているファイルをキャッシュの`MemoryStream` ディクショナリで処理します。また、 _WebUpload_   の  _fileUploadPath_   アプリケーションを使用して、このディクショナリにファイルを書き込みます。
+
+更に、一時ファイルを保存するフォルダーが作成され、アップロード ファイルの最大サイズが 100 Mb に設定されます。
+
+[[_Ref351118502]]
+
+=== 要件
+
+以下は、各アップロード済みファイルの一部を個別に処理してファイルをメモリ ストリームとして保存するための一般的な要件です。
+
+* Microsoft® Visual Studio 2010 またははそれ以降
+* ASP.NET Framework
+* Infragistics Ignite UI® 13.1 またはそれ以降
+
+[[prerequisites]]
+
+=== 前提条件
+
+*  *C# ASP.NET Web Application Microsoft Visual Studio プロジェクト  “ _WebUploadSaveFileAsStreamExample_  ”*
+*  *以下のスクリプトがマスター ページに追加されます* 
+
+** https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js
+** https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js
+
+*  *_<プロジェクト フォルダー>\Uploads_    フォルダー。一時ファイルがアップロードされます*
+
+[[overview]]
+
+=== 概要
+
+以下はプロセスの概念的概要です。
+
+*1. _WebUpload_ コントロールを  ASPX ページ に追加*
+
+*2. *(オプション) *_WebUpload_  アプリケーション設定*
+
+*3. ファイル キャッシュ機能の実装*
+
+*4. _WebUpload_*   *イベントの処理*
+
+*5. 結果の確認*
+
+[[_Ref347847683]]
+
+=== 手順
+
+以下は、ファイルをメモリ ストリームとしてアップロードする方法の手順です。
+
+=== 1. WebUpload コントロールを ASPX ページに追加.
+
+*1. デザイン ビューで Default.aspx ページを開く*
+
+*2. ツールボックスで “13.1 ASP.NET CLR 4.0”  セクションを開く*
+
+*注:* セクションがない場合、{ProductName} コントロールがツールボックスに追加されていない可能性があります。詳細については、 link:web-netadvantage-web-client-aspnet.html[{ProductName} 2013.1] トピックの「ツールボックス ユーティリティを実行する」をご参照ください。
+
+*3. *WebScriptManager*   * コントロールをページにドラッグ アンド ドロップ*
+
+*4. _WebUpload_ コントロールをページにドラッグ アンド ドロップ*
+
+コントロールに JavaScript と CSS ファイルが必要なため、 _ig_ui_   ディレクトリにインポートされますというダイアログ “ _ImportDefaultStyleSet_  ” が表示される場合があります。[OK] を押します。
+
+*注:* ダイアログが表示されない場合は無効にされている可能性があります。ただし、スクリプトおよびスタイルがインポートされます。
+
+*5.*   *_WebUpload_*   *エラーを表示する div 要素を追加します*
+
+div 要素で  _WebUpload_   エラーを表示します。以下のコードを  _WebUpload_   コントロール コードの後に追加します。
+
+*HTML の場合:*
+
+[source,html]
+----
+<div id="uploadErrors" style="color: red;"></div>
+----
+
+*6.   *ig_ui*   *ディレクトリをソリューションに追加します*
+
+A. すべてのファイルを表示を有効化 - ソリューション エクスプローラー ウィンドウで [すべてのファイルを表示] ボタンを押します。  _ig_ui_   ディレクトリが表示されます。
+
+B.  _ig_ui_   ディレクトリを右クリックして [プロジェクトに含む] をクリックすると、ディレクトリ全体がプロジェクトに含まれます。 
+
+*7. _WebUpload_   スクリプト参照をマスターページに追加します* 
+
+A. スタイル参照を追加します
+
+a. `Site.Master` ファイルを開きます
+
+b. 以下のスタイル参照を `Site.Master` ファイルに追加します。
+
+*HTML の場合:*
+
+[source,html]
+----
+<link href="ig_ui/css/structure/infragistics.css" rel="stylesheet" type="text/css" />
+<link href="ig_ui/css/themes/infragistics/infragistics.theme.css" rel="stylesheet" type="text/css" />
+----
+
+
+B. スクリプト参照を追加します
+
+a. `Site.Master` ファイルを開きます
+
+b. jQuery および jQuery UI スクリプトの後に以下のスクリプト参照を `Site.Master` ファイルに追加します。
+
+*HTML の場合:*
+
+[source,html]
+----
+<script src="ig_ui/js/infragistics.js" type="text/javascript"></script>
+----
+
+*8.**_(オプション)_**  *サイトの構築して実行します*
+
+これでプロジェクトをビルドし、実行できます。ファイルをアップロードして Uploads フォルダーに含まれていることを確認します。
+
+問題がある場合は、ブラウザー エラー コンソールを確認してください。
+
+=== 2.(オプション) WebUpload アプリケーション設定の構成。
+
+*1.*　_(オプション)_    *一時ファイル フォルダー を構成します。*
+
+以下のコードは、一時ファイルを保存するために  _Uploads_   フォルダーを構成します。
+
+*XML の場合:*
+
+[source,xaml]
+----
+<appSettings>
+    <add key="fileUploadPath" value="~/Uploads" />
+</appSettings>
+----
+
+*2.*  _(オプション)_    *ファイル サイズ制限を構成します。*
+
+以下のコード セットは、アップロードするファイルの最大サイズを 100 Mb に設定します。
+
+*XML の場合:*
+
+[source,xaml]
+----
+<appSettings>
+    <!--100 Mb = 2097152 bytes-->
+    <add key="maxFileSizeLimit" value="104857600" />
+</appSettings>
+----
+
+*3.ファイル保存モードを構成します。*
+
+以下のコードは、ファイル保存モードを  _memorystream_   に設定します。
+
+*XML の場合:*
+
+[source,xaml]
+----
+<appSettings>
+    <add key="FileSaveType" value="memorystream"/>
+</appSettings>
+----
+
+=== 3.ファイル キャッシュ機能を実装します。
+
+*1.バッファー サイズを構成します。* 
+
+A.  *_web.config_ ファイルを開きます。*
+
+B.  *バッファー サイズ アプリケーション設定を追加します。*
+
+この例では、`uploadUtilsBufferSize` アプリケーション設定でディスクにファイル データを書き込む前にバッファリングする際のしきい値を構成します。この構成を使用して ASP.NET キャッシュで独自のファイル バッファリングを実装します。以下のコードは 2 Mb に設定します。
+
+*XML の場合:*
+
+[source,xaml]
+----
+<appSettings>
+    <!--2 Mb = 2097152 bytes-->
+    <add key="uploadUtilsBufferSize" value="2097152" />
+</appSettings>
+----
+
+*2. _UploadUtils.cs_ ファイルをプロジェクトに追加します。*
+
+A. プロジェクトを右クリックします。
+
+B. コンテキスト メニューから追加、次に クラス…” を選択します。新しい項目を追加 ダイアログが開きます。
+
+C. 新しい項目を追加ダイアログの 名前 フィールドで `UploadUtils.cs` を入力します。
+
+D. 追加を押します。ファイルがプロジェクトに追加されます。
+
+*3. `UploadUtils` クラスを実装します。*
+
+A. _UploadUtils.cs_ ファイルを開きます。手順のすべてのコードがこのファイルに書き込まれます。
+
+B. クラスを静的にします。
+
+`static` を `UploadUtils` クラス定義に追加します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+public static class UploadUtils
+{
+    // クラス定義については、手順 2 から 7 を参照
+}
+----
+
+C. `using` 句を追加します。
+
+`using` 句は、`ConfigurationManager` および `Path` クラスに必要です。以下のコードは、最初の using 句は `ConfigurationManager` クラス用で 2 つ目の using 句は `Path` クラス用です。
+
+*C# の場合:*
+
+[source,csharp]
+----
+using System.Configuration;
+using System.IO;
+----
+
+D. 定数の定義
+
+定数は、 _uploadUtilsBufferSize_   および  _fileUploadPath_   の  _web.config_   ファイルにアプリケーション定義を含まない場合に必要です。
+
+*C# の場合:*
+
+[source,csharp]
+----
+//4 Mb デフォルト バッファー サイズ
+private const int DEFAULT_BUFFER_SIZE = 4 * 1024 * 1024; 
+private const string DEFAULT_UPLOAD_PATH = "~/Uploads";
+----
+
+E.  *バッファー サイズの構成*
+
+プロパティを定義します。このプロパティは、 _uploadUtilsBufferSize_   アプリケーション設定を返します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+public static int BufferSize
+{
+    get
+    {
+        int bufferSize;
+        if (Int32.TryParse(ConfigurationManager.AppSettings ["uploadUtilsBufferSize"], out bufferSize))
+        {
+            return bufferSize;
+        }
+        return DEFAULT_BUFFER_SIZE;
+    }
+}
+----
+
+F. アップロードパスを構成します。以下のコードを追加して、静的`UploadPath` プロパティを定義します。このプロパティは、 _fileUploadPath_   アプリケーション設定を返します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+public static string UploadPath
+{
+    get
+    {
+        string path = DEFAULT_UPLOAD_PATH;
+        if (ConfigurationManager.AppSettings["fileUploadPath"] != null)
+        {
+            path = ConfigurationManager.AppSettings["fileUploadPath"];
+        }
+        if (path.StartsWith("~"))
+        {
+            path = HttpContext.Current.Server.MapPath(path);
+        }
+        if (!path.EndsWith(Path.DirectorySeparatorChar.ToString()))
+            path += Path.DirectorySeparatorChar;
+        if (!Directory.Exists(path))
+            throw new DirectoryNotFoundException(path);
+        return path;
+    }
+}
+----
+
+G. メソッドを構成してキャッシュからストリームを取得します。
+
+`GetStreamFromCache` 静的メソッドを定義します。この静的メソッドは、指定したキーで `MemoryStream` を返します。これを行うには、`Dictionary< 文字列を用し、MemoryStream>` オブジェクトを ASP.NET キャッシュで使用します。ファイルがデータの一部をアップロードしている際にこのディクショナリを保持します。しきい値 (`UploadUtils.BufferSize` で定義された値) に達すると 、データ群がディスクのファイル データに追加されます。<<step-4,Handle  _WebUpload_  イベントの処理>> セクションでは、すべてのファイルをキャッシュに保持することが代わりに、`UploadUtils.BufferSize` プロパティでサイズが定義されたデータ群をディスクのファイルに書き込みます。
+
+*C# の場合:*
+
+[source,csharp]
+----
+public static MemoryStream GetStreamFromCache(string key)
+{
+    Dictionary<string, MemoryStream> uploadingFiles = HttpContext.Current.Cache["UploadingFiles"] as Dictionary<string, MemoryStream>;
+    MemoryStream stream;
+    if (uploadingFiles == null)
+    {
+        uploadingFiles = new Dictionary<string, MemoryStream>();
+        HttpContext.Current.Cache["UploadingFiles"] = uploadingFiles;
+    }
+    if (!uploadingFiles.ContainsKey(key))
+    {
+        stream = new MemoryStream();
+        uploadingFiles.Add(key, stream);
+    }
+    else
+    {
+        stream = uploadingFiles[key];
+    }
+    return stream;
+}
+----
+
+H. メソッドを構成してキャッシュからストリームを削除します。
+
+`RemoveStreamFromCache` 静的メソッドを定義します。このメソッドはキーを使用してディクショナリから項目を削除します。<<step-4,Handle  _WebUpload_  events>> セクションでは、現在アップロードしているファイル キャッシュからファイルを削除するためにこのメソッドを使用します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+public static void RemoveStreamFromCache(string key)
+{
+    Dictionary<string, MemoryStream> uploadingFiles = HttpContext.Current.Cache["UploadingFiles"] as Dictionary<string, MemoryStream>;
+    if (uploadingFiles != null && uploadingFiles.ContainsKey(key))
+    {
+        uploadingFiles.Remove(key);
+    }
+}
+----
+
+I. ファイルにストリームを書き込む*   * メソッドを構成します。
+
+`AppendStreamToFile` 静的メソッドを定義します。この静的メソッドは、`MemoryStream` オブジェクトをファイルに書き込みます。メソッドは、ファイル名と`MemoryStream` 値をパラメーターとして受け付けます。
+
+*C# の場合:*
+
+[source,csharp]
+----
+public static void AppendStreamToFile(string fileName, MemoryStream stream)
+{
+    using (FileStream fs = new FileStream(fileName, FileMode.Append))
+    {
+        stream.WriteTo(fs);
+    }
+}
+----
+
+=== 4.WebUpload イベント を処理します。
+
+*1.クライアント側イベント*
+
+A. `OnError` ハンドラーを追加
+
+a. Default.aspx ファイルを開きます。
+
+b.  _WebUpload1_   コントロールを選択します。
+
+c.  _Properties_   ウィンドウを開きます (F4 キー)。
+
+d.  _Client Events_   ノードを展開します。
+
+e.  _OnError_   フィールドの右にあるフィールドをダブルクリックします (あるいは、ドロップ ダウン ボタンを選択して [新しいハンドラーの追加…] オプションを選択します)。
+
+f. ダイアログの確認 - 新しいクライアント イベント ハンドラーの追加がポップアップで表示されます。OK を押して確定します。
+
+g. `OnError` ハンドラーを実装します。
+
+*JavaScript の場合:*
+
+[source,js]
+----
+function WebUpload1_OnError(eventArgs, infoObject) {
+    if (infoObject.errorType === "serverside")
+        $("#uploadErrors").append("<p>" + infoObject.serverMessage + "</p>");
+    else
+        $("#uploadErrors").append("<p>" + infoObject.errorMessage + "</p>");
+}
+----
+
+この `OnError` クライアント サイド ハンドラーは、前の手順で定義した id  _uploadErrors_   で div にエラーを追加します。
+
+エラーは、サーバー側とクライアント側の 2 タイプあり、`infoObject.errorType` プロパティで識別できます。
+
+`infoObject.errorType` `== “``serverside``”` の場合、エラーはサーバーの開発コードが原因です。エラー メッセージは、`infoObject.serverMessage` に保持されます。
+
+`infoObject.errorType` `== “``clientside``”` の場合、エラーはクライアント側にあります。メッセージは、`infoObject.errorMessage` に保持されます。詳細については、 link:webupload-using-client-side-events.html[「クライアント側イベントの使用」]トピックを参照してください。 
+
+*2.サーバー側イベント* 
+
+A. using 句を Default.aspx.cs ファイルに追加します
+
+*C# の場合:*
+
+[source,csharp]
+----
+using System.IO;
+using Infragistics.Web.UI.EditorControls;
+----
+
+それらの句は `MemoryStream` クラスと `UploadStatus` 列挙型で使用されます。
+
+B. `FileUploading` ハンドラーを追加します。
+
+a. Default.aspx ファイルを開きます。
+
+b.  _WebUpload1_   コントロールを選択します。
+
+c.  _Properties_   ウィンドウを開きます (F4 キー)。
+
+d.  _Events_   ボタンをクリックして  _Events_   タブを開きます。
+
+e.  _FileUploading_   フィールドの右にあるフィールドをダブル クリックします。
+
+f. `FileUploading` ハンドラーを実装します
+
+*C# の場合:*
+
+[source,csharp]
+----
+protected void WebUpload1_FileUploading(object sender, Infragistics.Web.UI.EditorControls.FileUploadingEventArgs e)
+{
+    MemoryStream stream = UploadUtils.GetStreamFromCache(e.TemporaryFileName);
+    stream.Write(e.FileChunk, 0, e.FileChunk.Length);
+    if (stream.Length >= UploadUtils.BufferSize)
+    {
+        string fileName = UploadUtils.UploadPath + e.TemporaryFileName;
+        stream.Flush();
+        UploadUtils.AppendStreamToFile(fileName, stream);
+        stream.Close();
+        UploadUtils.RemoveStreamFromCache(e.TemporaryFileName);
+    }
+    e.Cancel = true;
+}
+----
+
+`FileUploading` イベントは、 _FileSaveType_   アプリケーションが  _memorystream_   に設定されている場合に 開発者が手動でデータ アップロードを処理できます。`FileUploadingEventArgs` クラスは、アップロードした  _byte_   配列のデータ群を `FileChunk` プロパティを含みます。
+
+複数のファイルを一度にアップロードできることが重要です。その結果、このイベントはファイルで非同期に発生します。どのファイルにデータが書き込まれるかを認識するメソッドを採用する必要があります。1 つの方法として、ファイルの一意な名前を確実にする `FileUploadingEventArgs.TemporaryFileName` プロパティがあります`FileUploading` ハンドラーでは、`UploadUtils.GetStreamFromCache` 静的メソッドでファイルデータを ASP.NET キャッシュに書き込むためのキーとして `TemporaryFileName` を使用します。
+
+`FileUploading` ハンドラーは、ストリームの長さが `UploadUtils.BufferSize` しきい値を超えた場合もファイル データをファイルに書き込みます。これにより、コンピューター RAM が使用されることを確実にします。
+
+C. `FileFinishing` ハンドラーを追加します。
+
+a. `FileFinishing` ハンドラーを定義するためにセクション B 以降の手順を繰り返します。
+
+b. `FileFinishing` ハンドラーを実装します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+protected void WebUpload1_UploadFinishing(object sender, Infragistics.Web.UI.EditorControls.UploadFinishingEventArgs e)
+{
+    string uploadFilePath = UploadUtils.UploadPath;
+    string fileName = UploadUtils.UploadPath + e.TemporaryFileName;
+    MemoryStream stream = UploadUtils.GetStreamFromCache(e.TemporaryFileName);
+    UploadUtils.AppendStreamToFile(fileName, stream);
+    stream.Close();
+    UploadUtils.RemoveStreamFromCache(e.TemporaryFileName);
+    string newFileName = UploadUtils.UploadPath + e.FileName;
+    if (System.IO.File.Exists(newFileName))
+        System.IO.File.Delete(newFileName);
+    System.IO.File.Move(fileName, newFileName);
+}
+----
+
+`UploadFinishing` ハンドラーは、キャッシュに残っている最後のファイルの一部に書き込み、ファイルを元の名前に戻します。同じディレクトリに既存のファイルがある場合、削除されて新しいファイルが書き込まれます。
+
+*注:* 実環境では、ファイルを上書きする必要はありません。 通常、ユーザー名または識別子を使用してファイルが互いに上書きされないようにします。ただし、これらすべては特定の業務を遂行する機能となります。
+
+C. `FileFinished` ハンドラーを追加します。
+
+a. `FileFinished` ハンドラーを定義するためにセクション B 以降の手順を繰り返します。
+
+b. `FileFinished` ハンドラーを実装します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+protected void WebUpload1_UploadFinished(object sender, Infragistics.Web.UI.EditorControls.UploadFinishedEventArgs e)
+{
+    switch (e.FileStatus)
+    {
+        case UploadStatus.CancelledByClientCommand:
+        case UploadStatus.CancelledByClientConnection:
+            // アップロードが失敗した場合にファイルを削除
+            System.IO.File.Delete(e.TemporaryFileName);
+            break;
+    }
+}
+----
+
+ユーザーがアップロードをキャンセルしたときに `UploadFinished` のシナリオを実装します。この実装は、ファイル データを保存する一時ファイルを削除します。
+
+=== 5.(オプション) 結果を確認します。
+
+結果を確認するには、 *プロジェクトをビルドして実行します* 。ファイルをアップロードしてアップロード ファイルの一時フォルダーを確認します。

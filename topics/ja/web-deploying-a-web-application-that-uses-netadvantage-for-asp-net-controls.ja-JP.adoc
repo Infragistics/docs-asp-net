@@ -1,0 +1,80 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-deploying-a-web-application-that-uses-netadvantage-for-asp-net-controls",
+    "controlName": [],
+    "tags": ["Deployment","How Do I"],
+    "guid": "{30ED1F30-C66A-4385-9E86-4E94DB6F82B6}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= {ProductName} コントロールを使用する Web アプリケーションの配備
+
+== 始める前に
+
+ひとつ以上の {ProductName} コントロール/コンポーネントを使用する Web アプリケーションの配備は、他のアセンブリの配備と非常に似ています。{ProductName} コントロールのアセンブリは、デフォルトで Global Assembly Cache (GAC) にインストールされます。ただし、{ProductName} コントロールは他のフォルダを使用するので、配備が確実に成功するためには注意が必要です。.NET Framework 2.0 では、{ProductName} コントロール アセンブリを配備することで比較的容易です。
+
+== 達成すること
+
+この詳細なガイドでは、Web アプリケーションをホストする Web サーバーに {ProductName} コントロール/コンポーネントを配備する方法を学びます。
+
+== 次の手順を実行します
+
+[start=1]
+. 正しいアセンブリを指定および配備します。
+
+.. {ProductName} アセンブリがデフォルトでインストールされている以下のフォルダを指定します。
+
+{InstallPath}\ASP.NET\bin.
+
+.. 
+
+このディレクトリから必要なアセンブリをコピーし、本番サーバーの Web アプリケーションの bin ディレクトリにペーストします。あるいは、本番サーバーの GAC に Infragistics アセンブリを配置できます。これは適切なパーミッションを持っていることが前提です。
+
+少なくとも、すべての {ProductName} コントロール/コンポーネントは、配備のために Infragistics4.WebUI.Shared.v{ProductVersion} アセンブリが必要です。どのコントロールでどのアセンブリの配備が必要かについての詳細は、 link:web-deployment-overview.html[配置の概要]を参照してください。
+
+[start=2]
+. 特定の場合では、Forms、Scripts、Styles、および Images ディレクトリを配備する必要があります（シナリオについては以下のリストを参照）。デフォルトで、{ProductName} コントロール/コンポーネントは `ig_common` と呼ばれる仮想ディレクトリを探します。これは Forms、Scripts、Styles、および Images ディレクトリの物理パスをポイントします（あるいは、{ProductName} 製品がデフォルトでインストールされているフォルダ {InstallPath}\ASP.NET\ に、これらのディレクトリを指定することができます）。
+
+** アプリケーションで WebSchedule™ コントロールを使用した場合、以下のディレクトリを指定します。
+
+`C:\Inetpub\wwwroot\aspnet_client\Infragistics\{ProductVersion}CLR4\Forms`
+** JavaScript ファイルを変更した場合（推奨しませんが）、以下のディレクトリを指定します。
+
+`C:\Inetpub\wwwroot\aspnet_client\Infragistics\{ProductVersion}CLR4\Scripts`
+
+
+*注：* NET Framework 2.0 では、{ProductName} コントロールの JavaScript ファイルおよびいくつかの画像は、組み込みリソースとして各コントロールのアセンブリに含まれます（たとえば、Infragistics4.webUI.UltraWebGrid.{ProductVersion}）。したがって、JavaScript ファイルを変更しない限り、Scripts ディレクトリで見つかった JavaScript ファイルを本番サーバーに配備する必要はありません。
+
+** アプリケーションで WebSchedule コントロールを使用した場合、またはプリセットを適用した場合（すなわち、Aero、Aqua、Default、ElectricBlue、Onyx、Royale、XpBlue、XpOlive または XpSilver）、以下のディレクトリを指定します。
+
+`C:\Inetpub\wwwroot\aspnet_client\Infragistics\{ProductVersion}CLR4\Styles`
+
+
+*注：* WebSchedule を使用している場合、Forms および Style ディレクトリを配備する必要があります。さらに、特定のプリセット（たとえば、Aero、Aqua プリセット）も Style ディレクトリを配備するために必要です。
+
+
+** アプリケーションで Infragistics の事前に定義した画像ではなくユーザー自身のカスタム画像を使用している場合、以下のディレクトリを指定します。
+
+`C:\Inetpub\wwwroot\aspnet_client\Infragistics\Images`
+
+[start=3]
+. 必要に応じて、手順 2 で指定した Forms、Scripts、Styles、および Images ディレクトリを配備します。
+
+.. 本番サーバーで、親ディレクトリを作成します。
+.. 手順 3a で作成した親フォルダに "{ProductVersion}CLR4" および "Images" ディレクトリを配置します。
+.. `ig_common` 仮想ディレクトリを作成し、作成した親フォルダをポイントします。たとえば、本番サーバーの任意の場所に "Infragistics" という名前の親フォルダを作成する場合、"Infragistics" ディレクトリの下に {ProductVersion}CLR4 および "Images" ディレクトリを配置します。次に `ig_common` 仮想ディレクトリを作成し、その "Infragistics" フォルダをポイントします。
+
+== 関連トピック
+
+link:deploying-common-assets.html[共通アセットの配備]
+
+link:web-deploying-an-application-to-a-hosted-server-environment.html[アプリケーションをホスト サーバー環境に配備]
+
+link:web-deploying-an-application-to-a-partial-trust-environment.html[アプリケーションを部分信頼環境に配備]
+
+link:web-using-global-assembly-cache-gac-deployment.html[グローバル アセンブリ キャッシュ（GAC）配備の使用]

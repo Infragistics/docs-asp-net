@@ -1,0 +1,90 @@
+﻿////
+
+|metadata|
+{
+    "name": "webexplorerbar-styling",
+    "controlName": ["WebExplorerBar"],
+    "tags": ["How Do I","Styling","Theming"],
+    "guid": "{5E321F8E-15F7-40A9-9B65-D37E74C5E866}",  
+    "buildFlags": [],
+    "createdOn": "2010-01-03T22:53:23Z"
+}
+|metadata|
+////
+
+= CSS クラス プロパティ
+
+WebExplorerBar™ は一連のコントロールをカスタマイズするために使用できる CSS プロパティを提供します。以下はグループと項目の両方に適用できる CSS クラス プロパティのリストです。
+
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.explorerbaritembase~cssclass.html[CssClass]"]  – グループまたは項目ヘッダー コンテナーに適用されます。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.explorerbaritembase~selectedcssclass.html[SelectedCssClass]"]  – 選択状態の時にグループまたは項目ヘッダー コンテナーに適用されます。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.explorerbaritembase~activecssclass.html[ActiveCssClass]"]  – アクティブになった時にグループまたは項目ヘッダー コンテナーに適用されます。これはコントロールにフォーカスがある場合に限り起こります。キーボードでナビゲーションするまたはマウスでクリックする時に、グループまたは項目は視覚的にアクティブになります。Active スタイルは Selected スタイルと通常結合します。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.explorerbaritembase~disabledcssclass.html[DisabledCssClass]"]  – 無効の時にグループまたは項目ヘッダー コンテナーに適用されます。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.explorerbaritembase~hovercssclass.html[HoverCssClass]"]  – 上にマウスが置かれている時にグループまたは項目ヘッダー コンテナーに適用されます。
+
+以下の例は SelectedCssClass を適用する方法を示します。
+
+*HTML の場合:*
+
+----
+<ig:WebExplorerBar ID="WebExplorerBar1" runat="server">
+     <Groups>
+        <ig:ExplorerBarGroup Text="FirstGroup" SelectedCssClass="GroupSelectedCssClass">
+            <Items>
+               <ig:ExplorerBarItem Text="FirstItem" SelectedCssClass="ItemSelectedCssClass">
+               </ig:ExplorerBarItem>
+            </Items>
+        </ig:ExplorerBarGroup>
+     </Groups>
+</ig:WebExplorerBar>
+----
+
+*Visual Basic の場合：*
+
+----
+Dim groupFirst As New ExplorerBarGroup()
+groupFirst.Text = "FirstGroup"
+groupFirst.SelectedCssClass = "GroupSelectedCssClass"
+Me.WebExplorerBar1.Groups.Add(groupFirst)
+Dim itemFirst As New ExplorerBarItem()
+itemFirst.Text = "FirstItem"
+itemFirst.SelectedCssClass = "ItemSelectedCssClass"
+groupFirst.Items.Add(itemFirst)
+----
+
+*C# の場合：*
+
+----
+ExplorerBarGroup groupFirst = new ExplorerBarGroup();
+groupFirst.Text = "FirstGroup";
+groupFirst.SelectedCssClass = "GroupSelectedCssClass";
+this.WebExplorerBar1.Groups.Add(groupFirst);
+ExplorerBarItem itemFirst = new ExplorerBarItem();
+itemFirst.Text = "FirstItem";
+itemFirst.SelectedCssClass = "ItemSelectedCssClass";
+groupFirst.Items.Add(itemFirst);
+----
+
+== 関連トピック
+
+link:webexplorerbar-smart-tag.html[WebExplorerBar スマートタグ]
+
+link:webexplorerbar-keyboard-navigation.html[キーボード ナビゲーション]
+
+link:webexplorerbar-height-properties.html[WebExplorerBar の高さのプロパティ]
+
+link:webexplorerbar-setting-navigateurl-and-target-properties.html[NavigateURL と Target プロパティの設定]
+
+link:webexplorerbar-binding-to-an-xml-data-source.html[XML データ ソースにバインドする]
+
+link:webexplorerbar-binding-to-webhierarchcialdatasource.html[WebHierarchcialDataSource にバインド]
+
+link:webexplorerbar-serverevents.html[サーバー側イベント]
+
+link:webexplorerbar-selection-behavior.html[選択動作]
+
+link:webexplorerbar-clientside-api.html[ClientSide API]
+
+link:webexplorerbar-clientevents.html[クライアント側イベント]
+
+link:webexplorerbar-styling.html[CSS クラス プロパティ]

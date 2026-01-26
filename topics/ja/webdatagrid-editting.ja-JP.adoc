@@ -1,0 +1,47 @@
+﻿////
+|metadata|
+{
+    "name": "webdatagrid-editting",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Editing","Grids"],
+    "guid": "{7B88CDCA-60BE-44C5-887B-E0EF69EC9D8E}",
+    "buildFlags": [],
+    "createdOn": "2008-12-08T14:11:57Z"
+}
+|metadata|
+////
+
+= 編集動作の概要
+
+WebDataGrid™ はデフォルトで読み取り専用です。コントロールによる操作を可能にするために、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.behaviors~editingcore.html[EditingCore]"]  動作を有効にする必要があります。EditingCore を有効にした後で、WebDataGrid をコードで編集できます。ただし、WebDataGrid の UI を使用してデータを編集、削除、追加することをエンドユーザーに許可したい場合には、追加の動作を有効にする必要があります。これらはすべてユーザーの操作特有の動作に依存すると考えられます。編集が有効になると、データソースへのデータの更新が直ちにコミットされます。
+
+.*注：*
+[NOTE]
+====
+pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.framework.data.flatdataboundcontrol~datakeyfields.html[DataKeyFields]"] プロパティをデータソースの主キーの名前に設定して、WebDataGrid での変更がデータソースで更新可能であることを保証します。
+====
+
+== 依存動作
+
+* *セル編集* – WebDataGrid のセルでデータ操作を可能にします。エンドユーザーはこの動作が有効な時にデータを編集することができます。
+* *行の編集* - 行の全体を編集モードになります。変更を保存するには、[完了] ボタンをクリックします。変更をキャンセルするには [キャンセル] ボタンをクリックします。
+* *行の追加* - この動作を有効にすると、ユーザーが新しい行を WebDataGrid に追加できるインターフェイスが作成されます:空白行がコントロールの一番下または一番上に配置されます。
+* *行の削除* – データ削除を可能にします。削除するには、エンドユーザーは行を選択して Delete キーを押すことができます。
+* *行編集テンプレート* – 作成するテンプレートによって行のデータ操作を可能にします。
+
+.*注：*
+[NOTE]
+====
+これらの動作はすべて EditCore 動作に依存します。EditCore 動作を削除すると、これらの動作も削除されます。
+====
+
+WebDataGrid での編集の詳細は、以下のリンクをクリックしてください。
+
+* link:webdatagrid-cell-editing.html[セル編集]
+* link:webdatagrid-row-editing.html[行の編集]
+* link:webdatagrid-batch-updating.html[一括変更] 
+* link:webdatagrid-row-editing-template.html[行編集テンプレート]
+* link:webdatagrid-enabling-row-deleting.html[行削除を有効]
+* link:webdatagrid-row-adding.html[行追加]
+* link:webdatagrid-refreshing-webdatagrid-when-autocrud-is-turned-off.html[AutoCRUD がオフの時に WebDataGrid をリフレッシュ]
+* link:webdatagrid-conditional-batch-updating-in-webdatagrid.html[WebDataGrid の条件付き一括変更]

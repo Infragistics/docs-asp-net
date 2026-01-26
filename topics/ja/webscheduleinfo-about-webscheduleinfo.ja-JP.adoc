@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "webscheduleinfo-about-webscheduleinfo",
+    "controlName": ["WebScheduleInfo"],
+    "tags": [],
+    "guid": "{4B9EC408-D0BC-4A66-AFBF-EABAD8C31A37}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebScheduleInfo について
+
+== WebScheduleInfo
+
+WebScheduleInfo コンポーネントは、ひとつまたは複数の WebSchedule ビューにわたり同期化されているすべてのスケジュール情報とコントロールの状態を管理および公開します。 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activitiescollection.html[アクティビティ]"] および  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~visibleresources.html[VisibleResource]"]  のコレクションを含み、WebSchedule オブジェクト モデル内の重要なクラスとコレクションのデータを集中管理します。
+
+image::images/WebScheduleInfo_About_WebScheduleInfo_01.png[]
+
+Model-View-Controller パラダイムのコンテキスト内で、WebScheduleInfo は WebScheduleInfo を使用するすべての WebDayViews、WebWeekViews、WebMonthViews、WebCalendarViews のコントローラとして機能します。これらのコントロールが正しく機能するには、WebScheduleInfo を指定する必要があります。ひとつまたは複数の WebSchedule ビューがページの配置する WebScheduleInfo に関連付けられる時、これらのビューが同じアクティブな日を反映し、特定の共通の機能を共有します（たとえばすべてのビューでアクティビティを追加できるかどうかなど）。
+
+WebScheduleInfo は、データバインド中に WebSchedule データ プロバイダからバインドされたデータを結び付けて、WebSchedule オブジェクト モデルを通して WebSchedule ビューで使用可能にします。
+
+エンド ユーザーは、WebScheduleInfo を見ることはできません（これは非表示要素）が、アプリケーションがクライアント サイド オブジェクト モデルを活用した時にクライアント側スクリプトを保持するために効果的であるようです。WebScheduleInfo クライアント サイド オブジェクト モデルによって提供されるデフォルト動作の例としては、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[アクティビティ]"] を追加または編集するために、Web ダイアログ フォームを起動するためにハブとして機能する（アクションの発生元となる WebSchedule ビューに関係なく）、アクティブな日の同期を仲介する、アラーム通知をポップアップするなどが挙げられます。

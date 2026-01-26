@@ -1,0 +1,84 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-enable-error-template",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Grids","Templating"],
+    "guid": "{21DED717-EA3B-477D-AABF-5D9F72D503F2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= エラー テンプレートを有効
+
+WebDataGrid™ のエラー テンプレートを使用して、コントロール内に発生する例外にカスタム メッセージを表示できます。これには、WebDataGrid から生じる例外およびデータ操作エラーが含まれます。すべてのテンプレートと同様、エラー テンプレート内にコントロールを配置できます。WebDataGrid は ErrorMessage プロパティを公開し、ユーザーは例外メッセージにアクセスできます。
+
+エラー テンプレートはフルページ ポストバックのみに使用すべきです。AJAX カスタム エラー処理については、 link:webdatagrid-handling-server-side-exceptions-using-ajax.html[「WebDataGrid で AJAX エディターを処理」]を参照してください。
+
+*注：* テンプレートを表示するには、テンプレート内に何かが存在する必要があります。何も存在せず例外が処理されなければ、アプリケーションは一般的な例外ページをロードします。
+
+WebDataGrid を右クリックし、[テンプレートの編集] にマウスオーバーし、[テンプレートの制御] を選択してデザイン タイムにエラー テンプレートを設定できます。これでコントロールをエラー テンプレート表面にドラッグできます。
+
+以下のコードは、エラー テンプレートを使用して例外が発生する場合にエンドユーザー用のカスタム表示を作成する方法を示します。テンプレートの作成と同様、ITemplate インターフェイスを実装するクラスが必要です。
+
+*Visual Basic の場合：*
+
+----
+Protected Overloads Overrides Sub OnInit(ByVal e As EventArgs) 
+    MyBase.OnInit(e) 
+    'テンプレートはポストバックごとにインスタンス化される必要があります 
+    Me.WebDataGrid1.ErrorTemplate = New CustomErrorTemplate() 
+End Sub 
+Protected Overloads Overrides OnPreRender(ByVal e As EventArgs) Implements ITemplate.InstantiateIn
+    MyBase.OnPreRender(e);
+'ラベルが作成された後で、エラー メッセージを追加するために参照を取得します 
+    Me.WebDataGrid1.DataBind()
+    Dim label1 As System.Web.UI.WebControls.Label = DirectCast(Me.WebDataGrid1.ErrorTemplateContainer.FindControl("Label1"), System.Web.UI.WebControls.Label) 
+    label1.Text += Me.WebDataGrid1.ErrorMessage 
+End Sub 
+Private Class CustomErrorTemplate 
+    Implements ITemplate 
+    #Region "ITemplate Members" 
+    Public Sub InstantiateIn(ByVal container As Control) 
+        Dim label1 As New System.Web.UI.WebControls.Label() 
+        label1.Text = "An operation has failed in WebDataGrid. The reason is provided: " 
+        label1.ID = "Label1" 
+        container.Controls.Add(label1) 
+    End Sub 
+#End Region
+End Class
+----
+
+*C# の場合：*
+
+----
+protected override void OnInit(EventArgs e)
+{
+	base.OnInit(e);
+		//テンプレートはポストバックごとにインスタンス化される必要があります
+	this.WebDataGrid1.ErrorTemplate = new CustomErrorTemplate();
+}
+protected override void OnPreRender(EventArgs e)
+{
+	base.OnPreRender(e);
+	//ラベルが作成された後で、エラー メッセージを追加するために参照を取得します        
+	this.WebDataGrid1.DataBind();
+	System.Web.UI.WebControls.Label label1 = (System.Web.UI.WebControls.Label)this.WebDataGrid1.ErrorTemplateContainer.FindControl("Label1");
+	label1.Text += this.WebDataGrid1.ErrorMessage;
+}
+private class CustomErrorTemplate : ITemplate
+{
+	#region ITemplate Members
+	public void InstantiateIn(Control container)
+	{
+		System.Web.UI.WebControls.Label label1 = new System.Web.UI.WebControls.Label();
+		label1.Text = "An operation has failed in WebDataGrid. The reason is provided: ";
+		label1.ID = "Label1";
+		container.Controls.Add(label1);
+	}
+	#endregion
+}
+----

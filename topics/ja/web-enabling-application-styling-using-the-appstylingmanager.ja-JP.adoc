@@ -1,0 +1,93 @@
+﻿////
+|metadata|
+{
+    "name": "web-enabling-application-styling-using-the-appstylingmanager",
+    "controlName": [],
+    "tags": ["How Do I","Styling"],
+    "guid": "{9E47F912-6489-4155-BD22-E33C8C31D54B}",
+    "buildFlags": [],
+    "createdOn": "2006-01-12T08:32:11Z"
+}
+|metadata|
+////
+
+= AppStylingManager を使用してアプリケーション スタイリングを有効にする
+
+デザインタイムの代わりにランタイムにアプリケーション スタイリングを有効にしたい場合があります。AppStylingManager コンポーネント（Infragistics.WebUI.Shared アセンブリに置かれている）を使用してこれを実行できます。ただし、プロジェクトに必要なディレクトリ/サブディレクトリを作成し、アプリケーション スタイリングが正しく適用されるために必要なすべてのファイル（CSS および画像）をコピーする必要があります。
+
+
+*注：* 以下のアプローチがひとつの Web フォームで機能します。Web サイト全体でアプリケーション スタイリングを有効にしたい場合は、 link:web-enabling-application-styling-using-the-web-config-file.html[「web.config ファイルを使用してアプリケーション スタイリングを有効にする」]を参照してください。
+
+
+*AppStyleMananger コンポーネントを使用してアプリケーション スタイリングを有効にするには、次の手順に従ってください。*
+
+[start=1]
+. ソリューション エクスプローラで、アプリケーション スタイリングを有効にしたい Web サイトを右クリックして、[追加] をポイントして、[新規フォルダ] を選択します。このフォルダに "ig_res" という名前をつけます。
+[start=2]
+. ig_res フォルダを右クリックして ig_res フォルダのサブフォルダを作成し、[新規フォルダ] を選択し "Office2007Black" と名前を付けます。
+[start=3]
+. Office2007Black フォルダを右クリックして Office2007Black フォルダのサブフォルダを作成し、以下のスクリーンショットに示すように、[新規フォルダ] を選択し "images" と名前を付けます。
+
+image::images/Web_Enabling_Application_Styling_Using_the_AppStylingManager_01.png[]
+
+[start=4]
+. ig_res フォルダを右クリックし、[既存の項目を追加...] を選択します。StyleSets がデフォルトでインストールされるフォルダ {InstallPathXP}\\{PlatformName}\StyleLibraries に移動します。すべての CSS ファイルおよび画像をコピーして、前述の手順で作成した対応するフォルダに貼り付けます。
+
+
+*注：* 代わりに Windows エクスプローラでは、手順 4 で指定したデフォルトのインストール パスに移動します。希望する StyleSet（すなわち、Office2007Black）でフォルダを検索し、それを ig_res フォルダにコピー アンド ペーストします。Microsoft® Visual Studio® は、必要なサブフォルダを作成し、すべてのファイルをコピーします。
+
+
+[start=5]
+. Web サイトの Web.config ファイルを開きます。ファイルの一番上近くで、開始の <configuration> タグを検索し、以下の XML の抜粋を配置します。この XML の抜粋によって、Web サイトでアプリケーション スタイリングが有効になります。
+
+*XML の場合:*
+
+----
+<configSections>
+        <section name="infragistics.web" 
+          type="System.Configuration.SingleTagSectionHandler,System, 
+          Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+</configSections>
+----
+
+[start=6]
+. ASPX コード ビハインドで、Page_Load イベントに以下のサンプル コードを配置します。このコードによってアプリケーション スタイリングが可能となり、StyleSet を Office2007Black に設定します。
+
+[NOTE]
+====
+*注：* コードまたは Web.config ファイルに設定する場合、StyleSetName の値が正しい大文字と小文字の識別になっていることを確認してください。デフォルトでは、Visual Studio 2005 および Visual Studio 2008 は DOCTYPE を XHTML に設定します。 Web フォームの DOCTYPE が XHTML に設定されている場合、プロパティが文字列を受け入れる場合であっても大文字小文字を区別します。たとえば、"Office2007Black" の代わりに "office2007black" または "Office2007black" と入力すると、スタイルは正しく表示されません。ただし、これは Web フォームの DOCTYPE が HTML に設定されている場合は問題ではありません。
+====
+
+*Visual Basic の場合：*
+
+----
+Private Sub Page_Load(ByVal sender As System.Object, _ ByVal e As System.EventArgs) Handles MyBase.Load
+'ASP.NET コントロールのアプリケーション スタイル
+Infragistics.WebUI.Shared.AppStyling.AppStylingManager.Settings.EnableAppStyling = true
+Infragistics.WebUI.Shared.AppStyling.AppStylingManager.Settings.StyleSetName = "Office2007Black"
+'{ProductName} AJAX コントロールのアプリケーション スタイル
+Infragistics.Web.UI.AppStylingManagerDesign.Settings.EnableAppStyling = true
+Infragistics.Web.UI.AppStylingManagerDesign.Settings.StyleSetName = "Office2007Black"
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void Page_Load(object sender, System.EventArgs e) 
+{
+//ASP.NET コントロールのアプリケーション スタイル
+Infragistics.WebUI.Shared.AppStyling.AppStylingManager.Settings.EnableAppStyling = true;
+Infragistics.WebUI.Shared.AppStyling.AppStylingManager.Settings.StyleSetName = "Office2007Black";
+//{ProductName} AJAX コントロールのアプリケーション スタイル
+Infragistics.Web.UI.AppStylingManagerDesign.Settings.EnableAppStyling = true;
+Infragistics.Web.UI.AppStylingManagerDesign.Settings.StyleSetName = "Office2007Black";
+ }
+----
+
+
+*注:* AppStylingManager または AppStylingManagerDesign のいずれかのプロパティを設定すると、すべての {ProductName} コントロールのスタイルを設定されます。
+
+
+[start=7]
+. アプリケーションを実行します。プロジェクトのすべての {ProductName} コントロールに Office2007Black スタイルが適用されます。

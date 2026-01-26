@@ -1,0 +1,50 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-in-2016-volume-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "69ad0921-6a3b-4035-808d-fee0d0c6666c",  
+    "buildFlags": [],
+    "createdOn": "2016-01-25T13:26:10.292549Z"
+}
+|metadata|
+////
+
+= 2016 Volume 1 の新機能
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、Infragistics® ASP.NET 2016 Volume 1 リリースの新機能の概要について説明します。
+
+== 新機能:
+
+=== 新機能概要:
+
+以下は、2016 Volume 1 リリースの新機能の概要です。詳細については、以下の概要表より下を参照してください。
+
+==== <<_Ref367305754,全般>>
+
+[options="header", cols="a,a"]
+|====
+|機能|説明
+
+|<<AppStyling,Visual Studio 用の Application Styling Configuration アドインは Visual Studio 2015 の Infragistics AppStyling Extension に置き換わりました。>>
+|アドインは Visual Studio 2015 以降廃止されました。Visual Studio 2015 対応のすべてのアドイン機能を保持する新しい拡張機能を作成しました。
+
+|====
+
+[[_Ref367305754]]
+
+== 全般
+
+[[AppStyling]]
+
+=== Visual Studio 用の Application Styling Configuration アドインは Visual Studio 2015 の Infragistics AppStyling Extension に置き換わりました。
+
+アドインは Visual Studio 2015 以降廃止されました。Microsoft® Visual Studio® 2015 からプロジェクトに直接スタイルを適用する場合、Infragistics AppStyling Extension を使用できます。アドインのすべての機能が保持されています。拡張を実行するには、ツールのメニューを開き、Infragistics AppStyling Extension {ProductVersion} を選択します。Microsoft® Visual Studio® の以前のバージョンをご使用の場合もアドインを使用できます。
+
+*注:* 2015.2 および 2015.1 に個別の .vsix インストーラーがあります。

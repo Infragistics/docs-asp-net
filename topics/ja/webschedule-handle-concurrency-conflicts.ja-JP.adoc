@@ -1,0 +1,103 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-handle-concurrency-conflicts",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling"],
+    "guid": "{6CACCBAA-DC9D-407B-B098-AC12A4DF9DFF}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 並行性競合の処理
+
+マルチユーザーの WebSchedule™ アプリケーションで、2 名のユーザーが同時に pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[アクティビティ]"] を更新すると並行処理の競合が発生します。最初のユーザーによって行われた変更のみを受け付けます。
+
+たとえば、Adam と Becky が同じ予定を探しており、それぞれが 9:30 に [予定の編集] ダイアログを開いたとします。Adam の変更の前に存在していた予定情報を見て Adam が 9:35 に、Becky が 9:40 に変更をコミットした場合、Becky に並行処理の競合が発生します。
+
+並行処理の競合をするための所定の方法として、前回 Becky が予定を開いて以降、他の誰かがすでに予定を変更したため、Becky の変更は破棄されることを Becky に通知して、予定に関する更新された情報を提供します。
+
+この例では、 pick:[asp-net="link:{ApiPlatform}webui.webscheduledataprovider{ApiVersion}~infragistics.webui.data.webscheduledbprovider~dataprovidererror_ev.html[DataProviderError]"]  イベントを処理することによって、WebSchedule アプリケーションでこれを実行する方法を示します。 pick:[asp-net="link:{ApiPlatform}webui.webscheduledataprovider{ApiVersion}~infragistics.webui.data.dataprovidererroreventargs~condition.html[ErrorCondition]"]  プロパティが並行処理の競合が発生したことを示すかどうかをチェックします。そして発生している場合には、古い情報に基づいて変更を行ったユーザーに状況を説明するポップアップ メッセージボックスが表示します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.WebUI.Shared
+Imports Infragistics.WebUI.WebSchedule
+...
+Private Sub WebScheduleOleDbProvider1_OnError(ByVal sender As Object, _
+	ByVal args As DataProviderErrorEventArgs) _
+	Handles WebScheduleOleDbProvider1.DataProviderError
+	' エラーの原因が並行処理の競合であり、その他の
+	' データ プロバイダー エラーではないことをチェックします。
+	If ( args.Condition = ErrorCondition.ConcurrencyConflict ) Then
+		' Javascript コードを追加するために StringBuilder を作成します。
+		Dim jsAlertBuf As New StringBuilder()
+		' 説明メッセージをユーザーにポップアップする
+		' Javascript ブロックを構築します。
+		jsAlertBuf.Append("<script language='Javascript'><!--" + vbCrLf)
+		jsAlertBuf.Append("alert(""Another user has already modified")
+		jsAlertBuf.Append(" the appointment you requested to change,")
+		jsAlertBuf.Append(" therefore your changes could not be made")
+		jsAlertBuf.Append(" to the database."");" + vbCrLf)
+		jsAlertBuf.Append("-$$->$$</script>")
+		' ASP.NET で Javascript ブロックを登録すると、
+		' クライアントにレンダリングされてメッセージ ボックスが表示します。
+		Page.RegisterStartupScript("wsAlert", jsAlertBuf.ToString()) 
+	ElseIf ( args.Condition <> ErrorCondition.OK ) Then 
+		' データ プロバイダー エラーの原因が
+		' 並行処理の競合でない場合、基本の例外を 
+		' 再度スローすることを推奨します。
+		Throw args.Exception 
+	End If 
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.WebUI.Shared;
+using Infragistics.WebUI.WebSchedule;
+...
+private void WebScheduleOleDbProvider1_OnError(object sender,
+	DataProviderErrorEventArgs args)
+{
+	// エラーの原因が並行処理の競合であり、その他の
+	// データ プロバイダー エラーではないことをチェックします。
+	if( args.Condition == ErrorCondition.ConcurrencyConflict )
+	{
+		// Javascript コードを追加するために StringBuilder を作成します。
+		StringBuilder jsAlertBuf = new StringBuilder();
+		// 説明メッセージをユーザーにポップアップする
+		// Javascript ブロックを構築します。
+		jsAlertBuf.Append("<script language=Javascript><!--\r\n");
+		jsAlertBuf.Append("alert(\"Another user has already modified");
+		jsAlertBuf.Append(" the appointment you requested to change,");
+		jsAlertBuf.Append(" therefore your changes could not be made");
+		jsAlertBuf.Append(" to the database.\");\r\n-$$->$$</script>");
+		// ASP.NET で Javascript ブロックを登録すると、
+		// クライアントにレンダリングされてメッセージ ボックスが表示します。
+		Page.RegisterStartupScript("wsAlert", jsAlertBuf.ToString());
+	}
+	else if( args.Condition != ErrorCondition.OK )
+	{
+		// データ プロバイダー エラーの原因が
+		// 並行処理の競合でない場合、基本の例外を
+		// 再度スローすることを推奨します。
+		throw args.Exception;
+	}
+}
+----
+
+== 関連トピック
+
+link:webschedule-connecting-webschedule-to-a-database-in-visual-studio-2005.html[Visual Studio 2005 で WebSchedule をデータベースに接続]
+
+link:webschedule-binding-to-access-data-source-using-webschedulegenericdataprovider.html[WebScheduleGenericDataSource を使用してデータ ソース コントロールにアクセスするためにバインド]
+
+link:webschedule-binding-to-a-data-set-with-webschedulegenericdataprovider.html[WebScheduleGenericDataProvider で設定したデータへの WebSchedule バインディング]
+
+link:webschedule-webschedulegenericdataprovider-crud-statements-for-sql-data-source.html[SQL データ ソース用の WebScheduleGenericDataProvider CRUD ステートメント]

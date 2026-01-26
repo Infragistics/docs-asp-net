@@ -1,0 +1,73 @@
+﻿////
+
+|metadata|
+{
+    "name": "emptytemplate",
+    "controlName": [],
+    "tags": [],
+    "guid": "6f7a54b7-3f3a-4e61-9129-716f2b5bf53b",  
+    "buildFlags": [],
+    "createdOn": "2016-03-01T10:02:33.847999Z"
+}
+|metadata|
+////
+
+= グリッドの移行 - 空のテンプレート
+
+== 空のテンプレート
+
+==== WebDataGrid
+
+WebDataGrid/WebHierarchicalDataGrid には、空のテンプレートがあります。これを使用して、データ ソースに列がない場合にいつも表示されるカスタム ディスプレイをエンドユーザーに提供できます。すべてのテンプレートと同様に、空のテンプレートの内部に任意のコントロールを配置して、カスタム メッセージを提供できます。
+
+WebDataGrid を右クリックし、マウスを [テンプレートの編集] の上に置き、コントロール テンプレートを選択することにより、デザイン タイムに空のテンプレートを設定できます。これにより、コントロールを空のテンプレートの上にドラッグできます。
+
+次に示すコードは、バインドされた WebDataGrid に列がない場合、エンドユーザーにメッセージを表示するカスタム テンプレートを作成します。
+
+==== UltraWebGrid
+
+UltraWebGrid は、空のテンプレートの機能をサポートしません。
+
+次の数行のコードは、グリッドが空のデータ ソース（DataTable）にバインドされている場合に、空のテンプレートの作成とエンドユーザーに対するメッセージの表示の仕組みを示しています。
+
+空のテンプレートの作成には、2 つの方法があります。最初の方法は ASPX マークアップを使用し、2 番目の方法はサーバー側のコードを使用します。
+
+宣言的なアプローチの使用:
+
+*ASPX の場合:*
+
+[source,html]
+----
+ <ig:WebDataGrid ID="WebDataGrid1" runat="server" Height="350px" Width="400px">
+            <EmptyRowsTemplate>
+                Empty row template
+            </EmptyRowsTemplate>
+        </ig:WebDataGrid>
+----
+
+グリッドを DataSource にバインドすると、グリッド内に「空行テンプレート」というメッセージが表示されます。
+
+コードの使用:
+
+*C# の場合:*
+
+[source,csharp]
+----
+protected override void OnInit(EventArgs e)
+    {
+        base.OnInit(e);
+        //すべてのポストバックでテンプレートのインスタンスを作成する必要がある
+        this.WebDataGrid1.EmptyRowsTemplate = new CustomEmptyRowsTemplate();
+    }
+    private class CustomEmptyRowsTemplate : ITemplate
+    {
+        #region ITemplate Members
+        public void InstantiateIn(Control container)
+        {
+            System.Web.UI.WebControls.Label label1 = new System.Web.UI.WebControls.Label();
+            label1.Text = "Empty row template";
+            label1.ID = "Label1";
+            container.Controls.Add(label1);
+        }
+    }
+----

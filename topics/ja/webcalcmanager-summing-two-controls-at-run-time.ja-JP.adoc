@@ -1,0 +1,119 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcalcmanager-summing-two-controls-at-run-time",
+    "controlName": ["WebCalcManager"],
+    "tags": ["Application Scenarios","How Do I"],
+    "guid": "{3E6C9EB6-E239-4468-AA94-96E0A7CBEB11}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 実行時に2つのコントロールの値を合計する
+
+== 始める前に
+
+フォームの計算ネットワークで要素と関連付けられたプロパティを取得または設定することで実行時に WebCalcManager™ コンポーネントとやりとりすることができます。この詳細なガイドでは2つのテキストボックスの値の集計の設定と3番目のテキストボックスの結果値を配置する方法を示すことが目的です。
+
+== 以下の手順を実行します。
+
+[start=1]
+. ASP.NETプロジェクトで開始します。
+[start=2]
+. 
+
+コードの記述を開始する前にコード ビハインドに using/imports のディレクティブを配置します。そうすれば、メンバーは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.WebUI.UltraWebCalcManager
+----
+
+*C# の場合：*
+
+----
+using Infragistics.WebUI.UltraWebCalcManager;
+----
+
+[start=3]
+. フォームでUltraWebCalcManager、3つのTextBox、そしてサーバーボタンを配置して整列します。
+
+image::images/WebCalcManager_Summing_Two_Controls_at_Run_Time_01.png[]
+
+[start=4]
+. フォームに配置したボタンの Click イベントを作成します。以下のコードを新たに作成した Click イベントに配置します。
+
+*Visual Basic の場合：*
+
+----
+ Private Sub Button1_Click(ByVal sender As Object, _
+  ByVal e As System.EventArgs) Handles Button1.Click
+        ' 指定した拡張された要素の CalcSettings を取得します。
+        Dim cs1 As CalcSettings = Me.UltraWebCalcManager1.GetCalcSettings(Me.TextBox1)
+        ' コントロールに関連する計算のソースまたはターゲットとして使用する 
+' プロパティを取得または設定します。
+        cs1.PropertyName = "Text"
+        ' これは指定された要素に CalcSettings エクステンダー プロパティを設定します。 
+        Me.UltraWebCalcManager1.SetCalcSettings(Me.TextBox1, cs1)
+        ' 指定した拡張された要素の CalcSettings を取得します。
+        Dim cs2 As CalcSettings = Me.UltraWebCalcManager1.GetCalcSettings(Me.TextBox2)
+        ' コントロールに関連する計算のソースまたはターゲットとして使用する 
+' プロパティを取得または設定します。
+        cs2.PropertyName = "Text"
+        ' これは指定された要素に CalcSettings エクステンダー プロパティを設定します。 
+        Me.UltraWebCalcManager1.SetCalcSettings(Me.TextBox2, cs2)
+        ' 指定した拡張された要素の CalcSettings を取得します。
+        Dim cs3 As CalcSettings = Me.UltraWebCalcManager1.GetCalcSettings(Me.TextBox3)
+        ' コントロールに関連する計算のソースまたはターゲットとして使用する 
+' プロパティを取得または設定します。
+        cs3.PropertyName = "Text"
+        ' このオブジェクトの値を設定するために使用される数式。
+        cs3.Formula = "[//TextBox1] + [//TextBox2]"
+        ' これは指定された要素に CalcSettings エクステンダー プロパティを設定します。 
+        Me.UltraWebCalcManager1.SetCalcSettings(Me.TextBox3, cs3)
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void  Button1_Click(object sender, System.EventArgs e)
+{
+        // 指定した拡張された要素の CalcSettings を取得します。
+        CalcSettings cs1 = this.UltraWebCalcManager1.GetCalcSettings( this.TextBox1);
+        // コントロールに関連する計算のソースまたはターゲットとして使用する 
+// プロパティを取得または設定します。
+        cs1.PropertyName = "Text";
+        // これは指定された要素に CalcSettings エクステンダー プロパティを設定します。
+        this.UltraWebCalcManager1.SetCalcSettings( this.TextBox1, cs1);
+        // 指定した拡張された要素の CalcSettings を取得します。
+        CalcSettings cs2 = this.UltraWebCalcManager1.GetCalcSettings( this.TextBox2);
+        // コントロールに関連する計算のソースまたはターゲットとして使用する 
+// プロパティを取得または設定します。
+        cs2.PropertyName = "Text";
+        // これは指定された要素に CalcSettings エクステンダー プロパティを設定します。 
+        this.UltraWebCalcManager1.SetCalcSettings( this.TextBox2, cs2);
+        // 指定した拡張された要素の CalcSettings を取得します。
+        CalcSettings cs3 = this.UltraWebCalcManager1.GetCalcSettings( this.TextBox3);
+        // コントロールに関連する計算のソースまたはターゲットとして使用する 
+// プロパティを取得または設定します。
+        cs3.PropertyName = "Text";
+        // このオブジェクトの値を設定するために使用される数式。
+        cs3.Formula = "[//TextBox1] + [//TextBox2]";
+        // これは指定された要素に CalcSettings エクステンダー プロパティを設定します。 
+        this.UltraWebCalcManager1.SetCalcSettings( this.TextBox3, cs3);
+}
+----
+
+[start=5]
+. プロジェクトをビルドして実行すると、第一および第二のテキスト ボックスに値を入力し、[計算] ボタンを押します。計算結果が第三のテキスト ボックスに表示されます。
+
+== 復習
+
+image::images/WebCalcManager_Summing_Two_Controls_at_Run_Time_02.png[]
+
+この詳細なガイドでは2つのテキストボックスの計算を設定し、第三のテキストボックスに計算結果を配置する必要がある手順を説明しました。

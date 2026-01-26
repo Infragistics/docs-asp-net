@@ -1,0 +1,81 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-customize-the-help-dialog-box-of-webhtmleditor",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing"],
+    "guid": "{76CF82BE-7FD4-40C7-9CE5-813DA864740D}",  
+    "buildFlags": [],
+    "createdOn": "2006-04-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor のヘルプ ダイアログボックスのカスタマイズ
+
+ヘルプのツールバー項目（
+
+image::Images/help.gif[]
+
+）は、 pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.toolbardialogbutton.html[ToolbarDialogButton]"]  と呼ばれる特別な項目です。[検索と置換]、[ブックマークの挿入] などの ToolbarDialogButtons は、エンド ユーザーにポップアップして表示される HTML ダイアログ ボックスの内容や外観をカスタマイズするために使用します。このトピックでは、エンド ユーザーが WebHtmlEditor のツールバーにある [ヘルプ] ボタンをクリックしたときに、詳しい説明へのハイパーリンクとともに「このアプリケーションについての詳しい説明は<a href="">ここ</a>をクリックしてください」というテキストが表示されるようにする方法について説明します。
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに using/imports のディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.WebUI.WebHtmlEditor
+----
+
+*C# の場合：*
+
+----
+using Infragistics.WebUI.WebHtmlEditor;
+----
+
+[start=2]
+. WebHtmlEditor の  pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.toolbaritemcollection.html[ToolbarItemCollection]"]  内からの  pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.toolbaritemtype.html[ToolbarItemType]"] .Help タイプを保持する  pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.basetoolbaritem.html[BaseToolbarItem]"]  を取得します。
+
+*Visual Basic の場合：*
+
+----
+Dim items As ToolbarItemCollection
+items = WebHtmlEditor1.Toolbar.Items
+Dim helpBtn As BaseToolbarItem
+helpBtn = items.GetByType(ToolbarItemType.Help)
+----
+
+*C# の場合：*
+
+----
+ToolbarItemCollection items = WebHtmlEditor1.Toolbar.Items;
+BaseToolbarItem helpBtn = items.GetByType( ToolbarItemType.Help);
+----
+
+[start=3]
+. Dialog.Text プロパティを表示しようとするカスタム HTML に設定できるように、BaseToolbarItem を ToolbarDialogButton にキャストします。HTML で、<a> タグを使用して、アプリケーションについての詳しい情報が掲載されている Web サイト上のいずれかの場所にリンクを張るには、次のようにコードを記述します。
+
+*Visual Basic の場合：*
+
+----
+Dim html As String
+html = "<p>Learn more about this application " + _
+"<a href='http://www.example.com'>here</a>.</p>"
+CType(helpBtn, ToolbarDialogButton).Dialog.Text = html
+----
+
+*C# の場合：*
+
+----
+string html = "<p>Learn more about this application " +
+"<a href='http://www.example.com'>here</a>.</p>";
+((ToolbarDialogButton)helpBtn).Dialog.Text = html;
+----
+
+*注：* デフォルトの [ヘルプ] ダイアログボックスは、HTML をローカリゼーション XML ファイル内の HelpDialogSampleText 項目から取得します。WebHtmlEditor コントロールがエンド ユーザーに [ヘルプ] ボタンを提供する場合は、アプリケーションに対応した情報が表示されるようにヘルプ情報をカスタマイズする必要があります。
+
+== 関連トピック
+
+link:webhtmleditor-dialog-box-buttons-of-webhtmleditors-toolbar.html[WebHtmlEditor ツールバーのダイアログ ボックス ボタン]

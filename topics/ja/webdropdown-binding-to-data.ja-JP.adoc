@@ -1,0 +1,22 @@
+////
+
+|metadata|
+{
+    "name": "webdropdown-binding-to-data",
+    "controlName": ["WebDropDown"],
+    "tags": ["Data Binding"],
+    "guid": "{ADFBFCA7-D656-4722-96F8-4DC3E2C05963}",  
+    "buildFlags": [],
+    "createdOn": "2009-03-03T14:01:56Z"
+}
+|metadata|
+////
+
+= データにバインド
+
+WebDropDown™ は IEnumerable を実装する標準的な Microsoft データ ソース コントロールおよびオブジェクトを含み広範なバインド可能なデータ ソースをサポートします。
+
+以下のリンクをクリックして、WebDropDown をデータ ソースとバインドすることについてさらに学習します:
+
+* link:webdropdown-binding-webdropdown-to-a-sql-data-source.html[WebDropDown を SQL データ ソースにバインド]
+* link:webdropdown-binding-webdropdown-to-a-web-service.html[WebDropDown を Web サービスにバインド]

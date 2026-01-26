@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdayview-api-overview",
+    "controlName": ["WebDayView"],
+    "tags": ["API"],
+    "guid": "{C80E675A-F3F4-41E1-84F4-E00E4EF099EC}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、{ProductName} の API ドキュメントに直接リンクされています。
+
+=== WebCombo 名前空間:
+
+link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[Infragistics.WebUI.WebSchedule]
+
+=== キー クラス:
+
+link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webdayview.html[WebDayView]

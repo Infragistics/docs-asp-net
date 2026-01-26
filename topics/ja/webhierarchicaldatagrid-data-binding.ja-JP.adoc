@@ -1,0 +1,219 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatagrid-data-binding",
+    "controlName": ["WebHierarchicalDataGrid"],
+    "tags": ["Data Binding","Grids"],
+    "guid": "{97B1A020-9570-4674-A24B-28F000F6AE15}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= データ バインド
+
+WebHierarchicalDataGrid™ コントロールは、サポートされている階層データ ソースにバインドしたり階層グリッド表示でデータを表示できます。コントロールの link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.framework.data.hierarchicaldataboundcontrolmain~datasource.html[DataSource] または link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webhierarchicaldatagrid~datasourceid.html[DataSourceID] プロパティを使用してデータソースを設定します。データ ソースで一意のレコードを識別するフィールドを定義するために、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webhierarchicaldatagrid~datakeyfields.html[DataKeyFields] プロパティを設定します。
+
+データにバインドされている場合、WebHierarchicalDataGrid コントロールは自動的にバンドおよび列を作成します。このコントロールは link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.containergrid.html[ContainerGrid] オブジェクトを作成して階層を渡り、それらをデータソースの各データアイランドにバインドします。この結果は、ネストされた ContainerGrid オブジェクトを使用している WebHierarchcialDataGrid での階層表示となります。バンドおよび列の生成を制御するには、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webhierarchicaldatagrid~autogeneratebands.html[AutoGenerateBands] および link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webhierarchicaldatagrid~autogeneratecolumns.html[AutoGenerateColumns] プロパティを使用します。
+
+=== サポートされるデータ ソース
+
+WebHierarchicalDataGrid は以下のデータ ソースをサポートします。
+
+* 階層データ ソース コントロール
+
+** WebHierarchicalDataSource
+** XmlDataSource
+** SiteMapDataSource
+
+* DataSet
+* IEnumerable
+
+=== DataSource/DataSourceID
+
+デザイン タイムに、DataSourceID link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webhierarchicaldatagrid~datasourceid.html[]プロパティをバインドしたいデータ ソースの ID に設定します。ランタイムに、データ ソースを指定するために DataSource または DataSourceID プロパティを設定できます。ロードオンデマンドを有効にし、DataSource または DataSourceID プロパティを使用してランタイムにデータを取得する場合、ポストバックのたびにこのプロパティを設定する必要があります。この理由は、データ ソース全体が ViewState に保存されておらず、WebHierarchicalDataGrid はバインドするデータのレベルがどれであるかを確認するためにポストバックのたびにデータ ソースを必要とするからです。
+
+=== DataKeyFields
+
+前述したように、データ ソースでレコードを一意的に識別するひとつ以上のフィールドを指定するために link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webhierarchicaldatagrid~datakeyfields.html[DataKeyFields] プロパティを使用できます。複数のフィールドはコンマで区切られます。DataKeyFields プロパティは、階層の各バンドごとに存在します。
+
+このプロパティは、WebHierarchicalDataGrid が正しく機能するために非常に重要です。シンプルなデータ表示には必要ありません。ただし、データ操作ではこのプロパティは重要な役割を果たします。DataKeyFields プロパティに値がないと、行オブジェクトの Index プロパティが値を識別するために使用されます。シンプルなページングまたは並べ替えはインデックスを変更する場合があるので、これは行を識別するためには信頼性のない方法です。
+
+デザイン タイムに、データ ソースを設定し、DataKeyFields プロパティを設定せずに link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.paging.html[Paging]、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.sorting.html[Sorting]、または link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.editingcore.html[Editing] 動作を有効にすると、以下のメッセージダイアログが表示されます。「WebHierarchicalDataGrid が正しく動作するためには、トップ レベルおよび子バンドの階層のすべてのレベルで DataKeyFields プロパティのデータキーフィールドを指定してください。」ランタイムでは、以下の例外がスローされます。「DataKeyFields プロパティは、{1} 操作を実行するために {0} バンドに設定する必要があります。」ここで {0} はバンドのデータ メンバーで、{1} は操作の名前です。
+
+デザイン タイムでは、特定のデータ ソースについては、WebHierarchicalDataGrid はデータ ソースからデータ キー フィールドについての情報を抽出し、自動的に設定に適用します。
+
+=== AutoGenerateBands
+
+コントロールでバンドの表示を制御するために、WebHierarchicalDataGrid は link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webhierarchicaldatagrid~autogeneratebands.html[AutoGenerateBands] プロパティを公開します。デフォルトで、このプロパティは True に設定されます。これは、WebHierarchicalDataGrid がデータソースから自動的にすべてのバンドを生成するという意味です。デザインタイムにバインドすると、コントロールはマークアップでバンド定義を作成し、AutoGenerateBands を False に設定します。
+
+WebHierarchicalDataGrid でバンド生成を制御するには、AutoGenerateBands を False に設定し、コントロールのバンドを定義します。
+
+=== AutoGenerateColumns
+
+AutoGenerateBands プロパティと同様に、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webhierarchicaldatagrid~autogeneratecolumns.html[AutoGenerateColumns] は、WebHierarchicalDataGrid で各バンドの列の生成を制御します。このプロパティは、IBand プロパティを実装するオブジェクトによって提供されます。したがって、すべての link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.band.html[Band] オブジェクトおよび link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.containergrid.html[ContainerGrid] オブジェクトは、このプロパティへのアクセスを持ちます。ただし、このプロパティ設定は子レベルに適用されません。
+
+AutoGenerateColumns はデフォルトで True です。デザイン タイムにデータ バインドすると、WebHierarchicalDataGrid はマークアップで列定義を作成し、このプロパティを False に設定します。True に戻すと、コントロールが描画された時に列が複製されるのがわかります。
+
+各バンドで列の生成を制御するには、Band オブジェクトの AutoGenerateColumns プロパティを False に設定し、そのバンドの列スキーマを定義します。
+
+以下の例は、バンドおよび列スキーマを定義する方法を示します。
+
+*HTML の場合:*
+
+----
+<%-- AutoGenerateBands および AutoGenerateColumns プロパティを False に設定します --%>
+<ig:WebHierarchicalDataGrid ID="WebHierarchicalDataGrid1" runat="server" 
+   AutoGenerateBands=" AutoGenerateColumns=" 
+   DataMember="SqlDataSource1_DefaultView" 
+   DataSourceID="WebHierarchicalDataSource1" DefaultColumnWidth="" 
+   Key="SqlDataSource1_DefaultView" DataKeyFields="CategoryID">
+<%-- ルート バンドに列を定義します --%>
+   <Columns>
+      <ig:BoundDataField DataFieldName="CategoryName" Key="CategoryName">
+         <Header Text="CategoryName" />
+      </ig:BoundDataField>
+      <ig:BoundDataField DataFieldName="Description" Key="Description">
+         <Header Text="Description" />
+      </ig:BoundDataField>
+   </Columns>
+<%-- 子バンドおよびその列を定義します --%>
+   <Bands>
+      <ig:Band DataMember="SqlDataSource2_DefaultView" DefaultColumnWidth="" 
+               Height="" Key="SqlDataSource2_DefaultView" DataKeyFields="ProductID" Width="">
+         <Columns>
+            <ig:BoundDataField DataFieldName="ProductID" Key="ProductID">
+               <Header Text="ProductID" />
+            </ig:BoundDataField>
+            <ig:BoundDataField DataFieldName="ProductName" Key="ProductName">
+               <Header Text="ProductName" />
+            </ig:BoundDataField>
+            <ig:BoundDataField DataFieldName="QuantityPerUnit" Key="QuantityPerUnit">
+               <Header Text="QuantityPerUnit" />
+            </ig:BoundDataField>
+            <ig:BoundDataField DataFieldName="UnitPrice" Key="UnitPrice">
+               <Header Text="UnitPrice" />
+            </ig:BoundDataField>
+         </Columns>
+      </ig:Band>
+   </Bands>
+</ig:WebHierarchicalDataGrid>
+----
+
+*Visual Basic の場合：*
+
+----
+' 列を定義します 
+Dim boundField As New BoundDataField(True)
+boundField.Key = "CategoryName" 
+boundField.Header.Text = "Category Name" 
+'データ ソースで CategoryName フィールドにバインドします 
+boundField.DataFieldName = "CategoryName" 
+Me.WebHierarchicalDataGrid1.Columns.Add(boundField) 
+boundField = New BoundDataField(True) 
+boundField.Key = "Description" 
+boundField.Header.Text = "Description" 
+'データ ソースで Description フィールドにバインドします 
+boundField.DataFieldName = "Description" 
+Me.WebHierarchicalDataGrid1.Columns.Add(boundField) 
+' バンドを作成します 
+Dim childBand As New Band()
+childBand.DataKeyFields = "ProductID" 
+' データ ソースからキーを設定します 
+childBand.Key = "SqlDataSource2_DefaultView" 
+' データ ソースからバインドするデータ メンバーを設定します 
+childBand.DataMember = "SqlDataSource2_DefaultView" 
+Me.WebHierarchicalDataGrid1.Bands.Add(childBand) 
+' 子バンドの列を定義します 
+boundField = New BoundDataField(True) 
+boundField.Key = "ProductID" 
+boundField.Header.Text = "Product ID" 
+'データ ソースで Product ID フィールドにバインドします 
+boundField.DataFieldName = "ProductID" 
+Me.WebHierarchicalDataGrid1.Bands("SqlDataSource2_DefaultView").Columns.Add(boundField) 
+' 子バンドの列を定義します 
+boundField = New BoundDataField(True) 
+boundField.Key = "ProductName" 
+boundField.Header.Text = "Product Name" 
+'データ ソースで Product Name フィールドにバインドします 
+boundField.DataFieldName = "ProductName" 
+Me.WebHierarchicalDataGrid1.Bands("SqlDataSource2_DefaultView").Columns.Add(boundField) 
+' 子バンドの列を定義します 
+boundField = New BoundDataField(True) 
+boundField.Key = "QuantityPerUnit" 
+boundField.Header.Text = "Quantity Per Unit" 
+'データ ソースで QuantityPerUnit フィールドにバインドします 
+boundField.DataFieldName = "QuantityPerUnit" 
+Me.WebHierarchicalDataGrid1.Bands("SqlDataSource2_DefaultView").Columns.Add(boundField) 
+' 子バンドの列を定義します 
+boundField = New BoundDataField(True) 
+boundField.Key = "UnitPrice" 
+boundField.Header.Text = "Unit Price" 
+'データ ソースで UnitPrice フィールドにバインドします 
+boundField.DataFieldName = "UnitPrice" 
+Me.WebHierarchicalDataGrid1.Bands("SqlDataSource2_DefaultView").Columns.Add(boundField)
+----
+
+*C# の場合：*
+
+----
+// 列を定義します
+BoundDataField boundField = new BoundDataField(true);
+boundField.Key = "CategoryName";
+boundField.Header.Text = "Category Name";
+//データ ソースで CategoryName フィールドにバインドします
+boundField.DataFieldName = "CategoryName";
+this.WebHierarchicalDataGrid1.Columns.Add(boundField);
+boundField = new BoundDataField(true);
+boundField.Key = "Description";
+boundField.Header.Text = "Description";
+//データ ソースで Description フィールドにバインドします
+boundField.DataFieldName = "Description";
+this.WebHierarchicalDataGrid1.Columns.Add(boundField);
+//バンドを作成します
+Band childBand = new Band();
+childBand.DataKeyFields = "ProductID";
+//データ ソースからキーを設定します
+childBand.Key = "SqlDataSource2_DefaultView";
+//データ ソースからバインドするデータ メンバーを設定します
+childBand.DataMember = "SqlDataSource2_DefaultView";
+this.WebHierarchicalDataGrid1.Bands.Add(childBand);
+//子バンドの列を定義します
+boundField = new BoundDataField(true);
+boundField.Key = "ProductID";
+boundField.Header.Text = "Product ID";
+//データ ソースで Product ID フィールドにバインドします
+boundField.DataFieldName = "ProductID";
+this.WebHierarchicalDataGrid1.Bands["SqlDataSource2_DefaultView"].Columns.Add(boundField);
+//子バンドの列を定義します
+boundField = new BoundDataField(true);
+boundField.Key = "ProductName";
+boundField.Header.Text = "Product Name";
+// データ ソースで Product Name フィールドにバインドします
+boundField.DataFieldName = "ProductName";
+this.WebHierarchicalDataGrid1.Bands["SqlDataSource2_DefaultView"].Columns.Add(boundField);
+// 子バンドの列を定義します
+boundField = new BoundDataField(true);
+boundField.Key = "QuantityPerUnit";
+boundField.Header.Text = "Quantity Per Unit";
+//データ ソースで QuantityPerUnit フィールドにバインドします
+boundField.DataFieldName = "QuantityPerUnit";
+this.WebHierarchicalDataGrid1.Bands["SqlDataSource2_DefaultView"].Columns.Add(boundField);
+// 子バンドの列を定義します
+boundField = new BoundDataField(true);
+boundField.Key = "UnitPrice";
+boundField.Header.Text = "Unit Price";
+//データ ソースで UnitPrice フィールドにバインドします
+boundField.DataFieldName = "UnitPrice";
+this.WebHierarchicalDataGrid1.Bands["SqlDataSource2_DefaultView"].Columns.Add(boundField);
+----
+
+== 関連トピック
+
+link:webhierarchicaldatagrid-getting-started-with-webhierarchicaldatagrid.html[WebHierarchicalDataGrid で開始]
+
+link:webhierarchicaldatagrid-binding-to-xml-data-source.html[Xml データ ソースにバインド]
+
+link:webhierarchicaldatagrid-binding-to-self-related-data.html[自己関係的なデータにバインド]

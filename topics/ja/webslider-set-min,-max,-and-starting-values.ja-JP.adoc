@@ -1,0 +1,58 @@
+﻿////
+
+|metadata|
+{
+    "name": "webslider-set-min,-max,-and-starting-values",
+    "controlName": ["WebSlider"],
+    "tags": ["Editing","How Do I","Selection"],
+    "guid": "{F362D6B0-7CA9-40E3-9987-3B793620A187}",  
+    "buildFlags": [],
+    "createdOn": "2008-12-05T12:43:34Z"
+}
+|metadata|
+////
+
+= 最小、最大、開始値を設定
+
+アプリケーションに適切な最小値、最大値、開始値となるように設定する必要があるいくつかの WebSlider™ プロパティがあります。
+
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webslider~minvalue.html[MinValue]"]  - 最小値。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webslider~maxvalue.html[MaxValue]"]  - 最大値。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webslider~value.html[Value]"]  - 現在の値。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webslider~valuelabel.html[ValueLabel]"]  -  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.slidervaluelabel~location.html[Location]"]  が設定されると現在の値を表示します。
+
+以下の例のコードは、WebSlider の最小値、最大値、開始値を設定する方法を示します。
+
+image::images/WebSlider_Set_Min,_Max,_and_Starting_Values_01.png[]
+
+*Visual Basic の場合：*
+
+----
+' プライマリ値のデフォルト値を設定します。  
+Me.WebSlider1.Value = 50   
+' 編集可能な範囲を設定します。  
+Me.WebSlider1.MaxValue = 100  
+Me.WebSlider1.MinValue = 0   
+Me.WebSlider1.ValueLabel.Location = _ Infragistics.Web.UI.EditorControls.SliderValueLabelLocation.LeftOrTop
+----
+
+*C# の場合：*
+
+----
+// プライマリ値のデフォルト値を設定します。
+this.WebSlider1.Value = 50;
+// 編集可能な範囲を設定します。    
+this.WebSlider1.MaxValue = 100; 
+this.WebSlider1.MinValue = 0;  
+this.WebSlider1.ValueLabel.Location = Infragistics.Web.UI.EditorControls.SliderValueLabelLocation.LeftOrTop;
+----
+
+== 関連トピック
+
+link:webslider-change-websliders-increment-value.html[WebSlider の増加値を変更]
+
+link:webslider-display-custom-formatted-values.html[カスタム書式の値を表示]
+
+link:webslider-edit-two-values.html[2 つの値を編集]
+
+link:webslider-set-the-values-type.html[値のタイプを設定]

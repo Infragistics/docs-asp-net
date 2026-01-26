@@ -1,0 +1,60 @@
+﻿////
+|metadata|
+{
+    "name": "webschedule-hide-the-caption-header",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling","Styling"],
+    "guid": "{029316A5-6E3B-4862-BE27-70B421355277}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= キャプション ヘッダを非表示にする
+
+すべての WebSchedule UI 要素には、一番上に表示されるキャプションがあります。各ビューはこの領域にさまざまな情報を表示しますが、この領域に表示される内容は同様に指定できます。 
+
+ヘッダを表示したくない場合もあります。このためすべてのコントロールには pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleviewbase~captionheadervisible.html[CaptionHeaderVisible]"] と呼ばれるプロパティが設定されており、これはキャプションのヘッダを表示、非表示にするブール値です。 
+
+以下のコードは、すべてのコントロールにこのプロパティを設定する方法を示しています。
+
+image::images\WebSchedule_How_to_Hide_the_Caption_Header_01.png[] 
+
+image::images\WebSchedule_How_to_Hide_the_Caption_Header_02.png[]
+
+*Visual Basic の場合：*
+
+----
+Private Sub Page_Load(ByVal sender As System.Object, ByVal e _
+  As System.EventArgs) Handles MyBase.Load
+	Me.WebCalendarView1.CaptionHeaderVisible = False
+	Me.WebDayView1.CaptionHeaderVisible = False
+	Me.WebMonthView1.CaptionHeaderVisible = False
+	Me.WebWeekView1.CaptionHeaderVisible = False
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void Page_Load(object sender, System.EventArgs e)
+{
+	this.WebCalendarView1.CaptionHeaderVisible = false;
+	this.WebDayView1.CaptionHeaderVisible = false;
+	this.WebMonthView1.CaptionHeaderVisible = false;
+	this.WebWeekView1.CaptionHeaderVisible = false;
+}
+----
+
+== 関連トピック
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[WebSchedule 名前空間]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webdayview.html[WebDayView クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo.html[WebScheduleInfo クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[Activity クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.resource.html[Resource クラス]"]

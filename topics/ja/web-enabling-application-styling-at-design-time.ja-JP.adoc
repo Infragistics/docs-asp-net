@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-enabling-application-styling-at-design-time",
+    "controlName": [],
+    "tags": ["How Do I","Styling"],
+    "guid": "{79358A88-260A-48CF-9C92-561824A26389}",  
+    "buildFlags": [],
+    "createdOn": "2006-01-12T08:31:06Z"
+}
+|metadata|
+////
+
+= デザインタイムにアプリケーション スタイリングを有効にする
+
+アプリケーション スタイリングの強力な機能のひとつは、デザインタイムにプロジェクトでアプリケーション スタイリングを有効および無効にするためにアプリケーション開発者が使用できるオプションです。これらの作業についての詳細は、以下のリンクを参照してください。
+
+* link:web-netadvantage-application-styling-configuration-tool.html[Infragistics Application Styling Configuration ツール]
+* link:web-enabling-application-styling-using-the-netadvantage-application-styling-configuration-tool.html[Infragistics Application Styling Configuration ツールを使用してアプリケーション スタイリングを有効にする]
+* link:web-enabling-application-styling-using-the-webpagestyler-component.html[WebPageStyler コンポーネントを使用してアプリケーション スタイリングを有効にする]
+* link:web-using-application-styling-project-templates.html[アプリケーション スタイリングのプロジェクト テンプレートを使用]

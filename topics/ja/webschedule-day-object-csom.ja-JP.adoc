@@ -1,0 +1,52 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-day-object-csom",
+    "controlName": [],
+    "tags": ["API","Appointments","Scheduling"],
+    "guid": "{5C5A93E6-E045-4772-BB36-600C15FC4888}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Day オブジェクト
+
+== Day
+
+このオブジェクトとすべてのメンバ変数は読み取り専用で、変更すべきではありません。
+
+|====
+|====
+
+=== Day のプロパティ
+
+[cols="a,a"]
+|====
+|*activity* 
+|その日にアクティビティがあるかどうかを示すブール値。
+
+|*calendar* 
+|その日を所有する calendar オブジェクトへの参照。
+
+|*css* 
+|その日に適用されている css クラス名。
+
+|*day* 
+|その月の日を表す整数。
+
+|*element* 
+|その日を描画する HTML 要素への参照。
+
+|*index* 
+|Days 配列の日のインデックスを含む整数。
+
+|*month* 
+|その日の月の値を含む整数。
+
+|*year* 
+|その日の年の値を含む整数。
+
+|====

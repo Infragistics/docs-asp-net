@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatatree-connector-lines-in-webdatatree",
+    "controlName": ["WebDataTree"],
+    "tags": [],
+    "guid": "{B9CDDF43-46E2-4996-894B-3591CF0E737B}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDataTree の接続線
+
+WebDataTree™ には同じ親の兄弟であるノード間に描画される接続線を付けるオプションがあります。これは WebDataTree コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatatree~enableconnectorlines.html[EnableConnectorLines]"]  プロパティを設定することで達成できます。デフォルトでこのプロパティは False に設定されます。ただし、このプロパティを True に設定した結果、接続線の描画に使用される画像を構成するためにクライアントにはるかに多いマークアップが作成されることになります。
+
+Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、EnableConnectorLines プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+WebDataTree1.EnableConnectorLines = true
+----
+
+*C# の場合：*
+
+----
+WebDataTree1.EnableConnectorLines = true;
+----
+
+image::images\WebDataTree_Connector_Lines_in_WebDataTree_01.png[]

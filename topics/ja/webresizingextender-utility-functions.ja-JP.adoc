@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "webresizingextender-utility-functions",
+    "controlName": [],
+    "tags": ["API","How Do I"],
+    "guid": "{A411CB14-148B-4FC1-A6C0-7CD686E80D56}",  
+    "buildFlags": [],
+    "createdOn": "2007-08-02T08:02:08Z"
+}
+|metadata|
+////
+
+= WebResizingExtender ユーティリティ関数
+
+== ユーティリティ関数
+
+=== 概要
+
+ここで説明するユーティリティ関数は、WebResizingExtender コントロールの JavaScript コードで使用されます。ユーティリティ関数を公開し解説するのは、開発者が可能な限り多くのロジックをクライアント マシン上に実装することで、パフォーマンスと機能性の両面で性能を引き出せるようにすることを意図しています。
+
+*Sys.Application.findComponent(id)*
+
+findComponent メソッドに ID が渡される WebResizingExtender にアクセスします。

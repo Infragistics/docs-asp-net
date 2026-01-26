@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-whats-new-2008-2-webcombo-now-supports-the-safari-browser",
+    "controlName": [],
+    "tags": ["FAQ","Getting Started","Selection"],
+    "guid": "{FD9AD1C2-9DF5-4B1E-A4AC-E83599C685F0}",  
+    "buildFlags": ["docx-online","docx-booklet"],
+    "createdOn": "2008-01-05T15:36:21Z"
+}
+|metadata|
+////
+
+= WebCombo は Safari ブラウザをサポート
+
+{ProductName} 2008 Volume 2 から開始しましたが、WebCombo™ コントロールは Apple® Safari™ Web ブラウザをサポートします。Safari でこれまで使用できなかった WebCombo のリッチな機能は今回ブラウザに実装されました。

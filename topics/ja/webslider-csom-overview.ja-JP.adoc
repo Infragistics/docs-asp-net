@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "webslider-csom-overview",
+    "controlName": ["WebSlider"],
+    "tags": ["Events"],
+    "guid": "{B924FB7B-826F-41FF-A9F7-7F78C0847087}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= CSOM の概要
+
+WebSlider™ コントロールは、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを提供します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクトで構成され、開発者はサーバー側にポストバックしなくても、画像ビューアに関連する重要な機能単位をプログラムできます。
+
+link:webslider~infragistics.web.ui_namespace.html[WebSlider CSOM の概要]

@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-webhtmleditor-designer-general-tab",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Design Environment","Editing"],
+    "guid": "{3731A4CE-BB6A-4B73-9093-3A0479A0B928}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor デザイナ（全般タブ）
+
+最初に [全般] タブについて説明します。他の多くのタブと同様に、このタブにもいくつかのドロップダウン リストがあり、これを使用して、たとえば  pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.webhtmleditor~buttonmode.html[ButtonMode]"]  プロパティで画像を使用するか、基本的な HTML ボタン TwoStateImage、または ThreeStateImage のいずれを使用するか（いずれも  pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.buttonmode.html[ButtonMode]"]  列挙体の値）など列挙されたプロパティ値を指定できます。
+
+[全般] タブの主な機能は、ツールバーのドロップダウン リストに表示される選択肢のグループを制御するフォント、フォーマット、および特殊文字のリストです。
+
+[start=1]
+. このリスト ボックスから [フォント スタイル] を選択し、[リストの編集] ボタンをクリックします。下図のダイアログ ボックスが開くので、CSS スタイル規則を使用するためのユーザー定義スタイルを追加します。たとえば、次のスタイル プロパティを指定して "strikeout" というユーザー定義 CSS スタイルを追加できます。
+
+"color:red; text-decoration:line-through;"
+
+下記のスクリーンショットに示したような取り消し線スタイルが追加されます。
+
+image::images/WebHtmlEditor_Using_the_Property_Builder_of_WebHtmlEditor_03.jpg[]
+
+[start=2]
+. これらのリストを編集し終えたら、[OK]、次にクイック デザインの [適用] をクリックして、すべての変更を確定します。ここで [Ctrl-F5] を押して Web アプリケーションを起動して変更を確認します。WebHtmlEditor のツールバーに [FontStyle] ドロップダウン リストが表示されたら、何かテキストを入力し、ドロップダウン リストから "strikeout" スタイルを選択して、さらにテキストを入力します。入力したテキストに [フォント スタイル] リストで定義したスタイルが適用されたことを確認します。
+
+image::images/WebHtmlEditor_Using_the_Property_Builder_of_WebHtmlEditor_04.png[]

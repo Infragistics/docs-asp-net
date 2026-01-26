@@ -1,0 +1,344 @@
+﻿////
+
+|metadata|
+{
+    "name": "webupload-http-module-and-handler",
+    "controlName": ["WebUpload"],
+    "tags": ["API","Selection"],
+    "guid": "6423ea36-dac6-41f6-be9a-b77c191e0446",  
+    "buildFlags": [],
+    "createdOn": "2011-05-26T14:52:39.7661472Z"
+}
+|metadata|
+////
+
+= WebUpload HTTP モジュールとハンドラー
+
+WebUpload コントロールは、クライアント側限定の jQuery Upload のための ASP.NET ラッパーです。クライアント コントロールにあるリッチな API がこのコントロールにあるのはこのためです。このトピックは、サーバー側のメイン クラスについての詳細およびサーバー イベントについての情報を公開します。
+
+== HTTP モジュール
+
+HttpModule は、ファイルのアップロード処理を管理するように構成できます。これは HTTP 要求プロセスにプラグインするように .NET IHttpModule インターフェイスを実装します。.したがって、すべての要求は、アップロード コントロールからではない要求であっても、HttpModule を通過します。HttpModule がアップロード コントロールだけに関連する要求をフィルター処理するのはこのためです。
+
+以下の例は、IIS6 （つまり開発サーバー）用または IIS7 サーバーの配備用に pick:[asp-net="* link:{ApiPlatform}web.jquery{ApiVersion}~infragistics.web.ui.editorcontrols.uploadmodule.html[HttpModule]*"] を構成する方法を示します。
+
+== IIS6（開発環境）の場合
+
+[cols="a"]
+|====
+|*Web.config で:*
+
+|---- 
+<system.web> 
+ <httpModules> 
+ <add name="IGUploadModule" 
+ type="Infragistics.Web.UI.EditorControls.UploadModule" /> 
+ </httpModules> 
+</system.web>
+----
+
+|====
+
+== IIS7 の場合
+
+[cols="a"]
+|====
+|*Web.config で:*
+
+|----
+---- 
+
+---- 
+<system.webServer> 
+ <modules runAllManagedModulesForAllRequests="true"> 
+ <add name="IGUploadModule" 
+ type="Infragistics.Web.UI.EditorControls.UploadModule" 
+ preCondition="managedHandler" /> 
+ </modules> 
+</system.webServer>
+---- 
+
+----
+----
+
+|====
+
+== HTTP ハンドラー
+
+*pick:[asp-net="* link:{ApiPlatform}web.jquery{ApiVersion}~infragistics.web.ui.editorcontrols.uploadstatushandler.html[HttpHandler]*"]* は .NET IHttpHandler インターフェイスを実装し、クライアント ウィジェットと通信するために使用されます。このハンドラーには 2 つの主要機能があります。クライアントからコマンドを受け取ることとクライアントに状態を返すことです。
+
+アップロード コントロールとハンドラー間のすべての要求は、Ajax を介して送信されます。Ajax を通信メカニズムとして使用することは、JSON でステータス メッセージをハンドラーが返す場合の当然の選択肢です。
+
+HttpModule と比較すると、HttpHandler は URL からアクセスできます。送信されるすべてのファイルのコマンドは、URL でパラメーターとなります。コマンドは、以下の 3 タイプのいずれかにすることができます:
+
+* Status: 現在のファイルの状態を返します。JSON 応答には、合計バイト、アップロードされたバイト、および現在のファイル エラー状態の情報を含みます。JSON フォーマットは以下のとおりです：
+
+image::images/WebUpload_Handler_and_Module_01.png[]
+
+* Cancel: このコマンドが要求されると、ファイルのアップロード処理がキャンセルされます。
+* fileSize: このコマンドは 2 つの特別なケースで呼び出されます。コントロールで表示するためにアップロードされるファイルのサイズがハンドラーから必要とされる場合です。最初のケースは、pick:[asp-net="* link:{ApiPlatform}web.jquery{ApiVersion}~infragistics.web.ui.editorcontrols.webupload~autostartupload.html[autostartupload]*"] プロパティが false に設定されている場合です。ユーザーがアップロードを開始するまでファイルが処理されないため、サイズの情報が必要とされます。もうひとつのケースは、*autostartupload* プロパティが true に設定されているが、ファイルはアップロードのキューに置かれているために、アップロード処理が未だ開始されていない場合です。
+
+このハンドラーを有効にするには、Web.config ファイル（開発サーバー用または IIS7 用）に適切なセクションを追加する必要があります。
+
+== IIS6（開発環境）の場合
+
+[cols="a"]
+|====
+|*Web.config で:*
+
+|----
+---- 
+
+---- 
+<system.web> 
+ <httpHandlers> 
+ <add path="*.html" verb="GET,POST" type="System.Web.StaticFileHandler" /> 
+ <add verb="GET" type="Infragistics.Web.UI.EditorControls.UploadStatusHandler" 
+ path="IGUploadStatusHandler.ashx" /> 
+ </httpHandlers> 
+</system.web>
+---- 
+
+----
+----
+
+|====
+
+== IIS7 の場合
+
+[cols="a"]
+|====
+|*Web.config で:*
+
+|---- 
+<system.webServer> 
+ <handlers> 
+ <add name="IGUploadStatusHandler" path="IGUploadStatusHandler.ashx" 
+ verb="*" type="Infragistics.Web.UI.EditorControls.UploadStatusHandler" 
+ preCondition="integratedMode" /> 
+ </handlers> 
+</system.webServer>
+----
+
+|====
+
+*注:* この例は、IGUploadStatusHandler.ashx をハンドラーのデフォルト名として使用します。名前とハンドラーへのパスは、唯一推奨される値です。
+
+== UploadProgressManager および サーバー イベント
+
+pick:[asp-net="link:{ApiPlatform}web.jquery{ApiVersion}~infragistics.web.ui.editorcontrols.uploadprogressmanager.html[*UploadProgressManager* ]"]  と呼ばれるプロキシ クラスを使用してハンドラーとモジュールが通信するように設計されたサーバー アーキテクチャです。このクラスはサーバー イベントのトリガーも実行します。このイベントは、ファイルをアップロード プロセスを処理して、アップロードしたファイルの削除や移動などのアクションを実行したり、アップロードをキャンセルしたり、状態の情報を変更できる場所です。
+
+3 つのサーバー イベントにはすべて 2 つの引数があります。ひとつは sender で、もうひとつはイベント引数です。sender は、イベントを発生させる *UploadProgressManager* を含んでいます。イベント引数は以下の 3 つのイベントごとに固有で、各イベント引数は IUploadEventArgs インターフェイスを実装します。
+
+以下にリストするコードは、サーバー イベントに添付する方法を示します。以下の各イベントは、個々のハンドラーを実装します。
+
+最初に、ASP.NET ラッパー、Infragistics.Web.jQuery.dll を含むアセンブリ ファイルを追加し、次に WebUpload のプレフィックスを登録します。
+
+[cols="a"]
+|====
+|*Web.config で:*
+
+|---- 
+<system.web> 
+ <pages> 
+ <add tagPrefix="igjq" namespace="Infragistics.Web.UI.EditorControls" 
+ assembly="Infragistics.Web.jQuery"/> 
+ </pages> 
+</system.web>
+----
+
+|====
+
+これで、WebUpload を ASPX ページに追加し、コントロールのイベントのハンドラーを添付できます。
+
+[cols="a"]
+|====
+|*Web.config で:*
+
+|---- 
+<igjq:WebUpload ID="webUpload1" runat="server" 
+ OnUploadFinishing="webUpload1_OnUploadFinishing" 
+ OnUploadFinished="webUpload1_OnUploadFinished" 
+ OnUploadStarting="webUpload1_OnUploadStarting"> 
+</igjq:WebUpload>
+----
+
+|====
+
+[start=1]
+. *FileStarting*: ファイルのアップロードが開始すると、要求ヘッダーからのすべての情報は、タイプ *UploadingStartEventArgs* のイベント引数で使用可能となります。この時点でこの情報が使用可能であるということは、イベント ハンドラーで、入力規則を実装したり、アップロードをキャンセルするかどうかを決定できるという意味です。イベント引数のもうひとつの重要なプロパティは *TemporaryFileName* です。これは、アップロード中のファイル名になります。*FileStarting* 内に限って、クライアントに送信できる *serverMessage* プロパティを設定できます。
+
+[cols="a"]
+|====
+|*C# の場合:*
+
+|---- 
+protected void webUpload1_OnUploadStarting(object sender, UploadStartingEventArgs e){}
+----
+
+|====
+
+[start=2]
+. *FileFinishing* : この段階では、ファイルはすでにアップロードされていますが、一時的な名前のままです。WebUpload はファイルをリリースしているので、自由に変更できます。
+
+[cols="a"]
+|====
+|*C# の場合:*
+
+|---- 
+protected void webUpload1_OnUploadFinishing(object sender, UploadFinishingEventArgs e){}
+----
+
+|====
+
+[start=3]
+. *FileFinished* : この段階では、ファイルはアップロードされており、オリジナルの名前で変更されています。古いファイル名と同じ名前のファイルがある場合は上書きされ、最後のファイルだけが使用可能になります。
+
+[cols="a"]
+|====
+|*C# の場合:*
+
+|---- 
+protected void webUpload1_OnUploadFinished(object sender, UploadFinishedEventArgs e){}
+----
+
+|====
+
+以下のコードは、FileFinishing イベントの処理方法と、一連の手順のこの段階では一時的な名前が付けられている、アップロードされたファイルの削除方法を示します。
+
+[cols="a"]
+|====
+|*ASPX の場合:*
+
+|---- 
+<igjq:WebUpload ID="webUpload1" runat="server" 
+ OnUploadFinishing="webUpload1_OnUploadFinishing"> 
+</igjq:WebUpload>
+----
+
+|====
+
+[cols="a"]
+|====
+|*C# の場合:*
+
+|---- 
+protected void webUpload1_OnUploadFinishing(object sender, UploadFinishingEventArgs e) 
+{ 
+ string filePath = String.Format("{0}{1}", e.FolderPath, e.TemporaryFileName); 
+ if (File.Exists(filePath)) 
+ { 
+ try 
+ { 
+ File.Delete(filePath); 
+ } 
+ catch (Exception ex) 
+ { 
+ } 
+ } 
+}
+----
+
+|====
+
+== ファイル状態およびエラーのサーバー列挙体
+
+アップロード情報がサーバーからクライアントに転送される場合、現在のアップロードの状態データが含まれます。応答データには以下が含まれます:
+
+* アップロードしたバイト
+* ファイル状態の情報
+* 発生する可能性がある例外についてのエラー情報
+
+*表 1* はアップロード状態の応答の詳細を説明し、表 2 はファイルのエラー コードを説明します。
+
+説明されたデータを含む JSON 応答の例は、図 2 で説明します。
+
+image::images/WebUpload_Handler_and_Module_01.png[]
+
+*注:* 他の JSON プロパティである size、serverMessage、および bytesUploaded は、エラーや状態のようにサーバーの列挙体タイプとして作成される必要はありません。これらは動的に変更される文字列または数値であるからです。
+
+*表 1*: タイプ  pick:[asp-net="link:{ApiPlatform}web.jquery{ApiVersion}~infragistics.web.ui.editorcontrols.uploadstatus.html[*UploadStatus* ]"]  の列挙体
+
+[options="header", cols="a,a"]
+|====
+|値|説明
+
+|0
+|ファイルはまだ開始されていません
+
+|1
+|ファイルのアップロードが開始されました
+
+|2
+|ファイルのアップロードが終了しました
+
+|3
+|ファイルが見つかりません - この状態は、ディクショナリに当該のキーが見つからない場合に使用されます。
+
+|4
+|クライアント コマンドにより、ファイルのアップロードをキャンセルします
+
+|5
+|ファイルのサイズが超過しました
+
+|6
+|ファイルのアップロード中にエラーが発生しました
+
+|7
+|ファイルのアップロードがサーバー側イベント ハンドラーからキャンセルされました
+
+|8
+|ファイルのアップロードが、クライアント接続の切断によってキャンセルされました
+
+|9
+|コンテンツ全体がアップロードされましたが、ファイルが未だ一時的なファイル名である場合のファイルの状態です
+
+|====
+
+*表 2*: タイプ  pick:[asp-net="link:{ApiPlatform}web.jquery{ApiVersion}~infragistics.web.ui.editorcontrols.fileerror.html[*FileError* ]"]  の列挙体
+
+[options="header", cols="a,a"]
+|====
+|値|説明
+
+|-1
+|エラーはありません
+
+|0
+|要求からファイル名を取得する際にファイル エラーが発生しました
+
+|1
+|MIME タイプの検証に失敗しました
+
+|2
+|ファイル サイズを超えています
+
+|3
+|ファイルがアップロードされる一時フォルダーが見つかりませんでした
+
+|4
+|要求ヘッダーの取得中にエラーが発生しました
+
+|5
+|要求で指定されたキーのファイルは存在しません
+
+|6
+|ファイルの保存に失敗しました
+
+|7
+|ファイル コンテンツの書き込みに失敗しました
+
+|8
+|ファイル コンテンツを初めて書き込む際にエラーが発生しました
+
+|9
+|ファイルの削除に失敗しました
+
+|10
+|イベント ハンドラーでファイルのアップロード開始時にアップロードがキャンセルされたときにエラーが発生しました
+
+|====
+
+== 関連リンク
+
+link:webupload-overview.html[WebUpload の概要]

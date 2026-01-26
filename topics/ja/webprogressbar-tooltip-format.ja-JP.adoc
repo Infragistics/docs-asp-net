@@ -1,0 +1,64 @@
+﻿////
+
+|metadata|
+{
+    "name": "webprogressbar-tooltip-format",
+    "controlName": ["WebProgressBar"],
+    "tags": [],
+    "guid": "{834165F5-2C35-405B-A62C-2258B4B53E3F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ツールチップ フォーマット
+
+WebProgressBar™ は、マウスをコントロールの上に置くと、進行状況の情報伝達を手伝うツールチップをサポートします。ツールチップは、さまざまな進行状況情報を表すカスタム フォーマット文字列と共に WebProgressBar の  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.displaycontrols.webprogressbar~tooltip.html[ToolTip]"]  プロパティを使用して 6 つの異なる値を利用するためにフォーマットできます。以下はツールチップ フォーマット文字列に挿入できる組み込み文字列値のリストで、ツールチップに表示される情報をカスタマイズできます。
+
+* {0} または {ProgressValue} :現在の進行状況値を示します
+* {1} または {PercentProgress} :現在の進行状況をパーセントで示します
+* {2} または {RemainingProgress} :完了するまでの残りの進行状況値を示します
+* {3} または {PercentageRemaining} :残りの進行状況をパーセントで示します
+* {4} または {Min} :最小値を示します
+* {5} または {Max} :最小値を示します
+
+*WebProgressBar のツールチップで残りの進行状況を示すには:*
+
+[start=1]
+. 以下のコードに示すように、フォームに WebProgressBar コントロールを配置し、  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.displaycontrols.webprogressbar~minimum.html[Minimum]"] 、  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.displaycontrols.webprogressbar~maximum.html[Maximum]"]  および  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.displaycontrols.webprogressbar~value.html[Value]"]  プロパティを設定します。
+
+*Visual Basic の場合：*
+
+[source]
+----
+WebProgressBar1.Minimum = 0WebProgressBar1.Maximum = 200WebProgressBar1.Value = 45
+----
+
+*C# の場合：*
+
+----
+WebProgressBar1.Minimum = 0;
+WebProgressBar1.Maximum = 200;
+WebProgressBar1.Value = 45;
+----
+
+[start=4]
+. ToolTip プロパティをフォーマットし、残りの進行状況値を示します。
+
+*Visual Basic の場合：*
+
+----
+WebProgressBar1.ToolTip = "Remaining Progress : {2} "
+----
+
+*C# の場合：*
+
+----
+WebProgressBar1.ToolTip = "Remaining Progress : {2} ";
+----
+
+[start=7]
+. アプリケーションを保存して実行します。マウス ポインタを WebProgressBar に配置すると、以下の画像のようになります。
+
+image::images\WebProgressBar_ToolTip_Format_01.png[]

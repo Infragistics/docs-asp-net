@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-api-overview",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing"],
+    "guid": "{08441405-2093-4A34-B928-A0CC83192AF1}",  
+    "buildFlags": [],
+    "createdOn": "2006-03-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、{ProductName} の API ドキュメントに直接リンクされています。
+
+=== WebHtmlEditor 名前空間：
+
+link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor_namespace.html[Infragistics.WebUI.WebHtmlEditor]
+
+=== キー クラス:
+
+link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.webhtmleditor.html[WebHtmlEditor]
+
+link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.toolbar.html[Toolbar]
+
+link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.toolbarbutton.html[ToolbarButton]
+
+link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.toolbaritemcollection.html[ToolbarItemCollection]

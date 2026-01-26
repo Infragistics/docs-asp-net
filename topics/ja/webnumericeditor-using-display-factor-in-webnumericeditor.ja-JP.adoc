@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "webnumericeditor-using-display-factor-in-webnumericeditor",
+    "controlName": ["WebNumericEditor"],
+    "tags": [],
+    "guid": "{64BD6F2F-B02E-4797-B6F4-B4CF081C4433}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebNumericEditor で表示係数を使用
+
+WebNumericEditor™ によってコントロールで値を乗じる係数を設定することが可能となり、エディターにテキストとして表示します。たとえば、表示係数が 100 で、エンドユーザーが 80 を入力すると（これはエディターの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webnumericeditor~text.html[Text]"]  プロパティで反映される）、エディターの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webnumericeditor~value.html[Value]"]  プロパティは 0.8 になります。コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webnumericeditor~displayfactor.html[DisplayFactor]"]  プロパティを設定するだけで表示係数を設定することができます。デフォルトでこのプロパティは 1 に設定されます。
+
+*Visual Basic の場合：*
+
+----
+WebNumericEditor1.DisplayFactor = 10
+----
+
+*C# の場合：*
+
+----
+WebNumericEditor1.DisplayFactor = 10;
+----

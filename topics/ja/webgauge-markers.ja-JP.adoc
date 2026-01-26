@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-markers",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{12FA2D37-840F-4ADD-AA08-49C0ECEC4B5A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= マーカー
+
+このセクションは、マーカーをゲージに追加する方法に関するタスクベースの手順だけでなく、Gauge コントロールの  pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugescale~markers.html[Markers]"]  プロパティについて役に立つ情報を提供します。
+
+* link:webgauge-bar-marker.html[バー マーカー]
+* link:webgauge-needle-marker.html[針マーカー]
+* link:webgauge-add-a-bar-marker-to-a-gauge.html[バー マーカーをゲージに追加]
+* link:webgauge-add-a-needle-marker-to-a-gauge.html[針マーカーをゲージに追加]

@@ -1,0 +1,50 @@
+﻿////
+|metadata|
+{
+    "name": "webschedule-hide-the-day-of-the-week-header",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling","Styling"],
+    "guid": "{C59DF5B7-D1A8-47AE-8492-BD6338789533}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 曜日ヘッダを非表示にする
+
+デフォルトで WebMonthView はキャプション ヘッダの下の右上にヘッダを表示します。このヘッダには、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webmonthview~dayofweekheaderformat.html[DayofWeekHeaderFormat]"] プロパティを設定して指定したフォーマットで曜日が表示されます。 
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webmonthview~dayofweekheadersvisible.html[DayofWeekHeadersVisible]"] pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webmonthview~dayofweekheadersvisible.html[DayofWeekHeadersVisible]"] プロパティを設定することによって、希望する場合にはこのヘッダを非表示にすることができます。以下のコードはこの方法を示しています。
+
+image::images\WebSchedule_How_to_Hide_the_Day_of_the_Week_Header_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Private Sub Page_Load(ByVal sender As System.Object, ByVal e _
+  As System.EventArgs) Handles MyBase.Load
+	Me.WebMonthView1.DayOfWeekHeadersVisible = False
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void Page_Load(object sender, System.EventArgs e)
+{
+	this.WebMonthView1.DayOfWeekHeadersVisible = false;
+}
+----
+
+== 関連トピック
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[WebSchedule 名前空間]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webmonthview.html[WebMonthView クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo.html[WebScheduleInfo クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[Activity クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.resource.html[Resource クラス]"]

@@ -1,0 +1,55 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatatree-drag-and-drop-client-side-api",
+    "controlName": ["WebDataTree"],
+    "tags": ["API"],
+    "guid": "adc2357d-989f-4be9-805a-d753f853e1fc",  
+    "buildFlags": [],
+    "createdOn": "2010-06-03T07:44:38.3161832Z"
+}
+|metadata|
+////
+
+= ドラッグ アンド ドロップのクライアント側 API
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatatree.html[WebDataTree™] コントロールには、クライアント側で入手でき簡単に使用できる多くの機能があります。WebDataTree はコントロールの ClientID でクライアント側オブジェクトを作成します。参照を取得するには、以下のコードを使用してください。
+
+---
+var tree = $find('<%= WebDataTree1.ClientID %>');
+---
+
+コントロールのクライアント側オブジェクトを取得したら、そのオブジェクトで自由に作業します。以下のコード例では、"NewNode" というノード名で新しいノードをツリー オブジェクトに追加します。
+
+---
+var tree = $find('<%= WebDataTree1.ClientID %>');
+
+tree.addText(”NewNode”);
+---
+
+以下はユーザーが使用できる関数のリストです。
+
+* * link:webdatatree~infragistics.web.ui.nodecollection~add.html[add]* （ノード）- ノードをノード コレクションに追加します。
+
+* * link:webdatatree~infragistics.web.ui.nodecollection~addtext.html[addText]* （テキスト）- 指定したテキストで新しいノードを作成し、それをノード コレクションに追加します。新しく追加したノードを返します。
+
+* * link:webdatatree~infragistics.web.ui.nodecollection~addtext.html[addText]* （テキスト、navigateUrl）- 指定したテキストで新しいノードを作成し、URL にナビゲートし、それをノード コレクションに追加します。新しく追加したノードを返します。
+
+* * link:webdatatree~infragistics.web.ui.nodecollection~addrange.html[addRange]* （nodeArray、インデックス）- ノードの配列をノード コレクションの指定されたインデックスに追加します。
+
+* * link:webdatatree~infragistics.web.ui.nodecollection~remove.html[remove]* （ノード）- 既に追加されたノードをコレクションから削除します。
+
+* * link:webdatatree~infragistics.web.ui.nodecollection~removeat.html[removeAt]* （インデックス）- コレクションから指定したインデックスにあるノードを削除します（ノードが存在する場合）。
+
+* * link:webdatatree~infragistics.web.ui.nodecollection~insert.html[insert]* （ノード、インデックス）- ノード コレクションの指定したインデックスにノードを挿入します。インデックスが -1 の場合、ノードを最後に追加されます。
+
+これらの関数はすべて、ツリー全体とノードの各コレクションで使用できます。違いは、ツリーでそれらを呼び出す場合、引数としてレベルを渡すことができますが、ノード コレクションで呼び出すと、レベルを渡すオプションはサポートされないことです。
+
+== 関連トピック
+
+link:webdatatree-drag-and-drop-client-side-events.html[クライアント側イベント]
+
+link:webdatatree-drag-and-drop-modes.html[ドラッグ アンド ドロップ モード]
+
+link:webdatatree-drag-and-drop-handle-server-side-event.html[サーバー側イベント]

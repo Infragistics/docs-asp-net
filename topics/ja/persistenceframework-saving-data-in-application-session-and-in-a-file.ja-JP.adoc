@@ -1,0 +1,186 @@
+﻿////
+
+|metadata|
+{
+    "name": "persistenceframework-saving-data-in-application-session-and-in-a-file",
+    "controlName": ["PersistenceFramework"],
+    "tags": ["Persistence"],
+    "guid": "577a2f21-26d8-4f5f-8acb-84eb53186219",  
+    "buildFlags": [],
+    "createdOn": "2011-03-31T07:50:30.5174111Z"
+}
+|metadata|
+////
+
+= アプリケーション、セッション、ファイルでデータを保存
+
+Persistence Framework マネージャーは、ページごとに PersistenceData オブジェクトを作成します。これは、データを永続的なソース上に保存する時、これらのソースごとに一意の名前が必要となることを意味します。保持された情報を検索する時もこの一意の名前が必要となります。このため、ユーザー名とページ名の組み合わせが、一般的にはデータ ソース名を識別するのに適した方法です。ただし、Session オブジェクトと Application オブジェクトで一意の名前を定義することは若干異なります。このトピックでは、ユーザー設定のパーシステンスの Session および Application 状態を適切に使用する方法を示します。最後に、ファイルに保持されたデータを保存するメリットを説明します。
+
+== シリアル化
+
+最初に、*リスト 1* に示すように Session および Application のサンプルに使用されるデータをシリアル化および逆シリアル化する必要があります。
+
+*リスト 1: データのシリアル化および逆シリアル化*
+
+[cols="a"]
+|====
+|*C# の場合:*
+
+|---- 
+protected void PersistenceLoading(object sender, PersistenceLoadingEventArgs e) 
+{ 
+ if (!string.IsNullOrEmpty(this.StoredData)) 
+ { 
+ e.PersistenceData = PersistenceData.FromXml(this.StoredData); 
+ } 
+} 
+protected void PersistenceSaved(object sender, PersistenceEventArgs e) 
+{ 
+ this.StoredData = e.PersistenceData.ToXml(); 
+}
+----
+
+|====
+
+== Session 状態の使用
+
+ページ名を識別子として使用するだけで保持されたデータのソースを差別化できます。これは、Session インスタンスがユーザー固有であるためで、ユーザー名を指定する必要はありません。
+
+*リスト 2: Session 状態の使用*
+
+[cols="a"]
+|====
+|*C# の場合:*
+
+|---- 
+protected string StoredData 
+{ 
+ get 
+ { 
+ return Convert.ToString(Session[String.Format("{0}_StoredData", 
+ this.GetType().FullName)]); 
+ } 
+ set 
+ { 
+ Session[String.Format("{0}_StoredData", this.GetType().FullName)] = value; 
+ } 
+}
+----
+
+|====
+
+Session 状態をデータソースのリポジトリとして使用する時は、ユーザーがアプリケーションをナビゲートする間に使用可能な保持データを持っている必要があります。ページの状態が保持されると、ページが要求された時に後で読み込むことができます。ただし、ユーザーのセッションが切断されると、保持されたデータはページ状態に回復されません。
+
+== Application 状態の使用
+
+Session と異なり、Application 状態が使用されると、アプリケーションが起動中は保持されたデータを再読み込みできます。
+
+Application オブジェクトのキーは一意でなければなりません。そうでなければ異なるユーザーが同じソースを使用して保持された値をオーバーライドします。
+
+注*:* ファイル システムにデータを保存する時は、保持されたデータと異なるファイル名を使用することも必要です。
+
+*リスト 3: Application 状態の使用*
+
+[cols="a"]
+|====
+|*C# の場合:*
+
+|---- 
+private string _userIPAdress = String.Empty; 
+protected string StoredData 
+{ 
+ get 
+ { 
+ return Convert.ToString(Application[this.PersistenceUniqueID()]); 
+ } 
+ set 
+ { 
+ Application[this.PersistenceUniqueID()] = value; 
+ } 
+} 
+private string PersistenceUniqueID() 
+{ 
+ string userName = (HttpContext.Current.User.Identity.IsAuthenticated) 
+ ? HttpContext.Current.User.Identity.Name 
+ : this._userIPAdress; 
+ return string.Format("{0}.{1}", 
+ userName.Replace('\\', '.'), 
+ this.GetType().FullName); 
+} 
+protected void Page_Init(object sender, EventArgs e) 
+{ 
+ if (!HttpContext.Current.User.Identity.IsAuthenticated) 
+ { 
+ this._userIPAdress = Request.ServerVariables["REMOTE_ADDR"]; 
+ } 
+}
+----
+
+|====
+
+*注:* このサンプルは、認証されたユーザーに HttpContext.Current.User.Identity.Name を、残りに IPアドレスを使用しています。これは使用可能な多くのアプローチのひとつにすぎません。
+
+== ファイル内でデータを保持
+
+前述の説明は、Session 状態と Application 状態にデータを保存する方法を説明しました。ただし、これら 2 つのアプローチの使用を回避する必要があります。サーバーにデータを読み込むとアプリケーション サーバーのパフォーマンスが低下しリソース不足に繋がる可能性があるからです。
+
+サーバー リソースが懸念される場合には、ファイル システム上のファイルにデータを保持することを検討します。このように、異なるブラウザー間で保持されたデータを読み込むことができます。また、削除されるまで、ハードディスクに永遠にデータを保持します。これは、1 か月後に同じページを開き、その状態を回復できることを意味します。
+
+ファイルの一意の名前を識別する最も適切な方法は、Application 状態に使用されるアプローチで使用される方法と同じです。次のソース行は、このアプローチを実装する方法を示します。
+
+*リスト 4: ファイル システムの使用*
+
+[cols="a"]
+|====
+|*C# の場合:*
+
+|---- 
+protected void PersistenceLoading(object sender, PersistenceLoadingEventArgs e) 
+{ 
+ string filePath = this.GetPersistenceFilePath(e.Page); 
+ if (!File.Exists(filePath)) 
+ return; 
+ // ファイル内でデータを保持 
+ using (FileStream fileStream = File.OpenRead(filePath)) 
+ { 
+ e.PersistenceData = PersistenceData.FromStream(fileStream); 
+ } 
+} 
+protected void PersistenceSaved(object sender, PersistenceEventArgs e) 
+{ 
+ if (e.PersistenceData == null) 
+ { 
+ return; 
+ } 
+ string filePath = this.GetPersistenceFilePath(e.Page); 
+ if (File.Exists(filePath)) 
+ File.Delete(filePath); 
+ using (FileStream fileStream = File.Create(filePath)) 
+ { 
+ e.PersistenceData.ToStream(fileStream); 
+ } 
+} 
+private string GetPersistenceFilePath(Page page) 
+{ 
+ string filePath = Server.MapPath("~/DirectoryToSave/"); 
+ string userName = (HttpContext.Current.User.Identity.IsAuthenticated) 
+ ? HttpContext.Current.User.Identity.Name 
+ : this._userIPAdress; 
+ string fileName = string.Format("{0}.{1}.xml", 
+ userName.Replace('\\', '.'), 
+ page.GetType().FullName); 
+ return string.Format("{0}{1}", filePath, fileName); 
+}
+----
+
+|====
+
+== 関連リンク
+
+link:{SamplesURL}/samples/persistenceframework/data/persistenceauthentication/default.aspx?cn=persistence-framework&sid=5170926a-90cf-4f3b-ae44-79bf54037cf4[パーシステンスの認証のサンプル]
+
+link:persistenceframework-about-persistence-framework.html[Persistence Framework について]
+
+link:persistenceframework-getting-started-with-persistence-framework.html[Persistence Framework で開始]
+
+link:persistenceframework-handling-persistence-events.html[保持イベント]

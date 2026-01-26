@@ -1,0 +1,66 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-set-visible-resources",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling","Styling"],
+    "guid": "{097F3D7A-51DE-42B1-B827-63133212D065}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 表示可能なリソースを設定
+
+Multiple Resource View が有効である場合、WebSchedule™ コントロールで表示されるリソースの数を制御できます。これを行うには、 link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~resourcesfetched_ev.html[ResourcesFetched] イベントを処理し、WebScheduleInfo™ コンポーネントの link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~visibleresources.html[VisibleResources] プロパティを使用して表示したくないリソースを削除します。
+
+link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.resource.html[Resource] オブジェクトを作成し、それらをコレクションに追加することによって VisibleResources コレクションを入力することもできます（できれば、ページの PreLoad イベントに）。
+
+以下のコードは、表示可能なリソースを表示するために ResourcesFetched イベントを処理する方法を示します。
+
+*HTML の場合:*
+
+----
+<igsch:webscheduleinfo runat="server" ID="WebScheduleInfo1" EnableSmartCallbacks="   
+            EnableMultiResourceView="true"
+            onresourcesfetched="WebScheduleInfo1_ResourcesFetched">
+</igsch:webscheduleinfo>
+----
+
+*Visual Basic の場合：*
+
+----
+Protected Sub WebScheduleInfo1_ResourcesFetched(ByVal sender As Object, ByVal e As EventArgs)
+    ' アクティブ リソースを設定します
+    Me.WebScheduleInfo1.ActiveResourceName = "Jen"
+    ' リソース John を検索します
+    Dim john As Resource = Me.WebScheduleInfo1.VisibleResources.GetResourceFromName("John")
+    ' 表示可能なリソースから John を削除します
+    If john IsNot Nothing Then
+        Me.WebScheduleInfo1.VisibleResources.Remove(john)
+    End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+protected void WebScheduleInfo1_ResourcesFetched(object sender, EventArgs e)
+{
+   // アクティブ リソースを設定します
+   this.WebScheduleInfo1.ActiveResourceName = "Jen";
+// リソース John を検索します
+   Resource john = this.WebScheduleInfo1.VisibleResources.GetResourceFromName("John");
+// 表示可能なリソースから John を削除します
+   if (john != null)
+      this.WebScheduleInfo1.VisibleResources.Remove(john);
+ }
+----
+
+== 関連トピック
+
+link:webschedule-about-multi-resource-view.html[Multi Resource View について]
+
+link:webschedule-styling-active-and-inactive-resources.html[アクティブおよび非アクティブ リソースのスタイル]

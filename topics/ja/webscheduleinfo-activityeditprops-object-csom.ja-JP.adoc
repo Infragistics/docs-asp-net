@@ -1,0 +1,284 @@
+﻿////
+
+|metadata|
+{
+    "name": "webscheduleinfo-activityeditprops-object-csom",
+    "controlName": [],
+    "tags": ["API","How Do I","Scheduling"],
+    "guid": "{FABDC058-60F5-4ABB-88B0-FED453EB8310}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ActivityEditProps オブジェクト
+
+== ActivityEditProps
+
+ActivityDialogEdit クライアント側イベントで引数として渡されるオブジェクト。
+
+=== ActivityEditProps プロパティ
+
+[cols="a,a"]
+|====
+|*AllDayEvent* 
+|[アクティビティ] ダイアログに関連付けられた Element と Value を含むオブジェクト。
+
+|*Description* 
+|[アクティビティ] ダイアログに関連付けられた Element と Value を含むオブジェクト。
+
+|*DisplayInterval* 
+|[アクティビティ] ダイアログに関連付けられた Element と Value を含むオブジェクト。
+
+|*document* 
+|[アクティビティ] ダイアログのドキュメント オブジェクト。
+
+|*Duration* 
+|アクティビティの期間の Value を含むオブジェクト。
+
+|*EnableReminder* 
+|[アクティビティ] ダイアログに関連付けられた Element と Value を含むオブジェクト。
+
+|*EndDate* 
+|[アクティビティ] ダイアログに関連付けられた Element、Value、および WebDateChoooser オブジェクトを含むオブジェクト。
+
+|*EndTime* 
+|[アクティビティ] ダイアログに関連付けられた Element、Value、および WebDateChoooser オブジェクトを含むオブジェクト。
+
+|*Importance* 
+|[アクティビティ] ダイアログの重要性に関連付けられた WebToolbar、Value、および Toolbar Items を含むオブジェクト。
+
+|*Location* 
+|[アクティビティ] ダイアログに関連付けられた Element と Value を含むオブジェクト。
+
+|*ShowTimeAs* 
+|[アクティビティ] ダイアログに関連付けられた Element と Value を含むオブジェクト。
+
+|*StartDate* 
+|[アクティビティ] ダイアログに関連付けられた Element、Value、および WebDateChoooser オブジェクトを含むオブジェクト。
+
+|*StartTime* 
+|[アクティビティ] ダイアログに関連付けられた Element と Value を含むオブジェクト。
+
+|*Subject* 
+|[アクティビティ] ダイアログに関連付けられた Element と Value を含むオブジェクト。
+
+|*window* 
+|[アクティビティ] ダイアログに関連付けられた window オブジェクト。
+
+|====
+
+[[StartDate]]
+
+== StartDate
+
+=== StartDate プロパティ
+
+[cols="a,a"]
+|====
+|*Element* 
+|StartDate フィールドに関連付けられた HTML 要素。
+
+|*Object* 
+|StartDate フィールドに関連付けられた WebDateChooser オブジェクト。
+
+|*Value* 
+|StartDate フィールドの現在の値。
+
+|====
+
+[[StartTime]]
+
+== StartTime
+
+=== StartTime プロパティ
+
+[cols="a,a"]
+|====
+|*Element* 
+|StartTime フィールドに関連付けられた HTML 要素。
+
+|*Value* 
+|StartTime フィールドの現在の値。
+
+|====
+
+[[EndDate]]
+
+== EndDate
+
+=== EndDate プロパティ
+
+[cols="a,a"]
+|====
+|*Element* 
+|EndDateField に関連付けられた HTML 要素。
+
+|*Object* 
+|EndDatefield に関連付けられた WebDateChooser オブジェクト。
+
+|*Value* 
+|EndDate フィールドの現在の値。
+
+|====
+
+[[EndTime]]
+
+== EndTime
+
+=== EndTime プロパティ
+
+[cols="a,a"]
+|====
+|*Element* 
+|EndTime フィールドに関連付けられた HTML 要素。
+
+|*Value* 
+|EndTime フィールドの現在の値。
+
+|====
+
+[[AllDayEvent]]
+
+== AllDayEvent
+
+=== AllDayEvent プロパティ
+
+[cols="a,a"]
+|====
+|*Element* 
+|AllDayEvent フィールドに関連付けられた HTML 要素。
+
+|*Value* 
+|AllDayEvent フィールドの値。
+
+|====
+
+[[Subject]]
+
+== Subject
+
+=== Subject プロパティ
+
+[cols="a,a"]
+|====
+|*Element* 
+|Subject フィールドに関連付けられた HTML 要素。
+
+|*Value* 
+|Subject フィールドの値。
+
+|====
+
+[[Location]]
+
+== Location
+
+=== Location プロパティ
+
+[cols="a,a"]
+|====
+|*Element* 
+|Location フィールドに関連付けられた HTML 要素。
+
+|*Value* 
+|Location フィールドの値。
+
+|====
+
+[[Description]]
+
+== Description
+
+=== Description プロパティ
+
+[cols="a,a"]
+|====
+|*Element* 
+|Description フィールドに関連付けられた HTML 要素。
+
+|*Value* 
+|Description フィールドの値。
+
+|====
+
+[[EnableReminder]]
+
+== EnableReminder
+
+=== EnableReminder プロパティ
+
+[cols="a,a"]
+|====
+|*Element* 
+|EnableReminder フィールドに関連付けられた HTML 要素。
+
+|*Value* 
+|EnableReminder フィールドの値。
+
+|====
+
+[[DisplayInterval]]
+
+== DisplayInterval
+
+=== DisplayInterval プロパティ
+
+[cols="a,a"]
+|====
+|*Element* 
+|DisplayInterval フィールドに関連付けられた HTML 要素。
+
+|*Value* 
+|DisplayInterval フィールドの値。
+
+|====
+
+[[ShowTimeAs]]
+
+== ShowTimeAs
+
+=== ShowTimeAs プロパティ
+
+[cols="a,a"]
+|====
+|*Element* 
+|ShowTimeAs フィールドに関連付けられた HTML 要素。
+
+|*Value* 
+|ShowTimeAs フィールドの値。
+
+|====
+
+[[Importance]]
+
+== Importance
+
+=== Importance プロパティ
+
+[cols="a,a"]
+|====
+|*HighItem* 
+|HightItem に関連付けられた WebToolBarButton オブジェクト。
+
+|*LowItem* 
+|LowItem に関連付けられた WebToolBarButton オブジェクト。
+
+|*ToolBar* 
+|Importance に関連付けられた WebToolBar オブジェクト。
+
+|*Value* 
+|Importance フィールドの値。
+
+|====
+
+[[Duration]]
+
+== Duration
+
+=== Duration プロパティ
+
+==== Value
+
+Activity の期間を分単位で表した値。

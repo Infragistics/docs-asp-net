@@ -1,0 +1,26 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-drop-down-lists-of-webhtmleditor-toolbar",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing"],
+    "guid": "{803FE675-22D4-4601-BF9B-026D8C1FDFE8}",  
+    "buildFlags": [],
+    "createdOn": "2006-03-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor のツールバーのドロップダウン リスト
+
+pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.toolbardropdown.html[ToolbarDropDown]"]  クラスのインスタンスは、ユーザーがスクロールして項目を選択できる従来のドロップダウン リストを表示します。ドロップダウン リストは、アプリケーションでユーザーが特定の操作を行うときにいくつかの既知の値を選べるようにする必要があり、その値のリストがコンテキスト メニューには収まらない場合に使用します。WebHtmlEditor のツールバードロップダウン リストの例としては、フォント名、フォント サイズ、フォント スタイルのリストなどが挙げられます。
+
+以下に、WebHtmlEditor コントロールのツールバーにあるドロップダウン リストのリストを示します。
+
+* CustomDropDown -- Web アプリケーションに固有の項目を移植したカスタム ドロップダウン リストを表示します。
+* Insert -- エンド ユーザーが現在のキャレットの位置に挿入できるテキストが含まれたドロップダウン リストを表示します。
+* FontFormatting -- エンド ユーザーが太字、斜体などのフォントのスタイルを選択できるように、これらのスタイルに対応する個々のツールバー ボタンとは別にドロップダウン リストを表示します。
+* FontName -- エンド ユーザーがドキュメント内で新しいフォント ファミリ名を選ぶためのドロップダウン リストを表示します。
+* FontSize -- エンド ユーザーがフォント サイズを選択するためのドロップダウン リストを表示します。
+* FontStyle -- エンド ユーザーがフォント スタイルを選択するためのドロップダウン リストを表示します。

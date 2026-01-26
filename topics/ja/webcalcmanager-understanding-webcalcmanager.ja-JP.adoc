@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcalcmanager-understanding-webcalcmanager",
+    "controlName": ["WebCalcManager"],
+    "tags": ["Getting Started","How Do I"],
+    "guid": "{DAD55378-4943-4DA5-AC21-76269111D6DA}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebCalcManagerの理解
+
+WebCalcManager™ コンポーネント、およびその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WebCalcManager コンポーネントを使用することの利点を理解できます。
+
+WebCalcManager コンポーネントの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:webcalcmanager-excel-style-formula-support.html[Excel®スタイルの式のサポート] -- WebCalcManagerコンポーネント開発時に行われた設計について説明します。
+* link:webcalcmanager-excel-style-functions.html[Excel 様の関数] -- WebCalcManagerコンポーネントで提供されているさまざまなExcelスタイルの関数について説明したトピックのリストです。

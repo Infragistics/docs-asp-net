@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdialogwindow-maintain-the-headers-width-on-minimize",
+    "controlName": ["WebDialogWindow"],
+    "tags": ["How Do I"],
+    "guid": "{5E3A038C-1832-447F-A9E7-BF4FCDC82AAE}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Minimize でヘッダの幅を保持
+
+最小化ボックスによってエンド ユーザーが WebDialogWindow™ コントロール ダイアログ ウィンドウを最小化できるようにする場合には、ダイアログ ウィンドウはコンテンツ ペインを自動的に非表示にしてヘッダの幅を 100 ピクセルに減らします。最小化した時にヘッダの幅を同じに保持した方がいい場合には、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.dialogwindowheader.html[Header]"]  オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.dialogwindowheader~minimizedwidth.html[MinimizedWidth]"]  プロパティを設定する必要があります。ヘッダの幅を保持するために簡単な方法は、ダイアログ ウィンドウの幅と同じ値に MinimizedWidth プロパティを設定することです。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.webdialogwindow~width.html[Width.Value]"]  プロパティでダイアログ ウィンドウの幅にアクセスできます。
+
+
+*注：* Value プロパティは double を返し、MinimizedWidth プロパティは type int です。したがって、double を int にキャストする必要があります。
+
+
+以下のコードは、最小化した時にダイアログ ウィンドウの幅を保持する方法を例示します。
+
+*Visual Basic の場合：*
+
+----
+' Minimize でヘッダの幅を保持します。
+    Me.WebDialogWindow1.Header.MinimizedWidth = _
+        CType(Me.WebDialogWindow1.Width.Value, Integer)
+----
+
+*C# の場合：*
+
+----
+// Minimize でヘッダの幅を保持します。
+this.WebDialogWindow1.Header.MinimizedWidth = 
+	(int)this.WebDialogWindow1.Width.Value;
+----

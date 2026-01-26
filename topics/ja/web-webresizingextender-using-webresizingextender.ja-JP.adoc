@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webresizingextender-using-webresizingextender",
+    "controlName": ["WebResizingExtender"],
+    "tags": [],
+    "guid": "{DFD86B7E-C3BD-47F9-9D30-BFB0C1A09F4D}",  
+    "buildFlags": [],
+    "createdOn": "2007-05-11T14:36:48Z"
+}
+|metadata|
+////
+
+= WebResizingExtender の使用
+
+このセクションは、WebResizingExtender™ コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:webresizingextender-client-side-programming.html[クライアント側プログラミング]
+* link:webresizingextender-modify-the-resize-handle.html[サイズ変更ハンドルを修正]
+* link:webresizingextender-set-up-an-aspnet-web-site-to-run-aspnet-ajax.html[ASP.NET AJAX を実行するために ASP.NET Webサイトを設定]

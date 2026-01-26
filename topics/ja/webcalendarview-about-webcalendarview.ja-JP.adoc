@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcalendarview-about-webcalendarview",
+    "controlName": ["WebCalendarView"],
+    "tags": ["Getting Started"],
+    "guid": "{51812578-0A8F-4FB0-9883-3FC3ABDAFB1F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebCalendarView について
+
+WebCalendarView コントロールを使用して、ひと月のタイムスパンで予定を表示することができます。このコントロールは、異なる月の間を簡単にナビゲートするために使用できます。
+
+WebCalendarView は、ハイライトされたスタイルで、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.appointment.html[予定]"] のある任意の日を表示します。予定に使用可能な日を簡単に見つけることができます。
+
+WebCalendarView は、Cascading Style Sheets を使用する、または事前に定義されたプリセットのいずれかを使用して、スタイルすることができます。これらのメソッドを使用して、希望の外観を指定するために、WebCalendarViewを実行時だけでなくデザイン時に完全にスタイルすることができます。これによって、プロフェッショナルが作成したような外観に整えることができます。
+
+image::images\WebSchedule_Features_WebCalendarView_01.png[]

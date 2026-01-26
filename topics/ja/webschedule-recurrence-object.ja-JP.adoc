@@ -1,0 +1,169 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-recurrence-object",
+    "controlName": [],
+    "tags": ["API","How Do I","Recurrences","Scheduling"],
+    "guid": "{12399A3C-5754-4FE2-BA5C-0072D1902A6B}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Recurrence オブジェクト
+
+== 繰り返し
+
+Recurrence オブジェクトのすべてのプロパティは、クライアント上での動的な変更や複雑なプロパティ設定を処理できるように、SetメソッドとGetメソッドの組み合わせで実装されています。
+
+=== Recurrence メソッド
+
+==== clone
+
+現在 recurrence オブジェクトのクローンを作成します。
+
+=== Recurrence プロパティ
+
+[cols="a,a"]
+|====
+|*getEditType* 
+|シリーズ全体と個々の回のどちらを削除するか、またはユーザーが選択できるように確認メッセージを表示するかを指定します。
+
+|*getDayOfMonth*
+|各回が発生する月の日の番号。
+
+|*getDayOfWeekMask*
+|アイテムが発生する曜日。
+
+|*getEndDate*
+|定期的なアイテムの終了日。
+
+|*getLastReminderDateTimeUtc*
+|発生に対して生成された最後のアラーム通知の日時。
+
+|*getMaxOccurences*
+|繰り返し予定の最大回数。
+
+|*getMonthOfYear*
+|各回が発生する月。
+
+|*getPeriod*
+|定期的なアイテムが発生するパターン、つまり、「日」、「週」、「月」、「年」。
+
+|*getPeriodMultiple*
+|繰り返し予定の各回の間隔。
+
+|*getRecurrenceDescription*
+|この recurrence の人間可読な説明。
+
+|*setDayOfMonth*
+|各回が発生する月の日の番号を設定します。 
+
+*パラメタ*
+
+_dom_ 
+
+月の日付を決定する 1 - 31 の範囲の整数値。
+
+|*setDayOfWeekMask*
+|アイテムが発生する曜日を設定します。 
+
+*パラメタ*
+
+_dowm_ 
+
+曜日のマスクを決定する整数値。 
+
+0－None（なし） 
+
+1 - 日曜日 
+
+2 - 月曜日 
+
+4 - 火曜日 
+
+8 - 水曜日 
+
+16 - 木曜日 
+
+32 - 金曜日 
+
+64 - 土曜日 
+
+65 - すべての週末日 
+
+62 - すべてのウィークデー 
+
+127 - すべて
+
+|*setEditType*
+|適用すべき RecurrenceEditType を設定します。 
+
+*パラメタ*
+
+_type_ 
+
+許可される編集のタイプを決定する整数値。 
+
+0 - ユーザー選択 
+
+1 - シリーズ 
+
+2 - 発生
+
+|*setEndDate*
+|定期的なアイテムの終了日を設定します。 
+
+*パラメタ*
+
+_date_ 
+
+発生の EndDate を設定するための Date オブジェクト。
+
+|*setMaxOccurrences*
+|繰り返し予定の最大回数を設定します。 
+
+*パラメタ*
+
+_max_ 
+
+最大の発生を決定する整数値。
+
+|*setMonthOfYear*
+|各回が発生する月を設定します。 
+
+*パラメタ*
+
+_moy_ 
+
+年の月を決定する 0 - 12 の範囲の整数値。
+
+|*setPeriod*
+|繰り返しが発生する頻度を設定します。 
+
+*パラメタ*
+
+_period_ 
+
+期間を決定する整数値。 
+
+0 - 毎日 
+
+1 - 毎週 
+
+2 - 毎月 
+
+3 - 毎年
+
+|*setPeriodMultiple*
+|繰り返し予定の各回の間隔を設定します。 
+
+*パラメタ*
+
+_pm_ 
+
+期間と期間の間の間隔を決定する整数値。
+
+|====

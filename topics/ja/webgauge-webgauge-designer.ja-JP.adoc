@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-webgauge-designer",
+    "controlName": ["WebGauge"],
+    "tags": ["Design Environment"],
+    "guid": "{B5EE4388-6084-4601-9200-5B9E1B326ED8}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebGauge デザイナ
+
+ゲージ デザイナは、線形、デジタル、放射型の各ゲージ ギャラリーで構成されており、基本的なデザインから複雑なデザインまで多様なデザインが含まれています。ゲージ デザイナによって事前に定義されたゲージを選択し、Gauge コントロールに追加することができます。たとえば、スピードメーターなどの複雑なラジアル ゲージを作成したい場合には、デザイナから選択するだけで、Gauge コントロールに自動的に追加されます。デザイナのユーザー フレンドリなインタフェースを使用すれば、Gauge コントロールのプロパティを素早く簡単に操作できます。
+
+ゲージ デザイナを開始するには、以下のリンクをクリックしてください。
+
+* link:webgauge-layout-of-the-webgauge-designer.html[WebGauge デザイナのレイアウト]
+* link:webgauge-working-with-webgauge-presets.html[WebGauge プリセットでの作業]
+* link:webgauge-using-the-webgauge-designer.html[WebGauge デザイナを使用]

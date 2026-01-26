@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webmaskeditor",
+    "controlName": ["WebMaskEditor"],
+    "tags": [],
+    "guid": "{E2C962F7-F7B5-41F0-BB23-10F26F211858}",  
+    "buildFlags": [],
+    "createdOn": "2009-03-06T14:37:45Z"
+}
+|metadata|
+////
+
+= WebMaskEditor
+
+このページには、WebMaskEditor™ コントロール関連の概要/タスクベースの情報がすべて含まれています。このセクションには、コントロールが何を実行するのか、またアプリケーションでなぜコントロールを使用したくなるのかから、コントロールを使用して一般的なタスクを完了する方法に関するステップバイステップの手順まで、コントロールに関する貴重な情報が含まれています。
+
+WebMaskEditor コントロールについての詳細は、以下のリンクをクリックしてください。
+
+== link:webmaskeditor-about-webmaskeditor.html[WebMaskEditor について]
+
+このセクションには、WebMaskEditor コントロールの機能の理解を深めるのに役立つ情報があります。さらに、コントロールの目的も理解できます。
+
+== link:webmaskeditor-using-webmaskeditor.html[WebMaskEditor の使用]
+
+このセクションは、WebMaskEditor で使用可能な機能を使用する方法を示すタスクベースの情報を提供します。
+
+== link:webmaskeditor-accessibility-compliance.html[WebMaskEditor アクセシビリティの遵守]
+
+このトピックは、WebMaskEditor が第 508 条の要件を満たす方法を概略します。このアクセシビリティの遵守によって、エンドユーザー、特に障害を持つユーザーが WebMaskEditor コントロールを使用して構築された Web アプリケーションにアクセスおよび使用することを可能にします。
+
+== link:webmaskeditor-api-overview.html[API の概要]
+
+このトピックでは、WebMaskEditor コントロールを使用してプログラミングするときに取り扱う名前空間とクラスのリストを掲載しています。このトピックにリストされている名前空間とクラスは、{ProductName} ヘルプの「API 参照ガイド」セクションに便宜的にリンクされています。
+
+== link:webtexteditor~infragistics.web.ui_namespace.html[CSOM の概要]
+
+WebMaskEditor™ コントロールは、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを提供します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクトで構成され、開発者はサーバー側にポストバックしなくても、コントロールに関連する重要な機能単位をプログラムできます。

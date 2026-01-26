@@ -1,0 +1,69 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatamenu-using-webdatamenu",
+    "controlName": ["WebDataMenu"],
+    "tags": ["Getting Started"],
+    "guid": "{CE7FC61D-2F83-4C4A-880F-778140B8818E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDataMenu の使用
+
+このセクションは、WebDataMenu™ コントロールの重要な概念および機能を効果的に使用するためのタスク ベースの情報について説明します。
+
+link:webdatamenu-webdatamenu-smart-tag.html[WebDataMenu スマート タグ]
+
+このトピックは WebDataMenu スマート タグ アンカーとポップアップ パネルについて、およびさまざまなコントロール プロパティと設定について示します。
+
+link:webdatamenu-keyboard-navigation.html[キーボード ナビゲーション]
+
+このトピックは、キーボードを使用して WebDataMenu 項目を簡単にナビゲートする方法について示します。
+
+link:webdatamenu-adding-images-and-navigation-urls-to-menu-items.html[メニュー項目に画像とナビゲーション URL を追加]
+
+このトピックでは、WebDatMenu 項目の画像とナビゲーション URL を追加する手順を示します。
+
+link:webdatamenu-binding-to-data.html[データ バインディング]
+
+このトピックでは、WebDataMenu コントロールをデータソース (Infragistics データソース コントロールを含む) にバインドする方法を示します。
+
+link:webdatamenu-disabling-menu-items.html[メニュー項目の無効化]
+
+このトピックは、WebDataMenu の各項目を無効にする方法を示します。
+
+link:webdatamenu-menu-item-states.html[メニュー項目の状態]
+
+このトピックでは、WebDataMenu 項目で使用できる表示状態の一覧を示します。
+
+link:webdatamenu-orientation.html[オリエンテーション]
+
+このトピックでは WebDataMenu のオリエンテーション プロパティについて、更にプロパティを組み合わせてさらに高度なコントロールを作成する方法を説明します。
+
+link:webdatamenu-separators.html[セパレーター]
+
+このトピックでは、WebDataMenu 機能の便利な利用法を説明します。
+
+link:webdatamenu-templating.html[テンプレート化]
+
+このトピックでは、WebDataMenu 項目テンプレートの一覧と使用例を示します。
+
+link:webdatamenu-using-webdatamenu-as-context-menu-on-webdatatree-node.html[WebDataTree ノードでコンテキストメニューとしてWebDataMenuを使用する方法]
+
+WebDataMenu をコンテキスト メニューとして動作させる方法を説明します。このトピックでは、WebDataMenu を WebDataTree に統合する方法を説明します。
+
+link:webdatamenu-scrolling-about.html[スクロール]
+
+このトピックでは、WebDataMenu スクロールについての説明とその例を示します。
+
+link:webdatamenu-activateonhover-property.html[ActivateOnHover プロパティ]
+
+このトピックでは、WebDataMenu ActivateOnHover プロパティを設定した場合の効果について説明します。
+
+link:webdatamenu-closemenuonclick-property.html[CloseMenuOnClick プロパティ]
+
+このトピックは CloseMenuOnClick を WebDataMenu コントロールに影響させる方法を説明します。

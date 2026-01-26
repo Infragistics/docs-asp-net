@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-refreshing-webdatagrid-when-autocrud-is-turned-off",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Grids"],
+    "guid": "{7E628050-CC73-4B81-8559-6251E47E8A69}",  
+    "buildFlags": [],
+    "createdOn": "2010-04-03T14:54:49Z"
+}
+|metadata|
+////
+
+= AutoCRUD がオフの時に WebDataGrid をリフレッシュ
+
+WebDataGrid™ で CRUD 操作を自動的に実行したくない状況があるかもしれません。これを実行するには、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.editingcore.html[EditingCore]"]  オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.editingcore~autocrud.html[AutoCRUD]"]  プロパティを False に設定します。ただしこの場合、WebDataGrid は CRUD の変更を反映するために自動的にリフレッシュしません。これを実行するために、更新を強制するための CRUD アクションの後で WebDataGrid コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webdatagrid~requestfullasyncrender.html[RequestFullAsyncRender]"]  メソッドを明示的に呼び出す必要があります。非同期ポスト バック中に RequestFullAsyncRender メソッドを呼び出すことで、ページがロードされたかのようにコントロールに HTML の更新を強制して全体を再初期化します。 
+
+*Visual Basic の場合：*
+
+----
+Me.WebDataGrid1.RequestFullAsyncRender();
+----
+
+*C# の場合：*
+
+----
+this.WebDataGrid1.RequestFullAsyncRender();
+----

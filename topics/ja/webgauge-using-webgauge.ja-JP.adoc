@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-using-webgauge",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{5F0CE379-0230-464B-8ED9-22EE9E892F5F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebGauge の使用
+
+このセクションは、Gauge コントロールによって提供されるさまざまな特徴や機能を使用するための支援となる概念的およびタスクベースの情報のゲートウェイです。
+
+* link:webgauge-appearance.html[外観]
+* link:webgauge-client-side-programming.html[クライアント側プログラミング]
+* link:webgauge-webgauge-elements.html[ゲージ エレメント]
+* link:webgauge-interaction-with-webgauge.html[WebGauge の操作]

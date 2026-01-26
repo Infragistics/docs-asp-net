@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-whats-new-2008-2-webgrid-now-supports-the-safari-browser",
+    "controlName": [],
+    "tags": ["FAQ","Getting Started","Grids"],
+    "guid": "{3E0A9BAD-2449-49A3-86BE-74CAF3123BD6}",  
+    "buildFlags": ["docx-online","docx-booklet"],
+    "createdOn": "2008-01-05T15:33:03Z"
+}
+|metadata|
+////
+
+= WebGrid は Safari ブラウザをサポート
+
+{ProductName} 2008 Volume 2 から開始しましたが、WebGrid™ コントロールは Apple® Safari™ Web ブラウザをサポートします。Safari でこれまで使用できなかった WebGrid のリッチな機能が Web ブラウザに実装されています。

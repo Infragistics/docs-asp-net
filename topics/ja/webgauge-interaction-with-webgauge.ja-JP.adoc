@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-interaction-with-webgauge",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{86494285-525D-48B6-8B4F-EDB213B0B8BA}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebGauge の操作
+
+Gauge コントロールの操作方法については、以下のリンクをクリックしてください。
+
+* link:webgauge-marker-movement.html[マーカーの移動]
+* link:webgauge-move-the-needle-marker-automatically.html[針マーカーを自動的に移動]
+* link:webgauge-move-the-bar-marker-automatically.html[バー マーカーを自動的に移動]

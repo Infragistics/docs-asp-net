@@ -1,0 +1,51 @@
+﻿////
+
+|metadata|
+{
+    "name": "webprogressbar-label-format-and-alignment",
+    "controlName": ["WebProgressBar"],
+    "tags": [],
+    "guid": "{4CDBE0E5-FAEE-4D11-BEC4-A6E56778A4EA}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ラベルの書式と配置
+
+WebProgressBar™ は進行状況の情報を伝達する手助けをするラベルを含みます。ラベルは、進行状況情報を表すカスタム フォーマット文字列と共に WebProgressBar コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.displaycontrols.webprogressbar~labelformatstring.html[LabelFormatString]"]  プロパティを使用して 6 つの異なる値を利用するためにフォーマットできます。以下は、ラベルに表示される情報をカスタマイズできるようにラベル フォーマット文字列に挿入できる組み込み文字列値のリストです。
+
+* {0} または {ProgressValue} :現在の進行状況値を示します
+* {1} または {PercentProgress} :現在の進行状況をパーセントで示します
+* {2} または {RemainingProgress} :完了するまでの残りの進行状況値を示します
+* {3} または {PercentageRemaining} :残りの進行状況をパーセントで示します
+* {4} または {Min} :最小値を示します
+* {5} または {Max} :最小値を示します
+
+WebProgressBar は、  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.displaycontrols.webprogressbar~labelalignment.html[LabelAlignment]"]  プロパティを以下の 4 つのオプションのいずれかに設定することによってプログレス バー内のラベル配置をサポートします。
+
+* LeftOrTop :方向に基づいてラベルを左または上に揃えて配置します
+* Center :ラベルを中央に配置します
+* RightOrBottom :方向に基づいてラベルを右または下に揃えて配置します
+* Running :ラベルは、プログレス バーが終わりに到達するまで移動するにつれてプログレス バーの前に配置されます。
+
+*注：* デフォルトでは、LabelAlignment プロパティは LeftOrTop に設定されます。
+
+以下のコードは、パーセントの形式で残りの進行状況を示すためにラベルをフォーマットする方法と WebProgressBar の中央にラベルを配置する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+WebProgressBar1.LabelFormatString = "Remaining percentage : {3}"
+WebProgressBar1.LabelAlignment = Infragistics.Web.UI.DisplayControls.ProgressBarLabelAlignment.Center
+----
+
+*C# の場合：*
+
+----
+WebProgressBar1.LabelFormatString = "Remaining percentage : {3}";
+WebProgressBar1.LabelAlignment = Infragistics.Web.UI.DisplayControls.ProgressBarLabelAlignment.Center;
+----
+
+image::images\WebProgressBar_Label_Format_and_Alignment.png[]

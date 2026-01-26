@@ -1,0 +1,47 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatagrid-editing",
+    "controlName": [],
+    "tags": [],
+    "guid": "b9f016d4-2f8c-4ff5-93ee-6085d07734ec",  
+    "buildFlags": [],
+    "createdOn": "2014-03-10T17:06:57.5623255Z"
+}
+|metadata|
+////
+
+= 編集
+
+== このグループのトピックについて
+
+=== はじめに
+
+このグループのトピックでは、 _WebHierarchicalDataGrid_   __™__  の編集動作とその使用について説明します。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:webhierarchicaldatagrid-editing-behavior-overview.html[編集動作の概要]
+|このトピックでは、 _WebHierarchicalDataGrid_ の編集機能 (`EditingCore` 動作) の概要を提供します。
+
+| link:webhierarchicaldatagrid-batch-updating.html[一括更新]
+|このグループのトピックは一括更新機能を使用する方法を紹介します。
+
+| link:webhierarchicaldatagrid-cell-editing.html[セルの編集]
+|このトピックはセル編集動作を使用する方法を紹介します。
+
+| link:whdg-row-adding.html[行の追加]
+|このトピックは行追加集動作を使用する方法を紹介します。
+
+| link:whdg-row-deleting.html[行削除]
+|このトピックは行削除集動作を使用する方法を紹介します。
+
+| link:whdg-row-editing.html[行編集]
+|このグループのトピックは行編集動作を使用する方法を紹介します。
+
+|====

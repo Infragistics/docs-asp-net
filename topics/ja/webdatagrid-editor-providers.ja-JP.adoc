@@ -1,0 +1,81 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-editor-providers",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Editing","Grids"],
+    "guid": "{C8D49ED2-98F9-4AF0-8787-EF40C27A4741}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= エディター プロバイダー
+
+WebDataGrid™ でフィールドのデフォルト エディター以外のエディターを提供するオプションが与えられています。これによって、アプリケーションにより適切と見なされるエディターを提供することができます。使用可能なエディター プロバイダーは以下のとおりです:
+
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.currencyeditorprovider.html[CurrencyEditorProvider]"] 
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.datepickerprovider.html[DatePickerProvider]"] 
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.datetimeeditorprovider.html[DateTimeEditorProvider]"] 
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.dropdownprovider.html[DropDownProvider]"] 
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.maskeditorprovider.html[MaskEditorProvider]"] 
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.monthcalendarprovider.html[MonthCalendarProvider]"] 
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.numericeditorprovider.html[NumericEditorProvider]"] 
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.percenteditorprovider.html[PercentEditorProvider]"] 
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.sliderprovider.html[SliderProvider]"] 
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.textboxprovider.html[TextBoxProvider]"] 
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.texteditorprovider.html[TextEditorProvider]"] 
+
+これらのエディター プロバイダーの一部は、WebDataGrid の列のデータ タイプに基づいてデフォルトで使用されます。以下のテーブルはデータ タイプと関連するエディターをリストします。
+
+[options="header", cols="a,a"]
+|====
+|タイプ|エディター
+
+|Byte
+|NumericEditorProvider
+
+|Char
+|内部（入力テキスト）エディター
+
+|DateTime
+|DateTimeEditorProvider
+
+|Decimal
+|NumericEditorProvider
+
+|Double
+|NumericEditorProvider
+
+|Int16
+|NumericEditorProvider
+
+|Int32
+|NumericEditorProvider
+
+|Int64
+|NumericEditorProvider
+
+|SByte
+|NumericEditorProvider
+
+|Single
+|NumericEditorProvider
+
+|String
+|内部（入力テキスト）エディター
+
+|UInt16
+|NumericEditorProvider
+
+|UInt32
+|NumericEditorProvider
+
+|UInt64
+|NumericEditorProvider
+
+|====
+
+エディター プロバイダーを使用するには、エディター プロバイダーを  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.editorprovidercollection.html[EditorProviders]"]  コレクションに追加します。追加されたら、ID を使用してエディター プロバイダーにアクセスし特定の列に割り当てることができます。エディター プロバイダーの割り当てに関する詳細は、 link:webdatagrid-using-editor-providers.html[DatePicker を WebDataGrid のエディター プロバイダーとして使用する]を参照してください。

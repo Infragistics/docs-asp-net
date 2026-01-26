@@ -1,0 +1,111 @@
+﻿////
+
+|metadata|
+{
+    "name": "webmonthview-client-side-events-csom",
+    "controlName": [],
+    "tags": ["API","How Do I"],
+    "guid": "{2B6E303F-0BC3-4FB6-9F80-D98AAEA452E6}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebMonthView クライアント側イベント
+
+== Client Events
+
+=== Client Events メソッド
+
+[cols="a,a"]
+|====
+|*Click* 
+|このイベントは MonthView の要素がクリックされると起動します。 
+
+*パラメータ*
+
+_oWebMonthView_ 
+
+WebMonthView クライアント側オブジェクト。 _oEvent_ 
+
+イベントのキャンセル、ポストバックのキャンセルまたは要求を実行するイベント オブジェクト。 _element_ 
+
+クリックしたものに対応する html 要素。
+
+|*DblClick* 
+|このイベントは MonthView の要素がダブル クリックされると起動します。 
+
+*パラメータ*
+
+_oWebMonthView_ 
+
+WebMonthView クライアント側オブジェクト。 _oEvent_ 
+
+イベントのキャンセル、ポストバックのキャンセルまたは要求を実行するイベント オブジェクト。 _element_ 
+
+ダブルクリックしたものに対応する html 要素。
+
+|*Initialize* 
+|このイベントは MonthView が初期化されると起動します。 
+
+*パラメータ*
+
+_oWebMonthView_ 
+
+WebMonthView クライアント側オブジェクト。
+
+|*MouseDown* 
+|このイベントは MonthView の要素にマウスダウンをすると起動されます。 
+
+*パラメータ*
+
+_oWebMonthView_ 
+
+WebMonthView クライアント側オブジェクト。 _oEvent_ 
+
+イベントのキャンセル、ポストバックのキャンセルまたは要求を実行するイベント オブジェクト。 _element_ 
+
+マウス ボタンを押した場所に対応する html 要素。
+
+|*MouseUp* 
+|このイベントは MonthView の要素にマウスダウンをすると起動されます。 
+
+*パラメータ*
+
+_oWebMonthView_ 
+
+WebMonthView クライアント側オブジェクト。 _oEvent_ 
+
+イベントのキャンセル、ポストバックのキャンセルまたは要求を実行するイベント オブジェクト。 _element_ 
+
+マウス ボタンを放した場所に対応する html 要素。
+
+|*NavigateNext* 
+|MonthView の [次に進む] ボタンを押した後でこのイベントは発生します。 
+
+*パラメータ*
+
+_oWebMonthView_ 
+
+WebMonthView クライアント側オブジェクト。 _oEvent_ 
+
+イベントのキャンセル、ポストバックのキャンセルまたは要求を実行するイベント オブジェクト。 _numberOfDays_ 
+
+ナビゲートされる日の数。
+
+|*NavigatePrevious* 
+|MonthView の [前に戻る] ボタンを押した後でこのイベントは発生します。 
+
+*パラメータ*
+
+_oMonthView_ 
+
+WebMonthView クライアント側オブジェクト。 _oEvent_ 
+
+イベントのキャンセル、ポストバックのキャンセルまたは要求を実行するイベント オブジェクト。 _numberOfDays_ 
+
+ナビゲートされる日の数。
+
+|====
+

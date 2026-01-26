@@ -1,0 +1,248 @@
+﻿////
+|metadata|
+{
+    "name": "gridmigrationrowadding",
+    "controlName": [],
+    "tags": [],
+    "guid": "12ab51c7-138c-4a07-9e56-4f7308ed87bc",
+    "buildFlags": [],
+    "createdOn": "2016-03-01T12:49:14.5276456Z"
+}
+|metadata|
+////
+
+= グリッドの移行 - 行の追加
+
+RowAdding によって、UI を使用して列をグリッドに追加できます。また、JavaScript でプログラム的に追加することもできます。RowAdding の動作は EditingCore の子動作であり、WebDataGrid (WDG) または WebHierarchicalDataGrid (WHDG) の行を追加するためには、両方を有効にする必要があります。
+
+[[_Toc291511353]]
+== 動作の有効化
+
+動作は、WDG または WHDG のプロパティ ウィンドウから有効にできます。
+
+[start=1]
+. Microsoft® Visual Studio™ のプロパティ ウィンドウで、動作のプロパティを検索し、省略記号（...）ボタンをクリックして動作の編集ダイアログを起動します。
+[start=2]
+. 左側の RowAdding の隣にあるチェック ボックスを選択して動作を有効にします（コアの編集機能のチェック ボックスが自動的に選択されます）。
+
+*注* : この時点で、行の追加に関連する他のプロパティを構成できます。
+
+[start=2]
+. [OK] をクリックして、ダイアログを閉じます。
+
+*注* : CRUD 演算を WDG/WHDG に対して機能させるには、[DataKeyFields] プロパティを設定する必要があります。
+
+「行の追加」動作は、デザイン タイムで有効にすることもできます。
+
+*ASPX の場合:*
+
+[source,html]
+----
+<Behaviors>               
+      <ig:EditingCore>
+          <Behaviors>
+               <ig:RowAdding>
+               </ig:RowAdding>
+          </Behaviors>
+      </ig:EditingCore>
+</Behaviors>
+----
+
+[[_Toc291511354]]
+== 行の追加の配置と表示状態
+
+行の追加動作用の行の新規追加は、常に表示され、グリッドの上部または下部に固定されます。これは、[Alignment] プロパティ値で制御されます。デフォルトは Bottom です。
+
+JavaScript でプログラム的に行を新規追加するには、EditingCore 動作を有効にするだけです。
+
+== JavaScript による WDG の行の追加
+
+*JavaScript の場合:*
+
+[source,js]
+----
+/* グリッド オブジェクトを取得する * /
+var grid = $find("WebDataGrid1");
+/* セル値の配列を定義する * /
+var cellValues = ["1", "Bob", "Green", "1/2/1983"];
+/* 前述で定義したセル値を持つ、新しい行を追加する * /
+grid.get_rows().add(cellValues);
+----
+
+[[_Toc291511356]]
+== JavaScript による WHDG の行の追加
+
+*JavaScript の場合:*
+
+[source,js]
+----
+/* コントロールを検索する * /
+var grid = $find("WebHierarchicalDataGrid1");
+/* ---------- トップの行アイランドの行を追加 -------- * /
+var topRowIsland = grid.get_gridView();
+/* セル値の配列を定義する * /
+var cellValues = ["1", "Bob", "Green", "1/2/1983"];
+/* 前述で定義したセル値を持つ、新しい行を追加する * /
+topRowIsland.get_rows().add(cellValues);
+/* ---------- 第 2 レベルの行アイランドの行を追加 -------- * /
+var childGrid = topRowIsland.get_rows().get_row(3).get_rowIslands()[0];
+cellValues = ["1", "25 Main Road", "New York", "NY", "19234"];
+/* 前述で定義したセル値を持つ、新しい行を追加する * /
+childGrid.get_rows().add(cellValues);
+----
+
+[[_Toc291511357]]
+== 行の追加動作のカスタマイズ
+
+行の追加動作は、RowAddingColumnSetting オブジェクトを作成し、行の追加動作の ColumnSettings に追加することにより、列ごとにカスタマイズできます。これは、デザイン タイムまたは実行時に、動作の編集ダイアログで実行できます。
+
+[[_Toc291511358]]
+== ASPX
+
+aspx では、次のようになります。
+
+*ASPX の場合:*
+
+[source,html]
+----
+<Behaviors>               
+    <ig:EditingCore>
+        <Behaviors>
+            <ig:RowAdding>
+                <ColumnSettings>
+                    <%-- setting a default value for the new data for 
+                    the "Size" column --%>
+                    <ig:RowAddingColumnSetting ColumnKey="Size" DefaultValueAsString="3"
+                    />                    
+                    <%--indicating that the “Id” column is read only and a 
+                    value cannot be provided for it--%> 
+                    <ig:RowAddingColumnSetting ColumnKey="Id" ReadOnly="true" />
+                    <%--setting up an editor and validator for a column--%>
+                    <ig:RowAddingColumnSetting ColumnKey="OrderDate" 
+                    EditorID="DateTimePicker1" ValidatorID="myValidator1" />                                
+                </ColumnSettings>
+            </ig:RowAdding>
+        </Behaviors>
+    </ig:EditingCore>
+</Behaviors>
+----
+
+[[_Toc291511359]]
+== WDG コード ビハインド
+
+WDG の場合、これは、ページ ロード イベントで実行します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+/* 使用を容易にするための行の追加動作の保存 * /            
+RowAdding rowAddingBehavior = this.WebDataGrid1.Behaviors.EditingCore.Behaviors.RowAdding;
+/* 「サイズ」列の新規データの既定値の設定 * /
+RowAddingColumnSetting sizeSetting = new RowAddingColumnSetting();
+sizeSetting.ColumnKey = "Size";
+sizeSetting.DefaultValueAsString = "3";
+rowAddingBehavior.ColumnSettings.Add(sizeSetting);
+/* 「Id」列は読み取り専用で、値を入力できないことを示す * /
+RowAddingColumnSetting idSetting = new RowAddingColumnSetting();
+idSetting.ColumnKey = "Id";
+idSetting.ReadOnly = true;
+rowAddingBehavior.ColumnSettings.Add(idSetting);
+/* 列のエディターとバリデーターの設定 * /
+RowAddingColumnSetting orderDateSetting = new RowAddingColumnSetting();
+orderDateSetting.ColumnKey = "OrderDate";
+orderDateSetting.EditorID ="DateTimePicker1";
+orderDateSetting.ValidatorID = "myValidator1";
+rowAddingBehavior.ColumnSettings.Add(orderDateSetting);
+----
+
+[[_Toc291511360]]
+== WHDG コード ビハインド
+
+WHDG の場合、これは WHDG の InitializeBand イベントで実行します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+protected void Page_Load(object sender, EventArgs e)
+{
+      this.WebHierarchicalDataGrid1.InitializeBand += new InitializeBandEventHandler(WebHierarchicalDataGrid1_InitializeBand);
+}
+void WebHierarchicalDataGrid1_InitializeBand(object sender, BandEventArgs e)
+{
+      if (e.Band.DataMember == "Root")
+      {
+            /* 使用を容易にするための行の追加動作の保存 * /            
+            RowAdding rowAddingBehavior = e.Band.Behaviors.EditingCore.Behaviors.RowAdding;
+            /* 「サイズ」列の新規データの既定値の設定 * /
+            RowAddingColumnSetting sizeSetting = new RowAddingColumnSetting();
+            sizeSetting.ColumnKey = "Size";
+            sizeSetting.DefaultValueAsString = "3";
+            rowAddingBehavior.ColumnSettings.Add(sizeSetting);
+            /* 「Id」列は読み取り専用で、値を入力できないことを示す * /
+            RowAddingColumnSetting idSetting = new RowAddingColumnSetting();
+            idSetting.ColumnKey = "Id";
+            idSetting.ReadOnly = true;
+            rowAddingBehavior.ColumnSettings.Add(idSetting);
+            /* 列のエディターとバリデーターの設定 * /
+            RowAddingColumnSetting orderDateSetting = new RowAddingColumnSetting();
+            orderDateSetting.ColumnKey = "OrderDate";
+            orderDateSetting.EditorID = "DateTimePicker1";
+            orderDateSetting.ValidatorID = "myValidator1";
+            rowAddingBehavior.ColumnSettings.Add(orderDateSetting);
+      }
+      else if (e.Band.DataMember == "SecondLevel")
+      {
+            RowAdding rowAddingBehavior = e.Band.Behaviors.EditingCore.Behaviors.RowAdding;
+            /* The rest of the code is the same as for the Root level
+                  * only the Column keys and setting would be different as this
+                  * level would have a different data structure
+                  */              
+      }
+}
+----
+
+[[_Toc291511361]]
+== クライアントでの行追加へのアクセス
+
+[[_Toc291511362]]
+==== WebDataGrid
+
+*JavaScript の場合:*
+
+[source,js]
+----
+/* グリッド オブジェクトを取得する * /
+var grid = $find("WebDataGrid1");
+/* 行の追加動作を取得する * /
+var rowAdding = grid.get_behaviors().get_editingCore().get_behaviors().get_rowAdding();
+/* Clear the values that the user put into the add new row
+The true here indicates that the default values for the cells should be restored */
+rowAdding.clearAddNewRow(true);
+----
+
+[[_Toc291511363]]
+==== WebHierarchicalDataGrid
+
+*JavaScript の場合:*
+
+[source,js]
+----
+/* コントロールを検索する * /
+var grid = $find("WebHierarchicalDataGrid1");
+/* ---------- トップレベルのグリッドの行の追加動作を取得する -------- * /
+var topRowIsland = grid.get_gridView();
+/* 行の追加動作を取得する * /
+var rowAdding = topRowIsland.get_behaviors().get_editingCore().get_behaviors().get_rowAdding();
+/* Clear the values that the user put into the add new row
+The true here indicates that the default values for the cells should be restored */
+rowAdding.clearAddNewRow(true);
+/* ---------- 第 2 レベルの行アイランドの行の追加動作を取得する -------- * /
+var childGrid = topRowIsland.get_rows().get_row(3).get_rowIslands()[0];
+/* 行の追加動作を取得する * /
+var rowAdding = childGrid.get_behaviors().get_editingCore().get_behaviors().get_rowAdding();
+/* Clear the values that the user put into the add new row
+The true here indicates that the default values for the cells should be restored */
+rowAdding.clearAddNewRow(true);
+----

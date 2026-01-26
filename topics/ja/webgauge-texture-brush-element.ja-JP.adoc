@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-texture-brush-element",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{382E5CFE-4550-4699-99BA-3643B7612C5C}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= テクスチャ ブラシ エレメント
+
+ゲージ上のプロパティの背景を、キャンバスなどのテクスチャされたルック アンド フィールにしたい場合には、ブラシ タイプを [テクスチャ] に設定します。テクスチャ ブラシ エレメントを選択すると、開始色、終了色、テクスチャ スタイルを指定できます。以下を使用して、ゲージのプロパティにテクスチャ ブラシ エレメントを適用できます。
+
+* link:webgauge-apply-brush-elements-using-the-gauge-designer.html[ゲージ デザイナ]
+* link:webgauge-apply-brush-elements-at-design-time.html[ゲージ コレクション エディタ]
+* link:webgauge-apply-brush-elements-at-run-time.html[コード]
+
+以下のスクリーンショットは、以下の設定で目盛盤の BrushElement プロパティを TextureBrushElement に設定した状態のラジアル ゲージを表示します。
+
+* テクスチャ スタイル -- キャンバス
+* 開始色 -- シルバー
+* 終了色 -- Dim Gray
+
+image::images/Gauge_Texture_02.png[]

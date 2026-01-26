@@ -1,0 +1,338 @@
+﻿////
+
+|metadata|
+{
+    "name": "gridmigrationpdfexport",
+    "controlName": [],
+    "tags": [],
+    "guid": "bbfeb800-8a07-477a-893b-51fc244c1f7b",  
+    "buildFlags": [],
+    "createdOn": "2016-03-01T12:49:00.9923111Z"
+}
+|metadata|
+////
+
+= グリッドの移行 - PDF エクスポート
+
+== PDF へのエクスポート
+
+グリッドの PDF ファイル エクスポートにより、グリッド データを書式設定付きの .pdf ファイルにエクスポートできます。このファイルは、後でグリッド データのアーカイブとして、または視覚表現として使用できます。
+
+WebGrid では、WebGridDocumentExporter コンポーネントが、グリッドへの PDF ファイルのエクスポートを許可するために使用されます。Export メソッドが呼び出されると、WebGridDocumentExporter は [名前を付けて保存] ダイアログを表示し、構成した PDF ファイルを保存するローカル コンピューターの場所を選択できるようにします。ダウンロードできるファイルの名前は、[DownloadName] プロパティでPDF ファイルの名前を示す文字列に設定することにより、変更できます。WebGridDocumentExporter も ExportMode プロパティを公開します。このプロパティにより、エンドユーザーのWeb ブラウザーで PDF（または XPS）ファイルのディレクトリを開く、または [名前を付けて保存] ダイアログ ボックスでエンドユーザーにプロンプトすることができます。
+
+WebDataGrid と WebHierarchicalDataGrid は、ドキュメントのファイル形式（PDFなど）のグリッド データの自動エクスポートを許可する WebDocumentExporter コントロールを使用します。WebDocumentExporter コントロールは次の主要な機能を提供します。
+
+* ファイルは、自動ダウンロードのためにブラウザーに送信、またはドキュメントのインスタンスに保存することができます。[ExportMode] プロパティでそのための処理を決定します。
+* グリッド データのみ（ページングまたは VirtualScrolling が有効な場合）、またはデータ ソースのデータ全体のエクスポート（[DataExportMode] プロパティ）。
+* XPS または PDF ドキュメント ファイル形式へのエクスポート（[Format] プロパティ）。
+* アプリケーションのルック アンド フィールを維持したスタイルのエクスポート（[EnableStylesExport] プロパティ）。
+* グリッドがエクスポートされるページ レイアウトのカスタマイズ（[Margins]、[TargetPaperSize] および [TargetPaperOrientation] プロパティ）。
+* データのエクスポート前または後、およびエクスポートされた各行に対し、カスタム ロジックを適用するために処理できるサーバー イベント（CellExporting、CellExported、RowExporting イベント）。
+
+== サーバー側のコードスニペット:
+
+==== UltraWebGrid PDF エクスポート:
+
+[start=1]
+. .aspx ページに Document エクスポーターを追加します。
+
+*ASPX の場合:*
+
+[source,html]
+----
+<igdocX:UltraWebGridDocumentExporter ID="UltraWebGridDocumentExporter1" runat="server"
+OnBeginExport="UltraWebGridDocumentExporter1_BeginExport">
+</igdocX:UltraWebGridDocumentExporter>
+----
+
+[start=2]
+. PDF ファイルのエクスポートを開始するリンクまたはボタンを追加します。
+
+*ASPX の場合:*
+
+[source,html]
+----
+<asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">PDF</asp:LinkButton>
+----
+
+[start=3]
+. レポートの外観をカスタマイズする DocumentExporter の BeginExport() イベントを処理します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+protected void UltraWebGridDocumentExporter1_BeginExport(object sender, Infragistics.WebUI.UltraWebGrid.DocumentExport.DocumentExportEventArgs e)
+    {
+        // タイトルをレポートに追加する
+        ReportText.IText heading = e.Section.AddText();
+        ReportText.Style headingStyle = new ReportText.Style(new Font(Resources.Grid.Exporting_Data_Font, 16), Brushes.Crimson);
+        heading.AddContent(String.Format(Resources.Grid.Exporting_Data_ActiveCustomers, DateTime.Now.Year), headingStyle);
+        heading.Margins.Bottom = 15;
+        // 詳細な情報を示すキャプションを追加する
+        ReportText.IText caption = e.Section.AddText();
+        ReportText.Style captionStyle = new ReportText.Style(new Font(Resources.Grid.Exporting_Data_Font, 10), Brushes.Black);
+        caption.AddContent(String.Format(Resources.Grid.Exporting_Data_Listing, DateTime.Now.Year), captionStyle);
+        caption.Margins.Bottom = 15;
+        // エクスポートするグリッドをカスタマイズする
+        UltraWebGrid1.Columns.FromKey("CustomerID").Hidden = true;
+        UltraWebGrid1.Columns.FromKey("Address").Hidden = true;
+        UltraWebGrid1.Columns.FromKey("Region").Hidden = true;
+        UltraWebGrid1.Columns.FromKey("PostalCode").Hidden = true;
+        UltraWebGrid1.Columns.FromKey("Fax").Hidden = true;
+    }
+----
+
+[start=4]
+. PDF ファイルのエクスポートを開始するための LinkButton Click() イベントを処理します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+protected void LinkButton2_Click(object sender, EventArgs e)
+    {
+        // エクスポーターを構成する
+        UltraWebGridDocumentExporter1.Format = FileFormat.PDF;
+        UltraWebGridDocumentExporter1.DownloadName = "report.pdf";
+        UltraWebGridDocumentExporter1.TargetPaperOrientation = PageOrientation.Landscape;
+        // エクスポートをトリガーする
+        UltraWebGridDocumentExporter1.Export(UltraWebGrid1);
+    }
+----
+
+[start=5]
+. ユーザーがリンク ボタンをクリックすると、ブラウザーはプロンプト ウィンドウを表示し、エンドユーザーが “report.pdf” という名前のPDF ファイルをローカル ドライブに保存することを許可します。
+
+ファイル ストリームへの PDF エクスポート:
+
+ユーザーのブラウザーに [名前を付けて保存] ボックスを表示せずに PDF ファイルを保存する場合、デベロッパーは、カスタム エクスポート モードを使用し、ファイルをサーバーに直接保存するようにできます。
+
+*C# の場合:*
+
+[source,csharp]
+----
+// エクスポート モードをカスタムに設定する。これにより
+// PDF ファイルがブラウザーに表示されない
+this.UltraWebGridDocumentExporter1.ExportMode =
+      Infragistics.WebUI.UltraWebGrid.Exporter.ExportMode.Custom;
+// ファイル名を含む、アプリケーションのサーバー パス
+// の文字列を作成する。
+string s = Server.MapPath(".") + @"\WebGrid.pdf";
+// 上記で指定したパスを持つファイルを作成する、または
+// 開くファイル ストリームを作成する。
+FileStream fileStream = File.OpenWrite(s);
+// WebGrid をファイル ストリームにエクスポートし閉じる。
+this.UltraWebGridDocumentExporter1.Export(
+      this.UltraWebGrid1,
+      fileStream,
+      true);
+----
+
+== WebDataGrid/WebHierarchicalDataGrid PDF エクスポート:
+
+==== プレーンな PDF ドキュメントのエクスポート:
+
+[start=1]
+. WebDocumentExporter コントロールを .aspx ページに追加します。
+
+*ASPX の場合:*
+
+[source,html]
+----
+<ig:WebDocumentExporter runat="server" ID="dExporter" ExportMode="Download" />
+----
+
+[start=2]
+. PDF ファイルのエクスポートを開始するためのテキスト ボックス（ファイル名の入力用）とボタンを追加します。
+
+*ASPX の場合:*
+
+[source,html]
+----
+<asp:Button ID="btnExport" runat="server" Text="Export" OnClick="btnExport_Click"/>
+<asp:TextBox ID="tbFileName" runat="server" Text="WebDataGridExport"></asp:TextBox>
+----
+
+[start=3]
+. エクスポーターに対する参照の追加命令をコード ビハインド ページに追加します。
+
+[source,docX-root]
+----
+using Infragistics.Documents.Report;
+----
+
+[start=4]
+. サーバー側の btnExport_Click イベントを処理し、次のコードを追加します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+void btnExport_Click(object sender, EventArgs e)
+    {
+         // テキスト ボックスから取得したテキストで、書式の設定、およびPDF ファイル名の設定
+        string fileName = HttpUtility.UrlEncode(this.tbFileName.Text);
+        fileName = fileName.Replace("+", "%20");
+        this.dExporter.DownloadName = fileName;
+                //保存する必要があるファイルの形式
+        dExporter.Format = Infragistics.Web.UI.GridControls.FileFormat.PDF;
+        // エクスポート モード - グリッドに表示されるデータまたはグリッド内のすべてのデータ
+        dExporter.DataExportMode = Infragistics.Web.UI.GridControls.DataExportMode.DataInGridOnly;
+        // エクスポートされるページの向き - 横または縦
+        dExporter.TargetPaperOrientation = Infragistics.Documents.Report.PageOrientation.Portrait;
+        // ページの余白を設定する
+        dExporter.Margins = PageMargins.Normal;
+        // エクスポートされるページのサイズを指定する
+        dExporter.TargetPaperSize = PageSizes.A4;
+        // ページからグリッドをエクスポートする。2 つ以上のグリッドをエクスポートする場合は、それらを WebControl[] 配列に追加する
+        dExporter.Export((WebDataGrid1, WebDataGrid2);
+    }
+----
+
+[start=5]
+. ユーザーがエクスポートボタンをクリックすると、ブラウザーはプロンプト ウィンドウを表示し、エンドユーザーが TextBox に入力された名前で PDF ファイルをローカル ドライブに保存することを許可します。
+
+==== サマリー グリッドをヘッダーとする PDF ドキュメントのエクスポート:
+
+[start=1]
+. 前述の例の手順 1 から 3 を実行します。
+[start=2]
+. 新しい WebDataGrid コントロールをページに追加し、非表示にします。
+
+*ASPX の場合:*
+
+[source,html]
+----
+<ig:WebDataGrid ID="WebDataGrid2" runat="server" Height="350px" Width="400px" 
+            Visible=" ShowHeader=" StyleSetName="Appletini">
+</ig:WebDataGrid>
+----
+
+[start=3]
+. 非表示のグリッドのデータ ソースを作成し、データを格納します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+// このメソッドを使用して、バナーをデータ テーブルとして作成する
+    private DataTable CreateBanner()
+    {        
+        DataTable table = new DataTable();
+        // DataColumn および DataRow オブジェクトの変数を宣言する
+        DataColumn column;
+        DataRow row;
+        column = new DataColumn();
+        column.DataType = System.Type.GetType("System.String");
+        column.ColumnName = "BannerTitle";
+        column.ReadOnly = true;
+        table.Columns.Add(column);
+        column = new DataColumn();
+        column.DataType = System.Type.GetType("System.String");
+        column.ColumnName = "BannerText";
+        column.ReadOnly = true;
+        table.Columns.Add(column);
+        DataColumn[] PrimaryKeyColumns = new DataColumn[1];
+        PrimaryKeyColumns[0] = table.Columns["BannerTitle"];
+        table.PrimaryKey = PrimaryKeyColumns;
+        row = table.NewRow();
+        row["BannerTitle"] = "Report for:";
+        row["BannerText"] = "DataGrid export";
+        table.Rows.Add(row);
+        row = table.NewRow();
+        row["BannerTitle"] = "User name:";
+        row["BannerText"] = "<YourName>";
+        table.Rows.Add(row);
+        row = table.NewRow();
+        row["BannerTitle"] = "Report date:";
+        row["BannerText"] = DateTime.Now.ToString();
+        table.Rows.Add(row);        
+        return table;
+    }
+----
+
+[start=4]
+. サーバー側の btnExport_Click イベントを処理し、次のコードを追加します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+// [エクスポート] ボタンをクリックすると、イベントを発生させる
+    protected void btnExport_Click(object sender, EventArgs e)
+    {
+        // ファイル名が空白の場合は、
+        if (txtFileName.Text != "")
+        {
+            string fileName = HttpUtility.UrlEncode(this.txtFileName.Text); // filename　を取得する
+            fileName = fileName.Replace("+", "%20"); // filename の書式を設定する
+            WebDocumentExporter1.DownloadName = fileName; // 保存されるファイルの名前の設定
+            WebDocumentExporter1.Format = Infragistics.Web.UI.GridControls.FileFormat.PDF; // ドキュメントのタイプの設定
+            // グリッドのすべてのデータをエクスポートするために、エクスポート モードの設定
+            WebDocumentExporter1.DataExportMode = Infragistics.Web.UI.GridControls.DataExportMode.AllDataInDataSource;
+            WebDocumentExporter1.TargetPaperSize = PageSizes.A4; // エクスポートされるページのサイズを設定する
+            WebControl [] ar =  new WebControl [3]; // グリッドを保存するための Web コントロール配列の作成
+            this.WebDataGrid2.DataSource = CreateBanner(); // バナーのデータ ソース
+            this.WebDataGrid2.DataBind();
+            this.WebDataGrid2.Width = WebDataGrid1.Width; // バナーの幅になる最初のグリッドの幅を設定する
+            // 配列へのグリッドの追加
+            ar[0] = this.WebDataGrid2;
+            ar[1] = this.WebDataGrid1;
+            ar[2] = this.WebHierarchicalDataGrid1;            
+            WebDocumentExporter1.Export(ar); // レポート、セクションおよび 2 つのグリッドのエクスポート
+        }
+    }
+----
+
+[start=5]
+. ユーザーがエクスポートボタンをクリックすると、ブラウザーはプロンプト ウィンドウを表示し、エンドユーザーが TextBox に入力された名前で PDF ファイルをローカル ドライブに保存することを許可します。エクスポートされたレポートでは、データから提供されたバナーがドキュメント ヘッダーとして表示されます。
+
+image::images/Grids_Migration_-_PDFExport_1.jpg[]
+
+== 画像バナーをヘッダーとする PDF ドキュメントのエクスポート:
+
+[start=1]
+. 前述の例の手順 1 から 3 を実行します。
+[start=2]
+. サーバー側の btnExport_Click イベントを処理し、次のコードを追加します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+// [エクスポート] ボタンをクリックすると、イベントを発生させる
+    protected void btnExport_Click(object sender, EventArgs e)
+    {
+        // ファイル名が空白の場合は、
+        if (tbFileName.Text != "")
+        {
+            string fileName = HttpUtility.UrlEncode(this.txtFileName.Text); // filename　を取得する
+            fileName = fileName.Replace("+", "%20"); // filename の書式を設定する
+            WebDocumentExporter1.DownloadName = fileName; // 保存されるファイルの名前の設定
+            WebDocumentExporter1.Format = Infragistics.Web.UI.GridControls.FileFormat.PDF; // ドキュメントのタイプの設定
+            // グリッドのすべてのデータをエクスポートするために、エクスポート モードの設定
+            WebDocumentExporter1.DataExportMode = Infragistics.Web.UI.GridControls.DataExportMode.AllDataInDataSource;
+            WebDocumentExporter1.TargetPaperSize = PageSizes.A4; // エクスポートされるページのサイズを設定する
+            WebControl [] ar =  new WebControl [3]; // グリッドを保存するための Web コントロール配列の作成
+            // サーバーの画像（バナー）で新しいビットマップを作成する
+            Bitmap bm = new Bitmap(Server.MapPath("~/Images/test_banner.jpg"));
+            bm = new Bitmap(bm, new Size(Convert.ToInt32(WebDataGrid1.Width.Value), bm.Height)); // グリッドのサイズに適合するように、画像のサイズを変更する
+           // 配列へのグリッドの追加
+            ar[1] =  this.WebDataGrid1;
+            ar[2] = this.WebHierarchicalDataGrid1;
+            // PDF ドキュメントのレポートを作成する
+            Report r = new Report();
+            // セクションを作成し、レポートに追加する
+            ISection s = r.AddSection();    
+            // 画像（バナー）をセクションに追加する
+            s.AddImage(new Infragistics.Documents.Graphics.Image(bm));     
+            WebDocumentExporter1.Export(r, s , ar); // レポート、セクションおよび 2 つのグリッドのエクスポート
+        }
+    }
+----
+
+[start=3]
+. ユーザーがエクスポートボタンをクリックすると、ブラウザーはプロンプト ウィンドウを表示し、エンドユーザーが TextBox に入力された名前で PDF ファイルをローカル ドライブに保存することを許可します。エクスポートされたレポートでは、ユーザーの画像から提供されたバナーがドキュメント ヘッダーとして表示されます。
+
+image::images/Grids_Migration_-_PDFExport_2.jpg[]

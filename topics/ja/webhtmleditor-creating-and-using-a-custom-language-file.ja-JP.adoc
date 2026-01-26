@@ -1,0 +1,116 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-creating-and-using-a-custom-language-file",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing","Localization"],
+    "guid": "{17577A5C-CDDD-4D64-B84F-290F46C55D54}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= カスタム言語ファイルを作成および使用
+
+== 始める前に
+
+WebHtmlEditor™ は  pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.webhtmleditor~localizationtype.html[LocalizationType]"]  プロパティによって組み込み link:webhtmleditor-multi-language-support.html[マルチ言語のサポート]を提供します。英語（デフォルト）、フランス語、ドイツ語、およびスペイン語のような組み込み言語ファイルを使用するために設定できます。組み込み言語ファイルの支援によって、WebHtmlEditor のラベル、ツールチップ、ダイアログ ボックス、および静的テキストを変更できます。ただし、場合によっては、組み込み言語ファイルに含まれていない言語にサポートを提供するために WebHtmlEditor コントロールが必要である場合があります。
+
+== 達成すること
+
+この詳細なガイドでは、イタリア語のカスタム言語ファイルの作成プロセスを説明し、 link:webhtmleditor-drop-down-lists-of-webhtmleditor-toolbar.html[ツールバー ドロップダウン リスト]を変更するために  pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.webhtmleditor~localizationfile.html[LocalizationFile]"]  プロパティにそれを設定して使用します。
+
+image::images/WebHtmlEditor_Creating_and_Using_a_Custom_Language_File_01.png[]
+
+== 次の手順を実行します
+
+[start=1]
+. カスタム ファイルを作成し、Web プロジェクトのフォルダ内に配置します。
+
+.. ソリューション エクスプローラで、Web サイトを右クリックして [新規フォルダ] を選択します。このフォルダに "Files" という名前をつけます。
+.. 組み込み言語ファイルが配置されている以下のデフォルトのインストール パスにナビゲートします。
+
+{InstallPath}\ASP.NET\Scripts
+.. localization.xml ファイルを見つけ、手順 a で作成したフォルダにそれをコピーします。
+
+*注：* カスタム言語ファイルを /ig_common/Scripts 以外の場所に保存するときは、ASP.NET ユーザー ID（Web.config 設定、IIS のバージョン、および {ProductName} が実行している .NET フレームワークのバージョンによって、ASP.NET、ネットワーク サービスまたは偽装ユーザー アカウントのいずれかです）にカスタム言語ファイルを開いて読み取るためのアクセス権限を付与する必要があるので注意してください。
+
+.. "localization-it-IT.xml" のファイル名を変更します。
+
+[start=2]
+. カスタム ファイルを編集します。
+
+*注：* 言語ファイルは XML にフォーマットされるので、XML ファイルはメモ帳などのテキスト エディタを使用して変更することができます。
+
+.. Open the XML ファイルを開き、以下の XML 引用で示されるように、"FontNameTitle" という名前の tag が見つかるまでスクロール ダウンします。
+
+*XML の場合:*
+
+----
+…
+<data name="FontNameTitle">
+        <value>Font</value>
+</data>
+…
+----
+
+この <data> タグには、コントロールで表示される Font Name ドロップダウン リストの値が含まれます。FontSizeTitle、FontStyleTitle、FontFormattingTitle、および InsertTitle という名前が付けられた以降の tag は、それぞれ Size、Style、Formatting、および Insert ドロップダウン リストに対応します。
+.. 各 <data> タグの値をイタリア語翻訳に変更します。
+
+*XML の場合:*
+
+----
+…
+<data name="FontNameTitle">
+        <value>Serie complete di caratteri</value>
+</data>
+<data name="FontSizeTitle">
+        <value>Formato</value>
+</data>
+<data name="FontStyleTitle">
+        <value>Stile</value>
+</data>
+<data name="FontFormattingTitle">
+        <value>Formattazione</value>
+</data>
+<data name="InsertTitle">
+        <value>Inserto</value>
+</data>
+…
+----
+
+[start=3]
+. LocalizationFile プロパティを設定します。
+
+Page_Load イベントでは、LocalizationFile プロパティを localization-it-IT.xml に設定します。
+
+*Visual Basic の場合：*
+
+----
+Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) _
+   Handles Me.Load   
+        ' LocalizationFile を（カスタム）イタリア語 XML ファイルに設定します
+        Me.WebHtmlEditor1.LocalizationFile = "./Files/localization-it-IT.xml"
+End Sub
+----
+
+*C# の場合：*
+
+----
+protected void Page_Load(object sender, EventArgs e)
+{
+        // LocalizationFile を（カスタム）イタリア語 XML ファイルに設定します
+        this.WebHtmlEditor1.LocalizationFile = "./Files/localization-it-IT.xml";
+}
+----
+
+[start=4]
+. アプリケーションを実行します。
+
+アプリケーションを実行すると、以下のスクリーンショットで示すようにドロップダウン リストのテキストが英語からイタリア語に変化していることに注意してください。
+
+image::images/WebHtmlEditor_Creating_and_Using_a_Custom_Language_File_02.png[]
+
+XML ファイルは、ラベル、ツールチップ、ダイアログ ボックス、および静的テキストなどのコントロールの他のセクションを翻訳するために編集できます。

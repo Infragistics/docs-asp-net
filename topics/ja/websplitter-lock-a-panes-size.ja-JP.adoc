@@ -1,0 +1,38 @@
+﻿////
+
+|metadata|
+{
+    "name": "websplitter-lock-a-panes-size",
+    "controlName": ["WebSplitter"],
+    "tags": ["How Do I"],
+    "guid": "{775C6E43-3C54-4723-9607-41DF0AB901EC}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ペインのサイズをロック
+
+ペインをロックして、兄弟ペインをリサイズまたは縮小した時にエンド ユーザーまたはコントロールのいずれかによってペインのリサイズを防止することができます。これは WebSplitter コントロール領域に収めるまたはこの領域を埋めるためにペインをリサイズするための WebSplitter™ コントロールの機能に影響します。
+
+たとえば、ペインの合計の幅が WebSplitter コントロールの幅を超える場合、収まることができるようにコレクション内の最後のペインのサイズを小さくしようとします。ただし、WebSplitter コントロールがロックされると、WebSplitter コントロールはペインのリサイズができなくなります。この場合、リサイズするためにロックされていないペインを指定しようと WebSplitter コントロールはペイン コレクションを検索します。すべてのペインがロックされ、WebSplitter コントロールの幅を超える場合、WebSplitter コントロールは右から左にペインを切りつめます。
+
+以下のコードはペインのサイズをロックする方法を例示します。
+
+*Visual Basic の場合：*
+
+----
+' ペインのサイズをロックします。
+Me.WebSplitter1.Panes[0].Locked = true
+Me.WebSplitter1.Panes[1].Locked = true
+----
+
+*C# の場合：*
+
+----
+// ペインのサイズをロックします。
+this.WebSplitter1.Panes[0].Locked = true;
+this.WebSplitter1.Panes[1].Locked = true;
+----
+

@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgroupbox-and-webpanel-api-overview",
+    "controlName": ["WebGroupBox"],
+    "tags": ["API","Layouts"],
+    "guid": "{D5D44B5E-4E2B-4CCA-BBBA-631F8975CF8D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、{ProductName} の API ドキュメントに直接リンクされています。
+
+=== WebPanel および WebGroupBox の名前空間:
+
+link:{ApiPlatform}webui.misc{ApiVersion}~infragistics.webui.misc_namespace.html[Infragistics.WebUI.Misc]
+
+=== キー クラス:
+
+link:{ApiPlatform}webui.misc{ApiVersion}~infragistics.webui.misc.webgroupbox.html[WebGroupBox]
+
+link:{ApiPlatform}webui.misc{ApiVersion}~infragistics.webui.misc.miscrenderbase.html[MiscRenderBase]

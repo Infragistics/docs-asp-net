@@ -1,0 +1,141 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-whats-new-in-2010-volume-2",
+    "controlName": [],
+    "tags": ["FAQ","Getting Started"],
+    "guid": "41e916a5-6c1d-4db4-8211-bc295352c20f",  
+    "buildFlags": [],
+    "createdOn": "2010-06-01T04:18:25.2939993Z"
+}
+|metadata|
+////
+
+= 2010 Volume 2 の新機能
+
+{ProductName} 2010 Volume 2 リリースにはインフラジスティックス ASP.NET AJAX フレームワーク上に構築された以下の新しいコントロールおよび機能が含まれています。
+
+== 新しい WebRating コントロール
+
+WebRating™ コントロールによって、ほとんどの場合、特定の製品に対する投票や評価に関してエンドユーザーからの意見を集めることができます。このスタイルのエディタは、NetFlix や RottenTomatoes などの多くの Web サイトで使用できます。
+
+WebRating コントロールは以下の機能を提供します:
+
+* 評価項目のカスタマイズ可能な数
+* ユーザー平均および投票数
+* 水平/垂直の方向
+* カスタマイズ可能なツールチップ
+* 正確な平均から丸められた値までのさまざまな桁詰め込み設定
+* カスタマイズ可能な画像およびスタイル
+* カスタム機能用のリッチなサーバーおよびクライアント側 API
+* WebDataGrid などのコントロールに組み込まれるエディタ プロバイダーとして動作
+
+image::images/WebRating_About_WebRating_01.png[]
+
+== 関連トピック
+
+link:webrating-about-webrating.html[WebRating について]
+
+link:webrating-getting-started-with-webrating.html[WebRating で開始]
+
+link:webrating-using-webrating.html[WebRating の使用]
+
+== 新しい WebCaptcha コントロール
+
+WebCaptcha™ コントロールはインフラジスティックス ASP.NET AJAX コントロールの広範なリストへ新しく追加されています。WebCaptcha コンポーネントのデザインによって、ネイティブ AJAX 機能を使用してスパム保護コントロールを効率的かつ簡単に使用できます。
+
+すべてのインフラジスティックス ASP.NET AJAX コントロールのように、WebCaptcha は Infragistics® Application Styling フレームワークにシームレスに統合します。CSS ベースのプロパティを使用すると、既存のスタイルシートを利用することによって、WebCaptcha コントロールを手動でカスタマイズできます。
+
+WebCaptcha の機能のいくつかは以下の通りです。
+
+* *ハイパフォーマンス* -- 軽量のマークアップと最適化されたコードがパフォーマンスを向上します。
+* *保護モード* -- 複数種類の保護をサポートします。
+* *辞書モード* -- ワードまたは論理的な質疑応答で使用できます。
+* *オーディオのサポート* -- ランダムに生成されたテキスト コードを綴ることができます。
+* *ネイティブ AJAX サポート* - インフラジスティックス ASP.NET AJAX コントロールは Microsoft® ASP.NET AJAX Extensions 上に構築されているので、ほとんどの WebCurrencyEditor の機能は AJAX を使用して実行され、フル ページ ポストバックがなくなります。
+
+image::images/WebCaptcha_Getting_Started_With_WebCaptcha_01.png[]
+
+== 関連トピック
+
+link:webcaptcha-about-webcaptcha.html[WebCaptcha について]
+
+link:webcaptcha-getting-started-with-webcaptcha.html[WebCaptcha で開始]
+
+link:webcaptcha-using-webcaptcha.html[WebCaptcha の使用]
+
+== 新しい WebExcelExporter コントロール
+
+新しい WebExcelExporter™ コントロールによって、Grid データを自動的にエクスポートできます。どのような種類の Infragistics DataGrid を使用しているかにかかわらず（WebDataGrid™ または WebHierarchicalDataGrid™）、好みの形式でデータを Excel™ ファイルにエクスポートして取得するという目的を簡単に達成できます。サポートされる Excel™ ファイル形式は、Excel™ 97 から Excel™ 2003（これらすべてのバージョンは共通の形式を共有）および Excel™ 2007 です。
+
+== 関連トピック
+
+link:web-webexcelexporter-about-webexcelexporter.html[WebExcelExporter について]
+
+link:webexcelexporter-getting-started-with-webexcelexporter.html[WebExcelExporter を使用した作業の開始]
+
+link:webexcelexporter-using-webexcelexporter.html[WebExcelExporter の使用]
+
+== 新しい WebScriptManager コントロール
+
+新しい WebScriptManager コントロールは、{ProductName} Ajax コントロールの Javascript IntelliSense を有効して CDN のサポートを提供します。
+
+== 関連トピック
+
+pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.webscriptmanager.html[WebScriptManager]"]
+
+== 新しい WebDataTree ドラッグ アンド ドロップ機能
+
+WebDataTree™ に、同じツリー間のノード間で、または別の WebDataTree にノードをドラッグ アンド ドロップできるようにする新機能が装備されました。この動作には、Default、Copy および Move の 3 つのモードがあります。Ctrl キーを押した場合にデフォルト モードは Copy として動作し、それ以外の場合は Move のように動作します。ノードの前、ノードの間、ノードの後だけでなく選択したノードに挿入できます。この場合、ドロップしたノードはドラッグしたノードをドロップするノードの子になります。
+
+== 関連トピック
+
+link:webdatatree-drag-and-drop.html[WebDataTree ドラッグ アンド ドロップ]
+
+== 新しい WebHierarchicalDataGrid 行フィルタリング機能
+
+WebDataGrid™ のフィルタリング機能は WebHierarchicalDataGrid™ で使用できるようになりました。フィルタリングによってフィルタリング基準に一致するより小さいサブセットにデータが分割されて表示されます。これによってデータはエンドユーザーにより見やすくまた管理しやすくなります。AJAX が有効の場合、フィルタリングは非同期です。WebDataGrid に提供された API またはフィルター行 UI によってフィルタリングできます。
+
+== 関連トピック
+
+link:webhierarchicaldatagrid-filtering.html[フィルタリング]
+
+== 新しい WebTab ヘッダー機能 - 左および右向き
+
+WebTab™ は既存のヘッダー位置に加えて、以下の 4 つの異なるヘッダーの位置をサポートするようになりました。
+
+* LeftTop
+* LeftBottom
+* RightTop
+* RightBottom
+
+== 関連トピック
+
+link:webtab-orientation-and-alignment.html[方向と配置]
+
+== Windows 7 スタイル
+
+{ProductName} コントロールは Windows 7 スタイルをサポートします。
+
+== 関連トピック
+
+link:web-application-styling-framework-asf.html[Application Styling Framework (ASF)]
+
+== VS2010 機能
+
+以下のリンクをクリックして、新しい Visual Studio® 2010 機能に対するサポートの詳細を参照してください。
+
+* link:javascript-intellisense-support.html[JavaScript Intellisense のサポート]
+* link:markup-snippet-support.html[コード スニペットのサポート]
+
+== ASP.NET 4 の互換性
+
+{ProductName} コントロールが ASP.NET 4 とどのように互換性があるかについては、以下のリンクを参照してください。
+
+* link:binding-to-domaindatasource.html[DomainDataSource のサポート]
+* link:support-for-granular-viewstate-and-setting-client-ids.html[ViewState およびクライアント ID]
+
+== {ProductName} CDN サポート（CTP）
+
+{ProductName} 2010 volume 2 は、コンテンツ デリバリー ネットワーク（CDN）をサポートします。CDN サポートは、Web サイトをホストする Web サーバーよりもクライアント PC により近いサーバーによって {ProductName} コントロールの JavaScript、Image、および CSS ファイルの配信を可能にすることによって実装されます。CDN サポートは現在、Infragistics によって提供されているので、この機能を有効にすると、JavaScript、Image、および CSS ファイルの URL は、Infragistics によって管理されるリダイレクトで事前に指定され、リダイレクトは弊社の現在の CDN プロバイダーにリクエストを転送します。ユーザー自身の CDN プロバイダーを使用するために Web アプリケーションを構成することもできます。CDN 機能の使用によってパフォーマンス、Web サーバー容量、およびエンドユーザーエクスペリエンスを大幅に改善できます。{ProductName} CDN 機能の詳細については、 link:web-infragistics-content-delivery-network-cdn.html[Infragistics コンテンツ デリバリー ネットワーク (CDN)]を参照してください。

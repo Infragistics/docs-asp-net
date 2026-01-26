@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-webhtmleditor-tab-strip",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing"],
+    "guid": "{3782BBD7-98AC-4955-B0F0-CCB38BE19548}",  
+    "buildFlags": [],
+    "createdOn": "2006-09-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor タブ ストリップ
+
+WebHtmlEditor コントロールの下部には、エンド ユーザが選択して、テキスト ウィンドウに表示される現在のビューをデザイン ビューから HTML ビューに変更する（またはその逆の操作を行う）ためのタブが含まれたタブ ストリップがあります。各タブに関連付けられたラベルとアイコンは、 link:webhtmleditor-customize-the-tab-strip-of-webhtmleditor.html[「タブ ストリップのカスタマイズ方法」]で説明されているように簡単にカスタマイズできます。
+
+タブストリップは、Visible プロパティを使って非表示にできます。詳しくは、 link:webhtmleditor-hide-the-tab-strip-of-webhtmleditor.html[WebHtmlEditor タブ ストリップの非表示化]を参照してください。

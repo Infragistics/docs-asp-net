@@ -1,0 +1,55 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-deploying-an-application-to-a-partial-trust-environment",
+    "controlName": [],
+    "tags": ["Deployment","How Do I"],
+    "guid": "{DD70F459-BA1F-4CD5-82B8-48BBFE475BF4}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アプリケーションを部分信頼環境に配備
+
+2006 Volume 3 リリースから開始しましたが、{ProductName} 製品は、Microsoft® .NET Framework の AllowPartiallyTrustedcallersAttribute (APTCA) 属性でマークされた一連のアセンブリを提供します。これらの特別にマークされたアセンブリは Partial-Trust 環境で実行することができます。
+
+APTCA アセンブリの配備の手順は、非 APTCA（リリース） アセンブリの配備の手順と同じです。配備時に、Webアプリケーションのアセンブリを配備するときと同じ方法で、APTCA アセンブリを Web サーバー上の Web アプリケーションの Bin フォルダーにコピー（またはFTP）する必要があります。
+
+Web アプリケーションの web.config ファイルで <bindingRedirect> を指定することによって、配備がアセンブリのビルド番号に依存しないようにできます。この手法は、@Register ディレクティブが配備されるアセンブリのバージョン/ビルド番号と異なる場合、ASPX ページの @Register ディレクティブを更新しなければならない状況を回避するのに役立ちます。
+
+Web アプリケーションを Partial-trust 環境に配備するには、次の手順に従ってください。
+
+Web アプリケーションによって参照される Infragistics アセンブリごとに、web.config ファイルの <runtime>、<assemblyBindings> および <dependentAssembly> セクションに以下の 2 つの要素を配置します。
+
+* <assemblyIdentity> -- 各 <dependentAssembly> 要素にこの要素を指定すると、アセンブリ ファイル名（".dll" ファイル拡張子なし）とパブリック キー トークン (すべての Infragistics アセンブリに"7dd5c3163f2cd0cb") を含みます。
+* <bindingRedirect> -- この要素には新しいバージョン/ビルド番号にマップする必要があるひとつまたは複数の旧バージョン/ビルド番号が含まれます。デフォルトで web.config ファイルにこれらの要素がまだない場合には、これらの要素を追加しなければならない場合があります。
+
+以下の例は、Infragistics.WebUI.Shared および Infragistics.Excel アセンブリで binding redirect を使用する方法を示しています。
+
+----
+</system.web>
+<runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.vl">
+        <dependentAssembly>
+            <assemblyIdentity name="Infragistics.WebUI.Shared.v8.1" publicKeyToken="7dd5c3163f2cd0cb"/>
+            <bindingRedirect oldVersion="8.1.20081.1-8.1.20081.1050" newVersion="8.1.20081.1050"/>
+        </dependentAssembly>
+        <dependentAssembly>
+            <assemblyIdentity name="Infragistics.Excel.v8.1" publicKeyToken="7dd5c3163f2cd0cb" />
+            <bindingRedirect oldVersion="8.1.20081.1-8.1.20081.1050" newVersion="8.1.20081.1050" />
+        </dependentAssembly>
+        ...
+    </assemblyBinding>
+</runtime>
+</configuration>
+----
+
+
+これらの <bindingRedirect> 宣言は、Bin フォルダー(旧バージョンの属性によって指定されている範囲内のビルド番号を持つことができる）に配置されているアセンブリのロードを .NET Framework ランタイムに通知して、新バージョンの属性で指定されたビルド番号であるかのように処理します。Web サイト上のアセンブリのビルド番号が開発マシンで使用されるビルド番号と異なる場合でも、このように <bindingReditrect> を使用することで、シームレスな配備を保証する支援を行います。
+
+== 関連トピック
+
+link:web-asp-net-aptca-assemblies.html[ASP.NET APTCA アセンブリ]

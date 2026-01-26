@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "webappstylist-getting-to-know-netadvantage-appstylist-for-asp-net",
+    "controlName": ["WebAppStylist"],
+    "tags": ["Getting Started"],
+    "guid": "{20866BCB-5671-4F6D-8D71-016440682626}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Infragistics AppStylist for ASP.NET について
+
+Infragistics AppStylist for ASP.NET についてよく知ることがプロフェッショナルにテーマ化された Web アプリケーションを作成するために不可欠です。Infragistics AppStylist のユーザ インタフェースは、キャンバス、スタイルエクスプローラ、プロパティパネルの 3 つのセクションに分かれています。これらの各セクションは、アプリケーションのスタイルを支援する独自の機能を提供します。
+
+* link:webappstylist-canvas.html[キャンバス] –- キャンバスは、タブ付きのセクションに分かれており、各セクションにサンプルの Web ページが含まれています。これらのサンプル ページには、ユーザ固有の Web アプリケーションで遭遇する可能性がある {ProductName} コントロールおよびコンポーネントの複数の構成が含まれています。ロールの外観を変更すると、キャンバスに変更が反映されて表示されます。
+* link:webappstylist-properties-panel.html[プロパティ パネル] –- プロパティ パネルは、ロールの外観やその他のコンポーネント特有の設定を変更するところです。プロパティ パネルは単なるコンテナです。プロパティ パネル内で、ロールをグラフィカルに修正する支援をするデザイナと、CSS を直接修正したい場合にはテキスト エディタがあります。
+* link:webappstylist-style-explorer.html[スタイル エクスプローラ] -– スタイル エクスプローラは Infragistics AppStylist のナビゲータです。ロール タブを使用して、ロール ツリーを展開してすべての種類のプロパティと設定を変更できます（ほとんどの場合 CSS スクリプトに変換します）。特定のロールまたはコンポーネントをクリックすると、対応するプロパティがプロパティ パネルに表示されます。ここからこれらのロールおよび設定の実際的な外観を変更できます。スタイル エクスプローラのもうひとつの機能としてスタイルセットの管理が挙げられます。

@@ -1,0 +1,74 @@
+﻿////
+
+|metadata|
+{
+    "name": "support-for-granular-viewstate-and-setting-client-ids",
+    "controlName": [],
+    "tags": ["API","Application Scenarios","FAQ"],
+    "guid": "19b986c3-c8ba-4cce-8680-dcd2fc2612ea",  
+    "buildFlags": [],
+    "createdOn": "2010-06-01T06:13:23.3893206Z"
+}
+|metadata|
+////
+
+= 詳細な ViewState とクライアント ID の設定のサポート
+
+新しい Microsoft® Visual Studio® 2010 は個々のコントロールで ViewState を有効にしてクライアント ID を設定することをサポートします。すべての {ProductName} コントロールはこの 2 つの機能をサポートします。ページレベルで有効にするのではなく、コントロール レベルで ViewState を有効にできるようになりました。この結果高パフォーマンスを達成できます。Enabled、Disabled および Inherit という 3 つの値を持つ列挙体を取得する ViewStateMode プロパティを使用して ViewState を有効にできます。WebTab を例に挙げます。
+
+*HTML の場合:*
+
+----
+<ig:WebTab ID="WebTab1" runat="server" Height="200px" Width="300px" ViewStateMode="Enabled">
+<tabs>
+         <ig:ContentTabItem runat="server" Text="Tab 1">
+          </ig:ContentTabItem>
+           <ig:ContentTabItem runat="server" Text="Tab 2">
+            </ig:ContentTabItem>
+        </tabs>
+ </ig:WebTab>
+----
+
+*C# の場合：*
+
+----
+WebTab1.ViewStateMode = System.Web.UI.ViewStateMode.Enabled;
+----
+
+*Visual Basic の場合:*
+
+----
+In VB:
+WebTab1.ViewStateMode = System.Web.UI.ViewStateMode.Enabled
+----
+
+AutoID、Static、Predictable および Inherit という値のいずれかを取得する ClientIDMode を使用して、クライアント ID をコントロールのために生成する方法をより正確に指定できるようになりました。
+
+*注:* コントロールの link:http://msdn.microsoft.com/query/dev10.query?appId=Dev10IDEF1&l=EN-US&k=k(System.Web.UI.Control.EnableViewState)&rd=true[EnableViewState] プロパティは link:http://msdn.microsoft.com/query/dev10.query?appId=Dev10IDEF1&l=EN-US&k=k(System.Web.UI.Control.ViewStateMode)&rd=true[ViewStateMode] プロパティに優先します。
+
+*HTML の場合:*
+
+----
+<ig:WebTab ID="WebTab1" runat="server" Height="200px" Width="300px" ClientIDMode= "Predictable" >
+        <tabs>
+            <ig:ContentTabItem runat="server" Text="Tab 1">
+            </ig:ContentTabItem>
+            <ig:ContentTabItem runat="server" Text="Tab 2">
+            </ig:ContentTabItem>
+        </tabs>
+</ig:WebTab>
+----
+
+*C# の場合：*
+
+----
+WebTab1.ClientIDMode = System.Web.UI.ClientIDMode.Predictable;
+----
+
+*Visual Basic の場合:*
+
+----
+WebTab1.ClientIDMode = System.Web.UI.ClientIDMode.Predictable
+----
+
+詳細は、ホワイトペーパー link:http://www.asp.net/learn/whitepapers/aspnet4#0.2__Toc253429261[「ASP.NET 4 and Visual Studio 2010 Web Development Overview」]をご覧ください。

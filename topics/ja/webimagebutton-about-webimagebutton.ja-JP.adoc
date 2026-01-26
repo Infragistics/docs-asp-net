@@ -1,0 +1,40 @@
+﻿////
+
+|metadata|
+{
+    "name": "webimagebutton-about-webimagebutton",
+    "controlName": ["WebImageButton"],
+    "tags": ["Getting Started","Layouts","Styling"],
+    "guid": "{D172D1D2-8EAB-4D0C-A09E-0660FA65A8D0}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebImageButton について
+
+WebImageButton はボタンコントロールで性質はシンプルですが、標準 ASP.NET ボタンまたは HTML<INPUT type="button"/> 要素で使用できない機能数を追加するためにカスタマイズすることができます。以下は、これらの可能性のリストです。
+
+*角の丸め*
+
+角の丸められたボタンは、ユーザー インタフェースで人気がありますが、HTML ではこれを行うのは簡単ではなく、各ボタンに個別の画像を作成する必要があります。WebImageButton は、1 つの画像を使用するか、ボタンの周囲の角が丸く表示されるテーブル セルのコンポジットを使用して角の丸いボタンを作成することができます。
+* *複数の外観*
+
+WebImageButton は、プロパティを設定して簡単にカスタマイズされる複数の外観を提供します。プロパティは以下に対して提供されます。 pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.webcontrols.buttons.webbuttonbase~appearance.html[Appearance]"] 、 pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.webcontrols.buttons.webbuttonbase~disabledappearance.html[DisabledAppearance]"] 、 pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.webcontrols.buttons.webbuttonbase~focusappearance.html[FocusAppearance]"] 、 pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.webcontrols.buttons.webbuttonbase~hoverappearance.html[HoverAppearance]"] 、および  pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.webcontrols.buttons.webbuttonbase~pressedappearance.html[PressedAppearance]"] 。これらの外観のそれぞれを使用した結果は、エンド ユーザーが気に入る応答的なUIです。
+* *クライアント/サーバー側のイベント*
+
+クライアント側とサーバー側イベントの両方が WebImageButton でサポートされます。WebImageButton はクライアントまたはサーバー、または両方でイベントを切り替えおよび応答するために設定できます。
+
+さらに、Infragistics はクライアント側のオブジェクトモデルを拡張し、開発者はクライアント側動作が起動してイベントに対応するように設定する、または PostBack を発生せずにクライアントのボタン外観を変更できます。PostBacks を削減すると、エンド ユーザーにより応答的なインタフェースを提供し、またサーバーへの付加を削減することで Web アプリケーションを拡張します。
+* *スタイルのプリセット*
+
+すべての Infragistics Web コントロールと同様、WebImageButton は XML スタイル プリセットをサポートします。Infragistics は Windows XP および MacOS X のような人気のあるスタイル用のプリセットを提供します。開発者はカスタム プリセットも作成したり、Web アプリケーションで WebImageButton のすべてのインスタンスで整合性のある外観を得るために保存やロードすることができます。
+* *統一したクロスブラウザ外観*
+
+Web では、さまざまなオペレーティング システムで動作する Web ブラウザがあります。ほんとどのブラウザおよびオペレーティングシステムは、独自の方法でテーマやスタイルを定義するので、すべてのユーザーに対して同じ外観を達成することは困難です。WebImageButton は、ブラウザ/OS スタイリングではない外観を作成するために使用できます。
+* *他のカスタマイズ*
+
+多くの他の外観と動作設定は、WebImageButton でカスタマイズできます。これらには、テキストの折り返し、揃え、ホットキー サポート、およびツールチップが含まれます。
+
+したがって、直接的なボタンコントロールでは、WebImageButton の高レベルな概要は、参照する機能の長いリストを提供します。上記のトピックの詳細は、WebImageButton/WebDataInput のマニュアルの適切なセクションを参照してください。

@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-forms-and-dialogs",
+    "controlName": ["WebSchedule"],
+    "tags": [],
+    "guid": "{8E8498F2-9928-44BA-A627-DC4157F019E8}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= フォームとダイアログ ボックス
+
+WebSchedule コントロールは、そのダイアログに使用される複数の Web フォームを使用します。これらのダイアログはランタイムに新しい予定を追加するために、アラームとして表示されます。
+
+link:webschedule-conditions-for-displaying-the-reminder-dialog-box.html[[アラーム] ダイアログ ボックスを表示するための条件]
+
+link:webschedule-guidelines-for-customizing-the-appointments-and-reminders-forms.html[Appointments および Reminders フォームをカスタマイズする時に従う必要のあるガイドライン]
+
+link:webschedule-printing-an-appointment.html[予定の印刷]

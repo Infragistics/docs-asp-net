@@ -1,0 +1,93 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdropdown-using-webdropdown",
+    "controlName": ["WebDropDown"],
+    "tags": [],
+    "guid": "{7DD1B308-28DA-4B3D-BA3D-5B5DF9FC10E4}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDropDown の使用
+
+このセクションは、WebDropDown™ の重要な概念および機能を効果的に使用するためのタスク ベースの情報について説明します。
+
+link:webdropdown-animations.html[アニメーション]
+
+このセクションでは、WebDropDown を展開したときに使用できるアニメーション タイプ、またアニメーションを無効にする方法について説明します。
+
+link:webdropdown-autocomplete-and-auto-filtering.html[オートコンプリートと自動フィルタリング]
+
+このセクションは WebDropDrown コントロールのオートコンプリートと自動フィルタリングについて説明します。
+
+link:webdropdown-binding-to-data.html[データ バインディング]
+
+このセクションでは、WebDropDown コントロールのバインド オプションについて説明します。
+
+link:webdropdown-cascading-webdropdown-controls.html[カスケード WebDropDown コントロール]
+
+このセクションでは、WebDropDrown コントロールのカスケードについて説明します。
+
+link:webdropdown-custom-values-and-persistence.html[カスタム値と永続化]
+
+このセクションでは WebDropDown コントロールでカスタム値を挿入し、永続化する方法について説明します。
+
+link:webdropdown-disabling-drop-down-items.html[ドロップダウン項目の無効化]
+
+WebDropDown コントロールは、ドロップダウン リストの項目を無効にすることができます。このセクションではその方法について学びます。
+
+link:webdropdown-disabling-typing-text-when-no-match-is-found.html[テキスト入力を無効にする]
+
+このセクションでは、一致がない場合に、ユーザーがテキストを入力できないようにする方法を説明します。
+
+link:webdropdown-keyboard-navigation.html[キーボード ナビゲーション]
+
+このセクションではコントロールのナビゲーションに使用できるキーについて説明します。
+
+link:webdropdown-lazy-loading.html[レイジ― ローディング]
+
+このセクションでは、ユーザーが必要な時にコントロールの項目を読み込む方法を説明します。この機能はパフォーマンスを飛躍的に向上します。
+
+link:webdropdown-load-on-demand.html[ロードオンデマンド]
+
+このセクションは WebDropDown コントロールでロードオンデマンドを使用する方法を説明します。
+
+link:webdropdown-multi-mode-display.html[マルチモードの表示]
+
+このセクションでは、WebDropDown コントロールの表示モードの使用方法について説明します。
+
+link:webdropdown-multiple-selection.html[複数選択]
+
+WebDropDown コントロールは、項目の複数選択をサポートします。このトピックは複数選択機能の使用方法について説明します。
+
+link:webdropdown-paging.html[ページング]
+
+WebDropDrown コントロールのページング メカニズムの使用法について説明します。
+
+link:webdropdown-setting-height-and-width-of-dropdown-container.html[DropDown コンテナーの高さと幅の設定]
+
+WebDropDown コントロールの高さおよび幅の属性は特定の値に設定する必要があります。このセクションでは、設定方法とプロパティ使用したときのコントロールの動作について説明します。
+
+link:webdropdown-templating.html[テンプレート化]
+
+このセクションでは、コントロールのテンプレート メカニズムの使用法について説明します。
+
+link:webdropdown-using-webdropdown-as-an-editor-provider-for-webdatagrid.html[WebDropDown を WebDataGrid のエディター プロバイダーとして使用する]
+
+WebDropDown を WebDataGrid™ のエディター プロバイダーとして使用する方法を説明します。
+
+link:webdropdown-validating-webdropdown-using-requiredfieldvalidator-control.html[RequiredFieldValidator コントロールの WebDropDown 検証]
+
+このセクションでは WebDropDown を検証する方法を説明します。
+
+link:webdropdown-ajax-indicator-support-for-webdropdown.html[WebDropDown の Ajax インジケーター サポート]
+
+このセクションでは Ajax インジケーターをコントロール レベルでオーバーライドする方法を説明します。
+
+link:webdropdown-webdropdown-smart-tag.html[WebDropDown スマート タグ]
+
+このセクションでは、WebDropDown スマート タグについて説明します。

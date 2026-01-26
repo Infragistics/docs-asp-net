@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-role-inheritance",
+    "controlName": [],
+    "tags": ["FAQ","Styling"],
+    "guid": "{1C203CBF-B313-4309-AD1D-36FD1DE75BA5}",  
+    "buildFlags": [],
+    "createdOn": "2006-01-12T08:38:01Z"
+}
+|metadata|
+////
+
+= ロール継承
+
+link:web-ui-roles.html[UI ロール]の概念を理解したら、ロール間に存在する継承を理解する必要があります。ロール継承は、ひとつのロール継承を持つ、または別のロール継承からカスケードする機能をアプリケーション スタイリングに提供します。クラス名が 2 つの異なるカスケード スタイル シート（CSS）ファイルに定義されるからです（たとえば、ig_shared.css と ig_tree.css に OnyxControl を定義した場合）。Application Styling Framework™ に定義される継承もいくつかあります。たとえば、WebTree の "Node" ロールは、ig_shared.css に定義された全般的な Item ロールに定義された設定を実際的に継承します。
+
+継承は設定を共有するため、継承ロールで無効にしないロールで設定するものはいずれも使用されます。たとえば、ig_shared.css でフォントファミリーとフォントサイズを設定する Control ロールのクラスを定義します。次に ig_grid.css で、Control ロールを定義して背景色と色のプロパティを設定します。WebGrid の Control ロールは、ig_shared.css からのフォントファミリー、フォントサイズ、ならびに ig_grid.css からの背景色と色のプロパティを使用します。
+
+== 関連トピック
+
+link:web-ui-roles.html[UI ロール]
+
+link:web-role-priority.html[ロールの優先順位]

@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-corners-pane",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{EF6142D3-D360-4B16-8E7D-3147448BEEDF}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 角ペイン
+
+[角] ペインは、リニア ゲージの角の形状を決定するために使用されます。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.gauge~cornerextent.html[範囲]"]  -- この値を 0 から 100 の整数に設定します。範囲の値は、リニア ゲージの角の丸みを決定します。
+
+image::images/Linear_Corners_Pane_01.png[]
+
+== 関連トピック
+
+link:webgauge-linear-gauge.html[リニア ゲージ]

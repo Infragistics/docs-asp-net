@@ -1,0 +1,95 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-deleting-an-activity-on-the-client-side",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling"],
+    "guid": "{2A96C56F-95B1-4000-ACB8-69376AA01D25}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アクティビティを削除（クライアント側）
+
+== 始める前に
+
+WebSchedule は、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[アクティビティ]"] をクライアント側で削除できます。この詳細なガイドでは、クライアント側にアクティビティを削除するための方法を提供します。クライアント側にアクティビティを削除するために使用される主なメソッドは deleteActivity です。
+
+deleteActivity は以下の 2 つのパラメータを取ります。
+
+[start=1]
+. Activity:削除したい実際の Activity オブジェクト。
+[start=2]
+. id:Deleting Client and Server イベントで取得可能な文字列値。
+
+以下の JavaScript コードは、クライアント側でアクティビティを動的に削除する方法を示します。
+
+== 以下の手順を実行します。
+
+[start=1]
+. *プロジェクトのセットアップ* ASP.NET プロジェクトを作成して、WebSchedule コントロールを設定します。設定方法については、 link:webschedule-using-the-webschedule-controls-quick-design.html[「Web フォーム デザイナを使用してクイックスタート」] または link:webschedule-creating-webschedule-controls-using-code.html[「コードで WebSchedule を設定」]を参照してください。
+[start=2]
+. プロジェクトのセットアップが完了した後で、JavaScript イベントを起動するためにクリックできるボタンのような物が必要となります。
+[start=3]
+. *WebScheduleInfoへの参照の取得*
+
+まず、WebSchdeuleInfo オブジェクトへの参照が必要です。WebScheduleInfo の ClientId を以下のユーティリティ関数に渡すことによって、このオブジェクトを取得できます。
+
+*JavaScript の場合:*
+
+----
+var scheduleInfo = ig_getWebScheduleInfoById("WebScheduleInfo1");
+----
+
+[start=4]
+. *アクティビティ を取得* 次に削除したいアクティビティを取得する必要があります。以下はアクティビティを取得するための一般的な 2 つの方法です。
+[start=5]
+. 最初に Activities コレクション内の各アクティビティでループできます。
+
+*JavaScript の場合:*
+
+----
+var activities = scheduleInfo.getActivities(); 
+var activity = null; 
+for(var i = 0; i < activities.length; i++) 
+{ 
+	if(activities[i].getSubject() == "New Appointment") 
+	{ 
+		activity = activities[i]; 
+		break;
+ 	}
+}
+----
+
+[start=6]
+. 2 番目に WebDayView および WebMonthView のいずれかを検出できる getSelectedActivity() メソッドを使用できます。
+
+*JavaScript の場合:*
+
+----
+var webDayView = ig_getWebDayViewById("WebDayView1"); 
+var activity = webDayView.getSelectedActivity();
+----
+
+[start=7]
+. *アクティビティの削除* 最後に deleteActivity を呼び出すことができます。これは WebScheduleInfo オブジェクトのメソッドです。このメソッドはポストバック、ならびにクライアント側とサーバー側両方の Deleting イベントを起動します。
+
+*JavaScript の場合:*
+
+----
+scheduleInfo.deleteActivity(appointment, "");
+----
+
+[start=8]
+. これはクライアント側の削除を実行するために推奨される方法です。
+
+== 復習
+
+この詳細なガイドは、クライアント側でアクティビティを削除するための手順を説明しています。
+
+== 関連トピック
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[WebSchedule 名前空間]"]

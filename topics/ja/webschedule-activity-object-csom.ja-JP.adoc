@@ -1,0 +1,254 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-activity-object-csom",
+    "controlName": [],
+    "tags": ["API","How Do I"],
+    "guid": "{46A348F2-E878-467D-A5B8-587946DBB49A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Activity オブジェクト
+
+== Activity
+
+Activity オブジェクトのすべてのプロパティは、クライアント上での動的な変更や複雑なプロパティ設定を処理できるように、Set メソッドと Get メソッドの組み合わせで実装されています。
+
+=== Activity メソッド
+
+[cols="a,a"]
+|====
+|*clone* 
+|アクティビティのコピーを作成します。
+
+|*compare* 
+|このアクティビティを指定したアクティビティと比較します。 
+
+*パラメータ*
+
+_activity_ 
+
+比較されるアクティビティ。 
+
+*解説*
+
+アクティビティが同じの場合は True を返し、そうでなければ False を返します。
+
+|*createRecurrence* 
+|繰り返しオブジェクトを作成します。 
+
+*解説*
+
+このメソッドの呼び出しは、アクティビティに繰り返しを自動的にアタッチしません。繰り返しをアタッチするには、Activity で setRecurrence メソッドを呼び出す筆詳細なガイドがあります。
+
+|*getAllDayEvent* 
+|Activity が AllDayEvent かどうかを決定するブール値を返します。
+
+|*getDataKey* 
+|Activity の dataKey を返します。
+
+|*getDescription* 
+|Activity の説明を返します。
+
+|*getDuration* 
+|Activity の期間を分単位で返します。
+
+|*getEnableReminder* 
+|Activity に有効に設定されたアラームがあるかどうかを決定するブール値を返します。
+
+|*getImportance* 
+|Activity の Importance レベルに基づき 0-2 の値を返します。 
+
+*解説*
+
+0 - 低 
+
+1 - ノーマル 
+
+2 - 高
+
+|*getIsOccurrence* 
+|アクティビティがオカランスの場合は True を返します。
+
+|*getIsVariance* 
+|アクティビティがバリアンスの場合に True を返します。
+
+|*getLocation* 
+|Activity の位置を返します。
+
+|*getRecurrence* 
+|アクティビティに関連付けられている繰り返しオブジェクトを返します。または繰り返しオブジェクトがない場合は null を返します。
+
+|*getRecurrenceKey* 
+|繰り返しキーを返します。
+
+|*getReminderInterval* 
+|Activity のアラーム間隔を目盛単位で返します。
+
+|*getRootActivityKey* 
+|rootActivity のキーを返します。これはオカランスであるアクティビティだけに適用されます。
+
+|*getShowTimeAs* 
+|0-3 の値を返します。 
+
+*解説*
+
+0 - 空き 
+
+1 - 暫定的 
+
+2 - 外出 
+
+3 - 多忙
+
+|*getSnoozeInterval* 
+|Activity の再通知間隔を目盛単位で返します。
+
+|*getStartDateTime* 
+|Activity の StartDateTime を表す日付オブジェクトを返します。
+
+|*getStatus* 
+|Activity の状態を返します。 
+
+*解説*
+
+0 - ノーマル 
+
+3 - 期限切れ
+
+|*getSubject* 
+|Activity の件名を返します。
+
+|*getVarianceKey* 
+|ひとつあればバリアンス キーを返します。
+
+|*setAllDayEvent* 
+|Activity の AllDayEvent フィールドを設定します。 
+
+*パラメータ*
+
+_allDayEvent_ 
+
+Activity が All Day Event であるかどうかを決定するブール値。
+
+|*setDescription* 
+|Activity の description フィールドを設定します。 
+
+*パラメータ*
+
+_description_ 
+
+Activity の説明を設定する文字列値。
+
+|*setDuration* 
+|Activity の duration フィールドを設定します。 
+
+*パラメータ*
+
+_duration_ 
+
+Activity の期間を分単位で表す整数値。
+
+|*setEnableReminder* 
+|Activity の EnableReminder フィールドを設定します。 
+
+*パラメータ*
+
+_enableReminder_ 
+
+Activity でアラームが有効に設定されているかどうかを決定するブール値。
+
+|*setImportance* 
+|Activity の重要性を設定します。 
+
+*パラメータ*
+
+_importance_ 
+
+Activity の重要性を決定する 0 - 2 の範囲の整数値。 
+
+0 - 低 
+
+1 - ノーマル 
+
+2 - 高
+
+|*setIsVariance* 
+|バリアンスとしてオカランスをマークします。
+
+|*setLocation* 
+|Activity の location フィールドを設定します。 
+
+*パラメータ*
+
+_location_ 
+
+Activity の場所を設定する文字列値。
+
+|*setRecurrence* 
+|アクティビティで繰り返しオブジェクトを設定します。 
+
+*パラメータ*
+
+_recurrence_ 
+
+アクティビティで設定すべき繰り返しオブジェクト。渡された繰り返しが null の場合、繰り返しオブジェクトはアクティビティから削除されます。
+
+|*setReminderInterval* 
+|Activity の ReminderInterval フィールドを設定します。 
+
+*パラメータ*
+
+_ReminderInterval_ 
+
+Activity のアラーム間隔を目盛で設定する整数値。
+
+|*setShowTimeAs* 
+|Activity の ShowTimeAs フィールドを設定します。 
+
+*パラメータ*
+
+_showTimeAs_ 
+
+Activity がどのように表示されるかを決定する 0 - 3 の範囲の整数値。 
+
+0 - 空き 
+
+1 - 暫定的 
+
+2 - 外出 
+
+3 - 多忙
+
+|*setSnoozeInterval* 
+|Activity の SnoozeInterval フィールドを設定します。 
+
+*パラメータ*
+
+_snoozeInterval_ 
+
+Activity の再通知間隔を目盛で設定する整数値。
+
+|*setStartDateTime* 
+|Activity の StartDateTime フィールドを設定します。 
+
+*パラメータ*
+
+_startDateTime_ 
+
+Activity の startdatetime を設定する文字列値。
+
+|*setSubject* 
+|Activity の subject フィールドを設定します。 
+
+*パラメータ*
+
+_subject_ 
+
+Activity の件名を設定する文字列値。
+
+|====

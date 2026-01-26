@@ -1,0 +1,62 @@
+﻿////
+|metadata|
+{
+    "name": "webdatagrid-enabling-row-deleting",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Editing","Grids"],
+    "guid": "{0E148069-C3E7-4FC2-BAA4-6CE26BBAF638}",
+    "buildFlags": [],
+    "createdOn": "2008-12-08T15:42:38Z"
+}
+|metadata|
+////
+
+= 行削除の有効化
+
+== 始める前に
+
+WebDataGrid™ でデータを削除するには、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.rowdeleting.html[RowDeleting]"]  動作を  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.behaviors.html[Behaviors]"]  コレクションに追加します。この動作によってエンド ユーザーは WebDataGrid で行を削除することができます。UI で機能するように削除するには、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.behaviors~selection.html[Selection]"]  動作を有効にすることも必要です。デザイナで RowDeleting を有効にすると、Selection 動作も追加するようにプロンプト表示されます。
+
+行を選択して、Delete キーを押すことによって行を削除できます。
+
+*注：* WebDataGrid は削除操作を直ちにコミットします。行の削除によって直ちにポストバックが発生し、データ ソースへの変更を保持します。
+
+*注：* この種類の自動的な更新に対してサポートされるデータ ソースを発生させる必要があります。この機能を活用できるデータ ソースのリストについては、 link:webdatagrid-supported-data-sources.html[サポートされるデータ ソース]を参照してください。データ ソースが WebDataGrid によって自動的に更新できない場合、更新イベントを処理してデータを手動で更新する必要があります。
+
+== 達成すること
+
+WebDataGrid コントロールで行を削除することができます。
+
+== 次の手順を実行します
+
+[start=1]
+. WebDataGrid を SqlDataSource コンポーネントにバインドして、Customers テーブルからデータを取得します。実行についての詳細は、 link:webdatagrid-getting-started-with-webdatagrid.html[WebDataGrid で開始]を参照してください。
+[start=2]
+. WebDataGrid の Microsoft® Visual Studio™ プロパティ ウィンドウで、WebDataGrid での変更がデータ ソースに更新できるように  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.framework.data.flatdataboundcontrol~datakeyfields.html[DataKeyFields]"]  プロパティを CustomerID に設定します。
+[start=3]
+. 同じウィンドウで、Behaviors プロパティを指定して、省略記号 (...) ボタンをクリックし、[動作エディタ] ダイアログを起動します。
+[start=4]
+. この動作を追加して有効にするには、左のリストから行削除の隣りのチェックボックスをチェックします。Selection を追加することもプロンプト表示されます。
+[start=5]
+. [はい] をクリックしてプロンプトを確認します。Selection および  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.behaviors~rowselectors.html[RowSelectors]"]  動作が WebDataGrid に追加されます。
+[start=6]
+. [適用]、そして [OK] をクリックします。
+[start=7]
+. WebDataGrid のプロパティ ウィンドウで  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webdatagrid~enableajax.html[EnableAjax]"]  が True であることをチェックします。そうでない場合は、True に設定します。WebDataGrid で行を選択し、Delete を押すと、コントロールからだけでなくデータ ソースから行が削除されます。
+
+クライアントでプログラムによって行を削除することもできます。
+
+*JavaScript の場合*
+
+----
+ // 1 行目を削除します 
+grid.get_rows().remove(grid.get_rows().get_row(0));
+----
+
+== 関連トピック
+
+link:webdatagrid-cell-editing.html[セル編集]
+
+link:webdatagrid-row-adding.html[行追加]
+
+link:webdatagrid-row-editing-template.html[行編集テンプレート]

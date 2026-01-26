@@ -1,0 +1,67 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-in-2015-volume-2",
+    "controlName": [],
+    "tags": [],
+    "guid": "9c3f975a-9856-4e9b-8fb3-04803e5d8a1d",  
+    "buildFlags": [],
+    "createdOn": "2015-09-29T12:46:54.013962Z"
+}
+|metadata|
+////
+
+= 2015 Volume 2 の新機能
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、Infragistics® ASP.NET 2015 Volume 2 リリースの新機能の概要について説明します。
+
+== 新機能:
+
+=== 新機能概要:
+
+以下は、2015 Volume 2 リリースの新機能の概要です。詳細については、以下の概要表より下を参照してください。
+
+==== <<_Ref367305754,全般>>
+
+ 
+
+[options="header", cols="a,a"]
+|====
+|機能|説明
+
+|<<webupload,WebUpload のクライアントとサーバー間のデータ送信>>
+|WebUpload コントロールは、クライアントとサーバー間でアップロード要求の一部として追加データの送信が可能になりました。
+
+|<<aria,WebDataGrid/WebHierarchicalDataGrid ARIA サポート>>
+|[[aria]] 
+
+ARIA サポートが WebDataGrid と WebHierarchicalDataGrid コントロールに追加されています。
+
+|====
+
+[[_Ref367305754]]
+
+== 全般
+
+[[webupload]]
+
+=== WebUpload のクライアントとサーバー間のデータ送信
+
+WebUpload コントロールは、クライアントとサーバー間でアップロード要求の一部として追加データの送信が可能になりました。
+
+追加のデータは、クライアントからサーバーへパラメーター形式で送信でき、フォーム データに追加できます。カスタム サーバー メッセージはサーバーからクライアントへ送信することも可能です。
+
+追加情報および例については、 link:webupload-using-server-side-events.html#sendingData[サーバーサイド イベントを使用した WebUpload]を参照してください。
+
+[[aria]]
+
+=== WebDataGrid/WebHierarchicalDataGrid ARIA サポート
+
+2014 年に W3C は link:http://www.w3.org/TR/wai-aria/[WAI-ARIA] 仕様をまとめました。これは障害をもつユーザーがより利用しやすい Web コンテンツをデザインする方法を定義しています。WebDataGrid および WebHierarchicalDataGrid はこれらのガイドラインに準拠します。
+
+機能向上のより詳細な情報については、 link:web-accessibility-overview.html[アクセシビリティ概要]を参照してください。

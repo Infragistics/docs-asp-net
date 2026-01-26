@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-web-page-refresh-limitation",
+    "controlName": ["WebSchedule"],
+    "tags": ["Scheduling","Validation"],
+    "guid": "{E502B8F9-620C-4369-9C24-BB6AC0B9F849}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Web ページの更新制限
+
+WebSchedule アプリケーションのユーザーは、ブラウザ内でページの更新オプションを使用することで、特定の状況で予期しない結果が生じることに注意が必要です。
+
+特に、新しい予定を追加直後に [更新] (
+
+image::images\WebSchedule_Related_Topic_Browser_Refresh_Issue_01.png[]
+
+) ボタンをクリックすると、その予定はシステムに 2 度追加されます。ブラウザは警告メッセージ ボックスを表示し、追加した予定情報がサーバーに再送信されることを警告します（以下参照）。
+
+Web ブラウザの [更新] ボタンを使用しないでください。
+
+image::images\WebSchedule_Related_Topic_Browser_Refresh_Issue_02.png[]

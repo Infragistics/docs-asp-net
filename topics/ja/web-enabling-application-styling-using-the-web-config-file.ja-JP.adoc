@@ -1,0 +1,52 @@
+﻿////
+|metadata|
+{
+    "name": "web-enabling-application-styling-using-the-web-config-file",
+    "controlName": [],
+    "tags": ["How Do I","Styling"],
+    "guid": "{612CB7D1-2DF3-4701-9C30-D84F1DAE6A40}",
+    "buildFlags": [],
+    "createdOn": "2006-01-12T08:33:09Z"
+}
+|metadata|
+////
+
+= web.config ファイルを使用してアプリケーション スタイリングを有効にする
+
+プロジェクトの Web.config ファイルに必要な XML タグを配置することによって、Infragistics Application Styling Configuration デザインタイム ツールが有効になります。詳細は、 link:web-netadvantage-application-styling-configuration-tool.html[「Infragistics Application Styling Configuration ツール」]を参照してください。
+
+Application Styling Configuration Tool を使用せずに Web アプリケーション全体にアプリケーション スタイリングを有効にしたい場合は、手動でこれらの XML タグを追加することができます。ただし、プロジェクトに必要なディレクトリ/サブディレクトリを作成し、アプリケーションスタイリングを正しく適用するために必要なすべてのファイル（CSS および画像）をコピーする必要があります。
+
+*Web.config ファイルを使用してアプリケーション スタイリングを有効にするには、次の手順に従ってください。*
+
+[start=1]
+. ソリューション エクスプローラで、アプリケーション スタイリングを有効にしたい Web サイトを右クリックして、[追加] をポイントして、[新規フォルダ] を選択します。このフォルダに "ig_res" という名前をつけます。
+[start=2]
+. ig_res フォルダを右クリックして ig_res フォルダのサブフォルダを作成し、[新規フォルダ] を選択し "BlueGel" と名前を付けます。
+[start=3]
+. BlueGel フォルダを右クリックして BlueGel フォルダのサブフォルダを作成し、以下のスクリーンショットに示すように、[新規フォルダ] を選択し "images" と名前を付けます。
+
+image::images/Web_Enabling_Application_Styling_Using_the_Web_Config_File_01.png[]
+
+[start=4]
+. ig_res フォルダを右クリックし、[既存の項目を追加...] を選択します。StyleSets がデフォルトでインストールされるフォルダ {InstallPathXP}\\{PlatformName}\StyleLibraries に移動します。すべての CSS ファイルおよび画像をコピーして、前述の手順で作成した対応するフォルダに貼り付けます。
+
+
+*注：* 代わりに Windows エクスプローラでは、手順 4 で指定したデフォルトのインストール パスに移動します。希望する StyleSet（すなわち、BlueGel）でフォルダを検索し、それを ig_res フォルダにコピー アンド ペーストします。Microsoft® Visual Studio® は、必要なサブフォルダを作成し、すべてのファイルをコピーします。
+
+
+[start=5]
+. Web サイトの Web.config ファイルを開きます。ファイルの一番上近くで、開始の <configuration> タグを検索し、以下の XML の抜粋を配置します。この XML の抜粋によって、Web サイトでアプリケーション スタイリングが有効になります。
+
+*XML の場合:*
+
+----
+<configSections>
+        <section name="infragistics.web" type="System.Configuration.SingleTagSectionHandler,System, 
+          Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+</configSections>
+<infragistics.web enableAppStyling="true" styleSetName="BlueGel" styleSetPath="~/ig_res/" />
+----
+
+[start=6]
+. アプリケーションを実行します。プロジェクトのすべての {ProductName} コンポーネントに BlueGel スタイルが適用されます。

@@ -1,0 +1,115 @@
+﻿////
+
+|metadata|
+{
+    "name": "webtab-tab-states",
+    "controlName": ["WebTab"],
+    "tags": ["How Do I"],
+    "guid": "{0BA34BAF-73D3-4604-900A-6D96502ED2A2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= タブの状態
+
+WebTab™ はさまざまな視覚的なスタイルによって示され、Infragistics® Application Styling Framework を使用して個々にカスタマイズ可能なさまざまな状態のタブを持つことができます。以下はタブが持つことができるさまざまな状態です:
+
+* *通常* – タブでアクションが何も実行されない状態です。
+* *ホバー* - エンドユーザーがタブの上にマウスを移動すると、ホバー スタイルがそのタブに適用されます。この状態で、タブは選択された状態でもアクティブ化された状態でもありません。
+* *選択* – エンドユーザーがタブをクリックすると、そのタブは選択された状態になります。タブ上で Enter または SPACE キーが押されると、そのタブも選択されます。
+* *アクティブ化* - エンドユーザーがタブをクリックするまたはキーボードを使用してナビゲートし Enter キーを押すと、タブがアクティブになります。クリックすると、タブはアクティブ化されるだけでなく選択されます。キーボードを使用して Enter キーを押すことでエンドユーザーによってタブがアクティブ化される場合、タブは選択された状態になります。タブの対応するイベントが発生します。
+* *無効* – ホバー、選択、またはアクティブ化のいずれかのスタイルがその項目に適用されます。
+
+デフォルトでは、すべての状態が有効になっています。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.tabitemstates.html[TabItemStates]"]  オブジェクトの以下のプロパティを使用して、これらの状態を無効にすることもできます。
+
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.tabitemstates~enableactive.html[EnableActive]"] 
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.tabitemstates~enabledisabled.html[EnableDisabled]"] 
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.tabitemstates~enablehover.html[EnableHover]"] 
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.tabitemstates~enableselected.html[EnableSelected]"] 
+
+*HTML の場合:*
+
+----
+<TabItemStates EnableHover=" />
+----
+
+*Visual Basic の場合：*
+
+----
+WebTab1.TabItemStates.EnableHover = false
+----
+
+*C# の場合：*
+
+----
+WebTab1.TabItemStates.EnableHover = false;
+----
+
+[source,csharp]
+----
+----
+
+*注：* 有効にする状態が多いほど、状態が変更されたり、ページが複雑になって、リソースが大きくなると、タブがフリックする可能性が高くなります。特定の状態を無効にすることで、タブ項目のフリックを削減でき、エンドユーザーはよりシンプルな UI が得られます。
+
+pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.webtab~tabitemcssclasses.html[TabItemCssClasses]"]  プロパティを使用して、これらの状態に独自の CSS クラスを設定することもできます。
+
+*HTML の場合:*
+
+----
+<TabItemCssClasses ActiveCssClass="active" DisabledCssClass="disable" 
+                HoverCssClass="hover" SelectedCssClass="select" />
+----
+
+*Visual Basic の場合：*
+
+----
+'独自の CSS クラスとして active、disable、hover、select を想定します。 
+WebTab1.TabItemCssClasses.ActiveCssClass = "active"
+WebTab1.TabItemCssClasses.DisabledCssClass = "disable" 
+WebTab1.TabItemCssClasses.HoverCssClass = "hover"
+WebTab1.TabItemCssClasses.SelectedCssClass = "select"
+----
+
+*C# の場合：*
+
+----
+//独自の CSS クラスとして active、disable、hover、select を想定します。
+WebTab1.TabItemCssClasses.ActiveCssClass = "active";
+WebTab1.TabItemCssClasses.DisabledCssClass = "disable";
+WebTab1.TabItemCssClasses.HoverCssClass = "hover";
+WebTab1.TabItemCssClasses.SelectedCssClass = "select";
+----
+
+== 関連トピック
+
+link:webtab-about-webtab.html[WebTab の理解]
+
+link:webtab-getting-started-with-webtab.html[WebTabで開始]
+
+link:webtab-header-and-content-panes.html[ヘッダー ペイントとコンテンツ ペイン]
+
+link:webtab-ajax-indicator-support-for-webtab.html[WebTab の Ajax インジケーターのサポート]
+
+link:webtab-display-modes.html[表示モード]
+
+link:webtab-animations.html[アニメーション]
+
+link:webtab-handling-overflow-in-webtab.html[WebTab でオーバーフローを処理]
+
+link:webtab-load-on-demand.html[ロードオンデマンド]
+
+link:webtab-orientation-and-alignment.html[方向と配置]
+
+link:webtab-overlapping-tabs.html[タブの重複]
+
+link:webtab-tab-moving.html[タブの移動]
+
+link:webtab-scrolling.html[スクロール]
+
+link:webtab-validation-in-webtab.html[WebTab で検証]
+
+link:webtab-api-overview.html[API の概要]
+
+link:webtab-client-side-object-model.html[クライアント サイド オブジェクト モデル（CSOM）の概要]

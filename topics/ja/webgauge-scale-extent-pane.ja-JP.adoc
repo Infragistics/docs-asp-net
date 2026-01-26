@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-scale-extent-pane",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{8E603279-3AC1-425F-9F6B-5E199F192FB7}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 範囲ペイン
+
+[範囲] ペインによって、スケールの太さと位置を決定できます。ラジアル ゲージではこの位置は中心から測定されますが、リニア ゲージではこの位置はゲージの下側から測定されます。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugescale~innerextentstart.html[内側の開始]"]  -- この値を 0 から 100 の整数に設定します。この値は、スケールの内側の縁の開始点の位置を決定します。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugescale~innerextentend.html[内側の終了]"]  -- この値を 0 から 100 の整数に設定します。この値は、スケールの内側の縁の終了点の位置を決定します。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugescale~outerextent.html[外側]"]  -- この値を 0 から 100 の整数に設定します。この値は、測定点からスケールの外側の縁上のあらゆる点への距離を決定します。
+
+image::images/Range_Scale_Extent_Pane_01.png[]
+
+== 関連トピック
+
+link:webgauge-scale-layout-tab.html[スケール レイアウト タブ]

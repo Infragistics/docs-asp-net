@@ -1,0 +1,49 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcurrencyeditor-using-webcurrencyeditor",
+    "controlName": ["WebCurrencyEditor"],
+    "tags": [],
+    "guid": "{AF79DAE4-13B4-41FD-B13D-005E78D5BAB7}",  
+    "buildFlags": [],
+    "createdOn": "2009-03-06T16:25:07Z"
+}
+|metadata|
+////
+
+= WebCurrencyEditor の使用
+
+このセクションは、WebCurrencyEditor™ コントロールの重要な概念および機能を効果的に使用するためのタスク ベースの情報について説明します。
+
+link:webcurrencyeditor-setting-minimum-and-maximum-values-for-webcurrencyeditor.html[WebCurrencyEditor の最大値/最小値の設定]
+
+このセクションでは、WebCurrencyEditor コントロールに最大値および最小値を設定する方法を学びます。
+
+link:webcurrencyeditor-setting-minimum-number-of-decimal-places-for-webcurrencyeditor.html[WebCurrencyEditor に小数位の最小値を設定]
+
+このセクションでは、WebCurrencyEditor コントロールに小数位の最大値および最小値を設定する方法を学びます。
+
+link:webcurrencyeditor-setting-the-culture-of-webcurrencyeditor.html[WebCurrencyEditor カルチャの設定]
+
+このセクションでは、WebCurrencyEditor コントロールに特定のカルチャを設定する方法を示します。
+
+link:webcurrencyeditor-spinning-through-a-list-of-values-in-webcurrencyeditor.html[WebCurrencyEditor の値リストのスピン]
+
+このセクションでは、値リストで回転するスピン ボタンを使用する方法を学びます。
+
+link:webcurrencyeditor-styling-negative-text-in-webcurrencyeditor.html[WebCurrencyEditor の負数テキストのスタイル設定]
+
+このセクションでは、負数テキストのカスタム スタイルを設定する方法を学びます。
+
+link:webcurrencyeditor-using-custom-button-in-webcurrencyeditor.html[WebCurrencyEditor でカスタム ボタンを使用する]
+
+このセクションでは、カスタマイズされたボタンを実装してカスタムなアクションを実行する方法を学びます。
+
+link:webcurrencyeditor-using-display-factor-in-webcurrencyeditor.html[WebCurrencyEditor]
+
+WebCurrencyEditor コントロールは、ユーザー入力を編集する表示係数値の使用をサポートします。このセクションはその使用方法について説明します。
+
+link:webcurrencyeditor-webcurrencyeditor-smart-tag.html[WebCurrencyEditor スマート タグ]
+
+このセクションでは WebMaskEditor スマート タグについて学びます。

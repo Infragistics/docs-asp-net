@@ -1,0 +1,111 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdayview-client-side-events-csom",
+    "controlName": [],
+    "tags": ["API","How Do I"],
+    "guid": "{A859B70B-2519-4DE5-9B93-098CFCC93864}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDayView クライアント側イベント
+
+== Client Events
+
+=== Client Events メソッド
+
+[cols="a,a"]
+|====
+|*Click* 
+|このイベントは DayView の要素がクリックされると起動します。 
+
+*パラメータ*
+
+_oDayView_ 
+
+DayView クライアント側オブジェクト。 _oEvent_ 
+
+イベントのキャンセル、ポストバックのキャンセルまたは要求を実行するイベント オブジェクト。 _element_ 
+
+クリックしたものに対応する html 要素。
+
+|*DblClick* 
+|このイベントは DayView の要素がダブルクリックされると起動します。 
+
+*パラメータ*
+
+_oDayView_ 
+
+DayView クライアント側オブジェクト。 _oEvent_ 
+
+イベントのキャンセル、ポストバックのキャンセルまたは要求を実行するイベント オブジェクト。 _element_ 
+
+ダブルクリックしたものに対応する html 要素。
+
+|*Initialize* 
+|このイベントは DayView が初期化されると起動します。 
+
+*パラメータ*
+
+_oDayView_ 
+
+DayView クライアント側オブジェクト。
+
+|*MouseDown* 
+|このイベントは DayView の要素にマウスダウンをすると起動されます。 
+
+*パラメータ*
+
+_oDayView_ 
+
+DayView クライアント側オブジェクト。 _oEvent_ 
+
+イベントのキャンセル、ポストバックのキャンセルまたは要求を実行するイベント オブジェクト。 _element_ 
+
+マウス ボタンを押した場所に対応する html 要素。
+
+|*MouseUp* 
+|このイベントは DayView の要素にマウスアップをすると起動されます。 
+
+*パラメータ*
+
+_oDayView_ 
+
+DayView クライアント側オブジェクト。 _oEvent_ 
+
+イベントのキャンセル、ポストバックのキャンセルまたは要求を実行するイベント オブジェクト。 _element_ 
+
+マウス ボタンを放した場所に対応する html 要素。
+
+|*NavigateNext* 
+|DayView の [次に進む] ボタンを押した後でこのイベントは発生します。 
+
+*パラメータ*
+
+_oDayView_ 
+
+WebDayView クライアント側オブジェクト。 _oEvent_ 
+
+イベントのキャンセル、ポストバックのキャンセルまたは要求を実行するイベント オブジェクト。 _numberOfDays_ 
+
+ナビゲートされる日の数。
+
+|*NavigatePrevious* 
+|WeekView の [前に戻る] ボタンを押した後でこのイベントは発生します。 
+
+*パラメータ*
+
+_oDayView_ 
+
+WebDayView クライアント側オブジェクト。 _oEvent_ 
+
+イベントのキャンセル、ポストバックのキャンセルまたは要求を実行するイベント オブジェクト。 _numberOfDays_ 
+
+ナビゲートされる日の数。
+
+|====
+

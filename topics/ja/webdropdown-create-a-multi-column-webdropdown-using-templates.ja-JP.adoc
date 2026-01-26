@@ -1,0 +1,418 @@
+﻿////
+|metadata|
+{
+    "name": "webdropdown-create-a-multi-column-webdropdown-using-templates",
+    "controlName": ["WebDropDown"],
+    "tags": ["Templating"],
+    "guid": "4EF4680F-F1CA-4209-8D1B-CC64958A7DDB",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= テンプレートを使用した複数列 WebDropDown の作成
+
+[[_before_you_begin]]
+== 始める前に
+
+WebDropDown コントロールのテンプレート機能は、エンドユーザーが選択したコントロールから項目を選択できるようドロップダウン コンテナ内でさまざまなコントロールが使用できる優れた柔軟性を提供します。WebDropDown はデフォルトでデータ モデルから 1 つの列を表示します。 ただし、コントロールがテンプレート内に配置されると HTML テーブルと共にテンプレート機能を使用することによって、ドロップダウン コンテナに複数列を表示できます。
+
+このチュートリアルでは、WebDropDown™ によって公開された HeaderTemplate および ItemTemplate を活用します。HTML テーブル はこれらのために使用されます。この方法は列の項目の別個に描画済みの列ヘッダーを構成することに役に立ちます。データ項目と異なるヘッダーのスタイルを設定する場合に便利です。よりグリッドらしい外観を作成できます。複数列 のWebDropDown™ で行を選択すると、選択された行の名前が WebDropDown コントロールの値表示に表示されます。
+
+.注:
+[NOTE]
+====
+WebDropDown™ テンプレート内にもコントロールを配置できます。この時点で、WebDropDown テンプレート内に配置できるコントロールは 1 つだけです。
+====
+
+[[_what_you_will_accomplish]]
+== 達成すること
+
+WebDropDown コントロールのドロップダウン コンテナに グリッド構造を表示する方法を学習します。
+
+[[_follow_these_steps]]
+== 次の手順を実行します。
+
+[start=1]
+. Visual Studio ツールボックスから、ScriptManager コンポーネントと WebDropDown コントロールをフォームにドラッグ アンド ドロップします。WebDropDown コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~currentvalue.html[CurrentValue]"] プロパティを Select Owner に設定します。リストからを選択する前に WebDropDown™ でこのテキストは最初に表示されます。"]
+[start=2]
+. pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.dropdownitem~textfield.html[textfield]"] プロパティを Name に設定します。値表示に表示される列名を選択できます。手順 10 に提供された GetGridData() メソッドを WebDropDown™ DataSource に接続します。
+[start=3]
+. 以下の WebDropDown のプロパティを設定します:  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~enableanimations.html[EnableAnimations]"] ="false". pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~DropDownContainerHeight.html[DropDownContainerHeight]"] ="135px". pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~DropDownContainerWidth.html[DropDownContainerWidth]"] ="480px".
+[start=4]
+. WebDropDown のスマート タグから ［テンプレートの編集］ をクリックします。これによりテンプレート編集モードで WebDropDown を表示します。
+[start=5]
+. テンプレート編集モード スマート タグで、ドロップダウン リストから [項目テンプレート] を選択します。
+[start=6]
+. 以下の HTML テーブルをペーストします。
+[source]
+----
+<table style="width: 100%" cellspacing="0" cellpadding="4">
+    <tr>
+        <td style="width: 140px;">
+            <%# DataBinder.Eval(Container.DataItem, "Name")%>
+        </td>
+        <td style="width: 220px;">
+            <%# DataBinder.Eval(Container.DataItem, "Company")%>
+        </td>
+        <td style="width: 100px;">
+            <%# DataBinder.Eval(Container.DataItem, "PostalCode")%>
+        </td>
+    </tr>
+</table>
+----
+
+[start=7]
+. テンプレート編集モードのスマートタッグから HeaderTemplate を選択します。
+[start=8]
+. ヘッダーとして以下の HTML テーブルをペーストします。
+
+----
+<table id="TemplateContainer">
+    <tr class="custom_Header">
+        <td class="igg_HeaderCaption" style="width: 140px;">Owner</td>
+        <td class="igg_HeaderCaption" style="width: 220px;">Company</td>
+        <td class="igg_HeaderCaption" style="width: 100px;">PostalCode</td>
+    </tr>
+</table>
+----
+
+[start=9]
+. CSS スタイリングを追加します。
+[source]
+----
+<style type="text/css">
+    .igg_HeaderCaption {
+        font-size: 12px;
+        padding: 5px 0px 5px 8px;
+        overflow: hidden;
+        text-align: left;
+        height: 25px;
+        font-family: Verdana;
+        font-weight: normal;
+        border-top: 1px solid #777777;
+        border-right: 1px solid #777777;
+        border-bottom: 1px solid #777777;
+        border-left: 1px solid #888888;
+        color: #FFFFFF;
+        background-color: #888888;
+    }
+    .igdd_ListItem {
+        border-style: solid;
+        border-color: #FFFFFF #CCCCCC #CCCCCC #CCCCCC;
+        border-width: 1px;
+    }
+    .igdd_ListItem:nth-child(odd) {
+        background-color: #F6F6F6;
+    }
+    .igdd_ListItemHover {
+        background-color: #CCCCCC !important;
+    }
+    .igdd_ListItemActive {
+        background-color: #9ECBD6 !important;
+        border: solid 1px #CCCCCC;
+    }
+	</style>
+----
+
+[start=10]
+. 必要なサーバー側のデータを追加し、WebDropDown リストの項目をそれに追加します。このチュートリアルでは簡易なテーブルを使用します。同じ例でも既存のデータベースへのアタッチを含むコードは、次のリンクを参照ください link:http://www.infragistics.com/samples/aspnet/drop-down/templates[オンラインサンプルの参照]。
+[source]
+----
+	//generate a table to be used as data source
+	private DataTable GetGridData()
+	{
+		DataTable DS = new DataTable("TestData");
+		DataColumn col = DS.Columns.Add("ID", typeof(int));
+		DS.Columns.Add("Name", typeof(string));
+		DS.Columns.Add("Company", typeof(string));
+		DS.Columns.Add("PostalCode", typeof(string));
+		DS.PrimaryKey = new DataColumn[] { col };
+		DS.Rows.Add(new Object[] { 1, "Maria Anders", "Alfreds Futterkiste", "12209" });
+		DS.Rows.Add(new Object[] { 2, "Antonio Moreno", "Antonio Moreno Taqueria", "05023" });
+		DS.Rows.Add(new Object[] { 3, "Thomas Hardy", "Around the Horn", "WA1 1DP" });
+		DS.Rows.Add(new Object[] { 4, "Hanna Moos", "Blauer See Deilikatessen", "68306" });
+		return DS;
+	}
+----
+
+上記の手順は以下のコードによって行えます。
+
+*マークアップ:*
+[source]
+----
+<ig:WebDropDown ID="webDropDown1" runat="server" Width="200px">
+    <HeaderTemplate>
+        <table id="TemplateContainer">
+            <tr class="custom_Header">
+                <td class="igg_HeaderCaption" style="width: 140px;">Owner</td>
+                <td class="igg_HeaderCaption" style="width: 220px;">Company</td>
+                <td class="igg_HeaderCaption" style="width: 100px;">PostalCode</td>
+            </tr>
+        </table>
+    </HeaderTemplate>
+    <ItemTemplate>
+        <table style="width: 100%" cellspacing="0" cellpadding="4">
+            <tr>
+                <td style="width: 140px;">
+                    <%# DataBinder.Eval(Container.DataItem, "Name")%>
+                </td>
+                <td style="width: 220px;">
+                    <%# DataBinder.Eval(Container.DataItem, "Company")%>
+                </td>
+                <td style="width: 100px;">
+                    <%# DataBinder.Eval(Container.DataItem, "PostalCode")%>
+                </td>
+            </tr>
+        </table>
+    </ItemTemplate>
+</ig:WebDropDown>
+----
+
+*C# の場合:*
+
+[source]
+----
+
+	protected void Page_Load(object sender, EventArgs e)
+	{
+		//set a data source to bind to
+		this.webDropDown1.DataSource = this.GetGridData();
+		//Set which column to display in the input upon selection
+		this.webDropDown1.TextField = "Name";
+		//Set the current value 
+		this.webDropDown1.CurrentValue = "Select a Contact";
+		this.webDropDown1.EnableAnimations = false;
+		this.webDropDown1.DropDownContainerHeight = 135;
+		this.webDropDown1.DropDownContainerWidth = 480;
+	}
+
+	//generate a table to be used as data source
+	private DataTable GetGridData()
+	{
+		DataTable DS = new DataTable("TestData");
+		DataColumn col = DS.Columns.Add("ID", typeof(int));
+		DS.Columns.Add("Name", typeof(string));
+		DS.Columns.Add("Company", typeof(string));
+		DS.Columns.Add("PostalCode", typeof(string));
+		DS.PrimaryKey = new DataColumn[] { col };
+		DS.Rows.Add(new Object[] { 1, "Maria Anders", "Alfreds Futterkiste", "12209" });
+		DS.Rows.Add(new Object[] { 2, "Antonio Moreno", "Antonio Moreno Taqueria", "05023" });
+		DS.Rows.Add(new Object[] { 3, "Thomas Hardy", "Around the Horn", "WA1 1DP" });
+		DS.Rows.Add(new Object[] { 4, "Hanna Moos", "Blauer See Deilikatessen", "68306" });
+		return DS;
+	}
+----
+
+*Visual Basic の場合:*
+[source]
+----
+	Protected Sub Page_Load(sender As Object, e As EventArgs)
+		'set a data source to bind to
+		Me.WebDropDown1.DataSource = Me.GetGridData()
+		'Set which column to display in the input upon selection
+		Me.WebDropDown1.TextField = "Name"
+		'Set the current value 
+		Me.WebDropDown1.CurrentValue = "Select a Contact"
+		Me.WebDropDown1.EnableAnimations = False
+		Me.WebDropDown1.DropDownContainerHeight = 135
+		Me.WebDropDown1.DropDownContainerWidth = 480
+		Me.WebDropDown1.DataBind()
+	End Sub
+
+	'generate a table to be used as data source
+	Private Function GetGridData() As DataTable
+		Dim DS As New DataTable("TestData")
+		Dim col As DataColumn = DS.Columns.Add("ID", GetType(Integer))
+		DS.Columns.Add("Name", GetType(String))
+		DS.Columns.Add("Company", GetType(String))
+		DS.Columns.Add("PostalCode", GetType(String))
+		DS.PrimaryKey = New DataColumn() {col}
+		DS.Rows.Add(New [Object]() {1, "Maria Anders", "Alfreds Futterkiste", "12209"})
+		DS.Rows.Add(New [Object]() {2, "Antonio Moreno", "Antonio Moreno Taqueria", "05023"})
+		DS.Rows.Add(New [Object]() {3, "Thomas Hardy", "Around the Horn", "WA1 1DP"})
+		DS.Rows.Add(New [Object]() {4, "Hanna Moos", "Blauer See Deilikatessen", "68306"})
+		Return DS
+	End Function
+----
+
+[start=11]
+. アプリケーションを保存して実行します。ドロップダウン コンテナーで行をクリックすると、値表示のテキストが行のオーナー名に変更されることを確認します。
+
+image::images/WebDropDown_Create_a_Multi_Column_WebDropDown_using_Templates_01.png[WebDropDown Create a Multi Column WebDropDown using Templates 01.png]
+
+*その他の方法:* マークアップによってすべてのテンプレートを指定し、上記の方法の代わりにコード ビハインドにも HTML テーブルおよび対応するスタイリングを指定できます。HeaderTemplate および ItemTemplate に ITemplate を実装する必要はあります。 以下の例のコードはマークアップに既に定義された WebDropDown1 の ID の プレーン WebDropDown があることを前提します。
+
+*C# の場合:*
+
+[source]
+----
+	//ensure these objects are created prior Page_Load event fires
+	protected override void OnInit(EventArgs e)
+	{
+		this.WebDropDown1.HeaderTemplate = new HeaderTemplate();
+		this.WebDropDown1.ItemTemplate = new ItemTemplate();
+	}
+    //helper variable
+    private static string[] ColumnsArr = new string[] { "Name", "Company", "PostalCode" };
+
+	//add a content and styling for the HeaderTemplate
+	private class HeaderTemplate : ITemplate
+	{
+		public void InstantiateIn(Control container)
+		{
+			HtmlTable table = new HtmlTable();
+			table.Style.Add(HtmlTextWriterStyle.Height, "25px");
+			table.Style.Add(HtmlTextWriterStyle.BackgroundColor, "#888888");
+			table.Style.Add(HtmlTextWriterStyle.Color, "#FFFFFF");
+			table.Style.Add(HtmlTextWriterStyle.FontSize, "12px");
+			table.Style.Add(HtmlTextWriterStyle.FontWeight, "normal");
+			table.CellSpacing = 0;
+			table.CellPadding = 4;
+			HtmlTableRow row = new HtmlTableRow();
+			table.Controls.Add(row);
+
+			for (int i = 0; i < 3; i++)
+			{
+				HtmlTableCell cell = new HtmlTableCell();
+				cell.Attributes.Add("class", "igg_HeaderCaption");
+
+				cell.InnerText = ColumnsArr[i].ToString();
+				if (cell.InnerText == "Name")
+				{
+					cell.Style.Add(HtmlTextWriterStyle.Width, "140px");
+				}
+				if (cell.InnerText == "Company")
+				{
+					cell.Style.Add(HtmlTextWriterStyle.Width, "220px");
+				}
+				if (cell.InnerText == "PostalCode")
+				{
+					cell.Style.Add(HtmlTextWriterStyle.Width, "100px");
+				}
+				row.Cells.Add(cell);
+			}
+			container.Controls.Add(table);
+		}
+	}
+
+	//add a content and styling for the ItemTemplate
+	private class ItemTemplate : ITemplate
+	{
+		public void InstantiateIn(Control container)
+		{
+			HtmlTable table = new HtmlTable();
+			table.CellSpacing = 0;
+			table.CellPadding = 4;
+			HtmlTableRow row = new HtmlTableRow();
+			table.Controls.Add(row);
+			for (int i = 0; i < 3; i++)
+			{
+				HtmlTableCell cell = new HtmlTableCell();
+				TemplateContainer templateContainer = container as TemplateContainer;
+				DataRowView dataRow = templateContainer.DataItem as DataRowView;
+
+				cell.InnerText = ColumnsArr[i].ToString();
+				if (cell.InnerText == "Name")
+				{
+					cell.InnerText = dataRow["Name"].ToString();
+					cell.Style.Add(HtmlTextWriterStyle.Width, "140px");
+				}
+				if (cell.InnerText == "Company")
+				{
+					cell.InnerText = dataRow["Company"].ToString();
+					cell.Style.Add(HtmlTextWriterStyle.Width, "220px");
+				}
+				if (cell.InnerText == "PostalCode")
+				{
+					cell.InnerText = dataRow["PostalCode"].ToString();
+					cell.Style.Add(HtmlTextWriterStyle.Width, "100px");
+				}
+				row.Cells.Add(cell);
+			}
+			container.Controls.Add(table);
+		}
+	}
+
+    **完全で実行可能なサンプルのために上記の同じ Page_Load および GetGridData メソッドを追加します。
+----
+
+*Visual Basic の場合:*
+
+----
+
+Protected Overrides Sub OnInit(e As EventArgs)
+    Me.WebDropDown1.HeaderTemplate = New HeaderTemplate()
+    Me.WebDropDown1.ItemTemplate = New ItemTemplate()
+End Sub
+
+Private Shared ColumnsArr As String() = New String() {"Name", "Company", "PostalCode"}
+	Private Class HeaderTemplate
+		Implements ITemplate
+		Public Sub InstantiateIn(container As Control) Implements ITemplate.InstantiateIn
+			Dim table As New HtmlTable()
+			table.Style.Add(HtmlTextWriterStyle.Height, "25px")
+			table.Style.Add(HtmlTextWriterStyle.BackgroundColor, "#888888")
+			table.Style.Add(HtmlTextWriterStyle.Color, "#FFFFFF")
+			table.Style.Add(HtmlTextWriterStyle.FontSize, "12px")
+			table.Style.Add(HtmlTextWriterStyle.FontWeight, "normal")
+			table.CellSpacing = 0
+			table.CellPadding = 4
+			Dim row As New HtmlTableRow()
+			table.Controls.Add(row)
+
+			For i As Integer = 0 To 2
+				Dim cell As New HtmlTableCell()
+				cell.Attributes.Add("class", "igg_HeaderCaption")
+
+				cell.InnerText = ColumnsArr(i).ToString()
+				If cell.InnerText = "Name" Then
+					cell.Style.Add(HtmlTextWriterStyle.Width, "140px")
+				End If
+				If cell.InnerText = "Company" Then
+					cell.Style.Add(HtmlTextWriterStyle.Width, "220px")
+				End If
+				If cell.InnerText = "PostalCode" Then
+					cell.Style.Add(HtmlTextWriterStyle.Width, "100px")
+				End If
+				row.Cells.Add(cell)
+			Next
+			container.Controls.Add(table)
+		End Sub
+	End Class
+
+	Private Class ItemTemplate
+		Implements ITemplate
+		Public Sub InstantiateIn(container As Control) Implements ITemplate.InstantiateIn
+			Dim table As New HtmlTable()
+			table.CellSpacing = 0
+			table.CellPadding = 4
+			Dim row As New HtmlTableRow()
+			table.Controls.Add(row)
+			For i As Integer = 0 To 2
+				Dim cell As New HtmlTableCell()
+				Dim templateContainer As TemplateContainer = TryCast(container, TemplateContainer)
+				Dim dataRow As DataRowView = TryCast(templateContainer.DataItem, DataRowView)
+
+				cell.InnerText = ColumnsArr(i).ToString()
+				If cell.InnerText = "Name" Then
+					cell.InnerText = dataRow("Name").ToString()
+					cell.Style.Add(HtmlTextWriterStyle.Width, "140px")
+				End If
+				If cell.InnerText = "Company" Then
+					cell.InnerText = dataRow("Company").ToString()
+					cell.Style.Add(HtmlTextWriterStyle.Width, "220px")
+				End If
+				If cell.InnerText = "PostalCode" Then
+					cell.InnerText = dataRow("PostalCode").ToString()
+					cell.Style.Add(HtmlTextWriterStyle.Width, "100px")
+				End If
+				row.Cells.Add(cell)
+			Next
+			container.Controls.Add(table)
+		End Sub
+	End Class
+
+    **完全で実行可能なサンプルのために上記の同じ Page_Load および GetGridData メソッド (手順 19) を追加します。
+----

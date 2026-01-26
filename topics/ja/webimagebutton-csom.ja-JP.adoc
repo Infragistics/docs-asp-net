@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "webimagebutton-csom",
+    "controlName": [],
+    "tags": ["API","Getting Started"],
+    "guid": "{05CE39A0-4677-44CD-9D38-E5B57328B46C}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WebImageButton CSOM
+
+WebImageButton は、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを公開します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクト、イベント、ユーティリティ関数から構成され、開発者はサーバー側にポストバックしなくても、ボタン コントロールに関連する重要な機能単位をプログラムできます。
+
+一般的に、オブジェクト モデルは、サーバー上の場合と同じようにオブジェクト モデルから直接派生しています。プロパティ名、イベント、パラメータ、戻り値の意味は、サーバー上のそれらとほとんど同じです。ただし、注が付けられている一部のプロパティはクライアント上では読み取り専用です。これらのプロパティは、情報の提供を目的としており、値を変更することはできません。
+
+WebImageButton コントロールのクライアント サイド オブジェクト モデル参照の以下のセクションのいずれかを選択してください。
+
+link:webimagebutton-utility-functions-csom.html[WebImageButton ユーティリティ関数]
+
+link:webimagebutton-object-csom.html[WebImageButton オブジェクト]
+
+____
+link:webimagebutton-client-side-events-csom.html[クライアント側イベント]
+____

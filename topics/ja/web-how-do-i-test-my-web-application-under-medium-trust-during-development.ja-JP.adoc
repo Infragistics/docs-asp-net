@@ -1,0 +1,27 @@
+﻿////
+|metadata|
+{
+    "name": "web-how-do-i-test-my-web-application-under-medium-trust-during-development",
+    "controlName": [],
+    "tags": ["Application Scenarios","FAQ"],
+    "guid": "{43266A28-D4B8-41B1-89CB-31299C1E2A13}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 開発中に Medium Trust の下で Web アプリケーションをテストする方法とは？
+
+以下の XML の引用で示すように、Web アプリケーション プロジェクトの Web.config ファイルの <trust> 要素を変更することによって、開発でのホスティング プロバイダーの信頼レベルをターゲットとすることができます。
+
+[source]
+----
+...
+<system.web>
+...
+      <authentication mode="Windows" />
+       <trust level="Medium" />
+</system.web>
+...
+----

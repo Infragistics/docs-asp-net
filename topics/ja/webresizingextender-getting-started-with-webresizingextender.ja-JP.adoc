@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "webresizingextender-getting-started-with-webresizingextender",
+    "controlName": ["WebResizingExtender"],
+    "tags": ["Extending","Getting Started"],
+    "guid": "{FFC6A411-6E78-448E-B873-85FDAF66F561}",  
+    "buildFlags": [],
+    "createdOn": "2006-08-12T14:15:10Z"
+}
+|metadata|
+////
+
+= WebResizingExtender で開始
+
+以下のリンクをクリックすると、WebResizingExtender コントロールをすばやく起動して実行する方法についての説明が表示されます。
+
+* link:webresizingextender-setting-up-webresizingextender-to-work-with-a-panel.html[パネルで作業をするために WebResizingExtender を設定] -- Web フォームでパネルのサイズを変更できるように、WebResizingExtender コントロールを設定する手順を説明します。

@@ -1,0 +1,90 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatagrid-enable-error-template",
+    "controlName": ["WebHierarchicalDataGrid"],
+    "tags": ["Grids","Templating"],
+    "guid": "{553CADFA-A503-455A-9482-3DEF210ED251}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= エラー テンプレートを有効にする
+
+WebHierarchicalDataGrid™ のエラー テンプレートを使用して、コントロール内に発生する例外にカスタム メッセージを表示できます。これには、WebHierarchicalDataGrid から生じる例外およびデータ操作の例外が含まれます。すべてのテンプレートと同様、エラー テンプレート内にコントロールを配置できます。WebHierarchicalDataGrid の GridView プロパティは、例外メッセージにユーザーがアクセスすることを許可する ErrorMessage プロパティを公開します。
+
+*注：* テンプレートを表示するには、テンプレート内に何かが存在する必要があります。何も存在せず例外が処理されなければ、アプリケーションは一般的な例外ページをロードします。
+
+コントロールのスマート タグをクリックして [テンプレートの編集] を選択することで、デザイン タイムにエラー テンプレートを設定できます。表示ドロップダウン リストからエラー テンプレートを選択します。これでコントロールをエラー テンプレート表面にドラッグできます。
+
+以下のコードは、エラー テンプレートを使用して例外が発生する場合にエンドユーザー用のカスタム表示を作成する方法を示します。テンプレートの作成と同様、ITemplate インターフェイスを実装するクラスが必要です。
+
+*Visual Basic の場合：*
+
+----
+Protected Overloads Overrides Sub OnInit(ByVal e As EventArgs)
+   MyBase.OnInit(e)
+   'テンプレートはポストバックごとにインスタンス化される必要があります 
+   Me.WebHierarchicalDataGrid1.ErrorTemplate = New CustomErrorTemplate()
+End Sub
+Protected Overloads Overrides Sub OnPreRender(ByVal e As EventArgs)
+   MyBase.OnPreRender(e)
+   'ラベルが作成された後で、エラー メッセージを追加するために参照を取得します 
+   Me.WebHierarchicalDataGrid1.DataBind()
+   Dim label1 As System.Web.UI.WebControls.Label = DirectCast(Me.WebHierarchicalDataGrid1.GridView.ErrorTemplateContainer.FindControl("Label1"), System.Web.UI.WebControls.Label)
+   label1.Text += Me.WebHierarchicalDataGrid1.GridView.ErrorMessage
+End Sub
+Private Class CustomErrorTemplate
+        Implements ITemplate
+   #Region "ITemplate Members"
+   Public Sub InstantiateIn(ByVal container As Control)
+      Dim label1 As New System.Web.UI.WebControls.Label()
+      label1.Text = "An operation has failed in WebDataGrid. The reason is provided: "
+      label1.ID = "Label1"
+      container.Controls.Add(label1)
+   End Sub
+   #End Region
+End Class
+----
+
+*C# の場合：*
+
+----
+protected override void OnInit(EventArgs e)
+{
+   base.OnInit(e);
+   //テンプレートはポストバックごとにインスタンス化される必要があります
+   this.WebHierarchicalDataGrid1.ErrorTemplate = new CustomErrorTemplate();
+}
+protected override void OnPreRender(EventArgs e)
+{
+   base.OnPreRender(e);
+   //ラベルが作成された後で、エラー メッセージを追加するために参照を取得します 
+   this.WebHierarchicalDataGrid1.DataBind();
+   System.Web.UI.WebControls.Label label1 = (System.Web.UI.WebControls.Label)this.WebHierarchicalDataGrid1.GridView.ErrorTemplateContainer.FindControl("Label1");
+   label1.Text += this.WebHierarchicalDataGrid1.GridView.ErrorMessage;
+}
+private class CustomErrorTemplate : ITemplate
+{
+   #region ITemplate Members
+   public void InstantiateIn(Control container)
+   {
+      System.Web.UI.WebControls.Label label1 = new System.Web.UI.WebControls.Label();
+      label1.Text = "An operation has failed in WebDataGrid. The reason is provided: ";
+      label1.ID = "Label1";
+      container.Controls.Add(label1);
+    }
+    #endregion
+}
+----
+
+== 関連トピック
+
+link:webhierarchicladatagrid-column-templates.html[列のテンプレート]
+
+link:webhierarchicaldatagrid-paging-template.html[ページング テンプレート]
+
+link:webhierarchicaldatagrid-enable-error-template.html[空の行テンプレートを有効にする]

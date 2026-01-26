@@ -1,0 +1,83 @@
+﻿////
+
+|metadata|
+{
+    "name": "webtab-ajax-indicator-support-for-webtab",
+    "controlName": ["WebTab"],
+    "tags": ["How Do I"],
+    "guid": "{CA9E3FF3-9EAC-46C7-8D91-D376AC242362}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebTab の Ajax インジケーターのサポート
+
+WebTab™ コントロールの AJAX インジケーターは、コントロールがコールバックの完了を待機する時に必ず待機通知をエンドユーザーに表示します。デフォルトで、AJAX インジケーターはその他の {ProductName} AJAX コントロールと共有されます。ただし、共有された AJAX インジケーター設定はコントロールレベルでオーバーライドできます。待機メッセージは、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.ajaxindicator~text.html[Text]"]  または  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.ajaxindicator~imageurl.html[ImageUrl]"]  プロパティ設定を使用して、テキストまたは画像を表示するように構成可能です。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.ajaxindicator~location.html[Location]"]  プロパティを使用することによってインジケーターの画面の位置を設定することも可能です。AJAX インジケーターの詳細は、 link:web-ajax-indicator.html[AJAX インジケーター]トピックを参照してください。
+
+*注：* Ajax インジケーターは UpdatePanels によって行われた Ajax リクエストだけでなく、ContentUrls（ローカルの aspx ページ）にも使用されます。
+
+*HTML の場合:*
+
+----
+<AjaxIndicator Enabled="True" Text="Ajax Call Wait"  Location="AboveCenter" RelativeToControl="True" />
+----
+
+*Visual Basic の場合：*
+
+----
+' コントロール レベルで Ajax インジケーターを有効にします
+Me.WebTab1.AjaxIndicator.Enabled = Infragistics.Web.UI.DefaultableBoolean.True 
+' Ajax インジケーターの待機メッセージを設定します 
+Me.WebTab1.AjaxIndicator.Text = "Ajax Call Wait" 
+' Ajax インジケーターの位置を設定します 
+Me.WebTab1.AjaxIndicator.Location = Infragistics.Web.UI.RelativeLocation.AboveCenter 
+' コントロール固有の Ajax インジケーターの位置を設定します 
+Me.WebTab1.AjaxIndicator.RelativeToControl = Infragistics.Web.UI.DefaultableBoolean.True
+----
+
+*C# の場合：*
+
+----
+// コントロール レベルで Ajax インジケーターを有効にします
+this.WebTab1.AjaxIndicator.Enabled = Infragistics.Web.UI.DefaultableBoolean.True;
+// Ajax インジケーターの待機メッセージを設定します
+this.WebTab1.AjaxIndicator.Text = "Ajax Call Wait";
+// Ajax インジケーターの位置を設定します
+this.WebTab1.AjaxIndicator.Location = Infragistics.Web.UI.RelativeLocation.AboveCenter;
+// コントロール固有の Ajax インジケーターの位置を設定します
+this.WebTab1.AjaxIndicator.RelativeToControl = Infragistics.Web.UI.DefaultableBoolean.True;
+----
+
+== 関連トピック
+
+link:webtab-about-webtab.html[WebTab の理解]
+
+link:webtab-getting-started-with-webtab.html[WebTabで開始]
+
+link:webtab-header-and-content-panes.html[ヘッダー ペイントとコンテンツ ペイン]
+
+link:webtab-tab-states.html[タブの状態]
+
+link:webtab-display-modes.html[表示モード]
+
+link:webtab-animations.html[アニメーション]
+
+link:webtab-handling-overflow-in-webtab.html[WebTab でオーバーフローを処理]
+
+link:webtab-load-on-demand.html[ロードオンデマンド]
+
+link:webtab-orientation-and-alignment.html[方向と配置]
+
+link:webtab-overlapping-tabs.html[タブの重複]
+
+link:webtab-tab-moving.html[タブの移動]
+
+link:webtab-scrolling.html[スクロール]
+
+link:webtab-validation-in-webtab.html[WebTab で検証]
+
+link:webtab-api-overview.html[API の概要]
+
+link:webtab-client-side-object-model.html[クライアント サイド オブジェクト モデル（CSOM）の概要]

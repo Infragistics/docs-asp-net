@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webscheduleinfo",
+    "controlName": ["WebScheduleInfo"],
+    "tags": [],
+    "guid": "{2C9D3B1C-F4BC-4BF4-9FC1-440140157284}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WebScheduleInfo
+
+WebScheduleInfo コンポーネントの紹介については以下のリンクをクリックしてください。
+
+* link:webscheduleinfo-about-webscheduleinfo.html[WebScheduleInfo について] -- WebScheduleInfo コンポーネントの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:webscheduleinfo-smart-tag.html[WebScheduleInfo スマート タグ] -- WebScheduleInfo スマート タグで使用可能な機能を説明します。
+* link:web-webscheduleinfo-using-webscheduleinfo.html[WebScheduleInfo の使用] -- このセクションは、WebGrid コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+* link:webscheduleinfo-retrieve-a-reference-to-the-webscheduleinfo-object-on-the-client-side.html[クライアント側で WebScheduleInfo オブジェクトへの参照を取得] --  このトピックは、ユーティリティ関数がクライアント側でコントロール オブジェクトへの参照を取得する方法を説明します。
+* link:webscheduleinfo-using-webscheduleinfos-designer.html[WebScheduleInfo のデザイナの使用] -- このトピックは、デザイナを使用してコントロールにプリセットを適用する方法や、[機能の選択] を使用して標準的な機能を設定する方法を示します。
+* link:webscheduleinfo-api-overview.html[API 概要] -- このトピックでは、WebScheduleInfo コントロールを使ってプログラミングする際に作業する名前空間とクラスをリストします。このトピックにリストされる名前空間とクラスは、{ProductName} ヘルプの link:web-api-reference-guide.html[「API リファレンスガイド」]に便宜上リンクします。
+* link:webscheduleinfo-csom-overview.html[CSOM 概要] -- このトピックは、WebScheduleInfo コンポーネントのクライアント サイド オブジェクト モデル（CSOM）参照です。
+
+WebScheduleInfo コンポーネントは、コントロールおよびコンポーネントの WebSchedule グループの一部です。複数の WebSchedule コントロールおよびコンポーネント（WebCalendarView、ScheduleOleDbProvider）に共通する概要/タスクベースの情報を収めているセクションを探している場合には、以下のリンクをクリックします。
+
+* link:web-webschedule.html[WebSchedule]

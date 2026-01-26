@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-tips-and-tricks",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Grids"],
+    "guid": "6c9af7fa-f7e2-43fe-957e-dc0b95a00fb4",  
+    "buildFlags": [],
+    "createdOn": "2010-11-15T15:25:25.6659188Z"
+}
+|metadata|
+////
+
+= 使用上のヒント
+
+link:webdatagrid-getting-started-with-webdatagrid-enabledataviewstate-property.html[EnableDataViewState プロパティ]
+
+このトピックは ViewState にコントロールのデータを保存する方法を説明します。
+
+link:webdatagrid-refreshing-webdatagrid-when-autocrud-is-turned-off.html[AutoCRUD がオフのときに WebDataGrid を更新する]
+
+このトピックでは、非同期ポストバックでコントロールの HTML を更新する方法を説明します。
+
+link:webdatagrid-conditional-batch-updating-in-webdatagrid.html[WebDataGrid の条件付き一括更新]
+
+このトピックでは、データソースのイベント更新を処理してデータソースを更新する前に、必要なロジックを行で実行する方法を説明します。
+
+link:webdatagrid-persistent-selection.html[選択の固定]
+
+このトピックでは、ページングやバーチャル スクロールが有効な際に WebDataGrid で表示する行と非表示にする行を識別する方法を説明します。

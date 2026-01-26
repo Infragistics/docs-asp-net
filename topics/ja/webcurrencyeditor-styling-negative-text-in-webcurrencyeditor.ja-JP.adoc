@@ -1,0 +1,55 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcurrencyeditor-styling-negative-text-in-webcurrencyeditor",
+    "controlName": ["WebCurrencyEditor"],
+    "tags": ["Editing","Styling","Tips and Tricks"],
+    "guid": "{92D03E77-0669-499C-8F6A-6A7E2B084536}",  
+    "buildFlags": [],
+    "createdOn": "2009-04-06T10:39:59Z"
+}
+|metadata|
+////
+
+= WebCurrencyEditor で負のテキストをスタイル
+
+WebCurrencyEditor™ によってコントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webnumericeditor~negativecssclass.html[NegativeCssClass]"]  プロパティを設定するだけで、負の通貨値をスタイルできます。これにより、WebCurrencyEditor コントロールの負の値がすぐ分かるようになります。
+
+== WebCurrencyEditor で負のテキストをスタイルするには:
+
+[start=1]
+. ScriptManager コンポーネントと WebCurrencyEditor コントロールを WebForm に配置します。
+[start=2]
+. ASPX ソースに以下のコードを含めて負のテキストの CSS クラスを定義します。この CSS クラスが WebCurrencyEditor コントロールに関連付けられたら、負の値がコントロールに入力されるとすぐにテキストは赤に変わります。
+
+*HTML の場合:*
+
+----
+<style type="text/css">
+     .NegativeText
+     {
+        color : Red;
+     } 
+    </style>
+----
+
+[start=3]
+. Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、NegativeCssClass プロパティを設定します。
+
+*Visual Basic の場合：*
+
+----
+WebCurrencyEditor1.NegativeCssClass = "NegativeText"
+----
+
+*C# の場合：*
+
+----
+WebCurrencyEditor1.NegativeCssClass = "NegativeText";
+----
+
+[start=4]
+. アプリケーションを保存して実行します。エディターに負の値を入力すると、以下の画像のように、コントロールがフォーカスを失うとすぐに、CSS クラスがエディターに適用されるのが分かります。
+
+image::images\WebCurencyEditor_Styling_negative_text_in_WebCurrencyEditor_01.png[]

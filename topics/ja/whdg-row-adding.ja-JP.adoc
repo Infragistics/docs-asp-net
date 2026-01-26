@@ -1,0 +1,32 @@
+﻿////
+
+|metadata|
+{
+    "name": "whdg-row-adding",
+    "controlName": [],
+    "tags": [],
+    "guid": "630b358d-d6cd-4249-8e42-74b9b7266af5",  
+    "buildFlags": [],
+    "createdOn": "2014-03-10T17:21:06.0525819Z"
+}
+|metadata|
+////
+
+= 行の追加
+
+== このグループのトピックについて
+
+=== はじめに
+
+このグループのトピックは、  _WebHierarchicalDataGrid_™ の行追加動作およびその使用方法を説明します。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:webhierarchicaldatagrid-enabling-row-adding.html[行の追加を有効にする]
+|このトピックは、 _WebHierarchicalDataGrid_ で行追加動作を有効にする方法を説明します。
+
+|====

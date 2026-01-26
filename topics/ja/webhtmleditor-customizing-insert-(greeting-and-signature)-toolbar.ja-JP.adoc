@@ -1,0 +1,49 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-customizing-insert-(greeting-and-signature)-toolbar",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing"],
+    "guid": "{0E709F09-909B-4B56-B3A2-8BF3D9CECDFD}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 挿入（挨拶と署名）ツールバーのカスタマイズ
+
+WebHtmlEditor™ の挿入ツールバーによって、テキスト領域に挨拶や署名を挿入することができます。以下のコードは挿入ツールバーにアクセスして、挨拶や署名をカスタマイズする方法を示します。
+
+*Visual Basic の場合：*
+
+----
+'挿入ツールバーにアクセスします 
+Dim d As ToolbarDropDown = DirectCast(Me.WebHtmlEditor1.Toolbar.Items.GetByType(ToolbarItemType.Insert), ToolbarDropDown)
+'項目 0 は挨拶です 
+DirectCast(d.Items(0), ToolbarDropDownItem).Text = "Custom Greeting" 
+DirectCast(d.Items(0), ToolbarDropDownItem).Value = "Hello there..." 
+'項目 1 は署名です 
+DirectCast(d.Items(1), ToolbarDropDownItem).Text = "Custom Signature" 
+DirectCast(d.Items(1), ToolbarDropDownItem).Value = "Yours Truly,Christopher Lukas" 
+'カスタム項目を追加します 
+d.Items.Add(New ToolbarDropDownItem("Coolness", "<H3>Coolness</H3>"))
+‘ d.Items.Clear (); は挿入ツールバーからすべての項目を完全にクリアして最初から始めます
+----
+
+*C# の場合：*
+
+----
+//挿入ツールバーにアクセスします
+ToolbarDropDown d = (ToolbarDropDown)this.WebHtmlEditor1.Toolbar.Items.GetByType(ToolbarItemType.Insert);
+//項目 0 は挨拶です
+((ToolbarDropDownItem)d.Items[0]).Text = "Custom Greeting";
+((ToolbarDropDownItem)d.Items[0]).Value = "Hello there...";
+//項目 1 は署名です
+((ToolbarDropDownItem)d.Items[1]).Text = "Custom Signature";
+((ToolbarDropDownItem)d.Items[1]).Value = "Yours Truly, Michael";
+//カスタム項目を追加します
+d.Items.Add(new ToolbarDropDownItem("Coolness", "<H3>Coolness</H3>");
+// d.Items.Clear (); は挿入ツールバーからすべての項目を完全にクリアして最初から始めます
+----

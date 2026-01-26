@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "webappstylist-styling-specific-components",
+    "controlName": ["WebAppStylist"],
+    "tags": [],
+    "guid": "{967966B2-2C4A-483D-B0A8-B4D9D0F537B1}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 特定のコンポーネントのスタイル設定
+
+このセクションでは、{ProductName} のさまざまな Web コンポーネントでカスケード スタイル シート (CSS) を実装およびサポートする方法について説明します。CSS によって実装およびサポートできないスタイリングの指針についても説明します。一般的に、さまざまなコントロールに対する CSS のサポートは、アプリケーション スタイリングの追加でも変わりません。以前のアプリケーション スタイリングと同じように、すべてのコントロールは基本的な HTML を描画します。したがって、これまで CSS によって制御可能だった部分と、制御不可能だった部分に変更はありません。
+
+コントロールが CSS によって制御不可能な場合、コントロールでプロパティを設定することにより通常制御可能です。ただし、コントロールでのプロパティの設定は、Infragistics AppStylist for ASP.NET からは処理されません。
+
+Infragistics AppStylist では、限られた数のプロパティ設定を使用して、コントロールはキャンバス内に表示されます。これはランタイムにどのように表示されるかについての全般的な概念を提供しますが、実際のランタイム環境によって、表示が異なる場合があります。Infragistics AppStylist 内での外観と、ランタイムにコントロールの外観が異なる場合があることに注意してください。
+
+各コントロール内のスタイリング、継承、プロパティに関する広範な情報は、以下のリンクをクリックしてください。
+
+* link:webappstylist-styling-specific-components-webmonthview.html[WebMonthView]
+* link:webappstylist-styling-specific-components-webcalendarview.html[WebCalendarView]
+* link:webappstylist-styling-specific-components-webdayview.html[WebDayView]

@@ -1,0 +1,51 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatatree-drag-and-drop-modes",
+    "controlName": ["WebDataTree"],
+    "tags": [],
+    "guid": "356e0e47-0c6e-457c-b8ef-0a7557e7e5c9",  
+    "buildFlags": [],
+    "createdOn": "2010-06-03T08:43:53.7563831Z"
+}
+|metadata|
+////
+
+= ドラッグ アンド ドロップ モード
+
+ドラッグ アンド ドロップ モード
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatatree.html[WebDataTree™] は 3 つの link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.dragdropsettings~dragdropmode.html[ドラッグ アンド ドロップ モード]をサポートしています。
+
+* *Copy* - 選択したノードをドロップした位置にコピーします。
+* *Move* - 選択したノードを切り取り新しい位置に移動します。
+* *Default* - 選択したノードを移動する間 Ctrl キーを押す場合、Copy のように機能し、
+
+新しい位置にドラッグ アンド ドロップするだけの場合は Move のように動作します。
+
+*HTML の場合:* 
+----
+
+<ig:WebDataTree id="WebDataTree1" runat="server">
+
+<DragDropSettings AllowDrop="true" DragDropMode="Copy" EnableDragDrop="True" />
+
+…
+
+</ig:WebDataTree> 
+----
+
+*C# の場合：*
+----
+
+this.DDWebDataTree.DragDropSettings.DragDropMode = Infragistics.Web.UI.NavigationControls.DragDropMode.Copy;
+----
+
+== 関連トピック
+
+link:webdatatree-drag-and-drop-client-side-api.html[クライアント側 API]
+
+link:webdatatree-drag-and-drop-client-side-events.html[クライアント側イベント]
+
+link:webdatatree-drag-and-drop-handle-server-side-event.html[サーバー側イベント]

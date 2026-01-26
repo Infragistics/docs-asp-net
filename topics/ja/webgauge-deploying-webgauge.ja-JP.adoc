@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-deploying-webgauge",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{6953F8B5-F6FE-45C9-9DCD-11BE201ED01B}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebGauge の配備
+
+このセクションは、WebGauge を配備するために必要なファイルに関する情報と、WebGauge 画像を配備するための 2 つのメソッドに関する情報を提供します。
+
+* link:webgauge-image-deployment-in-webgauge.html[WebGauge での画像の配備]
+* link:webgauge-setting-up-the-image-deployment.html[画像配備の設定]

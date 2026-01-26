@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-getting-started-with-webgauge",
+    "controlName": ["WebGauge"],
+    "tags": ["Getting Started"],
+    "guid": "{21B71CD2-2E9A-4D1F-9E21-155F0A9E9E88}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebGauge で作業を開始
+
+この複数部から構成されるチュートリアルは、WebGauge コントロールを起動および実行する支援をします。
+
+* link:webgauge-creating-a-webgauge-in-design-view.html[デザイン ビューで WebGauge を作成]
+* link:webgauge-creating-a-webgauge-using-code.html[コードを使用してゲージを作成]
+* link:webgauge-creating-a-webgauge-using-a-preset.html[プリセットを使用して WebGauge を作成]

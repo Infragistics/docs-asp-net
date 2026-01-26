@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "webslider-set-websliders-track-behavior",
+    "controlName": ["WebSlider"],
+    "tags": ["Editing","How Do I"],
+    "guid": "{97CD9165-F867-4641-901D-B4EA07A12107}",  
+    "buildFlags": [],
+    "createdOn": "2008-12-05T16:16:33Z"
+}
+|metadata|
+////
+
+= WebSlider のトラック動作を設定
+
+エンド ユーザーがトラックをシングルクリックまたはダブルクリックした時に WebSlider™ がどのように動作するのかを制御できます。WebSlider のつまみはクリックされた地点に移動する、または何も実行しないのいずれかが可能です。
+
+適切なプロパティを設定することによって、トラックの動作を制御することができます:
+
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.slidertrack~clickaction.html[ClickAction]"]  -- ClickAction プロパティを MoveToPoint に設定することによって、クリックするとつまみはクリックされた地点に移動します。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.slidertrack~doubleclickaction.html[DoubleClickAction]"]  -- DoubleClickAction プロパティを MoveToPoint に設定することによって、ダブルクリックするとつまみはクリックされた地点に移動します。
+
+以下の例のコードは、マウス クリック時につまみがどのように移動するのかを示します。
+
+*Visual Basic の場合：*
+
+----
+Me.WebSlider1.Track.ClickAction = _
+Infragistics.Web.UI.EditorControls.SliderTrackClickAction.MoveToPoint
+----
+
+*C# の場合：*
+
+----
+this.WebSlider1.Track.ClickAction = Infragistics.Web.UI.EditorControls.SliderTrackClickAction.MoveToPoint;
+----
+
+== 関連トピック
+
+link:webslider-set-websliders-track-appearance.html[WebSlider のトラックの外観を設定]

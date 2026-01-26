@@ -1,0 +1,47 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatagrid-webhierarchicaldatagrid-smart-tag",
+    "controlName": ["WebHierarchicalDataGrid"],
+    "tags": ["Design Environment","Grids"],
+    "guid": "{1FF8F88A-9C74-4D8E-ADF7-2DE10AE754D8}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHierarchicalDataGrid スマート タグ
+
+Visual Studio 2005/2008（.NET Framework 2.0/3.5）では、{ProductName} の個々のコントロール/コンポーネントにはスマート タグがあります。コントロールやコンポーネントを選択することで、スマート タグのアンカーが表示されます。このアンカーをクリックするとポップアップ パネルが表示され、そこからコントロール/コンポーネントの最もよく使うプロパティや設定にすばやく簡単にアクセスできます。
+
+WebHierarchicalDataGrid™ のスマート タグには次の項目が含まれています。
+
+* [データ ソースの選択] -- 既存のデータ ソースを選択する、または WebHierarchicalDataGrid にバインドするようににデータ ソースを構成できます。
+
+項目の説明と、プロパティ グリッドの各項目が対応するプロパティについては、以下の表を参照してください。
+
+WebHierarchicalDataGrid のスマート タグには次のリンクが含まれています。
+
+* データ ソースの構成 - データ ソース構成ウィザードへのリンクによって、WebHierarchicalDataGrid にバインドするようにデータ ソースを構成できます。
+* スキーマの更新 - これをクリックして WebHierarchicalDataGrid を更新すれば、データ ソースまたはスキーマへの変更はデザイナーに表示されます。
+* バンドの編集 – これによって、ユーザーは親および子バンドを WebHierarchicalDataGrid コントロールに追加できます。バンド設定も構成できます。
+* 動作の編集 - WebHierarchicalDataGrid の動作を追加、削除および構成するために動作エディターを起動します。
+* グリッド エディター プロバイダーの編集 - WebHierarchicalDataGrid と使用するためエディター プロバイダーを追加/削除するためにエディター プロバイダーのエディターにリンクします。
+* テンプレート コレクションの編集 - WebHierarchicalDataGrid で使用できるテンプレートを追加/削除できるテンプレート コレクション エディターにリンクします。
+* バージョン情報 -- これをクリックすると WebHierarchicalDataGrid 製品の情報を開きます。状態、バージョン、有効期限、製品キーなどの情報を含みます。
+* エクステンダーを追加 – これをクリックすると、WebHierarchicalDataGrid と使用可能なすべてのコントロール エクステンダーを表示するダイアログを表示します。コントロール エクステンダーは、ページに既に宣言されている既存のコントロールに追加機能（通常は AJAX または JavaScript のサポート）を追加するために使用でき、UI behavior をカプセル化したり、より豊かな機能をアプリケーションに簡単に追加することもできます。
+* テンプレートの編集 - これをクリックして、編集できるすべての使用可能なテンプレートを表示します。必要に応じてテンプレートにコントロールをドラッグ アンド ドロップして、コントロールを編集できます。
+
+image::Images\WebHierarchicalDataGrid_Smart_Tag.png[]
+
+[options="header", cols="a,a,a"]
+|====
+|項目|説明|対応するプロパティ
+
+|データ ソースの選択
+|ドロップダウン リストによって、既存のデータ ソースを選択したり、新しいデータ ソースを構成できます。
+| pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webhierarchicaldatagrid~datasourceid.html[DataSourceID]"] 
+
+|====

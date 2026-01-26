@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "websplitter-set-a-panes-size",
+    "controlName": ["WebSplitter"],
+    "tags": ["How Do I"],
+    "guid": "{1E43C999-6B0A-404C-A66E-C672389B7A5E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ペインのサイズを設定
+
+WebSplitter™ コントロールはすべてのペインをピクセルでサイズ設定できます。ペインのパーセントを指定する場合、WebSplitter はランタイムにパーセントをピクセルに変換してその数を公開します。デザインタイムにパーセント値を指定し、エンド ユーザーがペインをリサイズする場合、WebSplitter はブラウザ ウィンドウと周りのパネルの既知の幅に基づいて幅のパーセントを再計算します。WebSplitter は更新したパーセント値を公開します。
+
+image::images/WebSplitter_Handling_of_Percentage_Defined_Sizes_01.png[]

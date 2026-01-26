@@ -1,0 +1,201 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-selection",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Selection"],
+    "guid": "{268BEE98-5AA9-4CE5-B7FE-D3CCF15B0ACC}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 選択
+
+選択動作によって、WebDataGrid™ の行、セル、列の選択が有効になります。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.behaviors~selection.html[Selection]"]  動作が追加されたら、ユーザーが選択できるオブジェクトを指定するために選択タイプを設定する必要があります。
+
+選択タイプは、None、Single および Multiple の選択肢で構成され、オブジェクトの単一選択または複数設定を可能にする、またはオプションすべてを無効にすることができます。
+
+選択動作を追加する時に個々のオブジェクトのクライアント側イベントと CSS スタイルを設定することもできます。
+
+== 選択を有効にします
+
+[start=1]
+. Microsoft® Visual Studio™ プロパティ ウィンドウで、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.behaviors.html[Behaviors]"]  プロパティを指定して、省略記号 (...) ボタンをクリックし、[動作エディター] ダイアログを起動します。
+[start=2]
+. この動作を追加して有効にするには、左側で選択の隣りのチェックボックスをチェックします。
+
+*注：* 現時点で追加の Selection 関連プロパティを構成できます（たとえば、許可する選択のタイプ）。
+
+[start=3]
+. pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.selection~cellclickaction.html[CellClickAction]"]  プロパティはデフォルトで Cell に設定されています。この例では、デフォルト値のままにしておきます。
+
+*注：*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.rowdeleting.html[RowDeleting]"]  を有効にすると、Selection を追加することもプロンプトされます。そのように実行することを選択する場合、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.selection~rowselecttype.html[RowSelectType]"]  および  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.selection~cellclickaction.html[CellClickAction]"]  Selection プロパティが Single および Row にそれぞれ設定されて、Selection と  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.behaviors~rowselectors.html[RowSelectors]"]  が有効になります。
+
+[start=4]
+. [OK] をクリックしてダイアログを閉じます。クリックされた時にセルを選択するように WebDataGrid が設定されます。
+
+== セル選択
+
+WebDataGrid™ でセルを選択するためには、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.behaviors~selection.html[Selection]"]  動作を有効にする必要があります。
+
+デフォルトで、Selection 動作の  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.selection~cellclickaction.html[CellClickAction]"]  プロパティは Cell に設定されており、これによってセルの選択が有効になります。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.selection~cellselecttype.html[CellSelectType]"]  プロパティを Single または Multiple に設定できます。
+
+== セルの選択/選択の解除
+
+ユーザーはマウスまたはキーボードを使用することでセルを選択できます。
+
+コードでセルを選択するには、セルを選択されたセル コレクションに追加します。セルの選択を解除するには、コレクションから削除して、クリア メソッドを呼び出してすべての選択されたセルを削除します。サーバー側とクライアント側の両方でこれを実行できます。
+
+*Visual Basic の場合：*
+
+----
+' セルを選択するために
+' 選択されたセルを取得します
+Dim selectedCells As SelectedCellCollection = Me.WebDataGrid1.Behaviors.Selection.SelectedCells 
+' セルを選択します
+selectedCells.Add(Me.WebDataGrid1.Rows(0).Items(1)) 
+' セルの選択を解除するために
+' 最初の選択されたセルをコレクションから削除します 
+selectedCells.RemoveAt(0)
+----
+
+*C# の場合：*
+
+----
+// セルを選択するために
+// 選択されたセルを取得します
+SelectedCellCollection selectedCells = this.WebDataGrid1.Behaviors.Selection.SelectedCells;
+// セルを選択します
+selectedCells.Add(this.WebDataGrid1.Rows[0].Items[1]);
+// セルの選択を解除するために
+// 最初の選択されたセルをコレクションから削除します
+selectedCells.RemoveAt(0);
+----
+
+*JavaScript の場合*
+
+----
+// セルを選択するために
+var grid = $find("WebDataGrid1");
+// セルを選択します
+grid.get_behaviors().get_selection().get_selectedCells().add(grid.get_rows().get_row(0).get_cell(1));
+// セルの選択を解除するために
+// 最初の選択されたセルをコレクションから削除します
+grid.get_behaviors().get_selection().get_selectedCells().remove(grid.get_behaviors().get_selection().get_selectedCells().getItem(0));
+----
+
+== 列選択
+
+WebDataGrid™ で列を選択するためには、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.behaviors~selection.html[Selection]"]  動作を有効にする必要があります。さらに、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.behaviors~selection.html[Selection]"]  動作の  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.selection~columnselecttype.html[ColumnSelectType]"]  プロパティを Single または Multiple に設定します。
+
+列選択を有効にした後で、エンドユーザーは列のヘッダーをクリックして列を選択できます。選択された列コレクションに追加することでコードで列を選択することも可能です。
+
+*注：* コードで列を選択する時に ColumnSelectType を設定する必要はありません。必要なのは Selection 動作を有効にすることだけです。
+
+*Visual Basic の場合：*
+
+----
+' 列を選択するために
+' 選択された列を取得します
+Dim selectedColumns As SelectedColumnCollection = Me.WebDataGrid1.Behaviors.Selection.SelectedColumns 
+' 列を選択します
+selectedColumns.Add(Me.WebDataGrid1.Columns(0)) 
+' 列の選択を解除するために
+' コレクションで最初の選択された列を削除します 
+selectedColumns.RemoveAt(0)
+----
+
+*C# の場合：*
+
+----
+// 列を選択するために
+// 選択された列を取得します
+SelectedColumnCollection selectedColumns = this.WebDataGrid1.Behaviors.Selection.SelectedColumns;
+// 列を選択します。
+selectedColumns.Add(this.WebDataGrid1.Columns[0]);
+// 列の選択を解除するために
+// 最初の選択された列をコレクションから削除します
+selectedColumns.RemoveAt(0);
+----
+
+*JavaScript の場合*
+
+----
+// 列を選択するために
+var grid = $find("WebDataGrid1");
+// 列を選択します
+grid.get_behaviors().get_selection().get_selectedColumns().add(grid.get_columns().get_column(0));
+// 列の選択を解除するために
+// 最初の選択された列をコレクションから削除します
+grid.get_behaviors().get_selection().get_selectedColumns().remove(grid.get_behaviors().get_selection().get_selectedColumns().getItem(0));
+----
+
+== 行選択
+
+WebDataGrid™ で行を選択するためには、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.behaviors~selection.html[Selection]"]  動作を有効にする必要があります。マウスをクリックして行選択を有効にするには、Selection 動作内で  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.selection~cellclickaction.html[CellClickAction]"]  プロパティを Row に設定します。デフォルトで Cell に設定されます。これに加えて、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.selection~rowselecttype.html[RowSelectType]"]  を Single または Multiple のいずれかに設定できます。
+
+行選択を有効にした後で行を選択する方法はいくつかあります。その行でセルをクリックすることによって行を選択できます。または行セレクターを使用できます。選択された行コレクションに追加することでコードで行を選択することも可能です。行の選択を解除するには、コレクションから削除します。
+
+*注：* コードで行を選択する時に CellClickAction または RowSelectType を設定する必要はありません。必要なのは Selection 動作を有効にすることだけです。
+
+*Visual Basic の場合：*
+
+----
+' 行を選択するために
+' 選択した行を取得します
+Dim selectedRows As SelectedRowCollection = Me.WebDataGrid1.Behaviors.Selection.SelectedRows 
+' 行を選択します
+selectedRows.Add(Me.WebDataGrid1.Rows(0)) 
+' 行の選択を解除するために
+' 最初の選択された行をコレクションから削除します 
+selectedRows.RemoveAt(0)
+----
+
+*C# の場合：*
+
+----
+// 行を選択するために
+// 選択した行を取得します
+SelectedRowCollection selectedRows = this.WebDataGrid1.Behaviors.Selection.SelectedRows;
+// 行を選択します
+selectedRows.Add(this.WebDataGrid1.Rows[0]);
+// 行の選択を解除するために
+// 最初の選択された行をコレクションから削除します
+selectedRows.RemoveAt(0);
+----
+
+*JavaScript の場合*
+
+----
+// 行を選択するために
+var grid = $find("WebDataGrid1");
+// 行を選択します
+grid.get_behaviors().get_selection().get_selectedRows().add(grid.get_rows().get_row(0));
+// 行の選択を解除するために
+// 最初の選択された行をコレクションから削除します
+grid.get_behaviors().get_selection().get_selectedRows().remove(grid.get_behaviors().get_selection().get_selectedRows().getItem(0));
+----
+
+== 行セレクターで選択
+
+行セレクターで行を選択するには、行選択を有効にすることに加えて  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.behaviors~rowselectors.html[RowSelectors]"]  動作を追加する必要があります。行セレクターの詳細は link:webdatagrid-enabling-row-selectors.html[行セレクタを有効]を参照してください。
+
+行セレクターが有効の場合、CellClickAction を Row に設定するだけでなく、RowSelectType を Single または Multiple に設定することが必要となります。
+
+いったん有効にすると、行セレクターをクリックして行を選択できます。複数行を選択するには行セレクターをクリック アンド ドラッグすることも可能です。
+
+== 単一選択
+
+単一選択を有効にして、セルをクリックして選択できます。
+
+== 複数選択
+
+複数選択を有効に設定すると、以下を実行できます:
+
+* 単一選択の場合はクリックします。
+* 複数の連続選択の場合はクリック アンド ドラッグします。
+* 複数の連続選択の場合は Shift キーを押しながらクリックします。
+* 複数の不連続選択の場合は Ctrl キーを押しながらクリックします。

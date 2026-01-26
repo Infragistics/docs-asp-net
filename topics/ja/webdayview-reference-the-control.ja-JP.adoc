@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdayview-reference-the-control",
+    "controlName": ["WebDayView"],
+    "tags": ["How Do I","Scheduling"],
+    "guid": "{ADAC660C-D590-4CC3-81DD-44832D0068B8}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= コントロールの参照
+
+クライアント側で WebDayView™ コントロールを参照するためには 2 つの方法があります。WebSchedule™ コントロールのすべては、ig_getWebControlById 関数を使用し、クライアントでそれにアクセスするためにコントロールの ID を渡すことができます。WebDayView では特に、コントロールを参照するために ig_getWebDayViewById 関数を使用できます。
+
+次のコードはこのコントロールの参照方法を示します。
+
+*JavaScript の場合*
+
+----
+var dayView = ig_getWebDayViewById("WebDayView1");
+----

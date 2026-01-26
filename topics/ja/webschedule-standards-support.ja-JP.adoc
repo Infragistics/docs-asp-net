@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-standards-support",
+    "controlName": ["WebSchedule"],
+    "tags": ["Patterns and Practices","Section 508"],
+    "guid": "{229550D3-33BB-4E4A-8BA8-89E094D25BAF}",  
+    "buildFlags": [],
+    "createdOn": "2005-01-08T00:00:00Z"
+}
+|metadata|
+////
+
+= 標準規格のサポート
+
+WebSchedule コントロールは複数の異なる規格をサポートしますが、そのひとつがセクション 508 の準拠です。WebSchedule コントロールも十分に Cascading Style Sheets を利用して、コントロールのスタイルで使用するためのこれらの規格をサポートします。WebSchedule コントロールも HTML 4.01 準拠です。

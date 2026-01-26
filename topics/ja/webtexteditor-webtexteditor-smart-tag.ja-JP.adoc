@@ -1,0 +1,50 @@
+﻿////
+
+|metadata|
+{
+    "name": "webtexteditor-webtexteditor-smart-tag",
+    "controlName": ["WebTextEditor"],
+    "tags": ["Design Environment"],
+    "guid": "{A349AD4B-BE7B-4CC2-B19A-D8B6C56B7C42}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebTextEditor スマート タグ
+
+Visual Studio 2005/2008（.NET Framework 2.0/3.5）では、{ProductName} の個々のコントロール/コンポーネントにはスマート タグがあります。コントロールやコンポーネントを選択することで、スマート タグのアンカーが表示されます。このアンカーをクリックするとポップアップ パネルが表示され、そこからコントロール/コンポーネントの最もよく使うプロパティや設定にすばやく簡単にアクセスできます。
+
+WebTextEditor™ のスマート タグには次のセクションが含まれています。
+
+* 値の変更時に自動ポストバック -- ValueChanged イベントに適用される自動ポストバック オプションを設定できます。
+* 読み取り専用 -- エンドユーザーがコントロールのテキストを編集できるかどうかを構成することができます。
+* テキスト モード -- テキスト モードを 1 行、複数行、またはパスワードに設定できます。
+
+WebTextEditor のスマート タグには次のリンクが含まれています。
+
+* バージョン情報 -- これをクリックすると WebTextEditor 製品情報が開きます。状態、バージョン、有効期限、製品キーなどの情報を含みます。
+* エクステンダーの追加 -- これをクリックすると、WebTextEditor と使用可能なすべてのコントロール エクステンダーを表示するダイアログを表示します。
+
+項目の説明と、プロパティ グリッドの各項目が対応するプロパティについては、以下の表を参照してください。
+
+image::images/WebTextEditor_WebTextEditor_Smart_Tag_01.png[WebTextEditor_Smart_Tag_01]
+
+[options="header", cols="a,a,a"]
+|====
+|項目|説明|対応するプロパティ
+
+|値の変更時に自動ポストバック
+|ValueChanged イベントに適用される自動ポストバック オプションを取得/設定します。
+|*ValueChanged (AutoPostBackFlags)*
+
+|読み取り専用
+|エンドユーザーがコントロールのテキストを編集する機能を取得または設定します。
+|*ReadOnly*
+
+|テキスト モード
+|SingleLine、MultiLine または Password などのエディターのテキスト モードを取得/設定します。
+|*TextMode*
+
+|====

@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatatree-binding-to-data",
+    "controlName": ["WebDataTree"],
+    "tags": ["Data Binding"],
+    "guid": "{C058A2BE-8C6B-4FEA-B1E8-AD4DCDF7C47C}",  
+    "buildFlags": [],
+    "createdOn": "2009-03-03T14:54:30Z"
+}
+|metadata|
+////
+
+= データにバインド
+
+WebDataTree™ は標準的な Microsoft データ ソース コントロールを含み広範なバインド可能なデータ ソースをサポートします。
+
+以下のリンクをクリックして、WebDataTree をデータ ソースとバインドすることについてさらに学習します:
+
+* link:webdatatree-binding-webdatatree-to-an-xml-data-source.html[XML データ ソースに WebDataTree をバインド]
+* link:webdatatree-binding-webdatatree-to-webhierarchicaldatasource.html[WebDataTree を HierarchicalDataSource にバインド]

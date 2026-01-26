@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "webscheduleinfo-utility-functions-csom",
+    "controlName": [],
+    "tags": ["API","Scheduling"],
+    "guid": "{FFC2A876-AAAD-4DD1-B774-46011D557DF2}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-12T00:00:00Z"
+}
+|metadata|
+////
+
+= ユーティリティ関数
+
+== 概要
+
+ここで説明するユーティリティ関数は、WebSchedule コントロールの JavaScript コードで使用されます。ユーティリティ関数を公開し解説するのは、開発者が可能な限り多くのロジックをクライアント マシン上に実装することで、パフォーマンスと機能性の両面で性能を引き出せるようにすることを意図しています。
+
+----
+function ig_getWebControlById(id)*
+----
+すべてのスケジュール コントロール（WebScheduleInfo、WebDayView、WebCalendarView、WebMonthView）で機能します。
+
+----
+function ig_getWebScheduleInfoById(id);*
+----
+メインの WebScheduleInfo 要素の ID に基づいて、WebScheduleInfo オブジェクトを取得します。

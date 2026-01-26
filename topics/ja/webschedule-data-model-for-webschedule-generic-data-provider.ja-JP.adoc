@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-data-model-for-webschedule-generic-data-provider",
+    "controlName": ["WebSchedule"],
+    "tags": [],
+    "guid": "{B90E5A2E-0BA7-4911-AAA8-04D1C32B74F9}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebSchedule の汎用データ プロバイダーのデータ モデル
+
+WebScheduleGenericDataProvider™ コンポーネントによって、ユーザーが選択する任意のデータ ソースにバインドすることができます。ただし、すべての機能が正しく動作するには、データ ソースに必要となる特定のフィールドが含まれなければなりません。さらに、自動データ バインディングを行うには、データ フィールドは特定の名前を持つ必要があります。
+
+アクティビティ、バリアンス、およびリソースのデータ スキーマについての詳細は、以下のリンクをクリックしてください。
+
+* link:webschedule-generic-activityvariance-data-model.html[汎用的なアクティビティ/バリアンス データ モデル]
+* link:webschedule-generic-resource-data-model.html[汎用的なリソース データ モデル]

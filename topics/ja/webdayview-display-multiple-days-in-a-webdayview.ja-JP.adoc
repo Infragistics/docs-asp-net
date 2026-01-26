@@ -1,0 +1,52 @@
+﻿////
+|metadata|
+{
+    "name": "webdayview-display-multiple-days-in-a-webdayview",
+    "controlName": ["WebDayView"],
+    "tags": ["How Do I"],
+    "guid": "{62490B9F-4491-489E-BA8E-085E2F8C850A}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDayView で複数日を表示
+
+WebDayView には、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webdayview~visibledays.html[VisibleDays]"] プロパティを設定することによって、複数日を表示する機能があります。最低 1 日から最高 14 日までに設定できます。 
+
+表示される各日の pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[アクティビティ]"] を表示するために、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webdayview~activitywidthminimum.html[ActivityWidthMinimum]"] プロパティを使用して、各アクティビティが必要とするスペースを計算して、このコントロールはコントロール自体のサイズを変更できます。 
+
+以下のコードは、WebDayView が 4 日表示するようにこのプロパティを設定する方法を示しています。
+
+image::images\WebSchedule_How_to_Display_Multiple_Days_in_a_WebDayView_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Private Sub Page_Load(ByVal sender As System.Object, ByVal e _
+  As System.EventArgs) Handles MyBase.Load
+	Me.WebDayView1.VisibleDays = 4
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void Page_Load(object sender, System.EventArgs e)
+{
+	this.WebDayView1.VisibleDays = 4;
+}
+----
+
+== 関連トピック
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[WebSchedule 名前空間]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webdayview.html[WebDayView クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo.html[WebScheduleInfo クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[Activity クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.resource.html[Resource クラス]"]

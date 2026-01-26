@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-appearance",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{40975473-1225-420C-990B-5F65B568889A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 外観
+
+このセクションは、外観と、外観を使用して gauge のルック アンド フィールをカスタマイズする方法に関する役立つ情報を提供します。以下のリンクをクリックすると、外観について学習するだけでなく、ゲージの外観に関連したタスクベースの手順にアクセスすることができます。
+
+* link:webgauge-brush-elements.html[ブラシ要素]
+* link:webgauge-effects.html[エフェクト]

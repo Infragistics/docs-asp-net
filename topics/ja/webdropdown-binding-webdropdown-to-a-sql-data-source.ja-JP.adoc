@@ -1,0 +1,72 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdropdown-binding-webdropdown-to-a-sql-data-source",
+    "controlName": ["WebDropDown"],
+    "tags": ["Data Binding","Data Presentation"],
+    "guid": "{E7162A33-8D78-48B6-854C-EB74FCBE48B6}",  
+    "buildFlags": [],
+    "createdOn": "2009-03-03T14:03:09Z"
+}
+|metadata|
+////
+
+= WebDropDown を SQL データ ソースにバインド
+
+== 始める前に
+
+WebDropDown™ はデータ ソース エディターを使用して SQL データ ソースにバインドできます。WebDropDown によってテンプレートを使用することによって複数の列を表示することが可能となります。
+
+このトピックでは、WebDropDown を Northwind データベースの Customers テーブルの単一列にバインドします。
+
+== 達成すること
+
+WebDropDown を SQL データ ソースにバインドする方法を学習します。
+
+== 次の手順を実行します
+
+[start=1]
+. ASP.NET Web ページを作成します。
+[start=2]
+. Microsoft® Visual Studio™ ツールボックスからページに ScriptManager コンポーネントをドラッグします。
+[start=3]
+. WebDropDown コントロールをページにドラッグします。
+[start=4]
+. SqlDataSource コンポーネントをページにドラッグします。
+[start=5]
+. SqlDataSource コンポーネントのスマート タグをクリックして、[データ ソースの構成] を選択します。[データ ソースの構成] ウィザードが表示します。
+
+image::images\WebDropDown_Binding_WebDropDown_to_a_SQL_Data_Source_01.png[]
+
+[start=6]
+. [新しい接続] をクリックして接続文字列を構成します。[接続を追加] ダイアログが表示します。
+
+image::images\WebDropDown_Binding_WebDropDown_to_a_SQL_Data_Source_02.png[]
+
+[start=7]
+. この場合、使用しているサーバー、.\SQLEXPRESS にサーバー名を指定します。データベースを Northwind に設定します。
+[start=8]
+. [OK] をクリックします。[接続の構成] 画面に戻ります。
+[start=9]
+. [次へ] をクリックします。
+[start=10]
+. [テーブル] または [ビュー] から [列の指定] を選択し以下を実行します:
+
+** ドロップダウン リストから Customers テーブルを選択します。
+** Columns セクションで、CompanyName を選択して列を表示します。
+
+[start=11]
+. [次へ] をクリックします。
+[start=12]
+. SqlDataSource がデータを取得することを保証するためにクエリをテストします。
+[start=13]
+. [完了] をクリックして構成ウィザードを閉じます。SqlDataSource は Northwind データベースから Customers テーブルの CompanyName を取得するように設定されます。
+[start=14]
+. WebDropDownの [プロパティ] ウィンドウで、SqlDataSource コンポーネントの ID となるように DataSourceID を設定します。
+[start=15]
+.  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~textfield.html[TextField]"]  プロパティを CompanyName に設定します。
+[start=16]
+. アプリケーションを保存して実行します。WebDropDown は以下の画像のように会社名のリストを表示します:
+
+image::images\WebDropDown_Binding_WebDropDown_to_a_SQL_Data_Source_03.png[]

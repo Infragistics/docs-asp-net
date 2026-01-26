@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-utility-functions",
+    "controlName": [],
+    "tags": ["API","How Do I"],
+    "guid": "{BADB8D73-C516-44BE-9BF1-FB6AFAEDD3A1}",  
+    "buildFlags": [],
+    "createdOn": "2007-06-02T11:54:28Z"
+}
+|metadata|
+////
+
+= WebGauge のユーティリティ関数
+
+一般使用のために以下の関数ユーティリティを使用でき、WebGauge の JavaScript とともに出荷されます。この関数は、ゲージのエレメントの ID と動作し、実際的には ID を持つ HTML エレメントと内部でエレメントを表す DOM オブジェクト間の接続です。
+
+=== WebGauge ユーティリティ メソッド
+
+==== ig_getWebGaugeById
+
+*パラメータ*
+
+_id_ 
+
+文字列。オブジェクトが返されるゲージの ID。
+
+*戻り値*
+
+オブジェクト。渡された ID に対応するゲージの DOM オブジェクト。そのような ID を持つゲージが見つからない場合 null。

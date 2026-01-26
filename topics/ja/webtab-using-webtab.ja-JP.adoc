@@ -1,0 +1,73 @@
+﻿////
+
+|metadata|
+{
+    "name": "webtab-using-webtab",
+    "controlName": ["WebTab"],
+    "tags": ["How Do I"],
+    "guid": "{6FB1270E-EC4C-470C-BF75-2FE9385195F6}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebTab の使用
+
+このセクションは、WebTab™ コントロールの重要な概念および機能を効果的に使用するためのタスク ベースの情報について説明します。
+
+link:webtab-header-and-content-panes.html[ヘッダーとコンテンツ ペイン]
+
+このセクションでは、WebTab のヘッダーとコンテンツペイをカスタマイズする方法を学びます。
+
+link:webtab-tab-states.html[タブの状態]
+
+WebTab コントロールには、各スタイルによって示されるさまざまな状態のタブがあります。このセクションでは状態について詳しく学びます。
+
+link:webtab-ajax-indicator-support-for-webtab.html[WebTab の Ajax インジケーター サポート]
+
+このセクションでは、コントロールがコールバックを待っているときに、Ajax インジケーターを使用する方法について学びます。
+
+link:webtab-display-modes.html[モードの表示]
+
+このセクションでは、WebTab コントロールでサポートされるさまざまな表示モードについて学びます。
+
+link:webtab-animations.html[アニメーション]
+
+WebTab コントロールは、タブが開く、または閉じるときのアニメーションを提供します。このセクションではアニメーションを使用する方法を学びます。
+
+link:webtab-handling-overflow-in-webtab.html[WebTab のオーバーフローの処理]
+
+このセクションでは、WebTab コントロールのタブのオーバーフローを処理する方法を学びます。
+
+link:webtab-keyboard-navigation.html[キーボード ナビゲーション]
+
+このセクションでは、ナビゲーションでサポートされるキーについて学びます。
+
+link:webtab-load-on-demand.html[ロードオンデマンド]
+
+このセクションでは、WebTab コントロールでロードオンデマンドを有効にする方法を学びます。
+
+link:webtab-orientation-and-alignment.html[向きと配列]
+
+このセクションでは WebTab コントロールで向きと配列を処理する方法を説明します。
+
+link:webtab-overlapping-tabs.html[タブを重ねて表示]
+
+このセクションではタブを重ねて表示する方法を学びます。
+
+link:webtab-tab-moving.html[タブの移動]
+
+WebTab はマウス ドラッグによるタブの移動をサポートします。このセクションでは、機能を有効にする方法について示します。
+
+link:webtab-scrolling.html[スクローリング]
+
+このセクションでは、WebTab コントロールでタブをスクロールする方法について学びます。
+
+link:webtab-validation-in-webtab.html[WebTab の検証]
+
+このセクションでは、WebTab コントロールのタブに検証を設定する方法を学びます。
+
+link:webtab-webtab-smart-tag.html[WebTab スマート タグ]
+
+このセクションでは WebTab スマート タグを設定する方法を学びます。

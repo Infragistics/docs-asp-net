@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "webmonthcalendar-api-overview",
+    "controlName": ["WebMonthCalendar"],
+    "tags": ["API"],
+    "guid": "{24C68E44-F262-41D6-8DD3-70749035C503}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションではコントロールに関連する各名前空間を示します。このコントロールでプログラムする間に使用するいくつかのキー クラスも提供します。このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+=== WebMonthCalendar 名前空間：
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols_namespace.html[Infragistics.Web.UI.EditorContols]
+
+=== キー クラス：
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webmonthcalendar.html[WebMonthCalendar]
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.calendarcustomday.html[CalendarCustomDay]
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.calendarhotkeys.html[CalendarHotKeys]

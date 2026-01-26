@@ -1,0 +1,58 @@
+﻿////
+|metadata|
+{
+    "name": "webschedule-format-the-first-day-of-the-month-in-webmonthview",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Localization","Scheduling"],
+    "guid": "{2EE43C25-35FC-426D-90D9-36AC22602749}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebMonthView で月の最初の日をフォーマット
+
+WebMonthView を使用すると、デザイナは pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webmonthview~firstdayheaderformatstring.html[FirstDayHeaderFormatString]"] プロパティを通して異なる日番号書式識別子を指定することができます。この書式文字列は、最初の表示日（一番上の左隅）と毎月の最初の暦日に適用されます。 
+
+デフォルトの FirstDayHeaderFormatString には簡略された月が含まれます。この例では、日番号のみ（月を付けない）を表示するためにコードビハインドで FirstDayHeaderFormatString をカスタマイズする方法を学習します。
+
+image::Images/WebSchedule_How_to_Change_the_First_Day_of_Month_Formatting_in_WebMonthView_01.png[]
+
+*Visual Basic の場合：* 
+
+---- 
+Protected Sub Page_Load(ByVal sender As Object, _ 
+	ByVal e As EventArgs) Handles MyBase.Load 
+	' WebMonthView で最初の日で 
+	' カスタムの .NET の日時書式指定子を設定します。 
+	Me.WebMonthView1.FirstDayHeaderFormatString = " d" 
+End Sub
+---- 
+
+*C# の場合：*
+
+---- 
+protected void Page_Load(object sender, EventArgs e) 
+{ 
+	 //WebMonthView で最初の日で 
+	 //カスタムの .NET の日時書式指定子を設定します。 
+	this.WebMonthView1.FirstDayHeaderFormatString = " d"; 
+}
+---- 
+
+*注：* FirstDayHeaderFormatString に割り当てられたカスタムの書式文字列の先行スペースに注意してください。これは、現在のカルチャの短縮した日パターンを使用することを示す "d" 書式指定子と、月の一桁の日を示す "d" を区別します。 
+
+WebSchedule で使用できるその他のカスタムの日時書式文字列に関する詳細は、Microsoftの.NET Framework SDK の「書式指定子」のセクションを参照してください。 
+
+== 関連トピック
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[WebSchedule 名前空間]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webmonthview.html[WebMonthView クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo.html[WebScheduleInfo クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[Activity クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.resource.html[Resource クラス]"]

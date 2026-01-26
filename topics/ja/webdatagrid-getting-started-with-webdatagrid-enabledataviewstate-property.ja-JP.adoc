@@ -1,0 +1,38 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-getting-started-with-webdatagrid-enabledataviewstate-property",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Getting Started","Grids"],
+    "guid": "{26C61EC5-6A1E-441A-8488-8150CB7CE26E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= EnableDataViewState プロパティ
+
+*EnableDataViewState プロパティ*
+
+EnableDataViewState プロパティは、ViewState で WebDataGrid™ コントロールのデータを保存するオプションを提供します。このプロパティはデフォルトで False です。つまり WebDataGrid のデータは保存されません。ところが WebDataGrid のスタイリングやプロパティ設定などのその他の情報は ViewState で保存されます。
+
+*EnableDataViewState を False に設定した WebDataGrid 機能*
+
+ポストバック時にデータは ViewState で保存されないため、WebDataGrid はデータを取得する要求を行います。これは、データ更新などの特定の操作では、データソースに 2 つのリクエストが行われることを意味します。1 つはオリジナル データが古いビューを復元するリクエストで、もう 1 つは更新されたデータが新しいビューを作成するリクエストです。
+
+*EnableDataViewState を True に設定した WebDataGrid 機能*
+
+現在のビューのすべてのデータは ViewState で保存されています。これはページングのために、現在のページのデータが ViewState で保存されていることを意味します。フィルタリングのために、フィルタリングされた行のデータは ViewState で保存されます。
+
+ポストバック時に、WebDataGrid は古いビューを ViewState から復元します。更新のために必要とされるリクエストはひとつだけです。
+
+*データ ソース*
+
+DataSource プロパティを使用してWebDataGrid のデータ ソースを設定する場合、留意する必要があるいくつかの注意事項があります。
+
+[start=1]
+. ポストバックのたびにページのロード イベントで DataSource を設定すると、EnableDataViewState プロパティかどうかにかかわらず、ポストバックのたびにデータのリクエストが起動されます。ポストバックごとにデータのリクエストを回避するには、できればプロパティ ウィンドウまたは ASPX マークアップでデザイン タイムに WebDataGrid の DataSourceID プロパティを設定します。
+[start=2]
+. 初期ロードでページ ロード イベントで DataSource プロパティを設定すると、EnableDataViewState が True の時 AutoCRUD（Automatic Create, Read Update and Delete）機能が無効になります。これは、すべての WebDataGrid のデータが ViewState になっているが、データ ソースとの実際的な接続がないため、それ以降のポストバックでデータ リクエストが行われなくなるため、AutoCRUD 機能を排除します。繰り返しになりますがこれのための回避策は DataSourceID プロパティを使用することです。

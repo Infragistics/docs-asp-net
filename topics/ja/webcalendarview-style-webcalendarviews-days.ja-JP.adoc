@@ -1,0 +1,48 @@
+﻿////
+|metadata|
+{
+    "name": "webcalendarview-style-webcalendarviews-days",
+    "controlName": ["WebCalendarView"],
+    "tags": ["How Do I","Styling"],
+    "guid": "{68A34552-EB13-42E4-B22E-93176D443025}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebCalendarView の日にちをスタイル
+
+使用可能な  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webcalendarview~daystyle.html[DayStyle]"]  オブジェクトを使用することによって WebCalendarView の日をスタイルすることができます。DayStyle オブジェクトは、その他のいくつかの {ProductName} コントロールに見られる  pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.shared.style.html[Style]"]  オブジェクトを使用します。
+
+注：DayStyle のこの設定は、カレンダーに表示されるすべての日が実際にその月の日かどうかにかかわらず、それらの日にスタイル変更を適用します。表示される月と前後の月を区別するためには、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webcalendarview~othermonthdaystyle.html[OtherMonthStyle]"]  オブジェクトを使用します。このスタイル オブジェクトの使用に関する詳細については、 link:webcalendarview-change-the-style-of-days-outside-of-the-month.html[「その月以外の日のスタイルを変更」]を参照してください。
+
+以下のコードは、WebCalendarView の DayStyle を PowderBlue に設定します。
+
+image::images/WebSchedule_How_to_Style_the_WebCalendarViews_Days_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Private Sub Page_Load(ByVal sender As System.Object, ByVal e _
+  As System.EventArgs) Handles MyBase.Load
+        Me.WebCalendarView1.DayStyle.BackColor = Color.PowderBlue
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void Page_Load(object sender, System.EventArgs e)
+{
+        this.WebCalendarView1.DayStyle.BackColor = Color.PowderBlue;
+}
+----
+
+== 関連トピック
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[WebSchedule 名前空間]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webcalendarview.html[WebCalendarView クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.appointment.html[Appointments クラス]"]

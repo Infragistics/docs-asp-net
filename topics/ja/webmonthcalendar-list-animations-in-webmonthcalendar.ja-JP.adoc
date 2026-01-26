@@ -1,0 +1,62 @@
+﻿////
+
+|metadata|
+{
+    "name": "webmonthcalendar-list-animations-in-webmonthcalendar",
+    "controlName": ["WebMonthCalendar"],
+    "tags": ["How Do I","Styling"],
+    "guid": "{5E4859EC-02B4-484A-A223-9A11BE8C2DA0}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebMonthCalendar のアニメーションのリスト
+
+WebMonthCalendar™ は、月、年、年の範囲のリストを開閉するためのフェードおよびスライド アニメーションをサポートします。ユーザーは、コントロールの pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webmonthcalendar~listanimation.html[ListAnimation]"]  プロパティを設定することによって、ドロップダウン リストの開閉で使用されるアニメーションに関連する異なるタイプのプロパティを設定できます。以下は、ListAnimation プロパティを使用して WebMonthCalendar に適用できるアニメーションのリストです。
+
+* *FadeCloseDuration* -- リストが閉じている時、ミリ秒単位でアニメーションのフェード時間を設定できます。ただし、値を 0 に設定すると、リストが閉じている時、フェード アニメーションは無効になります。
+* *FadeCloseEquationType* -- リストが開いている時、フェード アニメーションの方程式のタイプを  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.animationequationtype.html[AnimationEquationType]"]  列挙体のメンバーのひとつに設定できます。
+* *FadeOpenDuration* -- リストが開いている時、ミリ秒単位でフェード アニメーションの時間を設定できます。ただし、値を 0 に設定すると、リストが開いている時、フェード アニメションは無効になります。
+* *FadeOpenEquationType* -- リストが開いている時、フェード アニメーションの方程式のタイプを AnimationEquationType 列挙体のメンバーのひとつに設定できます。
+* *SlideCloseDirection* -- リストが閉じている時、スライド アニメーションの方向を  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.slidedirection.html[SlideDirection]"]  列挙体のメンバーのひとつに設定できます。
+* *SlideCloseDuration* -- リストが閉じている時、ミリ秒単位でスライド アニメーションの時間を設定できます。ただし、値を 0 に設定すると、リストが閉じている時、スライド アニメションは無効になります。
+* *SlideCloseEquationType* -- リストが閉じている時、スライド アニメーションの方程式のタイプを AnimationEquationType 列挙体のメンバーのひとつに設定できます。
+* *SlideOpenDirection* -- リストが開いている時、スライド アニメーションの方向を SlideDirection 列挙体のメンバーのひとつに設定できます。
+* *SlideOpenDuration* -- リストが開いている時、ミリ秒単位でスライド アニメーションの時間を設定できます。ただし、値を 0 に設定すると、リストが開いている時、スライド アニメションは無効になります。
+* *SlideOpenEquationType* -- リストが開いている時、スライド アニメーションの方程式のタイプを AnimationEquationType 列挙体のメンバーのひとつに設定できます。
+
+*Visual Basic の場合：*
+
+----
+'フェード アニメーション
+WebMonthCalendar1.ListAnimation.FadeCloseDuration = 500
+WebMonthCalendar1.ListAnimation.FadeCloseEquationType = Infragistics.Web.UI.AnimationEquationType.EaseInOut
+WebMonthCalendar1.ListAnimation.FadeOpenDuration = 500
+WebMonthCalendar1.ListAnimation.FadeOpenEquationType = Infragistics.Web.UI.AnimationEquationType.EaseOut
+'スライド アニメーション
+WebMonthCalendar1.ListAnimation.SlideCloseDirection = Infragistics.Web.UI.SlideDirection.Horizontal
+WebMonthCalendar1.ListAnimation.SlideCloseDuration = 500
+WebMonthCalendar1.ListAnimation.SlideCloseEquationType = Infragistics.Web.UI.AnimationEquationType.EaseOut
+WebMonthCalendar1.ListAnimation.SlideOpenDirection = Infragistics.Web.UI.SlideDirection.Vertical
+WebMonthCalendar1.ListAnimation.SlideOpenDuration = 500
+WebMonthCalendar1.ListAnimation.SlideOpenEquationType = Infragistics.Web.UI.AnimationEquationType.EaseIn
+----
+
+*C# の場合：*
+
+----
+//Fade Animations
+WebMonthCalendar1.ListAnimation.FadeCloseDuration = 500;
+WebMonthCalendar1.ListAnimation.FadeCloseEquationType = Infragistics.Web.UI.AnimationEquationType.EaseInOut;
+WebMonthCalendar1.ListAnimation.FadeOpenDuration = 500;
+WebMonthCalendar1.ListAnimation.FadeOpenEquationType = Infragistics.Web.UI.AnimationEquationType.EaseOut;
+//スライド アニメーション
+WebMonthCalendar1.ListAnimation.SlideCloseDirection = Infragistics.Web.UI.SlideDirection.Horizontal;
+WebMonthCalendar1.ListAnimation.SlideCloseDuration = 500;
+WebMonthCalendar1.ListAnimation.SlideCloseEquationType = Infragistics.Web.UI.AnimationEquationType.EaseOut;
+WebMonthCalendar1.ListAnimation.SlideOpenDirection = Infragistics.Web.UI.SlideDirection.Vertical;
+WebMonthCalendar1.ListAnimation.SlideOpenDuration = 500;
+WebMonthCalendar1.ListAnimation.SlideOpenEquationType = Infragistics.Web.UI.AnimationEquationType.EaseIn;
+----

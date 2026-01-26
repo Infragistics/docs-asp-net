@@ -1,0 +1,81 @@
+﻿////
+
+|metadata|
+{
+    "name": "persistenceframework-exclude-control-properties",
+    "controlName": ["PersistenceFramework"],
+    "tags": ["Persistence"],
+    "guid": "76932073-a451-4521-8f42-333795cf9933",  
+    "buildFlags": [],
+    "createdOn": "2011-03-31T07:52:53.4987078Z"
+}
+|metadata|
+////
+
+= コントロール プロパティの除外
+
+Persistence マネージャーがページでコントロールをループする時、デフォルトでそれらすべてを保存します。これは、すべてのコントロールのプロパティがデフォルトで保持されるということにもなります。プロパティの一部だけを保持したい場合や一部の保存を回避したい場合、保持されたデータからそれらを削除することができます。Persistence API は、pick:[asp-net="* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.framework.persistence.propertydata.html[PropertyData]*"] と呼ばれるプロパティデータを保持するクラスを提供します。プロパティの一部を除外することで、使用で可能なリソースに場合によっては重要となる保持されたデータのサイズを削減することができます。
+
+*注:* セキュリティ上の理由でプロパティを削除したい場合もあります。
+
+pick:[asp-net="* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.framework.persistence.apppersistencemanager~persistencesaved_ev.html[PersistenceSaved]*"] イベントを処理する間に不要なコントロールのプロパティを削除できます。保持されたデータからコントロールを削除したい場合、ID で検出されたコントロールである link:persistenceframework-exclude-control.html[Exclude Control] と同じです。しかし、プロパティだけを削除したい場合は、プロパティ名が必要です。したがって、無視されるプロパティの名前を含む文字列のリストを指定する必要があります。
+
+[cols="a"]
+|====
+|*C# の場合:*
+
+|---- 
+protected void PersistenceSaved(object sender, PersistenceEventArgs e) 
+{ 
+ if (e.PersistenceData == null) 
+ { 
+ return; 
+ } 
+ List<string> listIgnoredControlsID = new List<string>() { this.control1.ID }; 
+ List<string> listIgnoredPropertiesID = new List<string>() { "prop1", "prop2" }; 
+ PersistenceData data = e.PersistenceData; 
+ ControlData controlToRemove = null; 
+ foreach (string ignoredControlID in listIgnoredControlsID) 
+ { 
+ controlToRemove = data.Controls.Find(delegate(ControlData controlToFind) 
+ { 
+ return controlToFind.ControlId == ignoredControlID; 
+ }); 
+ if (controlToRemove != null) 
+ { 
+ this.RemovePropertiesFromControl(controlToRemove, 
+ listIgnoredPropertiesID); 
+ controlToRemove = null; 
+ } 
+ } 
+ this.StoredData = data.ToJson(); 
+} 
+private void RemovePropertiesFromControl(ControlData controlToRemove, 
+ List<string> listIgnoredPropertiesID) 
+{ 
+ PropertyData propertyToRemove = null; 
+ foreach (string ignoredPropertyID in listIgnoredPropertiesID) 
+ { 
+ propertyToRemove = controlToRemove.Properties.Find( 
+ delegate(PropertyData propertyToFind) 
+ { 
+ return propertyToFind.Name == ignoredPropertyID; 
+ }); 
+ if (propertyToRemove != null) 
+ { 
+ controlToRemove.Properties.Remove(propertyToRemove); 
+ propertyToRemove = null; 
+ } 
+ } 
+}
+----
+
+|====
+
+== 関連リンク
+
+link:{SamplesURL}/samples/persistenceframework/editingandselection/clr3.5/excludecontrolproperties/default.aspx?cn=persistence-framework&sid=3f4c3539-1f09-4b29-9f27-02a4d6eafc08[コントロール プロパティの除外の例]
+
+link:persistenceframework-exclude-control.html[コントロールの除外]
+
+link:persistenceframework-persist-control.html[コントロールを手動で保持]

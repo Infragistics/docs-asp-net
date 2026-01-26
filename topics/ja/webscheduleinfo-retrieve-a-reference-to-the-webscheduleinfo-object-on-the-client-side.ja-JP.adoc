@@ -1,0 +1,35 @@
+﻿////
+|metadata|
+{
+    "name": "webscheduleinfo-retrieve-a-reference-to-the-webscheduleinfo-object-on-the-client-side",
+    "controlName": ["WebScheduleInfo"],
+    "tags": [],
+    "guid": "{8516D208-550F-487D-9F61-34231E3194F1}","buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebScheduleInfo オブジェクトへの参照を取得（クライアント側）
+
+WebScheduleInfo で作業する時、一部のアクション（クライアント側）を実行したい場合があります。これを実行するためには、WebScheduleInfo オブジェクトへの参照を取得する必要があります。WebScheduleInfo の ID を渡して WebScheduleInfo への参照を取得することができるユーティリティ関数を提供しています。
+
+以下のコードは、WebScheduleInfo への参照を取得し、WebScheduleInfo の ID を示す警告ボックスを表示します。
+
+*JavaScript の場合:*
+
+----
+function GetWebScheduleInfoReference()
+{
+        var scheduleInfo = ig_getWebScheduleInfoById("WebScheduleInfo1");
+        alert(scheduleInfo.getID());
+}
+----
+
+== 関連トピック
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[WebSchedule 名前空間]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo.html[WebScheduleInfo クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[Activity クラス]"]

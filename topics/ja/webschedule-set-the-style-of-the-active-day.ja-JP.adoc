@@ -1,0 +1,56 @@
+﻿////
+|metadata|
+{
+    "name": "webschedule-set-the-style-of-the-active-day",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling","Styling"],
+    "guid": "{A17EAEAA-0198-4BCF-9AF8-00D9F294A6C2}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アクティブな日のスタイルを設定
+
+WebCalendarView および WebMonthView で残りの表示日から pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.shared.smartdate~utcnow.html[ActiveDayUtc]"] を目立たせたい場合があります。アクティビティな日のスタイリングを制御するプロパティは、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.dayorientedscheduleview~activedaystyle.html[ActiveDayStyle]"] と呼ばれます。 
+
+ActiveDayStyle オブジェクトは、ほとんどの {ProductName} コントロールに定義されている同じ pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.shared.style.html[Style]"]  クラスを使用します。 
+
+以下のコードは、3 つのビューの ActiveDayStyle BackColor を赤に変更して、ActiveDayUtc を 2005 年 10 月 11 日に設定します。
+
+image::images/WebSchedule_How_to_Set_the_ActiveDayStyle_01.png[] 
+
+image::images/WebSchedule_How_to_Set_the_ActiveDayStyle_02.png[]
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.WebUI.Shared
+...
+Private Sub Page_Load(ByVal sender As System.Object, ByVal _
+  e As System.EventArgs) Handles MyBase.Load
+        Me.WebCalendarView1.ActiveDayStyle.BackColor = Color.Red
+        Me.WebMonthView1.ActiveDayStyle.BackColor = Color.Red
+        Me.WebScheduleInfo1.ActiveDay = _
+          Me.WebScheduleInfo1.ConvertTimeZoneTimeToUtc(New SmartDate(2005, 10, 10))
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.WebUI.Shared;
+...
+private void Page_Load(object sender, System.EventArgs e)
+{
+        this.WebCalendarView1.ActiveDayStyle.BackColor = Color.Red;
+        this.WebMonthView1.ActiveDayStyle.BackColor = Color.Red;
+        this.WebScheduleInfo1.ActiveDay = 
+          this.WebScheduleInfo1.ConvertTimeZoneTimeToUtc(new SmartDate(2005, 10, 10));
+}
+----
+
+== 関連トピック
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[WebSchedule 名前空間]"]

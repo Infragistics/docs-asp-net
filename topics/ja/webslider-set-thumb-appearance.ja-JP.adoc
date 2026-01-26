@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "webslider-set-thumb-appearance",
+    "controlName": ["WebSlider"],
+    "tags": ["Editing","How Do I"],
+    "guid": "{DD3C7B3F-2A66-4A76-A89E-E19D5E5B44EF}",  
+    "buildFlags": [],
+    "createdOn": "2008-12-05T15:28:58Z"
+}
+|metadata|
+////
+
+= つまみの外観を設定
+
+WebSlider™ コントロールのつまみの外観を必要に応じて調整できます。CSS を使用できるので、つまみの外観のあらゆる側面をカスタマイズできます。CSS スタイルを定義して、つまみの CssClass プロパティを CSS スタイル名に設定することによって、つまみをスタイルできます。
+
+ThumbStyle と呼ばれる CSS スタイルを定義してあることを前提として、以下の例のコードを使用して、ThumbStyle スタイルで WebSlider コントロールのつまみをスタイルします。
+
+image::images/WebSlider_Set_Thumb_Appearance_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Me.WebSlider1.Thumb.CssClass = "ThumbStyle"
+----
+
+*C# の場合：*
+
+----
+this.WebSlider1.Thumb.CssClass = "ThumbStyle";
+----
+
+== 関連トピック
+
+link:webslider-set-thumb-interaction.html[つまみの操作を設定]

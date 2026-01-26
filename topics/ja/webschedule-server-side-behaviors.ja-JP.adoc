@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-server-side-behaviors",
+    "controlName": ["WebSchedule"],
+    "tags": [],
+    "guid": "{9621BF01-E61A-4C52-B892-9EB4F0F1C81B}",  
+    "buildFlags": [],
+    "createdOn": "2005-01-08T00:00:00Z"
+}
+|metadata|
+////
+
+= サーバー側の動作
+
+WebSchedule ビューは、サーバー側で使用可能な非常に堅牢なイベント モデルも備えています。
+
+WebScheduleInfo の一部のイベントには、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~activedaychanged_ev.html[ActiveDayChanged]"] 、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~activedaychanging_ev.html[ActiveDayChanging]"] 、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~activityadded_ev.html[ActivityAdded]"] 、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~activitydeleted_ev.html[ActivityDeleted]"]  が含まれます。
+
+WebScheduleDbProvider では、DataBinding、PreRender、Init、Load、Disposed、および Unload イベントが使用可能です。
+
+WebMonthView、WebDayView、および WebCalendarView には、DataBinding、Disposed、Init、Load、PreRender および Unload イベントがあります。
+
+* link:webschedule-activeday-events.html[ActiveDay イベント]
+* link:webschedule-set-the-active-day.html[ActiveDay の設定]
+* link:webschedule-stop-the-webscheduleviews-from-synchronizating.html[同期のために WebScheduleViews を停止]

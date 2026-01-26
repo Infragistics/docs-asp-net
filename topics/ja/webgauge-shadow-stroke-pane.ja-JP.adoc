@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-shadow-stroke-pane",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{8AA400B9-1BB5-4510-999C-5E39030C7837}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= シャドー ストローク ペイン
+
+[シャドー ストローク] ペインによって、 link:webgauge-shadow-brush-pane.html[[シャドー ブラシ] ペイン]で作成したシャドーの周囲に境界線を追加することができます。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.strokeelement~brushelement.html[ブラシ タイプ]"]  -- このドロップダウン リストによって、プロパティのブラシ タイプを変更できます。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.strokeelement~brushelement.html[ブラシの色]"]  -- 選択するブラシのタイプによって、ブラシの色のリストにそのブラシ タイプで使用可能な色が格納されます。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.strokeelement~dashstyle.html[スタイル]"]  -- この値は、シャドーの境界線の破線のスタイルを指定します。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.strokeelement~thickness.html[太さ]"]  -- この値を 0 から 100 の整数に設定します。この値は、シャドーの境界線の太さを指定します。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.strokeelement~alignment.html[配置]"]  -- この値は、シャドーの境界線の位置を指定します。
+
+image::images/Shadow_Stroke_Pane_01.png[]
+
+== 関連トピック
+
+link:webgauge-effects-tab.html[効果タブ]

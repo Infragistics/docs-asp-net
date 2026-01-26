@@ -1,0 +1,61 @@
+﻿////
+
+|metadata|
+{
+    "name": "webscheduleinfo-activityupdateprops-object",
+    "controlName": [],
+    "tags": ["API","How Do I"],
+    "guid": "{934A5345-1EB1-430E-9FC3-6D609AF45D64}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ActivityUpdateProps オブジェクト
+
+== ActivityUpdateProps
+
+ActivityUpdating クライアント側イベントで引数として渡されるオブジェクト。
+
+=== ActivityUpdateProps プロパティ
+
+[cols="a,a"]
+|====
+|*AllDayEvent* 
+|[アクティビティ]ダイアログに関連付けられたElementとValueを含むオブジェクト。
+
+|*説明* 
+|[アクティビティ]ダイアログに関連付けられたElementとValueを含むオブジェクト。
+
+|*Duration* 
+|アクティビティの期間のValueを含むオブジェクト。
+
+|*EnableReminder* 
+|[アクティビティ]ダイアログに関連付けられたElementとValueを含むオブジェクト。
+
+|*EndDate* 
+|[アクティビティ]ダイアログに関連付けられたElement、Value、およびWebDateChoooserオブジェクトを含むオブジェクト。
+
+|*EndTime* 
+|[アクティビティ]ダイアログに関連付けられたElement、Value、およびWebDateChoooserオブジェクトを含むオブジェクト。
+
+|*Importance* 
+|[アクティビティ]ダイアログの重要性に関連付けられたWebToolbar、Value、およびToolbar Itemsを含むオブジェクト。
+
+|*位置* 
+|[アクティビティ]ダイアログに関連付けられたElementとValueを含むオブジェクト。
+
+|*ShowTimeAs* 
+|[アクティビティ]ダイアログに関連付けられたElementとValueを含むオブジェクト。
+
+|*StartDate* 
+|[アクティビティ]ダイアログに関連付けられたElement、Value、およびWebDateChoooserオブジェクトを含むオブジェクト。
+
+|*StartTime* 
+|[アクティビティ]ダイアログに関連付けられたElementとValueを含むオブジェクト。
+
+|*件名* 
+|[アクティビティ]ダイアログに関連付けられたElementとValueを含むオブジェクト。
+
+|====

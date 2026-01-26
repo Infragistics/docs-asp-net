@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdialogwindow-prevent-the-end-user-from-moving-the-dialog-window",
+    "controlName": ["WebDialogWindow"],
+    "tags": ["How Do I"],
+    "guid": "{2DFAE24B-7072-4E07-8061-4E86F493E40D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= エンド ユーザーがダイアログ ウィンドウを移動できなくする
+
+エンド ユーザーが Web ページ上で複数のダイアログ ウィンドウを一度に開くことができるようにする場合には、適切な場所に固定するオプションの提供を決定することができます。エンド ユーザーはこのオプションを歓迎するかもしれません。特に完璧に配置したダイアログ ウィンドウをうっかり移動した場合にはそうです。表示グリッドでの「カード ビュー」など複数のダイアログ ウィンドウが異なる顧客の統計を表示する場合にこの状況が発生する場合があります。
+
+pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.webdialogwindow~moveable.html[Moveable]"]  プロパティを False に設定することによって、エンド ユーザーは Web ページでダイアログ ウィンドウを移動できなくなります。おそらく、[ウィンドウを固定] オプションでエンド ユーザーにこの機能を提示することができます。一度に複数のダイアログ ウィンドウがある場合、各 Moveable プロパティを個々に設定する必要があることに留意してください。
+
+以下のコードは、ダイアログ ウィンドウを適切に固定して、エンド ユーザーが移動できないようにする方法です。
+
+*Visual Basic の場合：*
+
+----
+' エンド ユーザーがダイアログ ウィンドウを移動できなくします。
+Me.WebDialogWindow1.Moveable = False
+----
+
+*C# の場合：*
+
+----
+// エンド ユーザーがダイアログ ウィンドウを移動できなくします。
+this.WebDialogWindow1.Moveable = false;
+----

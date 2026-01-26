@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-localize-the-webschedule-forms-project",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling"],
+    "guid": "{D648B193-BE95-4D66-8581-E433C20C7F65}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebSchedule フォーム プロジェクトをローカライズ
+
+Web プロジェクトのローカライズは、グローバル アプリケーションを作成する時の時間がかかるプロセスです。WebSchedule™ コントロールおよびコンポーネントは、WebScheduleInfo の  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~cultureinfo.html[CultureInfo]"]  プロパティを選択および設定することで簡単にローカライズできます。ただし、このプロパティの設定は、異なる WebSchedule フォームには効果がありません（すなわち、予定、定期的な予定、およびリマインダ）。
+
+WebSchedule フォームは個別の Web プロジェクト ファイルに置かれているので、App_GlobalResources フォルダに置かれた string.resx ファイルを作成してプロジェクトを完全にローカライズしました。これらのフォームを修正する前に、 link:webschedule-guidelines-for-customizing-the-appointments-and-reminders-forms.html[「Appointments および Reminders フォームをカスタマイズする時に従う必要のあるガイドライン」]を理解することが大切です。
+
+異なるカルチャ用に新しい .resx ファイルを作成するには、string.resx ファイルのコピーを作成して、スペイン圏では string.es-ES.resx などのように異なるカルチャに名前を変更します。翻訳する必要がある各値に Value 文字列を置き換えます。
+
+image::images/WebSchedule_Localize_the_WebSchedule_Forms_Project_01.png[]
+
+以下の画面は、スペイン圏に翻訳された予約書式を表示します。
+
+image::images/WebSchedule_Localize_the_WebSchedule_Forms_Project_02.png[]
+
+*注：* アプリケーションを実行する前に Web ブラウザの言語を変更する必要があります。Web ブラウザでは、言語をブラウザの言語ウィンドウから適切な言語に設定します。Microsoft® Internet Explorer® では、[ツール] メニューで [インターネット オプション] を選択し、[言語] をクリックします。Mozilla® Firefox® 2.0 では、[ツール] メニューの [オプション] を選択します。次に [詳細]、[一般] タブ、そして [選択] をクリックします。[言語] ウィンドウでは、新しい言語を選択して、新しい言語がリストのトップになるまで [上に移動] ボタンをクリックします。
+
+== 関連トピック
+
+link:webschedule-guidelines-for-customizing-the-appointments-and-reminders-forms.html[Appointments および Reminders フォームをカスタマイズする時に従う必要のあるガイドライン]

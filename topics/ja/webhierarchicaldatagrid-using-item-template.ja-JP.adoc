@@ -1,0 +1,247 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatagrid-using-item-template",
+    "controlName": ["WebHierarchicalDataGrid"],
+    "tags": ["Grids","Templating"],
+    "guid": "{F572A101-11EB-45BC-8ED2-9CC93845FB28}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 項目テンプレートの使用
+
+== 始める前に
+
+列テンプレートを使用すれば、ユニークなルック アンド フィールで列を作成できます。コントロールをテンプレートに追加できます。WebHierarchicalDataGrid™ のテンプレート列は、ヘッダー、フッター、項目、代替え項目テンプレートの 4 つのテンプレートで構成されます。
+
+== 達成すること
+
+WebHierarchicalDataGrid の親および子バンドで列の項目テンプレートを設定する方法を学習します。このテンプレートには、セルを修正するためのリンク ボタンが含まれます。
+
+== 次の手順を実行します
+
+[start=1]
+. WebHierarchicalDataGrid を WebHierarchicalDataSource™ コンポーネントにバインドし、Categories および Products テーブルからデータを取得します。実行についての詳細は、 link:webhierarchicaldatasource-using-webhierarchicaldatasource.html[階層的なデータ ソースにバインド]トピックを参照してください。
+[start=2]
+. Microsoft® Visual Studio™ [プロパティ] ウィンドウで、Bands プロパティを指定して、省略記号 (...) ボタンをクリックし、[WebHierarchicalDataGrid バンドの編集] ダイアログを起動します。
+[start=3]
+. 
+
+親バンドについては、右のプロパティ グリッドから Columns プロパティを指定して、省略記号 (...) ボタンをクリックして、[列エディター] ダイアログを起動します。TemplateField の下の [有効なフィールド] セクションで列を選択し、[フィールドの追加] ボタンをクリックしてテンプレート列を追加します。Key を TemplateColumn1 および Header Text を Edit に設定します。[選択されたフィールド] セクションからテンプレート列として使用したい列を選択し、[選択されたグリッド フィールドをテンプレート フィールドに変換する] リンクをクリックすることも可能です。
+
+同じ手順に従って、子バンドにも列設定を追加します。子バンドの列設定については、子バンドを [WebHierarchicalDataGrid バンドの編集] ダイアログ ウィンドウで選択する必要があり、次に手順 3 に進みます。テンプレート列のキーを ChildTemplateColumn1 に設定します。
+
+テンプレート列をコードで追加することもできます。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webhierarchicaldatagrid~rowislanddatabinding_ev.html[RowIslandDataBinding]"]  イベントは、コードでテンプレート列を追加するために処理されます。
+
+*Visual Basic の場合：*
+
+----
+AddHandler Me.WebHierarchicalDataGrid1.RowIslandDataBinding, AddressOf WebHierarchicalDataGrid1_RowIslandDataBinding
+Protected Sub WebHierarchicalDataGrid1_RowIslandDataBinding(ByVal sender As Object, ByVal e As RowIslandEventArgs) Handles WebHierarchicalDataGrid1.RowIslandDataBinding
+   ' 親バンド 
+   If e.RowIsland.DataMember = "SqlDataSource1_DefaultView" Then
+      If Not IsPostBack Then
+         Dim field1 As New TemplateDataField()
+         field1.Key = "TemplateColumn1"
+         field1.Header.Text = "編集"
+         Me.WebHierarchicalDataGrid1.Columns.Add(field1)
+'テンプレート列への参照を取得します 
+         Dim templateColumn1 As TemplateDataField = DirectCast(Me.WebHierarchicalDataGrid1.Columns("TemplateColumn1"), TemplateDataField)
+         templateColumn1.ItemTemplate = New CustomItemTemplate()
+      End If
+   End If
+' 子レベル 
+   If e.RowIsland.DataMember = "SqlDataSource2_DefaultView" AndAlso e.RowIsland.ParentRow = Me.WebHierarchicalDataGrid1.GridView.Rows(0) Then
+      Dim field2 As New TemplateDataField()
+      field2.Key = "ChildTemplateColumn1"
+      field2.Header.Text = "編集"
+      Me.WebHierarchicalDataGrid1.Bands(0).Columns.Add(field2)
+      Dim templateColumn2 As TemplateDataField = DirectCast(Me.WebHierarchicalDataGrid1.Bands(0).Columns("ChildTemplateColumn1"), TemplateDataField)
+      templateColumn2.ItemTemplate = New CustomChildItemTemplate()
+   End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+this.WebHierarchicalDataGrid1.RowIslandDataBinding += new RowIslandEventHandler(WebHierarchicalDataGrid1_RowIslandDataBinding);
+protected void WebHierarchicalDataGrid1_RowIslandDataBinding(object sender, RowIslandEventArgs e)
+{
+   //親バンド
+   if (e.RowIsland.DataMember == "SqlDataSource1_DefaultView")
+   {
+      if (!IsPostBack)
+      {
+         TemplateDataField field1 = new TemplateDataField();
+         field1.Key = "TemplateColumn1";
+         field1.Header.Text = "編集";
+         this.WebHierarchicalDataGrid1.Columns.Add(field1);
+         //テンプレート列への参照を取得します
+         TemplateDataField templateColumn1 = (TemplateDataField)this.WebHierarchicalDataGrid1.Columns["TemplateColumn1"];
+         templateColumn1.ItemTemplate = new CustomItemTemplate();
+      }
+   }
+   // 子レベル
+   if (e.RowIsland.DataMember == "SqlDataSource2_DefaultView"
+        && e.RowIsland.ParentRow == this.WebHierarchicalDataGrid1.GridView.Rows[0])
+   {
+      TemplateDataField field2 = new TemplateDataField();
+      field2.Key = "ChildTemplateColumn1";
+      field2.Header.Text = "編集";
+      this.WebHierarchicalDataGrid1.Bands[0].Columns.Add(field2);
+      TemplateDataField templateColumn2 = (TemplateDataField)this.WebHierarchicalDataGrid1.Bands[0].Columns["ChildTemplateColumn1"];
+      templateColumn2.ItemTemplate = new CustomChildItemTemplate();
+   }
+}
+----
+
+[start=4]
+. [OK] をクリックしてエディターを終了します。
+[start=5]
+. この段階で、ひとつは親バンド、もうひとつは子バンドと、2 つの列テンプレートが用意されることになります。WebHierarchicalDataGrid を右クリックします。コンテキスト メニューから [テンプレートの編集] にマウス オーバーし、親バンド（TemplateColumn1）のために追加したばかりの列テンプレートを選択します。テンプレートがスクリーンショットに表示されます。
+
+image::Images/WebHierarchicalDataGrid_Using_Item_Templates_01.png[]
+
+a. LinkButton コントロールを [項目テンプレート] 領域にドラッグします。
+
+b. LinkButton コントロールの Text プロパティを “Edit” に設定します。
+
+c. "return editRow();" に OnClientClick プロパティを設定することによって、LinkButton コントロールのクライアント側のクリックを処理します。
+
+*HTML の場合:*
+
+----
+<asp:LinkButton ID="LinkButton1" runat="server" onclientclick="return editRow();">編集</asp:LinkButton>
+----
+
+[start=6]
+. 
+
+手順 5 の a および b の手順に従ってください。ただし、今回はユーザーが子バンドのために作成した Edit Template にマウス オーバーします。OnClientClick プロパティを使用して、子ボタンのクライアント側のクリック イベントのためにハンドラを設定します。
+
+子バンドの [編集] ボタンのために、プロパティを "return editRow()" に等しく設定します。
+
+*HTML の場合:*
+
+----
+<asp:LinkButton ID="LinkButton2" runat="server" OnClientClick="return editChildRow()">編集</asp:LinkButton>
+----
+
+ITemplate インターフェイスを実装するクラスを作成してコードで上記の手順 (5&6) を実行し、列の ItemTemplate プロパティにそのインスタンスを設定することもできます。
+
+*Visual Basic の場合：*
+
+----
+'テンプレート列への参照を取得します 
+Dim templateColumn1 As TemplateDataField = DirectCast(Me.WebHierarchicalDataGrid1.Columns("TemplateColumn1"), TemplateDataField)
+templateColumn1.ItemTemplate = New CustomItemTemplate()
+#Region "ITemplate Members"
+Public Sub InstantiateIn(ByVal container As Control)
+Dim edit As New LinkButton()
+edit.CssClass = "LinkButton"
+edit.Text = "編集"
+edit.OnClientClick = "return editRow()"
+container.Controls.Add(edit)
+End Sub
+#End Region
+End Class
+Public Class CustomChildItemTemplate
+    Implements ITemplate
+#Region "ITemplate Members"
+   Public Sub InstantiateIn(ByVal container As Control)
+      Dim edit As New LinkButton()
+      edit.CssClass = "LinkButton"
+      edit.Text = "編集"
+      edit.OnClientClick = "return editChildRow()"
+      container.Controls.Add(edit)
+   End Sub
+#End Region
+End Class
+----
+
+*C# の場合：*
+
+----
+//テンプレート列への参照を取得します
+TemplateDataField templateColumn1 = (TemplateDataField)this.WebHierarchicalDataGrid1.Columns["TemplateColumn1"];
+templateColumn1.ItemTemplate = new CustomItemTemplate();
+public class CustomItemTemplate : ITemplate
+{
+   #region ITemplate Members
+   public void InstantiateIn(Control container)
+   {
+      LinkButton edit = new LinkButton();
+      edit.CssClass = "LinkButton";
+      edit.Text = "編集";
+      edit.OnClientClick = "return editRow()";
+      container.Controls.Add(edit)
+   }
+   #endregion
+}
+public class CustomChildItemTemplate : ITemplate
+{
+   #region ITemplate Member
+   public void InstantiateIn(Control container)
+   {
+      LinkButton edit = new LinkButton();
+      edit.CssClass = "LinkButton";
+      edit.Text = "編集";
+      edit.OnClientClick = "return editChildRow()";
+      container.Controls.Add(edit); 
+   }
+   #endregion
+}
+----
+
+[start=7]
+. 
+
+編集するための関数を追加します。
+
+*JavaScript の場合：*
+
+----
+// 親バンドのセルを編集するための関数
+function editRow()
+{
+   var grid = $find("WebHierarchicalDataGrid1");
+   var parentGrid = grid.get_gridView();
+   // アクティブな行を取得します
+   var activeRow = parentGrid.get_behaviors().get_activation().get_activeCell().get_row();
+   // アクティブな行の最初のセルを編集モードにします
+   parentGrid.get_behaviors().get_editingCore().get_behaviors().get_cellEditing().enterEditMode(activeRow.get_cell(0));
+   // リンク ボタンから自動ポストバックをキャンセルします
+   return false;
+}
+// 子バンドのセルを編集するための関数
+function editChildRow()
+{
+   var grid = $find("WebHierarchicalDataGrid1");
+   var parentGrid = grid.get_gridView();
+   var childGrid = grid.get_gridView().get_rows().get_row(0).get_rowIslands(0)[0];
+   // アクティブな行を取得します
+   var activeRow = childGrid.get_behaviors().get_activation().get_activeCell().get_row();
+   // アクティブな行の最初のセルを編集モードにします
+   childGrid.get_behaviors().get_editingCore().get_behaviors().get_cellEditing().enterEditMode(activeRow.get_cell(0));
+   // リンク ボタンから自動ポストバックをキャンセルします
+   return false;
+}
+----
+
+*注：* このボタンは WebHierarchicalDataGrid を変更するために機能するので、EditingCore 動作を有効にする必要があります。これを行う詳細は、 link:webhierarchicaldatagrid-cell-editing.html[セルの編集]を参照してください。Activation 動作も必要です。詳細は、 link:webhierarchicaldatagrid-activation.html[アクティブ化]を参照してください。
+
+*注：* 項目テンプレートは項目のセル内では HTML に過ぎないため、HTML の編集を防ぐために列を必ず読み取り専用にします。これを実行することによってエンドユーザーはテンプレートで任意のエディターを使用して編集することが可能となりますが、テンプレートの実際的なマークアップを編集できません。
+
+[start=8]
+. アプリケーションを実行します。WebHierarchicalDataGrid は、セルの編集を処理するリンク ボタンを表示する親および子列を持ちます。
+
+image::Images/WebHierarchicalDataGrid_Using_Item_Templates_02.png[]
+
+== 関連トピック
+
+link:webhierarchicladatagrid-column-templates.html[列テンプレート]

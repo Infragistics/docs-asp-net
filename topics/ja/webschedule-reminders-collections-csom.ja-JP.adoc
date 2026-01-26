@@ -1,0 +1,48 @@
+﻿////
+|metadata|
+{
+    "name": "webschedule-reminders-collections-csom",
+    "controlName": [],
+    "tags": ["API","How Do I","Scheduling"],
+    "guid": "{7B4E4E7B-91E6-4EAE-B114-D314A584FADD}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Reminders コレクション
+
+== アラーム
+
+Reminder オブジェクトのコレクション。サーバーからの最後のトリップの前に、期限となったアラームを持つあらゆるアクティビティに対する Reminder オブジェクトがあります。サーバーへの最後のトリップの後で期限となったアラームは次のポストバックまでこのコレクションには追加されません。
+
+=== Reminders メソッド
+
+[cols="a,a"]
+|====
+|*getItem* 
+|指定されたインデックスからアラームを取得します。 
+
+*パラメータ*
+
+_index_:: コレクション内のアラームのインデックス。
+
+*戻り値*:: アクティビティ オブジェクト。
+
+|*getReminderFromKey* 
+|指定された datakey からアラームを取得します。 
+
+*パラメータ*
+
+_dataKey_:: 取得するアラームの dataKey。
+
+*戻り値*:: コレクション内にある場合にはアラームを返します。そうでなければ、null を返します。
+
+|====
+
+=== Reminders のプロパティ
+
+==== length
+
+ActivitiesCollection内のアラーム数。

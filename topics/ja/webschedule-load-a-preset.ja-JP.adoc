@@ -1,0 +1,56 @@
+﻿////
+|metadata|
+{
+    "name": "webschedule-load-a-preset",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling","Styling"],
+    "guid": "{71513226-6917-4376-B20D-AB83CA869996}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= プリセットをロード
+
+すべての WebSchedule コントロールは、 pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.webcontrols.webcontrolbase~loadpreset.html[LoadPreset]"] メソッドを使用して、プリセットをランタイムにこれらのコントロールに適用できます。このメソッドには複数のオーバーロードがあり、プリセット ファイル名とブール値を取得します。 
+
+ブール値は、新しいプリセットが適用される前にコントロールがリセットされるかどうかを決定します。 
+
+*注：* このリセットによって、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo.html[WebScheduleInfoID]"] がクリアされ、プリセットを適用してランタイムにブール値として True を渡す場合、ランタイムにコントロールの WebScheduleInfo もリセットされます。 
+
+以下のコードは、ランタイムにプリセットを適用し、コントロールをリセットしてコントロールの WebScheduleInfo をリセットする方法を示しています。
+
+image::images\WebSchedule_How_to_Load_a_Preset_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Private Sub Page_Load(ByVal sender As System.Object, ByVal e _
+  As System.EventArgs) Handles MyBase.Load
+	Me.WebWeekView1.LoadPreset(Me.MapPath("Onyx.xml"), True)
+	Me.WebWeekView1.WebScheduleInfo = Me.WebScheduleInfo1
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void Page_Load(object sender, System.EventArgs e)
+{
+	this.WebWeekView1.LoadPreset(this.MapPath("Onyx.xml"), true);
+	this.WebWeekView1.WebScheduleInfo = this.WebScheduleInfo1;
+}
+----
+
+== 関連トピック
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[WebSchedule 名前空間]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webdayview.html[WebDayView クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo.html[WebScheduleInfo クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[Activity クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.resource.html[Resource クラス]"]

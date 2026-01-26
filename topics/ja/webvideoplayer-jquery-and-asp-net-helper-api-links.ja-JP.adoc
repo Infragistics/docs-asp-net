@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "webvideoplayer-jquery-and-asp.net-helper-api-links",
+    "controlName": ["WebVideoPlayer"],
+    "tags": ["API"],
+    "guid": "1605c298-726c-43df-9d07-d9aee9948050",  
+    "buildFlags": [],
+    "createdOn": "2011-05-31T15:11:17.5077675Z"
+}
+|metadata|
+////
+
+= WebVideoPlayer jQuery および ASP.NET Helper API リンク
+
+VideoPlayer は、ASP.NET ヘルパーに付属している jQuery UI ウィジェットとしてビルドされています。各 API の詳細は、以下の API ドキュメントを参照してください。
+
+* link:{jQueryApiLink}/ui.igvideoplayer[VideoPlayer jQuery API]
+* link:{ApiPlatform}web.jquery{ApiVersion}~infragistics.web.ui.displaycontrols.webvideoplayer.html[VideoPlayer ASP.NET Helper API]

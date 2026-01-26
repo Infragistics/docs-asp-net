@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webresizingextender",
+    "controlName": ["WebResizingExtender"],
+    "tags": [],
+    "guid": "{15306409-B879-4F44-8BD9-F1C6D61781B5}",  
+    "buildFlags": [],
+    "createdOn": "2006-08-12T14:09:27Z"
+}
+|metadata|
+////
+
+= WebResizingExtender
+
+WebResizingExtender コントロールに関連した概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションは、コントロールについての概要からアプリケーションで使用する理由、コントロールを使用して共通タスクを達成するための方法の手順などの WebResizingExtender についての有益な情報を含んでいます。
+
+以下のリンクをクリックして、WebResizingExtender コントロールについての情報にアクセスします。
+
+== link:webresizingextender-understanding-webresizingextender.html[WebResizingExtender の理解]
+
+このセクションには WebResizingExtender コントロールの機能をより理解するための情報があります。なぜアプリケーションのビルドの一部として使用するかも説明します。
+
+== link:webresizingextender-getting-started-with-webresizingextender.html[WebResizingExtender で開始]
+
+WebResizingExtender コントロールを使った処理をできるだけ早く準備、実行できるように、このコントロールの利用を開始する方法（WebResizingExtender のフォームへの追加など）を説明しています。
+
+== link:web-webresizingextender-using-webresizingextender.html[WebResizingExtender の使用]
+
+このセクションは、WebResizingExtender コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+== link:webresizingextender-accessibility-compliance.html[WebResizingExtender アクセシビリティの遵守]
+
+このトピックは、WebResizingExtender が第 508 条の要件を満たす方法を概略します。このアクセシビリティの遵守によって、エンド ユーザー、特に障害を持つユーザーが WebResizingExtender コントロールを使用して構築された Web アプリケーションにアクセスおよび使用することを可能にします。
+
+== link:webresizingextender-api-overview.html[API 概要]
+
+このトピックは、WebResizingExtender コントロールでプログラミング中に作業する名前空間とクラスをリストします。このトピックにリストされる名前空間とクラスは、{ProductName} ヘルプの link:web-api-reference-guide.html[「API リファレンスガイド」]に便宜上リンクします。
+
+== link:webresizingextender-csom-overview.html[クライアント サイド オブジェクト モデル (CSOM) 概要]
+
+このトピックは、WebResizingExtender でクライアント側をプログラミング中に作業するユーティリティ関数、オブジェクト、およびイベントのページをリストします。このトピックにリストされるユーティリティ関数、オブジェクト、およびイベントは、{ProductName} ヘルプの「Client-Side Model （CSOM）リファレンスガイド」に便宜上リンクします。

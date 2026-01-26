@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-relative-clip-bounds",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{77C4712A-A9B5-4EE8-AD16-CC5AEA49BB6B}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 相対クリップ領域
+
+[相対クリップ領域] ペインは、ゲージ上の Brush 要素のクリップ領域のサイズと位置を決定します。
+
+X -- この値は Gauge コントロールの左側からの Brush 要素のクリップ領域の距離を決定します。
+
+Y -- この値は Gauge コントロールの上側からの Brush 要素のクリップ領域の距離を決定します。
+
+Width -- この値はクリップ領域の幅を決定します。
+
+Height -- この値はクリップ領域の高さを決定します。
+
+Units -- この値はクリップ領域の測定の単位を指定します。クリップ領域は、ピクセルまたは Gauge コントロールのパーセントで測定できます。
+
+image::images/Gauge_Relative_Clip_Bounds_Pane_01.png[]
+
+== 関連トピック
+
+link:webgauge-appearance-tab.html[外観タブ]
+
+link:webgauge-digit-appearance-tab.html[数字外観タブ]
+
+link:webgauge-labels-appearance-tab.html[ラベル外観タブ]
+
+link:webgauge-effects-tab.html[効果タブ]

@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "webmonthcalendar-setting-min-and-max-dates-for-webmonthcalendar",
+    "controlName": ["WebMonthCalendar"],
+    "tags": ["How Do I","Styling"],
+    "guid": "{A121EFCC-1ED2-4EA4-968C-D9745E679C98}",  
+    "buildFlags": [],
+    "createdOn": "2009-01-07T11:59:26Z"
+}
+|metadata|
+////
+
+= WebMonthCalendar で最小および最大日付を設定
+
+WebMonthCalendar™ によって、コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webmonthcalendar~mindate.html[MinDate]"]  および pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webmonthcalendar~maxdate.html[MaxDate]"]  プロパティを設定するだけで、カレンダーに表示したい日付の範囲を設定できます。したがって、エンドユーザーは、コントロールで設定された範囲外の日付を表示できません。
+
+Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、MinDate および MaxDate プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+'最小 datetime オブジェクトを作成します
+Dim minDate As New DateTime(2000, 1, 1)
+'最大 datetime オブジェクトを作成します
+Dim maxDate As New DateTime(2010, 1, 1)
+'最小 datetime オブジェクトを WebMonthCalendar の MinDate に指定します
+WebMonthCalendar1.MinDate = minDate
+'最大 datetime オブジェクトを WebMonthCalendar の MaxDate に指定します
+WebMonthCalendar1.MaxDate = maxDate
+----
+
+*C# の場合：*
+
+----
+//最小 datetime オブジェクトを作成します
+DateTime minDate = new DateTime(2000, 1, 1);
+//最大 datetime オブジェクトを作成します
+DateTime maxDate = new DateTime(2010, 1, 1);
+//最小 datetime オブジェクトを WebMonthCalendar の MinDate に指定します
+WebMonthCalendar1.MinDate = minDate;
+//最大 datetime オブジェクトを WebMonthCalendar の MaxDate に指定します
+WebMonthCalendar1.MaxDate = maxDate;
+----

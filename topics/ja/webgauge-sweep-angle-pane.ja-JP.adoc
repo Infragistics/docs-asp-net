@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-sweep-angle-pane",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{F5E5F65A-9321-407B-B498-E6FA9D9D68B4}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= スイープ角度ペイン
+
+[スイープ角度] ペインは、スケールの開始角度と終了角度を決定します。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugescale~startangle.html[開始]"]  -- この値を -999 から 999 の値に設定します。この値はスケールの開始角度を決定します。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugescale~endangle.html[終了]"]  -- この値を -999 から 999 の値に設定します。この値はスケールの終了角度を決定します。
+
+image::images/Sweep_Angle_Pane_01.png[]
+
+== 関連トピック
+
+link:webgauge-scale-layout-tab.html[スケール レイアウト タブ]

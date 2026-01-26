@@ -1,0 +1,62 @@
+﻿////
+
+|metadata|
+{
+    "name": "webimageviewer-change-how-the-image-viewer-scrolls-through-images",
+    "controlName": ["WebImageViewer"],
+    "tags": ["Layouts","Selection","Styling"],
+    "guid": "{6026191B-66AF-41B9-9235-D5B838B46CC1}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 画像ビューアが画像をスクロールする方法を変更
+
+WebImageViewer™ コントロールはスクロール アニメーションを利用して、ビューポート内の画像ストリップの位置を変更します。スクロール アニメーションには 3 つの異なるタイプがあります。
+
+* Continuous
+* NextItem
+* Page
+
+詳細は、 link:webimageviewer-scroll-animation-types.html[「スクロール アニメーションのタイプ」]を参照してください。
+
+以下の例のコードは、WebImageViewer でスクロール アニメーションを設定する方法を示します。
+
+image::images/WebImageViewer_Change_How_the_Image_Viewer_Scrolls_Through_Images_01.png[WebImageViewer_Change_How_the_Image_Scrolls_Through_Images]
+
+*Visual Basic の場合：*
+
+----
+' Type を Continuous に設定します。
+Me.WebImageViewer1.ScrollAnimations.Type = Infragistics.Web.UI.ListControls.ScrollAnimations.Page
+' EquationType を EaseInBounce に設定します。
+Me.WebImageViewer1.ScrollAnimations.Page.EquationType = Infragistics.Web.UI.AnimationEquationType.EaseInBounce
+' Duration を 100 に設定します。
+Me.WebImageViewer1.ScrollAnimations.Page.Duration = 100
+----
+
+*C# の場合：*
+
+----
+// Type を Continuous に設定します。
+this.WebImageViewer1.ScrollAnimations.Type = Infragistics.Web.UI.ListControls.ScrollAnimations.Page;
+// EquationType を EaseInBounce に設定します。
+this.WebImageViewer1.ScrollAnimations.Page.EquationType = Infragistics.Web.UI.AnimationEquationType.EaseInBounce;
+// Duration を 100 に設定します。
+this.WebImageViewer1.ScrollAnimations.Page.Duration = 100;
+----
+
+クライアント側でスクロール アニメーションを設定することも可能です。
+
+*JavaScript の場合*
+
+----
+var iv = $find("WebImageViewer1")
+var scrollAnimations = iv.get_scrollAnimations();
+scrollAnimations.set_type($IG.ScrollAnimation.Page);
+var pageAnimation = scrollAnimations.get_pageAnimation();
+pageAnimation.set_equationType($IG.AnimationEquationType.EaseInBounce);
+pageAnimation.set_duration(100);
+----

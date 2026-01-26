@@ -1,0 +1,45 @@
+﻿////
+|metadata|
+{
+    "name": "webschedule-loop-through-the-activities-collection-on-the-client-side",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling"],
+    "guid": "{16502202-A28A-4AC4-9E6D-C4966B49ADAF}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= クライアント側で Activities コレクションのループ
+
+WebSchedule で作業をする時、クライアント側で使用できる pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[アクティビティ]"] でループを実行したい場合があります。以下のコードは、Activities コレクションでループを実行し、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.appointment~subject.html[件名]"] が新しい  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.appointment.html[Appointment]"]  であるアクティビティ検索して、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.appointment~location.html[Location]"]  を示す警告ボックスを表示する方法を示しています。
+
+*JavaScript の場合:*
+
+----
+function LoopOverActivitiesCollection()
+{
+	// WebScheduleInfo への参照を取得します。
+	var scheduleInfo = ig_getWebScheduleInfoById("WebScheduleInfo1");
+	// WebScheduleInfo のアクティビティを取得します。
+	var activities = scheduleInfo.getActivities(); 
+	var activity = null; 
+	// Activities コレクションでループを実行します。
+	for(var i = 0; i < activities.length; i++) 
+	{ 
+		// 件名が New Appointment のアクティビティを検索します。
+		if(activities[i].getSubject() == "New Appointment") 
+		{ 
+			activity = activities[i]; 
+			// New Appointments の Location を返します。
+			alert(activity.getLocation());
+			break;
+		}
+	}
+}
+----
+
+== 関連トピック
+
+link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[WebSchedule 名前空間]

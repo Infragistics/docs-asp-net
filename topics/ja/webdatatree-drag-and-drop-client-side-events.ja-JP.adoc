@@ -1,0 +1,68 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatatree-drag-and-drop-client-side-events",
+    "controlName": ["WebDataTree"],
+    "tags": ["Events"],
+    "guid": "a26e219f-9c54-4b71-bd84-76c0461ab9a5",  
+    "buildFlags": [],
+    "createdOn": "2010-06-03T08:33:38.5733831Z"
+}
+|metadata|
+////
+
+= ドラッグ アンド ドロップのためのクライアント側イベント
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatatree.html[WebDataTree™] には多様なクライアント側イベントがあり、インタラクティブなアプリケーションを作成するための柔軟性を開発者に提供します。以下はドラッグ アンド ドロップ動作で使用可能なクライアント イベントのリストです。
+
+* *link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.datatreeclientevents~dragstart.html[DragStrart]* - マウスが可能なドロップ サーフェイスに入ると発生します。
+* *link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.datatreeclientevents~dragend.html[DragEnd]* - キャンセルまたはドロップに関わらず、ドラッグ操作が終了するたびに発生します。このイベントは常に最後に発生するイベントです。
+* *link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.datatreeclientevents~dragcancel.html[DragCancel]* - ドラッグ操作をキャンセルしたときに発生します。ドラッグ要素がターゲット要素にない場合にリリースされた、Esc キーを押した、または開発者が endDrag メソッドを呼び出したときに発生できます。
+* *link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.datatreeclientevents~dragenter.html[DragStrart]* - マウスが可能なドロップ サーフェイスに入ると発生します。
+* *link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.datatreeclientevents~dragleave.html[DragLeave]* - マウスが可能なドロップ サーフェイスを離れると発生します。
+* *link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.datatreeclientevents~dragmove.html[DragMove]* - ドラッグ中のオブジェクトをホールドする間にマウスが移動されると発生します。
+* *link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.datatreeclientevents~nodedropped.html[NodeDropped]* - ノードがターゲット上にドロップされると発生します。
+* *link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.datatreeclientevents~nodedropping.html[NodeDropping]* - マウスを可能なドロップ ターゲット上でリリースした時に発生します。
+
+シングル ドラッグ アンド ドロップ操作の寿命の間、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.datatreeclientevents~dragstart.html[DragStart] イベントは一度だけ発生します。ドラッグされたノードを移動する間、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.datatreeclientevents~dragmove.html[DragMove] イベントはピクセル移動されるたびに発生します。可能なドロップ サーフェイスに入るたびに、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.datatreeclientevents~dragenter.html[DragEnter] が発生し、可能なドロップ サーフェイスを離れると link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.datatreeclientevents~dragleave.html[DragLeave] が発生します。ノードをドロップすると、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.datatreeclientevents~nodedropping.html[NodeDropping]、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.datatreeclientevents~nodedropped.html[NodeDropped]、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.datatreeclientevents~dragend.html[DragEnd] という 3 つのイベントが発生します。したがって、複数回発生イベント DragMove、DragEnter および DragLeave と 1 回しか発生しないイベント DragStart、NodeDropping NodeDropped および DragEnd があります。
+
+詳細は、サンプル ブラウザーを訪問し WebDataTree の ClientSIdeEvents のサンプルを確認してください。
+
+以下のサンプルは、DragStart イベントに接続する方法を示します。
+
+*HTML の場合:*
+
+----
+        <ig:WebDataTree ID="WebDataTree1" runat="server">
+            <ClientEvents DragStart="dragStart" />
+            <Nodes>
+                <ig:DataTreeNode Text="Node1">
+                </ig:DataTreeNode>
+                <ig:DataTreeNode Text="Node2">
+                </ig:DataTreeNode>
+            </Nodes>
+        </ig:WebDataTree>
+----
+
+*C# の場合：*
+
+----
+this.WebDataTree1.ClientEvents.DragStart = "dragStart";
+----
+
+*JavaScript の場合*
+
+----
+Function  dragStart(sender, args) {
+    alert("Drag Started");
+}
+----
+
+== 関連トピック
+
+link:webdatatree-drag-and-drop-client-side-api.html[クライアント側 API]
+
+link:webdatatree-drag-and-drop-modes.html[ドラッグ アンド ドロップ モード]
+
+link:webdatatree-drag-and-drop-handle-server-side-event.html[サーバー側イベント]

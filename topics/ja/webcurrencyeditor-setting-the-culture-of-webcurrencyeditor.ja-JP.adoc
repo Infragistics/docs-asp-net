@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcurrencyeditor-setting-the-culture-of-webcurrencyeditor",
+    "controlName": ["WebCurrencyEditor"],
+    "tags": ["Editing","How Do I","Localization"],
+    "guid": "{9CBC24B3-B3A6-4CCC-8EE2-7A3A1A3555C4}",  
+    "buildFlags": [],
+    "createdOn": "2009-03-06T17:16:12Z"
+}
+|metadata|
+////
+
+= WebCurrencyEditor のカルチャーを設定
+
+WebCurrencyEditor™ によって、コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webnumericeditor~culture.html[Culture]"]  プロパティを設定することによって通貨の表示方法に関する特定のカルチャーを設定できます。WebCurrencyEditor はデータをフォーマットするために CultureInfo クラスに依存します。デフォルトでシステムに設定されている現在のカルチャーを使用します。
+
+Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、Culture プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+'使用したいカルチャーまたはロケールを指定します
+ Dim c As New System.Globalization.CultureInfo("en-GB")
+'CultureInfo オブジェクトを WebCurrencyEditor のカルチャーに指定します
+ WebCurrencyEditor1.Culture = c
+----
+
+*C# の場合：*
+
+----
+//使用したいカルチャーまたはロケールを指定します
+System.Globalization.CultureInfo c = new System.Globalization.CultureInfo("en-GB");
+//CultureInfo オブジェクトを WebCurrencyEditor のカルチャーに指定します
+WebCurrencyEditor1.Culture = c;
+----
+
+image::images\WebCurrencyEditor_Setting_the_culture_of_WebCurrencyEditor_01.png[]

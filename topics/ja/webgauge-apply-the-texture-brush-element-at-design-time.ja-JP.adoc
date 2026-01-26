@@ -1,0 +1,42 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-apply-the-texture-brush-element-at-design-time",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{0544F4EF-FA99-47B6-B249-6F37A83E6659}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= デザインタイムにテクスチャ ブラシ エレメントを適用
+
+テクスチャ ブラシ エレメントをゲージにプロパティに適用すると、キャンバスのようなテクスチャされたルック アンド フィールをプロパティに提供します。
+
+*デザインタイムにテクスチャ ブラシ エレメントをゲージのプロパティに適用するには、次の手順に従ってください。*
+
+[start=1]
+. ラジアル ゲージを Gauges コレクションに追加します。
+[start=2]
+. ゲージ コレクション エディタの左側のペインで、[ラジアル ゲージ] をクリックします。
+[start=3]
+. pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgauge~dial.html[Dial]"]  プロパティを展開します。
+[start=4]
+. pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.gauge~brushelement.html[BrushElement]"]  ドロップダウン リストから、[テクスチャ] を選択します。これによって新しいテクスチャ ブラシ エレメントが作成されます。
+[start=5]
+. 以下のプロパティを設定します。
+
+** 終了色 -- シルバー
+** 開始色 -- DimGray
+** テクスチャ -- キャンバス
+
+== 関連トピック
+
+link:webgauge-texture-brush-element.html[テクスチャ ブラシ エレメント]
+
+link:webgauge-apply-the-texture-brush-element-at-run-time.html[ランタイムにテクスチャ ブラシ エレメントを適用]
+
+link:webgauge-apply-the-texture-brush-element-using-the-gauge-designer.html[ゲージ デザイナを使用してテクスチャ ブラシ エレメントを適用]

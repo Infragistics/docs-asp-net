@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webhtmleditor",
+    "controlName": ["WebHtmlEditor"],
+    "tags": [],
+    "guid": "{8DB9E36D-EB76-4F62-B5E3-7A9A92C265B4}",  
+    "buildFlags": [],
+    "createdOn": "2006-03-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor
+
+WebHtmlEditor コントロールに関連した概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。その内容は、WebHtmlEditor コントロールの機能、このコントロールをアプリケーションに使用することの利点、このコントロールを使用する一般的なタスクの手順を追った作成方法などです。
+
+以下のリンクをクリックすると、WebHtmlEditor コントロールに関する重要な説明を読むことができます。
+
+== link:webhtmleditor-understanding-webhtmleditor.html[WebHtmlEditor の概要]
+
+このセクションの説明を読むと、WebHtmlEditor コントロールの機能性と、それをアプリケーションに使用することの利点についてよく理解できます。
+
+== link:web-webhtmleditor-using-webhtmleditor.html[WebHtmlEditor の使用]
+
+このセクションは、WebHtmlEditor コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+== link:webhtmleditor-accessibility-compliance.html[WebHtmlEditor アクセシビリティの遵守]
+
+このトピックは、WebHtmlEditor が第 508 条の要件を満たす方法を概略します。このアクセシビリティの遵守によって、エンド ユーザ、特に障害を持つユーザーが WebHtnlEditor コントロールを使用して構築された Web アプリケーションにアクセスおよび使用することを可能にします。
+
+== link:webhtmleditor-api-overview.html[API 概要]
+
+このトピックでは、WebHtmlEditor コントロールを使用してプログラミングするときに取り扱う名前空間とクラスのリストを掲載しています。このトピックにリストされる名前空間とクラスは、{ProductName} ヘルプの link:web-api-reference-guide.html[「API リファレンスガイド」]に便宜上リンクします。
+
+== link:webhtmleditor-csom.html[クライアント サイド オブジェクト モデル (CSOM) 概要]
+
+このトピックは、WebHtmlEditor を使用してクライアント側のプログラミングを行うときに必要となる、ユーティリティ関数、オブジェクト、イベントのページをリストアップしています。このトピックにリストされるユーティリティ関数、オブジェクト、およびイベントは、{ProductName} ヘルプの「Client-Side Model （CSOM）リファレンスガイド」に便宜上リンクします。

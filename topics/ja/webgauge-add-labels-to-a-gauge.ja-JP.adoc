@@ -1,0 +1,164 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-add-labels-to-a-gauge",
+    "controlName": ["WebGauge"],
+    "tags": ["Design Environment","How Do I"],
+    "guid": "{1CD05261-2333-421A-A770-1E0A927FCEE9}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ラベルをゲージに追加
+
+ラベルはスケールの値に関連付けられた数値またはテキスト値です。スケール上の値を表すためにラベルをゲージに追加する必要があります。
+
+*注:* このトピックは、スケールと目盛が付いたラジアル ゲージをすでに作成していることを前提としています。作成方法についての詳細は、 link:webgauge-add-tick-marks-to-a-scale-on-a-gauge.html[「ゲージ上のスケールに目盛を追加」]を参照してください。
+
+ラベルをゲージに追加した後の次の手順は、 link:webgauge-add-a-needle-marker-to-a-gauge.html[「針マーカーをゲージに追加」]です。
+
+以下でラベルをスケールに追加できます。
+
+* <<gaugeDesigner,ゲージ デザイナを使用して>>
+* <<designTime,デザインタイムに>>
+* <<runTime,ランタイムに>>
+
+以下の手順を完了した後でアプリケーションを保存および実行すると、フォームは以下のフォームのようになります。
+
+image::images/Gauge_Add_Labels_01.png[]
+
+[[gaugeDesigner]]
+*ゲージ デザイナを使用してラベルをスケールに追加するには、次の手順に従ってください。*
+
+[start=1]
+. ゲージ エクスプローラで、[スケール] を展開します。
+[start=2]
+. [ラベル] を選択します。
+[start=3]
+. link:webgauge-properties-panel.html[[プロパティ] パネル]で、 link:webgauge-labels-layout-tab.html[[ラベル レイアウト] タブ]をクリックします。 link:webgauge-orientation-pane.html[[方向] ペイン]で、以下のプロパティを設定します。
+
+** 範囲 -- 65
+** 方向 -- 水平
+
+[start=4]
+. [ラベル レイアウト] タブの link:webgauge-formatting-pane.html[[フォーマッティング] ペイン]で、以下のプロパティを設定します。
+
+** 頻度 -- 20.00
+** スパン最大 -- 18
+
+[start=5]
+. [ラベル外観] タブをクリックします。 link:webgauge-brush-pane.html[[ブラシ] ペイン]で、以下のプロパティを設定します。
+
+** タイプ -- 単色
+** 色 -- 白
+
+[start=6]
+. [ラベル外観] タブの link:webgauge-font-pane.html[[フォント] ペイン]で、以下のプロパティを設定します。
+
+** フォント -- Arial
+** サイズ -- 14
+** タイプ -- ピクセル
+** スタイル -- 太字
+
+[start=7]
+. インタラクティブなプレビュー領域でラジアル ゲージに適用されたラベルを確認できます。
+
+[[designTime]]
+*デザインタイムにラベルをスケールに追加するには、次の手順に従ってください。*
+
+[start=1]
+. スケール コレクション エディタで、スケールを選択した状態で、 pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugescale~labels.html[Label]"]  プロパティを展開します。
+[start=2]
+. pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.brushelement.html[BrushElement]"]  プロパティをクリックします。次にドロップダウン リストから、[単色塗りつぶし] を選択します。
+[start=3]
+. BrushElement プロパティを展開して、 pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.solidfillbrushelement~color.html[Color]"]  プロパティを White に設定します。
+[start=4]
+. pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.gaugescalelabelsappearance~extent.html[Extent]"]  プロパティを 65 に設定します。
+[start=5]
+. pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.gaugescalelabelsappearance~frequency.html[Frequency]"]  プロパティを 20 に設定します。
+[start=6]
+. pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.labelappearance~font.html[Font]"]  プロパティを展開して、以下のプロパティを設定します。
+
+** フォント名 -- Arial
+** サイズ -- 14
+** 単位 -- ピクセル
+** 太字 -- True
+
+[[runTime]]
+*ランタイムにラベルをスケールに追加するには、次の手順に従ってください。*
+
+[start=1]
+. 以下の手順を Load イベントに追加します。
+[start=2]
+. クラスのインスタンスを作成します。
+
+*Visual Basic の場合：*
+
+----
+Dim mySolidFillBrushElement1 As New SolidFillBrushElement()
+----
+
+*C# の場合：*
+
+----
+SolidFillBrushElement mySolidFillBrushElement1 = new SolidFillBrushElement();
+----
+
+[start=3]
+. 以下の色のプロパティを設定します。
+
+** Type -- Solid
+** Color -- White
+
+*Visual Basic の場合：*
+
+----
+mySolidFillBrushElement1.Color = System.Drawing.Color.White
+myScale.Labels.BrushElement = mySolidFillBrushElement1
+----
+
+*C# の場合：*
+
+----
+mySolidFillBrushElement1.Color = System.Drawing.Color.White;
+myScale.Labels.BrushElement = mySolidFillBrushElement1;
+----
+
+[start=6]
+. 以下のプロパティを設定します。
+
+** Font -- Arial
+** Font Size -- 14
+** Font Type -- Pixel
+** Font Style -- Bold
+** Extent -- 65
+** Frequency -- 20
+** Orientation -- Horizontal
+** SpanMaximum -- 18
+
+*Visual Basic の場合：*
+
+----
+myScale.Labels.Extent = 65
+myScale.Labels.Font = New System.Drawing.Font("Arial", 14.0F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel)
+myScale.Labels.Frequency = 20
+myScale.Labels.Orientation = Infragistics.UltraGauge.Resources.RadialLabelOrientation.Horizontal
+myScale.Labels.SpanMaximum = 18
+----
+
+*C# の場合：*
+
+----
+myScale.Labels.Extent = 65;
+myScale.Labels.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+myScale.Labels.Frequency = 20;
+myScale.Labels.Orientation = Infragistics.UltraGauge.Resources.RadialLabelOrientation.Horizontal;
+myScale.Labels.SpanMaximum = 18;
+----
+
+== 関連トピック
+
+link:webgauge-add-a-needle-marker-to-a-gauge.html[針マーカーをゲージに追加]

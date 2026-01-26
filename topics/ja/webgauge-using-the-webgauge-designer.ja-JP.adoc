@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-using-the-webgauge-designer",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{A16E5675-0A33-4003-A381-4FD94E3E27D6}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebGauge デザイナを使用
+
+このセクションでは、ゲージ デザイナを使用して基本的なゲージおよび複雑なゲージの作成方法を説明するチュートリアルが提供されています。
+
+* link:webgauge-creating-a-basic-webgauge-using-the-webgauge-designer.html[ゲージ デザイナを使用して基本的なゲージを作成]
+* link:webgauge-creating-a-complex-webgauge-using-the-webgauge-designer.html[ゲージ デザイナを使用して複雑なゲージを作成]

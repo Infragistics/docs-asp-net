@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webpercenteditor",
+    "controlName": ["WebPercentEditor"],
+    "tags": [],
+    "guid": "{7F412BEF-7CB1-42A0-8644-4177EB8CC710}",  
+    "buildFlags": [],
+    "createdOn": "2009-03-06T11:54:31Z"
+}
+|metadata|
+////
+
+= WebPercentEditor
+
+このページには、WebPercentEditor™ コントロール関連の概要/タスクベースの情報がすべて含まれています。このセクションには、コントロールが何を実行するのか、またアプリケーションでなぜコントロールを使用したくなるのかから、コントロールを使用して一般的なタスクを完了する方法に関するステップバイステップの手順まで、コントロールに関する貴重な情報が含まれています。
+
+WebPercentEditor コントロールについての詳細は、以下のリンクをクリックしてください。
+
+== link:webpercenteditor-about-webpercenteditor.html[WebPercentEditor について]
+
+このセクションには、WebPercentEditor コントロールの機能の理解を深めるのに役立つ情報があります。さらに、コントロールの目的も理解できます。
+
+== link:webpercenteditor-using-webpercenteditor.html[WebPercentEditor の使用]
+
+このセクションは、WebPercentEditor で使用可能な機能を使用する方法を示すタスクベースの情報を提供します。
+
+== link:webpercenteditor-accessibility-compliance.html[WebPercentEditor アクセシビリティの遵守]
+
+このトピックは、WebPercentEditor が第 508 条の要件を満たす方法を概略します。このアクセシビリティの遵守によって、エンドユーザー、特に障害を持つユーザーが WebPercentEditor コントロールを使用して構築された Web アプリケーションにアクセスおよび使用することを可能にします。
+
+== link:webpercenteditor-api-overview.html[API の概要]
+
+このトピックは、WebPercentEditor コントロールでプログラミング中に作業する名前空間とクラスをリストします。このトピックにリストされている名前空間とクラスは、{ProductName} ヘルプの「API 参照ガイド」セクションに便宜的にリンクされています。
+
+== link:webtexteditor~infragistics.web.ui_namespace.html[CSOM の概要]
+
+WebPercentEditor™ コントロールは、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを提供します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクトで構成され、開発者はサーバー側にポストバックしなくても、コントロールに関連する重要な機能単位をプログラムできます。

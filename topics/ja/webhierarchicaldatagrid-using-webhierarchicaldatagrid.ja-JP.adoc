@@ -1,0 +1,57 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatagrid-using-webhierarchicaldatagrid",
+    "controlName": ["WebHierarchicalDataGrid"],
+    "tags": ["Data Presentation","Getting Started","Grids","How Do I"],
+    "guid": "{C8A49414-C5F8-44EE-AC46-414A6E824FAA}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHierarchicalDataGrid の使用
+
+このセクションは、WebHierarchicalDataGrid™ コントロールの重要な概念および機能を効果的に使用するためのタスク ベースの情報について説明します。
+
+link:webhierarchicaldatagrid-ajax-indicator-support.html[AJAX インジケーター サポート]
+
+AJAX インジケータはすべての {ProductName} AJAX コントロール間で共有されます。このセクションでは、コントロール レベルでオーバーライドする方法を説明します。
+
+link:webhierarchicaldatagrid-behaviors.html[動作]
+
+このセクションの WebDataGrid™ から継承された動作および特定な動作の実装について説明します。
+
+link:webhierarchicaldatagrid-data-binding.html[データ バインディング]
+
+このセクションでは WebHierarchicalDataGrid コントロールをさまざまなソースにバインドする方法を説明します。
+
+link:webhierarchicaldatagrid-editor-providers.html[エディター プロバイダー]
+
+フィールドに異なるエディターを使用する方法を説明します。
+
+link:webhierarchicaldatagrid-load-on-demand.html[ロードオンデマンド]
+
+このセクションでは、WebHierarchicalDataGrid コントロールでサポートされるロードオンデマンド機能について説明します。
+
+link:webhierarchicaldatagrid-templates.html[テンプレート]
+
+WebHierarchicalDataGrid はカスタム ユーザーインターフェイスにテンプレートを使用する方法について説明します。このセクションではテンプレートについて学びます。
+
+link:webhierarchicaldatagrid-hide-a-column.html[列の非表示]
+
+このセクションでは、WebHierarchicalDataGrid の列を非表示にする方法を説明します。
+
+link:webhierarchicaldatagrid-outlook-groupby.html[アウトルック GroupBy]
+
+このセクションでは WebHierarchicalDataGrid コントロールのグループ化機能について説明します。
+
+link:webhierarchicaldatagrid-webhierarchicaldatagrid-smart-tag.html[WebHierarchicalDataGrid スマート タグ]
+
+このセクションでは、WebHierarchicalDataGrid のスマートタグについて説明します。
+
+link:webhierarchicaldatagrid-using-itemcommand-event.html[WebHierarchicalDataGrid - ItemCommand イベントの使用]
+
+ItemCommand サーバー イベントの使用方法について説明します。

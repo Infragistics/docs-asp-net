@@ -1,0 +1,62 @@
+﻿////
+
+|metadata|
+{
+    "name": "known-issues-known-issues-and-breaking-changes",
+    "controlName": [],
+    "tags": ["Known Issues"],
+    "guid": "e0665384-2cc2-4910-b521-5fc0a4a1ffd0",  
+    "buildFlags": [],
+    "createdOn": "2012-09-21T16:12:56.6899234Z"
+}
+|metadata|
+////
+
+= 既知の問題と制限
+
+== このグループのトピックについて
+
+=== 概要
+
+このセクションは、{ProductName} の既知の問題と制限について説明します。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:known-issues-and-limitations-aspnet-17-1.html[ASP.NET 17.1 既知の問題と制限]
+|このトピックでは、{ProductName} 17.1 リリースの既知の問題と制限事項の概要を示します。
+
+| link:known-issues-and-limitations-aspnet-16-2.html[ASP.NET 16.2 既知の問題と制限]
+|このトピックでは、{ProductName} 16.2 リリースの既知の問題と制限事項の概要を示します。
+
+| link:known-issues-and-limitations-aspnet-16-1.html[ASP.NET 16.1 既知の問題と制限]
+|このトピックでは、{ProductName} 16.1 リリースの既知の問題と制限事項の概要を示します。
+
+| link:known-issues-and-limitations-aspnet-15-2.html[ASP.NET 15.2 既知の問題と制限]
+|このトピックでは、{ProductName} 15.2 リリースの既知の問題と制限事項の概要を示します。
+
+| link:known-issues-and-limitations-aspnet-15-1.html[ASP.NET 15.1 既知の問題と制限]
+|このトピックでは、{ProductName} 15.1 リリースの既知の問題と制限事項の概要を示します。
+
+| link:known-issues-and-limitations-aspnet-14-2.html[ASP.NET 14.2 既知の問題と制限]
+|このトピックでは、{ProductName} 14.2 リリースの既知の問題と制限事項の概要を示します。
+
+| link:known-issues-14-1.html[ASP.NET 14.1 既知の問題と制限]
+|このトピックでは、{ProductName} 14.1 リリースの既知の問題と制限事項の概要を示します。
+
+| link:known-issues-and-limitations-aspnet-131.html[ASP.NET 13.1 既知の問題と制限]
+|このトピックでは、{ProductName} 13.1 リリースの既知の問題と制限事項の概要を示します。
+
+| link:known-issues-and-limitations-asp-net-12-2.html[ASP.NET 12.2 既知の問題と制限]
+|このトピックでは、{ProductName} 12.2 リリースの既知の問題と制限事項の概要を示します。
+
+| link:known-isues-and-limitations-asp-net-12-1.html[ASP.NET 12.1 既知の問題と制限]
+|このトピックでは、{ProductName} 12.1 リリースの既知の問題と制限事項の概要を示します。
+
+| link:known-issues-known-issues-and-breaking-changes-revision-history.html[改訂履歴]
+|2008 Volume 1 リリース以降の既知の問題および制限を簡単に参照できます。
+
+|====

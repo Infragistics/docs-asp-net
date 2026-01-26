@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-creating-a-webgauge-using-code",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{EC13B96C-C33A-493C-8F76-3171C2919B1E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= コードを使用して WebGauge を作成
+
+コードを使用して gauges を作成する方法を確認するには、以下のリンクをクリックしてください。
+
+* link:webgauge-web-creating-a-digital-webgauge-using-code.html[コードを使用してデジタル ゲージを作成]
+* link:webgauge-web-creating-a-linear-webgauge-using-code.html[コードを使用してリニア ゲージを作成]
+* link:webgauge-web-creating-a-radial-webgauge-using-code.html[コードを使用してラジアル ゲージを作成]

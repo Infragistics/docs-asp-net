@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webcalcmanager-using-webcalcmanager",
+    "controlName": ["WebCalcManager"],
+    "tags": [],
+    "guid": "{B8860234-87DC-4D02-B948-DAA251586339}",  
+    "buildFlags": [],
+    "createdOn": "2007-05-11T13:54:53Z"
+}
+|metadata|
+////
+
+= WebCalcManager の使用
+
+このセクションでは、WebCalcManager™ コントロールの様々な特長や機能を効果的に使用するための、重要なタスク ベースの情報について説明します。
+
+* link:webcalcmanager-summing-two-controls-at-design-time.html[デザインタイムに 2 つのコントロールの値を合計する]
+* link:webcalcmanager-summing-two-controls-at-run-time.html[実行ときに2つのコントロールの値を合計する]
+* link:webcalcmanager-using-a-namedreference-in-a-formula.html[数式で NamedReference を使用する]
+* link:webcalcmanager-using-formula-builder-to-generate-calculations.html[フォーミュラ ビルダーを使用して計算]

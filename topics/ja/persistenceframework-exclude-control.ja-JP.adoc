@@ -1,0 +1,68 @@
+﻿////
+
+|metadata|
+{
+    "name": "persistenceframework-exclude-control",
+    "controlName": ["PersistenceFramework"],
+    "tags": ["Persistence"],
+    "guid": "5bc37be0-b4e0-4b24-a032-da27f326025d",  
+    "buildFlags": [],
+    "createdOn": "2011-03-31T07:52:13.6197203Z"
+}
+|metadata|
+////
+
+= コントロールの除外
+
+Persistence マネージャーがページでコントロールをループする時、デフォルトでそれらすべてを保存します。ただし、1 グループのコントロールだけを保持したい場合には、特定のコントロールを除外するオプションがあります。コントロールの除外は保持されたデータのサイズを小さくします。これにより、使用可能なリソースのアプリケーションに極めて重要な場合があります。
+
+Persistence Framework API には保持されたデータを持つクラスが含まれます。ページ全体のデータを含むクラスは pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.framework.persistence.persistencedata.html[PersistenceData]"]* で、単一のコントロールのデータを含むクラスは *pick:[asp-net="* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.framework.persistence.controldata.html[ControlData]*"] です。
+
+pick:[asp-net="* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.framework.persistence.apppersistencemanager~persistencesaved_ev.html[PersistenceSaved]*"] イベントを処理する間に不要なコントロールを削除できます。これを実行するには、配列で無視したいコントロールをすべてリストし、Persistence マネージャーに提供する必要があります。
+
+[cols="a"]
+|====
+|*ASPX の場合:*
+
+|---- 
+protected void PersistenceSaved(object sender, PersistenceEventArgs e) 
+{ 
+ if (e.PersistenceData == null) 
+ { 
+ return; 
+ } 
+ // 保持されないコントロール ID をすべてリストします 
+ List<string> ignoredControls = new List<string>() { this.control1.ID, 
+ this.control2.ID, 
+ this.control3.ID }; 
+ PersistenceData data = e.PersistenceData; 
+ ControlData controlToRemove = null; 
+ foreach (string ignoredControlID in ignoredControls) 
+ { 
+ controlToRemove = data.Controls.Find( 
+ delegate(ControlData controlToFind) 
+ { 
+ return 
+ controlToFind.ControlId == ignoredControlID; 
+ }); 
+ if (controlToRemove != null) 
+ { 
+ data.Controls.Remove(controlToRemove); 
+ controlToRemove = null; 
+ } 
+ } 
+ this.StoredData = data.ToJson(); 
+}
+----
+
+|====
+
+このサンプルは、少数のコントロールを除外する状況で使用するのに適しています。ほとんどのコントロールを削除する場合には、Persistence マネージャーを使用して簡単にコントロールを手動で保存できます。手動の保持の詳細は、 link:persistenceframework-persist-control.html[「コントロールを手動で保持」]トピックに従います。
+
+== 関連リンク
+
+link:{SamplesURL}/samples/persistenceframework/editingandselection/clr3.5/excludecontrols/default.aspx?cn=persistence-framework&sid=8888c4ee-9c9f-426a-b426-3a2a0255f662[コントロールの除外の例]
+
+link:persistenceframework-exclude-control-properties.html[コントロール プロパティの除外]
+
+link:persistenceframework-persist-control.html[コントロールを手動で保持]

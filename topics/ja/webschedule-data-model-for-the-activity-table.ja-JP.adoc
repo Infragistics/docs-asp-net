@@ -1,0 +1,132 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-data-model-for-the-activity-table",
+    "controlName": ["WebSchedule"],
+    "tags": ["Getting Started","Scheduling"],
+    "guid": "{38CEE6BC-FF1C-4AAD-B8FF-021AE8ADB476}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Activity テーブルのデータ モデル
+
+== アクティビティおよびバリアンス
+
+ここに示されるアクティビティ/バリアンスの表は、サンプルの WebSchedule™ アクティビティまたはバリアンス データ テーブルを表します。アクティビティおよびバリアンス データ間の唯一の違いは、バリアンス データの OriginalStartDateTimeUtc フィールドを null にできないことです。すべての列は特に明記されていない限り、Activity または Appointment オブジェクトで同じ名前を持つ .NET プロパティに対応します。カスタム データ ソースが、ここに示されている列名に一致するプロパティ名を公開している場合、フィールド バインディングが自動的に行われます。異なる名前がある場合、バインディング オブジェクトを使用してフィールド バインディングを指定します。データ バインディングの詳細については、「データ バインディング」を参照してください。
+
+以下は、WebScheduleGenericDataProvider™ が正しく機能するために必要となるフィールドを示します。
+
+* ID
+* StartDateTimeUtc
+* Duration
+* ResourceID
+* VarianceID
+* Subject
+* Status
+* OriginalStartDateTimeUtc (バリアンスのみ)
+
+[options="header", cols="a,a,a,a"]
+|====
+|列名|データ型|Null を許可|注記
+
+|ID
+|int
+|いいえ
+|プライマリ キー。このアクティビティを一意に識別する数値。
+
+|StartDateTimeUtc
+|datetime
+|はい
+|協定世界時（UTC）に表されるアクティビティの開始日時。
+
+|Duration
+|int
+|はい
+|秒で計測されるアクティビティの長さ（3600 秒 = 1 時間）。
+
+|Subject
+|nvarchar(50)
+|はい
+|アクティビティの件名として表示する自由書式のテキスト。
+
+|ActivityDescription
+|ntext
+|はい
+|アクティビティの追加詳細を記述する自由書式のテキスト。
+
+|AllDayEvent
+|bit
+|はい
+|アクティビティが全日に渡るかどうかを示します。終日アクティビティは独特のスタイルで描画します。
+
+|Location
+|nvarchar(50)
+|はい
+|アクティビティが発生する場所を記述する自由書式のテキスト。
+
+|Status
+|int
+|はい
+|アクティビティの期限がすでに切れていることをアラームが通知するかしないかを示すために、現在使用されているアクティビティのステータス コードを示します。
+
+|EnableReminder
+|bit
+|はい
+|このアクティビティに関連しているプライマリ リソースがアラーム通知を必要とするかしないかを示します。
+
+|ReminderInterval
+|int
+|はい
+|アラーム通知を指定すべきときのアクティビティの StartDateTimeUtc の前の期間（時間の場合は秒で）。EnableReminder が False のときには使用されません。
+
+|ShowTimeAs
+|int
+|はい
+|アクティビティの時間バーの色を決定します（すべての WebSchedule ビューで描画されない）。
+
+|Importance
+|int
+|はい
+|このアクティビティに関連した優先順位。[予定の編集] ダイアログ ボックスでデフォルトでどの [Importance] ボタンが選択されるのかに影響します。
+
+|RecurrenceID
+|int
+|はい
+|すべてのアクティビティは繰り返し ID が必要です。非繰り返しアクティビティはデフォルトの繰り返しのキーである -999 でなければなりません。
+
+|RecurrencePattern
+|Varchar(70)
+|はい
+|繰り返しスケジュールを決定します。
+
+|VarianceID
+|unique identifier
+|いいえ
+|ひとつまたは複数のバリアンス データと繰り返しのルート アクティビティを関連づけます。 
+
+各バリアンスは一意の ID を持ちますが、両方ともがこの列で同じ GUID 値を共有するため、ルートのアクティビティに関連します。 
+
+非繰り返しアクティビティ、およびバリアンス データを持たない繰り返しアクティビティは、この列に NULL 値を持ちます。
+
+|OriginalStartDateTimeUtc
+|datetime
+|はい
+|繰り返しパターンに基づいて、発生で元々どの開始日時（UTC で）が予約されていたかによって、この行の列の値で無効にするために繰り返しアクティビティの個々の発生を識別します。 
+
+バリアンス データのみに適用され、すべてのその他はこの列に NULL 値を持ちます。
+
+|_ts
+|timestamp
+|いいえ
+|並行処理の競合を検出するために使用されるタイムスタンプ。
+
+|ResourceID
+|Int
+|いいえ
+|このアクティビティが属する Resource データに関連づけます。
+
+|====

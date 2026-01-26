@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "webappstylist-getting-started",
+    "controlName": ["WebAppStylist"],
+    "tags": ["Getting Started"],
+    "guid": "{16BFC813-52A0-4DF2-84EF-9250F23F2767}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= はじめに
+
+このセクションは、ユーザのアプリケーションを瞬時にスタイルするための短いトピックを提供します。これらのトピックをクイック リファレンスとして使用するか、ユーザ固有のスタイル ライブラリを作成するための基礎を学習するためにひとつずつ読み進んでください。
+
+* link:webappstylist-creating-a-style-library.html[スタイル ライブラリの作成]
+* link:webappstylist-creating-a-styleset.html[スタイルセットの作成]
+* link:webappstylist-saving-your-work.html[作業の保存]
+* link:webappstylist-opening-a-saved-style-library.html[保存されたスタイル ライブラリを開く]
+* link:webappstylist-netadvantage-appstylist-for-aspnet-options-dialog-box.html[Infragistics AppStylist for ASP.NET オプション ダイアログ ボックス]

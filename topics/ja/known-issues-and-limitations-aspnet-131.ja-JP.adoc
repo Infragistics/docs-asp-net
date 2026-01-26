@@ -1,0 +1,145 @@
+﻿////
+
+|metadata|
+{
+    "name": "known-issues-and-limitations-aspnet-131",
+    "controlName": [],
+    "tags": [],
+    "guid": "1d1adcb5-9937-453d-a437-883730da7a88",  
+    "buildFlags": [],
+    "createdOn": "2013-03-21T12:43:30.2452229Z"
+}
+|metadata|
+////
+
+= ASP.NET 13.1 既知の問題と制限
+
+== 2013 Volume 1 の既知の問題点と制限事項
+
+=== 概要
+
+以下の表は、{ProductName}® 2013.1 リリースの既知の問題と制限事項の概要を示します。いくつかの問題については、この概要表の後に既知の問題に関する詳しい説明と回避策を示します。
+
+=== 凡例:
+
+- image:images\workaround.png[alt="Workaround"] - 回避策
+- image:images\noworkaround.png[alt="No Workaround"] - 既知の回避策はありません
+- image:images\fix.png[alt="Fix Planned"] - 修正予定です
+
+[options="header", cols="a,a,a"]
+|====
+|問題|説明|状態
+
+|<<_Ref351486744,UpdatePanel の WebHierarchicalDataGrid と WebHierarchicalDataSource でビジュアル スタジオ デザイナーがフリーズする問題>>
+|Microsoft Visual Studio® のデザイナーで UpdatePanel 内で _WebHierarchicalDataGrid_™ および _WebHierarchicalDataSource_ を使用する際に、デザイナーが持続的に再描画しフリーズしたようになります。
+|image::images/Known_Issues_and_Limitations_ASP.NET_12.1_1.png[]
+
+|<<_Ref351489288,WebTab が <TD> 要素に追加されるときにタブ幅が正しくない可能性がある問題>>
+|_WebTab_™ で幅が定義されていないかパーセンテージで定義されている場合、`<TD>` 要素に配置される際に幅が定義されない問題。 _WebTab_ コントロールがタブ幅を正しく計算できないためタブ幅が過度に大きくなる問題。
+|image::images/Known_Issues_and_Limitations_ASP.NET_12.1_1.png[]
+
+|<<_possibly,WebDataGrid/ WebHierarchicalDataGrid で IME モードの編集モードがキー押下でトリガーされるよう構成されているの場合、編集モードで入力テキストの最初の文字を誤って解釈する可能性がある問題>>
+|WebDataGrid コントロールがアクティブな IME モードの編集モードがキー押下でトリガーされるよう設定されている場合に、ユーザーが最初の文字を入力するとローマ字が表示されることがある問題。
+|image::images/Known_Issues_and_Limitations_ASP.NET_12.1_1.png[]
+
+|<<_Ref351490526,WebDataGrid と WebTab がUpdatePanel 内にある場合にポストバックがメモリ リークを発生することがある問題>>
+|UpdatePanel 内の _WebDataGrid_™ と _WebTab_ コントロールで、非同期ポストバックがメモリリークの原因である可能性があります。
+|image::images/Known_Issues_and_Limitations_ASP.NET_12.1_1.png[]
+
+|<<_recurring, _WebSchedule_ の複数日にわたる定期的な予定が週末の場合正しく描画されない問題>>
+|_WebSchedule_™ コントロールで、複数日にまたがる予定が 1 日でも週末にある場合、予定が正しく描画されない問題。
+|image::images/Known_Issues_and_Limitations_ASP.NET_12.1_1.png[]
+
+|====
+
+[[_Ref351486744]]
+
+=== UpdatePanel の WebHierarchicalDataGrid と WebHierarchicalDataSource でビジュアル スタジオ デザイナーがフリーズする問題
+
+Microsoft Visual Studio® のデザイナーで UpdatePanel 内で  _WebHierarchicalDataGrid_™ および  _WebHierarchicalDataSource_   を使用する際に、デザイナーが持続的に再描画しフリーズしたようになります。
+
+回避方法
+
+_WebHierarchicalDataSource_   を UpdatePanel コントロールの外側に配置します。
+
+[[_Ref351489288]]
+
+=== WebTab が 要素に追加されるときにタブ幅が正しくない可能性がある問題
+
+_WebTab_   で幅が定義されていないかパーセンテージで定義されている場合、`<TD>` 要素に配置される際に幅が定義されない問題。 _WebTab_   コントロールがタブ幅を正しく計算できないためタブ幅が過度に大きくなる問題。
+
+回避方法
+
+_WebTab_   コントロールでピクセル幅を明示的に構成します。
+
+=== WebDataGrid/ WebHierarchicalDataGrid で IME モードで編集モードがキー押下でトリガーされるよう構成されているの場合、編集モードで入力テキストの最初の文字を誤って解釈する可能性がある問題
+
+WebDataGrid コントロールがアクティブな IME モードの編集モードがキー押下でトリガーされるよう設定されている場合に、ユーザーが最初の文字を入力するとローマ字が表示されることがある問題。
+
+この問題は、IME を解釈するときにブラウザーが実際の `INPUT` 要素を必要とするために発生します。 _WebDataGrid_  / _WebHierarchicalDataGrid_   が`INPUT` とは反対に `<TD>` 要素でデータを表示するため、ブラウザーは `INPUT` が編集に表示 (IME がコンポーネント文字を許可またはコマンドを処理する時) されるまでローマ字を使用します。これによって、最初の入力文字がローマ字でその後に正しいコンポーネント文字になります。
+
+回避方法
+
+`enteredEditMode` イベントから初期の文字をクリアにします。
+
+*JavaScript の場合:*
+
+[source,js]
+----
+function entered(grid, args) {
+          var editor = args.getEditor();
+     setTimeout(function () { editor.set_value("") }, 0);
+}
+----
+
+=== WebDataGrid と WebTab が UpdatePanel 内にある場合にポストバックがメモリ リークを発生することがある問題
+
+UpdatePanel 内の  _WebDataGrid_   と  _WebTab_   コントロールで、非同期ポストバックがメモリリークを発生する可能性があります。
+
+この問題はブラウザーまたは ASP.NET AJAX ライブラリで発生し、Microsoft の GridView および UpdatePanel 内の HTML テーブルでも再現できます。
+
+回避方法
+
+*注:*Infragistics AJAX コントロールを UpdatePanel 以外に配置します。コントロールは定義済みの AJAX 機能があります。
+
+=== WebSchedule の複数日にわたる定期的な予定が週末の場合正しく描画されない問題
+
+_WebSchedule_   コントロールで、定期的な予定が週末を含む複数日にまたがる際に正しく描画されません。
+
+回避方法
+
+*注:*_WebSchedule_   `DetailEventCalenderWebScheduleInfo` オブジェクトの `EnableMultiDayEventBanner` プロパティを _false_ に設定します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+WebSchedule.DetailEventCalenderWebScheduleInfo.EnableMultiDayEventBanner = false;
+----
+
+== 関連コンテンツ
+
+=== トピック
+
+このトピックにの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| _link:web-webdatagrid-webdatagrid.html[WebDataGrid]_ 
+|コントロールについての有用な情報で構成された _WebDataGrid_ コントロールに関連するすべての概要/タスクベースの情報を含みます。コントロールを使用して一般的なタスクを達成する方法を手順に沿って説明します。
+
+| _link:web-webhierarchicaldatagrid.html[WebHierarchicalDataGrid]_ 
+|_WebHierarchicalDataGrid_ についての有用な情報で構成された _WebHierarchicalDataGrid_ コントロールに関連するすべての概要/タスクベースの情報を含みます。コントロールを使用して一般的なタスクを達成する方法を手順に沿って説明します。
+
+| _link:web-webhierarchicaldatasource.html[WebHierarchicalDataSource]_ 
+|_WebHierarchicalDataSource_ についての有用な情報で構成された _WebHierarchicalDataSource_ コントロールに関連するすべての概要/タスクベースの情報を含みます。コントロールを使用して一般的なタスクを達成する方法を手順に沿って説明します。
+
+| _link:web-webtab.html[WebTab]_ 
+|コントロールについての有用な情報で構成された _WebTab_ コントロールに関連するすべての概要/タスクベースの情報を含みます。コントロールを使用して一般的なタスクを達成する方法を手順に沿って説明します。
+
+| _link:web-webschedule.html[WebSchedule]_ 
+|_WebSchedule_ ( _WebCalendarView_ 、 _WebMonthView_ 、 _WebScheduleInfo_ など) は _WebSchedule_ アセンブリの一部で同様の機能を利用できます。複数 _WebSchedule_ コントロールを対象としたグループ別トピックがあります。
+
+|====

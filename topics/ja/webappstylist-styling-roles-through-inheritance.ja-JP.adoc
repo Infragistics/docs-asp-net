@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "webappstylist-styling-roles-through-inheritance",
+    "controlName": ["WebAppStylist"],
+    "tags": ["Styling","Theming"],
+    "guid": "{74E36D01-581E-4BFF-8F53-7540E5091FFC}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 継承でロールをスタイル
+
+基本的なカスケード スタイル シート（CSS）のために、継承を使用した UI ロールのスタイリングは、Infragistics AppStylist for ASP.NET の組み込み機能となっています。ロール ツリー内のすべての UI ロールは、全般的なものから固有のものへという順番になっており、CSS の仕組みと同じです。たとえば、ロール ツリーの WebTree コンポーネントの下にある UI ロールを見てみましょう。Control、Island、Node、そして親 UI ロールに続いて残りのロールが表示されます。
+
+image::images/WebAppStylist_Styling_Roles_Through_Inheritance_01.png[]
+
+WebTree スタイル シートは、Control から Disabled までこの形式でレイアウトされます。Control の UI ロールの背景色を赤に変更すると、すべての未設定の UI ロールの背景色が赤になります（ブランクのスタイル ライブラリを使用して開始した場合すべての UI ロールが赤になります）。
+
+image::images/WebAppStylist_Styling_Roles_Through_Inheritance_02.png[]
+
+すべてが赤の WebTree では見た目がつまらないので、Island の UI ロールに一段階下がりましょう。この UI ロールの背景色を緑に変更すると、すべての子ノードの背景色全体が今度は緑になります。Island の UI ロールが Control の UI ロールに優先しています。
+
+image::images/WebAppStylist_Styling_Roles_Through_Inheritance_03.png[]
+
+Root の UI ロールに移動して、背景色を黄色に変更しましょう。Root ノードの外観が変わりましたが子ノードは変わらないことが分かります。
+
+image::images/WebAppStylist_Styling_Roles_Through_Inheritance_04.png[]
+
+では、Node の UI ロールにツリーを上に戻りましょう。Node の UI ロールの背景色を青に変更すると、Root ノードではなくすべての子ノードが今度は青になります。これは、Root ノードのスタイルをすでに無効にしたためです。したがって、チェーン内の Root UI ロールの上にある UI ロールに行ったすべての変更が Root ノードに適用されるわけではありません。
+
+image::images/WebAppStylist_Styling_Roles_Through_Inheritance_05.png[]
+
+もう一度 Root UI ロールに戻りましょう。デザイナの右上隅にある [リセット] ボタンをクリックすると、UI ロールが元の状態にリセットされます。元の状態は、一切プロパティが設定されていない状態です。UI ロールのリセットにより、Root UI ロールからスタイルが削除され、UI ロールチェーンのスタイル設定 Node スタイルを適用します。これは青です。
+
+image::images/WebAppStylist_Styling_Roles_Through_Inheritance_06.png[]
+
+== 継承と共有ロール
+
+継承は共有ロールにも関係することを忘れないでください。共有にあるすべてのロールを設定し、ほとんどの {ProductName} コントロールをスタイルできます。Control、Item、および Button などのいくつかのコントロールのほとんどのロールは共有スタイルシートから継承されます。これに留意することで、多数のコントロールをスタイリングするときに作業時間を短縮できます。コントロールと継承するスタイルに関連したロールのリストは、 link:webappstylist-styling-specific-components.html[「スタイリング固有のコンポーネント」]を参照してください。

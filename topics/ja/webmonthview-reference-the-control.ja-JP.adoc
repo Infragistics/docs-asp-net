@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "webmonthview-reference-the-control",
+    "controlName": ["WebMonthView"],
+    "tags": ["Appointments","Recurrences","Scheduling"],
+    "guid": "{5D030F47-99F1-4B22-BDFE-D402E9AF729B}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= コントロールの参照
+
+クライアント側で WebMonthView™ コントロールを参照するためには 2 つの方法があります。すべての WebSchedule™ コントロールは、ig_getWebControlById 関数を使用し、クライアントでそれにアクセスするためにコントロールの ID を渡すことができます。WebMonthView では特に、コントロールを参照するために ig_getWebMonthViewById 関数を使用できます。
+
+次のコードはこのコントロールの参照方法を示します。
+
+*JavaScript の場合*
+
+----
+var monthView = ig_getWebMonthViewById("WebMonthView1");
+----

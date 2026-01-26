@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "webmonthview-styling-webmonthview",
+    "controlName": ["WebMonthView"],
+    "tags": ["Appointments","Recurrences","Scheduling","Styling"],
+    "guid": "{AD4C0658-BFD4-4006-A218-4E114BD683C2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebMonthView のスタイル
+
+以下の図は、WebMonthView と WebMonthView に設定できるさまざまなスタイル オブジェクトを UI にマップする方法を示しています。
+
+image::images\WebSchedule_Related_Topics_Styling_the_WebMonthView.png[]

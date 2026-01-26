@@ -1,0 +1,208 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatagrid-paging-template",
+    "controlName": ["WebHierarchicalDataGrid"],
+    "tags": ["Design Environment","Grids","Paging"],
+    "guid": "{D19214B1-8035-4A6F-8DEB-10C0D12B38A5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ページング テンプレート
+
+== 始める前に
+
+WebHierarchicalDataGrid™ コントロールのページング テンプレート機能で、ページャーのルック アンド フィールをユーザーの仕様にカスタマイズできます。コントロールをテンプレートに追加できますが、ページャー テンプレートの使用では、ページングメカニズムを手動で操作する必要があります。
+
+== 達成すること
+
+2 つのボタンとドロップダウン リストを使用して、WebHierarchicalDataGrid の親バンドのページングを設定します。2 つのボタンは前ページと次ページへの移動を処理しますが、ドロップダウン リストは選択したページに移動します。
+
+== 次の手順を実行します
+
+[start=1]
+. WebHierarchicalDataGrid を WebHierarchicalDataSource™ コンポーネントにバインドし、Categories および Products テーブルからデータを取得します。この詳細は、 link:webhierarchicaldatasource-using-webhierarchicaldatasource.html[階層的なデータ ソースにバインド]トピックを参照してください。
+[start=2]
+. Microsoft® Visual Studio™ [プロパティ] ウィンドウで、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.band.html[Bands]"]  プロパティを指定して、省略記号 (...) ボタンをクリックし、[WebHierarchicalDataGrid バンドの編集] ダイアログを起動します。
+[start=3]
+. 親バンドでは、Behaviors プロパティを指定して、省略記号 (...) ボタンをクリックし、[動作エディター] ダイアログを起動します。
+[start=4]
+. この動作を追加して有効にするには、左のリストから pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.paging.html[ページング]"] の隣りのチェックボックスをチェックします。このトピックでは、PageSize は 3 に設定されます。EnableInheritance プロパティは、子バンドにページングを設定するために有効にできます。
+[start=5]
+. このプロパティで、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.pagingclientevents.html[PagingClientEvents]"]  を展開し、イベント ハンドラ名 WebHierarchicalDataGrid1_PageIndexChanged を入力して  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.pagingclientevents~pageindexchanged.html[PageIndexChanged]"]  イベントを処理します。
+
+image::Images/WebHierarchicalDataGrid_Using_Custom_Paging_Template_01.png[]
+
+[start=6]
+. [適用] そして [OK] ボタンをクリックしてエディターを閉じます。
+[start=7]
+. WebHierarchicalDataGrid を右クリックして編集テンプレートを強調表示します。ページャー テンプレートのオプションが表示されます。
+
+*注：* 複数の動作テンプレートを使用している場合、編集テンプレートのサブメニューのセクションとして動作テンプレートが表示されます。
+
+[start=8]
+. コンテキスト メニューからページャー テンプレートを選択します。WebHierarchicalDataGrid 表示は、テンプレート編集表示に変わります。
+
+*注：* 追加した動作に基づき、ページャー テンプレートに加えて他のテンプレートが表示されます。
+
+[start=9]
+. 2 つの HTML ボタンとひとつの ASP.NET DropDownList コントロールをテンプレートに追加します。
+
+a. 2 つのボタンの間にドロップダウン リストを配置します。
+
+b. ドロップダウンリストの前のボタンの値を「前へ」に設定し、その ID を PrevButton に設定します。
+
+c. 2 番目のボタンの値を「次へ」に設定し、その ID を NextButton に設定します。
+
+d. 各ボタンをダブルクリックしてそれらにイベント ハンドラを追加します。
+
+image::Images/WebHierarchicalDataGrid_Using_Custom_Paging_Template_02.png[]
+
+e. ドロップダウン リストに IndexChanged という名前のクライアント側のハンドラを追加します。ドロップダウンから値を選択する場合、これは WebHierarchicalDataGrid の手動ページングを処理します。ドロップダウン リストの HTML は以下のように表示されるはずです:
+
+*HTML の場合:*
+
+----
+<asp:DropDownList ID="DropDownList1" runat="server" onchange="return IndexChanged()">
+</asp:DropDownList>
+----
+
+[start=10]
+. WebHierarchicalDataGrid を再び右クリックして、[テンプレート編集の終了] を選択します。通常のグリッド表示に戻ります。
+[start=11]
+. 
+
+WebHierarchicalDataGrid コントロールの RowIslandDataBinding イベントでデータのページ数で DropDownList コントロールを生成します。
+
+a. ページャー テンプレートでドロップダウン リストへの参照を取得します。これはテンプレート内のコントロールのコンテナである PagerTemplateContainer へのアクセスと、テンプレート内のコントロールを見つける必要があります。
+
+b. ページ数でドロップダウン リストを生成します。RowIslandDataBinding イベントを処理して以下のコードを書き込みます。
+
+*Visual Basic の場合：*
+
+----
+AddHandler Me.WebHierarchicalDataGrid1.RowIslandDataBinding, AddressOf WebHierarchicalDataGrid1_RowIslandDataBinding
+Protected Sub WebHierarchicalDataGrid1_RowIslandDataBinding(ByVal sender As Object, ByVal e As RowIslandEventArgs)
+If e.RowIsland.DataMember = "SqlDataSource1_DefaultView" Then
+   If Not IsPostBack Then
+      Dim list1 As DropDownList =   DirectCast(e.RowIsland.Behaviors.Paging.PagerTemplateContainer.FindControl("DropDownList1"), DropDownList)
+         '簡素化のため、いくつかのリスト項目をハードコーディングしています。本番アプリケーションでは、
+     'ロジックを使用して、どれぐらいのページ数がリストに追加されるべきかを計算します。
+         For i As Integer = 1 To 3
+            list1.Items.Add(i.ToString())
+         Next
+      End If
+   End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+this.WebHierarchicalDataGrid1.RowIslandDataBinding += new RowIslandEventHandler(WebHierarchicalDataGrid1_RowIslandDataBinding);
+protected void WebHierarchicalDataGrid1_RowIslandDataBinding(object sender, RowIslandEventArgs e)
+{
+   if (e.RowIsland.DataMember == "SqlDataSource1_DefaultView")
+   {
+      if (!IsPostBack)
+      {
+         DropDownList list1 = (DropDownList)e.RowIsland.Behaviors.Paging.PagerTemplateContainer.FindControl("DropDownList1");
+         //簡素化のため、いくつかのリスト項目を
+         //ハードコーディングしています。本番アプリケーションでは、
+         //ロジックを使用して、どれぐらいのページ数が 
+         //リストに追加されるべきかを計算します。
+         for (int i = 1; i $$<=$$ 3; i++)
+         {
+            list1.Items.Add(i.ToString());
+         }
+      }
+   }
+}
+----
+
+[start=12]
+. ドロップダウン リストの IndexChanged イベント ハンドラで WebHierarchicalDataGrid を手動でページングします。
+
+a. WebHierarchicalDataGrid への参照を取得します。
+
+b. ドロップダウン リストから選択した値に基づき WebHierarchicalDataGrid をページします。
+
+*注：* DropDownList コントロールのクライアント ID に注意してください。これは、コントロールが複数のコンテナ コントロール内に配置されているからです（別名：テンプレート）。この例では、クライアント ID はハードコードされます。本番アプリケーションでは、ランタイムにこの ID を動的に取得します。
+
+*JavaScript の場合：*
+
+----
+function IndexChanged()
+{
+   var dropdownlist = document.getElementById("WebHierarchicalDataGrid1_ctl00_ctl01_DropDownList1");
+   var grid = $find("WebHierarchicalDataGrid1");
+   var parentGrid = grid.get_gridView();
+   var newValue = dropdownlist.selectedIndex;
+   parentGrid.get_behaviors().get_paging().set_pageIndex(newValue);
+}
+----
+
+[start=13]
+. Prev ボタン コントロールのクライアント側の Click イベント ハンドラを使用して WebHierarchicalDataGrid をページングします。
+
+a. WebHierarchicalDataGrid への参照を取得します。
+
+b. ドロップダウン リストへの参照を取得します。
+
+c. インデックスを少なくしてチェックすれば選択可能なページの境界を超えません。
+
+d. 次ページに移ります。
+
+*JavaScript の場合：*
+
+----
+var grid = $find("WebHierarchicalDataGrid1");
+var parentGrid = grid.get_gridView();
+var dropdownlist = document.getElementById("WebHierarchicalDataGrid1_ctl00_ctl01_DropDownList1");
+if (parentGrid.get_behaviors().get_paging().get_pageIndex() > 0) {
+   parentGrid.get_behaviors().get_paging().set_pageIndex(parentGrid.get_behaviors().get_paging().get_pageIndex() - 1);
+}
+----
+
+[start=14]
+. ページ インデックスを増すことを除き、Next ボタン イベント ハンドラに同じことを行います。
+
+*JavaScript の場合：*
+
+----
+var grid = $find("WebHierarchicalDataGrid1");
+var parentGrid = grid.get_gridView();
+var dropdownlist = document.getElementById("WebHierarchicalDataGrid1_ctl00_ctl01_DropDownList1");
+if (parentGrid.get_behaviors().get_paging().get_pageIndex() < parentGrid.get_behaviors().get_paging().get_pageCount() - 1) {
+   parentGrid.get_behaviors().get_paging().set_pageIndex(parentGrid.get_behaviors().get_paging().get_pageIndex() + 1);
+}
+----
+
+[start=15]
+. ユーザーが手順 5 で追加した WebHierarchicalDataGrid1_PageIndexChanged クライアント側イベントの本文にコードを追加します。
+
+*JavaScript の場合：*
+
+----
+var grid = $find("WebHierarchicalDataGrid1");
+var parentGrid = grid.get_gridView();
+var dropdownlist = document.getElementById("WebHierarchicalDataGrid1_ctl00_ctl01_DropDownList1");
+dropdownlist.options[parentGrid.get_behaviors().get_paging().get_pageIndex()].selected = true;
+----
+
+[start=16]
+. アプリケーションを実行します。WebHierarchicalDataGrid のページャーの親バンドは 2 つのボタンとひとつのドロップダウン リストで構成され、それぞれはページングで使用できます。 
+
+image::Images/WebHierarchicalDataGrid_Using_Custom_Paging_Template_03.png[]
+
+== 関連トピック
+
+link:webhierarchicladatagrid-column-templates.html[列のテンプレート]
+
+link:webhierarchicaldatagrid-enable-empty-rows-template.html[空の行テンプレートを有効にする]
+
+link:webhierarchicaldatagrid-enable-error-template.html[エラー テンプレートを有効にする]

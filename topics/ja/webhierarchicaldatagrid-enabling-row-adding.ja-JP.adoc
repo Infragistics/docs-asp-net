@@ -1,0 +1,90 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatagrid-enabling-row-adding",
+    "controlName": ["WebHierarchicalDataGrid"],
+    "tags": ["Editing","Grids"],
+    "guid": "{9563F1DE-1BC1-4BC5-9487-7C15A22CF48F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 行の追加を有効にする
+
+== 始める前に
+
+WebHierarchicalDataGrid™ コントロールの新規行追加機能を使用してエンドユーザーは新しいレコードを追加できます。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.rowadding.html[RowAdding]"]  動作は、コントロールに常にあるこの空の行を提供します。新しいデータを新規行追加に入力し行のフォーカスを失わせると、その行は WebHierarchicalDataGrid と元となるデータ ソースに挿入されます。行がフォーカスを取得またはフォーカスを失うには、Activation 動作を有効にする必要があります。Activation 動作の詳細は、 link:webhierarchicaldatagrid-activation.html[アクティブ化]トピックを参照してください。
+
+*注：* RowAdding が子バンドに有効にされ、親行が子を持たない場合、展開インジケーターは今まで通り存在します。展開すると、空の子グリッドおよび新規行追加が下に表示されます。
+
+== 達成すること
+
+新しい行を WebHierarchicalDataGrid に追加できるようにする方法を学習します。
+
+== 次の手順を実行します
+
+[start=1]
+. WebHierarchicalDataGrid を WebHierarchicalDataSource™ コンポーネントにバインドし、Categories および Products テーブルからデータを取得します。実行についての詳細は、 link:webhierarchicaldatasource-using-webhierarchicaldatasource.html[階層的なデータ ソースにバインド]を参照してください。変更をデータ ソースに更新できるように、HierarchicalDataGrid にバインドする各データ ソースごとに  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webhierarchicaldatagrid~datakeyfields.html[DataKeyFields]"]  プロパティを設定します。Microsoft® Visual Studio [プロパティ] ウィンドウで、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webhierarchicaldatagrid~behaviors.html[Behaviors]"]  プロパティを指定して、省略記号 (...) ボタンをクリックし、[動作エディター] ダイアログを起動します。
+[start=2]
+. 左側にあるリストから行の追加チェックボックスを選択して動作を追加します。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.editingcore.html[EditingCore]"]  動作もチェックされていることに注意してください。
+[start=3]
+. EditingCore および行追加動作の  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.editingcore~enableinheritance.html[EnableInheritance]"]  プロパティを True に設定します。これによって、すべての子レベルが行追加動作を自動的に継承することが可能になります。このプロパティのデフォルト値は False です。
+[start=4]
+. プロパティで、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.rowadding~alignment.html[Alignment]"]  が Bottom に設定されていることをチェックします。これによって [新規追加行] が WebHierarchicalDataGrid の一番下に追加されます。
+[start=5]
+. [適用] そして [OK] ボタンをクリックしてエディターを閉じます。データを行に入力し、キーボードの Enter キーを押すことによって行がフォーカスを失うことによって、新しい行を WebHierarchicalDataGrid に追加することが可能となりました。
+
+image::Images/WebHierarchicalDataGrid_Enabling_Row_Adding.png[]
+
+コードでも行の追加を有効にします。
+
+*In HTML:*
+
+----
+<ig:WebHierarchicalDataGrid ID="WebHierarchicalDataGrid1" runat="server" 
+    Height="350px" Width="400px">
+    <Behaviors>
+        <ig:EditingCore EnableInheritance="True">
+            <Behaviors>
+                <ig:RowAdding Alignment="Bottom" Enabled="true" EnableInheritance="True">
+                </ig:RowAdding>
+            </Behaviors>
+        </ig:EditingCore>
+    </Behaviors>
+</ig:WebHierarchicalDataGrid>
+----
+
+*In Visual Basic:*
+
+----
+Me.WebHierarchicalDataGrid1.Behaviors.EditingCore.EnableInheritance = True
+Me.WebHierarchicalDataGrid1.Behaviors.EditingCore.Behaviors.RowAdding.Enabled = true
+Me.WebHierarchicalDataGrid1.Behaviors.EditingCore.Behaviors.RowAdding.Alignment = AddNewRowAlignment.Bottom
+Me.WebHierarchicalDataGrid1.Behaviors.EditingCore.Behaviors.RowAdding.EnableInheritance = True
+----
+
+*In C#:*
+
+----
+this.WebHierarchicalDataGrid1.Behaviors.EditingCore.EnableInheritance = true;
+this.WebHierarchicalDataGrid1.Behaviors.EditingCore.Behaviors.RowAdding.Enabled = true;
+this.WebHierarchicalDataGrid1.Behaviors.EditingCore.Behaviors.RowAdding.Alignment = AddNewRowAlignment.Bottom;
+this.WebHierarchicalDataGrid1.Behaviors.EditingCore.Behaviors.RowAdding.EnableInheritance = true;
+----
+
+== 関連トピック
+
+link:webhierarchicaldatagrid-activation.html[アクティブ化]
+
+link:webhierarchicaldatagrid-cell-editing.html[セルの編集]
+
+link:webhierarchicaldatagrid-enabling-paging.html[ページングを有効にする]
+
+link:webhierarchicaldatagrid-enabling-row-deleting.html[行の削除を有効にする]
+
+link:webhierachicaldatagrid-selection.html[選択]
+
+link:webhierarchicaldatagrid-sorting.html[並べ替え]

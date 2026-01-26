@@ -1,0 +1,172 @@
+﻿////
+|metadata|
+{
+    "name": "webdatagrid-row-deleting-overview",
+    "controlName": [],
+    "tags": [],
+    "guid": "1f2df170-417f-42fe-9117-10295ef13273",
+    "buildFlags": [],
+    "createdOn": "2014-03-10T16:27:13.1931873Z"
+}
+|metadata|
+////
+
+= 行削除の概要
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、 _WebDataGrid_   __™__  の行削除動作の機能の概要を提供します。
+
+=== 前提条件
+
+このトピックをより理解するために、以下のトピックをお読みください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:webdatagrid-behaviors.html[動作]
+|このトピックは、 _WebDataGrid_ の動作を説明します。
+
+| link:webdatagrid-editting.html[編集動作の概要]
+|このトピックでは、 _WebDataGrid_ の編集機能 (`EditingCore` 動作) の概要を提供します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは、以下のセクションで構成されます。
+
+* <<_Ref382258592,はじめに>>
+* <<_Ref382258599,主要機能>>
+* <<_Ref382258610,ユーザー インタラクションと操作性>>
+* <<_Ref382258512,行削除の動作イベント>>
+* <<_Ref382258623,関連コンテンツ>>
+
+** <<_Ref382258628,トピック>>
+** <<_Ref382258633,サンプル>>
+
+[[_Ref382258592]]
+
+== はじめに
+
+=== 行削除の概要
+
+行削除の動作は _WebDataGrid_ の削除機能を提供します。動作の必要なクライアント側の HTML および JavaScript は、動作が有効の場合のみに描画されます。デフォルトで行を選択し、Delete キーを押すことによって行を削除できます。そのため、グリッドに選択動作を含み、RowSelectType をデフォルト値 (None) 以外に設定する必要があります。明示的なユーザー インターフェイスを提供するには、[削除] ボタンを有効にするオプションがあります。
+
+image::images/Row_Deleting_Overview_(WebDataGrid)_1.png[]
+
+[[_Ref382258599]]
+== 主要機能
+
+=== 主要な機能の概要表
+
+以下の表は、 _WebDataGrid_   の行削除動作の主な機能の概要を示します。
+
+[options="header", cols="a,a"]
+|====
+|機能|説明
+
+|キーボードの削除
+|デフォルトで、行削除の動作は、ユーザーが Delete キーを押すと、行を削除します。
+
+|[削除] ボタン
+|有効の場合、[削除] ボタンは、マウスが行の上にホバーするときに表示されます。
+
+|====
+
+[[_Ref381987257]]
+
+[[_Ref382258610]]
+== ユーザー インタラクションと操作性
+
+=== ユーザー インタラクションの概要表
+
+以下の表で、 _WebDataGrid_   の行削除の動作のユーザー インタラクション機能を簡単に説明します。
+
+[options="header", cols="a,a,a,a"]
+|====
+|目的|方法|詳細|構成方法
+
+|行の削除
+|Delete キー 
+
+マウス ホバーで表示する [削除] ボタン
+|行削除の動作および選択の動作が有効の場合、ユーザーが行を選択し、Delete キーを押すと、選択した行を削除します。
+|image::images/workaround.png[] 
+
+[削除] ボタンを有効にするには、行削除の動作の link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.rowdeleting~showdeletebutton.html[ShowDeleteButton] プロパティを設定します。
+
+|====
+
+[[_Ref381987341]]
+
+[[_Ref382258512]]
+== 行削除の動作イベント
+
+=== 行削除の動作イベント参照
+
+行削除の動作は、クライアント側の機能をカスタマイズするために使用される以下のクライアント側イベントがあります。
+
+[options="header", cols="a,a"]
+|====
+|イベント|説明
+
+|`DeleteButtonDisplaying`
+|マウスが行の上にホバーされたとき、[削除] ボタンを表示する前に発生します。このイベントは、[削除] ボタンが有効の場合のみに発生します。このイベントはキャンセル可能です。
+
+|`DeleteButtonDisplayed`
+|マウスが行の上にホバーされたとき、[削除] ボタンを表示した後に発生します。このイベントは、[削除] ボタンが有効の場合のみに発生します。
+
+|`DeleteButtonHidden`
+|マウスが行の上から離れたとき、[削除] ボタンを非表示した後に発生します。このイベントは、[削除] ボタンが有効の場合のみに発生します。
+
+|====
+
+==== 関連サンプル:
+
+* link:{SamplesURL}/samples/webdatagrid/style/customizeddeleterowbutton/default.aspx?cn=data-grid&sid=ab99295d-bd09-4f41-9462-51b6500cb1e9[カスタム行の削除ボタン]
+
+[[_Ref382258623]]
+== 関連コンテンツ
+
+[[_Ref382258628]]
+
+=== トピック
+
+このトピックの追加情報については、以下のトピックも合わせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:webdatagrid-enabling-row-deleting.html[行削除を有効にする]
+|このトピックは、 _WebDataGrid_ で行削除動作を有効にする方法を説明します。
+
+|====
+
+[[_Ref382258633]]
+
+=== サンプル
+
+このトピックについては、以下のサンプルも参照してください。
+
+[options="header", cols="a,a"]
+|====
+|サンプル|目的
+
+| link:{SamplesURL}/samples/webdatagrid/editingandselection/deleterowsbasicfeatures/default.aspx?cn=data-grid&sid=8ad22332-bd3a-4fdf-ba35-e3f4d8c49b9b[行の削除 - 基本機能]
+|_WebDataGrid_ は、エンドユーザーが バインド データ ソースから 1 つ以上のデータの行の削除ができる行を削除する動作を含みます。このサンプルは、ユーザーが削除アイコンをクリックしたときに現在の行がバインドされたデータソースから削除されるよう動作を設定する方法を紹介します。
+
+| link:{SamplesURL}/samples/webdatagrid/editingandselection/deleterowsserverevents/default.aspx?cn=data-grid&sid=dfe1833a-5c56-4f57-a7fd-35bcac1af95f[行の削除 - サーバー イベント]
+|_WebDataGrid_ は、エンドユーザーが バインド データ ソースから 1 つ以上のデータの行の削除ができる行を削除する動作を含みます。このサンプルでは、動作のサーバー イベントと対話する方法を紹介します。
+
+| link:{SamplesURL}/samples/webdatagrid/editingandselection/deleterowbutton/default.aspx?cn=data-grid&sid=ab52295d-bd00-4f41-9462-51b6500cb1e9[行の削除ボタン]
+|このサンプルでは、 _WebDataGrid_ で [削除] ボタンを有効にする方法を紹介します。
+
+| link:{SamplesURL}/samples/webdatagrid/style/customizeddeleterowbutton/default.aspx?cn=data-grid&sid=ab99295d-bd09-4f41-9462-51b6500cb1e9[カスタム行の削除ボタン]
+|行削除動作の外観を行削除プロパティを使用してカスタマイズできます。また、ボタンの表示を回避するために `DeleteButtonDisplaying` イベントを処理できます。
+
+|====

@@ -1,0 +1,167 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-excelstylefiltering-overview",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Filtering","Grids"],
+    "guid": "bc16db84-6ac8-4149-901a-6910392e024d",  
+    "buildFlags": [],
+    "createdOn": "2012-07-16T12:46:40.1319878Z"
+}
+|metadata|
+////
+
+= Excel フィルタリングの概要
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、 _WebDataGrid_™ コントロールの link:webdatagrid-excelstylefiltering-landingpage.html[Excel フィルタリング]機能について紹介します。
+
+=== 前提条件
+
+このトピックの本題に入る前に、以下のトピックをお読みください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:http://www.infragistics.com/help/topic/6AC996BB-3C11-46BD-B7BB-EFE868315EA2[] link:webdatagrid-getting-started-with-webdatagrid.html[WebDataGrid を使用した作業の開始]
+|このトピックでは、 _WebDataGrid_ をページに追加し、Northwind データベースの Customers テーブルを取得する方法を紹介します。
+
+|====
+
+=== このトピックの内容
+
+このトピックは以下のセクションからなります。
+
+* <<_Ref335941575,はじめに>>
+* <<_Ref335941591,Excel フィルタリング オプション>>
+
+* <<_Ref335941644,Excel フィルタリング オプションの概要表>>
+* <<_Ref335941665,一意の値の大文字化>>
+
+* <<_Ref335941675,Null 値のカスタム テキスト>>
+
+* <<_Ref335941735,関連コンテンツ>>
+
+* <<_Ref329858121,トピック>>
+* <<_Ref329858125,サンプル>>
+
+[[_Ref335941575]]
+== はじめに
+
+=== Excel フィルタリングの概要
+
+_WebDataGrid_   の Excel フィルタリング機能は、Microsoft® Excel® ワークシートで使用されるフィルター設定を使用してグリッドのデータをフィルターします。この機能によってフィルタリング基準に一致するより小さいサブセットにデータを分割し、一致を表示します。
+
+image::images/WDG_ExcelStyleFiltering_Overview_1.png[]
+
+ユーザーはフィルタリング ドロップダウンでフィルター条件を選択します。ドロップダウンの値は、フィルターされる列の値です。OK ボタンをクリックして選択を保存した後、サーバーに要求を送信して、フィルターしたデータのサブセットを取得して描画します。
+
+[[_Ref335941591]]
+== Excel フィルタリング オプション
+
+[[_Ref335941644]]
+
+=== Excel フィルタリング オプションの概要表
+
+以下の表は、 _WebDataGrid_™ コントロールの Excel フィルタリングの構成可能なオプションを説明します。
+
+[options="header", cols="a,a"]
+|====
+|オプション|解説
+
+|<<_Ref335941665,フィルタリング ドロップダウンで一意の値の大文字化>>
+|フィルタリング ドロップダウンの値の大文字化を指定できます。利用可能なオプションは: 小文字、大文字、および camelcase です。
+
+|<<_Ref335941675,フィルタリング ドロップダウンで Null 値のテキストの構成>>
+|フィルタリング ドロップダウンで Null 値のカスタム テキストを指定できます。
+
+|====
+
+[[_Ref335941665]]
+
+=== 一意の値の大文字化
+
+このオプションを列またはグリッド全体に設定できます。列ごとの設定は優先があります。大文字化オプションは以下のとおりです。
+
+*  *Lowercase*  (デフォルト) – 項目は小文字で表示されます
+*  *Uppercase*  – 項目は大文字で表示されます
+*  *Camelcase*  - 項目は英語の文字の大文字化で表示されます。項目の最初の文字のみは大文字で表示されます。
+
+[options="header", cols="a,a,a"]
+|====
+|Lowercase|Uppercase|Camelcase
+
+|image::images/WDG_ExcelStyleFiltering_Overview_2.png[]
+|image::images/WDG_ExcelStyleFiltering_Overview_3.png[]
+|image::images/WDG_ExcelStyleFiltering_Overview_4.png[]
+
+|====
+
+==== 関連トピック:
+
+* link:webdatagrid-excelstylefiltering-configuring.html[Excel フィルタリングの構成 ]
+
+[[_Ref335941675]]
+
+=== Null 値のカスタム テキスト
+
+フィルタリング ドロップダウンで、Null 値のセルの表示するカスタム テキストを構成できます。このカスタム値はドロップダウンの項目のテキストのみに表示され、データ ソースに保存されません。以下の画像では、Null 値は  _Custom Null Text_   に設定されます。
+
+image::images/WDG_ExcelStyleFiltering_Overview_5.png[]
+
+==== 関連トピック:
+
+* link:webdatagrid-excelstylefiltering-configuring.html[Excel フィルタリングの構成 ]
+
+[[_Ref335941735]]
+== 関連コンテンツ
+
+[[_Ref329858121]]
+
+=== トピック
+
+このトピックについては、以下のトピックも参照してください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:webdatagrid-excelstylefiltering-enabling.html[Excel フィルタリングの有効化]
+|このトピックは、 _WebDataGrid_ コントロールの Excel フィルタリング機能のプロパティについての情報を提供します。
+
+| link:webdatagrid-excelstylefiltering-configuring.html[Excel フィルタリングの構成]
+|このトピックでは、 _WebDataGrid_ コントロールの Excel フィルタリング オプションを構成する方法を説明します。
+
+| link:webdatagrid-excelstylefiltering-propertyreference.html[Excel フィルタリングのプロパティ リファレンス]
+|このトピックは、 _WebDataGrid_ コントロールの Excel フィルタリング機能のプロパティについての情報を提供します。
+
+|====
+
+[[_Ref329858125]]
+
+=== サンプル
+
+このトピックについては、以下のサンプルも参照してください。
+
+[options="header", cols="a,a"]
+|====
+|サンプル|目的
+
+| link:{SamplesURL}/samples/webdatagrid/organization/excelstylefilteringuniquevaluecasing/default.aspx?cn=data-grid&sid=bb8281e9-bb9a-422d-84f7-acc6b1342e77[Excel フィルタリングで一意値の大文字/小文字指定]
+|このサンプルでは、Excel フィルタリングの ` link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.columnfilteringsetting~uniquevaluecasing.html[UniqueValueCasing]` プロパティを紹介します。
+
+| link:{SamplesURL}/samples/webdatagrid/organization/excelstylefilteringboundunboudfields/default.aspx?cn=data-grid&sid=d9ad02bb-87ef-4440-9b4e-0fe51cdb7a38[Excel フィルタリング - バインド/非バインド フィールド]
+|このサンプルでは、バインドおよび非バインド フィールドで Excel フィルタリングおよびチェックボックスを使用する方法を紹介します。
+
+| link:{SamplesURL}/samples/webdatagrid/organization/excelstylefilteringnullvaluetext/default.aspx?cn=data-grid&sid=a1a23f0a-8f1f-4846-b780-0c7d28cc464d[Excel フィルタリングのドロップダウンの Null 値テキスト]
+|このサンプルでは、Excel フィルタリングの ` link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.columnfilteringsetting~nullvaluetext.html[NullValueText]` プロパティを _Null_ に設定する方法を紹介します。
+
+| link:{SamplesURL}/samples/webdatagrid/organization/excelstylefilteringcrud/default.aspx?cn=data-grid&sid=a182b7c6-738e-4db9-b531-705dc05be0b7[CRUD 機能が有効な Excel フィルタリング]
+|このサンプルでは、編集と Excel フィルタリングを紹介します。
+
+|====

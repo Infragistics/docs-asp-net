@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-about-webhtmleditor",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing","How Do I"],
+    "guid": "{3F685E52-496E-4A95-AD32-A736FCAF7CE3}",  
+    "buildFlags": [],
+    "createdOn": "2006-03-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor について
+
+WebHtmlEditor は、Web アプリケーションでエンド ユーザーが使用する What You See Is What You Get（WYSIWYG）編集ウィンドウで豊富な編集機能を提供します。
+
+* link:webhtmleditor-webhtmleditor-toolbar.html[ツールバー] -- 編集およびアップロード操作用のボタンとドロップダウン リストが含まれています。
+* link:webhtmleditor-webhtmleditor-text-window.html[テキスト ウィンドウ] -- エンド ユーザーが内容を編集してプレビューできます。
+* link:webhtmleditor-webhtmleditor-tab-strip.html[タブ ストリップ] -- エンド ユーザーがデザインビューと HTML ビューを切り替えるためのタブが含まれています。
+
+image::Images/WebHtmlEditor_About_WebHtmlEditor_01.png[]

@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcaptcha-configuring-captcha-input-field",
+    "controlName": ["WebCaptcha"],
+    "tags": ["Styling","Validation"],
+    "guid": "a15b98f7-36be-4e38-8426-cfd09d6cae45",  
+    "buildFlags": [],
+    "createdOn": "2010-05-31T13:06:38.9598633Z"
+}
+|metadata|
+////
+
+= キャプチャ入力フィールドの構成
+
+キャプチャ（デフォルト）の link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webcaptcha~protectionmode.html[ProtectionMode] で WebCaptcha™ コンポーネントを使用している場合、このコントロールはテキスト入力フィールドである link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webcaptcha~inputvalueeditor.html[InputValueEditor] を描画し、その値はキャプチャの検証に使用されます。テキスト入力は WebTextEditor コンポーネントで、ユーザーは提供されるすべての機能のメリットを得られます。WebCaptcha コンポーネントは、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webcaptcha~captchaeditorid.html[CaptchaEditorID] プロパティも提供します。これは外部入力フィールドを指定するために使用できます。以下は事例です。
+
+*HTML の場合:*
+
+----
+<ig:WebCaptcha ID="WebCaptcha1" runat="server" CaptchaEditorID="TextBox1">
+</ig:WebCaptcha>
+<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+----
+
+== 関連トピック
+
+link:webcaptcha-protection-modes.html[保護モード]
+
+link:webcaptcha-dictionary-modes.html[辞書モード]
+
+link:webcaptcha-captcha-validation.html[キャプチャの検証]
+
+link:webcaptcha-configuring-captcha-buttons.html[キャプチャ ボタンの構成]
+
+link:webcaptcha-configuring-captcha-image-properties.html[キャプチャ画像プロパティの構成]
+
+link:webcaptcha-configuring-captcha-audio.html[キャプチャ オーディオの構成]

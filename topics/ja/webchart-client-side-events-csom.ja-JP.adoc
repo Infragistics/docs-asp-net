@@ -1,0 +1,354 @@
+﻿////
+|metadata|
+{
+    "name": "webchart-client-side-events-csom",
+    "controlName": [],
+    "tags": ["API","How Do I"],
+    "guid": "{D823DD47-42C2-4563-BCD8-DAF9E03EBEA7}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebChart クライアント側イベント CSOM
+
+== WebChart クライアント イベント
+
+WebChart オブジェクトのクライアント側イベント。
+
+=== WebChart クライアント イベント プロパティ
+
+[cols="a,a"]
+|====
+|*ClientOnChartScroll* 
+|チャート スクロールバーがクリックされた時に発生するイベント。 
+
+*パラメーター*
+
+_oIGScrollbar_:: IGScrollBar オブジェクトへの参照。 
+
+----
+ //チャートがスクロールされたときに呼び出されます。 
+ //クライアント側イベント ClientOnChartScroll は 1 つのパラメーター、oIGScrollBar を取得します。 
+ //oIGScrollBar はスクロールバー オブジェクトです。 
+
+ function UltraChart1_ClientOnChartScroll(oIGScrollBar) { 
+    // スクロールバーの値 
+    var value = oIGScrollBar.Value; 
+    
+    // スクロールバーの高さ 
+    var height = oIGScrollBar.Height; 
+    
+    // スクロールバーの幅 
+    var width = oIGScrollBar.Width 
+    
+    // スクロールバーの最大値 
+    var maximum = oIGScrollBar.Maximum; 
+    
+    // スクロールバーの最小値 
+    var minimum = oIGScrollBar.Minimum;
+
+window.status = "Value:: " + value + 
+" Height:: " + height + 
+" Width:: " +width+ 
+" Maximum Value:: "+maximum+ 
+" Minimum Value:: "+minimum;
+}
+----
+
+|*ClientOnCrosshairMove* 
+|十字ポインタがチャート上に移動された時に発生するイベント。 
+
+*パラメーター*
+
+_x_:: マウス位置の x 座標。
+
+_y_:: マウス位置の y 座標。 
+
+----
+ //十字ポインタがチャートの周囲で移動される時に呼び出されます。 
+ //クライアント側イベント ClientOnCrosshairMove は 2 つのパラメーター x と y を取得します。
+ //X は、十字ポインタ位置の X 座標です。 
+ //y は、十字ポインタ位置の y 座標です。 
+ 
+ function UltraChart1_ClientOnCrosshairMove(x, y){ 
+    // 十字ポインタの x 座標 
+    var xValue = x; 
+    
+    // 十字ポインタの y 座標 
+    var yValue = y; 
+    window.status = "Crosshair at (" + xValue + ","+yValue+ ")"; 
+}
+----
+
+|*ClientOnShowCrosshair* 
+|十字ポインタが、マウスを十字ポインタ領域に移動する結果として表示される時に発生するイベント。 
+
+*パラメーター*
+
+_x_:: マウス位置の x 座標。 
+
+_y_:: マウス位置の y 座標。 
+
+----
+ // 十字ポインタがチャートに表示される時に呼び出されます。 
+ // クライアント側イベント ClientOnShowCrosshair は 2 つのパラメーター x と y を取得します。
+ // X は、十字ポインタが表示される位置の X 座標です。 
+ // y は、十字ポインタが表示される位置の y 座標です。 
+ 
+ function UltraChart1_ClientOnShowCrosshair(x, y){ 
+
+    // これは、チャートをホストする HTML 要素への参照を取得します。 
+    var chartHtml = document.getElementById("UltraChart1"); 
+
+    // チャートの背景色をホストする HTML 要素を黄色に設定します。 
+    chartHtml.style.backgroundColor = "yellow"; 
+
+    // 十字ポインタの x 座標 
+    var xValue = x; 
+
+    // 十字ポインタの y 座標 
+    var yValue = y; 
+    window.status = "Crosshair shown at (" + xValue + "," + yValue+")"; 
+}
+----
+
+|*ClientOnHideCrosshair* 
+|マウスを十字ポインタ領域から移動する結果として十字ポインタが非表示となる時に発生するイベント。 
+
+*パラメーター*
+_x_:: マウス位置の x 座標。 
+
+_y_:: マウス位置の y 座標。 
+
+----
+ // 十字ポインタがチャートから隠される時に呼び出されます。 
+ // クライアント側イベント ClientOnHideCrosshair は 2 つのパラメーター x と y を取得します。
+ // X は、十字ポインタが隠される位置の X 座標です。 
+ // y は、十字ポインタが隠される位置の y 座標です。 
+ 
+ function UltraChart1_ClientOnHideCrosshair(x, y){ 
+    
+    // 十字ポインタの x 座標 
+    var xValue = x; 
+    
+    // 十字ポインタの y 座標 
+    var yValue = y; 
+    window.status = "Crosshair hidden at (" + xValue + "," + yValue+")"; 
+}
+----
+
+|*ClientOnShowTooltip* 
+|マウスをツールチップ領域に移動する結果としてツールチップが表示される時に発生するイベント。 
+
+*パラメーター*
+
+_text_:: ツールチップの現在のテキスト値。
+
+_tooltip_ref_:: ツールチップの html 要素への参照。 
+
+----
+ // ツールチップがチャートに表示される時に呼び出されます。 
+ // クライアント側イベント ClientOnShowTooltip は 2 つのパラメーター text と tooltip_ref を取得します。 
+ // テキストはツールチップの値です。 
+ // tooltip_ref はツールチップの html 要素への参照です。 
+ 
+ function UltraChart1_ClientOnShowTooltip(text, tooltip_ref){ 
+    // ツールチップ値が 4 未満の場合、ツールチップの背景色を赤に設定します。 
+    // そうでない場合は黄色に設定します。 
+    if (text < 4) 
+        tooltip_ref.style.backgroundColor = "red"; 
+    else 
+        tooltip_ref.style.backgroundColor = "yellow"; 
+ 
+    // ツールチップを有効にします。 
+    tooltip_ref.disabled = false; 
+ 
+    // ツールチップのフォント プロパティを設定します。 
+    tooltip_ref.style.fontFamily = "Arial"; 
+    tooltip_ref.style.fontSize = "14px"; 
+    tooltip_ref.style.fontWeight = "bold"; 
+}
+----
+
+|*ClientOnHideTooltip* 
+|マウスをツールチップ領域から移動する結果としてツールチップが非表示となる時に発生するイベント。 
+
+*パラメーター*
+
+_text_:: ツールチップの現在のテキスト値。
+
+_tooltip_ref_:: ツールチップの html 要素への参照。 
+
+---- 
+ // ツールチップが非表示になる時に呼び出されます。 
+ // クライアント側イベント ClientOnHideTooltip は 2 つのパラメーター text と tooltip_ref を取得します。 
+ // テキストはツールチップの値です。 
+ // tooltip_ref はツールチップの html 要素への参照です。 
+
+ function UltraChart1_ClientOnHideTooltip(text, tooltip_ref){ 
+    // ツールチップの値 
+    var tooltipValue = text; 
+ 
+    // 背景色を赤に設定します。 
+    tooltip_ref.style.backgroundColor = "red"; 
+ 
+    // ツールチップを無効にします。 
+    tooltip_ref.disabled = true; 
+}
+----
+
+|*ClientOnMouseClick* 
+|チャート データがクリックされる時に発生するイベント。 
+
+*パラメーター*
+
+_this_ref_:: コンテキストの IGUltraChart オブジェクトへの参照。
+
+_row_:: コンテキストの行番号。
+
+_column_:: コンテキストの列番号。
+
+_value_:: コンテキストのデータ値。
+
+_row_label_:: コンテキストの行ラベル。
+
+_column_label_:: コンテキストの列ラベル。
+
+_evt_type_:: コンテキストの JavaScript イベント タイプ。
+
+_layer_id_:: クリックされたデータを含むチャート レイヤーの一意の識別子。 
+
+---- 
+ // チャートがクリックされたときに呼び出されます。 
+ // クライアント側イベント ClientOnMouseClick は 8 つのパラメーターを取得します。 
+ // this_ref はコンテキストの IGUltraChart オブジェクトへの参照です。 
+ // row はクリックされた行番号です。 
+ // column はクリックされた列番号です。 
+ // value はクリックされたデータ値です。 
+ // row_label はクリックされた行のラベルです。 
+ // column_label はクリックされた列のラベルです。 
+ // evt_type は JavaScript イベントで、この状況ではクリックです。 
+ // layer_id はクリックされたデータを含むチャート レイヤーの一意の識別子です。 
+ 
+ function UltraChart1_ClientOnMouseClick(this_ref, row, column, value, row_label, 
+ column_label, evt_type, layer_id){ 
+    
+    //これは、チャートをホストする HTML 要素への参照を取得します。 
+    var chartHtml = document.getElementById("UltraChart1"); 
+    
+    // チャートが行 2 より下でクリックされると、チャートの背景色をホストする HTML 要素 
+    //は赤に変更されます。 
+    if (row < 2) 
+        chartHtml.style.backgroundColor = "red"; 
+    
+    // クリックされた値が 4 未満の場合、 
+    // チャートの背景色をホストする HTML 要素 
+    //は青に変更されます。 
+    if (value < 4) 
+        chartHtml.style.backgroundColor = "blue"; 
+    // チャートがクリックされる時に十字ポインタを有効にします。 
+    this_ref.EnableCrossHair = true; 
+ 
+    // チャートがクリックされる時にツールチップのフェードを有効にします。 
+    this_ref.EnableTooltipFading = true; 
+ 
+    // どの行と列がクリックされたのかを表示します。 
+    window.status = "Row Clicked:: "+ row_label + " Column Clicked:: "+ column_label; 
+}
+----
+
+|*ClientOnMouseOut* 
+|マウス カーソルがチャート データから移動する時に発生するイベント。 
+
+*パラメーター*
+
+
+_this_ref_:: コンテキストの IGUltraChart オブジェクトへの参照。
+
+_row_:: コンテキストの行番号。
+
+_column_:: コンテキストの列番号。 
+
+_value_:: コンテキストのデータ値。 
+
+_row_label_:: コンテキストの行ラベル。
+
+_column_label_:: コンテキストの列ラベル。
+
+_evt_type_:: コンテキストの JavaScript イベント タイプ。
+
+_layer_id_:: クリックされたデータを含むチャート レイヤーの一意の識別子。 
+
+---- 
+ // マウスがチャート データから遠くに移動する時に呼び出されます。 
+ //クライアント側イベント ClientOnMouseOut は 8 つのパラメーターを取得します。 
+ //this_ref はコンテキストの IGUltraChart オブジェクトへの参照です。 
+ //row は行番号です。 
+ //column は列番号です。 
+ //value はデータ値です。 
+ //row_label は行のラベルです。 
+ //column_label は列のラベルです。 
+ //evt_type は JavaScript イベントです。 
+ //layer_id はデータを含むチャート レイヤーの一意の識別子です。 
+
+ function UltraChart1_ClientOnMouseOut(this_ref, row, column, value, row_label, 
+ column_label, evt_type, layer_id){ 
+    // マウスが遠くに移動する時に十字ポインタを無効にします。 
+    this_ref.EnableCrossHair = false; 
+ 
+    // マウスが遠くに移動したのがどの行と列かを表示します。 
+    window.status = "Row Mouse Out:: "+ row_label + " Column Mouse Out:: "+ column_label; 
+}
+----
+
+|*ClientOnMouseOver* 
+|マウス カーソルがチャート データ上に移動する時に発生するイベント。 
+
+*パラメーター*
+
+_this_ref_:: コンテキストの IGUltraChart オブジェクトへの参照。
+
+_row_:: コンテキストの行番号。 
+
+_column_:: コンテキストの列番号。
+
+_value_:: コンテキストのデータ値。
+
+_row_label_:: コンテキストの行ラベル。
+
+_column_label_:: コンテキストの列ラベル。
+
+_evt_type_:: コンテキストの JavaScript イベント タイプ。
+
+_layer_id_:: クリックされたデータを含むチャート レイヤーの一意の識別子。 
+
+---- 
+ // マウスがチャート データ上に移動する時に呼び出されます。 
+ //クライアント側イベント ClientOnMouseOver は 8 つのパラメーターを取得します。 
+ //this_ref はコンテキストの IGUltraChart オブジェクトへの参照です。 
+ //row はマウスが上にある行番号です。 
+ //column はマウスが上にある列番号です。 
+ //value はマウスが上にあるデータ値です。 
+ //row_label はマウスが上にある行のラベルです。 
+ //column_label はマウスが上にある列のラベルです。 
+ //evt_type は JavaScript イベントです。 
+ //layer_id はマウスが上にあるデータを含むチャート レイヤーの一意の識別子です。 
+ 
+ function UltraChart1_ClientOnMouseOver(this_ref, row, column, value, row_label, 
+ column_label, evt_type, layer_id) { 
+    
+    // 十字ポインタを有効にします。 
+    this_ref.EnableCrossHair = true; 
+    
+    // ツールチップを無効にします。 
+    this_ref.TooltipVisible = false; 
+    
+    // マウスが上にあるのがどの行と列かを表示します。 
+    window.status = "Mouse Over:: " + row_label + 
+ " Column Clicked:: " + column_label; 
+}
+---- 
+
+|====

@@ -1,0 +1,85 @@
+﻿////
+|metadata|
+{
+    "name": "webschedule-activities-collection-csom",
+    "controlName": [],
+    "tags": ["API","How Do I","Scheduling"],
+    "guid": "{EDF3C213-C42B-42E3-8622-EE5F409A8BB4}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Activities コレクション
+
+== ActivitiesCollection
+
+Activity オブジェクトのコレクション。
+
+=== ActivitiesCollection メソッド
+
+[cols="a,a"]
+|====
+|*createActivity* 
+|新しいアクティビティを作成します。 
+
+*戻り値*
+
+以下の値で新たに作成されたアクティビティは以下のとおりです。 
+
+StartDateTime - このメソッドが呼び出される日時 
+
+Duration - デフォルトのアクティビティ期間 
+
+DataKey - null 
+
+AllDayEvent - false 
+
+Status - 0（ノーマル） 
+
+EnableReminder - true 
+
+ReminderInterval - デフォルトのアクティビティ アラームの間隔 
+
+Importance - 1（ノーマル） 
+
+ShowTimeAs - 3（ビジー） 
+
+SnoozeInterval - デフォルトのアクティビティ再通知の間隔 
+
+Subject - "" 
+
+Location - "" 
+
+Description - "" 
+
+*解説*
+
+注：このメソッドは新たに作成されたアクティビティを Activities Collection に追加しません。追加するには、WebScheduleInfo オブジェクトから addActivity を呼び出す必要があります。
+
+|*getItem* 
+|指定されたインデックスからアクティビティを取得します。 
+
+*パラメータ*
+
+_index_:: コレクション内のアクティビティのインデックス。 
+
+*戻り値*:: アクティビティ オブジェクト。
+
+|*getItemFromKey* 
+|指定されたデータキーからアクティビティを取得します。 
+
+*パラメータ*
+
+_dataKey_:: 取得するアクティビティの dataKey。
+
+*戻り値*:: コレクション内にある場合にはアクティビティを返します。そうでなければ、null を返します。
+
+|====
+
+=== ActivitiesCollection プロパティ
+
+==== length
+
+ActivitiesCollection 内のアクティビティ数。

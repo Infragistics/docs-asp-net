@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-relative-bounds",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{D3FF4925-F78E-439E-8CE3-570A75946ACD}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 相対バウンド
+
+[相対バウンド] ペインは、ゲージ上の Brush 要素のサイズと位置を決定します。
+
+X -- この値は Gauge コントロールの左側からの Brush 要素の距離を決定します。
+
+Y -- この値は Gauge コントロールの上側からの Brush 要素の距離を決定します。
+
+Width -- この値は Brush 要素の幅を決定します。
+
+Width -- この値は Brush 要素の高さを決定します。
+
+Units -- この値は Brush 要素の測定の単位を指定します。Brush 要素は、ピクセルまたは Gauge コントロールのパーセントで測定できます。
+
+image::images/Gauge_Relative_Bounds_Pane_01.png[]
+
+== 関連トピック
+
+link:webgauge-appearance-tab.html[外観タブ]
+
+link:webgauge-digit-appearance-tab.html[数字外観タブ]
+
+link:webgauge-labels-appearance-tab.html[ラベル外観タブ]
+
+link:webgauge-effects-tab.html[効果タブ]

@@ -1,0 +1,112 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-activation",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Grids"],
+    "guid": "{3721C19A-9E1B-46DF-BDDB-C3476994080C}",  
+    "buildFlags": [],
+    "createdOn": "2008-07-08T16:43:18Z"
+}
+|metadata|
+////
+
+= アクティブ化
+
+== グリッドのアクティブ化
+
+WebDataGrid™ コントロールのセルはアクティブ化をサポートします。現在のセルである（マウス クリックなどアクションを最後に受け取った）時にセルはアクティブです。コードで設定することにより、エレメントをアクティブ化することも可能です。WebDataGrid の特定の機能はアクティブなエレメントを必要とします。
+
+== アクティブ化動作
+
+WebDataGrid でのセルのアクティブ化は動作です。有効にするには、プロパティ ウィンドウで  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.behaviors.html[Behaviors]"]  の省略（...）ボタンをクリックし、動作エディタで  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.behaviors~activation.html[Activation]"]  動作チェックボックスを選択します。
+
+*注：* アクティブ セルが属する行または列もアクティブと見なされます。
+
+WebDataGrid のセルのアクティブ化は以下のように動作します:
+
+[start=1]
+. ユーザーがセルをクリックすると、そのセルと行は両方ともアクティブになります。
+[start=2]
+. ユーザーが WebDataGrid にタブ移動すると、最初のセルがアクティブになります。ユーザーはその他のセルにも継続してタブ移動するか、矢印キーを使用してナビゲートすることができます。
+[start=3]
+. セルがいったんアクティブ化されると、フォーカスを失っても WebDataGrid はアクティブ化を維持します。
+[start=4]
+. WebDataGrid はポストバックの間アクティブなセルを維持します。
+[start=5]
+. 行が選択されると行の最初のセルがアクティブ化されます。
+
+== コードによるアクティブ化
+
+WebDataGrid はアクティブ セルを取得または設定するためのプロパティとメソッドを提供します:サーバー上の時には ActiveCell プロパティを使用し、クライアント上の時には get または set アクセサを使用します。アクティブ セルの WebDataGrid をクリアするためにアクティブ セルを null に設定します。必要な場合、アクティブ セルから行または列を取得できます。
+
+*Visual Basic の場合：*
+
+----
+' アクティブ セルを設定します。 
+Me.WebDataGrid1.Behaviors.Activation.ActiveCell = Me.WebDataGrid1.Rows(0).Items(1)
+----
+
+*C# の場合：*
+
+----
+// アクティブ セルを設定します。
+this.WebDataGrid1.Behaviors.Activation.ActiveCell = this.WebDataGrid1.Rows[0].Items[1];
+----
+
+*JavaScript の場合*
+
+----
+var grid = $find("WebDataGrid1");
+// アクティブ セルを設定します。
+grid.get_behaviors().get_activation().set_activeCell(grid.get_rows().get_row(0).get_cell(1));
+// アクティブ セルを取得します。
+var activeCell = grid.get_behaviors().get_activation().get_activeCell();
+----
+
+== キーボードによるアクティブ化:
+
+以下はキーボードを使用して WebDataGrid をアクティブ化する方法です:
+
+*矢印キー*
+
+* WebDataGrid セルの周囲を移動します。
+* 矢印キーによってユーザーがセル内のみをナビゲートできるようにします。
+
+*タブ*
+
+* 行の次のセルに移動します。
+* 最後の行の最後のセルの場合、フォーカスを次のコントロールに移動します。
+* 行の最後のセルの場合、次の行の最初のセルがある場合はそこに移動します。
+
+*Enter キー*
+
+* 下のセルに移動します。
+* すでに最後の行の場合には、そこに止まります。
+
+*Shift Enter キー*
+
+* 上のセルに移動します。
+* すでに一番上の行の場合には、そこに止まります。
+
+*Shift + Tab*
+
+* 行の前のセルに移動します。
+* 最初の行の最初のセルの場合、フォーカスを前のコントロールに移動します。
+* 行の最初のセルの場合、前の行の最後のセルがある場合はそこに移動します。
+
+*Shift + [任意の矢印キー]*
+
+* アクティブ セルからセル選択を開始し、ユーザーが押す矢印キーに基づいてナビゲートします。
+
+== マウスによるアクティブ化:
+
+以下はマウスを使用して WebDataGrid をアクティブ化する方法です:
+
+* セルまたは行をクリックしてアクティブ化します。
+* ユーザーがクリックしてドラッグすると、ユーザーが最初にクリックしたセルがアクティブになり、選択がオンの場合残りが選択に関与します。
+
+== アクティブ化のスタイリング:
+
+WebDataGrid のアクティブなエレメントは、CSS を使用して個別にスタイルできます。これは、CSS スタイルを作成し、スタイルしたいエレメントに適切なプロパティを設定することによって実行できます。たとえば、アクティブ行をスタイルするには、ActiveRowCSSClass プロパティを設定します。

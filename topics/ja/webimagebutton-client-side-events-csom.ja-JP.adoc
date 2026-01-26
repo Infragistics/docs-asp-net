@@ -1,0 +1,282 @@
+﻿////
+
+|metadata|
+{
+    "name": "webimagebutton-client-side-events-csom",
+    "controlName": [],
+    "tags": ["API","How Do I"],
+    "guid": "{4C91CDC7-C054-466B-AC2D-35010D1DB1C7}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= クライアント側イベント
+
+== クライント側イベント
+
+以下のイベントは、WebImageButton コントロールによってサポートされているクライアント側イベントです。
+
+=== クライアント側イベントのプロパティ
+
+[cols="a,a"]
+|====
+|*Initialize* 
+|WebImageButton が初期化されたときに発生します。このイベントを使用して、タブの外観と動作をカスタマイズできますがキャンセルはできません。 
+
+*パラメータ*
+
+_Button_ 
+
+WebImageButton を表す JavaScript オブジェクトへの参照。 
+
+*解説*
+
+以下の例は使用されるイベントを示しています。 
+
+---- 
+function initializeInEdit(Button) { 	alert("Init Button: " + Button.getUniqueID()); }
+----
+
+|*Click* 
+|マウスまたはキーでコントロールをクリックする前に起動します（このイベントはキャンセルできます）。 
+
+*パラメータ*
+
+_Button_ 
+
+WebImageButton を表す JavaScript オブジェクトへの参照。 _Event_ 
+
+ig_EventObject オブジェクトへの参照 _Event.action_ 
+
+クリックを起動したアクション。可能な値。 
+
+0 - マウス ボタン 
+
+1 - スペース キー 
+
+2 - Enter キー 
+
+3 - AccessKey 
+
+*解説*
+
+以下の例は使用されるイベントを示しています。 
+
+---- 
+function clickWebImageButton(Button, Event) {
+// スペース キーで起動した場合、クリックをキャンセル 	
+	if(Event.action == 1)
+ 	Event.cancel = true;
+}
+----
+
+|*Paint* 
+|コントロールが再描画された後に発生します（ボタンの外観を動的にカスタマイズするために使用できます）。 
+
+*パラメータ*
+
+_Button_ 
+
+WebImageButton を表す JavaScript オブジェクトへの参照。 _Event_ 
+
+ig_EventObject オブジェクトへの参照 
+
+*解説*
+
+以下の例は使用されるイベントを示しています。 
+
+---- 
+function paintWebImageButton(oButton, Event) {
+// 押されたボタンをイタリックにします 	
+var italic = "";
+if(Button.getState() == 4) 		
+italic = "italic";
+ 	var span = Button.getElementAt(3); 	
+	span.style.fontStyle = italic; 
+}
+----
+
+|*KeyDown* 
+|コントロールがブラウザの keydown イベントを受け取ったときに発生します（このイベントはキャンセルできます）。 
+
+*パラメータ*
+
+_Button_ 
+
+WebImageButton を表す JavaScript オブジェクトへの参照。 _Event_ 
+
+ig_EventObject オブジェクトへの参照 
+
+*解説*
+
+以下の例は使用されるイベントを示しています。 
+
+---- 
+function keyDownWebImageButton(Button, Event) {
+window.status = "KeyDown for " + Button.getClientID() + " " + Event.event.keyCode;
+}
+----
+
+|*KeyUp* 
+|コントロールがブラウザの keyup イベントを受け取るときに発生します。 
+
+*パラメータ*
+
+_Button_ 
+
+WebImageButton を表す JavaScript オブジェクトへの参照。 _Event_ 
+
+ig_EventObject オブジェクトへの参照 
+
+*解説*
+
+以下の例は使用されるイベントを示しています。 
+
+---- 
+function keyUpWebImageButton(Button, Event) {
+ 	window.status = "KeyUp for " + Button.getClientID() + " " + Event.event.keyCode;
+}
+----
+
+|*Focus* 
+|コントロールがブラウザの focus イベントを受け取るときに発生します。 
+
+*パラメータ*
+
+_Button_ 
+
+WebImageButton を表す JavaScript オブジェクトへの参照。 _Event_ 
+
+ig_EventObject オブジェクトへの参照 
+
+*解説*
+
+以下の例は使用されるイベントを示しています。 
+
+---- 
+function focusWebImageButton(Button, Event) {
+ 	window.status = "Focus for " + Button.getClientID();
+}
+----
+
+|*Blur* 
+|コントロールがブラウザの blur イベントを受け取るときに発生します。 
+
+*パラメータ*
+
+_Button_ 
+
+WebImageButton を表す JavaScript オブジェクトへの参照。 _Event_ 
+
+ig_EventObject オブジェクトへの参照
+
+|*MouseDown* 
+|コントロールがブラウザの mousedown イベントを受け取るときに発生します。 
+
+*パラメータ*
+
+_Button_ 
+
+WebImageButton を表す JavaScript オブジェクトへの参照。 _Event_ 
+
+ig_EventObject オブジェクトへの参照 
+
+*解説*
+
+以下の例は使用されるイベントを示しています。 
+
+---- 
+function mouseDownWebImageButton(Button, Event) {
+ 	window.status = "MouseDown for " + Button.getClientID();
+}
+----
+
+|*MouseUp* 
+|コントロールがブラウザの mouseup イベントを受け取るときに発生します。 
+
+*パラメータ*
+
+_Button_ 
+
+WebImageButton を表す JavaScript オブジェクトへの参照。 _Event_ 
+
+ig_EventObject オブジェクトへの参照 
+
+*解説*
+
+以下の例は使用されるイベントを示しています。 
+
+---- 
+function mouseUpWebImageButton(Button, Event) {
+ 	window.status = "MouseUp for " + Button.getClientID();
+}
+----
+
+|*MouseMove* 
+|コントロールがブラウザの mousemove イベントを受け取るときに発生します。 
+
+*パラメータ*
+
+_Button_ 
+
+WebImageButton を表す JavaScript オブジェクトへの参照。 _Event_ 
+
+ig_EventObject オブジェクトへの参照 
+
+*解説*
+
+以下の例は使用されるイベントを示しています。 
+
+---- 
+function mouseMoveWebImageButton(Button, Event) {
+ 	window.status = "MouseMove for " + Button.getClientID();
+}
+----
+
+|*MouseOut* 
+|マウスがコントロールの境界の外に移動されたときに発生します（イベントはブラウザのイベントに一致しません）。 
+
+*パラメータ*
+
+_Button_ 
+
+WebImageButton を表す JavaScript オブジェクトへの参照。 _Event_ 
+
+ig_EventObject オブジェクトへの参照 
+
+*解説*
+
+以下の例は使用されるイベントを示しています。 
+
+---- 
+function mouseOutWebImageButton(Button, Event) {
+ 	window.status = "MouseOut for " + Button.getClientID();
+}
+----
+
+|*MouseOver* 
+|マウスがコントロールの境界の内に移動されたときに発生します。 
+
+*注：* イベントはブラウザのイベントに一致しない場合があります。 
+
+*パラメータ*
+
+_Button_ 
+
+WebImageButton を表す JavaScript オブジェクトへの参照。 _Event_ 
+
+ig_EventObject オブジェクトへの参照 
+
+*解説*
+
+以下の例は使用されるイベントを示しています。 
+
+---- 
+function mouseOverWebImageButton(Button, Event) {
+ 	window.status = "MouseOver for " + Button.getClientID();
+}
+----
+
+|====

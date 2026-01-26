@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "gaugeimagepipe-about-gaugeimagepipe",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{2E66CC84-8B9C-47A1-9DB9-A1FDCA9FCFFA}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= GaugeImagePipe について
+
+GaugeImagePipe™ コントロールは、セッション状態を使用する代わりに、ファイル システムに触れることなく画像をストリーミングするために使用されます。WebGauge™ の  pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.webui.ultrawebgauge.webgaugedeploymentscenario~mode.html[DeploymentScenario.Mode]"]  プロパティが Session に設定されると、リクエストごとにクライアントに画像がストリーミングされることによって、GaugeImagePipe は個別の WebForm で使用されます。
+
+詳細は、 link:webgauge-session-deployment.html[「WebGauge セッション状態の画像の配備」]を参照してください。
+
+image::images/About_GaugeImagePipe.png[]

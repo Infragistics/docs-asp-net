@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "webmonthcalendar-csom-overview",
+    "controlName": ["WebMonthCalendar"],
+    "tags": ["API"],
+    "guid": "{7896940F-4F37-41C1-87A2-A73ACFD81176}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= CSOM の概要
+
+WebMonthCalendar™ コントロールは、クライアント側 JavaScript プログラミング環境に堅牢なオブジェクト モデルを提供します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクトで構成され、開発者はサーバー側にポストバックしなくても、コントロールに関連する重要な機能単位をプログラムできます。
+
+link:webmonthcalendar~infragistics.web.ui_namespace.html[WebMonthCalendar CSOM の概要]

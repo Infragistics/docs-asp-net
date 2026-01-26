@@ -1,0 +1,69 @@
+﻿////
+
+|metadata|
+{
+    "name": "known-isues-and-limitations-asp.net-12.1",
+    "controlName": [],
+    "tags": ["Known Issues"],
+    "guid": "c78cfc3c-0f12-4e42-9492-552c68c7c171",  
+    "buildFlags": [],
+    "createdOn": "2012-04-12T18:10:02.2775624Z"
+}
+|metadata|
+////
+
+= ASP.NET 12.1 既知の問題と制限
+
+== 既知の問題と制限
+
+=== 概要
+
+以下の表に、{ProductName} 12.1 リリースの既知の問題と制限事項の概要を示します。概要の表の後に、いくつかの問題について、既知の問題の詳細説明と考えられる回避策が記載されています。
+
+=== 凡例:
+
+- image:images\workaround.png[alt="Workaround"] - 回避策
+- image:images\noworkaround.png[alt="No Workaround"] - 既知の回避策はありません
+- image:images\fix.png[alt="Fix Planned"] - 修正予定です
+
+[options="header", cols="a,a,a"]
+|====
+|機能|説明|状態
+
+|<<_Ref320810435,グリッド アクセシビリティ準拠第 508 条>>
+|グリッドは、1973 年リハビリテーション法の第 508 条第 1194 項第 22 節の規則をサポートしていません。
+|image::images/Known_Issues_and_Limitations_ASP.NET_12.1_3.png[]
+
+|<<_Ref321744863,IIS 7 がインストールされた Windows Server 2008 SP2 での画像の問題>>
+|IIS 7 がインストールされた Windows Server 2008 SP2 の `C:\Inetpub\wwwroot\aspnet_client\Infragistics\Images` にインストールされた場合、web.config ファイルが自動的に生成され、画像へのアクセスがブロックされます。
+|image::images/Known_Issues_and_Limitations_ASP.NET_12.1_1.png[] 
+
+image::images/Known_Issues_and_Limitations_ASP.NET_12.1_3.png[]
+
+|====
+
+[[_Ref320810435]]
+
+=== グリッド アクセシビリティ準拠第 508 条
+
+グリッドは、1973 年リハビリテーション法の第 508 条第 1194 項第 22 節の規則をサポートしていません。
+
+(g) 行ヘッダーと列ヘッダーは、データ テーブル用に識別される必要があります
+
+==== 関連トピック:
+
+* link:web-accessibility-overview.html[アクセシビリティ概要]
+
+=== グリッド アクセシビリティ準拠第 508 条
+
+この目的のために新しいプロパティが作成され、将来のリリースに追加されます。
+
+[[_Ref321744863]]
+
+=== IIS 7 がインストールされた Windows Server 2008 SP2 での画像の問題
+
+{ProductName} が、IIS 7 がインストールされた Windows Server 2008 SP2 にインストールされている場合、画像は表示されません。フォルダー `C:\Inetpub\wwwroot\aspnet_client\Infragistics\Images` に、web.config ファイルが自動的に生成され、アクセスが自動的にブロックされます。
+
+=== IIS 7 がインストールされた Windows Server 2008 SP2 での画像の問題
+
+開発中は、この問題を解決するため、images フォルダーに自動的に生成された web.config ファイルを削除してください。

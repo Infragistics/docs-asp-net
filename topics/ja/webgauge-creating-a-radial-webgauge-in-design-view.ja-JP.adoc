@@ -1,0 +1,71 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-creating-a-radial-webgauge-in-design-view",
+    "controlName": ["WebGauge"],
+    "tags": ["Design Environment","How Do I"],
+    "guid": "{C5A829AA-091D-4884-9DB7-3BAD4499EAAE}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= デザイン ビューで放射型 WebGauge を作成
+
+このトピックは、ラジアル ゲージを WebGauge に追加する方法を示します。
+
+[start=1]
+. デザイン ビューで、フォーム上の UltraGauge コントロールをクリックします。
+[start=2]
+. [プロパティ] ウィンドウで、 pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.webui.ultrawebgauge.ultragauge~gauges.html[Gauges]"]  プロパティをクリックします。次に省略記号（...）ボタンをクリックして、ゲージ コレクション エディタを開きます。
+[start=3]
+. ゲージ コレクション エディタで、[追加] をクリックして、[ラジアル ゲージを追加] を選択します。
+
+image::images/Gauge_Adding_a_Radial_Gauge_01.png[]
+
+[start=4]
+. この時点で、ラジアル ゲージが追加されましたが、特定のプロパティが設定されていないため表示されません。ゲージの構成を開始するには、 pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgauge~dial.html[Dial]"]  プロパティを展開します。
+[start=5]
+. pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.dialappearance~brushelement.html[BrushElement]"]  プロパティをクリックして、新しい BrushElement オブジェクトを作成します。次にドロップダウン リストから、[単色塗りつぶし] を選択します。
+[start=6]
+. BrushElement プロパティを展開して、 pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.gauge~brushelement.html[Color]"]  プロパティをシルバーに設定します。
+[start=7]
+. この時点で、ラジアル ゲージの目盛盤が表示されます。
+
+image::images/Gauge_Adding_a_Radial_Gauge_02.png[]
+
+[start=8]
+. pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgauge~scales.html[Scales]"]  プロパティをクリックすることにより、新しいスケールが作成されます。次にドロップダウン リスト内から、省略記号（...）ボタンをクリックしてスケール コレクション エディタを開きます。
+[start=9]
+. [追加] をクリックして新しいスケールを作成します。
+[start=10]
+. スケールの  pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.gaugescale~axis.html[Axis]"]  プロパティをクリックして、新しい Axis オブジェクトを作成します。次にドロップダウン リストから、[数値軸] を選択します。
+[start=11]
+. Axis プロパティを展開して、 pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.gaugerange~startvalue.html[StartValue]"]  プロパティを 0 に設定します。次に  pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.gaugerange~endvalue.html[EndValue]"]  プロパティを 100 に設定します。
+[start=12]
+.  pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.gaugerange~brushelement.html[BrushElement]"]  プロパティをクリックして、新しい BrushElement オブジェクトを作成します。次にドロップダウン リストから、[単色塗りつぶし] を選択します。
+[start=13]
+. BrushElement プロパティを展開して、 pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.solidfillbrushelement~color.html[Color]"]  プロパティを白に設定します。
+[start=14]
+.  pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugescale~startangle.html[StartAngle]"]  プロパティを 100 に、 pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugescale~endangle.html[EndAngle]"]  プロパティを 435 に設定します。これらのプロパティを設定すると、セクションが開始および終了する場所が変わり、開始と終了の間に小さいスペースが入ります。
+[start=15]
+. スケールが目盛盤の外側の境界線に触れることが分かります。 pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugescale~outerextent.html[OuterExtent]"]  プロパティを 85 に設定することによって、これを変更します。
+[start=16]
+. プロジェクトを実行すると、以下のようなフォームになるはずです。
+
+image::images/Gauge_Adding_a_Radial_Gauge_03.png[]
+
+[start=17]
+.  pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugescale~majortickmarks.html[MajorTickmarks]"]  プロパティを展開することによって、主目盛をスケールに追加します。次に、BrushElement プロパティをクリックすることによって新しい BrushElement を作成して、ドロップダウン リストから [単色塗りつぶし] を選択します。
+[start=18]
+. BrushElement プロパティを展開し、Color プロパティを黒に設定します。
+[start=19]
+. 目盛の外側の端を揃えるために、EndExtent プロパティを 85 に設定します。これは前に追加したセクションと同じです。
+[start=20]
+. 値が  pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugeneedle~endextent.html[EndExtent]"]  プロパティよりも小さくなるように、 pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugeneedle~startextent.html[StartExtent]"]  プロパティを変更することも必要です。StartExtent プロパティを 75 に設定します。
+[start=21]
+. 目盛が多すぎることが分かります。
+
+image::images/Gauge_Adding_a_Radial_Gauge_06.png[]

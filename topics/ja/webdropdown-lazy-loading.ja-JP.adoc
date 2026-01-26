@@ -1,0 +1,86 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdropdown-lazy-loading",
+    "controlName": ["WebDropDown"],
+    "tags": ["Data Presentation"],
+    "guid": "{2503BA43-9E7A-4C0D-BDEF-4DE83C2D9E0A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 遅延ロード
+
+WebDropDown™ は遅延ロード機能をサポートします。この機能によってエンドユーザーがドロップダウン コンテナを開こうとする時、または値表示に入力しようとする時にデータを WebDropDown コントロールに提供することができます。この機能はアプリケーションのパフォーマンスを大幅に向上しますが、特にページに多数の WebDropDown コントロールがある時にパフォーマンスを向上します。
+
+== WebDropDown で遅延ロード機能を使用するために:
+
+[start=1]
+. Visual Studio™ ツールボックスから、ScriptManager コンポーネント、WebDropDown コントロールおよび SqlDataSource コンポーネントをフォームにドラッグ アンド ドロップします。
+[start=2]
+. Northwind データベースの Products テーブルを取得するために SqlDataSource を構成します。
+[start=3]
+. WebDropDown が SqlDataSource にバインドするように、WebDropDown コントロールの ItemsRequested サーバー側イベントに以下のコードを追加します:
+
+*Visual Basic の場合：*
+
+----
+        WebDropDown1.DataSource = SqlDataSource1
+        WebDropDown1.TextField = "ProductName"
+        WebDropDown1.DataBind()
+----
+
+*C# の場合：*
+
+----
+        WebDropDown1.DataSource = SqlDataSource1;
+        WebDropDown1.TextField = "ProductName";
+        WebDropDown1.DataBind();
+----
+
+
+*注：* TextField プロパティは WebDropDown コントロールに表示したい列名に設定する必要があります。
+
+
+[start=4]
+. WebDropDown コントロールの ValueChanging および DropDownOpening クライアント側イベントを実装するために以下のコードを Page Load に追加します:
+
+*Visual Basic の場合：*
+
+----
+        WebDropDown1.ClientEvents.DropDownOpening =  "WebDropDown_DropDownOpening"
+        WebDropDown1.ClientEvents.ValueChanging = "WebDropDown_ValueChanging"
+----
+
+*C# の場合：*
+
+----
+        WebDropDown1.ClientEvents.DropDownOpening = "WebDropDown_DropDownOpening";
+        WebDropDown1.ClientEvents.ValueChanging = "WebDropDown_ValueChanging";
+----
+
+*JavaScript の場合：*
+
+----
+      // クライアント イベント 'DropDownOpening' は 2 つのパラメーター sender と e を取得します
+      // sender はイベントを発生させているオブジェクトです
+      // e は DropDownContainerEventArgs です
+      function WebDropDown_DropDownOpening(sender, e) {
+            // WebDropDown コントロールへの参照を取得します
+            var wdd = $find("WebDropDown1");
+            wdd.loadItems();
+        }
+       // クライアント イベント 'ValueChanging' は 2 つのパラメーター sender と e を取得します
+       // sender はイベントを発生させているオブジェクトです
+       // e は DropDownEditEventArgs です
+       function WebDropDown_ValueChanging(sender, e) {
+            // WebDropDown コントロールへの参照を取得します
+            var wdd = $find("WebDropDown1");
+            wdd.loadItems();
+        }
+----
+
+上記のコードで、エンドユーザーがドロップダウン ボタンをクリックした時に常に、DropDownOpening クライアント側イベントの loadItems メソッドは ItemsRequested サーバー側イベントを発生させます。同様に、エンドユーザーが値表示に入力を開始した時に ValueChanging クライアント側イベントの loadItems メソッドは ItemsRequested サーバー側イベントを発生させます。ItemsRequested イベントが発生すると直ぐに WebDropDown コントロールは Sql データ ソースにバインドします。

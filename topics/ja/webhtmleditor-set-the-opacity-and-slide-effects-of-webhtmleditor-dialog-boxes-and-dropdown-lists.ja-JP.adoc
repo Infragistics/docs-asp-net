@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-set-the-opacity-and-slide-effects-of-webhtmleditor-dialog-boxes-and-dropdown-lists",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing","Styling"],
+    "guid": "{77FE8E3C-2C87-4AEF-A01E-BFD40619C11C}",  
+    "buildFlags": [],
+    "createdOn": "2007-10-09T14:24:19Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor ダイアログ ボックスおよびドロップダウン リストの不透明度およびスライド効果を設定
+
+WebHtmlEditor™ は、ダイアログ ボックスとドロップダウン リストの視覚的な魅力を強化する  link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.expandeffects.html[ExpandEffects]  クラスを含んでいます。ExpandEffects クラスは以下の 2 つのプロパティを公開します:
+
+link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.expandeffects~opacity.html[Opacity]  – Opacity プロパティによって、ドロップダウン リストまたはダイアログ ボックスを完全に透明から完全に不透明まで表示することができます。[None]、[Slow]、[Fast] の 3 つのオプションから選択できます。Opacity を None に設定すると、ドロップダウン リストまたはダイアログ ボックスがすぐに表示されます。Opacity を Slow または Fast に設定すると、ドロップダウンまたはダイアログ ボックスを、完全に透明から完全に不透明までに、それぞれゆっくりとまたは素早く表示します。ドロップダウン リストとダイアログ ボックスが完全に不透明になる速度は、エンド ユーザーのマシンの速度によって異なります。この効果をスライド効果と同時に使用できます。
+
+link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.expandeffects~slide.html[Slide]  – Slide プロパティによって、スライドインするドロップダウン リストやスクロールして開くダイアログ ボックスのアニメーションを表示できます。[None]、[Slow]、[Fast] の 3 つのオプションから選択できます。Slide を None に設定すると、ドロップダウン リストまたはダイアログ ボックスがすぐに表示されます。Slide を Slow または Fast に設定すると、ドロップダウンまたはダイアログ ボックスを、上から下に、それぞれゆっくりとまたは素早く表示します。ドロップダウン リストとダイアログ ボックスがスライドする速度はエンド ユーザーのマシンによって異なります。この効果を不透明効果と一緒に使用できます。
+
+以下のコードは、ドロップダウン リストとダイアログ ボックスをゆっくりとスライドする方法を例示します。
+
+*Visual Basic の場合：*
+
+----
+Me.WebHtmlEditor1.ExpandEffects.Slide = _
+	Infragistics.WebUI.WebHtmlEditor.ExpandEffectsMode.Slow
+----
+
+*C# の場合：*
+
+----
+this.WebHtmlEditor1.ExpandEffects.Slide = 
+	Infragistics.WebUI.WebHtmlEditor.ExpandEffectsMode.Slow;
+----

@@ -1,0 +1,32 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdialogwindow-webdialogwindow-accessibility-compliance",
+    "controlName": ["WebDialogWindow"],
+    "tags": ["Section 508"],
+    "guid": "{569D8B88-3B34-476E-B49F-3720CFC13FC7}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDialogWindow アクセシビリティの遵守
+
+弊社の ASP.NET コントロールおよびコンポーネントはすべて、1973 年のリハビリテーション法第 508 条第 1194 部 22 条を遵守しています。以下は、WebDialogWindow™ に適用される第 1194 部 22 条の 2 つの規則と各規則を遵守する方法を含んだ表です。コントロールがすべての作業を実行するため、ユーザーは何もする必要がありません。
+
+[options="header", cols="a,a"]
+|====
+|規則|規則を遵守する方法
+
+|(a)
+|すべての非テキスト要素はテキストに相当する情報を描画します（Close、Minimize、および Maximize box AltText プロパティ）。 
+
+
+*注:* テキストに相当する情報はデフォルトで提供されますが、ニーズに合わせてカスタマイズできます。
+
+|(n)
+|このアクセシビリティの規則の遵守には、いかなる設定を有効にする必要はありません。
+
+|====

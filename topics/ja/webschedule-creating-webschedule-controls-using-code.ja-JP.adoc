@@ -1,0 +1,193 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-creating-webschedule-controls-using-code",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Patterns and Practices","Scheduling"],
+    "guid": "{9067D5E8-698C-40FF-A9F4-838C57FA7597}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-09T00:00:00Z"
+}
+|metadata|
+////
+
+= コードを使用して WebSchedule コントロールを作成
+
+== 始める前に
+
+WebSchedule コントロールを使用して、すべてを設定し、コードから完全にすべてのコントロールのインスタンスを作成することができます。この機能は、異なる表示のひとつを表示したい Web フォームで使用することができますが、ユーザーがその特定の表示を要求しない限り、そのインスタンスをメモリの周囲に置くわけではありません。
+
+以下の手順は、作業中の WebForm と、その上の WebSchedule 表示の 2 つを取得するために必要な基本的なコントロールと設定を示します。
+
+== 以下の手順を実行します。
+
+[start=1]
+. 新規 WebForms プロジェクトを起動します。
+[start=2]
+. ソリューション エクスプローラで、Web サイトを右クリックして [参照の追加] を選択します。（手動での参照の追加方法についての詳細は、 link:web-adding-an-assembly-to-a-project.html[「プロジェクトにアセンブリを追加」]を参照してください。）[アプリケーションの追加] ダイアログ ボックスが開きます。
+[start=3]
+. [.NET] タブから、以下の参照を選択します。
+
+Infragistics.WebUI.Shared.v{ProductVersion}
+
+Infragistics.WebUI.WebSchedule.v{ProductVersion}
+
+[start=4]
+. [OK] をクリックします。
+[start=5]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバーは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.WebUI.WebSchedule
+Imports Infragistics.WebUI.Data
+----
+
+*C# の場合：*
+
+----
+using Infragistics.WebUI.WebSchedule;
+using Infragistics.WebUI.Data;
+----
+
+[start=6]
+. 最初に WebScheduleInfo のインスタンスを作成して、WebForm のコントロールのコレクションに追加する必要があります。その他すべての WebSchedule コントロールはこのコントロールへの参照を必要とするため、この作業を最初に実行する必要があります。基本的にすべての WebSchedule のコントロールのためのコントロールであるからです。次のコードをPage_Loadイベントに配置します。
+
+*Visual Basic の場合：*
+
+----
+' 新しい WebScheduleInfo を作成して、その ID を設定します。
+Dim myWebScheduleInfo As New WebScheduleInfo
+myWebScheduleInfo.ID = "WebScheduleInfo1"
+' コントロールを WebForm の Controls コレクションに追加します。
+Me.FindControl("form1").Controls.Add(myWebScheduleInfo)
+----
+
+*C# の場合：*
+
+----
+// 新しい WebScheduleInfo を作成して、その ID を設定します。
+WebScheduleInfo myWebScheduleInfo = new WebScheduleInfo();
+myWebScheduleInfo.ID = "WebScheduleInfo1";
+// コントロールを WebForm の Controls コレクションに追加します。
+this.FindControl("form1").Controls.Add(myWebScheduleInfo);
+----
+
+[start=7]
+. 第二に、WebSchedule DataProviders のいずれかのインスタンスを作成する必要があります。WebScheduleOleDbProvider を使用するか、WebScheduleSqlClientProvider を使用するという選択肢があります。この詳細なガイドでは、WebScheduleOleDbProvider を使用します。Page_Load イベントに配置された以下のコードは、WebScheduleOleDbProvider のインスタンスを作成し、その ID プロパティを設定して WebForm のコントロールコレクションに追加し、最終的には、WebScheduleInfo プロパティを以前作成した WebScheduleInfo インスタンスに設定します。
+
+*Visual Basic の場合：*
+
+----
+' 新しい WebSchedule DataProvider を作成して、その ID を設定します。
+Dim myWebScheduleDataProvider As New WebScheduleOleDbProvider
+myWebScheduleDataProvider.ID = "WebScheduleDataProvider1"
+' コントロールを WebForm の Controls コレクションに追加します。
+Me.FindControl("form1").Controls.Add(myWebScheduleDataProvider)
+' WebScheduleDataProvider の WebScheduleInfo をコード内に作成された WebScheduleInfo に割り当てます。
+myWebScheduleDataProvider.WebScheduleInfo = myWebScheduleInfo
+----
+
+*C# の場合：*
+
+----
+// 新しい WebScheduleDataProvider を作成して、その ID を設定します。
+WebScheduleOleDbProvider myWebScheduleDataProvider = new WebScheduleOleDbProvider();
+myWebScheduleDataProvider.ID = "WebScheduleDataProvider1";
+// コントロールを WebForm の Controls コレクションに追加します。
+this.FindControl("form1").Controls.Add(myWebScheduleDataProvider);
+// WebScheduleDataProvider の WebScheduleInfo をコード内に作成された WebScheduleInfo に割り当てます。
+myWebScheduleDataProvider.WebScheduleInfo = myWebScheduleInfo;
+----
+
+[start=8]
+. すぐにプロジェクトをビルドし実行しようとする場合には、WebForm には何も表示されません。これは 2 つのコントロールがランタイムにフォームになにも提示しないからです。これらのコントロールは通信を提供し、背後で設定を行います。
+[start=9]
+. いずれかの WebScheduleViews をフォームに追加する準備が整いました。WebDayView と WebMonthView を WebForm に追加する方法を示します。以下のコードは、WebDayView のインスタンスを作成し、一意の ID を指定して、WebForm のコントロール コレクションに追加し、最終的に WebScheduleInfo プロパティを設定します。次のコードを Page_Load イベントに配置します。
+
+*Visual Basic の場合：*
+
+----
+' 新しい WebDayView を作成して、その ID を設定します。
+Dim myWebDayView As New WebDayView
+myWebDayView.ID = "WebDayView1"
+' コントロールを WebForm の Controls コレクションに追加します。
+Me.FindControl("form1").Controls.Add(myWebDayView)
+' WebDayView の WebScheduleInfo をコード内に作成された WebScheduleInfo に割り当てます。
+myWebDayView.WebScheduleInfo = myWebScheduleInfo
+----
+
+*C# の場合：*
+
+----
+// 新しい WebDayView を作成して、その ID を設定します。
+WebDayView myWebDayView = new WebDayView();
+myWebDayView.ID = "WebDayView1";
+// コントロールを WebForm の Controls コレクションに追加します。
+this.FindControl("form1").Controls.Add(myWebDayView);
+// WebDayView の WebScheduleInfo をコード内に作成された WebScheduleInfo に割り当てます。
+myWebDayView.WebScheduleInfo = myWebScheduleInfo;
+----
+
+[start=10]
+. 現時点でプロジェクトをビルドし実行する場合、WebDayView がフォームに表示されます。
+
+image::images\WebSchedule_Setting_Up_WebSchedule_in_Code_01.png[]
+
+[start=11]
+. プロジェクトを終了します。
+[start=12]
+. もうひとつの事例では、WebMonthView を同じ WebForm に追加して、同じ WebScheduleInfo を使用する方法を示します。2 つのビューが同じ WebScheduleInfo を使用するようにすると、同じアクティビティを表示することができます。以下のコードは WebMonthView コントロールのインスタンスを作成し、ID プロパティを設定し、WebForm のコントロール コレクションに追加して、WebScheduleInfo を早期に作成された WebScheduleInfo インスタンスに設定します。次にコントロールの幅と高さを指定します。次のコードを Page_Load イベントに配置します。
+
+*Visual Basic の場合：*
+
+----
+' 新しい WebMonthView を作成して、その ID を設定します。
+Dim myWebMonthView As New WebMonthView
+myWebMonthView.ID = "WebMonthView1"
+' コントロールを WebForm の Controls コレクションに追加します。
+Me.FindControl("form1").Controls.Add(myWebMonthView)
+' WebMonthView の WebScheduleInfo をコード内に作成された WebScheduleInfo に割り当てます。
+myWebMonthView.WebScheduleInfo = myWebScheduleInfo
+' コントロールの Width プロパティと Height プロパティを設定します。
+myWebMonthView.Width = Unit.Pixel(600)
+myWebMonthView.Height = Unit.Pixel(300)
+----
+
+*C# の場合：*
+
+----
+// 新しい WebMonthView を作成して、その ID を設定します。
+WebMonthView myWebMonthView = new WebMonthView();
+myWebMonthView.ID = "WebMonthView1";
+// コントロールを WebForm の Controls コレクションに追加します。
+this.FindControl("form1").Controls.Add(myWebMonthView);
+// WebMonthView の WebScheduleInfo をコード内に作成された WebScheduleInfo に割り当てます。
+myWebMonthView.WebScheduleInfo = myWebScheduleInfo;
+// コントロールの Width プロパティと Height プロパティを設定します。
+myWebMonthView.Width = Unit.Pixel(600);
+myWebMonthView.Height = Unit.Pixel(300);
+----
+
+[start=13]
+. プロジェクトを今ビルドして実行する場合、両方のビューを WebForm に表示します。
+
+image::images\WebSchedule_Setting_Up_WebSchedule_in_Code_02.png[]
+
+[start=14]
+. WebDayView で TimeSlot をダブルクリックすると [予定] ダイアログが表示します。これで新しい予定を WebDayView および WebMonthView に追加できます。
+
+image::images\WebSchedule_Setting_Up_WebSchedule_in_Code_03.png[]
+
+[start=15]
+. プロジェクトを終了します。
+[start=16]
+. この時点で、希望する場合には、その他の WebScheduleViews のいずれかを WebForm に追加できます。
+
+== 復習
+
+image::images\WebSchedule_Setting_Up_WebSchedule_in_Code_04.png[]
+
+この詳細なガイドを完了すると、WebScheduleInfo、WebScheduleDataProviders のひとつ、および任意の WebScheduleViews を使用することによって、任意の WebSchedule コントロールをコードに設定できます。

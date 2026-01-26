@@ -1,0 +1,37 @@
+﻿////
+|metadata|
+{
+    "name": "webschedule-create-an-object-the-updates-an-activitys-properties",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling"],
+    "guid": "{A0671382-6E08-46F4-AEA9-2E35017975C7}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アクティビティのプロパティを更新するオブジェクトを作成
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[アクティビティ]"] （クライアント側）を更新する場合、アクティビティのプロパティに似たオブジェクトを作成する必要があります。アクティビティのあらゆるプロパティを更新する場合にあらゆるプロパティをリストできますが、オブジェクトで更新したいプロジェクトのみを定義して更新したくないプロパティを排除することも可能です。
+
+以下の JavaScript コードは、アクティビティのすべてのプロパティを更新したオブジェクトを作成する方法を示しています。
+
+*JavaScript の場合:*
+
+----
+var activityUpdateProps =  {StartDateTime: new Date(),
+			Duration: 30,
+			Subject: "Update Appointment",
+			Location: "Here",
+			Description: "No Description",
+			AllDayEvent: false,
+			EnableReminder: true,
+			ShowTimeAs: 1,
+			Importance: 1,
+			ReminderInterval: 9000000000};
+----
+
+== 関連トピック
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[WebSchedule 名前空間]"]

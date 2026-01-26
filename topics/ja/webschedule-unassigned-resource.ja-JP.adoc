@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-unassigned-resource",
+    "controlName": ["WebSchedule"],
+    "tags": ["Scheduling"],
+    "guid": "{343456F6-7029-4E97-88DE-1935C33100BE}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 未割り当てのリソース
+
+ひとつの特別なリソースは未割り当てのリソースです。このリソースは、データストア内の任意のその他のリソースに関連付けられていないアクティビティの所有を保持するために存在します。たとえば、リソースが削除されると、すべてのアクティビティが未割り当てになります。
+
+WebSchedule アプリケーションが WebScheduleInfo で  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~activeresourcename.html[ActiveResourceName]"]  プロパティを指定できない場合、未割り当てのリソースに関連付けられたアクティビティが表示されます。
+
+未割り当てのリソースへの参照は、WebScheduleInfo の  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~visibleresources.html[VisibleResources]"]  コレクションで  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.resourcescollection~unassignedresource.html[UnassignedResource]"]  プロパティから取得できます。このプロパティは変更できません。

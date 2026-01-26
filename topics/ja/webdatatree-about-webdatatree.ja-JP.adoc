@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatatree-about-webdatatree",
+    "controlName": ["WebDataTree"],
+    "tags": [],
+    "guid": "{70012192-FAF1-4664-A19A-C42FE41083ED}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDataTree について
+
+WebDataTree™ は階層データを表示するために使用できるコントロールで、展開可能なツリー ノードによって表されます。WebDataTree は優れたパフォーマンスと応答性の高いエンドユーザー エクスペリエンスを促進する証明済みのコード ベースを利用するために {ProductName} AJAX フレームワークを使用して構築されます。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols_namespace.html[Infragistics.Web.UI.NavigationControls]"]  名前空間で WebDataTree を見つけることができます。
+
+WebDataTree には、デザインタイム ツールが高度なデザイナー UI として含まれます。このデザインタイム ユーティリティは要件に従ってコントロールを素早く簡単に設定する支援をし、徹底的なコーディングを必要とすることなく広範な機能へのアクセスを提供します。
+
+すべての {ProductName} AJAX コントロールのように、WebDataTree は Infragistics® Application Styling Framework にシームレスに統合します。CSS ベースのプロパティを使用すると、既存のスタイル シートを利用することによって、WebDataTree を手動でカスタマイズできます。
+
+WebDataTree は、クライアント側の JavaScript プログラミング環境に強固なオブジェクト モデルも提供します。クライアント サイドオブジェクトモデル（CSOM）は、十分な機能を備えたプロパティとメソッドで構成され、開発者はサーバー側でポストバックしなくても、重要な機能単位をプログラムできます。
+
+WebDataTree コントロールの機能の一部には以下が含まれます:
+
+* *ハイパフォーマンス* -- 軽量のマークアップと最適化されたコードがパフォーマンスを向上します。
+* *強力なデータ バインディング* -- 開発者はデータ ソースに接続してツリー ノード構造を自動生成することができます。
+* *ナビゲーション* -- マウスとキーボードの両方を使用して、エンドユーザーにノードをナビゲートするためのさまざまな方法を提供します。
+* *ロード オン デマンド* -- WebDataTree がパフォーマンスを一切落とすことなく非常に大量のデータを処理することを可能にします。
+* *ノードの選択* -- キーボード/マウスのいずれかを使用したさまざまな選択モードをサポートします。
+* *ノード編集* -- ノード編集が有効な場合にエンドユーザーがノードのコンテンツを編集することを可能にします。
+* *ノードのテンプレート化* -- 任意の ASP.NET および HTML コンテンツをノード テンプレートに挿入することによってカスタム ノードの描画を可能にします。
+
+以下の画像では、WebDataTree はファイル システムの階層を表します。
+
+image::images/WebDataTree_About_WebDataTree_JP_01.png[]

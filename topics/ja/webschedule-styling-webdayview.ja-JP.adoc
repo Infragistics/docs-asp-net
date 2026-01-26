@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-styling-webdayview",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling","Styling"],
+    "guid": "{DB2567E8-425B-4A99-9D2E-D3A340165F1C}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDayView のスタイル
+
+以下の図は、WebDayView と WebMonthView に設定できるさまざまなスタイル オブジェクトを UI にマップする方法を示しています。
+
+image::images\WebSchedule_Related_Topics_Styling_the_WebDayView.png[]

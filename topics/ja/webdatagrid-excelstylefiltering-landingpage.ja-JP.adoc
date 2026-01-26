@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-excelstylefiltering-landingpage",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Filtering","Grids"],
+    "guid": "1ff4cae0-eb31-4028-ac4d-c807abc04ad3",  
+    "buildFlags": [],
+    "createdOn": "2012-07-16T12:45:19.473571Z"
+}
+|metadata|
+////
+
+= Excel フィルタリング
+
+== このグループのトピックについて
+
+=== はじめに
+
+このセクションでは、 _WebDataGrid_™ の Excel フィルタリング機能について解説します。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:webdatagrid-excelstylefiltering-overview.html[Excel フィルタリングの概要]
+|このトピックでは、 _WebDataGrid_ コントロールの Excel フィルタリング機能について紹介します。
+
+| link:webdatagrid-excelstylefiltering-enabling.html[Excel フィルタリングの有効化]
+|このトピックは、 _WebDataGrid_ コントロールの Excel フィルタリング機能のプロパティについての情報を提供します。
+
+| link:webdatagrid-excelstylefiltering-configuring.html[Excel フィルタリングの構成]
+|このトピックでは、 _WebDataGrid_ コントロールの Excel フィルタリング オプションを構成する方法を説明します。
+
+| link:webdatagrid-excelstylefiltering-propertyreference.html[Excel フィルタリングのプロパティ リファレンス]
+|このトピックは、 _WebDataGrid_ コントロールの Excel フィルタリング機能のプロパティについての情報を提供します。
+
+|====

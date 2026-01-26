@@ -1,0 +1,98 @@
+﻿////
+
+|metadata|
+{
+    "name": "webexplorerbar-binding-to-an-xml-data-source",
+    "controlName": ["WebExplorerBar"],
+    "tags": ["Data Binding","How Do I"],
+    "guid": "{FAFD6134-AF4F-44EC-B218-40569FFC87FC}",  
+    "buildFlags": [],
+    "createdOn": "2010-01-03T22:37:42Z"
+}
+|metadata|
+////
+
+= XML データ ソースにバインドする
+
+== 始める前に
+
+WebExplorerBar™ は階層データ ソースにバインドでき、データ階層の各レベルを表示します。最上位のレベルはさまざまなグループを表し、各子レベルは項目を表します。
+
+== 達成すること
+
+WebExplorerBar コントロールと XmlDataSource コンポーネントを使用してデータにバインドする方法を学習します。このサンプルは link:code-files-categoriesandproducts.html[CategoriesAndProducts.xml] ファイルを使用します。
+
+== 以下の手順を実行します
+
+[start=1]
+. Visual Studio™ ツールボックスから Web ページに ScriptManager コンポーネントをドラッグします。
+[start=2]
+. WebExplorerBar コントロールをページにドラッグします。
+[start=3]
+. XmlDataSource コンポーネントをページにドラッグします。
+[start=4]
+. XML ファイルを使用してデータを取得するように XmlDataSource コンポーネントを設定します。
+
+.. DataFile プロパティをデータ ファイルの位置に設定します。
+.. Category ノードを選択するように XPath プロパティを設定します。
+
+*HTML の場合:*
+
+----
+<asp:XmlDataSource 
+        ID="XmlDataSource1" 
+        runat="server" 
+        DataFile="~/App_Data/CategoriesAndProducts.xml" 
+        XPath="Categories/Category"> 
+</asp:XmlDataSource>
+----
+
+[start=5]
+. WebExplorerBar の  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webexplorerbar~datasourceid.html[DataSourceID]"]  プロパティを、XmlDataSource コンポーネントの ID である XmlDataSource1 に設定します。
+[start=6]
+. Category および Product ノードからそれぞれ CategoryName 属性と ProductName 属性を表示するようにデータ バインディングを設定します。
+
+..  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.explorerbaritembinding.html[ExplorerBarItemBinding]"]  オブジェクトを作成して、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.explorerbaritembinding~datamember.html[DataMember]"]  プロパティを "Category" に設定します。
+..  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.explorerbaritembinding~textfield.html[TextField]"]  プロパティを "CategoryName" に設定します。
+.. 2 番目の ExplorerBarItemBinding オブジェクトを作成して、DataMember プロパティを "Product" に設定します。
+.. TextField プロパティを "ProductName" に設定します。
+
+*HTML の場合:*
+
+----
+<ig:WebExplorerBar ID="WebExplorerBar1" runat="server" Width="300px" DataSourceID="XmlDataSource1" BehaveMode="AnyExpandable">
+    <DataBindings>
+        <ig:WebExplorerBinding DataMember="Category" TextField="CategoryName" />
+        <ig:WebExplorerBinding DataMember="Product" TextField="ProductName" />
+    </DataBindings>
+</ig:WebExplorerBar>
+----
+
+[start=7]
+. アプリケーションを実行します。WebExplorerBar コントロールは Category ノードと Product ノードからデータを表示します。
+
+image::images/WebExplorerBar_BindingtoanXmlDatatSource_01.png[]
+
+== 関連トピック
+
+link:webexplorerbar-smart-tag.html[WebExplorerBar スマートタグ]
+
+link:webexplorerbar-keyboard-navigation.html[キーボード ナビゲーション]
+
+link:webexplorerbar-height-properties.html[WebExplorerBar の高さのプロパティ]
+
+link:webexplorerbar-setting-navigateurl-and-target-properties.html[NavigateURL と Target プロパティの設定]
+
+link:webexplorerbar-binding-to-an-xml-data-source.html[XML データ ソースにバインドする]
+
+link:webexplorerbar-binding-to-webhierarchcialdatasource.html[WebHierarchcialDataSource にバインド]
+
+link:webexplorerbar-serverevents.html[サーバー側イベント]
+
+link:webexplorerbar-selection-behavior.html[選択動作]
+
+link:webexplorerbar-clientside-api.html[ClientSide API]
+
+link:webexplorerbar-clientevents.html[クライアント側イベント]
+
+link:webexplorerbar-styling.html[CSS クラス プロパティ]

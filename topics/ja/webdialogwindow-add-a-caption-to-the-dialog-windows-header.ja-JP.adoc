@@ -1,0 +1,38 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdialogwindow-add-a-caption-to-the-dialog-windows-header",
+    "controlName": ["WebDialogWindow"],
+    "tags": ["How Do I"],
+    "guid": "{6AD9FA27-E1E9-469D-B3D4-CADC8F95BDF2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ダイアログ ウィンドウのヘッダにキャプションを追加
+
+いかに重要でないとしても、あらゆるウィンドウはヘッダ領域にある種の説明のテキストが必要です。このように、エンド ユーザーはウィンドウに書かれている内容が一目で分かります。このダイアログ ウィンドウは例外ではなく、ヘッダ領域にキャプションを入れるために Header オブジェクトの有用なプロパティを公開します。
+
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.layoutheader~captiontext.html[CaptionText]"]  – このプロパティによって、ヘッダに表示される説明の文字列を提供することができます。キャプションの位置は CaptionAlignment プロパティによって変わります。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.layoutheader~captionalignment.html[CaptionAlignment]"]  – このプロパティによって、キャプションを左、右、中央に配置したり、テキストの行端を揃えることさえできます。CaptionAlignment を NotSet に設定する場合、その親要素からスタイルを継承します。
+
+以下のコードは、ダイアログ ウィンドウ キャプションを設定しヘッダ領域でセンタリングする方法を示します。
+
+*Visual Basic の場合：*
+
+----
+' ダイアログ ウィンドウのヘッダにキャプションを追加します。
+Me.WebDialogWindow1.Header.CaptionText = "More information needed..."
+Me.WebDialogWindow1.Header.CaptionAlignment = HorizontalAlign.Center
+----
+
+*C# の場合：*
+
+----
+// ダイアログ ウィンドウのヘッダにキャプションを追加します。
+this.WebDialogWindow1.Header.CaptionText = "More information needed...";
+this.WebDialogWindow1.Header.CaptionAlignment = HorizontalAlign.Center;
+----

@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-what-minimum-trust-level-do-i-require-from-my-hosting-provider",
+    "controlName": [],
+    "tags": ["Deployment","FAQ"],
+    "guid": "{BB479359-B80D-4702-A8D3-FA4CCD097248}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ホスティング プロバイダに必要な最低限の信頼レベル
+
+{ProductName} コントロールおよびコンポーネントは、medium trust の下で機能します。場合によっては、信頼が低い環境で個々のコントロールを使用できますが、これはサポートされません。

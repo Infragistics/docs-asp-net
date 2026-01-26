@@ -1,0 +1,117 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-adding-a-behavior-at-runtime",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Grids"],
+    "guid": "{D8BD4ACE-5437-46E1-B600-F208F50CA9AA}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ランタイムで動作を追加
+
+ジェネリック  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.gridbehaviorcollection~createbehavior.html[CreateBehavior]"]  メソッドを呼び出すだけで動作を有効にできます。このメソッドは特定の動作タイプを必要とします。動作を作成し、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.behaviors.html[Behaviors]"]  コレクションに追加します。すべての動作には動作のタイプを表すクラスがあります (例:  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.selection.html[Selection]"] )。
+
+以下はテーブルの動作と対応するクラスの一覧です。
+
+[options="header", cols="a,a"]
+|====
+|動作|クラス名
+
+|アクティブ化
+| pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.activation.html[Activation]"] 
+
+|選択
+| pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.selection.html[Selection]"] 
+
+|行セレクター
+| pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.rowselectors.html[RowSelectors]"] 
+
+|グリッド編集
+| pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.editingcore.html[EditingCore]"] 
+
+|セルの編集
+| pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.activation.html[CellEditing]"] 
+
+|行の追加
+| pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.activation.html[RowAdding]"] 
+
+|行の削除
+| pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.rowdeleting.html[RowDeleting]"] 
+
+|行の編集
+| pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.rowediting.html[RowEditing]"] 
+
+|テンプレートの編集
+| pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.roweditingtemplate.html[RowEditingTemplate]"] 
+
+|フィルタリング
+| pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.filtering.html[Filtering]"] 
+
+|並べ替え
+| pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.sorting.html[Sorting]"] 
+
+|ページング
+| pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.paging.html[Paging]"] 
+
+|列サイズの変更
+| pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.columnresizing.html[ColumnResizing]"] 
+
+|====
+
+WebDataGrid™ は、一度 Behaviors コレクションに追加すれば簡単にアクセスできるよう上記のクラス名と同じ名前の読み取り専用プロパティを提供します。
+
+以下のコードは、CreateBehavior メソッドを使用して WebDataGrid に選択動作を追加する方法を示します。動作を作成して手動で追加することを決定した場合、同等のコードも示します。
+
+*注：*コントロールを動的に追加する場合と同じように、動作を手動で作成する場合、ViewState でこれらの設定を保持するためにプロパティを設定する前に動作を Behaviors コレクションに必ず追加してください。
+
+*Visual Basic の場合：*
+
+----
+Dim gridSelection As Selection = Me.WebDataGrid1.Behaviors.CreateBehavior(Of Selection)() 
+gridSelection.CellClickAction = CellClickAction.Row 
+gridSelection.RowSelectType = SelectType.Multiple 
+' 以下のコードは上記のコードと等価です 
+' 同じ名前のプロパティを使用して動作への参照を取得します 
+Dim selectionBehavior As Selection = Me.WebDataGrid1.Behaviors.Selection 
+' 動作が存在するかをチェックします
+If selectionBehavior Is Nothing Then 
+        ' 動作を作成します
+        Dim selection As New Selection() 
+        ' プロパティを設定する前にまず動作コレクションに追加します
+        Me.WebDataGrid1.Behaviors.Add(selection)
+        ' オプションを設定します 
+        selection.CellClickAction = CellClickAction.Row 
+        selection.RowSelectType = SelectType.Multiple 
+End If
+----
+
+*C# の場合：*
+
+----
+Selection gridSelection = this.WebDataGrid1.Behaviors.CreateBehavior<Selection>();
+gridSelection.CellClickAction = CellClickAction.Row;
+gridSelection.RowSelectType = SelectType.Multiple;
+// 以下のコードは上記のコードと等価です
+// 同じ名前のプロパティを使用して動作への参照を取得します
+Selection selectionBehavior = this.WebDataGrid1.Behaviors.Selection;
+// 動作が存在するかをチェックします
+if (selectionBehavior == null)
+{
+        // 動作を作成します
+        Selection selection = new Selection();
+        // 動作コレクションに追加します
+        this.WebDataGrid1.Behaviors.Add(selection);
+        // オプションを設定します
+        selection.CellClickAction = CellClickAction.Row;
+        selection.RowSelectType = SelectType.Multiple;
+}
+----
+
+== 関連トピック
+
+link:webdatagrid-using-behaviors.html[デザインタイムで動作を追加]

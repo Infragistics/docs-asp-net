@@ -1,0 +1,50 @@
+﻿////
+|metadata|
+{
+    "name": "webschedule-stop-the-webscheduleviews-from-synchronizating",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling"],
+    "guid": "{4603AB18-1EA8-418B-BD17-FAEF51D79FCC}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebSchedule Views の同期を停止
+
+WebSchedule 要素内でナビゲーションを実行すると、ActiveDay がユーザー インタフェース内で常に表示されるように、WebScheduleInfo の ActiveDay プロパティがそれに応じて更新されます。複数のビュー要素がページ上の共通の WebScheduleInfo 要素に関連付けられている場合には、ユーザーがある月、週、または日から次の月、週、または日にナビゲートするとデフォルトですべての要素は同じアクティブ日に同期されます。
+
+同期を希望しない場合、WebScheduleInfo  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~activedayclientsynchronization.html[ActiveDayClientSynchronization]"]  プロパティを  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activedayclientsynchronization.html[ActiveDayClientSynchronization.None]"]  に設定します。
+
+以下のコードは、コードで ActiveDayClientSynchronization プロパティを設定できる方法を示しています。
+
+image::images\WebSchedule_How_to_Stop_the_WebScheduleViews_from_Synchronizing_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.WebUI.WebSchedule
+...
+Private Sub Page_Load(ByVal sender As System.Object, ByVal e _
+  As System.EventArgs) Handles MyBase.Load
+	Me.WebScheduleInfo1.ActiveDayClientSynchronization = _
+		ActiveDayClientSynchronization.None
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.WebUI.WebSchedule;
+...
+private void Page_Load(object sender, System.EventArgs e)
+{
+	this.WebScheduleInfo1.ActiveDayClientSynchronization = 
+		ActiveDayClientSynchronization.None;
+}
+----
+
+== 関連トピック
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[WebSchedule 名前空間]"]

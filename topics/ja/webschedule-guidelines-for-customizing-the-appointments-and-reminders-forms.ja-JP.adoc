@@ -1,0 +1,32 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-guidelines-for-customizing-the-appointments-and-reminders-forms",
+    "controlName": ["WebSchedule"],
+    "tags": ["Scheduling","Styling"],
+    "guid": "{928A3E2D-4B00-4066-AC88-B38542609D0C}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 予定とアラームのフォームをカスタマイズするためのガイドライン
+
+WebSchedule には、アクティビティのアラームを表示するダイアログ ボックスと同様に、予定を追加および編集するために表示されるダイアログ ボックス フォームを保持する ASP.NET プロジェクトが含まれます。フォームが正しく動作しフォームの機能を果たすことができるようにいくつかの基本的な規則を守る限り、個々のアプリケーションのためにこれらのフォームをカスタマイズできます。
+
+Visual Studio .NET 内でフォームを開いて、編集およびスタイルし、次にコンパイルして WebSchedule 要素内からアクセスするために保存することができます。Forms プロジェクトとダイアログ ページの場所は、システム上の任意の仮想ディレクトリに変更できます。 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~appointmentformpath.html[WebScheduleInfo.AppointmentFormPath]"]  および  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~reminderformpath.html[WebScheduleInfo.ReminderFormPath]"]  を使用して、WebSchedule フォームのパスまたはファイル名を変更します。
+
+Forms プロジェクトとプロジェクトの ASPX ページに変更を行った場合には、テストおよび配備のために異なる仮想ディレクトリにこれらのページをコピーすることを強く推奨します。マシンにインストールされる製品へのアップグレードまたはホットフィックスは変更されたファイル上にインストールする可能性が高いことがその理由です。したがって、Forms プロジェクトへのすべてのカスタマイズはデフォルトとは異なる仮想ディレクトリで実行する必要があります。デフォルトのインストール ディレクトリは、ig_common 仮想ルートの下に配置されます。
+
+以下は Appointments および Reminders フォームをカスタマイズする時に従う必要のあるガイドラインです。
+
+[start=1]
+. ページからフォームの要素を削除しないでください。ひとつまたは複数のフォーム要素が必要ではない場合、Visible プロパティを「False」に設定して非表示にする必要があります。
+[start=2]
+. ページ上のフォーム要素の ID プロパティを変更しないでください。変更すると、ランタイムに JavaScript エラーが発生する場合があります。
+[start=3]
+. フォームで JavaScript コードを削除または変更しないでください。そうでない場合、エラーが発生する場合があります。
+[start=4]
+. カスタマイズされる可能性が最も高い（およびカスタマイズできる）フォーム要素の項目は以下のとおりです。フォント、テキスト、色、スタイル、位置、およびサイズ。

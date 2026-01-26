@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-object",
+    "controlName": [],
+    "tags": ["API","How Do I"],
+    "guid": "{B30AB6F1-36D8-4CF8-AFC4-B6E6C5F2B698}",  
+    "buildFlags": [],
+    "createdOn": "2007-06-02T11:55:30Z"
+}
+|metadata|
+////
+
+= WebGauge オブジェクト
+
+== UltraWebGauge
+
+ゲージ CSOM オブジェクト。ig_getWebGaugeById 関数を呼び出してパラメータとしてゲージの ID を指定することで取得できます。
+
+=== WebGauge メソッド
+
+==== refresh
+
+非同期にゲージ画像を更新します。クライアント ブラウザに新しい画像を送信する前に AsyncRefresh イベントがサーバー上で発生します。

@@ -1,0 +1,83 @@
+﻿////
+
+|metadata|
+{
+    "name": "webtab-display-modes",
+    "controlName": ["WebTab"],
+    "tags": ["How Do I"],
+    "guid": "{5C26F87A-A520-4BBE-B89E-848EF19436DD}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 表示モード
+
+WebTab™ は、異なるタイプの描画モードをサポートするので、タブは単一行または複数行、またはスクロール ボタン付きで配置されます。以下は、WebTab に設定できるさまざまなタイプの表示モード（ pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.tabdisplaymode.html[TabDisplayMode]"]  列挙体）です。
+
+* *SingleRow* – タブはスクロール ボタンなしで単一行に配置されます。
+
+*注：* コントロールに幅が設定されたタブが多数ある場合、タブ オーバーフローを処理しても、タブの一部が表示されない場合があります。
+
+* *Scrollable* – タブはスクロール ボタン付きで単一行に配置されます。
+* *MultiRow* – タブは事前に定義された行区切りで複数行に配置されます。
+
+*注：* pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.contenttabitem.html[ContentTabItem]"]  オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.contenttabitem~nextrow.html[NextRow]"]  プロパティは、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.webtab~displaymode.html[DisplayMode]"]  が MultiRow に設定されている場合、次の行にタブを強制するために使用されます。
+
+* *MultiRowAuto* – タブは複数行で配置され、行区切りはクライアントで動的に調整されます。
+
+*HTML の場合:*
+
+----
+<ig:WebTab ID="WebTab1" runat="server" Height="500px" Width="60%" 
+        DisplayMode = "Scrollable" >
+        <Tabs>
+…
+        </Tabs>
+</ig:WebTab>
+----
+
+*Visual Basic の場合：*
+
+----
+WebTab1.DisplayMode = TabDisplayMode.Scrollable
+----
+
+*C# の場合：*
+
+----
+WebTab1.DisplayMode = TabDisplayMode.Scrollable;
+----
+
+== 関連トピック
+
+link:webtab-about-webtab.html[WebTab の理解]
+
+link:webtab-getting-started-with-webtab.html[WebTabで開始]
+
+link:webtab-header-and-content-panes.html[ヘッダー ペイントとコンテンツ ペイン]
+
+link:webtab-tab-states.html[タブの状態]
+
+link:webtab-ajax-indicator-support-for-webtab.html[WebTab の Ajax インジケーターのサポート]
+
+link:webtab-animations.html[アニメーション]
+
+link:webtab-handling-overflow-in-webtab.html[WebTab でオーバーフローを処理]
+
+link:webtab-load-on-demand.html[ロードオンデマンド]
+
+link:webtab-orientation-and-alignment.html[方向と配置]
+
+link:webtab-overlapping-tabs.html[タブの重複]
+
+link:webtab-tab-moving.html[タブの移動]
+
+link:webtab-scrolling.html[スクロール]
+
+link:webtab-validation-in-webtab.html[WebTab で検証]
+
+link:webtab-api-overview.html[API の概要]
+
+link:webtab-client-side-object-model.html[クライアント サイド オブジェクト モデル（CSOM）の概要]

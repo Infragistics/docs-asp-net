@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatasource-api-overview",
+    "controlName": ["WebHierarchicalDataSource"],
+    "tags": ["API","Data Presentation","Sample Data Source"],
+    "guid": "{0FA9BCD5-DFD4-404A-A6BB-0813A8F9C44D}",  
+    "buildFlags": [],
+    "createdOn": "2008-07-05T10:51:34Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションではコントロールに関連する各名前空間を示します。このコントロールでプログラムする間に使用するいくつかのキー クラスも提供します。このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+=== WebHierarchicalDataSource 名前空間:
+
+pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.datasourcecontrols_namespace.html[Infragistics.Web.UI.DataSourceControls]"]
+
+=== キー クラス：
+
+pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.datasourcecontrols.webhierarchicaldatasource.html[WebHierarchicalDataSource]"]
+
+pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.datasourcecontrols.dataview.html[DataView]"]
+
+pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.datasourcecontrols.datarelation.html[DataRelation]"]

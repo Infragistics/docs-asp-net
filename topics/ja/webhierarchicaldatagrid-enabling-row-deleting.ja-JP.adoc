@@ -1,0 +1,122 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatagrid-enabling-row-deleting",
+    "controlName": ["WebHierarchicalDataGrid"],
+    "tags": ["Editing","Grids"],
+    "guid": "{A11EB4D4-6625-4AED-979C-823DD50DA1B6}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 行の削除を有効にする
+
+== 始める前に
+
+WebHierarchicalDataGrid™ でデータを削除するには、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.rowdeleting.html[RowDeleting]"]  動作を  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webhierarchicaldatagrid~behaviors.html[Behaviors]"]  コレクションに追加します。この動作によってエンドユーザーは WebHierarchicalDataGrid で行を削除することができます。UI で機能するように削除するには、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.selection.html[Selection]"]  動作を有効にすることも必要です。デザイナー RowDeleting を有効にすると、Selection 動作も追加するようにプロンプト表示されます。
+
+行を選択して、Delete キーを押すことによって行を削除できます。
+
+*注：* WebHierarchicalDataGrid は削除操作を直ちにコミットします。行の削除によって直ちにポストバックが発生し、データ ソースへの変更を保持します。
+
+*注：* この種類の自動的な更新に対してサポートされるデータ ソースを発生させる必要があります。データ ソースが WebHierarchicalDataGrid によって自動的に更新できない場合、更新イベントを処理してデータを手動で更新する必要があります。
+
+== 達成すること
+
+WebHierarchicalDataGrid コントロールで行の削除動作を有効にすることを学習します。
+
+== 次の手順を実行します
+
+[start=1]
+. WebHierarchicalDataGrid を WebHierarchicalDataSource™ コンポーネントにバインドし、Categories および Products テーブルからデータを取得します。実行についての詳細は、 link:webhierarchicaldatasource-using-webhierarchicaldatasource.html[階層的なデータ ソースにバインド]を参照してください。変更をデータ ソースに更新できるように、HierarchicalDataGrid にバインドする各データ ソースごとに  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webhierarchicaldatagrid~datakeyfields.html[DataKeyFields]"]  プロパティを設定します。
+[start=2]
+. Microsoft® Visual Studio [プロパティ] ウィンドウで、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webhierarchicaldatagrid~behaviors.html[Behaviors]"]  プロパティを指定して、省略記号 (...) ボタンをクリックし、[動作エディター] ダイアログを起動します。
+[start=3]
+. EditingCore および行削除動作の  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.editingcore~enableinheritance.html[EnableInheritance]"]  プロパティを True に設定します。これによって、すべての子レベルが行削除動作を自動的に継承することが可能になります。このプロパティのデフォルト値は False です。
+[start=4]
+. 動作を有効にするために左側の動作のリストの行削除の隣のチェックボックスをチェックします。Selection を追加することもプロンプト表示されます。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.editingcore.html[EditingCore]"]  動作も追加されることに注意してください。
+[start=5]
+. [はい] をクリックしてプロンプトを確認します。Row および Single にそれぞれ設定された  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.selection~cellclickaction.html[CellClickAction]"]  および  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.selection~rowselecttype.html[RowSelectType]"]  プロパティのある Selection 動作は、WebHierarchicalDataGrid に追加されます。
+[start=6]
+. [適用]、そして [OK] をクリックします。
+[start=7]
+. WebHierarchicalDataGrid  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webhierarchicaldatagrid~enableajax.html[EnableAjax]"]  プロパティを True に設定します。WebHierarchicalDataGrid で行を選択し、Delete キーを押すと、コントロールからだけでなくデータ ソースからも行が削除されます。
+
+コードでも行の削除を有効にします。
+
+*In HTML:*
+
+----
+<ig:WebHierarchicalDataGrid ID="WebHierarchicalDataGrid1" runat="server" 
+    Height="350px" Width="400px">
+    <Behaviors>
+        <ig:EditingCore EnableInheritance="True">
+            <Behaviors>
+                <ig:RowDeleting EnableInheritance="True" />
+            </Behaviors>
+        </ig:EditingCore>
+        <ig:Selection CellClickAction="Row" RowSelectType="Single">
+        </ig:Selection>
+        <ig:RowSelectors>
+        </ig:RowSelectors>
+    </Behaviors>
+</ig:WebHierarchicalDataGrid>
+----
+
+*In Visual Basic:*
+
+----
+Me.WebHierarchicalDataGrid1.Behaviors.EditingCore.EnableInheritance = True
+Me.WebHierarchicalDataGrid1.Behaviors.EditingCore.Behaviors.RowDeleting.Enabled = True
+Me.WebHierarchicalDataGrid1.Behaviors.EditingCore.Behaviors.RowDeleting.EnableInheritance = True
+Me.WebHierarchicalDataGrid1.Behaviors.Selection.Enabled = True
+Me.WebHierarchicalDataGrid1.Behaviors.Selection.CellClickAction = CellClickAction.Row
+Me.WebHierarchicalDataGrid1.Behaviors.Selection.RowSelectType = SelectType.Single
+Me.WebHierarchicalDataGrid1.Behaviors.RowSelectors.Enabled = True
+----
+
+*In C#:*
+
+----
+this.WebHierarchicalDataGrid1.Behaviors.EditingCore.EnableInheritance = true;
+this.WebHierarchicalDataGrid1.Behaviors.EditingCore.Behaviors.RowDeleting.Enabled = true;
+this.WebHierarchicalDataGrid1.Behaviors.EditingCore.Behaviors.RowDeleting.EnableInheritance = true;
+this.WebHierarchicalDataGrid1.Behaviors.Selection.Enabled = true;
+this.WebHierarchicalDataGrid1.Behaviors.Selection.CellClickAction = CellClickAction.Row;
+this.WebHierarchicalDataGrid1.Behaviors.Selection.RowSelectType = SelectType.Single;
+this.WebHierarchicalDataGrid1.Behaviors.RowSelectors.Enabled = true;
+----
+
+以下のコードを使用して、クライアントでプログラムによって行を削除することもできます。
+
+*JavaScript の場合：*
+
+----
+var grid = $find("WebHierarchicalDataGrid1");
+var parentGrid = grid.get_gridView();
+----
+
+----
+// 最初の親行を削除します
+parentGrid.get_rows().remove(parentGrid.get_rows().get_row(0));
+var childGrid = grid.get_gridView().get_rows().get_row(0).get_rowIslands(0)[0];
+// 最初の子行を削除します 
+childGrid.get_rows().remove(childGrid.get_rows().get_row(0));
+----
+
+== 関連トピック
+
+link:webhierarchicaldatagrid-activation.html[アクティブ化]
+
+link:webhierarchicaldatagrid-cell-editing.html[セルの編集]
+
+link:webhierarchicaldatagrid-enabling-paging.html[ページングを有効にする]
+
+link:webhierarchicaldatagrid-enabling-row-adding.html[行の追加を有効にする]
+
+link:webhierachicaldatagrid-selection.html[選択]
+
+link:webhierarchicaldatagrid-sorting.html[並べ替え]

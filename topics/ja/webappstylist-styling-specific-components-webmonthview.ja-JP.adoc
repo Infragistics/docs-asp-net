@@ -1,0 +1,168 @@
+﻿////
+
+|metadata|
+{
+    "name": "webappstylist-styling-specific-components-webmonthview",
+    "controlName": ["WebAppStylist"],
+    "tags": ["Scheduling","Styling","Theming"],
+    "guid": "{DEAEFB9A-9F52-478C-B11B-76FCFE66C4BD}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebMonthView
+
+このトピックは、WebMonthView のロールそれぞれの相違点と類似点、ならびに CSS カスケードによってどのような影響を受けるのかを理解する支援をします。ロール説明表は、WebMonthView のロールそれぞれを定義し、ロール継承ツリーは、特定のスタイルが他のスタイルからどのように継承されるのかを示します。
+
+== ロール説明表
+
+以下は、WebMonthView をスタイルするために使用できるロールのリストです。各ロールは、カスケード スタイル シート（CSS）のクラスに一致します。これらのクラス、つまりロールは CSS 規則によって制御されます。これが当てはまらない場合、以下の表に規則の例外を説明します。この表は、どのロールがどのロールから継承されるのか、また一部のロールが他のロールによってどのように影響を受けないのかを理解する際に役に立ちます。
+
+[options="header", cols="a,a"]
+|====
+|ロール|説明
+
+|*Control*
+|これらのスタイル規則は、WebMonthView を囲むフレームに適用されます。その境界線とパッディング スタイルのプロパティを設定できます。Control での特定の境界線の設定は、その他のスタイル ロールに割り当てられた隣接する境界線設定で縮小しません。組み込みのスタイル セットは、Control スタイル ロールが左の境界線を持つと想定します。 
+
+「標準」モードのドキュメント タイプのためにデザインしている場合、Control スタイル ロールで適用されたフォントまたは前景の色に対する設定は、CaptionHeader スタイル ロールによって継承可能です。これは、HTML <table> 要素が、「Quirks」モードで実行しているブラウザ上で直接の子にフォント設定が渡ることを防止できるためです。 
+
+WebMonthView が HTML <table> 要素内に含まれているため、Control スタイル ロールでマージンを増やしても影響がありません。テーブルのセルとテーブルの端の間のスペースは、<table> 要素内の隣接するセル間のスペースと異なる値を指定することができません。
+
+|*WeekNumber*
+|WebMonthView の左側に表示される週番号をスタイルします。週番号は、開発者が WeekNumbersVisible プロパティを True に設定した場合に限り表示されます。このスタイル ロールは、個々の週番号に適用され、週番号の列全体に適用されません。 
+
+週番号は HTML <table> セルですが、マージン スタイルを使用して週番号と隣接するセルの間に区切りを作成しようとするときに制限を共有できます。境界線をスタイリングする際、Day、Today、ActiveDay、OtherMonthDay、CompressedDay、および OtherCompressedDay など、隣接するセルにどの境界線スタイルを適用したのかを覚えておいてください。これらは WeekNumber の右側の最初の曜日列に表示することができます。週番号は WebMonthView の左側に常に表示されるため、Control スタイル ロール レベルでフレームの左境界線を設定した場合には、左の境界線を設定する必要はなくなります。
+
+|*MonthDayOfWeekHeader*
+|CaptionHeader の真下で、WebMonthView の上に沿って表示する曜日の列ヘッダをスタイルします。これらの列ヘッダは、開発者が DayOfWeekHeadersVisible プロパティを True に設定した場合に限り表示します。このスタイル ロールは、個々の列ヘッダに適用され、曜日ヘッダの列全体に適用されません。 
+
+曜日列ヘッダは HTML <table> セルですが、マージン スタイルを使用してそれらと隣接するセルの間に区切りを作成しようとするときに制限を共有できます。境界線をスタイルするときに、上部の CaptionHeader や下部に配置できるさまざまな DayHeader スタイル ロールなど、隣接するセルにどの境界線スタイルを適用したのかを覚えておいてください。
+
+|*CaptionHeader*
+|WebMonthView コントロールの一番上に表示するキャプション バーをスタイルします。これはデフォルトで月と年の名前を表示し（CaptionFormatString プロパティの設定に基づいて）、オプションでカレンダーの別の月を前後に移動するためのナビゲーション ボタンを表示します。キャプションは、開発者が CaptionHeaderVisible プロパティを True に設定したときに限り表示されます。
+
+|*NavigationButton*
+|CaptionHeader に表示する左右のナビゲーション ボタンに共通する共有スタイルを提供します。開発者が NavigationButtonsVisible プロパティと CaptionHeaderVisible プロパティの両方を True に設定したときに限り、ナビゲーション ボタンが表示されます。
+
+|*PreviousButtonArea*
+|CaptionHeader 行と WeekNumber 列が交差するところに存在する、重複する HTML <table> セルを制御するロールをスタイルします。どの背景色（CaptionHeader または WeekNumber のいずれであっても）が優先するのかを制御するために有用なこのテーブル セルで背景色を制御することができます。デフォルトで、CaptionHeader が優先されます。
+
+|*Day*
+|日の区画をスタイルします。これには一番上の日ヘッダが含まれ、日ヘッダの下は予定によって埋められる領域で、これは予定によって埋められる日ヘッダの下のスペースです。Day スタイル ロールは、Today スタイル ロール（今日の日付が現在の月の中にあるとき）と ActiveDay スタイル ロールによって継承されます。現在の月の日の区画のみを表す点で OtherMonthDay スタイル ロールとは異なります。 
+
+Days はときどき複数行に渡る HTML <table> セルとして表されるため、マージン設定によって影響されません。注意深く境界線スタイルを選択して、隣接する Day で二重境界線の問題を回避します。組み込みスタイル設定は一般的に Day の上と左の境界線に適用されます。
+
+|*OtherMonthDay*
+|前月の後続日と翌月の先頭日の日の区画をスタイルします。OtherMonthDay に該当する詳細は、Day スタイル ロールの説明を参照してください。
+
+|*Today*
+|今日の日付に属している単一の日の区画をスタイルします。Today に該当する詳細は、Day スタイル ロールの説明を参照してください。
+
+|*Today*
+|アクティブに選択された日付を表す単一の日の区画をスタイルします。Today と ActiveDay が同じ日付の場合、ActiveDay のスタイル プロパティが優先します。ActiveDay に該当する詳細は、Day スタイル ロールの説明を参照してください。
+
+|*OtherMonthDay*
+|前月の後続日と翌月の先頭日の日の区画をスタイルします。OtherMonthDay に該当する詳細は、Day スタイル ロールの説明を参照してください。
+
+|*CompressedDay*
+|WeekendDisplayFormat プロパティが CompressedWeekend に設定されているときに、現在の月の週末日の日の区画をスタイルします。 
+
+2 つの日ヘッダと 2 つの日部分はひとつの暦日に通常予約されている高さに収める必要があるため、CompressedDay はその他の Day スタイル ロールよりも作業に使用可能な高さが低くなります。Day スタイル ロール情報の多くは CompressedDay にも適用されます。
+
+|*OtherCompressedDay*
+|WeekendDisplayFormat プロパティが CompressedWeekend に設定されているときに、前月の後続週末と翌月の先頭週末の日の区画をスタイルします。 
+
+2 つの日ヘッダと 2 つの日の区画はひとつの暦日に通常予約されている高さに収める必要があるため、OtherCompressedDay はその他の Day スタイル ロールよりも作業に使用可能な高さが低くなります。　　Day スタイル ロール情報の多くは OtherCompressedDay にも適用されます。
+
+|*DayHeader*
+|現在の月内の日ヘッダをスタイルします。日ヘッダは日番号を含み、オプションで簡略化された月または年のようなより多くの情報を含みます。開発者は DayHeaderFormatString プロパティを使用して日番号設定の書式を指定します。DayHeader スタイル ロールは、TodayHeader スタイル ロール（今日の日付が現在の月の中にあるとき）と ActiveDayHeader スタイル ロールによって継承されます。 
+
+DayHeaders の境界線を指定できる一方で、隣接するセルに対する影響を注意深く検討する必要があります。これで二重の境界線を意図しない場所に表示しないように境界線を指定することもできます。
+
+|*OtherMonthDayHeader*
+|前月の後続日と翌月の先頭日の日ヘッダをスタイルします。OtherMonthDayHeader に該当する詳細は、DayHeader スタイル ロールの説明を参照してください。
+
+|*TodayHeader*
+|今日の日付に対応する単一の日ヘッダをスタイルします。TodayHeader に該当する詳細は、DayHeader スタイル ロールの説明を参照してください。
+
+|*ActiveDayHeader*
+|アクティブに選択された日付を表す単一の日ヘッダをスタイルします。アクティブな日付が今日の日付に等しい場合、ActiveDayHeader のスタイル プロパティが優先します。ActiveDayHeader に該当する詳細は、DayHeader スタイル ロールの説明を参照してください。 
+
+DayHeader スタイル ロールが背景画像を定義し、ActiveDayHeader が塗りつぶしの背景色を定義するとき、背景画像は背景色を非表示にします。CSS 仕様に準拠するためには、ActiveDayHeader スタイル ロールで背景画像を「none」に設定し、DayHeader スタイル ロールから継承された背景画像を無効にする必要があります。
+
+|*Appointment*
+|これらのスタイル規則は、WebMonthView で表示されるときに終日イベントではない WebSchedule アクティビティのデフォルトの外観を指示します。 
+
+Appointment は HTML <div> 要素として描画し、すべての色、フォント、境界線、マージン、パッディング スタイル プロパティをサポートします。Appointment は、含んでいる日の区画にきちんとスタックすることが期待されているため、相対的な配置を提供する必要があります。テキストと垂直方向の配置は、Appointment 内に表示する静的なアクティビティ テキストの配置のみに影響します。 
+
+Appointment スタイル ロールは、固有のフォントおよびカラー スタイル プロパティも指定する必要があります。Appointment は日の区画の子要素として表示します。これによって、日の区画のフォントおよびカラー スタイル プロパティを継承することになります。このような状況下で、より多様な -Day スタイル ロールによって整合しないフォントと色で予定が表示することができます。
+
+|*AllDayEvent*
+|これらのスタイル規則は、WebMonthView で表示されるときに終日イベントまたは複数日イベントとしてマークされた WebSchedule アクティビティのデフォルトの外観を定義します。 
+
+AllDayEvents は HTML <div> 要素として描画し、すべての色、フォント、境界線、マージン、パッディング スタイル プロパティをサポートします。多くの組み込みスタイル セットは、境界線または背景を提供することで、AllDayEvents を Appointments と区別します。テキストと垂直方向の配置は、AllDayEvent 内に表示する静的なアクティビティ テキストの配置のみに影響します。 
+
+Appointment と同様に、AllDayEvent スタイル ロールは、固有のフォントおよびカラー スタイル プロパティを指定する必要があります。Appointment スタイル ロールで説明したように、そのコンテナ、Day スタイル ロールに基づいて同一の継承された非整合性によって問題が生じる可能性があります。
+
+|*SelectedAppointment*
+|これらのスタイル規則は、エンド ユーザーがマウスでアクティビティを選択したときの WebMonthView 内の WebSchedule アクティビティの選択した外観を指示します。提示される WebSchedule アクティビティが終日（または複数日）アクティビティであるかどうかによって、Appointment または AllDayEvent スタイル ロールのいずれかから継承でき、そのスタイル プロパティが継承するプロパティに優先します。 
+
+SelectedAppointment スタイル ロールを使用して、選択の行為を装飾するために、新しいスタイル プロパティを AllDayEvent または Appointment スタイル ロールのいずれかにマージすることができます。選択で継承されたフォントのサイズまたは太さを変更するときは注意が必要です。ブラウザが新しいフォント メトリクスで再度 AllDayEvent または Appointment をレイアウトしなければならないために、希望しない飛びが生じる場合があるからです。フォントのサイズと太さは AllDayEvent、Appointment、および SelectedAppointment の 3 つのすべてのスタイル ロールで同一であることを推奨します。
+
+|====
+
+== ロール継承ツリー
+
+以下のツリーは、上記のロールがどのように相互に継承されるのかについての視覚的概念を提供します。特定のロールが Shared から継承される場合、ロールの横の括弧内に記載されます。
+
+* Control
+
+** CaptionHeader
+
+*** NavigationButton
+
+** Day
+
+*** DayHeader
+
+**** ActiveDayHeader
+
+*** Today
+
+**** Appointment
+
+***** SelectedAppointment
+
+**** AllDayEvent
+
+***** SelectedAppointment
+
+**** TodayHeader
+
+***** ActiveDayHeader
+
+**** ActiveDay
+
+** WeekNumber
+** MonthDayOfWeekHeader
+** OtherMonthDay
+
+*** OtherMonthDayHeader
+*** Today
+
+**** Appointment
+
+***** SelectedAppointment
+
+**** AllDayEvent
+
+***** SelectedAppointment
+
+**** TodayHeader
+
+***** ActiveDayHeader
+
+**** ActiveDay

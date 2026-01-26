@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-storing-snooze-values",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Persistence","Scheduling"],
+    "guid": "{236C10C1-E781-4BAE-A80A-5572ADD201E4}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 再通知値を保存
+
+link:{ApiPlatform}webui.webscheduledataprovider{ApiVersion}~infragistics.webui.data.webscheduledataproviderbase~snoozepersistencetype.html[SnoozePersistenceType]  は、WebScheduleDataProviders に配置されるプロパティです。[アラーム] ダイアログを使用して、 link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[アクティビティ] を再通知するようにユーザーが選択した時の再通知値の保存方法を決定します。ControlState と Cookie という、2 つの列挙値に設定できます。
+
+== ControlState
+
+SnoozePersistenceType が ControlState に設定されると、ポストバックのたびに、再通知されるアクティビティがクライアントおよびサーバーから行ったり来たりします。ユーザーがページから離れるようにナビゲートする、またはアプリケーションを閉じると、すべての再通知値は失われます。したがって、アプリケーションを開くと、再通知時間の期限になった場合でさえ、即座にアラームが表示します。
+
+== Cookie
+
+SnoozePersistenceType が Cookie に設定されると、再通知されるアクティビティは cookie に保存されます。これは追加でがクライアントおよびサーバーか行ったり来たりしないことを意味します。また再通知値はセッションよりも長く持続します。したがって、Web アプリケーションを閉じて次回開くと、期限になっていなくても再通知されたアクティビティが再通知されます。ただし、エンド ユーザーが cookie を無効に設定していると、再通知は無効になります。

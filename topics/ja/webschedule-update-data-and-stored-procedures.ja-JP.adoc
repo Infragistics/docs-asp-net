@@ -1,0 +1,46 @@
+﻿////
+|metadata|
+{
+    "name": "webschedule-update-data-and-stored-procedures",
+    "controlName": ["WebSchedule"],
+    "tags": ["Data Binding","How Do I","Scheduling"],
+    "guid": "{584ECE23-ECF9-418F-A896-39185ABE983A}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= データおよびストアド プロシージャの更新
+
+== 始める前に
+
+{ProductName} 9.2 では、SQL データベースのストアド プロシージャが変更されました。2009.2 以前の WebSchedule2.sql データ ファイルからのデータを使用している場合、ストアド プロシージャを更新する必要があります。
+
+{ProductName} 9.2 は、以下の 2 つの SQL スクリプトと共に出荷されています。
+
+* WebSchedule2.sql – 新しく、修正されたストアド プロシージャで更新されたデータベース作成ファイル。
+* Upgrade2to9.2.sql – 既存のデータベースを更新するためのデータベース更新ファイル。
+
+== 達成すること
+
+更新されたストアド プロシージャを使用するために既存のデータベースを更新する方法を学習します。
+
+== 次の手順を実行します
+
+[start=1]
+. 以下のパスに Upgrade2to9.2.sql ファイルを配置します。
+
+** Windows XP -- {InstallPathXP}\\{PlatformName}\WebSchedule\Data
+** Windows Vista 以後 -- {InstallPathVista}\\{PlatformName}\WebSchedule\Data
+
+[start=2]
+. ファイルをダブルクリックして SQL Server で開きます。SQL Server Express を使用している場合、ファイルを開くためには SQL Server Management Studio Express が必要です。
+[start=3]
+. スクリプトを実行します。
+[start=4]
+. スクリプトの実行でエラーが発生しないことを確認します。既存の SQL ストアド プロシージャがこれで更新されます。
+
+== 関連トピック
+
+link:webschedule-overview-of-the-stored-procedures-used-by-the-webschedule-data-providers.html[WebSchedule で使用されるストアド プロシージャの概要]

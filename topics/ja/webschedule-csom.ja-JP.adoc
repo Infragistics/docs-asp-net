@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-csom",
+    "controlName": [],
+    "tags": ["API","Getting Started"],
+    "guid": "{8C43D23F-E952-4C94-B7BA-A23B93BC6AC8}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WebSchedule CSOM
+
+WebSchedule は、クライアント側の JavaScript プログラミング環境に強固なオブジェクト モデルを提供します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクト、イベント、ユーティリティ関数から構成され、開発者はサーバー側にポストバックしなくても、WebSchedule コントロールに関連する重要な機能単位をプログラムできます。
+
+一般的に、オブジェクト モデルは、サーバー上の場合と同じようにオブジェクト モデルから直接派生しています。プロパティ名、イベント、パラメータ、戻り値の意味は、サーバー上のそれらとほとんど同じです。ただし、注が付けられている一部のプロパティはクライアント上では読み取り専用です。これらのプロパティは、情報の提供を目的としており、値を変更することはできません。
+
+WebSchedule コントロールのクライアント サイド オブジェクト モデルに関する参照トピック：
+
+link:webschedule-utility-functions-csom.html[WebSchedule ユーティリティ関数]
+
+link:webschedule-activity-object-csom.html[Activity オブジェクト]
+
+link:webschedule-activities-collection-csom.html[Activities コレクション]
+
+link:webschedule-day-object-csom.html[Day オブジェクト]
+
+link:webschedule-progressindicator-object-csom.html[ProgressIndicator オブジェクト]
+
+link:webschedule-recurrence-object.html[Recurrence オブジェクト]
+
+link:webschedule-reminders-collections-csom.html[Reminders コレクション]
+
+link:webschedule-reminder-object-csom.html[Reminder オブジェクト]

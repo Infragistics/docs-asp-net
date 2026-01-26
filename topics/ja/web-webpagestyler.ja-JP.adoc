@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webpagestyler",
+    "controlName": [],
+    "tags": ["Getting Started"],
+    "guid": "{0BD26285-BB25-41DD-B9ED-2845D990CE9F}",  
+    "buildFlags": [],
+    "createdOn": "2007-08-02T14:33:04Z"
+}
+|metadata|
+////
+
+= WebPageStyler
+
+以下のリンクをクリックして、WebPageStyler コンポーネント固有の情報を見つけ出します。
+
+* link:webpagestyler-about-webpagestyler.html[WebPageStyler について] -- WebPageStyler の機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:webpagestyler-api-overview.html[API 概要] -- このトピックでは、WebPageStyler コンポーネントを使ってプログラミングする際に作業する名前空間とクラスをリストします。このトピックにリストされる名前空間とクラスは、{ProductName} ヘルプの link:web-api-reference-guide.html[「API リファレンスガイド」]に便宜上リンクします。

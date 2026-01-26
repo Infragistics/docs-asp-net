@@ -1,0 +1,105 @@
+﻿////
+
+|metadata|
+{
+    "name": "webprogressbar-using-webprogressbar-events-to-display-a-custom-formatted-label",
+    "controlName": ["WebProgressBar"],
+    "tags": [],
+    "guid": "{4B246BFD-D467-45DA-B1B9-506B0FE0BE91}",  
+    "buildFlags": [],
+    "createdOn": "2009-03-03T16:56:41Z"
+}
+|metadata|
+////
+
+= カスタムで書式設定されたラベルを表示するために WebProgressBar イベントを使用
+
+== 始める前に
+
+任意のその他のコントロール内に表示できるように WebProgressBar™ コントロールの進行状況ラベル テキストにアクセスできます。たとえば、Label コントロール内に残りの進行状況を表示したい場合があります。WebProgressBar コントロールの client side object model (CSOM) は、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.displaycontrols.webprogressbar~formattedlabel.html[FormattedLabel]"]  プロパティを介してこのテキストを公開します。
+
+== 達成すること
+
+標準ラベル コントロール内に WebProgressBar コントロールの進行状況ラベル テキストを表示します。WebProgressBar  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.displaycontrols.progressbarclientevents~progresschanged.html[ProgressChanged]"]  クライアント側イベントを処理し、FormattedLabel プロパティを使用してこれを達成します。
+
+このトピックでは、WebSlider™ コントロールを使用するので、エンドユーザーがスライダーを移動すると常に WebProgressBar の進行状況が更新されます。残りのパーセントを示す WebProgressBar 形式のラベル テキストが Label コントロール内に表示されます。
+
+== 次の手順を実行します
+
+[start=1]
+. ScriptManager コンポーネント、WebProgressBar コントロール、WebSlider コントロールおよび標準の Label コントロールをフォームに配置します。
+[start=2]
+. Label コントロールの ID プロパティを lblMsg に設定します。
+[start=3]
+. WebProgressBar および WebSlider は、デフォルトの最小値と最大値のままにすることができます。
+[start=4]
+. pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.displaycontrols.webprogressbar~labelformatstring.html[LabelFormatString]"]  および  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.displaycontrols.webprogressbar~labelalignment.html[LabelAlignment]"]  プロパティを以下のコードに示すように設定します。
+
+*Visual Basic の場合：*
+
+----
+      'パーセントで残りの進行状況を表示するためにラベル フォーマットを設定します
+      WebProgressBar1.LabelFormatString = "Remaining progress : {3}%"
+      'WebProgressBar 内でのラベル表示を中止します
+      WebProgressBar1.LabelAlignment = Infragistics.Web.UI.DisplayControls.ProgressBarLabelAlignment.None
+----
+
+*C# の場合：*
+
+----
+      //パーセントで残りの進行状況を表示するためにラベル フォーマットを設定します
+      WebProgressBar1.LabelFormatString = "Remaining progress : {3}%";
+      //WebProgressBar 内でのラベル表示を中止します
+      WebProgressBar1.LabelAlignment = Infragistics.Web.UI.DisplayControls.ProgressBarLabelAlignment.None;
+----
+
+[start=5]
+. WebSlider コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.sliderclientevents~valuechanged.html [ValueChanged]"]  クライアント側イベントを処理して WebProgressBar で現在の値を表示します。
+
+*JavaScript の場合：*
+
+----
+        // クライアント イベント 'ValueChanged' は 2 つのパラメータ sender と e を取得します。
+        // sender はイベントを発生させているオブジェクトです。
+        // e は SliderValueChangedEventArgs です。 
+        function WebSlider1_ValueChanged(sender, e) {
+            // WebSlider への参照を取得します。
+            var slider = $find("WebSlider1");
+            // WebProgressBar への参照を取得します。
+            var progressbar = $find("WebProgressBar1");
+            //WebSlider の新しい値を取得します。
+            var slider_newValue = e.get_newValue();
+            //WebProgressBar の値プロパティを設定します。
+            progressbar.set_progressValue(slider_newValue);
+        }
+----
+
+[start=6]
+. 次に、WebProgressBar コントロールの ProgressChanged クライアント側イベントを処理し、Label コントロール内の WebProgressBar コントロールのフォーマットされたラベル テキストを表示します。
+
+*JavaScript の場合：*
+
+----
+      // クライアント イベント 'ProgressChanged' は 2 つのパラメータ sender と e を取得します。
+      // sender はイベントを発生させているオブジェクトです。
+      // e は ProgressChangedEventArgs です。 
+        function WebProgressBar1_ProgressChanged(sender, e) {
+            // WebProgressBar の参照を取得します。
+            var progressbar = $find("WebProgressBar1");
+            //WebProgressBar のフォーマットされたラベルを取得します。 
+            var progressbar_labelFormat = progressbar.get_formattedLabel();
+            //ラベル コントロールで WebProgressBar のラベルを表示します。  
+            lblMsg.innerHTML = progressbar_labelFormat;
+        }
+----
+
+[start=7]
+. アプリケーションを保存して実行します。スライダーのつまみを移動して、Label コントロールが残りの進行状況をどのように表示するかを観察します。
+
+*スライダーのつまみを移動する前に：*
+
+image::images\WebProgressBar_Using_WebProgressBar_Events_to_Display_a_Custom_Formatted_Label_01.png[]
+
+*スライダーのつまみを移動した後に：*
+
+image::images\WebProgressBar_Using_WebProgressBar_Events_to_Display_a_Custom_Formatted_Label_02.png[]

@@ -1,0 +1,109 @@
+﻿////
+
+|metadata|
+{
+    "name": "webtab-handling-overflow-in-webtab",
+    "controlName": ["WebTab"],
+    "tags": ["How Do I"],
+    "guid": "{BAEE1662-D593-45BB-98C2-B7EF3A94F771}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebTab でオーバーフローを処理
+
+=== タブのオーバーフロー
+
+WebTab™ は、オーバーフローの場合にタブの幅を縮小するためのオプションを提供します。コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.webtab~tabsoverflow.html[TabsOverflow]"]  プロパティを Reduce に設定することによってこれを達成できます。
+
+*注：* このプロパティは、以下の 3 つの条件が満たされた場合に限って有効です。
+
+* TabOrientation が水平に設定されている。
+* DisplayMode が SingleRow または MultiRow に設定されている。
+* WebTab のサイズが設定されている。
+
+*HTML の場合:*
+
+----
+<ig:WebTab ID="WebTab1" runat="server" Height="515px" 
+             Width="500px" TabsOverflow="Reduce" >
+            <Tabs>
+                …
+            </Tabs>
+</ig:WebTab>
+----
+
+*Visual Basic の場合：*
+
+----
+WebTab1.TabsOverflow = TabsOverflow.Reduce
+----
+
+*C# の場合：*
+
+----
+WebTab1.TabsOverflow = TabsOverflow.Reduce;
+----
+
+=== テキストのオーバーフロー
+
+タブ ヘッダーのコンテンツが、幅が不足しているために完全に表示されない状況があります。この状況を克服するために、エンドユーザーに省略記号ボタンをクリックするオプションを提供し、このボタンがクリックされた時にヘッダー コンテンツを表示するようにできます。コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.webtab~textoverflow.html[TextOverflow]"]  プロパティを Ellipsis に設定することによって、この機能を設定できます。
+
+*注：* TextOverflow プロパティは、タブの方向が水平に設定されている場合に限って有効です。ただし、このプロパティは、html タグ（内部要素）を含むタブ項目ではサポートされません。
+
+*HTML の場合:*
+
+----
+<ig:WebTab ID="WebTab1" runat="server" Height="515px" 
+             Width="659px"  TextOverflow="Ellipsis" >
+            <Tabs>
+                …
+            </Tabs>
+</ig:WebTab>
+----
+
+*Visual Basic の場合：*
+
+----
+WebTab1.TextOverflow = TabTextOverflow.Ellipsis
+----
+
+*C# の場合：*
+
+----
+WebTab1.TextOverflow = TabTextOverflow.Ellipsis;
+----
+
+== 関連トピック
+
+link:webtab-about-webtab.html[WebTab の理解]
+
+link:webtab-getting-started-with-webtab.html[WebTabで開始]
+
+link:webtab-header-and-content-panes.html[ヘッダー ペイントとコンテンツ ペイン]
+
+link:webtab-tab-states.html[タブの状態]
+
+link:webtab-ajax-indicator-support-for-webtab.html[WebTab の Ajax インジケーターのサポート]
+
+link:webtab-display-modes.html[表示モード]
+
+link:webtab-animations.html[アニメーション]
+
+link:webtab-load-on-demand.html[ロードオンデマンド]
+
+link:webtab-orientation-and-alignment.html[方向と配置]
+
+link:webtab-overlapping-tabs.html[タブの重複]
+
+link:webtab-tab-moving.html[タブの移動]
+
+link:webtab-scrolling.html[スクロール]
+
+link:webtab-validation-in-webtab.html[WebTab で検証]
+
+link:webtab-api-overview.html[API の概要]
+
+link:webtab-client-side-object-model.html[クライアント サイド オブジェクト モデル（CSOM）の概要]

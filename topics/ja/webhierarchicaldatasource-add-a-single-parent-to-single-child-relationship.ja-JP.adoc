@@ -1,0 +1,62 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatasource-add-a-single-parent-to-single-child-relationship",
+    "controlName": ["WebHierarchicalDataSource"],
+    "tags": ["Data Presentation","Sample Data Source"],
+    "guid": "{C25CA065-45C9-4864-9CB3-1920A03F88E5}",  
+    "buildFlags": [],
+    "createdOn": "2008-05-05T15:46:34Z"
+}
+|metadata|
+////
+
+= ひとつの親をひとつの子関係に追加
+
+WebHierarchicalDataSource™ 内に 2 つのビューがあり、階層としてそれらを表示したい場合、2 つのビューのデータ関係を追加する必要があります。デザイン タイムとランタイムの両方で関係を追加できます。デザイン タイムに、クイック デザイナを開き、関係で使用するために親列と子列とともに親および子のデータ ソースを構成します。ランタイムに、データ関係を DataRelations コレクションに追加できます。
+
+*注：* データ関係を追加する時、データ ソースが参照の完全性の規則に従っていることを確認してください。WebHierarchicalDataSource コンポーネントはこれらの規則を強制しないため、規則が守られないときにユーザーに通知しません。たとえば、子データのレコードすべてが親データに関連しているわけではない場合、これは無視されるだけで関連しているデータが表示されます。また、プライマリ キーおよび外部キーのデータ タイプが一致しない場合、親レコードのみが表示されます。
+
+*Visual Basic の場合：*
+
+----
+' 関係を作成します。 
+Dim dr As New Infragistics.Web.UI.DataSourceControls.DataRelation() 
+' 関係する親のビューを指定します。 
+dr.ParentDataViewID = "SqlDataSource_View1" 
+' 関係に使用するための親列を指定します。 
+dr.ParentColumns = New String() {"RegionID"} 
+' 関係する子のビューを指定します。 
+dr.ChildDataViewID = "SqlDataSource_View2" 
+' 関係に使用するための子列を指定します。 
+dr.ChildColumns = New String() {"RegionID"} 
+' WebHierarchicalDataSource に関係を追加します。 
+Me.WebHierarchicalDataSource1.DataRelations.Add(dr)
+----
+
+*C# の場合：*
+
+----
+// 関係を作成します。
+Infragistics.Web.UI.DataSourceControls.DataRelation dr = 
+new Infragistics.Web.UI.DataSourceControls.DataRelation();
+// 関係する親のビューを指定します。
+dr.ParentDataViewID = "SqlDataSource_View1";
+// 関係に使用するための親列を指定します。
+dr.ParentColumns = new string[] {"RegionID"};
+// 関係する子のビューを指定します。
+dr.ChildDataViewID = "SqlDataSource_View2";
+// 関係に使用するための子列を指定します。
+dr.ChildColumns = new string[] {"RegionID"};
+// WebHierarchicalDataSource に関係を追加します。
+this.WebHierarchicalDataSource1.DataRelations.Add(dr);
+----
+
+== 関連トピック
+
+link:webhierarchicaldatasource-add-a-parent-to-multiple-child-relationship.html[単一の親対複数の子の関係を追加]
+
+link:webhierarchicaldatasource-add-a-composite-key-relationship.html[複合キーの関係を追加]
+
+link:webhierarchicaldatasource-creating-a-self-related-data-relation.html[自己関係的なデータ関係の作成]

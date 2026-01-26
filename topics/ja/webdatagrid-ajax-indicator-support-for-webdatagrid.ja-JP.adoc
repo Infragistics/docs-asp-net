@@ -1,0 +1,47 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-ajax-indicator-support-for-webdatagrid",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Events","Grids"],
+    "guid": "{D5032689-B524-4C39-9BF2-7D819EE942BE}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDataGrid の Ajax インジケーターのサポート
+
+WebDataGrid™ コントロールの AJAX インジケーターは、コントロールがコールバックの完了を待機する時に必ず待機通知をエンドユーザーに表示します。デフォルトで、AJAX インジケーターはその他の {ProductName} AJAX コントロールと共有されます。ただし、共有された AJAX インジケーター設定はコントロール レベルでオーバーライドできます。待機メッセージは、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.ajaxindicator~text.html[Text]"]  または  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.ajaxindicator~imageurl.html[ImageUrl]"]  プロパティ設定を使用して、テキストまたは画像を表示するように構成可能です。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.ajaxindicator~location.html[Location]"]  プロパティを使用することによってインジケーターの画面の位置を設定することも可能です。
+
+*Visual Basic の場合：*
+
+----
+' コントロール レベルで Ajax インジケーターを有効にします
+Me.WebDataGrid1.AjaxIndicator.Enabled = Infragistics.Web.UI.DefaultableBoolean.[True] 
+' Ajax インジケーターの待機メッセージを設定します 
+Me.WebDataGrid1.AjaxIndicator.Text = "Ajax Call Wait" 
+' Ajax インジケーターの位置を設定します 
+Me.WebDataGrid1.AjaxIndicator.Location = Infragistics.Web.UI.RelativeLocation.AboveCenter 
+' コントロール固有の Ajax インジケーターの位置を設定します 
+Me.WebDataGrid1.AjaxIndicator.RelativeToControl = Infragistics.Web.UI.DefaultableBoolean.[True]
+----
+
+*C# の場合：*
+
+----
+// コントロール レベルで Ajax インジケーターを有効にします
+this.WebDataGrid1.AjaxIndicator.Enabled = Infragistics.Web.UI.DefaultableBoolean.True;
+// Ajax インジケーターの待機メッセージを設定します
+this.WebDataGrid1.AjaxIndicator.Text = "Ajax Call Wait";
+// Ajax インジケーターの位置を設定します
+this.WebDataGrid1.AjaxIndicator.Location = Infragistics.Web.UI.RelativeLocation.AboveCenter;
+// コントロール固有の Ajax インジケーターの位置を設定します
+this.WebDataGrid1.AjaxIndicator.RelativeToControl = Infragistics.Web.UI.DefaultableBoolean.True;
+----
+
+== 関連トピック
+
+link:web-ajax-indicator.html[コントロール レベルで AJAX インジケーターを構成]

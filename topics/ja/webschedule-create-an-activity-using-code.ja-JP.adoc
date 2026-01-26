@@ -1,0 +1,77 @@
+﻿////
+|metadata|
+{
+    "name": "webschedule-create-an-activity-using-code",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling"],
+    "guid": "{5B6DF8D6-15F6-4DBE-8751-D0BDBF6A280E}",
+    "buildFlags": [],
+    "createdOn": "2005-08-09T00:00:00Z"
+}
+|metadata|
+////
+
+= コードでアクティビティを作成
+
+コードで pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[アクティビティ]"] （サーバー側）を作成しなければならない場合があります。以下のコードは、アクティビティを作成する方法を示しています。アクティビティを WebScheduleInfo に追加する方法についての詳細は、 link:webschedule-add-an-activity-on-the-server.html[「アクティビティを追加する方法（サーバー側）」]を参照してください。
+
+*注:*  スケジュール情報が現在表示されているアクティビティのリソースとアクティビティが関連付けられたことを確認します。この例では、アクティビティは常に存在する 未割り当てのリソースにリンクされました。ただし、WebScheduleInfo で  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~activeresourcename.html[ActiveResourceName]"]  プロパティを異なるリソースに設定すると、未割り当てリソースに属するアクティビティは表示されません。
+
+以下のコードは  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.appointment.html[Appointment]"]  クラスの新しいインスタンスを作成し、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.resource.html[リソース]"] が構成するプロパティを含み、そのインスタンスで初期プロパティの一部を設定します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.WebUI.Shared
+Imports Infragistics.WebUI.WebSchedule
+...
+Private Function CreateAppointment() As Appointment
+	'WebScheduleInfo によって所有される空のアクティビティを作成します。 
+	Dim appt As New Appointment(Me.WebScheduleInfo1)
+	'アクティビティで永続的なプロパティを設定します。
+	appt.Subject = "My Thirty-Minute Appointment"
+	appt.Duration = New TimeSpan(0, 30, 0)
+	' Key プロパティを各予定の一意の値に設定します。
+	appt.Key = "100"
+	'ResourceKey プロパティを設定して、アクティビティを構成するリソースとリンクします。
+	appt.ResourceKey = Me.WebScheduleInfo1.VisibleResources.UnassignedResource.Key
+	'新たに初期化されたアクティビティを返します。
+	CreateAppointment = appt
+End Function
+----
+
+*C# の場合：*
+
+----
+using Infragistics.WebUI.Shared;
+using Infragistics.WebUI.WebSchedule;
+...
+private Appointment CreateAppointment()
+{
+	// WebScheduleInfo によって所有される空のアクティビティを作成します。
+	Appointment appt = new Appointment(this.WebScheduleInfo1);
+	// アクティビティで永続的なプロパティを設定します。
+	appt.Subject = "My Thirty-Minute Appointment";
+	appt.Duration = new TimeSpan(0, 30, 0);
+	// Key プロパティを各予定の一意の値に設定します。
+	appt.Key = "100";
+	// ResourceKey プロパティを設定して、アクティビティを構成するリソースとリンクします。
+	appt.ResourceKey = this.WebScheduleInfo1.VisibleResources.UnassignedResource.Key;
+	// 新たに初期化されたアクティビティを返します。
+	return appt;
+}
+----
+
+== 関連トピック
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[WebSchedule 名前空間]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo.html[WebScheduleInfo クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webdayview.html[WebDayView クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webmonthview.html[WebMonthView クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.appointment.html[Appointment クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[Activity オブジェクト]"]

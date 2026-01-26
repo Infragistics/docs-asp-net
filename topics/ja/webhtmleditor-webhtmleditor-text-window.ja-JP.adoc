@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-webhtmleditor-text-window",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing","Layouts"],
+    "guid": "{5540A50B-33AB-4776-AC50-C69B3A1FEEA6}",  
+    "buildFlags": [],
+    "createdOn": "2006-09-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor テキスト ウィンドウ
+
+WebHtmlEditor コントロールの中央に、エンド ユーザーが使い慣れた、機能豊富な環境で内容を表示し、編集できるテキスト ウィンドウが表示されます。このテキスト ウィンドウでは、次のいずれかの方法で内容を表示できます。
+
+* デザインビュー -- エンド ユーザーは、内容を豊かなフォーマットで表示しながら編集できます。デザインビューでは、ほとんどの機能を直感的に操作しながら大本の HTML コードをアップデートすることができます。
+* HTML ビュー -- エンド ユーザーは大本のマークアップを見ながら、デザインビューではサポートされていない変更を行えます。
+
+Web サーバーへのポストバックでは、アプリケーションは、Text プロパティ（マークアップのないプレーンテキスト）または TextXhtml プロパティ（マークアップ付きの内容）を使って WebHtmlEditor コントロールの内容にアクセスできます。
+
+image::Images/WebHtmlEditor_Layout_of_the_WebHtmlEditor_3.png[]

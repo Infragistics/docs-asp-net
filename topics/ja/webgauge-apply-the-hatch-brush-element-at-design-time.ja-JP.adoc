@@ -1,0 +1,42 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-apply-the-hatch-brush-element-at-design-time",
+    "controlName": ["WebGauge"],
+    "tags": ["Design Environment","How Do I"],
+    "guid": "6ac1c7db-900e-46e4-b325-eea827553594",  
+    "buildFlags": [],
+    "createdOn": "2012-04-23T11:27:22.5807094Z"
+}
+|metadata|
+////
+
+= デザインタイムにハッチ ブラシ要素を適用
+
+ゲージの外観にハッチ ブラシ要素を適用すると、その要素は 2 色のパターン化された外観が提供されます。
+
+*デザインタイムにハッチ要素をゲージのプロパティに適用するには、次の手順に従ってください。*
+
+[start=1]
+. ラジアル ゲージを Gauges コレクションに追加します。
+[start=2]
+. ゲージ コレクション エディターの左側のペインで、[ラジアル ゲージ] をクリックします。
+[start=3]
+. pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgauge~dial.html[Dial]"]  プロパティを展開します。
+[start=4]
+. pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.gauge~brushelement.html[BrushElement]"]  ドロップダウン リストから、[Hatch] を選択します。これによって新しいハッチ ブラシ要素が作成されます。
+[start=5]
+. 以下のプロパティを設定します。
+
+** BackColor -- DimGray
+** ForeColor -- Silver
+** HatchStyle -- BackwardDiagonal
+
+== 関連トピック
+
+link:webgauge-solid-brush-element.html[単色ブラシ要素]
+
+link:webgauge-apply-the-solid-brush-element-at-run-time.html[ランタイムに単色ブラシ要素を適用]
+
+link:webgauge-apply-the-solid-brush-element-using-the-gauge-designer.html[ゲージ デザイナーを使用して単色ブラシ要素を適用]

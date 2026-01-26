@@ -1,0 +1,42 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-update-a-recurring-appointment-client-side",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling"],
+    "guid": "{0C1A80BA-9989-4FBA-8F7E-DF34E337EE10}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= クライアント側の定期的な予定をアップデート
+
+既存の Recurrence オブジェクトを更新するには、繰り返しを持つ予定を最初に取得する必要があります。このトピックでは、予定のデータキーを知っていることを前提とします。キーを知っているため、getItemFromKey メソッドを使用してその予定を取得できます。予定を持ったら、Recurrence オブジェクトを取得できます。
+
+*注：* recurrence オブジェクトの clone メソッドを呼び出すことを推奨します。そうすることで、エンド ユーザーは UpdatingActivity クライアント側イベントの間に更新をキャンセルすることができます。
+
+Recurrence オブジェクトを更新したら、activityUpdateProps オブジェクトを作成します。このオブジェクトは予定のすべての更新されたプロパティを含みます。最後に、WebScheduleInfo クライアント側オブジェクトの updateActivity メソッドに activityUpdateProps オブジェクトを渡します。
+
+*JavaScript の場合:*
+
+----
+// getItemFromKey メソッドを使用して、そのキーを持つ既存の予定を取得します。
+var appointment = oWebScheduleInfo1.getActivities().getItemFromKey("3522");
+// recurrence オブジェクトのクローンを作成します。
+var recurrence = appointment.getRecurrence().clone();
+// recurrence オブジェクトを更新します。
+recurrence.setMaxOccurrences(5);
+// 予定の更新されたプロパティを含む activityUpdateProps オブジェクトを作成して、
+// WebScheduleInfo の updateActivity メソッドを呼び出します。 
+var activityUpdateProps = {Recurrence:recurrence};
+oWebScheduleInfo1.updateActivity(activityUpdateProps, appointment, "");
+----
+
+== 関連トピック
+
+link:webschedule-add-a-recurring-appointment-client-side.html[クライアント側で繰り返し予定を追加]
+
+link:webschedule-delete-a-recurring-appointment-client-side.html[クライアント側で繰り返し予定を削除]

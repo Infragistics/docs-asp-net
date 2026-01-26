@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-resources",
+    "controlName": ["WebSchedule"],
+    "tags": [],
+    "guid": "{E6946FEC-601C-4CFA-857A-36B626EC4324}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= リソース
+
+link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.resource.html[リソース] は、スケジューリング アプリケーションによって管理されている link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[アクティビティ] を持つ人や物です。例は工場の従業員またはオフィスの会議室が含まれています。
+
+WebSchedule™ で、一度にひとつのアクティブなリソースに対してアクティビティが表示できます。このリソースも link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~visibleresources.html[VisibleResource]  と呼ばれます。
+
+WebSchedule アプリケーションを見ているエンドユーザーはリソースにする必要はありませんが、ユーザーがリソースとなる場合、 link:webschedule-reminders.html[アラーム]のトピックで説明されているアクティビティに対して、アラームの通知を受け取ることができます。
+
+* link:webschedule-multi-resource-view.html[Multi Resource View]
+* link:webschedule-unassigned-resource.html[未割り当てのリソース]
+* link:webschedule-creating-a-logon-dialog-box-for-your-webschedule-application.html[WebSchedule アプリケーションのログオン ダイアログ ボックスを作成]
+* link:webschedule-extending-appointments-and-resources.html[予定とリソースの拡張]
+* link:webschedule-setting-the-time-zone.html[タイムゾーンを設定]

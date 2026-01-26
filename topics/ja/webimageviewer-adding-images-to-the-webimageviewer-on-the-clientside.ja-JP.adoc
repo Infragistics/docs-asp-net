@@ -1,0 +1,56 @@
+﻿////
+
+|metadata|
+{
+    "name": "webimageviewer-adding-images-to-the-webimageviewer-on-the-clientside",
+    "controlName": ["WebImageViewer"],
+    "tags": ["Editing","Layouts","Styling"],
+    "guid": "{7BD71739-95BD-46FB-95BC-A0646DC762A5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= クライアント側で WebImageViewer に画像を追加
+
+== 始める前に
+
+WebImageViewer™ の主な目的はビューアに画像を表示することです。このトピックは、クライアント側で WebImageViewer に画像を追加する方法を示します。以下の例は、ImageItemCollection で add メソッドを使用します。add メソッドは ImageItem をパラメータとして取得します。ImageItem を取得するために、createItem メソッドを使用する必要があります。
+
+== 達成すること
+
+このトピックは画像を WebImageViewer に追加する方法を示します。
+
+以下の手順を完了した後で Web サイトを保存および実行すると、WebImageViewer は以下の WebImageViewer のようになります。
+
+image::images/WebImageViewer_Add_an_Image_to_the_WebImageViewer_on_the_Client_Side_01.png[WebImageViewer_Add_an_Image_to_the_WebImageViewer_01]
+
+== 以下の手順を実行します。
+
+[start=1]
+. ツールボックスから、WebImageViewer コントロールをページにドラッグします。
+[start=2]
+. [プロパティ] ウィンドウから、以下のプロパティを設定します。
+
+** Height -- 200px
+** Orientation -- Horizontal
+** Width  -- 500px
+
+[start=3]
+. Default.aspx のソース表示から、以下のコードを追加します。
+
+*JavaScript の場合*
+
+----
+var iv = $find("WebImageViewer1");
+var items = iv.get_items();		
+var item = items.createItem();
+item.set_imageUrl("~/images/houseplant.jpg");
+item.set_altText("addedItem");
+item.set_tooltip("addedItem tooltip");
+items.add(item); 
+----
+
+[start=4]
+. Web サイトを保存して実行します。

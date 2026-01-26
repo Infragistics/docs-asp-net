@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdialogwindow-center-the-dialog-window",
+    "controlName": ["WebDialogWindow"],
+    "tags": ["How Do I"],
+    "guid": "{252E0CB1-8845-49B0-9CB6-60D822A6CACC}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ダイアログ ウィンドウを中央に配置
+
+ページに初めて WebDialogWindow™ を配置する時に、WebDialogWindow はダイアログ ウィンドウのデフォルトの位置としてその位置を使用します。WebDialogWindow を配置した位置が Web ベージのニーズに適切でない場合、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.webdialogwindow~initiallocation.html[InitialLocation]"]  プロパティを Centered に変更することにより、ダイアログ ウィンドウの初期の位置を常に変更できます。これは、デザインタイムに配置した位置ではなく、ページの中央にダイアログ ウィンドウを表示します。位置を変更したい場合には、InitialLocation プロパティを Manual に設定し、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.webdialogwindow~top.html[Top]"]  プロパティと  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.webdialogwindow~left.html[Left]"]  プロパティを設定する必要があります。
+
+以下のコードは、Web ページの中央にダイアログ ウィンドウを表示する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+' ダイアログ ウィンドウを中央に配置します。
+Me.WebDialogWindow1.InitialLocation = _
+	Infragistics.Web.UI.LayoutControls.DialogWindowPosition.Centered
+----
+
+*C# の場合：*
+
+----
+ // ダイアログ ウィンドウを中央に配置します。
+this.WebDialogWindow1.InitialLocation = 
+	Infragistics.Web.UI.LayoutControls.DialogWindowPosition.Centered;
+----

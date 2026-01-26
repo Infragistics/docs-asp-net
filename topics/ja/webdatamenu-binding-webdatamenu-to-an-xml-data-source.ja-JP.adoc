@@ -1,0 +1,120 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatamenu-binding-webdatamenu-to-an-xml-data-source",
+    "controlName": ["WebDataMenu"],
+    "tags": [],
+    "guid": "{DFD20DF4-EE27-4049-8CE9-5C8032957576}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDataMenu を Xml データ ソースにバインド
+
+== 始める前に
+
+WebDataMenu™ はコードを一切記述することなくメニュー構造を生成するために XML データ ソースへのバインディングをサポートします。データを XML ファイルから取得するには、データ バインディング エディターを使用してメニュー項目のためにデータ バインディングを指定する必要があります。
+
+== 達成すること
+
+WebDataMenu を XML ファイルにバインドしてメニューのような構造でデータを表す方法を学習します。
+
+== 次の手順を実行します
+
+[start=1]
+. ASP.NET Web ページを作成します。
+[start=2]
+. Microsoft® Visual Studio™ ツールボックスからページに ScriptManager コンポーネントをドラッグします。
+[start=3]
+. WebDataMenu コントロールをページにドラッグします。
+[start=4]
+. XML ファイルをプロジェクトに追加し、Orders.xml と命名します。
+[start=5]
+. 以下のコードを Orders.xml に追加します:
+
+*XML の場合:*
+
+----
+<?xml version="1.0" encoding="utf-8" ?>
+<Customers>
+  <Customer CustomerID="ALFKI" CustomerName="Alfreds Futterkiste">
+    <Order OrderID="1024">
+      <OrderDetail ProductID="1" ProductName="Chocolate" Quantity="10" />
+      <OrderDetail ProductID="2" ProductName="Apples" Quantity="20" />
+      <OrderDetail ProductID="3" ProductName="Peanuts" Quantity="30" />
+    </Order>
+    <Order OrderID="1029">
+      <OrderDetail ProductID="10" ProductName="Flour" Quantity="100" />
+    </Order>
+  </Customer>
+  <Customer CustomerID="BLONP" CustomerName="Blondel père et fils">
+    <Order OrderID="2021">
+      <OrderDetail ProductID="4" ProductName="Rigatoni" Quantity="30" />
+      <OrderDetail ProductID="5" ProductName="Ricotta" Quantity="10" />
+    </Order>
+  </Customer>
+  <Customer CustomerID="WOLZA" CustomerName="Wolski Zajazd">
+    <Order OrderID="2029">
+      <OrderDetail ProductID="6" ProductName="Hot Dogs" Quantity="45" />
+      <OrderDetail ProductID="7" ProductName="Brown Rice" Quantity="12" />
+      <OrderDetail ProductID="8" ProductName="Ketchup" Quantity="100" />
+      <OrderDetail ProductID="9" ProductName="Mustard" Quantity="100" />
+    </Order>
+  </Customer>
+</Customers>
+----
+
+[start=6]
+. XmlDataSource コンポーネントをページにドラッグします。
+[start=7]
+. XmlDataSource コンポーネントのスマート タグをクリックして、[データ ソースの構成] を選択します。[データ ソースの構成] ウィザードが表示します。
+
+image::images\WebDataMenu_Binding_WebDataMenu_to_an Xml_Data_Source_01.png[]
+
+[start=8]
+. [参照...]（[データ ファイル] テキスト ボックスの隣り）をクリックして、バインドしたい XML データ ファイルを指定します。[XML ファイルの選択] ダイアログが表示します。
+
+image::images\WebDataMenu_Binding_WebDataMenu_to_an_Xml_Data_Source_02.png[]
+
+[start=9]
+. 使用したい XML ファイルを選択して [OK] をクリックします。この場合、Orders.xml です。
+[start=10]
+. WebDataMenu の [プロパティ] ウィンドウで、XmlDataSource コンポーネントの ID となるように  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.framework.data.hierarchicaldataboundcontrolmain~datasourceid.html[DataSourceID]"]  を設定します。
+[start=11]
+. この時点で、アプリケーションを保存および実行する時に、WebDataMenu は XML ファイルから項目を表示するだけでデータを表示しません。メニュー項目が選択されると WebForm は以下の画像のように表示されます:
+
+image::images\WebDataMenu_Binding_WebDataMenu_to_an_Xml_Data_Source_03.png[]
+
+[start=12]
+. データ バインディングを指定するには、WebDataMenu コントロールのスマート タグから [DataBindings の編集] をクリックします。これによって、WebDataMenu デザイナー ダイアログが開きます。
+[start=13]
+. Customer ノードを選択し、[データバインディングの追加] ボタンをクリックします。これによって項目が選択されたバインディング領域に追加されます。CustomerName が項目の表示テキストとなるように [プロパティ] ウィンドウでドロップダウン コンボをクリックすることによって、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.navitembinding~textfield.html[TextField]"]  プロパティを CustomerName に設定します。同様に、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.navitembinding~valuefield.html[ValueField]"]  プロパティを CustomerID に設定します。
+
+
+*注:* CustomerName と CustomerID に加えて、ドロップダウンは XmlNode クラスの InnerText、Name および Value プロパティも表示して、選択オプションをさらに提供します。
+
+
+[start=14]
+. 上記の手順を繰り返して以下のデータ バインディングを Order および OrderDetail 項目に追加します:
+
+[options="header", cols="a,a,a"]
+|====
+|項目|TextField|ValueField
+
+|Order
+|OrderID
+|OrderID
+
+|OrderDetail
+|ProductName
+|ProductID
+
+|====
+
+[start=15]
+. アプリケーションを保存して実行します。WebDataMenu は以下の画像のようになります。
+
+image::images\WebDataMenu_Binding_WebDataMenu_to_an_Xml_Data_Source_04.png[]

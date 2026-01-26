@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "webimagebutton-understanding-webimagebutton",
+    "controlName": ["WebImageButton"],
+    "tags": ["How Do I","Layouts","Styling"],
+    "guid": "{518F47D7-B9EA-4A3F-83D0-7A6BC7F38F0F}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WebImageButton の理解
+
+WebImageButton コントロール、およびその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WebImageButton コントロールを使用することの利点を理解できます。
+
+WebImageButton コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:webimagebutton-about-webimagebutton.html[WebImageButton について] -- WebImageButton コントロールの概要を説明しています。
+* link:webimagebutton-smart-tag.html[WebImageButton スマート タグ] -- WebImageButton スマート タグで利用可能な機能性について説明しています。

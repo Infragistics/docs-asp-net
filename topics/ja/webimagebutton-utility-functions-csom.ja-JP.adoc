@@ -1,0 +1,51 @@
+﻿////
+
+|metadata|
+{
+    "name": "webimagebutton-utility-functions-csom",
+    "controlName": [],
+    "tags": ["API","How Do I"],
+    "guid": "{A1EBEB04-F90F-46A3-96B2-7C636FF2B5D2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebImageButton ユーティリティ関数
+
+WebImageButton コントロールのクライアント サイド オブジェクト モデルは、JavaScript Client Side Object Model (CSOM) を使用して HTML にアクセスします。サーバー オブジェクト モデルは、ASPX ファイルの ASP.NET コードビハインド クラスまたはインライン コードでアクセス可能です。
+
+=== JavaScript を使用すると可能になること
+
+* WebImageButton コントロールで発生するイベントを処理。
+* ページに置かれた WebImageButton コントロールに関連する JavaScript オブジェクトへの参照を取得。これによって開発者は、プロパティや動作の値を取得および修正できます。
+* WebImageButton オブジェクトを描画するために使用される html 要素への参照を取得。これによって開発者は、プロパティの値を取得および修正できます。
+
+=== WebImageButton クライアント側オブジェクトのアクセス（3 つの方法）
+
+[start=1]
+. WebImageButton の ClientSideEvents を処理中に WebImageButton クライアント側オブジェクトにアクセス（ハンドラ関数の最初のパラメータには WebImageButton への参照が含まれる）。
+
+[source]
+----
+function myMouseDownHandler(Button, Event){window.status = "Mouse down:" + Button.getText() + " button with id:" + Button.getClientID();}
+----
+[start=2]
+. 
+
+グローバル ig_getWebControlById ユーティリティ関数を使用してページ内の WebImageButton クライアント側オブジェクトにアクセス。
+
+[source]
+----
+var button = ig_getWebControlById("WebImageButton1");window.status = "WebImageButton1 has text: " + button.getText;
+----
+[start=3]
+. 
+
+グローバル igbut_fromElem ユーティリティ関数を使用して WebImageButton に属する子 HTML 要素への参照から WebImageButton クライアント側オブジェクトにアクセス。
+
+[source]
+----
+//childTD - reference to one of TD/IMG/SPAN/INPUT-html-element used by WebImageButtonvar button = igbut_fromElem(childTD);if(button != null)window.status = "childTD belongs to: " + button.getClientID();
+----

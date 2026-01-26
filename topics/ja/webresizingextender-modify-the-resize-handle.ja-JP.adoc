@@ -1,0 +1,47 @@
+﻿////
+
+|metadata|
+{
+    "name": "webresizingextender-modify-the-resize-handle",
+    "controlName": ["WebResizingExtender"],
+    "tags": [],
+    "guid": "{A02A1821-55F5-4188-9F31-93D4E00B3293}",  
+    "buildFlags": [],
+    "createdOn": "2007-10-01T14:54:54Z"
+}
+|metadata|
+////
+
+= サイズ変更ハンドルを修正
+
+エンド ユーザーが開発者に要求するカスタマイズ リクエストは、リサイズ コントロールの右下隅に表示するリサイズ ハンドルのサイズを変更することです。リサイズ ハンドルは、カスケード スタイル シート（CSS）によって制御されます。したがって、リサイズ ハンドルを修正する最も簡単な方法は、フォームで CSS クラスを作成し、次にクラス名を WebResizingExtender の pick:[asp-net="link:{ApiPlatform}webui.webresizingextender{ApiVersion}~infragistics.webui.webresizingextender~handleclass.html[HandleClass]"]  プロパティに割り当てることです。このトピックは、インライン CSS クラスを作成して、HandleClass プロパティに割り当てる方法を説明します。
+
+[start=1]
+. CSS クラスを作成するには、ページの <head> タグ内で、終了の <title> タグの後に、タイプ "text/css" の <style> タグを作成します。
+[start=2]
+. クラスに割り当てたい名前の前に '.' を挿入することによってクラスに名前を割り当てます。
+[start=3]
+. '{' 文字を入力することでクラスを開始します。'}' 文字を入力することでクラスを終了します。
+[start=4]
+. <style> タグを閉じます。
+[start=5]
+. それが終わったら、希望のスタイル変更を行うことができます。リサイズ ハンドルは、すべての標準的な CSS に準拠し、理解します。これで境界線、背景を変更して、画像を表示するように設定するなどを実行できます。以下の例のコードは、リサイズ ハンドルの境界線、背景、幅および高さを設定します。
+
+*CSS の場合：*
+
+----
+<style type="text/css">
+	.hand0
+	{
+		border:1px solid red;
+		background:orange;
+		width:14px;
+		height:14px;
+	}
+</style>
+----
+
+[start=6]
+. CSS クラスを使用するには、デザイン面で WebResizingExtender コントロールを選択します。[プロパティ] ウィンドウで、HandleClass プロパティを "hand0" の値に設定します。これは作成した CSS クラスに指定された名前です。
+[start=7]
+. Web フォームをビルドして実行します。これでリサイズ ハンドルは赤い輪郭の小さいオレンジの四角になります。

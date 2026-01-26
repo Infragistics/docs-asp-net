@@ -1,0 +1,89 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-styling-webdayviews-alldayeventarea",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling","Styling"],
+    "guid": "{37C38A24-966C-4502-9DE3-0790E294ABED}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDayView の AllDayEventArea のスタイル
+
+== 始める前に
+
+WebDayView には一日継続する pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[アクティビティ]"] を示す領域が一番上にあります。このイベントは終日イベントといいます。AllDayEventArea と呼ばれるこの領域は、その領域で実行している作業に応じてスタイルできます。たとえばデフォルトで、この領域は灰色になっていますが、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webdayview~alldayeventareastyle.html[AllDayEventAreaStyle]"]  オブジェクトを変更することによって希望どおりにスタイルできます。 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webdayview~alldayeventselectedstyle.html[AllDayEventSelectedStyle]"]  を使用することを選択する場合にもこの領域をスタイルできます。
+
+この詳細なガイドでは、前述の 2 つのスタイリング オブジェクトを使用して、AllDayEventArea に指定できる簡単なスタイル変更を示します。
+
+== 以下の手順を実行します。
+
+[start=1]
+. *プロジェクトの作成*
+
+ASP.NET プロジェクトを作成して、WebDayView を使用して WebSchedule を設定します。設定方法については、 link:webschedule-using-the-webschedule-controls-quick-design.html[「Web フォームデザイナを使用してクイックスタート」]または link:webschedule-creating-webschedule-controls-using-code.html[「コードで WebSchedule を設定」]を参照してください。
+[start=2]
+. *AllDayEventAreaStyle の設定*
+
+AllDayEventAreaStyle オブジェクトの BackColor を最初に変更します。以下のコードはこれを実行する方法を示しています。
+
+*Visual Basic の場合：*
+
+----
+Me.WebDayView1.AllDayEventAreaStyle.BackColor = Color.OrangeRed
+----
+
+*C# の場合：*
+
+----
+this.WebDayView1.AllDayEventAreaStyle.BackColor = Color.OrangeRed;
+----
+
+[start=3]
+. 次に、AllDayEventAreaStyle オブジェクトの BorderStyle も設定します。以下のコードはこれを実行する方法を示しています。
+
+*Visual Basic の場合：*
+
+----
+Me.WebDayView1.AllDayEventAreaStyle.BorderStyle = BorderStyle.Groove
+----
+
+*C# の場合：*
+
+----
+this.WebDayView1.AllDayEventAreaStyle.BorderStyle = BorderStyle.Groove;
+----
+
+image::images\WebSchedule_Walk_Through_Styling_the_WebDayViews_AllDayEventArea_01.png[]
+
+[start=4]
+. *AllDayEventAreaSelectedStyle の設定*
+
+マウスを上に移動したときに変更するように、AllDayEventAreaSelectedStyle の BackColor と Cursor を設定します。以下のコードはこれを実行する方法を示しています。
+
+*Visual Basic の場合：*
+
+----
+Me.WebDayView1.AllDayEventAreaSelectedStyle.BackColor = Color.Red
+Me.WebDayView1.AllDayEventAreaSelectedStyle.Cursor = Infragistics.WebUI.[Shared].Cursors.Hand
+----
+
+*C# の場合：*
+
+----
+this.WebDayView1.AllDayEventAreaSelectedStyle.BackColor = Color.Red;
+this.WebDayView1.AllDayEventAreaSelectedStyle.Cursor = Infragistics.WebUI.Shared.Cursors.Hand;
+----
+
+image::images\WebSchedule_Walk_Through_Styling_the_WebDayViews_AllDayEventArea_02.png[]
+
+[start=5]
+. AllDayEventAreaStyle と AllDayEventAreaSelectedStyle を使用して実行できるその他のスタイル変更がいくつかあります。これらの 2 つのオブジェクトは、複数の {ProductName} コントロールにある  pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.shared.style.html[Style]"]  オブジェクトを使用します。
+
+== 復習
+
+この詳細なガイドでは、WebDayView の AllDayEventAreaStyle と AllDayEventAreaSelectedStyle の簡単な概要を説明しました。

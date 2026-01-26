@@ -1,0 +1,76 @@
+﻿////
+
+|metadata|
+{
+    "name": "webexplorerbar-display-modes",
+    "controlName": ["WebExplorerBar"],
+    "tags": ["How Do I"],
+    "guid": "{3AC9BDCC-A06A-41D1-8A3C-F558A3226468}",  
+    "buildFlags": [],
+    "createdOn": "2010-01-03T22:33:29Z"
+}
+|metadata|
+////
+
+= 表示モード
+
+WebExplorerBar™ コントロールには、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webexplorerbar~groupexpandbehavior.html[GroupExpandBehavior]"]  と  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webexplorerbar~groupexpandaction.html[GroupExpandAction]"]  という、動作する方法を制御する 2 つのプロパティがあります。GroupExpandBehavior は展開できるグループの数を制御し、GroupExpandAction はこれらのグループを展開するアクションを制御します。
+
+pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.groupexpandbehavior.html[GroupExpandBehavior]"]  は以下の値がある列挙体です。
+
+* SingleExpanded – 一度に展開できるグループは 1 つだけです。
+* AllExpanded – すべてのグループを展開して展開したままにしておきます。
+* AnyExpandable – すべてのグループを展開および縮小できます。デフォルト値。
+
+pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.groupexpandaction.html[GroupExpandAction]"]  は以下の値がある列挙体です。
+
+* HeaderClick – グループ ヘッダーがクリックされた時にグループが展開されるデフォルト値。
+* ButtonClick– 展開アイコンがクリックされた時に限りグループが展開されます。
+* HeaderHover – カーソルがグループ ヘッダー上に移動した時にグループが展開されます。
+
+次のコードは、WebExplorerBar でこれらのプロパティを設定する方法を示します。
+
+*HTML の場合:*
+
+----
+<ig:WebExplorerBar ID="WebExplorerBar1" runat="server" GroupExpandBehavior="SingleExpanded" GroupExpandAction="ButtonClick"> 
+</ig:WebExplorerBar >
+----
+
+*Visual Basic の場合：*
+
+----
+Me.WebExplorerBar1.GroupExpandBehavior = Infragistics.Web.UI.NavigationControls.GroupExpandBehavior.AnyExpandable 
+Me.WebExplorerBar1.GroupExpandAction = Infragistics.Web.UI.NavigationControls.GroupExpandAction.ButtonClick
+----
+
+*C# の場合：*
+
+----
+this.WebExplorerBar1.GroupExpandBehavior = Infragistics.Web.UI.NavigationControls.GroupExpandBehavior.AnyExpandable;
+this.WebExplorerBar1.GroupExpandAction = Infragistics.Web.UI.NavigationControls.GroupExpandAction.ButtonClick;
+----
+
+== 関連トピック
+
+link:webexplorerbar-smart-tag.html[WebExplorerBar Smart Tag]
+
+link:webexplorerbar-keyboard-navigation.html[Keyboard Navigation]
+
+link:webexplorerbar-height-properties.html[WebExplorerBar Height Properties]
+
+link:webexplorerbar-setting-navigateurl-and-target-properties.html[Setting NavigateURL and Target Properties]
+
+link:webexplorerbar-binding-to-an-xml-data-source.html[Binding to an XML Data Source]
+
+link:webexplorerbar-binding-to-webhierarchcialdatasource.html[Binding to WebHierarchcialDataSource]
+
+link:webexplorerbar-serverevents.html[Server-Side Events]
+
+link:webexplorerbar-selection-behavior.html[Selection Behavior]
+
+link:webexplorerbar-clientside-api.html[ClientSide API]
+
+link:webexplorerbar-clientevents.html[Client-Side Events]
+
+link:webexplorerbar-styling.html[CSS Class Properties]

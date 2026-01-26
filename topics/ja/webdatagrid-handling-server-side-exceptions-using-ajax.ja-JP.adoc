@@ -1,0 +1,174 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-handling-server-side-exceptions-using-ajax",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Events","Grids"],
+    "guid": "{FCA79C1E-B88B-49BA-84EF-EAFCE92E6327}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= AJAX を使用してサーバー側の例外を処理
+
+== 始める前に
+
+デフォルトで、AJAX 対応の WebDataGrid™ コントロールは遭遇したクライアント側の例外を表示するためのメッセージをポップアップします。例外を処理して固有のカスタム メッセージを表示したい場合には、AJAXResponse クライアント側イベントによってそうすることができます。AJAXResponse イベントはサーバーからの AJAX 応答のたびにイベントを発生させます。これはサーバーからクライアントにメッセージを伝達するために理想的な場所です。
+
+== 達成すること
+
+CRUD 操作からの例外を処理してクライアントにエラー メッセージを伝達し、WebDialogWindow™ コントロールでエンド ユーザーにカスタム メッセージを表示する方法を学習します。
+
+== 次の手順を実行します
+
+[start=1]
+. SqlDataSource コンポーネントを使用して WebDataGrid を Customers テーブルにバインドします。詳細については、 link:webdatagrid-getting-started-with-webdatagrid.html[「WebDataGrid で開始」]を参照してください。
+[start=2]
+. WebDataGrid のデータ編集イベント（RowDeleted、RowAdded、RowUpdated）のいずれでも呼び出すことができる HandleError と言う名前のメソッドを作成します。これらのイベントは、設定してクライアントに伝達して戻すことができる例外メッセージがある場合に提供します。GridResponse オブジェクトは AJAX の呼び出しに対して渡したいメッセージを設定する場所です。
+
+*Visual Basic の場合:*
+
+----
+Protected Sub HandleError(sender As Object, e As Infragistics.Web.UI.GridControls.EditedEventArgs)
+   If Not (e.Exception Is Nothing) Then
+      ' クライアントに渡す例外メッセージを設定します。 
+      Me.WebDataGrid1.GridResponse.Message = e.Exception.Message
+      ' 例外の理由を設定します。 
+      Me.WebDataGrid1.GridResponse.Tag = "Error"
+      ' サーバー側の例外が処理されるように設定します。 
+      e.ExceptionHandled = True
+   End If
+End Sub
+----
+
+*C# の場合:*
+
+----
+protected void HandleError(object sender, 
+   Infragistics.Web.UI.GridControls.EditedEventArgs e) 
+{ 
+   if (e.Exception != null) 
+   { 
+      // クライアントに渡す例外メッセージを設定します。 
+      this.WebDataGrid1.GridResponse.Message = e.Exception.Message; 
+      // 例外の理由を設定します。 
+      this.WebDataGrid1.GridResponse.Tag = "Error"; 
+      // サーバー側の例外が処理されるように設定します。 
+      e.ExceptionHandled = true; 
+   } 
+}
+----
+
+[start=3]
+. この時点でクライアント側でエラーを処理する準備ができました。エラーを処理および表示するための方法が必要です。このサンプルはこれを実行するために WebDialogWindow™ コントロールを使用します。
+[start=4]
+. WebDialogWindow コントロールをフォームにドラッグしてデフォルト スタイルを追加するプロンプトを認めます。以下のように WebDialogWindow コントロールを構成します:
+
+.. 3 つの html DIV 要素を WebDialogWindow コントロールにドラッグします。
+.. ボタンを WebDialogWindow コントロールにドラッグします。ボタンの値を OK に設定し、このボタンのクリック イベント ハンドラーを追加します。
+.. DIV をもうひとつフォームにドラッグして、その中に WebDialogWindow コントロールを配置します。
+.. WebDialogWindow が選択されたプロパティ ウィンドウで、WindowState プロパティを Hidden に設定します。WebDialogWindow はアプリケーションの起動時は当初非表示で、エラーが発生した時に限って表示します。
+
+WebDialogWindow のマークアップとコンテンツは以下のようになるはずです:
+
+*HTML の場合:*
+
+----
+<div style="position:absolute; top: 75px; left: 57px; width: 231px; margin-top: 7px;">
+    <ig:WebDialogWindow ID="WebDialogWindow1" runat="server" Height="160px" 
+        Width="383px" Modal="True" WindowState="Hidden">
+        <ContentPane>
+            <Template>
+                <div id="DialogContent" style="text-align: center">
+                <div id="ErrorDiv" style="text-align:center">
+                </div>
+                <br />
+                <br />
+                <div id="DefaultMessage" style="text-align:center">
+                Changes will not be committed.
+                </div>
+                <br />
+                    <input ID="OkButton" type="button" value="OK" onclick="return OkButton_onclick()" />
+                </div>
+            </Template>
+        </ContentPane>
+    </ig:WebDialogWindow>
+    </div>
+----
+
+[start=5]
+. WebDialogWindow で OK ボタンの onclick イベントのためのハンドラを作成します。クリックされるとボタンはコントロールを非表示にします。 
+
+*JavaScript の場合*
+
+----
+var dialog = $find("WebDialogWindow1");
+                      dialog.hide();
+----
+
+[start=6]
+. WebDataGrid で編集と選択を有効にします。
+
+.. Microsoft® Visual Studio™ プロパティ ウィンドウで、Behaviors プロパティを指定して、省略記号 (...) ボタンをクリックし、[動作エディター] ダイアログを起動します。
+.. 必要な編集イベントを有効にします。目的のために、Row Deleting 動作の CheckBox をチェックして有効にします。
+.. Selection 動作をチェックしてこれも有効にします。
+.. [適用] そして [OK] ボタンをクリックしてエディターを閉じます。
+
+[start=7]
+. イベント グリッドに移動して、EditingCore.RowDeleted をダブルクリックすることによって、RowDeleted サーバー側イベントを処理します。
+[start=8]
+. RowDeleted イベントのイベント ハンドラで前に作成された HandleError メソッドを呼び出します。その他の編集イベント（たとえば RowAdded と RowUpdated）に対してもこれを実行できます。
+
+*Visual Basic の場合:*
+
+----
+Protected Sub WebDataGrid1_RowDeleted(sender As Object, e As Infragistics.Web.UI.GridControls.RowDeletedEventArgs)
+   HandleError(sender, e)
+End Sub
+----
+
+*C# の場合:*
+
+----
+protected void WebDataGrid1_RowDeleted(object sender, 
+Infragistics.Web.UI.GridControls.RowDeletedEventArgs e)
+    {
+        HandleError(sender, e);
+    }
+----
+
+[start=9]
+. AJAXResponse イベントを処理します。
+
+.. WebDataGrid のプロパティ グリッドで、ClientEvents プロパティを展開します。
+.. AJAXResponse イベント ハンドラの名前として AjaxResponse に入力します。
+.. イベント ハンドラのコードで、エラー メッセージが存在する場合はそれを取得し、WebDialogWindow コントロールに表示します。
+
+*JavaScript の場合*
+
+----
+function AjaxResponse(sender, e) 
+{           
+            // グリッドが実際的に描画されるようにすべてのサーバー側例外が処理されることを確認します。
+            if (e.get_browserResponseObject().status == 200) {
+                // エラーをチェックします。
+                if (e.get_gridResponseObject().Tag == "Error") {
+                    var dialog = $find("WebDialogWindow1");
+                    // エラー メッセージを取得します。
+                    var errorMessage = e.get_gridResponseObject().Message;
+                    // エラー メッセージとともにダイアログ ウィンドウを表示します。
+                    var contentDiv = document.getElementById("ErrorDiv");
+                    contentDiv.innerHTML = errorMessage;
+                    dialog.show();
+                }
+            }
+        }
+----
+
+[start=10]
+. アプリケーションを実行します。行を選択して、Delete キーを押します。WebDialogWindow はデータの参照整合性を侵害したことを通知します。[OK] をクリックしてダイアログを閉じます。
+
+image::images/WebDataGrid_Events_HandlingEventsAJAX_01.png[]

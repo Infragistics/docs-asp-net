@@ -1,0 +1,34 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-delete-a-recurring-appointment-client-side",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling"],
+    "guid": "{D7501857-4235-42FF-AC09-4C425D82FCC1}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= クライアント側の繰り返し予定を削除
+
+既存の Recurrence オブジェクトを更新するには、繰り返しを持つ予定を最初に取得する必要があります。このトピックでは、予定のデータキーを知っていることを前提とします。繰り返しを削除するため、予定からオブジェクトを取得する必要はありません。その代わりに、Recurrence 属性を Null に設定するためには activityUpdateProps を設定するだけです。最後の手順は、WebScheduleInfo の updateActivity メソッドを呼び出すことです。
+
+*JavaScript の場合:*
+
+----
+// この予定を Activities コレクションから取得します。
+var appointment = oWebScheduleInfo1.getActivities().getItemFromKey("3522");
+// activityUpdateProps の Recurrence 属性を null に設定します。
+var activityUpdateProps = {Recurrence: null};
+// 更新したプロパティを渡すことによってアクティビティを更新します。
+oWebScheduleInfo1.updateActivity(activityUpdateProps, appointment, "");
+----
+
+== 関連トピック
+
+link:webschedule-add-a-recurring-appointment-client-side.html[クライアント側で繰り返し予定を追加]
+
+link:webschedule-update-a-recurring-appointment-client-side.html[クライアント側で繰り返し予定を更新]

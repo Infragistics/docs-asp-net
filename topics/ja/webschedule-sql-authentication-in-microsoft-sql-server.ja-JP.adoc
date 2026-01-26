@@ -1,0 +1,51 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-sql-authentication-in-microsoft-sql-server",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Patterns and Practices","Scheduling"],
+    "guid": "{7BDD0854-BF76-4E95-9972-7EFEA62E152C}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Microsoft SQL Server での SQL 認証
+
+SQL 認証は接続する、またはストアド プロシージャを実行するユーザーを認証するために Microsoft SQL Server を構成することができる 2 つの認証モードのひとつです。Windows のドメイン、グループ、またはユーザー ID に関係なくユーザーにアクセスを許可したい時に、SQL 認証を使用します。SQL 認証を使用してアプリケーションごとに特定のロールを設定することができ、データベースへのアクセス時のユーザーに与えるアクセス権を指定および定義することができます。
+
+Microsoft SQL Server が提供するデフォルトのログイン、ブランク パスワードの  _sa_ （システム管理者）による SQL 認証はほとんどのユーザーによく知られています。これは、その他の接続が指定されていない場合に、デフォルトの SQL Server インスタンスに接続するために  pick:[asp-net="link:{ApiPlatform}webui.webscheduledataprovider{ApiVersion}~infragistics.webui.data.webschedulesqlclientprovider.html[WebScheduleSqlClientDataProvider]"]  コントロールが使用する（ローカル）サーバーでのデータベース ログインですが、実稼働環境で使用するには好ましくない選択肢です。したがって、よりしっかりと保護されたログイン名とパスワードを指定する接続文字列を使用した固有の SqlConnection を設定し、アプリケーションが配備する時に WebScheduleSqlClientDbProvider を接続することを推奨します。
+
+多数の配備でアプリケーション ロールと連携して SQL 認証が使用されます。ロールを追加したいデータベースに移動して、データベースの下にある「ロール」ノードを右クリックし、コンテキスト メニューから [新しいデータベースロール...] を選択することで、WebSchedule 用のアプリケーション ロールを追加できます。
+
+image::Images/WebSchedule_Related_Topics_SQL_Authentication_in_Microsoft_SQL_Server_01.png[]
+
+「WebSchedule」などのアプリケーション ロールの名前を入力して、上に表示されるダイアログから [アプリケーション ロール] ラジオボタンを選択します。次に WebSchedule アプリケーション ロールに適切なパスワードを指定して [OK] をクリックします。
+
+次にサーバーの下にある [セキュリティ] ノードを展開して、[ログイン] ノードを右クリックし、コンテキスト メニューから [新しいログインの追加...] を選択します。[新しいログイン] ダイアログが表示されたら、アプリケーション ロール名「WebSchedule」を指定し、SQL Server 認証ラジオボタンを選択します。アプリケーション ロールのログイン用のパスワードを指定します（これはユーザー「WebScheduleUser」によって使用され、データベースに追加します）。デフォルトのデータベースは「マスター」に設定したままにしておきます。これによって、デザインタイム環境からその他のデータベースをリストするカタログを読み取るために必要な特定の権限をアプリケーション ロールに指定します。
+
+image::Images/WebSchedule_Related_Topics_SQL_Authentication_in_Microsoft_SQL_Server_03.png[]
+
+アプリケーション ロールを入力してログインを指定した後で、データベースの下にある [ユーザー] ノードに移動します。このノードを右グループして、次にコンテキスト メニューから [新しいデータベース ユーザー] を選択します。
+
+image::Images/WebSchedule_Related_Topics_SQL_Authentication_in_Microsoft_SQL_Server_02.png[]
+
+上記のダイアログで、ログイン名としてアプリケーション ロール名を指定して、次にこのロールの通常ユーザー名、この例では「WebScheduleUser」を指定します。
+
+次に WebSchedule ストアド プロシージャを実行するために「WebSchedule」アプリケーション ロールに権限を与える必要があります（また間接的にこれは「WebScheduleUser」をカバーする）。（これはデータ プロバイダで  pick:[asp-net="link:{ApiPlatform}webui.webscheduledataprovider{ApiVersion}~infragistics.webui.data.webscheduledbprovider~usestoredprocedure.html[UseStoredProcedures]"]  プロパティを True に設定して実行することが前提となります。動的 SQL で動作することを意図している場合、WebSchedule テーブルのそれぞれで SELECT、INSERT、UPDATE および DELETE の各権限を付与する必要があります。）
+
+[ロール] に戻り、右クリックして「WebSchedule」アプリケーション ロールの [プロパティ...] を編集します。表示されるダイアログで、[権限...] ボタンをクリックします。これによって、すべてのデータベース オブジェクト（テーブル、ストアド プロシージャおよびビュー）を含むグリッドに移動します。ここで WebSchedule ストアド プロシージャのみのために EXECUTE の欄にある各チェックボックスに緑色のチェックマークを付けます。ダイアログを終了すると、以下のようなスクリーンショットのように表示されます。
+
+image::Images/WebSchedule_Related_Topics_SQL_Authentication_in_Microsoft_SQL_Server_04.png[]
+
+これで SQL Server Enterprise Manager でアプリケーション ロールが構成されました。Microsoft Visual Studio .NET 環境に戻り、WebSchedule アプリケーションの WebForm に戻ります。戻っていない場合には、SqlConnection コンポーネントをフォームにドラッグして選択します。プロパティ エディタで、ConnectionString プロパティのリスト ボックスをドロップダウンして、[新しい接続...] を選択します。これによって [データリンク] プロパティ ページ ダイアログが表示され、接続用のパラメータを指定できます。
+
+image::Images/WebSchedule_Related_Topics_SQL_Authentication_in_Microsoft_SQL_Server_05.png[]
+
+ローカルの SQL Server で最初のフィールドに「.」を入力できます。入力しない場合には、ドロップダウン リストから SQL Server 名を選択します。ラジオボタンを選択すると、ログイン名とパスワードを指定できるフィールドが有効になります。アプリケーション ロールをログイン名に使用し、SQL Server Enterprise Manager でアプリケーション ロール ログインを定義した時に上記で指定したパスワードをパスワードに使用します。
+
+アプリケーション ロールが Microsoft SQL Server のマスター データベースへのアクセス権を持っている限り、使用可能なデータベースのカタログを受け取ります。このカタログから「WebScheduleUser」ID に追加した「WebSchedule1」と名前が指定されたデータベースを選択します。アプリケーション ロールによってはカタログにデータベースをリストするためのアクセス権が付与されない場合があります（これはデータベース管理者による普通の対策です）。「WebSchedule1」データベースを表示できない場合、直接データベース名を入力できます。[テスト接続] ボタンをクリックすると、選択したサーバーとデータベースにアクセスするためのログイン、パスワード、権限のすべてが有効な場合には、Microsoft Visual Studio .NET から成功を通知する回答を受け取ります。成功を通知するメッセージを受け取らない場合には、上記に実行した手順を再チェックして、TCP/IPで SQL Server にアクセス可能なことを確認します。
+
+このトピックでは、Microsoft SQL Server で WebSchedule アプリケーションのためにロールベースのセキュリティを設定する方法を紹介しましたが、検討しなければならない多数の問題のさわりしか紹介していません。ここで紹介したトピックの詳細については、Microsoft SQL Server Books Online を参照してください。

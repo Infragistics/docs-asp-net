@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-drag-and-drop-framework-csom-overview",
+    "controlName": ["WebDragandDropFramework"],
+    "tags": ["API"],
+    "guid": "{5F8DF133-28B4-4854-961E-9C658F59143C}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= CSOM の概要
+
+ドラッグ アンド ドロップ フレームワークは、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを公開します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクトで構成され、開発者はサーバー側にポストバックしなくても、コントロールに関連する重要な機能単位をプログラムできます。
+
+link:drag%20and%20drop~infragistics.web.ui_namespace.html[ドラッグ アンド ドロップ フレームワーク CSOM の概要]

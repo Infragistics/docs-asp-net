@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatamenu-closemenuonclick-property",
+    "controlName": ["WebDataMenu"],
+    "tags": [],
+    "guid": "2df98c3f-7bce-4b57-8dca-6175a5229528",  
+    "buildFlags": [],
+    "createdOn": "2010-10-07T11:13:25.520965Z"
+}
+|metadata|
+////
+
+= WebDataMenu CloseMenuOnClick プロパティ
+
+* 新しい CloseMenuOnClick プロパティが追加されました:
+
+** CloseMenuOnClick が True（デフォルト） - 子を持たない非ルート項目がクリックされた時、メニューは閉じます。
+** CloseMenuOnClick が False - 子を持たない非ルート項目がクリックされた時、メニューは閉じません。
+** 展開されているルート項目がクリックされると、閉じます。再度クリックされると、開きます。

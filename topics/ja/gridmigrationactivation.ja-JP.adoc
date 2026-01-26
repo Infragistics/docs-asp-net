@@ -1,0 +1,235 @@
+﻿////
+
+|metadata|
+{
+    "name": "gridmigrationactivation",
+    "controlName": [],
+    "tags": [],
+    "guid": "05043500-9773-4a54-a227-f2fbc32e9622",  
+    "buildFlags": [],
+    "createdOn": "2016-02-29T16:27:42.5022347Z"
+}
+|metadata|
+////
+
+= グリッドの移行 - アクティブ化
+
+グリッドのアクティブ化動作は、グリッドの現在の行/セルがアクティブであるかどうかを決定するために使用されます。アクティブな行/セルは、現在フォーカスされている行/セル、または最後にユーザーが操作（ボタンを押す、マウスをクリックするなど）した行/セルです。 グリッドの特定の機能は、アクティブ化 - キーボード ナビゲーション、セルの編集、行の追加、アクティベーション境界の表示、イベントに基づくアクティブ化によって異なります。
+
+1 度にアクティブにできるのは、1 つの行、1 つのセルのみであることを忘れないでください。アクティブ化は、選択することと同じではありません。複数の行またはセルを選択しても、アクティブになるのは 1 つの行または 1 つのセルのみです。通常、アクティブ行またはセルは、選択のアンカー ポイントの役割を果たします。
+
+WebGrid (UltraWebGrid) コントロールでは、「Activation オブジェクト」は、現在アクティブなオブジェクトの属性を指定するために使用されます。アクティブ オブジェクトは、入力フォーカスがあるオブジェクトです。WebGrid では、Row オブジェクトおよび Cell オブジェクトのみがアクティブになります。セルがアクティブになると、 その行はアクティブ行になります。「Activation オブジェクト」は、アクティブなセルおよび行を、グリッド内の選択された他のセルや行、アクティブでない、または選択されていないセルや行と区別するために使用できます。セルおよび行がアクティブになると、Activation オブジェクトの属性は、「ActiveCell」オブジェクトおよび「ActiveRow」オブジェクトに適用されます。「Activation」オブジェクトのプロパティには、BorderColor、BorderStyle および BorderWidth が含まれます。オブジェクトの [AllowActivation] プロパティは、行とセルをアクティブ化するユーザー機能の切り替えに使用できます。アクティブ化が無効な場合は、セルのコンテンツの編集や行の新規追加ができません。
+
+WebGrid のアクティブ化は、グリッドの Visual Studio デザイナー モードで、[Properties > Display Layout > Activation Object > Allow Activation] から有効または無効にできます。.aspx ソース コードを使用することもできます。
+
+*ASPX の場合:*
+
+[source,html]
+----
+<DisplayLayout …>
+…
+<ActivationObject AllowActivation="true" BorderColor="" BorderWidth="">
+</ActivationObject>
+…
+</DisplayLayout>
+----
+
+WebDataGrid/WebHierarchicalDataGrid ではアクティブ化は動作として表示されます。これらのグリッド コントロールは、セルのアクティブ化をサポートします。現在、マウスでセルをクリックしている、または最後にクリックした場合などは、そのセルがアクティブな状態です。 アクティブ セルが属する行または列もアクティブと認識されます。要素も、コードによりアクティブ化されます。WebDataGrid/WebHierarchicalDataGrid の一部の機能にはアクティブな要素が必要です。WebDataGrid/WebHierarchicalDataGrid で 1 度にアクティブにできるのは、1 つのセルのみです。
+
+アクティブ化がオンで WebHierarchicalDataGrid が使用されている場合に、現在アクティブな行の子行は、キーボードの [+] キーで展開し、[-] キーで折りたたみできます。
+
+WebDataGrid/WebHierarchicalDataGrid のデザイン タイムの「アクティブ化」動作を有効にするには、プロパティ ウィンドウの動作の省略記号（...）ボタンをクリックし、動作エディターの「アクティブ化」動作をチェックします。
+
+WebDataGrid/WebHierarchicalDataGrid の「アクティブ化」は、次のように動作します。
+
+[start=1]
+. セルをクリックすると、そのセルと行がアクティブになります。 
+[start=2]
+. WebDataGrid でタブに移動すると、最初のセルがアクティブになります。引き続き、他のセルにタブを移動、または方向キーを使用してナビゲートできます。
+[start=3]
+. WebHierarchicalDataGrid でタブに移動すると、最初のセルがアクティブになります。引き続き、他のセルにタブを移動、または方向キーを使用してナビゲートできます。子バンドを展開すると、タブに移動、または方向キーを使用して子レベルのセルの間をナビゲートできます。
+[start=4]
+. セルは 1 度アクティブ化されると、フォーカスされなくなり、WebDataGrid/WebHierarchicalDataGrid によりアクティブ化が維持されます。
+[start=5]
+. ポストバック中に、WebDataGrid/WebHierarchicalDataGrid はアクティブ セルを維持します。
+[start=6]
+. 行を選択すると、行の最初のセルがアクティブ化されます。
+
+「アクティブ化」のこのような動作は、.aspx ソース コードで有効にできます。
+
+*ASPX の場合:*
+
+[source,html]
+----
+<Behaviors>
+     <ig:Activation>
+     </ig:Activation>
+</Behaviors>
+----
+
+WebDataGrid/WebHierarchicalDataGrid は、次の方法でもアクティブ化できます。
+
+キーボード - *方向キー*、*Tab*、*Enter*、*Shift* *+ Enter*, *Shift + Tab*, *Shift + [任意の方向キー]* 。
+
+マウス - *マウスの左ボタン* のクリック。
+
+*クライアント側のコード スニペット* :
+
+UltraWebGrid のアクティブ化:
+
+行のアクティブ化:
+
+*JavaScript の場合:*
+
+[source,js]
+----
+function MyFunction() {
+            var grid = igtbl_getGridById('UltraWebGrid1'); // グリッドを取得する
+            var row = grid.Rows.getRow(1); // 行番号 1 を取得する
+            row.activate(); // 行をアクティブ化
+        }
+----
+
+行は、グリッド オブジェクトから直接アクティブ化することもできます。
+
+*JavaScript の場合:*
+
+[source,js]
+----
+function MyFunction() {
+            var grid = igtbl_getGridById('UltraWebGrid1'); // グリッドを取得する
+            var row = grid.Rows.getRow(1); // 行番号 1 を取得する
+            grid.setActiveRow(row); // 行をアクティブ化
+        }
+----
+
+セルのアクティブ化
+
+*JavaScript の場合:*
+
+[source,js]
+----
+function MyFunction() {
+            var grid = igtbl_getGridById('UltraWebGrid1'); // グリッドを取得する
+            var row = grid.Rows.getRow(1); // 行番号 1 を取得する
+            var cell = row.getCell(2); // 行 1 からセル 2 を取得する
+            cell.activate(); //セルをアクティブ化
+        }
+----
+
+セルは、グリッド オブジェクトから直接アクティブ化することもできます。
+
+*JavaScript の場合:*
+
+[source,js]
+----
+function MyFunction() {
+            var grid = igtbl_getGridById('UltraWebGrid1'); // グリッドを取得する
+            var row = grid.Rows.getRow(1); // 行番号 1 を取得する
+            var cell = row.getCell(2); // 行 1 からセル 2 を取得する
+            grid.setActiveCell(cell); //セルをアクティブ化
+        }
+----
+
+*Web**Data**Grid* *のアクティブ化* :
+
+*JavaScript の場合:*
+
+[source,js]
+----
+function MyFunction() {
+var grid = $find("WebDataGrid1");
+// アクティブ セルを設定する
+grid.get_behaviors().get_activation().set_activeCell(grid.get_rows().get_row(0).get_cell(1));
+// アクティブ セルを取得する
+var activeCell = grid.get_behaviors().get_activation().get_activeCell();
+}
+----
+
+*Web**HierarchicalData**Grid* *のアクティブ化* :
+
+*JavaScript の場合:*
+
+[source,js]
+----
+function MyFunction() {
+var parentGrid = grid.get_gridView();
+// アクティブな親セルを設定する
+if (parentGrid != null) parentGrid.get_behaviors().get_activation().set_activeCell(parentGrid.get_rows().get_row(0).get_cell(2));
+var childGrid = grid.get_gridView().get_rows().get_row(0).get_rowIslands(0)[0];
+// 子レベルにアクティブ セルを設定する
+if (childGrid != null)    childGrid.get_behaviors().get_activation().set_activeCell(childGrid.get_rows().get_row(0).get_cell(2));
+}
+----
+
+*サーバー側のコードスニペット** :*
+
+UltraWebGrid のアクティブ化:
+
+RowActivation:
+
+*C# の場合:*
+
+[source,csharp]
+----
+UltraGridRow row = UltraWebGrid1.Rows[1];
+if (!row.Activated)
+ {
+    // ポストバックが終了すると、この行はグリッド内でフォーカスされ、
+    // アクティベーション境界を表示する
+     row.Activated = true;
+}
+----
+
+セルのアクティブ化
+
+*C# の場合:*
+
+[source,csharp]
+----
+UltraGridCell cell = UltraWebGrid1.Rows[0].Cells[0];
+if (!cell.Activated)
+{
+    // ポストバックが終わると、この列はグリッド内でフォーカスされ、
+    // アクティベーション境界を表示する
+    cell.Activated = true;
+}
+----
+
+*WebDataGrid* *のアクティブ化* :
+
+*C# の場合:*
+
+[source,csharp]
+----
+// アクティブ セルを設定する
+this.WebDataGrid1.Behaviors.Activation.ActiveCell = this.WebDataGrid1.Rows[0].Items[1];
+----
+
+*WebHierarchicalDataGrid*のアクティブ化:*
+
+*C# の場合:*
+
+[source,csharp]
+----
+// RowIslandDataBound イベントの取り込み
+this.WebHierarchicalDataGrid1.RowIslandDataBound += new RowIslandEventHandler(WebHierarchicalDataGrid1_RowIslandDataBound);
+protected void WebHierarchicalDataGrid1_RowIslandDataBound(object sender, RowIslandEventArgs e)
+{
+   // 親バンド
+   if (e.RowIsland.DataMember == "SqlDataSource1_DefaultView")
+   {
+      // 親バンドにアクティブ セルを設定する
+      Activation active = e.RowIsland.Behaviors.Activation;
+      active.ActiveCell = e.RowIsland.Rows[0].Items[1];
+   }
+   // 子バンド
+   if (e.RowIsland.DataMember == "SqlDataSource2_DefaultView"
+        && e.RowIsland.ParentRow == this.WebHierarchicalDataGrid1.GridView.Rows[0])
+   {
+      // 子バンドにアクティブ セルを設定する
+      Activation active = e.RowIsland.Behaviors.Activation;
+      active.ActiveCell = e.RowIsland.Rows[0].Items[2];
+   }
+}
+----

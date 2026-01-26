@@ -1,0 +1,57 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatatree-drag-and-drop-handle-server-side-event",
+    "controlName": ["WebDataTree"],
+    "tags": ["Events"],
+    "guid": "7b57bd4d-0abf-4940-be51-48b1ce263c3a",  
+    "buildFlags": [],
+    "createdOn": "2010-06-03T08:48:06.370581Z"
+}
+|metadata|
+////
+
+= サーバー側イベントを処理
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatatree.html[WebDataTree™] のドラッグ アンド ドロップ機能を使用すると、ロジックを実行するために処理できるサーバー側イベントがいくつかあります。以下のコードは、WebDataTree コントロールの serverNodeDropped イベントを処理して、イベント引数にアクセスする方法を示します。
+
+*HTML の場合:*
+
+----
+        <ig:WebDataTree ID="WebDataTree1" runat="server"
+        OnNodeDropped = "serverNodeDropped"
+         >
+            <Nodes>
+                <ig:DataTreeNode Text="Node1">
+                </ig:DataTreeNode>
+                <ig:DataTreeNode Text="Node2">
+                </ig:DataTreeNode>
+            </Nodes>
+        </ig:WebDataTree>
+             <asp:TextBox ID="resultTextBox" runat="server" />
+----
+
+*C# の場合：*
+
+----
+    protected void serverNodeDropped(object sender, DataTreeNodeDroppedEventArgs e)
+    {
+        this.resultTextBox.Text += string.Format("Node Dropped: {0} ", e.SourceNodes[0].Text);
+    }
+----
+
+
+WebDataTree のドラッグ アンド ドロップには以下の新しいサーバー側イベントがあります:
+
+* *link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatatree~nodeadded_ev.html[NodeAdded]* - 追加/挿入の後、コレクションへのノードの追加に成功した後は必ず発生します。
+* *link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatatree~noderemoved_ev.html[NodeRemoved]* - 削除の後、ノードをコレクションから削除するのに成功した時には必ず発生します。
+* *link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatatree~nodedropped_ev.html[NodeDropped]* - ノードの追加に成功した直後に発生します。
+
+== 関連トピック
+
+link:webdatatree-drag-and-drop-client-side-api.html[クライアント側 API]
+
+link:webdatatree-drag-and-drop-client-side-events.html[クライアント側イベント]
+
+link:webdatatree-drag-and-drop-modes.html[ドラッグ アンド ドロップ モード]

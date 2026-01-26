@@ -1,0 +1,72 @@
+﻿////
+|metadata|
+{
+    "name": "webschedule-add-an-activity-on-the-server",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling"],
+    "guid": "{F7EB1E36-D604-4128-80CF-F489FCB393D3}",
+    "buildFlags": [],
+    "createdOn": "2005-07-09T00:00:00Z"
+}
+|metadata|
+////
+
+= サーバー上のアクティビティを追加
+
+サーバー側のコードで、現在のページ要求に対する予定を描画するためにデータ バインディングの後で、新しい pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[アクティビティ]"] を WebScheduleInfo の pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~activities.html[アクティビティ]"]  コレクションに追加することができます。目的はこのアクティビティを描画するだけであるため、Page クラスの PreRender イベントはアクティビティを配置するのに最適な場所です。
+
+*注：* Activities コレクションは、データストアの冗長性のために、デザインによって ViewState では決して保持されません（ViewState が有効な時でも）。各ページ要求で、WebScheduleInfo はそのデータストアに再度バインディングします。プログラムでこのアクティビティをデータストアに追加したい場合には、 link:webschedule-add-an-activity-to-the-database.html[「アクティビティをデータベースに追加する方法」]を参照してください。
+
+追加したアクティビティが表示されない場合には、アクティビティを追加する前に、WebScheduleInfo で  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~databind.html[DataBind]"]  メソッドを呼び出したことを確認します。データ バインディングは、データストアからの現在のスケジュール情報を入れるために、Activities コレクションをクリアします。
+
+アクティビティの作成する情報については、 link:webschedule-create-an-activity-using-code.html[「コードでアクティビティを作成する方法」]を参照してください。
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.appointment.html[予定]"] を追加するには、データ バインディングの後でこの新たに初期化されたアクティビティを使用して、Activities コレクションで  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activitiescollection~add.html[Add]"]  メソッドを呼び出す必要があります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.WebUI.Shared
+Imports Infragistics.WebUI.WebSchedule
+...
+Private Sub Page_PreRender(ByVal sender As Object, _
+	ByVal e As EventArgs) Handles MyBase.PreRender
+	'アクティビティをコレクションに追加する前に手動でデータ バインドします。
+	Me.WebScheduleInfo1.DataBind()
+	'ヘルパー関数でアクティビティを作成および初期化します。
+	Dim appt As Appointment = Me.CreateAppointment()
+	'アクティビティを WebScheduleInfo1 の Activities コレクションに追加します。
+	Me.WebScheduleInfo1.Activities.Add(appt)
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.WebUI.Shared;
+using Infragistics.WebUI.WebSchedule;
+...
+private void Page_PreRender(object sender, EventArgs e)
+{
+	// アクティビティをコレクションに追加する前に手動でデータ バインドします。
+	this.WebScheduleInfo1.DataBind();
+	// ヘルパー関数でアクティビティを作成および初期化します。
+	Appointment appt = this.CreateAppointment();
+	// アクティビティを WebScheduleInfo1 の Activities コレクションに追加します。
+	this.WebScheduleInfo1.Activities.Add(appt);
+}
+----
+
+== 関連トピック
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[WebSchedule 名前空間]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo.html[WebScheduleInfo クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webdayview.html[WebDayView クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webmonthview.html[WebMonthView クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.appointment.html[Appointment クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[Activity オブジェクト]"]

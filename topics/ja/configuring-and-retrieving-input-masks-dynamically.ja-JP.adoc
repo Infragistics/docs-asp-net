@@ -1,0 +1,196 @@
+﻿////
+
+|metadata|
+{
+    "name": "configuring-and-retrieving-input-masks-dynamically",
+    "controlName": ["WebMaskEditor"],
+    "tags": ["API","Editing","How Do I","Tips and Tricks"],
+    "guid": "2d4d1573-a2c8-4348-9ed4-7c965fb53b57",  
+    "buildFlags": [],
+    "createdOn": "2012-09-19T11:52:32.7431832Z"
+}
+|metadata|
+////
+
+= 動的に入力マスクを設定および取得
+
+== トピックの概要
+
+=== 目的
+
+このトピックは  _WebMaskEditor_™ 入力マスクを動的に取得および設定する方法を説明します。
+
+=== 前提条件
+
+このトピックを理解するためには、以下のトピックを理解しておく必要があります。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:webmaskeditor-about-webmaskeditor.html[WebMaskEditor について]
+|このトピックは _WebMaskEditor_ コントロールおよびその機能について紹介します。
+
+| link:webmaskeditor-overview-of-masks.html[マスク概要]
+|このトピックは、 _WebMaskEditor_ マスクを作成するために必要な記号の意味を紹介します。
+
+|====
+
+=== 本トピックの内容
+
+このトピックには次のセクションがあります。
+
+* <<_Ref326941850,WebMaskEditor 入力マスクの概要>>
+* <<_Ref326941854,サーバー側で WebMaskEditor 入力マスクを取得または設定する>> 
+
+* <<_Ref326941857,マスク設定の例>>
+* <<_Ref326941870,マスク取得の例>>
+
+* <<_Ref326941874,クライアント側で WebMaskEditor 入力マスクを取得または設定する>>
+
+* <<_Ref326941877,マスク設定の例>>
+* <<_Ref326941879,マスク取得の例>>
+
+* <<_Ref326941886,関連内容>>
+
+* <<_Ref326941914,トピック>>
+* <<_Ref326941917,サンプル>>
+
+[[_Ref326941850]]
+== 入力マスクの概要の設定
+
+=== 入力マスク設定の概要
+
+以下の表は、 _WebMaskEditor_   コントロールの構成可能な項目を示しています。
+
+[options="header", cols="a,a,a"]
+|====
+|構成可能な要素|詳細|プロパティとメソッド
+
+|1 . サーバー側で _WebMaskEditor_ マスクを設定します 
+
+2.サーバー側に WebMaskEditor を取得します
+|InputMask プロパティは、設定および _WebMaskEditor_ マスクの取得に使用されます。
+|
+* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webmaskeditor~inputmask.html[InputMask] 
+
+|1 . クライアント側で _WebMaskEditor_ を設定します 
+
+2.クライアント側で _WebMaskEditor_ を取得します
+|_WebMaskEditor_ は、 _WebMaskEditor_ マスクの設定および取得にクライアント側メソッドを公開します。
+|
+* link:webtexteditor~infragistics.web.ui.webmaskeditor~inputmask.html[set_inputMask()] 
+
+* link:webtexteditor~infragistics.web.ui.webmaskeditor~inputmask.html[get_inputMask()] 
+
+|====
+
+[[_Ref326941854]]
+== サーバーで  _WebMaskEditor_   入力マスクを取得または設定する
+
+=== 概要
+
+サーバー側で  _WebMaskEditor_   マスクを取得または設定するために、コントロールプロパティ ` link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webmaskeditor~inputmask.html[InputMask]` を取得または設定します。
+
+[[_Ref326941857]]
+
+=== マスク設定の例
+
+以下のコードは、マークアップまたはコード ビハインドを使用してサーバー側で  _WebMaskEditor_   入力マスクを設定します。
+
+*ASPX の場合:*
+
+[source,html]
+----
+<ig:WebMaskEditor ID="WebMaskEditor1” runat="server"
+InputMask="###-##-####"/>
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+this.WebMaskEditor1.InputMask = "###-##-####";
+----
+
+[[_Ref326941870]]
+
+=== マスク取得の例
+
+以下のコードは、サーバー側で  _WebMaskEditor_   入力マスクを取得します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+string inputMask = this.phoneEditor.InputMask;
+----
+
+[[_Ref326941874]]
+== クライアント側で  _WebMaskEditor_   入力マスクを取得または設定する
+
+=== 概要
+
+_WebMaskEditor_   クライアント側オブジェクト モデルには入力マスクを設定または入力する方法が 2 つあります。` link:webtexteditor~infragistics.web.ui.webmaskeditor~inputmask.html[get_inputMask()]` および ` link:webtexteditor~infragistics.web.ui.webmaskeditor~inputmask.html[set_inputMask()]` です。マスクを動的に変更する必要がある場合、 _WebMaskEditor_   を設定するためにサーバーに要求をする必要がありません。
+
+[[_Ref326941877]]
+
+=== マスク設定の例
+
+以下のコードは、` link:webtexteditor~infragistics.web.ui.webmaskeditor~inputmask.html[set_inputMask()]` メソッドは、 _WebMaskEditor_   入力マスクをクライアント側で動的に設定するために使用されます。
+
+*JavaScript の場合:*
+
+[source,js]
+----
+$find("<%= this.WebMaskEditor1.ClientID %>").set_inputMask(“###-##-####”);
+----
+
+[[_Ref326941879]]
+
+=== マスク取得の例
+
+以下のコードは、` link:webtexteditor~infragistics.web.ui.webmaskeditor~inputmask.html[get_inputMask()]` メソッドは、 _WebMaskEditor_   入力マスクをクライアント側で動的に取得するために使用されます。
+
+*JavaScript の場合:*
+
+[source,js]
+----
+var mask = $find("<%= this.WebMaskEditor1.ClientID %>").get_inputMask();
+----
+
+[[_Ref326941886]]
+== 関連内容
+
+[[_Ref326941914]]
+
+=== トピック
+
+このトピックについては、以下のトピックもあわせてご参照ください。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:webmaskeditor-about-webmaskeditor.html[WebMaskEditor について]
+|このトピックは _WebMaskEditor_ コントロールおよびその機能について紹介します。
+
+| link:webmaskeditor-overview-of-masks.html[マスク概要]
+|このトピックは、 _WebMaskEditor_ マスクを作成するために必要な記号の意味を紹介します。
+
+|====
+
+[[_Ref326941917]]
+
+=== サンプル
+
+以下のサンプルでは、このトピックに関連する追加情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|サンプル|目的
+
+| link:{SamplesURL}/samples/webeditors/editingandselection/maskeditorclientsideinputmask/default.aspx?cn=editors&sid=2460d9c9-bed7-4eff-b790-c0d0295dc7fe[マスク エディターのクライアント側入力マスク]
+|このサンプルは、クライアント API を使用し、WebMaskEditor コントロールの入力マスクを動的に変更する方法を紹介します。
+
+|====

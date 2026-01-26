@@ -1,0 +1,76 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-conditional-batch-updating-in-webdatagrid",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Editing","Grids"],
+    "guid": "{FBA3341A-2E98-441C-9F4F-9764985E48FC}",  
+    "buildFlags": [],
+    "createdOn": "2010-04-03T23:15:35Z"
+}
+|metadata|
+////
+
+= WebDataGrid の条件付き一括変更
+
+== 始める前に
+
+コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.framework.data.flatdataboundcontrol~datasourceid.html[DataSourceID]"]  を使用して SqlDataSource または ObjectDataSource など DataSource オブジェクトに WebDataGrid™ をバインドします。DataSource には条件付き一括変更機能があります。追加または削除の操作は WebDataGrid の非表示ポストバックをトリガーし、データにそれらの操作を実行します。ただし、編集の場合、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webdatagrid~rowupdated_ev.html[RowUpdated]"]  or  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webdatagrid~rowupdating_ev.html[RowUpdating]"]  イベントを処理しない限り WebDataGrid はポストバックしません。イベントを処理しない場合、データは次のポストバックで DataSource で更新され、原則的にエンドユーザーに一括変更機能を提供します。
+
+== 達成すること
+
+データソースのイベント更新を処理してデータソースを更新する前に、必要なロジックを行で実行する方法を説明します。
+
+== 次の手順を実行します
+
+[start=1]
+. Microsoft® Visual Studio® Toolbox ツールボックスから、ScriptManager コンポーネント、SqlDataSource コントロールおよび WebDataGrid コンポーネントをフォームにドラッグ アンド ドロップします。
+[start=2]
+. ボタンの ID および Text プロパティを btnSave および SAVE にそれぞれ設定します。
+[start=3]
+. SqlDataSource 設定:
+
+** SqlDataSource のスマート タグをクリックして、[データ ソースの構成] をクリックします。
+** [新しい接続] をクリック、データベース (ここでは Northwind データベース) を選択します。
+** [OK] をクリックして [接続を追加] ダイアログを閉じます。
+** [次へ] をクリックし、接続文字列の名前はデフォルトのままにしておきます。
+** [次へ] をクリックします。
+** ProductID、ProductName、および UnitPrice をProduct テーブルから選択し、[詳細] ボタンをクリックします。
+** INSERT、UPDATE、および Delete ステートメント次のチェックボックスをクリックします。
+
+image::images\WebDataGrid_Conditional_Batch_Updating_in_WebDataGrid_01.png[]
+
+** [OK] をクリックして [SQL 生成オプション] ダイアログを閉じます。
+** [次へ] をクリックします。
+** [終了] をクリックして [データ ソースの構成] ダイアログを閉じます。
+
+[start=4]
+. プロパティ ウィンドウで WebDataGrid の DataSourceID プロパティを SqlDataSource1 に設定し、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.framework.data.flatdataboundcontrol~datakeyfields.html[DataKeyFields]"]  プロパティは ProductID に設定します。
+[start=5]
+. デザイナーまたは以下のコードを使用してグリッドの CellEditing 動作を有効にします。
+
+*Visual Basic の場合:*
+
+----
+Dim editingCore As EditingCore = Me.WebDataGrid1.Behaviors.CreateBehavior(Of EditingCore)() 
+Me.WebDataGrid1.Behaviors.Add(editingCore) 
+editingCore.Enabled = True 
+Dim cellEditing As CellEditing = editingCore.Behaviors.CreateBehavior(Of CellEditing)() 
+editingCore.Behaviors.Add(cellEditing) 
+cellEditing.Enabled = True
+----
+
+*C# の場合:*
+
+----
+EditingCore editingCore = this.WebDataGrid1.Behaviors.CreateBehavior<EditingCore>();
+this.WebDataGrid1.Behaviors.Add(editingCore);
+editingCore.Enabled = true;
+CellEditing cellEditing = editingCore.Behaviors.CreateBehavior<CellEditing>();
+editingCore.Behaviors.Add(cellEditing);
+cellEditing.Enabled = true;
+----
+
+[start=6]
+. 更新された行を緑、更新されていない行を赤で表示するには、ソースで以下のスタイルを含みます。

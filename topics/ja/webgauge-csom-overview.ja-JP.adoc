@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-csom-overview",
+    "controlName": ["WebGauge"],
+    "tags": ["Events"],
+    "guid": "{3D213DCB-1CAD-44A0-8F89-A0900771DC5E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= CSOM 概要
+
+WebGauge は、クライアント側の JavaScript プログラミング環境に強固なオブジェクトモデルを提供します。クライアント サイド オブジェクト モデル（CSOM）は、十分な機能を備えた JavaScript オブジェクト、イベント、ユーティリティ関数から構成され、開発者はサーバー側でポストバックしなくても、WebGauge コントロールに関連する重要な機能単位をプログラムできます。
+
+一般的に、オブジェクト モデルは、サーバー上の場合と同じようにオブジェクト モデルから直接派生しています。プロパティ名、イベント、パラメータ、戻り値の意味は、サーバー上のそれらとほとんど同じです。ただし、注が付けられている一部のプロパティはクライアント上では読み取り専用です。これらのプロパティは情報提供のみを目的としています。したがって修正できません。
+
+以下は WebGauge コントロールの CSOM 参照情報へのリンクです。
+
+link:webgauge-utility-functions.html[WebGauge ユーティリティ関数]
+
+link:webgauge-object.html[WebGauge オブジェクト]

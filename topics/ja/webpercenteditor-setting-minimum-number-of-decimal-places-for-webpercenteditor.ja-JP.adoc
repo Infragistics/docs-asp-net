@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "webpercenteditor-setting-minimum-number-of-decimal-places-for-webpercenteditor",
+    "controlName": ["WebPercentEditor"],
+    "tags": ["Editing","How Do I","Styling"],
+    "guid": "{20AAE7D3-87C2-4E95-8CA5-E07895ACB155}",  
+    "buildFlags": [],
+    "createdOn": "2009-03-06T13:49:51Z"
+}
+|metadata|
+////
+
+= WebPercentEditor の小数点以下の最小桁数を設定
+
+WebPercentEditor™ によって、コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webpercenteditor~mindecimalplaces.html[MinDecimalPlaces]"]  プロパティを設定するだけで、エンドユーザーに表示したい小数点以下の桁数を設定することができます。エンドユーザーがエディターで設定された小数点以下の桁数より多いまたは少ない桁数で数を入力すると、エディターはエディターに設定された小数点以下の桁数に四捨五入します。
+
+Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、MinDecimalPlaces プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+WebPercentEditor1.MinDecimalPlaces = 3
+----
+
+*C# の場合：*
+
+----
+WebPercentEditor1.MinDecimalPlaces = 3;
+----
+
+*JavaScript の場合：*
+
+----
+$find("WebPercentEditor1").set_minDecimals(3);
+----

@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "webpercenteditor-csom-overview",
+    "controlName": ["WebPercentEditor"],
+    "tags": ["API"],
+    "guid": "{1F830DE8-6109-4A70-A520-EE96DE0F43CD}",  
+    "buildFlags": [],
+    "createdOn": "2009-03-06T13:10:13Z"
+}
+|metadata|
+////
+
+= CSOM の概要
+
+WebPercentEditor™ コントロールは、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを提供します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクトで構成され、開発者はサーバー側にポストバックしなくても、コントロールに関連する重要な機能単位をプログラムできます。
+
+link:webtexteditor~infragistics.web.ui_namespace.html[WebPercentEditor CSOM の概要]

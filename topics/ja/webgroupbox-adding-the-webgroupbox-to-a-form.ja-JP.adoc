@@ -1,0 +1,107 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgroupbox-adding-the-webgroupbox-to-a-form",
+    "controlName": ["WebGroupBox"],
+    "tags": ["Getting Started","Grouping","Layouts"],
+    "guid": "{D4DCD0E1-9F2D-4F06-8468-328D9143571A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebGroupBox をフォームに追加
+
+2005 Volume 1 で、WebMisc アセンブリが {ProductName} の既存のアセンブリ一覧に追加されました。WebMisc アセンブリには、WebPanel™ コントロールと WebGroupBox™ コントロールの 2 つの新しいコントロールが含まれます。このプロセスは WebGroupBox コントロールに関わります。
+
+==== WebGroupBox を Web フォームに追加するには、以下の手順に従います。
+
+[start=1]
+. 新しい Visual Studio .NET ASP.NET Web アプリケーションを作成します。
+[start=2]
+. ツールボックスから WebGroupBox コントロールを探し、フォーム上にドラッグします。
+
+image::Images/WebGroupBox_Adding_the_WebGroupBox_to_a_Form_01.png[]
+
+==== コントロールを WebGroupBox に追加するには、以下の手順に従います。
+
+コントロールを WebGroupBox に追加するには、WebGroupBox の編集可能な領域にコントロールをドラッグします。標準の ASP.NET ラベル、ボタン、および 2 つのテキストボックスを編集可能な領域に追加します。また、ソリューション エクスプローラからファイルを直接 WebGroupBox にドラッグして、ユーザー コントロール（.ascx）をコンテンツテンプレートにドラッグすることもできます。これらのコントロールが追加されると、コントロールは以下のスクリーンショットのようになります。
+
+*注：* Visual Studio 2005 では、デザインタイム テンプレートの代わりに、編集可能な領域が使用されました。詳細は、 link:webgroupbox-using-editable-designer-regions-in-webgroupbox.html[「WebGroupBox で編集可能なデザイナ領域を使用」]を参照してください。
+
+image::Images/WebGroupBox_Adding_the_WebGroupBox_to_a_Form_02.png[]
+
+==== WebGroupBox 内のコントロールにアクセスする
+
+[start=1]
+. WebGroupBox に含まれているコントロールは、Web フォームの Controls コレクションのメンバでないため、ASP.NET は WebForm クラス内でそれらを自動的に宣言して参照することはありません。このため、何らかのコードを記述して、含まれているコントロールへの有効な参照を取得する必要があります。Page_Load イベントの前に、以下のコード行を挿入します。
+
+*Visual Basic の場合：*
+
+----
+' 注:Visual Studio .NET の Web フォームデザイナにおける問題を回避するため、
+' ここではコントロールの実際の ID（Button1、Button2など）の使用を避けます。
+Protected WithEvents theButton As System.Web.UI.WebControls.Button
+Protected WithEvents theFirstText As System.Web.UI.WebControls.TextBox
+Protected WithEvents theSecondText As System.Web.UI.WebControls.TextBox
+----
+
+*C# の場合：*
+
+----
+// 注:Visual Studio .NET の Web フォームデザイナにおける問題を回避するため、
+// ここではコントロールの実際の ID（Button1、Button2 など）の使用を避けます。
+protected Button  theButton;
+protected TextBox theFirstText;
+protected TextBox theSecondText;
+----
+
+[start=2]
+. 次に、以下のコード行を Page_Load イベントに記述します。このコードにより、WebGroupBox 内のコントロールへの参照が提供されます。
+
+*Visual Basic の場合：*
+
+----
+' 含まれるコントロールを参照させます。
+Me.theButton = CType(Me.WebGroupBox1.FindControl("Button1"), Button)
+Me.theFirstText = CType(Me.WebGroupBox1.FindControl("TextBox1"), TextBox)
+Me.theSecondText = CType(Me.WebGroupBox1.FindControl("TextBox2"), TextBox)
+----
+
+*C# の場合：*
+
+----
+// 含まれるコントロールを参照させます。
+this.theButton  = (Button) this.WebGroupBox1.FindControl("Button1");
+this.theFirstText = (TextBox)this.WebGroupBox1.FindControl("TextBox1");
+this.theSecondText    = (TextBox)this.WebGroupBox1.FindControl("TextBox2");
+// ボタンのイベント ハンドラを設定します。
+this.theButton.Click += new EventHandler(this.buttons_Click);
+----
+
+[start=3]
+. 最後のコード追加として、ボタンのクリックイベントを作成し、2 番目のテキストボックスからのテキストを 1 番目のテキストボックスのテキストと等しくなるよう設定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub buttons_Click(ByVal sender As Object, ByVal e As EventArgs) Handles theButton.Click
+        Me.theSecondText.Text = Me.theFirstText.Text
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void buttons_Click(object sender, EventArgs e)
+{
+        this.theSecondText.Text = this.theFirstText.Text;
+}
+----
+
+[start=4]
+. プロジェクトを構築して実行し、何らかのデータを 1 番目のテキストボックスに入力し、ボタンをクリックすると、2 番目のテキストボックスにテキストが表示されます。
+
+image::Images/WebGroupBox_Adding_the_WebGroupBox_to_a_Form_03.png[]

@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatetimeeditor-setting-the-culture-of-webdatetimeeditor",
+    "controlName": ["WebDateTimeEditor"],
+    "tags": ["Editing","How Do I","Localization"],
+    "guid": "{EF71502D-B215-44B5-82CA-7EF9C770F49D}",  
+    "buildFlags": [],
+    "createdOn": "2009-04-06T17:11:02Z"
+}
+|metadata|
+////
+
+= WebDateTimeEditor のカルチャーを設定
+
+WebDateTimeEditor™ によって、コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webdatetimeeditor~culture.html[Culture]"]  プロパティを設定することによって日時の表示方法に関する特定のカルチャーを設定できます。WebDateTimeEditor はデータをフォーマットするために CultureInfo クラスに依存します。デフォルトでシステムに設定されている現在のカルチャーを使用します。
+
+Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、Culture プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+'使用したいカルチャーまたはロケールを指定します
+ Dim c As New System.Globalization.CultureInfo("en-GB")
+'CultureInfo オブジェクトを WebDateTimeEditor の Culture に指定します
+WebDateTimeEditor1.Culture = c
+----
+
+*C# の場合：*
+
+----
+//使用したいカルチャーまたはロケールを指定します
+System.Globalization.CultureInfo c = new System.Globalization.CultureInfo("en-GB");
+//CultureInfo オブジェクトを WebDateTimeEditor の Culture に指定します
+WebDateTimeEditor1.Culture = c;
+----
+
+image::images\WebDateTimeEditor_Setting_the_culture_of_WebDateTimeEditor_01.png[]

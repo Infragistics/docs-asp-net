@@ -1,0 +1,28 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-labels-appearance-tab",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{7EAF13D9-38D4-4934-8E08-3E87E710B9F7}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ラベル外観タブ
+
+[ラベル外観] タブは、ゲージ上のラベルをカスタマイズするために使用されます。ゲージ エクスプローラで [ラベル] をクリックする（[放射型/リニア ゲージ] > [スケール] > [ラベル]）、またはインタラクティブなプレビュー領域からゲージ上のラベルを選択することによって、このタブにアクセスできます。
+
+このタブは以下の 2 つのペインに分割されています。
+
+* link:webgauge-brush-pane.html[ブラシ]
+* link:webgauge-font-pane.html[フォント]
+
+image::images/Labels_Appearance_Tab_01.png[]
+
+以下のスクリーンショットは、上記のスクリーンショットで指定されたラベル外観設定に基づいて作成されたラベルを示しています。
+
+image::images/Labels_Appearance_Tab_02.png[]

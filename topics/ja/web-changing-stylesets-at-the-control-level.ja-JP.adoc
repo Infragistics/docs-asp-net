@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-changing-stylesets-at-the-control-level",
+    "controlName": [],
+    "tags": ["Styling"],
+    "guid": "{E94F9808-B655-412B-958F-2BBFE09C8848}",  
+    "buildFlags": [],
+    "createdOn": "2006-01-12T08:34:29Z"
+}
+|metadata|
+////
+
+= コントロール レベルで StyleSets を変更
+
+アプリケーション スタイリングが有効な場合、同じスタイルセットを使用してフォームですべての {ProductName} コントロールをスタイルするように設計されています。ただし、スタイルセットでスタイルしたくないフォームの特定の領域がある場合があります。
+
+たとえば、フォームの左側にナビゲーション エレメント（ツリー、リストバー）があり、フォームの残りが WebGrid の場合です。ナビゲーション領域にひとつのスタイルセットを持たせ、WebGrid にもうひとつのスタイルセットを持たせたい場合があります。このようにすることでグリッドへの注意を引くことができます。このシナリオを簡単に完成できます。各コントロールに固有のプロパティ セットを持つことができ、そのコントロールに使用されているスタイルセットを変更するために使用します。
+
+*注：* 同様にこのレベルのコントロールでアプリケーション スタイリングを無効/有効にすることもできます。
+
+以下のサンプル コードは、WebGrid によって使用されているスタイルセットを変更する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub UltraWebGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.WebUI.UltraWebGrid.LayoutEventArgs) _
+  Handles UltraWebGrid1.InitializeLayout
+        Me.UltraWebGrid1.StyleSetName = "RubberBlack"
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void UltraWebGrid1_InitializeLayout(object sender, 
+  Infragistics.WebUI.UltraWebGrid.LayoutEventArgs e)
+{
+        this.UltraWebGrid1.StyleSetName = "RubberBlack";
+}
+----

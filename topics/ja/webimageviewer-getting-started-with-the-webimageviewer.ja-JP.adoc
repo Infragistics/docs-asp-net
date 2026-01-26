@@ -1,0 +1,85 @@
+﻿////
+
+|metadata|
+{
+    "name": "webimageviewer-getting-started-with-the-webimageviewer",
+    "controlName": ["WebImageViewer"],
+    "tags": ["Getting Started","Layouts","Styling"],
+    "guid": "{7DD31A56-D78D-443F-AA99-D106A4F6F115}",  
+    "buildFlags": [],
+    "createdOn": "2008-12-01T21:03:02Z"
+}
+|metadata|
+////
+
+= WebImageViewer で開始
+
+== 始める前に
+
+以下の手順は、WebImageViewer™ を開始する方法を示します。
+
+*以下の手順の前提は以下のとおりです。*
+
+* Getting_Started_with_the_WebImageViewer という名前を指定した新しい ASP.NET AJAX 対応の Web サイトをすでに作成している。
+* いくつかの画像ファイルを含む画像フォルダを持っている。
+* WebForm 上に ASP.NET AJAX ScriptManager インスタンスがある。
+* このアプリケーションで Infragistics Application Styling を有効にしており、Default Style を使用している。これの実行方法の詳細は、 link:web-enabling-application-styling-using-the-web-config-file.html[「web.config ファイルを使用してアプリケーション スタイリングを有効にする」]を参照してください。
+
+== 達成すること
+
+読み終わると、WebImageViewer コントロールのインスタンスを持つ WebForm ができ、画像のリストをナビゲートおよびスクロールするために使用できます。
+
+== 次の手順を実行します
+
+[start=1]
+. Visual Studio Toolbox で、WebImageViewer を指定してダブルクリックします。これによって WebForm にインスタンスが配置されます。
+[start=2]
+. WebImageViewer コントロールをクリックし、[プロパティ] ウィンドウで Width プロパティを 600PX、Height プロパティを 100PX に設定します。
+[start=3]
+. [プロパティ] ウィンドウで、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webimageviewer~header.html[Header]"]  プロパティを指定し展開します。以下のプロパティを設定します。
+
+**  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.captionarea~text.html[Text]"]  -- “My Pictures”
+** Visible -- True
+
+[start=4]
+. WebForm をダブルクリックして、Page Load イベントのためのイベント ハンドラを追加します。
+[start=5]
+. Page_Load イベント ハンドラで、以下のコードを追加して、画像とともに WebImageViewer をロードします。
+
+*Visual Basic の場合：*
+
+----
+If Me.IsPostBack Then Return
+' 画像のリストを取得します
+Dim imgs() As String = _
+  System.IO.Directory.GetFiles("\images", "$$*$$.$$* $$")
+' 新しい ImageItem を画像ごとに WebImageViewer に追加します
+For Each img As String In imgs
+        Dim theFile As String = "./images/" + System.IO.Path.GetFileName(img)
+        Me.WebImageViewer1.Items.Add( _
+          New Infragistics.Web.UI.ListControls.ImageItem(imgUrl, altText, toolTip))
+Next
+----
+
+*C# の場合：*
+
+----
+if (this.IsPostBack) return;
+// 画像のリストを取得します
+string[] imgs = 
+  System.IO.Directory.GetFiles(@"\images", "$$*$$.$$* $$");
+// 新しい ImageItem を画像ごとに WebImageViewer に追加します
+foreach (string img in imgs)
+{
+        string theFile = "./images/" + System.IO.Path.GetFileName(img);
+        this.WebImageViewer1.Items.Add(
+          new Infragistics.Web.UI.ListControls.ImageItem(imgUrl, altText, toolTip));
+}
+----
+
+[start=6]
+. アプリケーションを保存して実行します。WebImageViewer は、画像ディレクトリ内にある画像の水平リストを表示して、以下のように表示されるはずです。
+
+image::images/WebImageViewer_Getting_Started_01.png[]
+
+コントロールの左と右に配置されている [次へ] ボタンと [前へ] ボタンをクリックすることによって、画像のリストをナビゲートできます。画像を直接クリック アンド ドラッグすることも可能です。

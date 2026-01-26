@@ -1,0 +1,95 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcurrencyeditor-spinning-through-a-list-of-values-in-webcurrencyeditor",
+    "controlName": ["WebCurrencyEditor"],
+    "tags": ["Editing","How Do I","Styling"],
+    "guid": "{73815A12-FFFA-40ED-8419-2DAD22EFCA37}",  
+    "buildFlags": [],
+    "createdOn": "2009-04-06T09:40:21Z"
+}
+|metadata|
+////
+
+= WebCurrencyEditor で値のリストをスピン
+
+WebCurrencyEditor™ はスピン ボタンを使用して値のリストをスピンするオプションを提供します。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~spinbuttonsdisplay.html[SpinButtonsDisplay]"]  プロパティを OnRight または OnLeft のいずれかに設定することによってスピン ボタンを表示できます。デフォルトでこのプロパティは None に設定されます。スピン ボタンには、エンドユーザーが次の値と前の値に移動できるように下側のボタンと上側のボタンの 2 つのボタンがあります。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~lowerspinbutton.html[LowerSpinButton]"]  プロパティと  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~upperspinbutton.html[UpperSpinButton]"]  プロパティをそれぞれ設定することによって、下側のボタンと上側のボタンをカスタマイズできます。
+
+Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、SpinButtonsDisplay プロパティを設定できます。
+
+*Visual Basic の場合：*
+
+----
+'スピン ボタンを右側に表示します
+WebCurrencyEditor1.Buttons.SpinButtonsDisplay = Infragistics.Web.UI.EditorControls.ButtonDisplay.OnRight
+----
+
+*C# の場合：*
+
+----
+//スピン ボタンを右側に表示します
+WebCurrencyEditor1.Buttons.SpinButtonsDisplay = Infragistics.Web.UI.EditorControls.ButtonDisplay.OnRight;
+----
+
+WebCurrencyEditor は、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~spinwrap.html[SpinWrap]"]  プロパティを True に設定することによってリストの最初の値または最後の値に達したとしてもリストを継続してスピンできます。
+
+== 値をリストに追加および挿入:
+
+WebCurrencyEditor によって、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webtexteditor~buttons.html[Buttons]"]  オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~listofvalues.html[ListOfValues]"]  プロパティを使用して繰り返したい値のリストを追加することができます。Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、ListOfValues プロパティを設定できます。
+
+*Visual Basic の場合：*
+
+----
+WebCurrencyEditor1.Buttons.ListOfValues = "10|101|1000|10001"
+----
+
+*C# の場合：*
+
+----
+WebCurrencyEditor1.Buttons.ListOfValues = "10|101|1000|10001";
+----
+
+*注：* リストの項目は ListOfValues プロパティを使用する時には "|" 文字によって分割する必要があります。
+
+ただし、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons.html[TextEditorButtons]"]  オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~insertlistvalueatindex.html[InsertListValueAtIndex]"]  メソッドを使用して値をリストに挿入することもできます。
+
+*Visual Basic の場合：*
+
+----
+'特定のインデックスでリストに値を挿入します 
+WebCurrencyEditor1.Buttons.InsertListValueAtIndex(0, "10")
+WebCurrencyEditor1.Buttons.InsertListValueAtIndex(1, "101")
+WebCurrencyEditor1.Buttons.InsertListValueAtIndex(2, "1000")
+WebCurrencyEditor1.Buttons.InsertListValueAtIndex(3, "10001")
+----
+
+*C# の場合：*
+
+----
+//特定のインデックスでリストに値を挿入します
+WebCurrencyEditor1.Buttons.InsertListValueAtIndex(0, "10");
+WebCurrencyEditor1.Buttons.InsertListValueAtIndex(1, "101");
+WebCurrencyEditor1.Buttons.InsertListValueAtIndex(2, "1000");
+WebCurrencyEditor1.Buttons.InsertListValueAtIndex(3, "10001");
+----
+
+== 編集値の増分/減分
+
+WebCurrencyEditor によってスピン ボタンを使用して編集値を増分/減分することも可能です。コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webnumericeditor~spindelta.html[SpinDelta]"]  プロパティを設定するだけで係数を増分/減分することができます。たとえば、SpinDelta プロパティを 10 に設定すると、上側のボタンをクリックすると値は 10 だけ増えます。同様に下側のボタンをクリックすると値は 10 だけ減ります。
+
+Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、SpinDelta プロパティを設定できます。
+
+*Visual Basic の場合：*
+
+----
+WebCurrencyEditor1.SpinDelta = 10
+----
+
+*C# の場合：*
+
+----
+WebCurrencyEditor1.SpinDelta = 10;
+----
+
+*注：* ListOfValues プロパティは SpinDelta プロパティよりも優先されます。

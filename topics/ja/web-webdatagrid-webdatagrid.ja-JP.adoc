@@ -1,0 +1,47 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webdatagrid-webdatagrid",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Getting Started","Grids"],
+    "guid": "{384FD106-33AE-49A3-B1FB-422931D18619}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDataGrid
+
+このページには、WebDataGrid™ コントロール関連の概要/タスクベースの情報がすべて含まれています。このセクションには、コントロールが何を実行するのか、またアプリケーションでなぜコントロールを使用したくなるのかから、コントロールを使用して一般的なタスクを完了する方法に関するステップバイステップの手順まで、コントロールに関する貴重な情報が含まれています。
+
+WebDataGrid コントロールについての詳細は、以下のリンクをクリックしてください。
+
+== link:webdatagrid-about-webdatagrid.html[WebDataGrid について]
+
+このセクションには、WebDataGrid コントロールの機能の理解を深めるのに役立つ情報があります。さらに、コントロールの目的も理解できます。
+
+== link:webdatagrid-getting-started-with-webdatagrid.html[WebDataGrid で開始]
+
+このセクションは、WebDataGrid コントロールで可能な限り迅速に起動および実行する方法についての情報を提供します。
+
+== link:webdatagrid-using-webdatagrid.html[WebDataGrid の使用]
+
+このセクションは、WebDataGrid で使用可能な機能を使用する方法を示すタスクベースの情報を提供します。
+
+== link:gridmigrationoverview.html[UltraWebGrid から WebDataGrid および WebHierarchicalDataGrid への移行]
+
+このページは、WebDataGrid への移行に関する情報が含まれます。
+
+== link:webdatagrid-accessibility-compliance.html[WebDataGrid アクセシビリティの遵守]
+
+このトピックは、WebDataGrid が第 508 条の要件を満たす方法を概略します。このアクセシビリティの遵守によって、エンドユーザー、特に障害を持つユーザーが WebDataGrid コントロールを使用して構築された Web アプリケーションにアクセスおよび使用することを可能にします。
+
+== link:webdatagrid-api-overview.html[API の概要]
+
+このトピックは、WebDataGrid コントロールでプログラミングする間に作業をする名前空間とクラスをリストします。このトピックにリストされている名前空間とクラスは、{ProductName} ヘルプの「API 参照ガイド」セクションに便宜的にリンクされています。
+
+== link:webdatagrid~infragistics.web.ui_namespace.html[CSOM の概要]
+
+WebDataGrid™ コントロールは、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを提供します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクトで構成され、開発者はサーバー側にポストバックしなくても、WebDataGrid コントロールに関連する重要な機能単位をプログラムできます。

@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "webresizingextender-client-side-programming",
+    "controlName": ["WebResizingExtender"],
+    "tags": [],
+    "guid": "{A9516A0F-6D20-45EA-A4CC-A74CA12C0DEB}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= クライアント側プログラミング
+
+このセクションのトピックでは、WebResizingExtender™ を取り扱うときに行うクライアント側プログラミングの一部について説明します。
+
+以下のリンクをクリックすると、詳細な説明を読むことができます。
+
+* link:webresizingextender-csom-overview.html[CSOM の概要]
+* link:webresizingextender-reference-the-control.html[コントロールの参照]

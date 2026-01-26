@@ -1,0 +1,92 @@
+﻿////
+|metadata|
+{
+    "name": "gridmigrationoverview",
+    "controlName": [],
+    "tags": [],
+    "guid": "3b61ec85-c2b2-480e-9f93-0d30891a74ff",
+    "buildFlags": [],
+    "createdOn": "2016-02-29T16:48:44.0665364Z"
+}
+|metadata|
+////
+
+= UltraWebGrid から WebDataGrid および WebHierarchicalDataGrid への移行
+
+UltraWebGrid コントロールと WebDataGrid/WebHierarchicalDataGrid コントロールの間にはいくつかの構造的な違いがあるため、UltraWebGrid と新しい WebHierarchicalDataGrid のプロパティとイベントの間では 1 対 1 のマッピングができません。
+
+たとえば、UltraWebGrid では列のタイプを　CheckBox に設定することにより、チェック ボックス列を追加できます。WebHierarchicalDataGrid の場合は、列コレクションに BoundCheckBoxField または UnboundCheckBoxField を追加します。また、スタイルが適用される方法も構造的に変更されました。以前はスタイル プロパティによってスタイルが適用されましたが、現在では CSS により適用されます。
+
+この違いのため、UltraWebGrid を WebHierarchicalDataGrid で置き換える場合は、完了する必要のある機能で開始し、新しいコントロールでその機能を完了させる最善の方法が重要になります。これが、アプリケーションで新しいコントロールを使用する最も効率的な方法です。新しいコントロールで必要な機能を得るための最良の方法がわかると、古いコントロール コードの再利用率を評価することができます。
+
+次のトピックでは、特定のビヘイビアを実装する方法および作業を開始する手順について説明します:
+
+== *グリッド機能の移行方法に関する詳細について*
+
+== link:gridmigrationactivation.html[グリッドの移行 - アクティブ化]
+
+このセクションでは、アクティブ化の機能について、また新しいグリッドでアクティブ化を使用する方法をより深く理解するうえで役立つ情報を提供します。
+
+== link:gridmigrationautomaticloadondemand.html[グリッドの移行 - 自動ロードオンデマンド]
+
+このセクションでは、ロードオンデマンド機能の使用を開始する方法に関する情報を提供します。
+
+== link:gridmigrationcolumnmoving.html[グリッドの移行 - 列の移動]
+
+列の移動を使用すると、デザイン タイムおよびソース コードで、グリッド列を再配置することができます。列の移行機能により、グリッドのカスタマイズが向上し、データのプレゼンテーションが改善されています。列の移動は、クライアント側とサーバー側の両方で実行できます。
+
+== link:gridmigrationfiltering.html[グリッドの移行 - フィルタリング]
+
+フィルタリングは、グリッドがバインドされるデータをフィルターで処理する機能です。フィルタリングは、フィルター条件に一致するより小さいサブセットにデータを分割し、表示します。このため、データがより見やすく、管理しやすくなります。
+
+== link:gridmigrationrowadding.html[グリッドの移行 - 行の追加]
+
+グリッドの行の追加動作により、JavaScript 呼び出しを使用して新しい行を追加するだけではなく、UI を使用して、グリッドに行を追加できます。RowAdding の動作は EditingCore の子動作で、WebDataGrid (WDG) または WebHierarchicalDataGrid (WHDG) の行を追加可能にするために、両方を有効にする必要があります。
+
+== link:gridmigrationrowdelete.html[グリッドの移行 - 行の削除]
+
+行の削除機能を作成して使用すると、キーボードの [Delete] キーを押す、または行の削除に必要なイベントを発生させる他のページ要素（ボタンやリンク）を機能させることにより、容易に特定の行をグリッドから削除できます。
+
+== link:gridmigrationselection.html[グリッドの移行 - 選択]
+
+インフラジスティックス グリッド コントロールの選択動作は、列、行、セル（単一および複数）を選択する機能を提供し、最終的には編集または変更されるグリッドの部分の視覚化に役立ちます。
+
+== link:gridmigrationsorting.html[グリッドの移行 - 並べ替え]
+
+並べ替え動作を使用すると、WebDataGrid (WDG) または WebHierarchicalDataGrid (WHDG) で 1 つ以上の列を並べ替えることができます。
+
+== link:gridmigrationeditorproviders.html[グリッドの移行 - エディター プロバイダー]
+
+エディター プロバイダーは、WebDataGrid (WebHierarchicalDataGrid) 内部で外部エディターを使用できるようにする特殊なオブジェクトです。各インフラジスティックス エディターには、グリッドの内部で使用できるエディター プロバイダーがあります。カスタム エディター プロバイダーは、インフラジスティックス以外のエディターに書き込むことができます。
+
+== link:gridmigrationhiddencolumns.html[グリッドの移行 - 非表示の列]
+
+非表示の列は、サーバーの情報をクライアントに移動し、グリッド オブジェクト モデルで使用可能にするために使用されますが、ユーザーに対しては非表示です。通常、非表示の列には、データ キー フィールドのように、ユーザーに不要な情報が含まれています。
+
+== link:gridmigrationmanualloadondemand.html[グリッドの移行 - 手動ロードオンデマンド]
+
+このドキュメントでは、WebGrid および WebHierarchicalDataGrid のそれぞれで、手動ロードオンデマンドがどのように機能するかを示します。最初のセクションでは、WebGrid コンポーネントを取り上げ、次のセクションでは WebHierarchicalDataGrid について説明しています。
+
+== link:gridmigrationsummary.html[グリッドの移行 - 集計]
+
+バンドの列フッターを有効にするとフッターが表示されますが、フッターに含める情報を指定する必要があります。これは、[UltraGridColumn.FooterText] プロパティおよび [UltraGridColumn.FooterTotal] プロパティ（あるいはそのいずれか一方）を介して実行できます。
+
+== link:gridmigrationmultirowsummaries.html[グリッドの移行 - 複数行の集計]
+
+WebDataGrid では、サマリーを任意の列に表示できます。
+
+== link:gridmigrationpdfexport.html[グリッドの移行 - PDF エクスポート]
+
+グリッドの PDF ファイル エクスポートにより、グリッド データを書式設定付きの .pdf ファイルにエクスポートできます。このファイルは、後でグリッド データのアーカイブとして、または視覚表現として使用できます。
+
+== link:gridsmigrationoutlookgroupby.html[グリッドの移行 - Outlook GroupBy]
+
+OutlookGroupBy 機能により、列のデータ値に基づきグリッドの列をグループ化できます。
+
+== link:gridsmigrationcustomoutlookgroupby.html[グリッドの移行 - カスタムの Outlook Group By]
+
+OutlookGroupBy 機能により、カスタム グループ化ロジックを持つ列をグループ化できます。
+
+== link:emptytemplate.html[空のテンプレート]
+
+WebDataGrid/WebHierarchicalDataGrid には、空のテンプレートがあります。これを使用して、データ ソースに列がない場合にいつも表示されるカスタム ディスプレイをエンドユーザーに提供できます。すべてのテンプレートと同様に、空のテンプレートの内部に任意のコントロールを配置して、カスタム メッセージを提供できます。

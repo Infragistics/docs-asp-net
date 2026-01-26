@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcurrencyeditor-setting-minimum-number-of-decimal-places-for-webcurrencyeditor",
+    "controlName": ["WebCurrencyEditor"],
+    "tags": ["Editing","How Do I","Styling"],
+    "guid": "{F4DC5C77-0554-4E20-9958-B54A614DECF4}",  
+    "buildFlags": [],
+    "createdOn": "2009-03-06T17:11:31Z"
+}
+|metadata|
+////
+
+= WebCurrencyEditor の小数点以下の最小桁数を設定
+
+WebCurrencyEditor™ によってコントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webcurrencyeditor~mindecimalplaces.html[MinDecimalPlaces]"]  プロパティを設定するだけでエンドユーザーに表示したい小数点以下の桁数を設定できます。エンドユーザーがエディターで設定された小数点以下の桁数より多い桁数または少ない桁数で通貨値を入力すると、エディターはエディターに設定された小数点以下の桁数に四捨五入します。
+
+Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、MinDecimalPlaces プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+WebCurrencyEditor1.MinDecimalPlaces = 3
+----
+
+*C# の場合：*
+
+----
+WebCurrencyEditor1.MinDecimalPlaces = 3;
+----
+
+*JavaScript の場合：*
+
+----
+$find("WebCurrencyEditor1").set_minDecimals(3);
+----

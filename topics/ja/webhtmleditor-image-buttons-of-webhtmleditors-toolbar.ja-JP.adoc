@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-image-buttons-of-webhtmleditors-toolbar",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing"],
+    "guid": "{41293C0D-0845-4CBE-8215-C57766CD6693}",  
+    "buildFlags": [],
+    "createdOn": "2006-03-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor のツールバーの画像ボタン
+
+pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.toolbarimage.html[ToolbarImage]"]  クラスのインスタンスでは、開発時に WebHtmlEditor ツールバーに静的な画像を挿入できます。これにより、ツールバーの項目の書式とレイアウトをカスタマイズしたり（Separator、RowSeparator などの事前定義された ToolbarImageType を通じて）、 pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.toolbarimagetype.html[ToolbarImageType.Custom]"]  の ToolbarImage オブジェクトを通じてアプリケーションのエンド ユーザーが必要とする追加情報を与えるためのアイコンを挿入したり（たとえば、アプリケーション内のステータス インジケータに基づいて緑、黄色、または赤に点灯する小さなカスタム LED に  pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.toolbarimage~imagename.html[ImageName]"]  プロパティを設定することにより）することができます。

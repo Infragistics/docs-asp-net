@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-about-webdataproviders",
+    "controlName": ["WebSchedule"],
+    "tags": ["Data Binding","Getting Started","Scheduling"],
+    "guid": "{903797C3-E8AF-4127-84A8-E5E29CC9AF06}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDataProviders について
+
+データ アクセス レイヤに配置されている WebSchedule データ プロバイダは、WebScheduleInfo 内の  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[Activity]"]  オブジェクトと  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.resource.html[Resource]"]  オブジェクトを、データストア内のテーブルおよび行にバインディングを実行します。
+
+データ プロバイダ クラス モデルは、拡張性を考慮して作成されているので、データ プロバイダを拡張して他のデータソースや拡張オブジェクト モデルを処理できます。

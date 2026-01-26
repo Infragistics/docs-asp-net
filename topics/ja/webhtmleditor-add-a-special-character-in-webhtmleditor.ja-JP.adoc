@@ -1,0 +1,40 @@
+﻿////
+|metadata|
+{
+    "name": "webhtmleditor-add-a-special-character-in-webhtmleditor",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing"],
+    "guid": "{61F92A41-8C5E-47A2-8B82-78E4147D0420}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor での特殊文字の追加
+
+WebHtmlEditor では、多くのキーボードでは入力できない特殊文字を、そのコード番号を知らなくてもリストから選択して入力できるようにすることができます。WebHtmlEditor では、「文字実体参照」により返還を行います。WebHtmlEditor コントロールが、いくつかの特殊文字を含んだ基本リストが提供されています。
+
+image::images/WebHtmlEditor_How_Do_I_Add_a_Special_Character_1.png[]
+
+以下のサンプル コードでは、ギリシャ文字のシグマ（Σ）を  pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.webhtmleditor~specialcharacterlist.html[SpecialCharacterList]"]  プロパティに追加しています。これにより、エンド ユーザーに上に示したような特殊文字ドロップダウン リストが表示されます。
+
+Web フォームの Page_Load イベント ハンドラに、特殊文字ツールバー ドロップダウン リストに追加したい特殊文字の HTML 文字実体参照を追加してください。
+
+*Visual Basic の場合：*
+
+----
+Me.WebHtmlEditor1.SpecialCharacterList.Add("Σ")
+----
+
+*C# の場合：*
+
+----
+this.WebHtmlEditor1.SpecialCharacterList.Add("Σ");
+----
+
+*注：* すべての HTML 文字実体参照のリストは、W3C® Web サイトの link:http://www.w3.org/TR/1998/REC-html40-19980424/sgml/entities.html[W3C® ウエブサイト] を参照してください。
+
+== 関連トピック
+
+link:webhtmleditor-remove-a-special-character-in-webhtmleditor.html[WebHtmlEditor での特殊文字の削除]

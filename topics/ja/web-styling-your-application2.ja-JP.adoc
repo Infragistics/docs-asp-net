@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-styling-your-application2",
+    "controlName": [],
+    "tags": ["Styling","Templating","Theming"],
+    "guid": "{C933C732-7340-46F6-8260-EB7C2A956ED0}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アプリケーションのスタイリング
+
+視覚的スタイルおよびASP.NETコントロールとコンポーネントの動作の設定方法の概要は以下のリンクを参照してください。
+
+* link:web-understanding-styles.html[スタイルの理解] -- たとえば、プリセットやCSSを使用してASP.NETコントロールとコンポーネントにスタイルを追加できるさまざまな方法を説明しています。
+* link:web-application-styling-framework-asf.html[Application Styling Framework (ASF)] - The Application Styling Framework™ (ASF) でスタイル (スタイルセット) を作成し、アプリケーションに適用できます。

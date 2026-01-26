@@ -1,0 +1,48 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdropdown-validating-webdropdown-using-requiredfieldvalidator-control",
+    "controlName": ["WebDropDown"],
+    "tags": ["Validation"],
+    "guid": "{E0283648-D6D3-401C-B388-9C995C29E649}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= RequiredFieldValidator コントロールを使用して WebDropDown を検証
+
+== 始める前に
+
+WebDropDown™ は、エンドユーザーがドロップダウン リストから少なくともひとつの項目を選択することを保証するために RequiredFieldValidator コントロールを使用して簡単に検証できます。
+
+この詳細なガイドでは、ボタンのクリックで WebDropDown コントロールを検証します。
+
+== 達成すること
+
+RequiredFieldValidator を使用して WebDropDown を検証する方法を学習します。
+
+== 次の手順を実行します
+
+[start=1]
+. Visual Studio™ ツールボックスから、ScriptManager コンポーネント、WebDropDown コントロール、標準の Button コントロール、そして RequiredFieldValidator 検証コントロールをドラッグ アンド ドロップします。
+[start=2]
+. link:webdropdown-getting-started-with-webdropdown.html[「デザイナーを使用して項目を WebDropDown に追加」]トピックに示すように項目を WebDropDown に追加します。
+[start=3]
+. [プロパティ] ウィンドウで RequiredFieldValidator コントロールの以下のプロパティを設定します：
+
+[options="header", cols="a,a"]
+|====
+|ControlToValidate|ErrorMessage
+
+|WebDropDown1
+|$$*$$ドロップダウンから項目を選択してください。
+
+|====
+
+[start=4]
+. アプリケーションを保存して実行します。WebDropDown の値表示で項目を削除してボタンをクリックします。エラー メッセージが以下の画像のように表示されるのを確認します。
+
+image::images/WebDropDown_Validating_WebDropDown_using%20_the_RequiredFieldValidator_Control_01.png[]

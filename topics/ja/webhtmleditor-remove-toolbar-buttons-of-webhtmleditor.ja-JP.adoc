@@ -1,0 +1,60 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-remove-toolbar-buttons-of-webhtmleditor",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing"],
+    "guid": "{FAB58B7A-FEF3-40ED-9655-8DC834DCDE75}",  
+    "buildFlags": [],
+    "createdOn": "2006-04-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor のツールバー ボタンの削除
+
+WebHtmlEditor コントロールでは、デフォルトですべてのツールバーボタン（およびドロップダウン リスト）はツールバー領域に表示されます。もしアプリケーションで必要がないツールバー ボタンがあれば、削除する必要があります。この作業は、コードビハインド ファイルで簡単にプログラミングできます。
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに using/imports のディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.WebUI.WebHtmlEditor
+----
+
+*C# の場合：*
+
+----
+using Infragistics.WebUI.WebHtmlEditor;
+----
+
+[start=2]
+. Web アプリケーションで必要がないボタンに対応する  pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.toolbaritemtype.html[ToolbarItemType]"]  列挙体の値を調べます。
+
+たとえば、Web アプリケーションでメディア ファイルのアップロードと付加の機能が必要ないのであれば、エンド ユーザーは次のボタンへのアクセスは不要です。
+
+** フラッシュの挿入
+** Windows メディアの挿入
+** 画像の挿入
+
+[start=3]
+. コードビハインド ファイルで、レンダリングの前に発生するイベントハンドラ（たとえば、Page_Load ハンドラ）にこれらのボタンを削除するコードを追加します。これらのボタンが  pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.toolbaritemcollection.html[ToolbarItemCollection]"]  クラスにある場合は、ToolbarItemType を引数として取る  pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.toolbaritemcollection~remove.html[Remove]"]  メソッドを使用します。
+
+*Visual Basic の場合：*
+
+----
+Me.WebHtmlEditor1.Toolbar.Items.Remove(ToolbarItemType.InsertFlash)
+Me.WebHtmlEditor1.Toolbar.Items.Remove(ToolbarItemType.InsertWindowsMedia)
+Me.WebHtmlEditor1.Toolbar.Items.Remove(ToolbarItemType.InsertImage)
+----
+
+*C# の場合：*
+
+----
+this.WebHtmlEditor1.Toolbar.Items.Remove(ToolbarItemType.InsertFlash);
+this.WebHtmlEditor1.Toolbar.Items.Remove(ToolbarItemType.InsertWindowsMedia);
+this.WebHtmlEditor1.Toolbar.Items.Remove(ToolbarItemType.InsertImage);
+----

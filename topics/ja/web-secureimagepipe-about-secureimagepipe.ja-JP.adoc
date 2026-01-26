@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-secureimagepipe-about-secureimagepipe",
+    "controlName": ["WebChart"],
+    "tags": [],
+    "guid": "{6F19BE8D-D27A-43F9-894E-B9EC60231228}",  
+    "buildFlags": [],
+    "createdOn": "2006-09-01T00:00:00Z"
+}
+|metadata|
+////
+
+= SecureImagePipe について
+
+SecureImagePipe コントロールは、.aspx ページを介して画像をストリーミングするために 使用する ASP.NET サーバー コントロールです。このコントロールをセッションの WebChart の pick:[asp-net="link:{ApiPlatform}webui.ultrawebchart{ApiVersion}~infragistics.webui.ultrawebchart.ultrachart~deploymentscenario.html[シナリオの展開]"] オプションと併用すると、レンダリングされたチャート画像のファイルをディスクに書き込む必要がなくなり、単に画像ファイルを ASP.NET セッション状態で格納すれば、画像ファイルがクライアントにストリームされます。
+
+image::images/Web_About_SecureImagePipe_01.png[]
+
+== 関連トピック
+
+link:chart-image-deployment-in-webchart.html[WebChart の画像配備]

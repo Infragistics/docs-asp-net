@@ -1,0 +1,192 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-using-custom-paging-template-in-code",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Grids","Paging"],
+    "guid": "{1A5E0BF3-B17D-4161-9853-7E7DED503F4C}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= コードでカスタム ページング テンプレートの使用
+
+== 始める前に
+
+この詳細なガイドは、コードによって WebDataGrid™ でカスタム ページャーを設定する方法を示します。 link:webdatagrid-using-custom-paging-template.html[カスタム ページングテンプレートの使用]トピックの同じテンプレートを設定します。
+
+== 達成すること
+
+2 つのボタンとひとつのドロップダウン リストを使用して WebDataGrid ページングを設定します。2 つのボタンは前ページと次ページへの移動を処理しますが、ドロップダウン リストは選択したページに移動します。
+
+== 次の手順を実行します
+
+[start=1]
+. SqlDataSource コンポーネントを使用して WebDataGrid を Customers テーブルにバインドします。これについての詳細は、 link:webdatagrid-getting-started-with-webdatagrid.html[WebDataGrid で開始]を参照してください。
+[start=2]
+. WebDataGrid のためのページング テンプレートとして機能する ITemplate を実装するクラスを作成します。
+
+*Visual Basic の場合：*
+
+----
+Private Class CustomPagerTemplate 
+    Implements ITemplate 
+    #Region "ITemplate Members" 
+    Public Sub InstantiateIn(ByVal container As Control) Implements ITemplate.InstantiateIn
+        Dim prevButton As New HtmlButton() 
+        prevButton.ID = "PrevButton" 
+        prevButton.InnerText = "Prev" 
+        prevButton.Attributes("onclick") = "return PreviousPage()" 
+        Dim ddl As New DropDownList() 
+        ddl.ID = "DropDownList1" 
+        For i As Integer = 1 To 12 
+            ddl.Items.Add(i.ToString()) 
+        Next 
+        ddl.Attributes("onchange") = "return IndexChanged()" 
+        Dim nextButton As New HtmlButton() 
+        nextButton.InnerText = "Next" 
+        nextButton.Attributes("onclick") = "return NextPage()" 
+        container.Controls.Add(prevButton) 
+        container.Controls.Add(ddl) 
+        container.Controls.Add(nextButton) 
+    End Sub 
+    #End Region 
+End Class
+----
+
+*C# の場合：*
+
+----
+private class CustomPagerTemplate : ITemplate
+{
+        #region ITemplate Members
+        public void InstantiateIn(Control container)
+        {
+        HtmlButton prevButton = new HtmlButton();
+        prevButton.ID = "PrevButton";
+        prevButton.InnerText = "Prev";
+        prevButton.Attributes["onclick"] = "return PreviousPage()";
+        DropDownList ddl = new DropDownList();
+        ddl.ID = "DropDownList1";
+        for (int i = 1; i $$<=$$ 12; i++)
+        {
+                ddl.Items.Add(i.ToString());
+        }
+        ddl.Attributes["onchange"] = "return IndexChanged()";
+        HtmlButton nextButton = new HtmlButton();
+        nextButton.InnerText = "Next";
+        nextButton.Attributes["onclick"] = "return NextPage()";
+        container.Controls.Add(prevButton);
+        container.Controls.Add(ddl);
+        container.Controls.Add(nextButton);
+        }
+        #endregion
+}
+----
+
+[start=3]
+. ページのロード イベント ハンドラで、コードを追加して、WebDataGrid のページング動作を追加します。
+
+..  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.paging.html[Paging]"]  動作を有効にします。
+..  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.pagingclientevents~pageindexchanged.html[PageIndexChanged]"]  クライアント側イベントを処理します。
+.. カスタム ページング テンプレートをインスタンス化して、ページング テンプレートとして指定します。
+
+*Visual Basic の場合：*
+
+----
+If Not Page.IsPostBack Then 
+    '動作を追加します 
+    Me.WebDataGrid1.Behaviors.CreateBehavior(Of Paging)()
+    'PageIndexChanged イベントを処理します 
+    Me.WebDataGrid1.Behaviors.Paging.PagingClientEvents.PageIndexChanged = "WebDataGrid1_PageIndexChanged" 
+End If 
+Me.WebDataGrid1.Behaviors.Paging.PagerTemplate = New CustomPagerTemplate()
+----
+
+*C# の場合：*
+
+----
+if (!Page.IsPostBack)
+{
+        //動作を追加します
+        this.WebDataGrid1.Behaviors.CreateBehavior<Paging>();
+        //PageIndexChanged イベントを処理します
+        this.WebDataGrid1.Behaviors.Paging.PagingClientEvents.PageIndexChanged = "WebDataGrid1_PageIndexChanged";
+}
+this.WebDataGrid1.Behaviors.Paging.PagerTemplate = new CustomPagerTemplate();
+----
+
+[start=4]
+. ドロップダウン リストの IndexChanged イベント ハンドラに WebDataGrid を手動でページします。
+
+.. WebDataGrid への参照を取得します。
+.. ドロップダウン リストから選択した値に基づき WebDataGrid をページします。
+
+*注：* ドロップダウン リストはテンプレート内に組み込まれているので、コントロールへの参照を取得するにはハードコード化されたクライアント側の ID を使用する必要があります。コントロールがコンテナ内に組み込まれ、クライアント側 ID を必要とするほとんどの場合にこれは該当します。ページのソースから ID を取得できます。
+
+*JavaScript の場合：*
+
+----
+function IndexChanged() {
+        var dropdownlist = document.getElementById("WebDataGrid1_ctl00_DropDownList1");
+        var grid = $find("WebDataGrid1");
+        var newValue = dropdownlist.selectedIndex;
+        grid.get_behaviors().get_paging().set_pageIndex(newValue);
+}
+----
+
+[start=5]
+. Prev ボタンのクリックのイベント ハンドラで、WebDataGrid を手動でページします。
+
+.. WebDataGrid への参照を取得します。
+.. ドロップダウン リストへの参照を取得します。
+.. インデックスを少なくしてチェックすれば選択可能なページの境界を超えません。
+.. 前ページに移ります。
+
+*JavaScript の場合：*
+
+----
+function PreviousPage() {
+        var grid = $find("WebDataGrid1");
+        var dropdownlist = document.getElementById("WebDataGrid1_ctl00_DropDownList1");
+        if( grid.get_behaviors().get_paging().get_pageIndex() > 0 ) {
+                grid.get_behaviors().get_paging().set_pageIndex(grid.get_behaviors().get_paging().get_pageIndex() - 1);
+        }
+}
+----
+
+[start=6]
+. ページ インデックスを増すことを除き、Next ボタン イベント ハンドラに同じことを行います。
+
+*JavaScript の場合：*
+
+----
+function NextPage() {
+        var grid = $find("WebDataGrid1");
+        var dropdownlist = document.getElementById("WebDataGrid1_ctl00_DropDownList1");
+        if(grid.get_behaviors().get_paging().get_pageIndex() < grid.get_behaviors().get_paging().get_pageCount() - 1) {
+                grid.get_behaviors().get_paging().set_pageIndex(grid.get_behaviors().get_paging().get_pageIndex() + 1);
+        }
+}
+----
+
+[start=7]
+. 以前に追加した PageIndexChanged イベントを処理するためにコードを追加します。
+
+*JavaScript の場合：*
+
+----
+function WebDataGrid1_PageIndexChanged() {
+    var grid = $find("WebDataGrid1");
+    var dropdownlist = document.getElementById("WebDataGrid1_ctl00_DropDownList1");
+    dropdownlist.options[grid.get_behaviors().get_paging().get_pageIndex()].selected = true;
+}
+----
+
+[start=8]
+. アプリケーションを実行します。WebDataGrid のページャーには 2 つのボタンとひとつのドロップダウン リストで構成され、それぞれはページングで使用できます。
+
+image::images/WebDataGrid_Using_Custom_Paging_Template_01.png[]

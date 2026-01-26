@@ -1,0 +1,36 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-using-the-webschedule-controls-and-components",
+    "controlName": ["WebSchedule"],
+    "tags": [],
+    "guid": "{51125F16-B26D-4D3F-B9C1-2EC04EAA86DC}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebSchedule コントロールおよびコンポーネントを使用
+
+このセクションは、重要なタスクベースの情報への入り口です。WebSchedule コントロールおよびコンポーネントが提供するさまざまな特徴や機能を効率的に使用するために役に立ちます。
+
+* link:webschedule-activities.html[アクティビティ]
+* link:webschedule-browser-support.html[ブラウザのサポート]
+* link:webschedule-client-side-programming.html[クライアント側の動作]
+* link:webschedule-data-bindings.html[データ バインディング]
+* link:webschedule-data-model.html[データ モデル]
+* link:webschedule-data-providers.html[データ プロバイダ]
+* link:webschedule-designers.html[デザイナ]
+* link:webschedule-forms-and-dialogs.html[フォームおよびダイアログ ボックス]
+* link:webschedule-international-support.html[国際のサポート]
+* link:webschedule-performance.html[パフォーマンス]
+* link:webschedule-recurrence.html[繰り返し]
+* link:webschedule-reminders.html[アラーム]
+* link:webschedule-resources.html[リソース]
+* link:webschedule-server-side-behaviors.html[サーバー側の動作]
+* link:webschedule-standards-support.html[標準規格のサポート]
+* link:webschedule-stored-procedures.html[ストアド プロシージャ]
+* link:webschedule-time-zones.html[タイムゾーン]
+* link:webschedule-visual-aspects.html[視覚的側面]

@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdialogwindow-hide-the-dialog-window",
+    "controlName": ["WebDialogWindow"],
+    "tags": ["How Do I"],
+    "guid": "{B3EBFAE5-0D2F-41FD-A9BF-F241F57F84B2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ダイアログ ウィンドウを非表示
+
+デフォルトで、WebDialogWindow™ コントロールのダイアログ ウィンドウは表示されています。プロンプトとしてダイアログ ウィンドウを使用する、またはユーザーの操作を必要とするダイアログ ボックスを使用している場合には、必要な場合を除いて常に表示したいとは限りません。したがって、デザインタイムの間は [プロパティ] ウィンドウで、またはランタイムにはページの Load イベントでダイアログ ウィンドウを非表示にしたくなります。ダイアログ ウィンドウを非表示にするのは、 link:http://msdn.microsoft.com/query/dev10.query?appId=Dev10IDEF1&l=EN-US&k=k(System.Web.UI.Control.Visible)&rd=true[Visible] プロパティを False に設定するだけで簡単です。ボタンのクリックまたはその他のイベントによってエンド ユーザーの入力を受け付ける準備ができたら、Visible プロパティを True に戻すことによって、*ダイアログ ウィンドウを表示する* ことができます。
+
+以下のコードは、WebDialogWindow のダイアログ ウィンドウを非表示にする方法を例示します。
+
+*Visual Basic の場合：*
+
+----
+' ダイアログ ウィンドウを非表示にします。
+Me.WebDialogWindow1.WindowState = _Infragistics.Web.UI.LayoutControls.DialogWindowState.Hidden
+----
+
+*C# の場合：*
+
+----
+// ダイアログ ウィンドウを非表示にします。
+this.WebDialogWindow1.WindowState = Infragistics.Web.UI.LayoutControls.DialogWindowState.Hidden;
+----

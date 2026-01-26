@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdropdown-animations",
+    "controlName": ["WebDropDown"],
+    "tags": [],
+    "guid": "{B94261ED-1C95-49AD-90AC-C5223633A149}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アニメーション
+
+WebDropDown™ はドロップダウン コンテナが開く時のためのさまざまなアニメーションをサポートします。デフォルトで、アニメーションは WebDropDown で有効です。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~enableanimations.html[EnableAnimations]"]  プロパティを False に設定することでこの機能をオフにできます。WebDropDown コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~dropdownanimationduration.html[DropDownAnimationDuration]"]  プロパティを設定することによってアニメーションの時間を簡単に設定できます。以下はコントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~dropdownanimationtype.html[DropDownAnimationType]"]  プロパティを設定することによって設定できるさまざまなアニメーションです:
+
+* *Linear* -- アニメーションの時間に基づいて、一定の速度でドロップダウン コンテナを表示します。
+* *EaseIn* -- アニメーションの時間に基づいてドロップダウン コンテナは最初はゆっくりと表示しますが、後で速くなります。
+* *EaseOut* -- アニメーションの時間に基づいてドロップダウン コンテナは最初は素早く表示しますが、後で遅くなります。
+* *EaseInOut* -- アニメーションの時間に基づいてドロップダウン コンテナは最初はゆっくりと表示しますが、後で速くなり、終わりに再度遅くなります。
+* *Bounce* -- ドロップダウン コンテナのすべての項目を表示し、次にある程度ドロップダウン コンテナを閉じて、再度すべての項目を表示します（ボールが跳ね返るように）。
+
+Microsoft® Visual Studio® [プロパティ] ウィンドウを介して、または以下のコードを使用してドロップダウン アニメーションを設定できます:
+
+*Visual Basic の場合：*
+
+----
+WebDropDown1.DropDownAnimationType = Infragistics.Web.UI.ListControls.DropDownAnimationTypes.EaseInOut
+----
+
+*C# の場合：*
+
+----
+WebDropDown1.DropDownAnimationType = Infragistics.Web.UI.ListControls.DropDownAnimationTypes.EaseInOut;
+----

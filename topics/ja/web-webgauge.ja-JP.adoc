@@ -1,0 +1,51 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webgauge",
+    "controlName": ["WebGauge"],
+    "tags": [],
+    "guid": "{A0675600-BAC0-40EE-9391-6238D7A3ED23}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebGauge
+
+WebGauge™ コントロールに関連した概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションは、コントロールについての概要からアプリケーションで使用する理由、コントロールを使用して共通タスクを達成するための方法の手順などの WebGauge についての有益な情報を含んでいます。
+
+以下のリンクをクリックして、WebGauge コントロールについての情報にアクセスします。
+
+== link:webgauge-webgauge-types.html[WebGauge タイプ]
+
+この重要なセクションには、すべての gauge タイプの包括的なリストと、gauge タイプの簡単な概要、gauge タイプを生成するために必要となるデータ タイプの情報、gauge タイプに特有のプロパティのリストが含まれます。
+
+== link:webgauge-webgauge-designer.html[WebGauge デザイナ]
+
+このセクションには、Gauge デザイナで提供される主要な特徴および機能についての情報が含まれています。
+
+== link:webgauge-getting-started-with-webgauge.html[WebGauge で作業を開始]
+
+WebGauge コントロールでできる限り素早く起動して実行するために、コントロールを使用して開始する方法（たとえば、フォームに WebGauge を追加）についての情報を提供します。
+
+== link:webgauge-using-webgauge.html[WebGauge の使用]
+
+このセクションには、WebGauge コントロールで提供される主要な特徴および機能についての情報が含まれています。
+
+== link:webgauge-deploying-webgauge.html[WebGauge の配備]
+
+アプリケーションに WebGauge コントロールが含まれている場合、アプリケーションの一部として再配布する必要がある Infragistics .NET のリストのトピックを参照してください。
+
+== link:webgauge-webgauge-accessibility-compliance.html[WebGauge アクセシビリティの遵守]
+
+このトピックは、WebGauge が第 508 条の要件を満たす方法を概略します。このアクセシビリティの遵守によって、エンド ユーザー、特に障害を持つユーザーが WebGauge コントロールを使用して構築された Web アプリケーションにアクセスおよび使用することを可能にします。
+
+== link:webgauge-api-overview.html[API の概要]
+
+このトピックは、WebGauge コントロールでプログラミング中に作業する名前空間とクラスをリストします。このトピックにリストされる名前空間とクラスは、{ProductName} ヘルプの link:web-api-reference-guide.html[「API リファレンスガイド」]に便宜上リンクします。
+
+== link:webgauge-csom-overview.html[CSOM 概要]
+
+このトピックは、WebGauge でクライアント側をプログラミング中に作業するユーティリティ関数、オブジェクト、およびイベントのページをリストします。このトピックにリストされるユーティリティ関数、オブジェクト、およびイベントは、{ProductName} ヘルプの「Client-Side Model （CSOM）リファレンスガイド」に便宜上リンクします。

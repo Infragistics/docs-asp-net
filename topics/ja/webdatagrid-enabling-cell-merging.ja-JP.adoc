@@ -1,0 +1,111 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-enabling-cell-merging",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Grids","Grouping"],
+    "guid": "c90233ac-b79d-4a94-ba95-f52fad8ffe2d",  
+    "buildFlags": [],
+    "createdOn": "2012-04-12T19:11:47.5706741Z"
+}
+|metadata|
+////
+
+= セル結合を有効にする
+
+=== 目的
+
+このトピックでは、コード例を示して、 _WebDataGrid_™ のセル結合機能を有効にする方法を紹介します。
+
+=== 前提条件
+
+以下の表に、このトピックを理解するための前提条件として求められる素材をリストします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:webdatagrid-sorting.html[並べ替え]
+|このトピックでは、コード例を示して、 _WebDataGrid_ のユーザーが並べ替えを行うことができるようにする方法について説明します。
+
+| link:webdatagrid-cell-merging-overview.html[セル結合の概要]
+|このトピックでは、 _WebDataGrid_ のセル結合機能の概要について説明します。
+
+|====
+
+== セル結合を有効にする
+
+=== 概要
+
+デフォルトでは、 link:webdatagrid-cell-merging.html[セルの結合]は無効になっています。有効にするには、並び替え動作を有効にし、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.sorting~enablecellmerging.html[EnableCellMerging] プロパティに  _true_   を設定する必要があります。デフォルトでは、セル結合はサーバー側で処理されます。サーバーに要求を行わない場合、クライアント側でセル結合を表示できます。
+
+=== プロパティ設定
+
+以下の表に、望ましいセル結合の有効化とプロパティのマッピングを示します。
+
+[options="header", cols="a,a,a"]
+|====
+|以下を行うために...|このプロパティの使用:|それを次に設定...
+
+|セル結合の有効化
+| link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.sorting~enablecellmerging.html[EnableCellMerging]
+| _True_ 
+
+|====
+
+== コード例
+
+=== 説明
+
+次のコードでは、サーバー側レンダリングとクライアント側レンダリングを使用して、セル結合を有効にする方法を紹介します。
+
+=== コード例: サーバー側レンダリングを使用したセル結合の有効化
+
+*ASPX の場合:*
+
+[source,html]
+----
+<ig:WebDataGrid ID="WebDataGrid1"
+                runat="server">
+<Behaviors>
+  <ig:Sorting Enabled="true" EnableCellMerging="true">
+</ig:Sorting>
+</Behaviors>
+</ig:WebDataGrid>
+*C# の場合:*
+this.WebDataGrid1.Behaviors.Sorting.EnableCellMerging = true;
+----
+
+=== コード例: クライアント側レンダリングを使用したセル結合の有効化
+
+*ASPX の場合:*
+
+[source,html]
+----
+<ig:WebDataGrid ID="WebDataGrid1"
+                runat="server" EnableClientRendering="true">
+<Behaviors>
+  <ig:Sorting Enabled="true" EnableCellMerging="true">
+</ig:Sorting>
+</Behaviors>
+</ig:WebDataGrid>
+*C# の場合:*
+this.WebDataGrid1.EnableClientRendering = true;
+this.WebDataGrid1.Behaviors.Sorting.EnableCellMerging = true;
+----
+
+== 関連内容
+
+=== サンプル
+
+以下のサンプルでは、このトピックに関連する情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|サンプル|目的
+
+| link:{SamplesURL}/samples/webdatagrid/organization/sortingcellmerging/default.aspx?cn=data-grid&sid=bc564381-8ac9-4bb6-84e1-7c36e8010857[セルの結合と並べ替え]
+|このサンプルでは、WebDataGrid の並べ替え動作のセルの結合機能について紹介します。
+
+|====

@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedulesqlclientprovider-about-webschedulesqlclientprovider",
+    "controlName": ["WebScheduleSqlProvider"],
+    "tags": ["Data Presentation","Persistence"],
+    "guid": "{B030B7C0-C18D-46BA-865A-99FCBF199FC5}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WebScheduleSqlClientProvider について
+
+データ アクセス レイヤに配置されている WebSchedule データ プロバイダは、WebScheduleInfo 内の  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.resource.html[Activity]"]  オブジェクトと  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[Resource]"]  オブジェクトを、データ ストア内のテーブルおよび行にバインディングを実行します。
+
+データ プロバイダ クラス モデルは、拡張性を考慮して作成されています。したがって、データ プロバイダを拡張して、他のデータ ソースや展開されたオブジェクト モデルを処理できます。
+
+image::images/WebScheduleSqlClientProvider_About_WebScheduleSqlClientProvider_01.png[]

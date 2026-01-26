@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-widths-and-extents-pane",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{1B772997-2ADC-4640-8C83-F3397C6BC8DB}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 幅と範囲ペイン
+
+[幅と範囲] ペインによって、リニア ゲージまたはラジアル ゲージ上で針マーカーの形状と位置を設定することができます。
+
+幅 -- 以下の値を指定することによって、針の形状をカスタマイズします。
+
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugeneedle~startwidth.html[開始]"]  -- この値を 0 から 100 の整数に設定します。この値は針マーカーの開始点の幅を設定します。
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugeneedle~endwidth.html[中間]"]  -- この値を 0 から 100 の整数に設定します。この値は針マーカーの中間点の幅を設定します。
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugeneedle~endwidth.html[終了]"]  -- この値を 0 から 100 の整数に設定します。この値は針マーカーの終了点の幅を設定します。
+
+範囲 -- このセクションは針マーカーの位置を決定します。ラジアル ゲージではこの位置は中心から測定されますが、リニア ゲージではこの位置はゲージの下側から測定されます。
+
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugeneedle~startextent.html[開始]"]  -- この値を 0 から 100 の整数に設定します。この値は針マーカーの開始点の位置を設定します。
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugeneedle~midextent.html[中間]"]  -- この値を 0 から 100 の整数に設定します。この値は針マーカーの中間点の位置を設定します。
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugeneedle~endextent.html[終了]"]  -- この値を 0 から 100 の整数に設定します。この値は針マーカーの終了点の位置を設定します。
+
+image::images/Widths_and_Extents_Pane_01.png[]
+
+== 関連トピック
+
+link:webgauge-needle-marker-layout-tab.html[針マーカー レイアウト タブ]

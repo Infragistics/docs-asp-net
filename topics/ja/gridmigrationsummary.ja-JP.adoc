@@ -1,0 +1,560 @@
+﻿////
+|metadata|
+{"name":"gridmigrationsummary","controlName":[],"tags":[],"guid":"4fcf99fe-198f-48e6-994b-f6d617c25067","buildFlags":[],"createdOn":"2016-07-20T17:26:00.2768827Z"}
+|metadata|
+////
+
+= グリッドの移行 - 集計
+
+== UltraWebGrid
+
+バンドの列フッターを有効にするとフッターが表示されますが、フッターに含める情報を指定する必要があります。これは、`UltraGridColumn.FooterText` プロパティおよび `UltraGridColumn.FooterTotal` プロパティ（あるいはそのいずれか一方）を介して実行できます。
+
+==== SummaryInfo
+
+[options="header", cols="a,a"]
+|====
+|列挙体|説明
+
+|Avg
+|列の平均が表示されます。
+
+|Count
+|列のセル数が表示されます。
+
+|Formula
+|[Formula] プロパティに割り当てられた UltraCalc 数式を評価し、計算を表示します。
+
+|Max
+|列の最大値が表示されます。
+
+|Min
+|列の最小値が表示されます。
+
+|Sum
+|列の合計値が表示されます。
+
+|Text
+|列のテキストが表示されます。
+
+|====
+
+このセクションの興味深いヒント:
+
+http://help.jp.infragistics.com/NetAdvantage/ASPNET/2010.3?page=WebCalcManager_Creating_a_Calculated_Column_in_WebGrid.html[WebGrid での計算列の作成]
+
+http://help.jp.infragistics.com/NetAdvantage/ASPNET/2010.3?page=WebCalcManager_Creating_Running_Totals_in_WebGrid.html[WebGrid での現在の合計値の作成]
+
+link:++http://help.jp.infragistics.com/NetAdvantage/ASPNET/2010.3?page=Infragistics4.WebUI.UltraWebGrid.v10.3~Infragistics.WebUI.UltraWebGrid.UltraGridBand~GroupByRowDescriptionMask.html++[GroupByRowDescriptionMask の使用]
+
+http://forums.infragistics.com/forums/p/22657/82874.aspx[子行のフッターの更新 (英語)]
+
+== WebDataGrid
+
+WebDataGrid では、数値データの集計を任意の列に表示できます。
+
+次の集計ができます。
+
+* カウント 
+* 合計値
+* 平均 
+* 最小値 
+* 最大値 
+* カスタム集計
+
+標準集計は、数値データのみに使用可能です。例外は、常に使用可能なカウントの SummaryType です。
+
+**C# の場合:**
+
+[source,csharp]
+----
+WebDataGrid1.Behaviors.CreateBehavior<SummaryRow>();
+----
+
+有効な場合、動作は各ヘッダーに集計ボタンを追加します。このボタンを押すと、使用可能な集計を示すドロップダウンが表示されます。
+
+==== 集計行の有効化
+
+**ASPX の場合:**
+
+[source,html]
+----
+<Behaviors>
+    <ig:SummaryRow AnimationType="Linear">
+        <ColumnSummaries>
+            <ig:ColumnSummaryInfo ColumnKey="UnitPrice">
+                <Summaries>
+                    <ig:Summary SummaryType="Average" />
+                    <ig:Summary SummaryType="Max" />
+                </Summaries>
+            </ig:ColumnSummaryInfo>
+        </ColumnSummaries>
+    </ig:SummaryRow>
+</Behaviors>
+----
+
+コード ビハインドから集計行を追加するには、次のコードを追加します。
+
+**C# の場合:**
+
+[source,csharp]
+----
+ColumnSummaryInfo unitPriceSummary = new ColumnSummaryInfo();
+unitPriceSummary.ColumnKey = "UnitPrice";
+unitPriceSummary.Summaries.Add(SummaryType.Average);
+unitPriceSummary.Summaries.Add(SummaryType.Max);
+WebDataGrid1.Behaviors.SummaryRow.ColumnSummaries.Add(unitPriceSummary);
+----
+
+==== 集計設定
+
+集計行の動作が有効な場合、集計ボタンはすべての列のヘッダーに表示されます。このボタンを押すと、使用可能な集計を示すドロップダウンが発生します。集計を選択すると、新しい行（集計行）がグリッドのフッターに表示され、集計値が表示されます。
+
+集計オプションから集計と列の集計ボタンを無効にし、集計値の文字列を書式設定することができます。
+
+`ShowSummaryButton` を「False」に設定します。この方法では、列の集計ボタン（集計のリストを表示する）がヘッダーに表示されません。このレベルから使用できる他のプロパティは次のとおりです。
+
+* `EnableColumnSummaryOptions` – 「False」に設定されていると、デフォルトの集計タイプはドロップダウンで使用できません。
+* `Enabled` – 「False」に設定されていると、ユーザーはこの列の集計を計算できません。
+
+次のマークアップを生成する必要があります。
+
+**ASPX の場合:**
+
+[source,html]
+----
+<Behaviors>
+    <ig:SummaryRow>
+        <ColumnSummaries>
+            <ig:ColumnSummaryInfo ColumnKey="UnitPrice">
+                <Summaries>
+                    <ig:Summary SummaryType="Average" />
+                </Summaries>
+            </ig:ColumnSummaryInfo>
+        </ColumnSummaries>
+        <ColumnSettings>
+            <ig:SummaryRowSetting ColumnKey="ProductID" ShowSummaryButton="False">
+            </ig:SummaryRowSetting>
+            <ig:SummaryRowSetting ColumnKey="UnitPrice">
+                <SummarySettings>
+                    <ig:SummarySetting ShowOptionInDropDown="False"SummaryType="Max" />
+                    <ig:SumarySetting FormatString="{0} = {1:###.00}" 
+                        SummaryType="Average" />
+                </SummarySettings>
+            </ig:SummaryRowSetting>
+        </ColumnSettings>
+    </ig:SummaryRow>
+</Behaviors>
+----
+
+コード ビハインドから実行する場合は、次のコードを追加します。
+
+**C# の場合:**
+
+[source,csharp]
+----
+SummaryRowSetting settings = new SummaryRowSetting(WebDataGrid1, "ProductID");
+settings.ShowSummaryButton = false;
+this.WebDataGrid1.Behaviors.SummaryRow.ColumnSettings.Add(settings);
+SummaryRowSetting unitPriceSetting = new SummaryRowSetting(WebDataGrid1, "UnitPrice");
+SummarySetting maxSummarySetting = new SummarySetting();
+maxSummarySetting.ShowOptionInDropDown = false;
+maxSummarySetting.SummaryType = SummaryType.Max;
+unitPriceSetting.SummarySettings.Add(maxSummarySetting);
+SummarySetting averegeSummarySetting = new SummarySetting();
+averegeSummarySetting.FormatString = "{0} = {1:###.00}";
+averegeSummarySetting.SummaryType = SummaryType.Average;
+unitPriceSetting.SummarySettings.Add(averegeSummarySetting);
+this.WebDataGrid1.Behaviors.SummaryRow.ColumnSettings.Add(unitPriceSetting);
+----
+
+==== カスタム集計の追加
+
+**ASPX の場合:**
+
+[source,html]
+----
+<Behaviors>
+    <ig:FooterSummaries AnimationType="Bounce">
+        <ColumnSummaries>
+            <ig:ColumnSummaryInfo ColumnKey="UnitPrice">
+                <Summaries>
+                <ig:Summary SummaryType="Custom" CustomSummaryName="STDEV" />
+                </Summaries>
+            </ig:ColumnSummaryInfo>
+        </ColumnSummaries>
+        <ColumnSettings>
+            <ig:FooterSummariesSetting ColumnKey="UnitPrice">
+                <SummarySettings>
+                    <ig:SummarySetting CustomSummaryName="Standard Deviation" SummaryType="Custom" />
+                </SummarySettings>
+            </ig:FooterSummariesSetting>
+        </ColumnSettings>
+    </ig:FooterSummaries>
+</Behaviors>
+----
+
+次に示すコードは、コード ビハインドからカスタム集計を追加する方法です。
+
+**C# の場合:**
+
+[source,csharp]
+----
+FooterSummariesSetting unitPriceSetting = new FooterSummariesSetting(this.WebDataGrid1, "UnitPrice");
+SummarySetting stdevSetting = new SummarySetting();
+stdevSetting.SummaryType = SummaryType.Custom;
+stdevSetting.CustomSummaryName = "STDEV";
+stdevSetting.FormatString = "STDEV = {1}";
+unitPriceSetting.SummarySettings.Add(stdevSetting);
+WebDataGrid1.Behaviors.FooterSummaries.ColumnSettings.Add(unitPriceSetting);
+ColumnSummaryInfo stdevInfo = new ColumnSummaryInfo();
+stdevInfo.ColumnKey = "UnitPrice";
+Summary stdevSummary = new Summary();
+stdevSummary.SummaryType = SummaryType.Custom;
+stdevSummary.CustomSummaryName = "STDEV";
+stdevInfo.Summaries.Add(stdevSummary);
+WebDataGrid1.Behaviors.FooterSummaries.ColumnSummaries.Add(stdevInfo);
+protected object WebDataGrid1_CalculateCustomSummary(object sender, CustomSummaryEventArgs e)
+    {
+        // St.dev 集計を計算する
+        if (e.Summary.CustomSummaryName == "STDEV")
+        {
+            // すべての値の合計を計算する
+            double sum = 0.0;
+            int n = 0;
+            foreach (GridRecord gr in this.WebDataGrid1.Rows)
+            {
+                sum += Convert.ToDouble(gr.Items[2].Value);
+                ++n;
+            }
+            // 偏差平方和を計算する
+            double mean = sum / n;
+            sum = 0;
+            foreach (GridRecord gr in this.WebDataGrid1.Rows)
+            {
+                sum += Math.Pow(mean - Convert.ToDouble(gr.Items[2].Value), 2);
+            }
+            sum = sum / (n - 1);
+            return Math.Round(Math.Sqrt(sum), 2);
+        }
+        return null;
+    }
+----
+
+==== 集計行とフィルタリング動作
+
+集計、サマリー行とフィルタリング動作が有効な場合は、フィルターされたデータの集計値を計算できます。`EnableSummariesFilter` と呼ばれるプロパティが、集計を計算する方法を指定します。
+
+このプロパティを「True」に設定した場合、集計の計算には、グリッドのフィルタリング動作で適用されたフィルタリング条件によって絞り込まれていないデータが使用されます。プロパティが「False」に設定された場合は、フィルター アウトに関係なく、集計は完全なデータに基づいて計算されます。
+
+**注:** フィルターされたデータ、または編集されたデータを除き、集計は常にデータ全体について計算されます。つまり、グリッドのデータを編集（CRUD）またはフィルターすると、集計値はフィルターされたデータ、または編集されたデータについて計算されます。他の動作（ページング、スクローリングなど）の場合、計算された集計値はデータ全体に対応します。
+
+==== クライアント側イベント:
+
+[options="header", cols="a,a"]
+|====
+|イベント|説明
+
+|CalculateCustomSummary
+|カスタム集計を再計算するために、クライアント側に更新操作を発生した後に発生されるイベント。 
+
+|Initialize
+|javascript オブジェクトが作成および初期化された後に呼び出される javascript 関数名を取得または設定します。（Infragistics.Web.UI.Framework.ClientEventsBase から継承）
+
+|IsEmpty
+|ViewState がデフォルト以外の値を含むプロパティを持つかどうかをチェックします。追加のサブオブジェクトがサポートされる場合、このプロパティは拡張されたクラスによってオーバーライドされます。IsEmpty は各サブオブジェクトを確認し、このオブジェクト自体に加えてそれらのオブジェクトの確認に基づいて値を返します。
+
+|SummaryCalculated
+|集計を計算した後に発生するイベント。
+
+|SummaryDropdownDisplayed
+|集計オプション ドロップダウンが表示された後に発生するイベント。 
+
+|SummaryDropdownDisplaying
+|集計オプション ドロップダウンが表示される直前に発生するイベント。
+
+このイベントはキャンセルできます。 
+
+|SummaryDropdownHidden
+|集計オプション ドロップダウンが非表示にされた後に発生するイベント。 
+
+|SummaryDropdownHiding
+|集計オプション ドロップダウンが非表示される直前に発生するイベント。
+
+このイベントはキャンセルできます。 
+
+|====
+
+==== 例:
+
+**JavaScript の場合:**
+
+[source,javascript]
+----
+function SummaryCalculated(sender, evntArgs) {
+            var summariesText = " ";
+            var columnSummaryInfo = evntArgs.get_columnSummaryInfo();
+            var columnKey = columnSummaryInfo.get_columnKey();
+            var count = columnSummaryInfo.get_summaryCount();
+            for (var i = 0; i <= 5; i++) {
+                var summary = columnSummaryInfo.get_summaryByType(i);
+                if (summary != null) {
+                    summariesText += getSummaryType(i) + " = " + summary.get_value() + "; ";
+                }
+            }
+            alert ("SummaryCalculated Event Fired for Column " + columnKey + ": " + summariesText);
+        }
+function getSummaryType(summaryTypeIndex) {
+            switch (summaryTypeIndex) {
+                case 0:
+                    return "Count";
+                case 1:
+                    return "Min";
+                case 2:
+                    return "Max";
+                case 3:
+                    return "Average";
+                case 4:
+                    return "Sum";
+                case 5:
+                    return "Custom";
+            }
+        }
+----
+
+==== サーバー イベント
+
+**C# の場合:**
+
+[source,csharp]
+----
+protected object WebDataGrid1_CalculateCustomSummary(object sender, CustomSummaryEventArgs e)
+   {   
+        switch (e.ColumnSummaryInfo.ColumnKey)
+        {
+            case "UnitPrice":
+                return this.CalcStDev(2);
+            case "UnitsInStock":
+                return this.CalcStDev(3);
+            case "UnitsOnOrder":
+                return this.CalcStDev(4);
+            default:
+                return null;
+        }
+    }
+    protected double CalcStDev(int colNumber)
+    {
+        double sum = 0.0;
+        int n = 0;
+        foreach (GridRecord gr in this.WebDataGrid1.Rows)
+        {
+            sum += Convert.ToDouble(gr.Items[colNumber].Value);
+            ++n;
+        }
+        //偏差平方和を計算する
+        double mean = sum / n;
+        sum = 0;
+        foreach (GridRecord gr in this.WebDataGrid1.Rows)
+        {
+            sum += Math.Pow(mean - Convert.ToDouble(gr.Items[colNumber].Value), 2);
+        }
+        sum = sum / (n - 1);
+        return Math.Round(Math.Sqrt(sum), 2);
+    }
+----
+
+== WebHierarchicalDataGrid
+
+WebDataGrid の集計列機能は、WebHierarchicalDataGrid で使用できます。この動作によって、標準集計（カウント、合計値、平均、最小値、最大値）およびカスタム集計の追加が可能になります。
+
+WebHierarchicalDataGrid の各バンドに、集計列の動作を割り当てることができます。子バンドが設定を継承できるように、バンドの [EnableInheritance] プロパティを設定できます。これによって、データの各バンドで集計行の動作をカスタマイズできます。たとえば、WebHierarchicalDataGrid のすべてのバンドの集計が必要な場合は、ルート レベルで SummaryRow 動作を有効にし、EnableInheritance を「True」に設定するだけです。特定の子バンドの動作を無効にする場合は、その特定のバンドの動作を無効にします。
+
+有効な場合、動作は各ヘッダーに集計ボタンを追加します。このボタンを押すと、使用可能な集計を示すドロップダウンが表示されます。
+
+==== 集計行の有効化
+
+**ASPX の場合:**
+
+[source,html]
+----
+<ig:WebHierarchicalDataGrid ID="WebHierarchicalDataGrid1" runat="server" DataSourceID="WebHierarchicalDataSource1" 
+       Height="400px" Width="750px" DataKeyFields="ProductID" >
+            <Bands>
+                <ig:Band Height="100" DataMember="AccessDataSource1_Orders" DataKeyFields="OrderID">
+                    <Behaviors>
+                        <ig:SummaryRow>
+                            <ColumnSummaries>
+                                <ig:ColumnSummaryInfo ColumnKey="Quantity">
+                                    <Summaries>
+                                        <ig:Summary SummaryType="Sum"></ig:Summary>
+                                    </Summaries>
+                                </ig:ColumnSummaryInfo>
+                            </ColumnSummaries>
+                        </ig:SummaryRow>
+                    </Behaviors>
+                </ig:Band>
+            </Bands>
+            <Behaviors>
+                <ig:SummaryRow EnableInheritance="true">
+                    <ColumnSummaries>
+                        <ig:ColumnSummaryInfo ColumnKey="UnitPrice">
+                            <Summaries>
+                                <ig:Summary SummaryType="Average"></ig:Summary>
+                            </Summaries>
+                        </ig:ColumnSummaryInfo>
+                    </ColumnSummaries>
+                </ig:SummaryRow>
+            </Behaviors>
+        </ig:WebHierarchicalDataGrid>
+----
+
+**C# の場合:**
+
+[source,csharp]
+----
+protected void WebHierarchicalDataGrid1_InitializeBand(object sender, BandEventArgs e)
+{
+    if (e.Band.Key == "Products")
+    {
+        e.Band.Behaviors.CreateBehavior<SummaryRow>();
+        e.Band.Behaviors.SummaryRow.EnableInheritance = true;
+        ColumnSummaryInfo unitPriceSummary = new ColumnSummaryInfo();
+        unitPriceSummary.ColumnKey = "UnitPrice";
+        unitPriceSummary.Summaries.Add(SummaryType.Average);
+        e.Band.Behaviors.SummaryRow.ColumnSummaries.Add(unitPriceSummary);
+        this.WebHierarchicalDataGrid1.RefreshBehaviors();
+    }
+    else if (e.Band.Key == "Orders")
+    {
+        e.Band.Behaviors.CreateBehavior<SummaryRow>();
+        e.Band.Behaviors.SummaryRow.EnableInheritance = true;
+        ColumnSummaryInfo quantitySummary = new ColumnSummaryInfo();
+        quantitySummary.ColumnKey = "Quantity";
+        quantitySummary.Summaries.Add(SummaryType.Sum);
+        quantitySummary.Summaries.Add(SummaryType.Max);
+        e.Band.Behaviors.SummaryRow.ColumnSummaries.Add(quantitySummary);
+        this.WebHierarchicalDataGrid1.RefreshBehaviors();
+    }
+}
+----
+
+== 興味深いヒント:
+
+==== **WebHierarchicalDataGrid 内のテンプレート列のカスタム集計**
+
+デフォルトで、集計はテンプレート列にサポートされません。
+
+http://help.jp.infragistics.com/NetAdvantage/ASPNET/2010.3?page=WebHierarchicalDataGrid_About_Summary_Row.html[集計行について]
+
+これは、カスタム集計によって実装される必要があります。
+
+http://help.jp.infragistics.com/NetAdvantage/ASPNET/2010.3?page=WebDataGrid_Adding_Custom_Summary.html[カスタム集計の追加]
+
+link:++http://samples.jp.infragistics.com/aspnet/Samples/WebDataGrid/Display/SummariesCustomSummary/Default.aspx?cn=data-grid&sid=c4be1bb1-e140-444c-aa38-66a423a08b12++[カスタム集計のサンプル]
+
+**ASPX の場合:**
+
+[source,html]
+----
+<ig:WebHierarchicalDataGrid ID="WebHierarchicalDataGrid1" runat="server" Height="350px" AutoGenerateColumns="false" 
+  Width="800px" AutoGenerateBands="false" AutoGenerateColumns="false" DataKeyFields="ID"
+        DataMember="SqlDataSource1_DefaultView" DataSourceID="WebHierarchicalDataSource1"
+        Key="SqlDataSource1_DefaultView" OnCalculateCustomSummary="WebHierarchicalDataGrid1_CalculateCustomSummary">
+            <Bands>
+               <ig:Band AutoGenerateColumns="False" DataMember="SqlDataSource2_DefaultView" Key="SqlDataSource2_DefaultView" 
+          OnCalculateCustomSummary="WebHierarchicalDataGrid1_CalculateCustomSummary" ShowFooter="true"> 
+                    <Columns>
+                        <ig:BoundDataField DataFieldName="ProductID" Key="ProductID">
+                            <Header Text="ProductID" />
+                        </ig:BoundDataField>
+                        <ig:BoundDataField DataFieldName="ProductName" Key="ProductName">
+                            <Header Text="ProductName" />
+                        </ig:BoundDataField>
+                        <ig:BoundDataField DataFieldName="CategoryID" Key="CategoryID">
+                            <Header Text="CategoryID" />
+                        </ig:BoundDataField>
+                        <ig:TemplateDataField Key="UnitPrice">
+                            <ItemTemplate>
+                                <asp:Label ID="Label1" runat="server" 
+                                Text='<%# DataBinder.Eval(((Infragistics.Web.UI.TemplateContainer)Container).DataItem, "UnitPrice")%'>                                
+                                </asp:Label>
+                            </ItemTemplate>
+                            <Footer Text="" />
+                            <Header Text="UnitPrice" />
+                        </ig:TemplateDataField>
+                    </Columns>
+                    <Behaviors>
+                        <ig:SummaryRow>
+                            <ColumnSettings>
+                                <ig:SummaryRowSetting ColumnKey="UnitPrice" EnableColumnSummaryOptions="true" Enabled="true"
+                                    ShowSummaryButton="true">
+                                    <SummarySettings>
+                                        <ig:SummarySetting SummaryType="Custom" CustomSummaryName="Sum of Unit Prices" ShowOptionInDropDown="true" />
+                                    </SummarySettings>
+                                </ig:SummaryRowSetting>
+                            </ColumnSettings>
+                        </ig:SummaryRow>
+                    </Behaviors>
+                </ig:Band>
+            </Bands>
+            <Behaviors>
+                <ig:SummaryRow EnableInheritance="True">
+                    <ColumnSettings>
+                        <ig:SummaryRowSetting ColumnKey="CategoryName">
+                            <SummarySettings>
+                                <ig:SummarySetting CustomSummaryName="Count of CategoryName" SummaryType="Custom" />
+                            </SummarySettings>
+                        </ig:SummaryRowSetting>
+                    </ColumnSettings>
+                </ig:SummaryRow>
+            </Behaviors>
+            <Columns>
+                <ig:BoundDataField DataFieldName="CategoryID" Key="CategoryID">
+                    <Header Text="CategoryID" />
+                </ig:BoundDataField>
+                <ig:TemplateDataField Key="CategoryName">
+                    <ItemTemplate>
+                        <asp:Label ID="Label1" runat="server" Text='<%# DataBinder.Eval(((Infragistics.Web.UI.TemplateContainer)Container).DataItem, "CategoryName") %>'
+                            CssClass="redCategories">
+  </asp:Label>
+                    </ItemTemplate>
+                    <Header Text="CategoryName" />
+                    <Footer />
+                </ig:TemplateDataField>
+                <ig:BoundDataField DataFieldName="Description" Key="Description">
+                    <Header Text="Description" />
+                </ig:BoundDataField>
+            </Columns>
+        </ig:WebHierarchicalDataGrid>
+----
+
+**C# の場合:**
+
+[source,csharp]
+----
+protected object WebHierarchicalDataGrid1_CalculateCustomSummary(object sender, Infragistics.Web.UI.GridControls.CustomSummaryEventArgs e)
+    {       
+        object summary = 0;    
+        if (e.ColumnSummaryInfo.ColumnKey == "UnitPrice")
+        {
+            //　すべての値の合計を計算する
+            Decimal sum = Decimal.Parse(summary.ToString());
+            ContainerGrid childGrid = (ContainerGrid)sender;
+            foreach (GridRecord gr in childGrid.Rows)
+            {
+                Label label = (Label)gr.Items[3].FindControl("Label1");
+                sum += Decimal.Parse(label.Text);
+            }
+            summary = sum;
+        }
+        if (e.ColumnSummaryInfo.ColumnKey == "CategoryName")
+        {
+            int count = (int)summary;
+            //　すべての値のカウントを計算する
+            ContainerGrid childGrid = (ContainerGrid)sender;
+            count = childGrid.Rows.Count;
+            summary = count;
+        }
+        return summary;
+    }
+----

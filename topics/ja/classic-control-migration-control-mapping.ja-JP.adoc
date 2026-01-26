@@ -1,0 +1,82 @@
+﻿////
+|metadata|
+{
+    "name": "classic-control-migration-control-mapping",
+    "controlName": [],
+    "tags": [],
+    "guid": "",
+    "buildFlags": [],
+    "createdOn": ""
+}
+|metadata|
+////
+
+= クラシック コントロールを ASP.NET AJAX コントロールで置き換える
+
+次の表は NetAdvantage 2011 Volume 1 以降に廃止されたすべてのコントロールとそれらを置き換える際に最適なコントロールを示します:
+
+[options="header", cols="a,a"]
+|====
+|クラシック コントロール|置き換え
+
+|WebGrid
+|WebDataGrid/WebHierarchicalDataGrid
+
+|WebCombo
+|WebDropDown
+
+|WebDateChooser
+|WebDatePicker
+
+|WebListBar
+|WebExplorerBar
+
+|WebCalendar
+|WebMonthCalendar
+
+|WebToolbar
+|WebDataMenu
+
+|UltraWebTab
+|WebTab
+
+|WebTextEdit
+|WebTextEditor
+
+|WebMaskEdit
+|WebMaskEditor
+
+|WebNumericEdit
+|WebNumericEditor
+
+|WebDateTimeEdit
+|WebDateTimeEditor
+
+|WebPercentEdit
+|WebPercentEditor
+
+|WebCurrencyEdit
+|WebCurrencyEditor
+
+|WebMenu
+|WebDataMenu
+
+|WebTree
+|WebDataTree
+
+|WebAsyncRefreshPanel
+|ASP.NET AJAX UpdatePanel
+
+|WebPanel
+|WebExplorerBar
+
+|WebNavBar
+|WebDataMenu
+
+|WebGridExcelExporter
+|WebExcelExporter (WebDataGrid/WebHierarchicalDataGrid を使用する)
+
+|WebGridDocumentExporter
+|WebDocumentExporter (WebDataGrid/WebHierarchicalDataGrid を使用する)
+
+|====

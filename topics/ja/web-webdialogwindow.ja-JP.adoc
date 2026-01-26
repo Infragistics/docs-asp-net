@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webdialogwindow",
+    "controlName": ["WebDialogWindow"],
+    "tags": [],
+    "guid": "{9BC0900C-B019-49E2-897C-D9AD4BE1200E}",  
+    "buildFlags": [],
+    "createdOn": "2008-12-01T20:39:32Z"
+}
+|metadata|
+////
+
+= WebDialogWindow
+
+WebDialogWindow™ コントロールに関連した概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションは、コントロールについての概要からアプリケーションで使用する理由、コントロールを使用して共通タスクを達成するための方法の手順などの WebDialogWindow についての有益な情報を含んでいます。
+
+以下のリンクをクリックして、WebDialogWindow コントロールについての情報にアクセスします。
+
+== link:webdialogwindow-about-webdialogwindow.html[WebDialogWindow について]
+
+このセクションでは、WebDialogWindow コントロールの機能をより良く理解するために助けとなるあらゆる情報や、アプリケーション構築の一環としてこのコントロールの機能を使いたくなる理由が説明されています。
+
+== link:webdialogwindow-getting-started-with-the-webdialogwindow.html[WebDialogWindow で開始]
+
+WebDialogWindow コントロールで出来る限り素早く起動して実行するために、コントロール（つまり、フォームに WebDialogWindow を追加）を使用する方法についての情報を提供します。
+
+== link:webdialogwindow-using-webdialogwindow.html[WebDialogWindow の使用]
+
+このセクションは、WebDialogWindow コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+== link:webdialogwindow-webdialogwindow-accessibility-compliance.html[WebDialogWindow アクセシビリティの遵守]
+
+このトピックは、WebDialogWindow が第 508 条の要件を満たす方法を概略します。このアクセシビリティの遵守によって、エンドユーザー、特に障害を持つユーザーが WebDialogWindow コントロールを使用して構築された Web アプリケーションにアクセスおよび使用することを可能にします。
+
+== link:webdialogwindow-api-overview.html[API の概要]
+
+このトピックは、WebDialogWindow コントロールでプログラミング中に作業する名前空間とクラスをリストします。このトピックにリストされる名前空間とクラスは、{ProductName} ヘルプの link:web-api-reference-guide.html[API 参照ガイド]に便宜上リンクします。
+
+== link:webdialogwindow~infragistics.web.ui_namespace.html[CSOM の概要]
+
+WebDialogWindow コントロールは、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを提供します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクトで構成され、開発者はサーバー側にポストバックしなくても、ダイアログウィンドウに関連する重要な機能単位をプログラムできます。

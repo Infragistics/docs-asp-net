@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-time-zones",
+    "controlName": ["WebSchedule"],
+    "tags": ["Localization","Scheduling"],
+    "guid": "{A617EF25-5BBA-4D35-9794-F9619E13B686}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-09T00:00:00Z"
+}
+|metadata|
+////
+
+= タイムゾーン
+
+ロサンゼルスのユーザーが PDT（太平洋夏時間）の午後 5:30 に予定を追加します。これは、ローカル時間が EDT（東部夏時間）の午後 8:30 に、ニューヨークにある Web サーバーで受信されます。
+
+この場合 WebSchedule はどのように機能しますか?
+
+ご使用のアプリケーションはエンド ユーザーの優先されるタイムゾーンを認識する必要があります。WebScheduleInfo で  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~timezoneoffset.html[TimeZoneOffset]"]  プロパティを設定し、ロサンゼルス時間をグリニッジ標準時に変換します（サマータイムが有効な時には -7）。
+
+このタイムゾーン情報に基づいてアクティビティを表示するために、WebSchedule ビューは自動的にユーザーのローカル時間に調整します。すべての時間はデータストア内のグリニッジ標準時に保存されます。
+
+link:webschedule-working-with-the-frameinterval.html[フレーム期間の作業]

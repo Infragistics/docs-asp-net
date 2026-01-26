@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-hide-the-tab-strip-of-webhtmleditor",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing"],
+    "guid": "{F8D3017C-4AA1-4E90-B0B1-BD55681073D5}",  
+    "buildFlags": [],
+    "createdOn": "2006-04-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor のタブ ストリップの非表示
+
+WebHtmlEditor コントロールをアプリケーションに使用すると、その下部にタブ ストリップ領域が自動的に表示されます。しかし、ユーザーがアプリケーションの HTML ビューにアクセスすることが望ましくない場合があります。そのようなときには、タブ ストリップ領域を非表示にする必要があります。WebHtmlEditor 領域は、デザインタイム環境で、またはコーディングにより非表示にできます。この例では、ランタイムにタブストリップを非表示にするコードをコードビハインド ファイルに追加します。
+
+WebHtmlEditor には  pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.webhtmleditor~tabstripdisplay.html[TabStripDisplay]"]  プロパティとよばれる True にデフォルト設定するプロパティがあります。タブ ストリップ領域を非表示にするには、Page_Load イベント ハンドラから次の代入文を使ってこのプロパティを False に設定します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub Page_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	Me.WebHtmlEditor1.TabStripDisplay = False
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void Page_Load(object sender, System.EventArgs e)
+{
+	this.WebHtmlEditor1.TabStripDisplay = false;
+}
+----

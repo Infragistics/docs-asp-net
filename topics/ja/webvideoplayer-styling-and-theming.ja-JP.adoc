@@ -1,0 +1,288 @@
+﻿////
+
+|metadata|
+{
+    "name": "webvideoplayer-styling-and-theming",
+    "controlName": ["WebVideoPlayer"],
+    "tags": ["Styling","Theming"],
+    "guid": "9cf32701-8714-4766-8e52-d1a5f5b02cd2",  
+    "buildFlags": [],
+    "createdOn": "2011-06-01T08:12:34.6536089Z"
+}
+|metadata|
+////
+
+= WebVideoPlayer のスタイル設定とテーマ
+
+== 必要とされる CSS およびテーマ
+
+Web アプリケーションで WebVideoPlayer™ コントロールを使用することを決定した時に、開発者が直面する最も一般的な問題はアプリケーションのスタイルに応じて Video Player コントロールのルック アンド フィールを作成することです。{ProductName} パッケージで使用可能な jQuery コントロールについて、特にまた広義にビデオ プレーヤーのためのスタイリングとテーマ化に関する以下の情報を使用してこれを実行できます。
+
+WebVideoPlayer コントロールは、他の jQuery コントロールと同じように、スタイルに jQuery UI CSS フレームワークを使用します。{ProductName} には、「IG テーマ」と呼ばれるカスタムの UI テーマが含まれています。このテーマは、すべてのインフラジスティックス jQuery コントロールおよび標準の jQuery UI ウィジェットにプロフェッショナルの魅力的なデザインを提供します。
+
+== 必要なテーマを Web サイトに追加
+
+IG テーマとベース テーマは、「jQuery/themes」フォルダー内のインストール ディレクトリに配置されます。テーマをアプリケーションに追加するには、「themes」ディレクトリから「ig」および「base」ディレクトリを、jQuery UI テーマまたは CSS に指定された開発者のサイトのディレクトリにコピーします。
+
+*注:* このドキュメントのこれ以降は、コピーされたテーマの保存先としてディレクトリが「themes」という名前に指定されていることが前提となります。
+
+*図 1: 製品インストール時に含まれるテーマ フォルダー*
+
+image::images/WebVideoPlayer_Styling_and_Theming_01.png[]
+
+*図 2: 保存先のアプリケーションにコピーされたテーマ フォルダー*
+
+image::images/WebVideoPlayer_Styling_and_Theming_02.png[]
+
+== IG テーマ
+
+IG テーマは jQuery UI テーマに通常あるすべてのスタイルを含むカスタム テーマです。このテーマは必要ではないため、異なるテーマで置き換えることができます。IG テーマ以外のテーマを使用する場合、ビデオ プレーヤーには完全なデザインを達成するためにカスタマイズが必要となる追加のスタイリングポイントがいくつかあります。
+
+WebVideoPlayer は標準の jQuery UI テーマのスタイルシートへのリンクが付けられている必要があります。IG テーマの場合、テーマのスタイルシートへの参照をページに含む必要があります。
+
+*ASPX の場合:*
+
+----
+<link href="<%= Url.Content("~/themes/ig/jquery.ui.custom.css") %>" rel="stylesheet" type="text/css" />
+----
+
+== ベース テーマ
+
+ベース テーマは、jQuery テーマの後に参照されます。WebVideoPlayer コントロールを使用する時、以下のスタイルシートが必要となります。
+
+*ASPX の場合:*
+
+----
+<link href="<%= Url.Content("~/themes/base/ig.ui.min.css") %>" rel="stylesheet" type="text/css" />
+----
+
+== ビデオ プレーヤー CSS クラス
+
+ビデオ プレーヤーによって使用される CSS クラスの完全なリストは以下のとおりです。最初の列に示されたコントロールのプロパティを使用して、個別の要素のクラスを取得および設定できます。
+
+[options="header", cols="a,a,a"]
+|====
+|プロパティ|使用される CSS クラス|説明
+
+|baseClasses
+|ui-widget 
+
+ui-igplayer
+|ベースの CSS クラス。
+
+|controlsClass
+|ui-widget-header 
+
+ui-igplayer-controls 
+
+ui-igplayer-grid 
+
+ui-igplayer-autohide
+|コントロール CSS クラス。
+
+|controlsHideClass
+|ui-igplayer-controls-hide
+|コントロールは CSS クラスを非表示にする。自動的に隠すコントロールに適用される。
+
+|videoClass
+|ui-igplayer-video
+|主要なビデオ要素に適用されるクラス。
+
+|unsupportedBrowserClass
+|ui-igplayer-unsupported-browser-msg
+|スパン要素に適用される。非 HTML5 互換ブラウザーでプレーヤーを開くときに表示される。
+
+|activeVideoClass
+|ui-igplayer-active-video
+|コントロールがアクティブ化される時にメインのビデオで適用されるクラス。
+
+|playButtonClass
+|ui-igplayer-playbutton
+|再生コントロールの再生ボタンに適用される。
+
+|progressBarClass
+|ui-igplayer-progressbar 
+
+ui-corner-all
+|再生コントロールのスライダー ウィジェットに適用される。
+
+|fullScreenClass
+|ui-igplayer-fullscreen-button
+|再生コントロールの全画面表示ボタンに適用されるクラス。
+
+|volumeControlClass
+|ui-igplayer-volumecontrol
+|再生コントロールのボリューム コントロール ボタンに適用されるクラス。
+
+|volumeSliderClass
+|ui-igplayer-volumeslider
+|再生コントロールのボリューム スライダーに適用される。
+
+|progressLabelClass
+|ui-igplayer-progresslabel
+|再生コントロールの進行状況ラベルに適用される。
+
+|bookmarkContainerClass
+|ui-widget 
+
+ui-igplayer-bookmark-container
+|ブックマーク コンテナー DIV に適用されるクラス。
+
+|bookmarkContainerHeaderClass
+|ui-widget-header 
+
+ui-igplayer-bookmark-header
+|ブックマーク ヘッダー コンテナーに適用される。
+
+|bookmarkListClass
+|ui-widget-content 
+
+ui-igplayer-bookmark-list
+|ブックマーク領域のブックマーク リストに適用される。
+
+|bookmarkItemTimeClass
+|ui-igplayer-bookmark-item-time
+|ブックマーク領域に時間を表示するブックマーク リスト項目に適用されるクラス。
+
+|bookmarkItemTitleClass
+|ui-igplayer-bookmark-item-title
+|ブックマーク領域にタイトルを表示するブックマーク リスト項目に適用される。
+
+|bookmarkActiveItemClass
+|ui-igplayer-bookmark-active-item
+|ブックマーク領域にアクティブなブックマーク項目を表示するクラス。
+
+|relatedVideosContainerClass
+|ui-igplayer-related-video-container
+|関連するビデオ コンテナー クラスに適用される。
+
+|relatedVideosOuterContainerClass
+|ui-igplayer-related-video-outer-container
+|関連するビデオの最も外側にあるコンテナーに適用されるクラス。
+
+|relatedVideoClass
+|ui-igplayer-related-video
+|関連するビデオ要素に適用される。
+
+|relatedVideoHoverClass
+|ui-igplayer-related-video-hover
+|関連するビデオのホバーに適用されるクラス。
+
+|relatedVideoScrollLeftClass
+|ui-igplayer-related-scroller-left
+|左のスクロール ボタンに適用される。
+
+|relatedVideoScrollLeftIconClass
+|ui-icon-triangle-1-w
+|左のスクロール ボタン アイコン CSS クラス。
+
+|relatedVideoScrollRightClass
+|ui-igplayer-related-scroller-right
+|関連するビデオの右スクロール ボタンに適用されるクラス。
+
+|relatedVideoScrollRightIconClass
+|ui-icon-triangle-1-e
+|スクロール ボタンの右アイコンに適用される。
+
+|relatedVideoScrollListClass
+|ui-igplayer-related-list
+|関連するビデオ リスト CSS クラス。
+
+|relatedVideosHeaderClass
+|ui-igplayer-related-video-header
+|関連するビデオ ヘッダー領域に適用される。
+
+|relatedVideoBarClass
+|ui-igplayer-related-video-bar
+|リプレイおよび全画面ボタンを含む関連するビデオ ボタン領域に適用される。
+
+|relatedVideoReplayClass
+|ui-igplayer-related-video-replay
+|関連するビデオ領域のリプレイ ボタンに適用されるクラス。
+
+|relatedVideoReplayIconClass
+|ui-icon-arrowrefresh-1-s
+|リプレイ ボタン アイコン CSS クラス。
+
+|relatedVideoFullScreenClass
+|ui-igplayer-related-video-full-screen
+|関連するビデオ領域の全画面ボタンに適用される。
+
+|relatedVideoFullScreenIconClass
+|ui-icon-arrow-4-diag
+|全画面表示ボタン アイコンに適用されるクラス。
+
+|bannerContainerClass
+|ui-igplayer-banner ui-corner-all
+|バナー コンテナー div に適用される。
+
+|bannerCloseClass
+|ui-igplayer-banner-close
+|バナー閉じるボタンに適用されるクラス。
+
+|bannerCloseIconClass
+|ui-icon-close
+|バナー閉じるアイコンに適用されるクラス。
+
+|adMsgContainerClass
+|ui-igplayer-ad-msg-container
+|再開ビデオ メッセージ コンテナーに適用される。
+
+|adMsgClass
+|ui-igplayer-ad-msg
+|再開ビデオ メッセージ スパンに適用される。
+
+|adMsgCloseClass
+|ui-igplayer-ad-msg-close
+|再開ビデオ メッセージの閉じるボタンに適用される。
+
+|adMsgCloseIconClass
+|ui-icon-close
+|再開ビデオ メッセージの閉じるボタン アイコンに適用されるクラス。
+
+|linkedBookmarkClass
+|ui-igplayer-linked-bookmark
+|リンクされた商用ブックマークに適用される。
+
+|adBookmarkClass
+|ui-igplayer-ad-bookmark
+|埋め込みの商用ブックマークに適用されるクラス。
+
+|unsupportedVideoSourceClass
+|ui-igplayer-not-supported-video-source
+|ビデオ ソースがサポートされない時に表示されるアンカー要素に適用される。
+
+|unsupportedVideoSourceIconClass
+|ui-igplayer-not-supported-video-source-icon
+|サポートされないビデオ ソース アイコンを表示するアンカー要素に適用される。
+
+|centerPlayButtonClass
+|ui-igplayer-centerplaybutton-play
+|中央の再生ボタンに適用される。
+
+|centerPauseButtonClass
+|ui-igplayer-centerplaybutton-pause
+|中央の一時停止ボタンに適用されるクラス。
+
+|centerPlayButtonIconClass
+|ui-igplayer-centerplaybutton-icon
+|中央の再生ボタン アイコンに適用されるクラス。
+
+|waitingIndicatorClass
+|ui-igplayer-waiting
+|バッファリング インジケーター CSS クラス。
+
+|waitingIndicatorIconClass
+|ui-igplayer-waiting-icon
+|バッファリング インジケーター アイコンに適用される。
+
+|seekTooltipClass
+|ui-igplayer-seektooltip
+|ヒントの検索に適用される。
+
+|====
+
+== 外部参照
+
+* link:http://jqueryui.com/[jQuery UI]
+* link:http://jqueryui.com/themeroller/[jQuery テーマ ローラー]

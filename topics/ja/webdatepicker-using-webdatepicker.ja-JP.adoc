@@ -1,0 +1,57 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatepicker-using-webdatepicker",
+    "controlName": ["WebDatePicker"],
+    "tags": [],
+    "guid": "{313ECA40-6034-41D3-A917-6F698AAE9428}",  
+    "buildFlags": [],
+    "createdOn": "2009-04-06T11:21:34Z"
+}
+|metadata|
+////
+
+= WebDatePicker の使用
+
+このセクションは、WebDatePicker™ コントロールの重要な概念および機能を効果的に使用するためのタスク ベースの情報について説明します。
+
+link:webdatepicker-edit-and-display-mode-formats-in-webdatepicker.html[WebDatePicker の編集と表示モード]
+
+このセクションでは、WebDatePicker コントロールの編集および表示モードを設定する方法を学びます。
+
+link:webdatepicker-setting-minimum-and-maximum-values-for-webdatepicker.html[WebDatePicker の最大値/最小値の設定]
+
+このセクションでは、WebDatePicker コントロールに最大値および最小値を設定する方法を学びます。
+
+link:webdatepicker-setting-prompt-character-for-webdatepicker.html[WebDatePicker プロンプト文字の設定]
+
+このセクションでは、WebDatePicker コントロールにプロンプト文字を設定する方法を学びます。
+
+link:webdatepicker-setting-minimum-number-of-valid-fields-for-webdatepicker.html[WebDatePicker に値フィールドの最小値を設定する]
+
+WebDatePicker コントロールには、値フィールドの異なる数字で入力されたすべての日付を検証する機能があります。このセクションでは、数字の設定方法を学びます。
+
+link:webdatepicker-autofilling-the-year-field-in-webdatepicker.html[WebDatePicker で年フィールドの Autofill]
+
+このセクションでは、年オートフィル機能の動作を決定するプロパティを設定する方法を学びます。
+
+link:webdatepicker-spinning-through-a-list-of-values-in-webdatepicker.html[WebDatePicker の値リストのスピン]
+
+このセクションでは、値リストで回転するスピン ボタンを使用する方法を学びます。
+
+link:webdatepicker-using-the-last-valid-date-in-webdatepicker.html[WebDatePicker で前の有効な日を使用する]
+
+コントロールでフォーカスを失った際に前の有効な日付を使用することができます。このセクションでは、その方法を学びます。
+
+link:webdatepicker-using-webmonthcalendar-as-webdatepickers-dropdown-calendar.html[WebMonthCalendar を WebDatePicker ドロップダウン カレンダーとして使用する]
+
+WebDatePicker には WebMonthCalendar™ コントロールを使用して、エンドユーザーが日付を選択して編集できる機能があります。このセクションでは、その設定方法を学びます。
+
+link:webdatepicker-using-custom-button-in-webdatepicker.html[WebDatePicker でカスタム ボタンを使用する]
+
+このセクションでは、カスタマイズされたボタンを実装してカスタムなアクションを実行する方法を学びます。
+
+link:webdatepicker-webdatepicker-smart-tag.html[WebDatePicker スマート タグ]
+
+このセクションでは WebDatePicker スマート タグについて学びます。

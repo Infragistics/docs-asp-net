@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "webtab-keyboard-navigation",
+    "controlName": ["WebTab"],
+    "tags": ["How Do I","Navigation"],
+    "guid": "{8E4BE2BF-D473-44E0-AAF5-2581EBB2210E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= キーボード ナビゲーション
+
+WebTab™ は、キーボードを使用したタブの簡単なナビゲーションをサポートします。
+
+* 左矢印 – アクティブ タブを左に移動します。
+* 右矢印 – アクティブ タブを右に移動します。
+* Home – 最初のタブをアクティブにします。
+* End – 最後のタブをアクティブにします。
+* Space/Enter – アクティブ タブを選択します。
+
+*注：* WebTab は、コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.webtab~enableactivation.html[EnableActivation]"]  プロパティを True に設定した場合に限って、キーボードに応答します。

@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-about-properties-panel",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{2E23EFFE-863F-4B57-8DDF-F1020BDE9D18}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= プロパティ パネルについて
+
+ゲージ エクスプローラまたはインタラクティブなプレビュー領域のいずれかから異なるゲージまたはゲージのプロパティを選択すると、[プロパティ] パネルはそのコンテンツを変更します。
+
+[プロパティ] パネルを使用すると、ゲージのプロパティを編集してインタラクティブなプレビュー領域で変更を即座に確認することができ、編集プロセスを簡略化します。たとえば、事前に定義したゲージと異なる多くのプロパティを持つ複雑なゲージを選択した場合、[プロパティ] パネルから  pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugescale~labels.html[Label]"]  値を簡単に変更できます。
+
+以下のスクリーンショットは [プロパティ] パネルに表示されるラジアル ゲージのプロパティの例を示しています。
+
+image::images/Gauge_Properties_Window_01.png[]

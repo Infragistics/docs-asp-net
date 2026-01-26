@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "webexcelexporter-using-webexcelexporter",
+    "controlName": ["WebExcelExporter"],
+    "tags": ["Exporting","Getting Started","Grids"],
+    "guid": "b91c7f5f-1321-44f3-9663-c6600c303b10",  
+    "buildFlags": [],
+    "createdOn": "2010-06-06T07:47:58.3876939Z"
+}
+|metadata|
+////
+
+= WebExcelExporter の使用
+
+このセクションは、WebExcelExporter™ コントロールの重要な概念および機能を効果的に使用するためのタスク ベースの情報について説明します。
+
+link:webexcelexporter-saving-exported-data-on-the-server.html[エクスポートしたデータをサーバーに保存]
+
+このトピックでは、WebExcelExporter を使用して Microsoft™ Excel™ ファイルへエクスポートし、ウェブ サーバーのハード ドライブに直接保存する方法を説明します。
+
+link:webexcelexporter-saving-all-data-in-the-data-source.html[データ ソースですべてのデータを保存]
+
+WebDataGrid / WebHierarchicalDataGrid では、ページングやバーチャルスクロールを有効にすることにより、高度な視覚化や最適化が可能になります。WebExcelExporter を設定してグリッドの全データを Excel™ ファイルにエクスポートする方法を説明します。
+
+link:webexcelexporter-exporting-data-into-different-file-formats.html[異なるファイル形式へデータをエクスポートする]
+
+このトピックは WebExcelExporter コンポーネントを使用してWebDataGrid / WebHierarchicalDataGrid データをさまざまな Excel™ 形式にエクスポートする方法を説明します。
+
+link:webexcelexporter-exporting-multiple-grids-with-webexcelexporter.html[WebExcelExporter で複数のグリッドをエクスポート]
+
+このセクションでは WebExcelExporter で複数の WebDataGrid / WebHierarchicalDataGrid からのデータを単一の Excel™ ファイルへエクスポートする方法を説明します。
+
+link:webexcelexporter-exporting-custom-summary.html[カスタム集計のエクスポート]
+
+このトピックは WebDataGrid / WebHierarchicalDataGrid カスタム集計式を Excel™ ファイルへエクスポートする方法を説明します。

@@ -1,0 +1,58 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-windows-authentication-in-microsoft-sql-server",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Patterns and Practices","Scheduling"],
+    "guid": "{332985D0-B5C6-4DFB-A5B9-CBC184119FED}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Microsoft SQL Serverでの Windows 認証
+
+このトピックでは、Windows 認証が使用される環境で Microsoft SQL Server を使用するために WebSchedule アプリケーションを配備することに関する追加情報を提供します。
+
+Windows 認証は、Microsoft SQL Server に接続しようとするユーザーを Microsoft SQL Server が認証する 2 つのモードのひとつです。Windows 固有のセキュリティ アクセス マネージャ（SAM）、オペレーティング システムによって保持されるユーザー ログオンのデータベースに基づいて認証を行います。このデータベースは、ホストマシンまたはドメインの別のマシン（ _つまり_ 、プライマリ ドメイン コントローラ）に配置します。ユーザーが認証を得るためには、Windows にユーザーの認証情報を提供することによってログオンする必要があります。ユーザーが Windows に ID を証明すると、ユーザーがホストマシンに物理的にログインしているかのように同じ権限を Windows が付与して、ユーザーはリモートアクセスしているホストマシン上のリソースにアクセスすることが許可されます。
+
+Internet Information Services（IIS）によってホストされた Web アプリケーションは通常、ASPNET（この名前は後のバージョンで変更された）という名前の限定ユーザー ログオンで実行します。ASPNET は、HTTP を介してホストマシン上に公開されているリソースに匿名のインターネット ユーザーがアクセスすることを許可するように設計されました。追加リソースにアクセスするためにこのアカウント特権を付与することは一般的に推奨できません。
+
+多くの Web アプリケーションは特定のアプリケーションに対して特定のユーザー ログオンのふりをします（この例ではこのログオン名を WWWUSER に指定します）。ホストマシンまたはドメインでユーザー アカウントとして WWWUSER という名前の制限ログオンを設定しますが、必要最低限の権利セットを付与し、以下のように web.config ファイルに XML を追加します。
+
+[source]
+----
+<identity impersonate="true" userName="DOMAIN\WWWUSER" password="guess"/>.
+----
+
+これを実行すると、WWWUSER がホストマシンにログインされているかのように、WebSchedule アプリケーションを実行する時に IIS によるリソースに対する要求（Microsoft SQL Server に接続など）が実行されます。このユーザー ログオンに関して Microsoft SQL Server に指示するために必要な手順がもうひとつあります。
+
+SQL Server Enterprise Manager 内で、データベース サーバー（ _つまり_ "(local)"）に移動して、[セキュリティ] を展開し、次に [ログイン] を開き、ログインを右クリックして [新しいログイン...] を選択することによって新しいログインを追加する必要があります。これによって以下のようなダイアログが表示されます。
+
+image::Images/WebSchedule_Related_Topics_Windows_Authentication_in_Microsoft_SQL_Server_01.png[]
+
+Windows ユーザー ログオンのためのデータベース ログイン、WWWUSER を追加した後で、ログインが追加されたデータベースに移動する必要があります（この例では、それは上記のダイアログのドロップダウンから選択した「WebSchedule1」という名前のデータベース）。データベースの下から [ユーザー] を選択して、右クリックし [新しいデータベース ユーザー...] を選択します。以下に表示したこのダイアログから、データベースロールとログインを関連付けます（以下の事例では「パブリック」のロールが使用されますが、アプリケーションのためのカスタムのロールを作成し、これにデータベースログインを割り当てる方法が頻繁に使用されています）。
+
+image::Images/WebSchedule_Related_Topics_Windows_Authentication_in_Microsoft_SQL_Server_02.png[]
+
+WWWUSER のふりをすることによって、WebSchedule アプリケーションを実行して Microsoft SQL Server に接続するために必要な最低限の特権でドメインに設定されたユーザー アカウントを Web ユーザーに許可するために十分な作業をこれで実行しました。ただし、次の手順は重要です。この手順ではストアド プロシージャに対する実行特権をこのログインのロールに付与します。このように、WebSchedule アプリケーションがデータベースに接続する時に、データベースに接続して安全が確認されているトランザクションセットを通してアクセスすることのみが可能です。WWWUSER データベース ログインが特別な SQL ステートメントによって WebSchedule データ モデル内のテーブルを読み取るまたは更新しようとした場合失敗します。それは現時点では SELECT、INSERT、UPDATE または DELETE ステートメントを実行する権利が付与されていないからです。これは SQL インジェクション攻撃に対するアプリケーションの回復力を強化します。
+
+上記の [データベース ロール プロパティ] ダイアログでロールを選択したら、[プロパティ..] ボタンをクリックします。これによって別のダイアログが表示します。このダイアログで [権限..] ボタンをクリックして、ストアド プロシージャ、テーブル、システム テーブルのグリッドを表示する必要があります。このグリッドで、アクセスを許可するか拒否するかを個々に指定できます。WebSchedule ストアド プロシージャそれぞれに対して、以下の図に示すようにボックスに緑のチェックマークを付けて WWWUSERロ グインへの実行権限を付与し、[適用] ボタンをクリックします。
+
+image::Images/WebSchedule_Related_Topics_Windows_Authentication_in_Microsoft_SQL_Server_03.png[]
+
+上記に説明した手順を完了した後で、IIS と SQL Server が同じホストマシンで実行する時に、WebSchedule アプリケーションの Microsoft SQL Server への接続は成功するはずです。成功しない場合には、 pick:[asp-net="link:{ApiPlatform}webui.webscheduledataprovider{ApiVersion}~infragistics.webui.data.webschedulesqlclientprovider.html[WebScheduleSqlClientProvider]"]  で接続された SqlConnection コンポーネントで指定した ConnectionString プロパティ値が有効であり、(local)サーバーを参照していること、また信頼できる接続がオンでになっていることを確認してください。WebScheduleSqlClientDataProvider に対するデフォルト接続は、デフォルトで SQL を使用します。したがって、Windows 認証を使用するときには明示的に接続する必要があります。
+
+Windows 認証では、配備環境に 2 つのまったく個別の状況を存在させることができます。この点についてこのトピックでは簡単に状況のみを説明します。以下の図で示すシングルホップの認証のように IIS と SQL Server が同じホストマシンに配置されています。
+
+image::Images/WebSchedule_Related_Topics_Windows_Authentication_in_Microsoft_SQL_Server_04.png[]
+
+IIS と SQL Server が個別のホストマシンに配備される場合に一般的に実行されるもうひとつの Windows 認証があります。この状況はマルチホップ認証とよばれ、単一の偽装（impersonation）では不十分です。これは、IIS を実行するホストマシンが WWWUSER の認証情報を有効として受け付けるからです。ただし、Microsoft SQL Server がこのネットワーク上の別のホストマシンで実行している時には、WWWUSER が有効であるという Web サーバーのメッセージは取得できません。SQL Server を実行しているホストマシンはどのようにして Web サーバーが侵害されていないことを確認するのでしょうか?この状況は以下の図で説明します。
+
+image::Images/WebSchedule_Related_Topics_Windows_Authentication_in_Microsoft_SQL_Server_05.png[]
+
+この 2 番目の状況では IIS および Microsoft SQL Server のホストマシン間のネットワークホップで Kerberos 委任を実行する必要があります。このため、上記の図はデリゲートとして機能するアカウント DBUSER を示しています。データベース ホストマシンは委任でドメイン アカウントのみを信頼し（別のホストからの普通のローカル アカウントはオリジナルの WWWUSER 要求と同じ位信頼性が高くない）、データベース ホストマシンを委任を許可するように構成する必要があります。したがって、前述の議論で WWWUSER を設定したのと全く同様に、Microsoft SQL Server 内で DBUSER を構成します。
+
+ドメイン内の 2 つのホスト間で Kerberos 委任を正しく構成するために必要な手順はここでは述べませんが、Microsoft Windows 2000 Server を使用するのか、Microsoft Windows 2003 Server を使用するのかによって異なります。委任の設定の詳細については、ご使用のサーバーのマニュアルを参照するか、システム管理者にお問い合わせください。必要以上に調整しないようにするために受け付けることができる委任要求の範囲を制約または制限するためにご使用のオペレーティング システムが提供する機能を活用してください。

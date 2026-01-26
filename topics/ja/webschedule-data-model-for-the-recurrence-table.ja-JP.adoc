@@ -1,0 +1,117 @@
+﻿////
+|metadata|
+{
+    "name": "webschedule-data-model-for-the-recurrence-table",
+    "controlName": ["WebSchedule"],
+    "tags": ["Scheduling"],
+    "guid": "{30B0C25D-1A45-4777-BF1A-C91745BF6C42}",
+    "buildFlags": [],
+    "createdOn": "2007-05-11T11:01:35Z"
+}
+|metadata|
+////
+
+= Recurrence テーブル用データ モデル
+
+Recurrence テーブルは WebSchedule Activity に適用される繰り返しパターンを説明します。これは定期的に繰り返すように設定されています。すべての列は特に明記されていない限り、Resource オブジェクトで同じ名前を持つ .NET プロパティに対応します。
+
+WebSchedule Data Model for {ProductName} 2006 Volume 2 以降で、Recurrence テーブルは刷新されました。
+
+[options="header", cols="a,a,a,a"]
+|====
+|列名|データ型|Null を許可|注記
+
+|RecurrenceID
+|int
+|いいえ
+|*プライマリ キー* この繰り返しを一意に識別する数値。
+
+|EndDateUtc
+|DateTime
+|いいえ
+|繰り返しパターンの期限が切れる Midnight の時刻付きの日にち（UTC で調整済み）。 
+
+永遠に続くことが想定される繰り返しを表す場合は 12/31/9999 になります。
+
+|DayOfWeekMaskUtc
+|int
+|いいえ
+|バイナリ ビット マスクとして Activity がどの曜日に当たるのかを指定します。 
+
+詳細は、Flags 列挙体 "RecurrencePatternDaysOfWeek" を参照してください。
+
+|UtcOffset
+|int
+|いいえ
+|この繰り返しを作成または修正するための最後の人の UTC からのタイムゾーン オフセットです。（符合の付いた）秒数として測定されます。 
+
+この繰り返しをその他のタイムゾーンでユーザーが見る時にその他の明示的な値を明確にするためにこのオフセットは使用されます。
+
+|DayOfMonth
+|int
+|いいえ
+|DayOfMonth > 0 の時にはカレンダー月の日を表して、Recurrence オブジェクトの DayOfMonth プロパティに保存されます。 
+
+DayOfMonth < 0 の時には、以下のように月内の順序の発生を表します。 
+
+-1 - RecurrenceDayOfMonth.First
+
+-2 - RecurrenceDayOfMonth.Second
+
+-3 - RecurrenceDayOfMonth.Third
+
+-4 - RecurrenceDayOfMonth.Fourth
+
+-5 - RecurrenceDayOfMonth.Last
+
+このように使用すると、値は Recurrence の RecurrenceDayOfMonth プロパティに保存されます。 
+
+RecurrenceDayOfMonth は、「Third Wednesday of the Month」などのように繰り返しのパターンを表すために DayOfWeekMask 値と組み合わせることができます。
+
+|MonthOfYear
+|int
+|いいえ
+|1 から 12 までの数字として年のカレンダー月を指定します。 
+
+この列は、Period が 'Y'（年）の時に限り適用されます。適用できない場合には、値 0 を指定する必要があります。
+
+|PeriodMultiple
+|int
+|いいえ
+|発生と発生の間の間隔を指定します（つまり、4 日ごと、3 週間ごと、または半年ごと）。
+
+|Period
+|nchar(1)
+|いいえ
+|発生の間の間隔として使用するための最も適切な期間を指定します。 
+
+'D' - 日 
+
+'W' - 週 
+
+'M' - 月 
+
+'Y' - 年 
+
+|EditType
+|int
+|いいえ
+|ユーザーが発生、シリーズを編集するか、それとも繰り返しアクティビティの発生を編集しようとするときに選択することをプロンプトするかを指定します。 
+
+0 - ユーザーに選択をプロンプトします（デフォルト）。 
+
+1 - ユーザーはシリーズを常に編集します。 
+
+2 - ユーザーは発生を常に編集します。 
+
+|LastReminderDateTimeUtc
+|DateTime
+|はい
+|アラームが生成された最後の発生の開始日付/時刻 UTC。
+
+|_ts
+|timestamp
+|はい
+|並行処理の競合を検出するために使用されるタイムスタンプ。
+
+|====

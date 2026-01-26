@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "webpagestyler-about-webpagestyler",
+    "controlName": [],
+    "tags": ["Getting Started"],
+    "guid": "{B7D18E96-9E8D-4E19-B6EA-467CF6D6E43C}",  
+    "buildFlags": [],
+    "createdOn": "2007-08-02T14:34:22Z"
+}
+|metadata|
+////
+
+= WebPageStyler について
+
+WebPageStyler コンポーネントによって、プロジェクト全体でアプリケーション スタイリングをオンにすることなく、特定の ASPX ページでアプリケーションスタイリングを使用することができます。このコンポーネントの利点は、同じテーマとスタイルの代わりにアプリケーション全体で異なるテーマとスタイルを使用できることです。WebPageStyler コンポーネントによって、アプリケーションでのより高い柔軟性と汎用性が可能となります。異なるスタイルセットを作成して、プロジェクト全体のさまざまな ASPX ページに実装することができます。
+
+== 関連トピック
+
+link:web-enabling-application-styling-using-the-webpagestyler-component.html[WebPageStyler コンポーネントを使用してアプリケーション スタイリングを有効にする]

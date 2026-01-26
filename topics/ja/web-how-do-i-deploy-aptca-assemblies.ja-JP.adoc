@@ -1,0 +1,59 @@
+﻿////
+|metadata|
+{
+    "name": "web-how-do-i-deploy-aptca-assemblies",
+    "controlName": [],
+    "tags": ["Deployment"],
+    "guid": "{452C922F-370C-4CA2-8641-02B3EC508DDE}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= APTCA アセンブリの配備方法
+
+AllowPartiallyTrustedCallersAttribute (APTCA) および non-APTCA リリース アセンブリの配備には相違はありません。配備時に、Web アプリケーションのアセンブリを配備するときと同じ方法で、APTCA リリース ビルドを Web サーバー上の Web アプリケーションの Bin フォルダにコピー（または FTP）します。
+
+Web アプリケーションの web.config ファイルで <bindingRedirect> 要素を指定することによって、配備がアセンブリのビルド番号に依存しないようにできます。この手法は、@Register ディレクティブが配備されるバージョン/ビルド番号と異なる場合、開発マシンからの ASPX ページに存在する @Register ディレクティブを更新しなければならない状況を回避するのに役立ちます。
+
+以下は手順例です。
+
+[start=1]
+. Web アプリケーションで参照される各 Infragistics アセンブリについては（.NET ランタイムで「依存アセンブリ」と呼ばれる）、web.config ファイルの <runtime> / <assemblyBinding> / <dependentAssembly> 要素の下にエレメントのペアを置きます。
+[start=2]
+. <assemblyIdentity> 要素は、各 <dependentAssembly> に指定する最初の要素で、アセンブリ ファイル名（".dll" ファイル拡張子なし）とパブリック キー トークン（すべての Infragistics アセンブリに "7dd5c3163f2cd0cb"）を含みます。
+[start=3]
+. 第二の要素は <bindingRedirect> 要素で、新しいバージョン/ビルド番号に割り当てるためのひとつ以上の古いバージョン/ビルド番号を含んでいます。デフォルトで web.config ファイルにこれらのエレメントがまだない場合には、これらのエレメントを追加しなければならない場合があります。
+
+以下の引用は、Infragistics.WebUI.Shared および Infragistics.WebUI.Documents.Excel アセンブリで binding redirect を使用する方法を示しています。
+
+[source]
+----
+</system.web>
+<runtime>
+<assemblyBinding
+    xmlns="urn:schemas-microsoft-com:asm.vl" >
+    <dependentAssembly>
+        <assemblyIdentity
+        name="Infragistics.WebUI.Shared.v8.1 "
+        publicKeyToken="7dd5c3163f2cd0cb "/> 
+        <bindingRedirect
+        oldVersion="8.1.20081.1-8.1.20081.1050 "
+        newVersion="8.1.20081.1050 " /> 
+    </dependentAssembly>
+    <dependentAssembly>
+        <assemblyIdentity
+        name="Infragistics.WebUI.Documents.Excel.v8.1"
+        publicKeyToken="7dd5c3163f2cd0cb " />
+        <bindingRedirect
+        oldVersion="8.1.20081.1-8.1.20081.1050 "
+        newVersion="8.1.20081.1050 " />
+    </dependentAssembly>
+    : :
+</assemblyBinding >
+</runtime>
+</configuration> 
+----
+
+これらの <bindingRedirect> 宣言は、Bin フォルダ(旧バージョンの属性によって指定されている範囲内のビルド番号を持つことができる）に配置されているアセンブリのロードを .NET ランタイムに通知して、新バージョンの属性で指定されたビルド番号であるかのように処理します。Web サイト上のアセンブリのビルド番号が開発マシンで使用されるビルド番号と異なる場合でも、このように <bindingRedirect> 要素を使用することで、シームレスな配備を保証する支援を行います。

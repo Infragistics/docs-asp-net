@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatagrid-templates",
+    "controlName": ["WebHierarchicalDataGrid"],
+    "tags": ["Grids","How Do I","Templating"],
+    "guid": "{5FDCDD59-3881-4BBE-9F7A-C973E7D3E385}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= テンプレート
+
+テンプレートを使用して、WebHierarchicalDataGrid™ の特定の機能のためにカスタムのユーザー インターフェイスを提供することができます。ページングと編集のためのカスタム テンプレートを使用できます。例外通知のためのエラー テンプレートだけでなく、データのないコントロールのメッセージを表示するためのテンプレートがあります。さらに、テンプレートを使用して、列のあらゆる側面（セル、ヘッダーおよびフッター）をカスタマイズできます。テンプレートの作成は、デザイナーを使用すると素早く簡単に実行できます。ランタイムに、ITemplate インターフェイスを実装して、カスタム テンプレートを作成できます。
+
+使用可能な特定のテンプレートと使用方法についての詳細は、以下のリンクをクリックします。
+
+link:webhierarchicladatagrid-column-templates.html[列テンプレート]
+
+このセクションでは、WebHierarchicalDataGrid でサポートされる列テンプレートについて説明します。
+
+link:webhierarchicaldatagrid-paging-template.html[ページング テンプレート]
+
+WebHierarchicalDataGrid コントロールのページング機能は、ページャー領域の外観をカスタマイズできます。このセクションでは、カスタマイズの方法を説明します。
+
+link:webhierarchicaldatagrid-enable-empty-rows-template.html[空の行テンプレートを有効にする]
+
+このセクションでは、表示する行がない場合の WebHierarchicalDataGrid コントロールの外観をカスタマイズする方法を説明します。
+
+link:webhierarchicaldatagrid-enable-error-template.html[エラー テンプレートを有効にする]
+
+WebHierarchicalDataGrid コントロールのエラーテンプレートの機能を使用したカスタム エラー メッセージを表示できます。このセクションでは、カスタム メッセージを表示する方法を説明します。

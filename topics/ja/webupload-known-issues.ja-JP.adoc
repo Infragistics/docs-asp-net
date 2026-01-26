@@ -1,0 +1,33 @@
+﻿////
+|metadata|
+{
+    "name": "webupload-known-issues",
+    "controlName": ["WebUpload"],
+    "tags": ["Known Issues","Selection"],
+    "guid": "06e879cb-91b0-43de-94bc-747d4f9b86c9",  
+    "buildFlags": [],
+    "createdOn": "2011-05-26T15:01:40.0369367Z"
+}
+|metadata|
+////
+
+= 既知の問題と制限 (WebUpload)
+
+== 既知の問題
+
+WebUpload コントロールを使用する時に、以下のコントロールまたはブラウザーの限度に注意してください。
+
+[start=1]
+. アップロードされるファイルの最大サイズは 2 GB です。これはブラウザーの限度です。Opera の最新版のように一部のブラウザーでは 4GB のファイルをアップロードできます。
+[start=2]
+. オプション pick:[asp-net="link:{ApiPlatform}web.jquery{ApiVersion}~infragistics.web.ui.editorcontrols.webupload~maxsimultaneousfilesuploads.html[maxSimultaneousFilesUploads]"] を設定する時、その値はブラウザーが指示するように最大値にする必要があります。一度に複数ファイルをアップロードしている時は、アップロードされるファイルの数に等しい要求を行っています。IE6 の場合、このオプションを 1 に、その他のブラウザーの場合には、1 または 2 に設定することを推奨します。たとえば、Mozilla FireFox 3.6+ では最大値 3 を処理できます。
+[start=3]
+. igUpload コントロールはタブ付けされたナビゲーションの間を除きキーボード ナビゲーションをサポートしません。これでこのコントロールはページでフォーカスを取得します。TAB キーを使用すると、コントロールとその要素をナビゲートできます。
+
+WebUpload コントロールは、{ProductName} ウィジェット（igButton igBrowseButton、igProgressBar および ajaxQueue プラグイン）に依存します。これらのウィジェットは WebUpload コントロールとともに含まれるため、デフォルトで使用可能となります。
+[start=4]
+. ファイルをアップロードしたいが、ローカル ウィンドウの項目を選択するポップアップ ウィンドウをブラウザーに表示する時は、一度に選択できるファイルはひとつだけです。
+
+== 依存関係
+
+また、ウィジェットは外部の JavaScript ファイル ig.ui.fileupload-en.js から定義される文字列を使用します。その他の言語ロケールは適切な 2 文字言語の接尾辞が付けられたその他の同様のファイルを作成することで追加できます。

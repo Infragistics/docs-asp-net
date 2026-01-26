@@ -1,0 +1,89 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-customizing-webschedules-navigational-buttons",
+    "controlName": ["WebSchedule"],
+    "tags": ["Navigation","Scheduling","Styling"],
+    "guid": "{FED24D9B-EDF2-4313-8B44-45E97626D0E5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebSchedule のナビゲーション ボタンをカスタマイズ
+
+== 始める前に
+
+WebSchedule の WebDayView、WebMonthView、および WebCalendarViewには、カスタマイズおよびスタイル可能なヘッダ領域にナビゲーション領域があります。表示されるデフォルト ボタンを置き換えることができます。この方法の詳細については、 link:webschedule-customize-images-in-navigational-buttons.html[「ナビゲーション ボタンの画像をカスタマイズする方法」]を参照してください。 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleviewbase~navigationbuttonstyle.html[NavigationButtonStyle]"]  オブジェクトは {ProductName} コントロールのほとんどにある標準的な  pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.shared.style.html[Style]"]  オブジェクトに基づいています。
+
+以下の手順は、Cursor だけでなくボタンの BackColor を変更する方法を示します。
+
+*注：* この詳細なガイドでは、インストールされた Cascading Style Sheet（CSS）を変更し、すべてのプロジェクトで WebDayView の NavigationButtons から背景色を削除します。これによって他のプロジェクトに問題が発生する場合には、ひとつのプロジェクトのみにこのスタイル シートを指定することを推奨します。
+
+== 次の手順を実行します。
+
+[start=1]
+. 新しい ASP.NET プロジェクトを作成します。WebSchedule コントロールをフォームで設定します。詳細については、 link:webschedule-using-the-webschedule-controls-quick-design.html[「Web フォーム デザイナを使用してクイック スタート」]または link:webschedule-creating-webschedule-controls-using-code.html[「コードで WebSchedule を設定」]を参照してください。
+[start=2]
+. フォームに設定した WebSchedule コントロールを Data Provider と WebScheduleInfo に接続したら、さまざまな部分（例:NavigationButtonStyle）をカスタマイズする準備が整いました。
+[start=3]
+. デフォルトでコントロールが取得しているプリセットのために使用している WebSchedule コントロールのための CSS を変更してからでなければ、実際的にはコントロールをカスタマイズできません。スタイル シートは `ig_common` というインストール パスにインストールされます。以下の場所に標準的なインストールで配置されます:
+
+`C:\Inetpub\wwwroot\aspnet_client\infragistics\{ProductVersion}\Styles`。
+[start=4]
+. プリセットを選択していない場合、希望のスタイルシートは Default フォルダに配置されます。デフォルト以外のプリセットを選択した場合には、そのプリセット フォルダにナビゲートします。
+[start=5]
+. プリセットを変更していないことを前提として、Default フォルダを選択します。WebDayView で操作をしていることがもうひとつの前提です。`ig_webdayview.css` と呼ばれるファイルを開いてください。Visual Studio .NET IDE 内でこのスタイル シートを開いて変更することができます。その他のビューで操作をしている場合には、その他のビューが同じ場所で開くことができる CSS を持っていることに注意してください。
+[start=6]
+. CSS を開いて、`igdv_NavigationButton` をリストする所まで下にスクロールします。background-image と background-position を設定している最後の 2 行は、これから変更する 2 つのプロパティです。これらの 2 行を /$$*$$ $$* $$/ の間に配置することによってコメント化します。スタイル シートは以下のようになります。
+
+*CSS の場合：*
+
+----
+.igdv_NavButton
+{
+        margin-top: -1px;
+        margin-bottom: 0px;
+        margin-left:5px;
+        margin-right:5px;
+        padding: 0px;
+        height: 25px;
+        border: 0px;
+        /*background-image: url(images/MonthHeaderCaption_bg.png);
+        background-position: top left;*/
+}
+----
+
+[start=7]
+. WebDayView がプルするスタイル シートを変更することになるので、この変更がこの特定のプリセットを使用しているすべての WebDayView に影響することに注意してください。コントロールがコードで設定されたプロパティを読み取った後でスタイル シートを読み取るため、これが必要です。したがって、両方の場所で変更されている場合スタイル シート プロパティは常に取得されます。
+[start=8]
+. この単純な変更を実行した後で、コードビハインドに移動して、NavigationButtonStyle オブジェクトを設定できます。以下のコードはナビゲーションボタンの BackColor とマウスをボタン上に置いた時に表示される Cursor を変更します。
+
+*Visual Basic の場合：*
+
+----
+Me.WebDayView1.NavigationButtonStyle.BackColor = Color.Red
+Me.WebDayView1.NavigationButtonStyle.Cursor = Infragistics.WebUI.[Shared].Cursors.Hand
+----
+
+*C# の場合：*
+
+----
+this.WebDayView1.NavigationButtonStyle.BackColor = Color.Red;
+this.WebDayView1.NavigationButtonStyle.Cursor = Infragistics.WebUI.Shared.Cursors.Hand;
+----
+
+image::images/WebSchedule_Walk_Through_Customizing_the_NavigationalButtonStyle_02.png[]
+
+[start=9]
+. 表示できるようにこれらのボタンをスタイルすることは確かに簡単です。NavigationButtonStyle を変更する時に CaptionHeaderStyle をスタイルしてもかまいません。CaptionHeaderStyle を変更する方法についての詳細は、 link:webschedule-customizing-webschedules-caption-header-area.html[「CaptionHeaderStyle をカスタマイズ」]を参照してください。
+
+== 復習
+
+この詳細なガイドは、WebDayView、WebMonthView のヘッダに表示されるナビゲーション ボタンをスタイルする際に役立ちます。
+
+== 関連トピック
+
+link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[WebSchedule 名前空間]

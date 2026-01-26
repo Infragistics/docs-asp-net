@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-text-buttons-of-webhtmleditors-toolbar",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing"],
+    "guid": "{42370282-3C47-4078-8EFC-E49A4D0C6C74}",  
+    "buildFlags": [],
+    "createdOn": "2006-03-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor のツールバーのテキスト ボタン
+
+pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.toolbartext.html[ToolbarText]"]  クラスのインスタンスでは、開発時に WebHtmlEditor ツールバーに静的なテキストを挿入できます。これにより、ツールバーの項目の書式とレイアウトをカスタマイズしたり（タブや改行などの定義済みの  pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.toolbartexttype.html[ToolbarTextTypes]"]  を使用して）、ToolbarTextType.Custom の ToolbarText オブジェクトを使用してアプリケーションのエンド ユーザーに役に立つ情報を追加したり（たとえば、ToolbarText の  pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.toolbartext~text.html[Text]"]  プロパティを"Your upload directory is /uploads"に設定します）することができます。

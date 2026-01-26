@@ -1,0 +1,141 @@
+﻿////
+
+|metadata|
+{
+    "name": "webappstylist-styling-specific-components-webdayview",
+    "controlName": ["WebAppStylist"],
+    "tags": ["Scheduling","Styling","Theming"],
+    "guid": "{0E560794-CAB5-4C14-94E8-B34E5F1A712F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDayView
+
+このトピックは、WebDayView のロールそれぞれの相違点と類似点、ならびに CSS カスケードによってどのような影響を受けるのかを理解する支援をします。ロール説明表は、WebDayView のロールそれぞれを定義し、ロール継承ツリーは、特定のスタイルが他のスタイルからどのように継承されるのかを示します。
+
+== ロール説明表
+
+以下は、WebDayView をスタイルするために使用できるロールのリストです。各ロールは、カスケード スタイル シート（CSS）のクラスに一致します。これらのクラス、つまりロールは CSS 規則によって制御されます。これが当てはまらない場合、以下の表に規則の例外を説明します。この表は、どのロールがどのロールから継承されるのか、また一部のロールが他のロールによってどのように影響を受けないのかを理解する際に役に立ちます。
+
+[options="header", cols="a,a"]
+|====
+|ロール|説明
+
+|*CaptionHeader*
+|このロールはカスタム ラベルおよびナビゲーション ボタンを持つコントロールの最上位部分を示す領域に適用されるスタイル規則を定義します。
+
+|*DayHeader*
+|このロールはあらゆる日の上に配置される日ラベル（日付を示す）を含む領域に適用されるスタイル規則を定義します。
+
+|*TodayHeader*
+|このロールは今日の日の上に配置される日ラベル（日付を示す）を含む領域に適用されるスタイル規則を定義します。このスタイルは igdv_DayHeader スタイルとマージされます。
+
+|*TimeSlotLabel*
+|このロールはあらゆるタイム スロットのラベルを示す領域に適用されるスタイル規則を定義します。
+
+|*TimeSlotLabelMinutes*
+|このロールは分を表す数字または AM/PM の文字列を含むタイム スロット ラベルの領域に適用されるスタイル規則を定義します。
+
+|*AllDayEvent*
+|このロールは、終日イベントを描画する領域に適用されるスタイル規則を定義します。
+
+|*AllDayEventArea*
+|このロールは、終日イベントを含む領域に適用されるスタイル規則を定義します。
+
+|*AllDayEventSelected*
+|このロールは、選択した終日イベントを描画する領域に適用されるスタイル規則を定義します。
+
+|*AllDayEventAreaSelected*
+|このロールは、選択した終日イベントを含む領域に適用されるスタイル規則を定義します。
+
+|*WorkingTimeSlot*
+|このロールは就業時間（8:00 から 17:00）に属するタイム スロット ラベルの右側に配置されたタイム スロットを表す領域に適用されるスタイル規則を定義します。
+
+|*NonWorkingTimeSlot*
+|このロールは非就業時間（8:00 以前と 17:00 以降）に属するタイム スロット ラベルの右側に配置されたタイム スロットを表す領域に適用されるスタイル規則を定義します。
+
+|*Appointment*
+|このロールは予定を表す領域に適用されるスタイル規則を定義します。
+
+|*ActivityHover*
+|このロールはマウスがその領域の上に移動されたときに予定を表す領域に適用されるスタイル規則を定義します。このスタイルは igdv_Appointment スタイルとマージされます。
+
+|*SelectedAppointment*
+|このロールは選択された予定を表す領域に適用されるスタイル規則を定義します。このスタイルは igdv_Appointment スタイルとマージされます。
+
+|*ActivityEdge*
+|このロールは予定の上の端と下の端に配置された領域に適用されるスタイル規則を定義します。
+
+|*EdgeBusy*
+|このロールは予定のタイプが Busy のときに予定の上、左、下の端に配置された領域に適用されるスタイル規則を定義します。これは igdv_ActivityEdgeLeft スタイルおよび igdv_ActivityEdge スタイルとマージされます。
+
+|*ActivityEdgeLeft*
+|このロールは予定の左端に配置された領域に適用されるスタイル規則を定義します。
+
+|*EdgeTentative*
+|このロールは予定のタイプが Tentative のときに予定の上、左、下の端に配置された領域に適用されるスタイル規則を定義します。これは igdv_ActivityEdgeLeft スタイルおよび igdv_ActivityEdge スタイルとマージされます。
+
+|*EdgeOutofOffice*
+|このロールは予定のタイプが OutofOffice のときに予定の上、左、下の端に配置された領域に適用されるスタイル規則を定義します。これは igdv_ActivityEdgeLeft スタイルおよび igdv_ActivityEdge スタイルとマージされます。
+
+|*EdgeFree*
+|このロールは予定のタイプが Free のときに予定の上、左、下の端に配置された領域に適用されるスタイル規則を定義します。これは igdv_ActivityEdgeLeft スタイルおよび igdv_ActivityEdge スタイルとマージされます。
+
+|*NavigationButton*
+|このロールは前の日と次の日に移動することができるナビゲーション ボタンを表す領域に適用されるスタイル規則を定義します。
+
+|*Control*
+|このロールはコントロールの全域に適用されるスタイル規則を定義します。
+
+|====
+
+== ロール継承ツリー
+
+以下のツリーは、上記のロールがどのように相互に継承されるのかについての視覚的概念を提供します。特定のロールが Shared から継承される場合、ロールの横の括弧内に記載されます。
+
+* Control (コントロール)
+
+** Header (ヘッダ)
+** DayHeader (ヘッダ)
+
+*** TodayHeader
+
+** NonWorkingTimeSlot
+
+*** Appointment
+
+**** ActivityEdge
+**** ActivityEdgeLeft
+
+** WorkingTimeSlot
+
+*** Appointment
+
+**** ActivityEdge
+
+***** ActivityEdgeBusy
+***** ActivityEdgeTentative
+***** ActivityEdgeOutofOffice
+***** ActivityEdgeFree
+
+**** ActivityEdgeLeft
+**** ActivityHover
+
+***** SelectedAppointment(選択)
+
+** AllDayEventArea
+
+*** AllDayEventAreaSelected
+
+** AllDayEvent
+
+*** AllDayEventSelected(選択)
+
+** TimeSlotLabel
+
+*** TimeSlotLabelMinutes
+
+* NavigationButton (ボタン)

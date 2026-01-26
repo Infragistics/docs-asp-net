@@ -1,0 +1,171 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatagrid-batch-updating-events",
+    "controlName": ["WebHierarchicalDataGrid"],
+    "tags": ["Editing","Events","Grids","Performance"],
+    "guid": "1fe6fe55-c53b-412e-b93e-63611220e434",  
+    "buildFlags": [],
+    "createdOn": "2011-10-26T07:53:31.3253328Z"
+}
+|metadata|
+////
+
+= イベント
+
+このトピックは、WebHierarchicalDataGrid™ における一括更新に関連したクライアント イベントおよびサーバー イベントを説明します。
+
+グラフィックス側の一括更新イベント
+
+一括更新機能を起動すると、行の変更を元に戻すときに利用できる 2 つのクライアント イベントが発生します。
+
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.editingclientevents~batchupdateundone.html[batchUndone]"]  - 削除した行を復元する場合 (つまり、ユーザーが [元に戻す] ボタンをクリックしたとき) に呼び出されます。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.editingclientevents~batchupdateundoing.html[batchUndoing]"]  - ある行に加えた変更を元に戻す場合 (つまり、ユーザーが Ctrl + Z キーを押したとき) に呼び出されます。
+
+以下のマークアップ コードスニペットは、これらのイベントに添付する方法を示します。
+
+*ASPX の場合:*
+
+----
+<ig:WebHierarhcialDataGrid ID="wdg1" runat="server">
+    <Behaviors>
+        <ig:Activation/>                 
+        <ig:EditingCore BatchUpdating="true">
+            <EditingClientEvents
+                BatchUpdateUndoing="batchUndoingParent" 
+                BatchUpdateUndone="batchUndoneParent"/>
+            <Behaviors>
+                <ig:RowAdding/>
+                <ig:RowDeleting/>
+                <ig:CellEditing/>
+            </Behaviors>
+        </ig:EditingCore>
+    </Behaviors>
+    <Bands>
+        <ig:Band>
+            <Behaviors>
+                <ig:EditingCore BatchUpdating="true">
+                    <EditingClientEvents
+                        BatchUpdateUndoing="batchUndoingChild" 
+                        BatchUpdateUndone="batchUndoneChild"/>
+                    <Behaviors>
+                        <ig:RowAdding/>
+                        <ig:RowDeleting/>
+                        <ig:CellEditing/>
+                    </Behaviors>
+                </ig:EditingCore>
+            </Behaviors>
+        </ig:Band>
+</ig:WebHierarhcialDataGrid >
+----
+
+以下のマークアップ コードスニペットは、Javascript を使用してハンドラーを定義する方法を示します。
+
+*JavaScript の場合*
+
+----
+function batchUndoingParent(sender, eventArgs) {
+}
+function batchUndoneParent(sender, eventArgs) {
+}
+function batchUndoingChild(sender, eventArgs) {
+}
+function batchUndoneChild(sender, eventArgs) {
+}
+----
+
+引数イベントは、元に戻している行の情報を保管します。元に戻すプロセスをキャンセルし、データに行われた変更を BatchUpdateUndoing イベント ハンドラー内に残しておくことができます。
+
+詳細は、Batch Update Events のサンプルを参照してください。
+
+イベントの引数の詳細は、Batch Update API を参照してください。
+
+*表 1* : クライアント イベント引数の参照テーブル
+
+[options="header", cols="a,a"]
+|====
+|引数|説明
+
+| pick:[asp-net="link:webhierarchicaldatagrid~infragistics.web.ui.webhierarchicaldatagrid_members.html[sender]"] 
+|WebHierarchicalDataGrid のクライアント側 DOM オブジェクトへのポインター。
+
+| pick:[asp-net="link:webhierarchicaldatagrid~infragistics.web.ui.batchupdateundoneeventargs_members.html[eventArgs]"] 
+|クライアント イベントと現在のコンテキストに関する情報を格納するオブジェクト
+
+|====
+
+サーバー側の一括更新イベント
+
+一括更新では、一括更新が無効になっている場合と同じサーバー イベントが発生しますが、ポストバックが発生するとイベントはすべて 1 つのパスで呼び出されます。
+
+以下のスニペットは、ハンドラーを ASPX およびコードビハインドのサーバー CRUD イベントに添付する方法を示します。
+
+*ASPX の場合:*
+
+----
+<ig:WebHierarchicalDataGrid ID="wdg1" runat="server"
+    OnRowUpdating="wdg1_RowUpdating" OnRowUpdated="wdg1_RowUpdated"
+    OnRowAdding="wdg1_RowAdding" OnRowAdded="wdg1_RowAdded"
+    OnRowsDeleting="wdg1_RowsDeleting" OnRowDeleted="wdg1_RowDeleted">
+    <Behaviors>
+        <ig:Activation/>
+        <ig:Paging PageSize="7"/>
+        <ig:EditingCore BatchUpdating="true">
+            <Behaviors>
+                <ig:RowAdding/>
+                <ig:RowDeleting/>
+                <ig:CellEditing/>
+            </Behaviors>
+        </ig:EditingCore>
+    </Behaviors> 
+</ig:WebHierarchicalDataGrid>
+----
+
+*C# の場合：*
+
+----
+void wdg1_RowUpdating(object sender, 
+                      Infragistics.Web.UI.GridControls.RowUpdatingEventArgs e) {}
+void wdg1_RowUpdated(object sender, 
+                     Infragistics.Web.UI.GridControls.RowUpdatedEventArgs e) {}
+void wdg1_RowAdding(object sender, 
+                    Infragistics.Web.UI.GridControls.RowAddingEventArgs e) {}
+void wdg1_RowAdded(object sender, 
+                   Infragistics.Web.UI.GridControls.RowAddedEventArgs e) {}
+void wdg1_RowsDeleting(object sender, 
+                       Infragistics.Web.UI.GridControls.RowDeletingEventArgs e) {}
+void wdg1_RowDeleted(object sender, 
+                     Infragistics.Web.UI.GridControls.RowDeletedEventArgs e) {}
+----
+
+*注:* 子バンドに接続したい場合は各バンドで同じことを行う必要があります。
+
+*表 2* : サーバー イベント引数の参照テーブル
+
+[options="header", cols="a,a"]
+|====
+|引数|説明
+
+| pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webhierarchicaldatagrid_members.html[sender]"] 
+|WebHierarchicalDataGrid のサーバー側インスタンスへのポインター。
+
+| pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.rowupdatingeventargs_members.html[RowUpdatingEventArgs]"] 
+pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.rowupdatedeventargs_members.html[RowUpdatedEventArgs]"] 
+pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.rowaddingeventargs_members.html[RowAddingEventArgs]"] 
+pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.rowaddedeventargs_members.html[RowAddedEventArgs]"] 
+pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.rowdeletingeventargs.html[RowDeletingEventArgs]"] 
+pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.rowdeletedeventargs_members.html[RowDeletedEventArgs]"] 
+|サーバー イベントと現在のコンテキストに関する情報を格納するオブジェクト。
+
+|====
+
+== 関連トピック
+
+link:webhierarchicaldatagrid-batch-updating-overview.html[WebHierarchicalDataGrid の一括更新の概要]
+
+link:webhierarchicaldatagrid-batch-updating-enabling.html#_enabling_batch_updating[WebHierarchicalDataGrid の一括変更を有効にする]
+
+link:webhierarchicaldatagrid-batch-updating-summaries.html[WebHierarchicalDataGrid の一括更新のまとめ]
+
+link:known-issues-known-issues-and-breaking-changes-revision-history.html[既知の問題と重大な変更]

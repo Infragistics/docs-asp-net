@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdialogwindow-allow-the-end-user-to-resize-the-dialog-window",
+    "controlName": ["WebDialogWindow"],
+    "tags": ["How Do I"],
+    "guid": "{17F6627B-0075-4A43-8540-9CB17D17C759}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= エンド ユーザーがダイアログ ウィンドウをリサイズ可能にする
+
+[OK] ボタンがひとつ付いた単一のプロンプト ダイアログ ボックスとしてダイアログ ウィンドウを使用している場合には、エンド ユーザーがリサイズする必要はないでしょう。ただし、ダイアログ ウィンドウに大量の情報を表示している場合、または Web ページ全体を表示している場合であっても、エンド ユーザーはダイアログ ウィンドウのコンテンツすべてを快適に表示するためにさらなるスペースが必要となる場合があります。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.resizer.html[Resizer]"]  オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.resizer~enabled.html[Enabled]"]  プロパティを True に設定すると、エンド ユーザーはダイアログ ウィンドウをデータを快適に表示するために必要なだけ大きくまたは小さくリサイズすることができます。リサイザを有効にすると、ダイアログ ウィンドウの右下隅に小さいリサイズ画像が表示されます。エンド ユーザーはこのリサイザをグラブして、希望の適切なサイズになるまでダイアログ ウィンドウをドラッグできます。
+
+以下のコードはリサイザを有効にする方法を示します。
+
+*Visual Basic の場合：*
+
+----
+' エンド ユーザーがダイアログ ウィンドウをリサイズ可能にします。
+Me.WebDialogWindow1.Resizer.Enabled = True
+----
+
+*C# の場合：*
+
+----
+// エンド ユーザーがダイアログ ウィンドウをリサイズ可能にします。
+this.WebDialogWindow1.Resizer.Enabled = true;
+----

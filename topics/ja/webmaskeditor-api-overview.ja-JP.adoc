@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "webmaskeditor-api-overview",
+    "controlName": ["WebMaskEditor"],
+    "tags": ["API"],
+    "guid": "{AE96DAB3-44E5-45DC-A2AC-EF6A177E0F86}",  
+    "buildFlags": [],
+    "createdOn": "2009-03-06T14:50:58Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションではコントロールに関連する各名前空間を示します。このコントロールでプログラムする間に使用するいくつかのキー クラスも提供します。このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+=== WebMaskEditor 名前空間：
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols_namespace.html[Infragistics.Web.UI.EditorContols]
+
+=== キー クラス：
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webmaskeditor.html[WebMaskEditor]
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons.html[TextEditorButtons]

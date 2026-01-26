@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgroupbox-using-editable-designer-regions-in-webgroupbox",
+    "controlName": ["WebGroupBox"],
+    "tags": ["Design Environment","Editing","Layouts"],
+    "guid": "{0595659E-2CC2-461D-A4EC-47BF86BB51F1}",  
+    "buildFlags": [],
+    "createdOn": "2005-02-11T00:00:00Z"
+}
+|metadata|
+////
+
+= WebGroupBox で編集可能なデザイナ領域を使用
+
+Visual Studio 2005（.NET Framework 2.0）では、デザインタイム テンプレートの代わりに、編集可能な領域が使用されます。編集可能な領域は、常に編集モードのテンプレートに過ぎません。「編集テンプレート」を使用せずに編集可能な領域に Web 要素をドラッグ アンド ドロップします。編集可能な領域はこれでこのプロセスをたったひとつの手順にします。
+
+WebGroupBox は、簡単な編集可能のデザイナ領域があるコントロールです。必要な作業は、WebGroupBox および表示する入力カーソル内でクリックすることだけです。編集可能な領域は青の外枠（プリセットによって異なる）囲まれています。WebGroupBox にコントロールを直接ドロップすることもできます。
+
+image::images/WebGroupBox_Using_Editable_Designer_Regions_in_WebGroupBox_01.png[]
+
+image::images/WebGroupBox_Using_Editable_Designer_Regions_in_WebGroupBox_02.png[]

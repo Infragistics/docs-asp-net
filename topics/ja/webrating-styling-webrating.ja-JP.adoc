@@ -1,0 +1,88 @@
+﻿////
+
+|metadata|
+{
+    "name": "webrating-styling-webrating",
+    "controlName": ["WebRating"],
+    "tags": ["Selection","Styling","Templating"],
+    "guid": "e0b480a0-cef9-4f19-a693-fec17381f771",  
+    "buildFlags": [],
+    "createdOn": "2010-06-01T05:54:29.8663206Z"
+}
+|metadata|
+////
+
+= WebRating のスタイル
+
+WebRating コントロールによって、ユニークなルック アンド フィールのためにカスタム画像やスタイルを設定することができます。WebRating は、コントロールの外観をカスタマイズするために使用できる  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webrating~customimages.html[CustomImages]"]  プロパティと  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webrating~ratingimage.html[RatingImage]"]  プロパティを公開します。
+
+RatingImage プロパティによって、評価項目の異なる状態（通常の状態、ホバーされている状態および選択されている状態）の CSS スタイルを設定できます。CustomImages プロパティによって、表示したい個々の評価項目を定義することができます。RatingImage プロパティの場合と全く同じように、評価項目のカスタムの CSS クラスを指定できます。
+
+*注：* カスタム画像を使用している場合、画像サイズを定義するために WebRating で  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webrating~imageheight.html[ImageHeight]"]  プロパティと  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webrating~imagewidth.html[ImageWidth]"]  プロパティを設定する必要があります。
+
+== 評価画像
+
+以下のコードは、RatingImage プロパティを使用して評価画像をカスタマイズする方法を示します。
+
+*HTML の場合:*
+
+----
+<style>    .empty
+        {
+                background-image: url(images/nfrating.png);
+                background-repeat: no-repeat;
+                background-position: 0px 0px;
+        }
+        .selected
+        {
+                background-image: url(images/nfrating.png);
+                background-repeat: no-repeat;
+                background-position: -18px 0px;
+        }
+        .hovered
+        {
+                background-image: url(images/nfrating.png);
+                background-repeat: no-repeat;
+                background-position: -36px 0px;
+        }
+</style>
+<ig:webrating ID="WebRating1" runat="server" ImageHeight="18" ImageWidth="18">
+   <ClientEvents Rating="WebRating_RatingEventHandler" />
+   <%-- Set custom css classes --%>
+   <RatingImage HoveredImageCssClass="hovered" ImageCssClass="empty"          SelectedImageCssClass="selected" />
+</ig:webrating>
+----
+
+== カスタム画像
+
+以下のコードは、CustomImages プロパティを使用してカスタム画像を設定する方法を示します。
+
+*HTML の場合:*
+
+----
+<style>
+       .badRating
+        {
+            background: url('images/Splat.png');
+        }
+        .mediumRating
+        {
+            background: url('images/Rotten.png');
+        }
+        .goodRating 
+        {
+            background: url('images/Fresh.png');
+        }
+        .noImage 
+        {
+            cursor: pointer;
+        }
+</style>
+<ig:webrating ID="WebRating1" runat="server" ImageHeight="31" ImageWidth="31">
+   <CustomImages>
+               <ig:ratingimageitem Value="1" ImageCssClass="badRating"                  HoveredImageCssClass="noImage" SelectedImageCssClass="noImage" />
+               <ig:ratingimageitem Value="2" ImageCssClass="mediumRating"                       HoveredImageCssClass="noImage" SelectedImageCssClass="noImage" />
+               <ig:ratingimageitem Value="3" ImageCssClass="goodRating"                         HoveredImageCssClass="noImage" SelectedImageCssClass="noImage" />
+   </CustomImages>
+</ig:webrating>
+----

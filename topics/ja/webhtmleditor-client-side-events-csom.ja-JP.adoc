@@ -1,0 +1,199 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-client-side-events-csom",
+    "controlName": [],
+    "tags": ["API","How Do I"],
+    "guid": "{80B151D3-40B0-48FA-A3CA-EF96B01AD9CC}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor クライアント側イベント
+
+== クライント側イベント
+
+以下のイベントは、WebHtmlEditor コントロールによってサポートされているクライアント側イベントです。
+
+*注:* クライアント側イベントのほとんどがキャンセル可能です。 Before イベントが特に重要です。 イベントをキャンセルするには、ハンドラーで true を返します。 Before イベントに関連するサーバー側でハンドルされたイベントがある場合、クライアント側イベントで true を返すとサーバー側でイベントをトリガーするためのポストバックもキャンセルされます。
+
+
+=== クライアント側イベントのプロパティ
+
+[cols="a,a"]
+|====
+|*AfterAction* 
+|このイベントは、ツールバー アクションの発生後に発生します。 
+
+*パラメータ*
+
+_oEditor_ 
+
+WebHtmlEditor を表す javascript オブジェクトへの参照。 _actID_ 
+
+アクションの ID。これはツールバー項目のキー（設定されている場合）またはツールバー項目のタイプが可能です。 _oEvent_ 
+
+イベント引数。これはポストバックをキャンセルまたは発生するために使用できます。 _p4_ 
+
+高度な使用に限定されるパラメータ。これは null または異なるイベントではコンテンツは異なる場合があります。このパラメータが現在使用されているエディタの将来のバージョンで同様に使用されるかどうかの保証はありません。 _p5_ 
+
+p4 と同じ _p6_ 
+
+p4 と同じ _p7_ 
+
+p4 と同じ _p8_ 
+
+p4 と同じ 
+
+*解説*
+
+以下の例は使用されるイベントを示しています。 
+
+---- 
+// ClientSideEvents.AfterAction を処理します。 // 切り取りツールバーがクリックされるとポストバックが発生します。 function WebHtmlEditor1_AfterAction(oEditor, actID, oEvent) { 	if(actID == 'Cut') 		oEvent.needPostBack = true; }
+----
+
+|*BeforeAction* 
+|このイベントは、ツールバー アクションの発生前に発生します。 
+
+*パラメータ*
+
+_oEditor_ 
+
+WebHtmlEditor を表す javascript オブジェクトへの参照。 _actID_ 
+
+アクションの ID。これはツールバー項目のキー（設定されている場合）またはツールバー項目のタイプが可能です。 _oEvent_ 
+
+イベント引数。これはポストバックをキャンセル、ポストバックを発生、またはパラメータを修正するために使用できます。 _p4_ 
+
+高度な使用に限定されるパラメータ。これは null または異なるイベントではコンテンツは異なる場合があります。このパラメータが現在使用されているエディタの将来のバージョンで同様に使用されるかどうかの保証はありません。 _p5_ 
+
+p4 と同じ _p6_ 
+
+p4 と同じ _p7_ 
+
+p4 と同じ _p8_ 
+
+p4 と同じ 
+
+*解説*
+
+例 1： 
+
+---- 
+// ClientSideEvents.BeforeAction を処理します // アプリケーションが MyCustomAct に等しいキーでカスタム ツールバー ボタンを追加したと想定します。 // MyCustomAct がクリックされた時にエディタの現在の選択に "My text" を挿入します。 function WebHtmlEditor1_BeforeAction(oEditor, actID, oEvent, p4, p5, p6, p7, p8) { 	if(actID == 'MyCustomAct') 		iged_insText('My text'); } ---- 
+
+例 2： 
+
+---- 
+// ClientSideEvents.BeforeAction を処理します // デフォルト動作を変更します： // Arial が FontName ドロップダウンから選択された場合、 // 'Arial' の代わりに 'Arial Black' を設定します。 // Greeting が Insert ドロップダウンから選択された場合、 // デフォルト文字列の代わりに 'Hello' が使用されます。 function WebHtmlEditor1_BeforeAction(oEditor, actID, oEvent, p4, p5, p6, p7, p8) { 	if(p6 == 'select') 	{ 		if(actID == 'FontName' && p5 == 'Arial') 		{ 			oEvent.p4 = {id:'arial black'}; 		} 		if(actID == 'Insert' && p5.indexOf('Greeting') >= 0) 		{ 			oEvent.p4 = {id:'Hello'}; 		} 	} }
+----
+
+|*Blur* 
+|このイベントは、エディタがフォーカスを失うと発生します。 
+
+*パラメータ*
+
+_oEditor_ 
+
+WebHtmlEditor を表す javascript オブジェクトへの参照。 
+
+*解説*
+
+以下の例は使用されるイベントを示しています。 
+
+---- 
+// ClientSideEvents.Blur を処理します。 // エディタがフォーカスを失う時のステータス テキストを設定します。 function WebHtmlEditor1_Blur(oEditor) { 	window.status = "blur:" + oEditor.ID; }
+----
+
+|*Focus* 
+|このイベントは、エディタがフォーカスを得ると発生します。 
+
+*パラメータ*
+
+_oEditor_ 
+
+WebHtmlEditor を表す javascript オブジェクトへの参照。 
+
+*解説*
+
+以下の例は使用されるイベントを示しています。 
+
+---- 
+// ClientSideEvents.Focus を処理します。 // エディタがフォーカスを得る時のステータス テキストを設定します。 function WebHtmlEditor1_Focus(oEditor) { 	window.status = "focus:" + oEditor.ID; }
+----
+
+|*Initialize* 
+|このイベントは javascript オブジェクトが作成および初期化された後で発生します。このイベントはエディタを変更/構成するために使用できます。 
+
+*パラメータ*
+
+_oEditor_ 
+
+WebHtmlEditor を表す javascript オブジェクトへの参照。 
+
+*解説*
+
+例 1： 
+
+---- 
+// ClientSideEvents.Initialize を処理します。 // 初期テキストを設定し外側の境界を変更します。 function WebHtmlEditor1_Initialize(oEditor) { 	oEditor.setText('my client text'); 	document.getElementById(oEditor.ID).style.borderWidth = '10px'; } ---- 
+
+例 2： 
+
+---- 
+// ClientSideEvents.Initialize を処理します。 // 以下の例は、WebHtmlEditor 内でカスタム ダイアログをどのように使用できるかを示します。 // この例は、すべてのアクションを含む aspx 内の完全な実装を含みます。 // 簡素化のため、他のカスタム項目は示しません。 // 同様のカスタム ダイアログ ボタンを cs/vb コード ビハインド内の // デフォルト コレクションに追加できます。 // 以下のコードは、カスタム ダイアログを作成し、子（ボタン）のイベントを処理し、 // 子フィールドのコンテンツを取得、およびカレット位置の WebHtmlEditor に // テキストまたはオブジェクトを挿入します。 // // 実装するための手順は以下のとおりです。 // 1. カスタム ダイアログ ボタンを追加し、その DialogContentID を // "MyDialogID" などの特定の値に設定します // 2. 希望のダイアログを含む/実装する DIV 要素を aspx に書き込み、 // "MyDialogContentID" などの特定の値にその DIV の ID を設定します。 // 3. そのダイアログを開始段階で非表示にします。 DIV_element.style.display='none'. // 4. // ClientSideEvents.Initialize を処理します。 // 5. カスタム ダイアログを表す html 要素（MyDialogContentID） // およびカスタム ダイアログ ボタン (MiDialogID) で使用される要素を見つけます。 // 6. カスタム ダイアログ要素をその古い親（document.body）から // ダイアログ ボタン コンテナに移動し、ダイアログ要素を表示します。 // 7. この時点で、ダイアログは完全にオプションになりますが、 // ダイアログ ボタン コンテナも非表示なので、非表示のままです。 // 8. ダイアログで子コントロールのイベントを処理し、 // WebHtmlEditor で希望するアクションを実行します。 // 9. この例では、myDialogButtonClick1/2 関数がダイアログのボタンで呼び出され、 // これらの関数はテキスト/オブジェクトをエディタに挿入します。 <script type="text/javascript"> // この関数は、WebHtmlEditor1 が初期化された時に呼び出されます。 // カスタム ダイアログのコンテンツを初期化します。これは aspx 関数 WebHtmlEditor1_Initialize(oEditor) 内で明示的に定義されます。  
+ { // MyDialogID の html 要素コンテナへの参照を見つけます。 // この値は ToolbarDialogButton.Dialog.DialogContentID に設定されました  var dialog = document.getElementById("MyDialogID");  if(!dialog)  return; // MyDialog の html 要素コンテンツの参照を見つけます。 // その ID を持つ html 要素が、aspx 内で作成されました。  var content = document.getElementById("MyDialogContentID"); // テンポラリ コンテナから MyDialogContentID を削除し（asxp ページの本文） // WebHtmlEditor によって使用される MyDialogID コンテナにそれを挿入します。  content.parentNode.removeChild(content);  dialog.appendChild(content); // 最初の非表示状態を元に戻します。  content.style.display = "";  content.style.visibility = "visible";  } // この関数はカスタム ダイアログ MyDialogContentID に配置されているボタンによって呼び出されます。 // オブジェクト（ここでは SPAN）をビルドして現在選択されている WebHtmlEditor に挿入します。  function myDialogButtonClick2(message)  {  var object = document.createElement("SPAN");  var style = object.style;  style.border = "2px solid red";  style.background = "cyan";  style.fontFamily = "verdana";  style.fontStyle = "italic";  style.fontSize = "10pt";  style.padding = "5px";  object.innerHTML = "This is SPAN with message '"  + message + "' from MyDialog";  iged_closePop();  if(typeof iged_insNodeAtSel == "function")  iged_insNodeAtSel(object);  else  iged_insText(object.outerHTML);  } // この関数はカスタム ダイアログ MyDialogContentID に配置されているボタンによって呼び出されます。 // テキストをビルドして現在選択されている WebHtmlEditor に挿入します。  function myDialogButtonClick1(message)  {  var field = document.getElementById("myDialogEditField");  var text = field ? field.value : "Error: Can not find myDialogEditField.";  text = "Message from dialog '" + message + "',  where value of field='" + text + "'";  iged_closePop();  iged_insText(text);  } </script> <div id="MyDialogContentID" style="padding:10px;width:360px;height:220px;border:2px  solid #80A0C0;background:#E0F0F0;display:none;visibility:hidden;"> 	<span style="font-family:verdana;font-size:8pt;margin-top:13px; 	 margin-left:50px;">Enter text:</span> 	<input id="myDialogEditField" value="default text" /> 	<br /><br /> 	<span > 	 Note: if you set focus to field, then old selection in WebHtmlEditor 	 can be lost (mostly under IE) and text can be inserted at the beginning, 	 rather than at the last position of caret (selection)</span> 	<br /> 	<input type="button" 	 value="Click To Insert Text into WebHtmlEditor" 	 onclick="myDialogButtonClick1('MyDialog')" /> 	<br /> 	<input type="button" 	 value="Click To Insert Object (SPAN)" 	 onclick="myDialogButtonClick2('MyDialog')" /> </div> <ighedit:WebHtmlEditor id="WebHtmlEditor1" runat="server"> 	<Toolbar> 		<ighedit:ToolbarDialogButton runat="server" type="Custom"> 			<Dialog DialogContentid="MyDialogID" InternalDialogtype="Text" /> 		</ighedit:ToolbarDialogbutton> 	</Toolbar> 	<ClientSideEvents Initialize="WebHtmlEditor1_Initialize" /> </ighedit:WebHtmlEditor> 
+----
+
+|*KeyDown* 
+|エディタがブラウザのキーダウン イベントを取得する時に、このイベントが発生します。 
+
+*パラメータ*
+
+_oEditor_ 
+
+WebHtmlEditor を表す javascript オブジェクトへの参照。 _keyCode_ 
+
+ブラウザ イベントの KeyCode。 _oEvent_ 
+
+イベント引数。これはイベントをキャンセルまたはポストバックを発生するために使用できます。 
+
+*解説*
+
+以下の例は使用されるイベントを示しています。 
+
+---- 
+// ClientSideEvents.KeyDown を処理します。 // どのキーボード キーがユーザーによって押されたかを示します。 // Backspace キーおよび A/a キーボード キーを無効にします。 function WebHtmlEditor1_KeyDown(oEditor, keyCode, oEvent) { 	window.status = "keyDown=" + keyCode; 	if(keyCode == 65 || keyCode == 8) // which are 'A' and 'Backspace' 		oEvent.cancel = true; }
+----
+
+|*KeyPress* 
+|エディタがブラウザのキープレス イベントを取得する時に、このイベントが発生します。 
+
+*パラメータ*
+
+_oEditor_ 
+
+WebHtmlEditor を表す javascript オブジェクトへの参照。 _keyCode_ 
+
+ブラウザ イベントの KeyCode。 _oEvent_ 
+
+イベント引数。これはイベントをキャンセルまたはポストバックを発生するために使用できます。 
+
+*解説*
+
+例 1： 
+
+---- 
+// ClientSideEvents.KeyPress を処理します // エディタでどの文字が表示されるかを示します（ユーザーによって入力される） // 'a' を回避し、'A' を保持します // 'b' を '1' で置き換えます（IE のみでサポートされる） function WebHtmlEditor1_KeyPress(oEditor, keyCode, oEvent) { 	window.status = "keyDown=" + keyCode; 	if(keyCode == 97) // これは文字 'a' 		oEvent.cancel = true; 	if(keyCode == 98) // これは文字 'b' 		oEvent.key = 49; // これは数字 '1' } ---- 
+
+例 2： 
+
+---- 
+// ClientSideEvents.KeyPress を処理します // キーを押した後、エディタで最終テキストを表示します。 function WebHtmlEditor1_KeyPress(oEditor, keyCode, oEvent) { 	window.setTimeout('myHandler("' + oEditor.ID + '")', 100); } function myHandler(id) { 	var oEditor = iged_getById(id); 	if(oEditor) 		window.alert(oEditor.getText()); } 
+----
+
+|====

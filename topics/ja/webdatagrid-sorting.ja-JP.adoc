@@ -1,0 +1,90 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-sorting",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Grids","Sorting"],
+    "guid": "{B7993018-9A76-40C1-B3CF-D2213E50D962}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 並べ替え
+
+WebDataGrid™ によってデータのソートが可能です。単一または複数の列のソートを持つことができます。ソート動作を有効にするために、次の手順を実行します。
+
+[start=1]
+. WebDataGrid を SqlDataSource コンポーネントにバインドして、Customers テーブルからデータを取得します。実行についての詳細は、 link:webdatagrid-getting-started-with-webdatagrid.html[WebDataGrid で開始]を参照してください。
+[start=2]
+. プロパティ ウィンドウで、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.behaviors.html[Behaviors]"]  プロパティを指定して、省略記号 (...) ボタンをクリックし、[動作エディタ] ダイアログを起動します。
+[start=3]
+. 動作を有効にするために左側の動作のリストのソートの隣のチェックボックスをチェックします。
+[start=4]
+. プロパティで  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.sorting~sortingmode.html[SortingMode]"]  を Single のままにしておきます。
+
+image::images/WebDataGrid_Using_Behaviors_01.png[]
+
+[start=5]
+. [OK] をクリックしてこのダイアログ ウィンドウを閉じます。以下のマークアップが生成されます。
+
+*HTML の場合:*
+
+----
+<Behaviors>
+    <ig:Sorting>
+    </ig:Sorting>
+</Behaviors>
+----
+
+コード ビハインドからソート動作を追加するには、以下のコードを追加します。
+
+*Visual Basic の場合:*
+
+----
+WebDataGrid1.Behaviors.CreateBehavior(Of Infragistics.Web.UI.GridControls.Sorting)()
+----
+
+*C# の場合:*
+
+----
+WebDataGrid1.Behaviors.CreateBehavior<Infragistics.Web.UI.GridControls.Sorting>();
+----
+
+[start=6]
+. アプリケーションを実行します。WebDataGrid で一度にソート可能なのは 1 列のみです。
+
+image::images/WebDataGrid_Sort_Columns_in_Code_01.png[]
+
+サーバー側またはクライアント側コードを使用して、WebDataGrid™ をソートできます。サーバー側には  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.sorting~sortedcolumns.html[SortedColumns]"]  プロパティがあります。クライアント側では、sortColumn メソッドを使用します。
+
+pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.sorting~sortingmode.html[SortingMode]"]  プロパティはコードでソートに適用しません。このプロパティは、UI でソートするためのプロパティです。これによって単一の列のみをソートするようにユーザーを制限することができますが、依然として柔軟なデータ プレゼンテーションのためにコードで複数列をソートすることができます。
+
+以下のコードは、WebDataGrid で列をソートする方法を示します。これはソートが有効になっていることを前提とします。
+
+*Visual Basic の場合：*
+
+----
+Me.WebDataGrid1.Behaviors.Sorting.SortedColumns.Add(Me.WebDataGrid1.Columns("ContactName"), Infragistics.Web.UI.SortDirection.Ascending)
+----
+
+*C# の場合：*
+
+----
+this.WebDataGrid1.Behaviors.Sorting.SortedColumns.Add(this.WebDataGrid1.Columns["ContactName"], Infragistics.Web.UI.SortDirection.Ascending);
+----
+
+*JavaScript の場合*
+
+----
+var grid = $find("WebDataGrid1");
+// sortColumn メソッドを呼び出し列とソートの方向を渡すことによって列をソートします。
+// ソートの方向は、なし、昇順、降順に対して 0、1 または 2 です。
+grid.get_behaviors().get_sorting().sortColumn(grid.get_columns().get_columnFromKey("ContactName"), 1, false);
+----
+
+並べ替えとページング動作が有効な場合
+
+両方の動作が有効な場合、最初のページ以外に移動して列を並べ替えると、WebDataGrid は並べ替えを適用して、自動的に最初のページへ移動します。

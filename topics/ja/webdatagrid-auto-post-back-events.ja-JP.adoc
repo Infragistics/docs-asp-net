@@ -1,0 +1,40 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-auto-post-back-events",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Events","Grids"],
+    "guid": "{02B2AD35-282E-497B-BBE2-48F0F55AE88A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 自動ポストバック イベント
+
+WebDataGrid™ にはデフォルトでポストバックしない動作がありますが、自動的にポストバックを起動したい場合があります。この理由から、この動作は対応するサーバー側イベントを起動するために設定できる AutoPostBack プロパティを公開しています。
+
+以下に AutoPostBack プロパティがある動作とその動作が起動するイベントをリストします。
+
+* アクティブ化 - セルがアクティブになると ActiveCellChanged イベントが発生します。
+* 列のリサイズ - 列がリサイズされると ColumnResized イベントが発生します。
+* 選択 - セルが選択されると CellSelectionChanged、ColumnSelectionChanged または RowSelectionChanged が発生します。
+
+Ajax が有効な場合、イベントは非同期に発生します。有効でない場合、フル ページ ポストバックを取得します。
+
+以下のコードは、セル選択に AutoPostBack プロパティを設定し CellSelectionChanged イベントを処理する方法を示します。
+
+*HTML の場合:*
+
+----
+<ig:WebDataGrid ID="WebDataGrid1" runat="server" Height="350px" Width="400px" 
+    oncellselectionchanged="WebDataGrid1_CellSelectionChanged" >
+    <Behaviors>
+        <ig:Selection>
+            <AutoPostBackFlags CellSelectionChanged="True" />
+        </ig:Selection>
+    </Behaviors>
+</ig:WebDataGrid>
+----

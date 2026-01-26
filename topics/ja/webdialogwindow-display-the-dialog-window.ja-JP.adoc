@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdialogwindow-display-the-dialog-window",
+    "controlName": ["WebDialogWindow"],
+    "tags": ["How Do I"],
+    "guid": "{382644C9-0B53-4085-B1D8-05108EEB14BE}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ダイアログ ウィンドウを表示
+
+デフォルトで、WebDialogWindow™ コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.webdialogwindow~windowstate.html[WindowState]"]  プロパティは Normal に設定されます。これは、Web ページが初めてロードされた時にそのページ上に表示されるということを意味します。ただし、ダイアログ ウィンドウをポップアップ ダイアログ ボックスとして使用している場合、最初に link:webdialogwindow-hide-the-dialog-window.html[ダイアログ ウィンドウを非表示]にして、次にボタンの Click イベントかその他の方法で表示する必要があります。ダイアログ ウィンドウを表示するのは、非表示にするのと同じように簡単で、WindowState プロパティを Normal に設定するだけです。一般的なシナリオは、データをサーバーにポストバックするためにエンド ユーザーがボタンをクリックする時です。そのデータに問題がある場合、エンド ユーザーは問題を修正できるようにするためにテキスト ボックスとともにエラー メッセージとしてダイアログ ウィンドウを表示することができます。そのボタンの Click イベントで、ダイアログ ウィンドウを表示するために実行しなければならないのは、WindowState を Normal に設定することだけです。
+
+以下のコードはボタンの Click イベント内にダイアログ ウィンドウを表示する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Protected Sub Button1_Click(ByVal sender As Object, _
+                            ByVal e As EventArgs) Handles Button1.Click
+    ' ダイアログ ウィンドウを表示します。
+    Me.WebDialogWindow1.WindowState = _
+        Infragistics.Web.UI.LayoutControls.DialogWindowState.Normal
+End Sub
+----
+
+*C# の場合：*
+
+----
+protected void Button1_Click(object sender, EventArgs e)
+{
+	// ダイアログ ウィンドウを表示します。
+	this.WebDialogWindow1.WindowState = 
+		Infragistics.Web.UI.LayoutControls.DialogWindowState.Normal;
+}
+----

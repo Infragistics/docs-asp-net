@@ -1,0 +1,54 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-deploying-an-application-to-a-hosted-server-environment",
+    "controlName": [],
+    "tags": ["Deployment","How Do I"],
+    "guid": "{A45B1DFC-3447-48CC-BD0E-FC8CD2E9EF4E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アプリケーションをホスト サーバー環境に配備
+
+ホスト サーバー環境にアプリケーションを配備する場合、IIS などのリソースへのアクセスは制限される場合が多く、アップロード コンテンツの手段を制約したため、特別な対応が必要になります。Infragistics は {ProductName} ツールを制約された環境または IIS への権利がない環境に簡単に配備できるようにしています。
+
+[start=1]
+. {ProductName} アセンブリを含み、アプリケーションアセンブリをアプリケーションの BIN ディレクトリに FTP します。
+[start=2]
+. Aikido コントロールに必要なスクリプト ファイルは埋め込みリソースとして提供します。スタイル セットおよび関連する画像に別のフォルダーを作成する必要があります。アプリケーション フォームに生成された ig_res フォルダー、または製品のインストール ディレクトリから、使用するスタイル セットをコピーし、このフォルダに置きます。
+[start=3]
+. FTP 手順 2 で作成した ig_res ディレクトリに必要なスタイル セットを FTP します。
+[start=4]
+. 最後に、{ProductName} ツールで必要となる設定情報を追加するために web.config ファイルを修正する必要があります。必要となる修正は、このトピックの次のセクションに示されています。
+
+=== Web.config ファイルを使用してスタイル セットの場所を構成します。
+
+{ProductName} ツールを使用するアプリケーション配備の場合、スタイル セットの場所、そしてツールセットの Aikido ASP.NET コントロールが必要とする関連の画像を検索する場所を構成します。通常、IIS 仮想ディレクトリを構成しファイルを検索しますが、ホスト Web サーバーに配備する場合、仮想 ディレクトリの構成が不可能になることがあり、他の方法が必要となります。
+
+ホスト環境配備の場合、Web.config ファイルを使用して、web コントロールの StyleSetPath オプションを構成します。Web.config ファイルに簡単な設定セクションを追加することにより、アプリケーションのすべての {ProductName} コントロールが必要なスタイルおよび画像ファイルを検索する場所を指定します。
+
+この設定には 2 つの手順があります。最初の手順は、web.config ファイルの <configuration> セクションの下に config Section を追加することです。
+
+
+*注：* 以下のコードは、トピックで水平方向のスクロールを避けるために複数行をセクション タグで区切って示しています。プロジェクトで使用するためにコードをコピーする場合は、セクション タグを修正して動作するように 1 行で表示してください。
+
+
+----
+<configSections>
+  <section name="infragistics.web"
+      type="System.Configuration.SingleTagSectionHandler,System, Version=1.0.3300.0,
+      Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
+</configSections>
+----
+
+このXMLは、infragistics.web が確かに web.config ファイル用の有効な要素であることを指定します。
+
+configSection タグを追加してから、infragistics.web タグも追加できます。以下では、スタイル セットが配備された IIS のディレクトリに設定された styleSetPath を含む web.config を例示します。
+
+----
+<infragistics.web enableAppStyling="true" styleSetPath="~/ig_res/"/>
+----

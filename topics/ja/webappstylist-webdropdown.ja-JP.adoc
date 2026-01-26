@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "webappstylist-webdropdown",
+    "controlName": ["WebAppStylist"],
+    "tags": [],
+    "guid": "{47E30DBA-38B0-4680-A27A-B6836034C824}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDropDown
+
+WebDropDown キャンバスに WebDropDown コントロールを伴うすべてのスタイリング修正を表示します。WebDropDown キャンバスで以下のコントロールを見つけることができます。
+
+* WebDropDown
+
+image::images/AppStylist_WebDropDown_Canvas_01.png[WebDropDown コントロールのキャンバス]

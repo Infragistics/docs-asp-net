@@ -1,0 +1,80 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdropdown-binding-webdropdown-to-a-web-service",
+    "controlName": ["WebDropDown"],
+    "tags": [],
+    "guid": "{A4551BD6-EFAD-4C13-95FA-83BCC6BF6490}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDropDown を Web サービスにバインド
+
+== 始める前に
+
+WebDropDown™ は  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.framework.data.flatdataboundcontrol~datasource.html[DataSource]"]  プロパティを使用して Web サービスへのバインドをサポートします。この詳細なガイドでは、文字列配列として曜日を返すメソッドでシンプルな Web サービスが作成されます。曜日がドロップダウン コンテナに表示されるように、この文字列配列は WebDropDown にバインドされます。
+
+== 達成すること
+
+WebDropDown を Web サービスによって返される文字列配列にバインドする方法を学習します。
+
+
+*注:* Web サービスを構築および設計することはこのトピックの範囲外です。このトピックはデータの取得の同期的な方法を示します。より高度でデータ集中的なアプリケーションでは、非同期的なアプローチを取るべきです。Web サービスの詳細は、 link: http://msdn.microsoft.com/ja-jp/default.aspx[MSDN®] をご覧ください。
+
+
+== 次の手順を実行します
+
+[start=1]
+. Visual Studio™ ツールボックスから、ScriptManager コンポーネントと WebDropDown コントロールをドラッグ アンド ドロップします。
+[start=2]
+. 以下の手順で示すように Web サービスを作成します:
+
+** プロジェクトを右クリックして、[新規項目を追加] をクリックします。これで [新規項目を追加] ダイアログが開きます。
+** テンプレートから Web サービスを選択して名前を myWebService.asmx に変更します。[追加] をクリックしてダイアログを閉じます。
+** 今度は以下のコードで示すように曜日を Web サービスに返す WebMethod を返します。
+
+*Visual Basic の場合：*
+
+----
+Public Function GetDaysOfTheWeek() As String()
+                 Dim weekdays As String() = New String() {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", _
+    "Saturday"}
+                 Return weekdays
+            End Function
+----
+
+*C# の場合：*
+
+----
+public string[] GetDaysOfTheWeek()
+      {
+        string[] weekdays = new     string[]{"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
+        return weekdays;
+      }
+----
+
+[start=3]
+. 以下のコードで示すように、WebDropDown コントロールの DataSource プロパティを WebService の GetDaysOfTheWeek WebMethod に設定します。
+
+*Visual Basic の場合：*
+
+----
+         Dim service As New myWebService()
+         WebDropDown1.DataSource = service.GetDaysOfTheWeek()
+----
+
+*C# の場合：*
+
+----
+         myWebService service = new myWebService();
+         WebDropDown1.DataSource = service.GetDaysOfTheWeek();
+----
+
+[start=4]
+. アプリケーションを保存して実行します。WebDropDown は以下の画像のようになるはずです。
+
+image::images\WebDropDown_Binding_WebDropDown_to_a_Web_Service_01.png[]

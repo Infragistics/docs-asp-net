@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcalendarview-api-overview",
+    "controlName": ["WebCalendarView"],
+    "tags": ["API"],
+    "guid": "{411D3442-2267-4692-B93F-4CDE8DC6847F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションはコントロールに関連する各名前空間をリストします。また、このコントロールでプログラミングをする時に使用するいくつかのキー クラスも示します。このページの名前空間とクラスは、{ProductName} の API ドキュメントに直接リンクされています。
+
+=== WebSchedule 名前空間:
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[Infragistics.WebUI.WebSchedule]"]
+
+=== キー クラス:
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webcalendarview.html[WebCalendarView]"]

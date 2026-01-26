@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-custom-column-styling",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Grids","Styling"],
+    "guid": "027edd9d-7445-4ef8-b83c-e6086801f650",  
+    "buildFlags": [],
+    "createdOn": "2010-10-06T12:52:20.4610559Z"
+}
+|metadata|
+////
+
+= カスタムの列スタイル
+
+このトピックでは、WebDataGrid 列をスタイルする方法に関するコード例を示します。デフォルトで、css クラスはアプリケーション スタイリングで選択するスタイルに基づいて、すべての WebDataGrid 要素に適用されます。ただし、列ごとにカスタム スタイルを指定したい場合があります。この場合、BoundDataField オブジェクトと UnboundDataField オブジェクトの CssClass プロパティを使用して、カスタムの CSS クラスを設定できます。CssClass プロパティは、すべてのサポートされる CSS プロパティとともに標準の CSS クラスを受け付けるように設計されています。以下のコード例は、WebDataGrid 列ごとの代替えのスタイルを提供します。CSS はテキストを右揃えおよび左揃えにするために使用されます。
+
+*HTML の場合:*
+
+----
+<style type="text/css"> .Left    {        
+     text-align:left;} 
+.Right     {      text-align:right;}
+</style>
+…
+<ig:BoundDataField DataFieldName="CustomerID" CssClass="Left" Key="CustomerID">
+     <Header Text="" />
+</ig:BoundDataField>
+<ig:BoundDataField DataFieldName="CompanyName" CssClass="Right" Key="CompanyName">
+     <Header Text="Company" />
+</ig:BoundDataField>
+<ig:BoundDataField DataFieldName="ContactName" CssClass="Left" Key="Contact">
+     <Header Text="Contact" />
+</ig:BoundDataField>
+<ig:BoundDataField DataFieldName="Address" CssClass="Right" Key="Address">
+     <Header Text="Address" />
+</ig:BoundDataField>
+----

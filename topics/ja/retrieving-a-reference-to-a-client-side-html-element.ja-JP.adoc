@@ -1,0 +1,38 @@
+﻿////
+
+|metadata|
+{
+    "name": "retrieving-a-reference-to-a-client-side-html-element",
+    "controlName": ["WebDialogWindow"],
+    "tags": ["Events"],
+    "guid": "{390A1567-7DE4-4473-B9D0-8950385DC5DE}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= クライアント側 HTML 要素への参照を取得
+
+クライアント側で、ページ上で HTML 要素への参照を取得しなければならない場合があります。ほとんどの {ProductName} コントロールは、イベントを発生させた HTML 要素への参照を渡すクライアント側イベントを公開しています。ただし、ページで別の HTML 要素への参照が必要な場合はどうでしょうか?
+
+ASP.NET AJAX の組み込み $find ショートカット メソッドを使用すると、パラメータとしてオブジェクトの ID をメソッドに渡すことによって任意のクライアント側オブジェクトへの参照を簡単に取得することができます。コンポーネントが見つかったら、通常のクライアント側オブジェクトと同じように操作することができます。
+
+*注:* この例が WebSplitter コントロールを使用する場合でさえ、このロジックを任意のコントロールまたは要素に適用することも依然として可能です。
+
+*以下のコードの例の前提:*
+
+* 新しい ASP.NET AJAX 対応の Web サイトをすでに作成している。
+* WebForm 上に ASP.NET AJAX ScriptManager のインスタンスがある。
+* アプリケーションで Infragistics Application Styling を有効にしており、Default Style を使用している。詳細は、 link:web-enabling-application-styling-using-the-web-config-file.html[web.config ファイルを使用してアプリケーション スタイリングを有効にする]を参照してください。
+* フォーム上に WebSplitter™ コントロールのインスタンスがある。
+
+以下のコードは、ID が WebSplitter1 の WebSplitter コントロールへの参照を取得します。
+
+*JavaScript の場合*
+
+----
+var splitter = $find("WebSplitter1");
+        if(splitter != null)
+                                ...
+----

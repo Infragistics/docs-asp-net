@@ -1,0 +1,80 @@
+﻿////
+
+|metadata|
+{
+    "name": "webmaskeditor-spinning-through-a-list-of-values-in-webmaskeditor",
+    "controlName": ["WebMaskEditor"],
+    "tags": ["Editing","How Do I","Styling"],
+    "guid": "{567743DE-ADBA-42E6-9072-7DA2AFD81C4A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebMaskEditor で値のリストをスピン
+
+WebMaskEditor™ は、スピン ボタンを使用して値のリストからスピンするためのオプションを提供します。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~spinbuttonsdisplay.html[SpinButtonsDisplay]"]  プロパティを OnRight または OnLeft のいずれかに設定することによってスピン ボタンを表示できます。デフォルトでこのプロパティは None に設定されます。スピン ボタンには、エンドユーザーが次の値と前の値に移動できるように下側のボタンと上側のボタンの 2 つのボタンがあります。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~lowerspinbutton.html[LowerSpinButton]"]  および  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~upperspinbutton.html[UpperSpinButton]"]  プロパティをそれぞれ設定することによって、上下のボタンをカスタマイズできます。
+
+Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、SpinButtonsDisplay プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+'スピン ボタンを右側に表示します
+WebMaskEditor1.Buttons.SpinButtonsDisplay = Infragistics.Web.UI.EditorControls.ButtonDisplay.OnRight
+----
+
+*C# の場合：*
+
+----
+//スピン ボタンを右側に表示します
+WebMaskEditor1.Buttons.SpinButtonsDisplay = Infragistics.Web.UI.EditorControls.ButtonDisplay.OnRight;
+----
+
+WebMaskEditor は、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~spinwrap.html[SpinWrap]"]  プロパティを True に設定することによってリストの最初の値または最後の値に達したとしてもリストを継続してスピンすることも可能にします。
+
+== 値をリストに追加および挿入
+
+WebMaskEditor によって、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons.html[TextEditorButtons]"]  オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~listofvalues.html[ListOfValues]"]  プロパティを使用して繰り返したい値のリストを追加することができます。Microsoft® Visual Studio® [プロパティ] ウィンドウを使用して ListOfValues プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+WebMaskEditor1.Buttons.ListOfValues = "ASP.NET|Silverlight|WinForms|WPF|JSF"
+----
+
+*C# の場合：*
+
+----
+WebMaskEditor1.Buttons.ListOfValues = "ASP.NET|Silverlight|WinForms|WPF|JSF";
+----
+
+[NOTE]
+====
+*注：* リストの項目は ListOfValues プロパティを使用する時には "|" 文字によって分割する必要があります。
+====
+
+ただし、TextEditorButtons オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~insertlistvalueatindex.html[InsertListValueAtIndex]"]  メソッドを使用して値をリストに挿入することもできます。
+
+*Visual Basic の場合：*
+
+----
+       '特定のインデックスでリストに値を挿入します。      
+        WebMaskEditor1.Buttons.InsertListValueAtIndex(0, "ASP.NET")
+        WebMaskEditor1.Buttons.InsertListValueAtIndex(0, "Silverlight")
+        WebMaskEditor1.Buttons.InsertListValueAtIndex(0, "WinForms")
+        WebMaskEditor1.Buttons.InsertListValueAtIndex(0, "WPF")
+        WebMaskEditor1.Buttons.InsertListValueAtIndex(0, "JSF")
+----
+
+*C# の場合：*
+
+----
+        //特定のインデックスでリストに値を挿入します                   
+        WebMaskEditor1.Buttons.InsertListValueAtIndex(0, "ASP.NET");
+        WebMaskEditor1.Buttons.InsertListValueAtIndex(0, "Silverlight");
+        WebMaskEditor1.Buttons.InsertListValueAtIndex(0, "WinForms");
+        WebMaskEditor1.Buttons.InsertListValueAtIndex(0, "WPF");
+        WebMaskEditor1.Buttons.InsertListValueAtIndex(0, "JSF");
+----

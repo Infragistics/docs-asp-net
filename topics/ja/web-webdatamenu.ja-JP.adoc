@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webdatamenu",
+    "controlName": ["WebDataMenu"],
+    "tags": ["Getting Started"],
+    "guid": "{FA38A26C-56DF-4D2D-90F4-E128E520CA06}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDataMenu
+
+このページには、WebDataMenu™ コントロール関連の概要/タスクベースの情報がすべて含まれています。このセクションには、コントロールが何を実行するのか、またアプリケーションでなぜコントロールを使用したくなるのかから、コントロールを使用して一般的なタスクを完了する方法に関するステップバイステップの手順まで、コントロールに関する貴重な情報が含まれています。
+
+WebDataMenu コントロールについての詳細は、以下のリンクをクリックしてください。
+
+== link:webdatamenu-about-webdatamenu.html[WebDataMenu について]
+
+このセクションには、WebDataMenu コントロールの機能の理解を深めるのに役立つ情報があります。さらに、コントロールの目的も理解できます。
+
+== link:webdatamenu-getting-started-with-webdatamenu.html[WebDataMenu で開始]
+
+このセクションは、WebDataMenu コントロールで可能な限り迅速に起動および実行する方法についての情報を提供します。
+
+== link:webdatamenu-using-webdatamenu.html[WebDataMenu の使用]
+
+このセクションは、WebDataMenu で使用可能な機能を使用する方法を示すタスクベースの情報を提供します。
+
+== link:webdatamenu-accessibility-compliance.html[WebDataMenu アクセシビリティの遵守]
+
+このトピックは、WebDataMenu が第 508 条の要件を満たす方法を概略します。このアクセシビリティの遵守によって、エンドユーザー、特に障害を持つユーザーが WebDataMenu コントロールを使用して構築された Web アプリケーションにアクセスおよび使用することを可能にします。
+
+== link:webdatamenu-api-overview.html[API の概要]
+
+このトピックは、WebDataMenu コントロールでプログラミング中に作業する名前空間とクラスをリストします。このトピックにリストされている名前空間とクラスは、{ProductName} ヘルプの「API 参照ガイド」セクションに便宜的にリンクされています。
+
+== link:webdatamenu~infragistics.web.ui_namespace.html[クライアント サイド オブジェクト モデル (CSOM) の概要]
+
+WebDataMenu™ コントロールは、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを提供します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクトで構成され、開発者はサーバー側にポストバックしなくても、コントロールに関連する重要な機能単位をプログラムできます。

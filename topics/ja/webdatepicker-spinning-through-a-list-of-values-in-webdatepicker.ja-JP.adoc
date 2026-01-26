@@ -1,0 +1,98 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatepicker-spinning-through-a-list-of-values-in-webdatepicker",
+    "controlName": ["WebDatePicker"],
+    "tags": ["How Do I","Tips and Tricks"],
+    "guid": "{1EEF0A30-6B4B-4441-9B4F-C4FA76DEADA1}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDatePicker で値のリストをスピン
+
+WebDatePicker™ はスピン ボタンを使用して値のリストをスピンするオプションを提供します。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~spinbuttonsdisplay.html[SpinButtonsDisplay]"]  プロパティを OnRight または OnLeft のいずれかに設定することによってスピン ボタンを表示できます。デフォルトでこのプロパティは None に設定されます。スピン ボタンには、エンドユーザーが次の値と前の値に移動できるように下側のボタンと上側のボタンの 2 つのボタンがあります。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~lowerspinbutton.html[LowerSpinButton]"]  プロパティと  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~upperspinbutton.html[UpperSpinButton]"]  プロパティをそれぞれ設定することによって、下側のボタンと上側のボタンをカスタマイズできます。
+
+Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、SpinButtonsDisplay プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+'スピン ボタンを右側に表示します
+WebDatePicker1.Buttons.SpinButtonsDisplay = Infragistics.Web.UI.EditorControls.ButtonDisplay.OnRight
+----
+
+*C# の場合：*
+
+----
+//スピン ボタンを右側に表示します
+WebDatePicker1.Buttons.SpinButtonsDisplay = Infragistics.Web.UI.EditorControls.ButtonDisplay.OnRight;
+----
+
+WebDatePicker は、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~spinwrap.html[SpinWrap]"]  プロパティを True に設定することによってリストの最初の値または最後の値に達したとしてもリストを継続してスピンすることも可能にします。
+
+== 値をリストに追加および挿入
+
+WebDatePicker によって、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons.html[TextEditorButtons]"]  オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~listofvalues.html[ListOfValues]"]  プロパティを使用して繰り返したい値のリストを追加することができます。Microsoft® Visual Studio® [プロパティ] ウィンドウを使用して ListOfValues プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+WebDatePicker1.Buttons.ListOfValues = "2009-02-02-11-30-15-20|2009-03-03-12-30-15-20|2009-04-04-15-22-20-33|2009-05-05-18-23-20-35"
+----
+
+*C# の場合：*
+
+----
+WebDatePicker1.Buttons.ListOfValues = "2009-02-02-11-30-15-20|2009-03-03-12-30-15-20|2009-04-04-15-22-20-33|2009-05-05-18-23-20-35";
+----
+
+
+*注：* リストの項目は ListOfValues プロパティを使用する時には "|" 文字によって分割する必要があります。値のリストの値の書式は "YYYY-MM-DD-HH-mm-ss-ms"（yyyy –年、MM-月、DD-日付、HH –時間、mm-分、ss-秒、ms – ミリ秒）の書式でなければなりません。
+
+
+ただし、TextEditorButtons オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~insertlistvalueatindex.html[InsertListValueAtIndex]"]  メソッドを使用して値をリストに挿入することもできます。
+
+*Visual Basic の場合：*
+
+----
+'特定のインデックスでリストに値を挿入します  
+ WebDatePicker1.Buttons.InsertListValueAtIndex(0, "2009-02-02-11-30-15-20")
+ WebDatePicker1.Buttons.InsertListValueAtIndex(1, "2009-03-03-12-30-15-20")
+ WebDatePicker1.Buttons.InsertListValueAtIndex(2, "2009-04-04-15-22-20-33")
+ WebDatePicker1.Buttons.InsertListValueAtIndex(3, "2009-05-05-18-23-20-35")   
+----
+
+*C# の場合：*
+
+----
+//特定のインデックスでリストに値を挿入します  
+WebDatePicker1.Buttons.InsertListValueAtIndex(0, "2009-02-02-11-30-15-20");
+WebDatePicker1.Buttons.InsertListValueAtIndex(1, "2009-03-03-12-30-15-20");
+WebDatePicker1.Buttons.InsertListValueAtIndex(2, "2009-04-04-15-22-20-33");
+WebDatePicker1.Buttons.InsertListValueAtIndex(3, "2009-05-05-18-23-20-35");  
+----
+
+== 編集値の増分/減分
+
+WebDatePicker によってスピン ボタンを使用して編集値を増分/減分することも可能です。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webdatetimeeditor~spindelta.html[SpinDelta]"]  プロパティを設定するだけで増分/減分係数を設定することができます。たとえば、SpinDelta プロパティを 10 に設定する場合、上側のボタンをクリックすると日付書式の場合には値が 10 日ずつ増え、時刻書式の場合には 10 分ずつ増えます。同様に、下側のボタンをクリックすると、日付書式の場合には値が 10 日ずつ減り、時刻書式の場合には 10 分ずつ減ります。
+
+Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、SpinDelta プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+WebDatePicker1.SpinDelta = 10
+----
+
+*C# の場合：*
+
+----
+WebDatePicker1.SpinDelta = 10;
+----
+
+
+*注：* ListOfValues プロパティは SpinDelta プロパティよりも優先されます。

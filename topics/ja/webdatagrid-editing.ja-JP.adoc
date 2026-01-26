@@ -1,0 +1,50 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-editing",
+    "controlName": [],
+    "tags": [],
+    "guid": "cbcfc724-c047-4de0-9645-3cf40c2186c3",  
+    "buildFlags": [],
+    "createdOn": "2014-03-10T16:18:46.3477759Z"
+}
+|metadata|
+////
+
+= 編集
+
+== このグループのトピックについて
+
+=== はじめに
+
+このグループのトピックでは、 _WebDataGrid_   __™__  の編集動作とその使用について説明します。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:webdatagrid-editting.html[編集動作の概要]
+|このトピックでは、 _WebDataGrid_ の編集動作の機能の概要を提供します。
+
+| link:webdatagrid-batch-updating.html[一括更新]
+|このグループのトピックでは、一括更新の機能とその使用について説明します。
+
+| link:webdatagrid-cell-editing.html[セル編集]
+|このトピックはセル編集動作を使用する方法を紹介します。
+
+| link:webdatagrid-row-adding.html[行の追加]
+|このトピックは行追加集動作を使用する方法を紹介します。
+
+| link:webdatagrid-row-deleting.html[行削除]
+|このトピックは行削除集動作を使用する方法を紹介します。
+
+| link:webdatagrid-row-editing.html[行編集]
+|このグループのトピックでは、行編集の動作とその使用について説明します。
+
+| link:webdatagrid-row-editing-template.html[行編集テンプレート]
+|このトピックは、行編集テンプレートの動作の概要を説明します。
+
+|====

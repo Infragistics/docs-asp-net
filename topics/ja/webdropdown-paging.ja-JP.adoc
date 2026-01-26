@@ -1,0 +1,126 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdropdown-paging",
+    "controlName": ["WebDropDown"],
+    "tags": [],
+    "guid": "{A854CEC9-938F-4463-A9B6-AC1091C09EB3}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ページング
+
+WebDropDown™ は項目の長いリストを複数の個別のページに区切る際に役立つページング メカニズムをサポートします。これによりロード時間が削減されパフォーマンスを高めます。ページ番号はページ サイズとドロップダウン コンテナの項目数によって決定されます。
+
+ページング機能を有効にするには、EnablePaging プロパティを True に設定する必要があり、PageSize プロパティをページごとに表示したい項目数に設定することも必要です。Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~enablepaging.html[EnablePaging]"]  および  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~pagesize.html[PageSize]"]  プロパティを設定できます。
+
+*Visual Basic の場合：*
+
+[source]
+----
+WebDropDown1.EnablePaging = true
+----
+
+[source]
+----
+WebDropDown1.PageSize = 10
+----
+
+*C# の場合：*
+
+[source]
+----
+WebDropDown1.EnablePaging = true;
+----
+
+[source]
+----
+WebDropDown1.PageSize = 10;
+----
+
+== ページャー設定
+
+WebDropDown によって複数の異なる方法でページ リンクをカスタマイズすることが可能となります。  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~pagersettings.html[PagerSettings]"]  プロパティにアクセスすることでこれを達成できます。以下のモードのリストは  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.pagersettings~pagermode.html[PagerMode]"]  プロパティを設定することによってページングリンクを描画する方法を決定する支援となります。
+
+* Numeric -- 数値ベースのリンクを表示します。
+* NextPrevious -- 次のリンクと前のリンクを表示します。
+* NextPreviousFirstLast -- 次、前、最初および最後のリンクを表示します。
+* NumericFirst Last -- 数値ベースのリンクおよび最初のリンクと最後のリンクを表示します。
+
+
+*注：* デフォルトでは、PagerMode プロパティは Numeric に設定されます。
+
+
+Visual Studio [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、PagerMode プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+WebDropDown1.PagerSettings.PagerMode = Infragistics.Web.UI.ListControls.PagerMode.NextPreviousFirstLast
+----
+
+*C# の場合：*
+
+----
+WebDropDown1.PagerSettings.PagerMode = Infragistics.Web.UI.ListControls.PagerMode.NextPreviousFirstLast;   
+----
+
+== ページ リンクのテキストを変更するには:
+
+デフォルトで、ページ リンクは最初、前、次および最後のページに対してそれぞれ HTML 文字エンティティ "<"></"><><"></"><)、">" (>) および ">>" (>>) を使用して示されます。ただし、PagerSettings クラスの以下のメンバーの支援でページ リンクのテキストを変更できます。
+
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.pagersettings~firstpagetext.html[FirstPageText]"]  -- 最初のページャー リンクのテキスト。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.pagersettings~lastpagetext.html[LastPageText]"]  -- 最後のページャー リンクのテキスト。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.pagersettings~nextpagetext.html[NextPageText]"]  -- 次のページャー リンクのテキスト。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.pagersettings~previouspagetext.html[PreviousPageText]"]  -- 前のページャー リンクのテキスト。
+
+Visual Studio [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、上記のプロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+ WebDropDown1.PagerSettings.FirstPageText = "First"
+ WebDropDown1.PagerSettings.PreviousPageText = "Previous"
+ WebDropDown1.PagerSettings.NextPageText = "Next"
+ WebDropDown1.PagerSettings.LastPageText = "Last"
+----
+
+*C# の場合：*
+
+----
+ WebDropDown1.PagerSettings.FirstPageText = "First";
+ WebDropDown1.PagerSettings.PreviousPageText = "Previous";
+ WebDropDown1.PagerSettings.NextPageText = "Next";
+ WebDropDown1.PagerSettings.LastPageText = "Last";
+----
+
+== クイック ページ
+
+WebDropDown は QuickPages 機能をサポートします。この機能によって現在のページのそれぞれの側で使用可能なページ数を決定することができます。たとえば、プロパティを 3 に設定した場合、現在のページからさらに最大 6 ページ（次の 3 ページと 前の 3 ページ）までアクセスできます。現在のページが先頭/最終ページの場合、またはその方向に残されたページが指定ページより少ない場合、その方向に表示されるページ番号はまったくないか、数が少なくなります。デフォルトで、値は 0 に設定され、これは機能が無効であることを意味します。クイック ページの数は  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.pagersettings~quickpages.html[QuickPages]"]  プロパティを設定することによって決定できます。
+
+
+*注：* QuickPages 機能は PagerMode が Numeric に設定されたときに限り動作します。
+
+
+Visual Studio [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、PagerMode プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+[source]
+----
+WebDropDown1.PagerSettings.QuickPages = 3
+----
+
+*C# の場合：*
+
+[source]
+----
+WebDropDown1.PagerSettings.QuickPages = 3;
+----
+
+
+*注:* DropDownItems の設定値がバウンド データではないか、ロードオンデマンドが有効の場合、ページング機能はサポートされません。

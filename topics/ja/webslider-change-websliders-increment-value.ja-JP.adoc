@@ -1,0 +1,48 @@
+﻿////
+
+|metadata|
+{
+    "name": "webslider-change-websliders-increment-value",
+    "controlName": ["WebSlider"],
+    "tags": ["Editing","How Do I","Selection"],
+    "guid": "{DC28A292-6E77-4274-8438-83B759AA816A}",  
+    "buildFlags": [],
+    "createdOn": "2008-12-05T14:47:38Z"
+}
+|metadata|
+////
+
+= WebSlider の増加値を変更
+
+エンド ユーザーはさまざまな方法で WebSlider の値を変更できます。増加ボタンをクリックする、つまみをドラッグする、トラックまたは目盛をクリックすることができます。さらに、矢印やページ キーなどのキーボード キーは WebSlider の値を変更できます。
+
+エンド ユーザーがボタンをクリックまたはキーを押す時の WebSlider 値の変更量を指定するために設定できるプロパティがいくつかあります。
+
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webslider~smallchange.html[SmallChange]"]  -- エンド ユーザーがボタンをクリックまたは矢印キーを押す時の増加量を指定します。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webslider~largechange.html[LargeChange]"]  -- エンド ユーザーが PAGE UP または PAGE DOWN を押す時の増加量を指定します。
+
+以下の例のコードは、WebSlider の小さい増加と大きい増加の設定方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Me.WebSlider1.SmallChange = 1 
+Me.WebSlider1.LargeChange = 5
+----
+
+*C# の場合：*
+
+----
+this.WebSlider1.SmallChange = 1; 
+this.WebSlider1.LargeChange = 5;
+----
+
+== 関連トピック
+
+link:webslider-display-custom-formatted-values.html[カスタム書式の値を表示]
+
+link:webslider-edit-two-values.html[2 つの値を編集]
+
+link:webslider-set-min,-max,-and-starting-values.html[最小、最大、開始値を設定]
+
+link:webslider-set-the-values-type.html[値のタイプを設定]

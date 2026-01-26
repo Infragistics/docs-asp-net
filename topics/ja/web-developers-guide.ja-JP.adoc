@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-developers-guide",
+    "controlName": [],
+    "tags": ["Getting Started","How Do I"],
+    "guid": "{3F8735E1-3B74-4263-A80E-552293C96156}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-12T00:00:00Z"
+}
+|metadata|
+////
+
+= 開発者ガイド
+
+ヘルプのこの重要なセクションには、InfragisticsのASP.NETコントロールとコンポーネントについての重要な情報がたくさん含まれています。このセクションには、コントロール/コンポーネントの重要な特性と機能の説明から、一般的なタスクを実行するためにコントロール/コンポーネントを使用する方法に関する手順ごとの説明まで複数百のトピックが含まれています。「開発者ガイド」のセクションで説明されている知識は、コントロールとコンポーネントを使いこなしてプロフェッショナルな豊富な機能を持った ASP.NET ベースのアプリケーションを開発するために非常役立つはずです。
+
+以下のリンクは、「開発者ガイド」の主要なセクションを参照するための入口です。
+
+== link:web-assemblies.html[アセンブリ]
+
+このセクションは、インフラジスティックスのすべての ASP.NET アセンブリのリストを提供します。{ProductName} APTCA アセンブリに関する有用なリンク、またアセンブリをプロジェクトに追加する方法も提供します。
+
+== link:web-architecture.html[アーキテクチャー]
+
+このセクションは、ASP.NET コントロール/コンポーネントの基盤としての Web アーキテクチャについて説明しています。サーバー側およびクライアント側両方のアーキテクチャ概要を説明します。
+
+== link:web-controls.html[コントロール]
+
+これはヘルプ内の重要なセクションで、極めて頻繁に参照することになるセクションです。このセクションは、各 {ProductName} コントロールに関する情報が含まれています。
+
+== link:web-styling-your-application2.html[アプリケーションのスタイリング]
+
+InfragisticsのASP.NETコントロールとコンポーネントは、その外観と操作性をいくつかの方法で定義できます。このセクションでは、プリセット、スキン、表示スタイル、およびさまざまなスタイルオブジェクトを使用して、コントロールとコンポーネントの表示スタイルを設定して、アプリケーションに洗練された仕上がりを与える方法を説明します。
+
+== link:web-deploying-your-application.html[アプリケーションの配備]
+
+このセクションでは、Infragistics の ASP.NET コントロールとコンポーネントを1つ以上使用しているアプリケーションを展開する方法について説明します。さまざまな展開方法（ link:web-using-global-assembly-cache-gac-deployment.html[Global Assembly Cache (GAC)]、および link:web-deploying-an-application-to-a-hosted-server-environment.html[ホスト サーバー環境]）が紹介されています。
+
+== link:web-using-version-upgrade-utility.html[アプリケーションのアップグレード]
+
+このセクションでは {ProductName} を使用する既存のプロジェクトをアップグレードする方法を説明します。

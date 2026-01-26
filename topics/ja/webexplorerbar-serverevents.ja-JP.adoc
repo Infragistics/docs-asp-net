@@ -1,0 +1,49 @@
+﻿////
+
+|metadata|
+{
+    "name": "webexplorerbar-serverevents",
+    "controlName": ["WebExplorerBar"],
+    "tags": ["API","Events"],
+    "guid": "{5E0DE7DF-F159-4784-B4F1-59BCFB71ED43}",  
+    "buildFlags": [],
+    "createdOn": "2010-01-03T22:55:42Z"
+}
+|metadata|
+////
+
+= サーバー側イベント
+
+WebExplorerBar™ は以下のサーバー側イベントを導入します。
+
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webexplorerbar~itembound_ev.html[ItemBound]"]  – 項目がデータ項目にバインドされると常に発生します。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webexplorerbar~groupbound_ev.html[GroupBound]"]  – グループがデータ項目にバインドされると常に発生します。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webexplorerbar~itemclick_ev.html[ItemClick]"]  – グループまたは項目がクライアント上でクリックされると常にサーバーで発生します。サーバー上にこのイベントの定義されたハンドラーがあり、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webexplorerbar~autopostbackflags.html[AutoPostBackFlags]"] - pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.explorerbarautopostbackflags~itemclick.html[ItemClick]"]  が On に設定される場合、自動ポストバックが実行されます。イベントはクリックされた項目またはグループを引数として取得します。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webexplorerbar~itemselected_ev.html[ItemSelected]"]  – マウス クリックによって、またはクライアントでキーボードの下矢印/上矢印が押されることによって、新しい項目またはグループが選択されると常にサーバーで発生します。サーバー上にこのイベントの定義されたハンドラーがあり、AutoPostBackFlags-  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.explorerbarautopostbackflags~itemselected.html[ItemSelected]"]  が On に設定される場合、自動ポストバックが実行されます。ItemClick イベントの前にイベントが発生して、新しい選択されたグループまたは項目と古い選択されたグループまたは項目を取得します。
+
+
+*注：* ItemClick イベントと ItemSelected イベントの両方に接続できません。AutoPostBackFlag-ItemClick を On に、AutoPostBackFlags-ItemSelected を Off に設定するか、AutoPostBackFlags-ItemClick を Off に、AutoPostBackFlags-ItemSelected を On に設定します。
+
+== 関連トピック
+
+link:webexplorerbar-smart-tag.html[WebExplorerBar スマートタグ]
+
+link:webexplorerbar-keyboard-navigation.html[キーボード ナビゲーション]
+
+link:webexplorerbar-height-properties.html[WebExplorerBar の高さのプロパティ]
+
+link:webexplorerbar-setting-navigateurl-and-target-properties.html[NavigateURL と Target プロパティの設定]
+
+link:webexplorerbar-binding-to-an-xml-data-source.html[XML データ ソースにバインドする]
+
+link:webexplorerbar-binding-to-webhierarchcialdatasource.html[WebHierarchcialDataSource にバインド]
+
+link:webexplorerbar-serverevents.html[サーバー側イベント]
+
+link:webexplorerbar-selection-behavior.html[選択動作]
+
+link:webexplorerbar-clientside-api.html[ClientSide API]
+
+link:webexplorerbar-clientevents.html[クライアント側イベント]
+
+link:webexplorerbar-styling.html[CSS クラス プロパティ]

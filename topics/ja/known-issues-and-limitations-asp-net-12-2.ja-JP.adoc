@@ -1,0 +1,54 @@
+﻿////
+
+|metadata|
+{
+    "name": "known-issues-and-limitations-asp.net 12.2",
+    "controlName": [],
+    "tags": ["Known Issues"],
+    "guid": "67522038-2945-4496-84ce-db47696f9304",  
+    "buildFlags": [],
+    "createdOn": "2012-09-21T16:07:58.9113061Z"
+}
+|metadata|
+////
+
+= ASP.NET 12.2 既知の問題と制限
+
+== 既知の問題と制限
+
+=== 概要
+
+以下の表に {ProductName} 12.2 リリースの既知の問題と制限事項の概要を示します。概要の表の後に、いくつかの問題に関する既知の問題の詳細説明と考えられる回避策が記載されています。
+
+=== 凡例:
+
+- image:images\workaround.png[alt="Workaround"] - 回避策
+- image:images\noworkaround.png[alt="No Workaround"] - 既知の回避策はありません
+- image:images\fix.png[alt="Fix Planned"] - 修正予定です
+
+[options="header", cols="a,a,a"]
+|====
+|機能|説明|状態
+
+|<<_Ref320810435,Visual Studio 2012 ASP.NET Web サイト テンプレート>>
+|マスターページで ASP.NET ウェブサイトのデフォルト テンプレートを使用している場合、Infragistics® コントロールと正しく動作しません。
+|image::images/Known_Issues_and_Limitations_ASP.NET_12.1_1.png[]
+
+|====
+
+=== Visual Studio 2012 ASP.NET Web サイト テンプレート
+
+Microsoft® Visual Studio® 2012 ASP.NET ウェブ サイト テンプレートは、マスターページに Infragistics コントロールと正しく動作しないスタイルを含みます。
+
+*回避方法*
+
+マスター ページのデフォルトのスタイルが Infragistics コントロールと競合を発生します。競合を防止するには、デフォルト マスター ページで以下のコードを削除する必要があります。
+
+*HTML の場合:*
+
+[source,html]
+----
+<% if (false) { %><%--Designer support--%>
+<link href="~/Content/Site.css" rel="stylesheet" />
+<% } %>
+----

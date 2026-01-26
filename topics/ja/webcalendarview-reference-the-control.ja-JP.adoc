@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcalendarview-reference-the-control",
+    "controlName": ["WebCalendarView"],
+    "tags": ["How Do I"],
+    "guid": "{09BAAF98-5103-4721-A442-85FAC3BA8DC6}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= コントロールの参照
+
+クライアント側で WebCalendarView™ コントロールを参照するためには 2 つの方法があります。WebSchedule™ コントロールのすべては、ig_getWebControlById 関数を使用し、クライアントでそれにアクセスするためにコントロールの ID を渡すことができます。WebCalendarView では特に、コントロールを参照するために ig_getWebCalendarViewById 関数を使用できます。
+
+次のコードはこのコントロールの参照方法を示します。
+
+*JavaScript の場合*
+
+----
+var calendarView = ig_getWebCalendarViewById("WebCalendarView1");
+----

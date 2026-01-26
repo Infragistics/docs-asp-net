@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "deploying-common-assets",
+    "controlName": [],
+    "tags": [],
+    "guid": "{D28A8AF6-59C3-49D0-9D52-5D713B141F69}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-06T00:00:00Z"
+}
+|metadata|
+////
+
+= 共通アセットの配備
+
+=== 共通 {ProductName} アセットの配備
+
+新しい Aikido コントロールのほとんどのアセットは、埋め込みリソースとして提供されます。追加で配備する必要のあるアセットはスタイル セットのみで、デフォルトで Web アプリケーションの `ig_res` フォルダーに含まれます。これらのスタイルを異なるアプリケーション間で共有できる場所に配備するには、個別の仮想ディレクトリを作成します。
+
+*注:* WebSchedule のコントロールおよびコンポーネントは、`C:\inetpub\wwwroot\aspnet_client\infragistics\{ProductVersion}CLR4\` の下の Form ディレクトリと Style ディレクトリを利用します。プロジェクトで WebSchedule コントロールまたはコンポーネントを使用する場合、これらのフォルダーを配備する必要があります。
+
+==== IIS `ig_res` 仮想ディレクトリの作成
+
+ASP.NET アプリケーションでスタイルにアクセスするには、IIS に 仮想ディレクトリ `ig_res` を作成します。仮想ディレクトリ コンテンツ パスは、`C:\inetpub\wwwroot\aspnet_client\infragistics\` に設定してください。
+
+web.config ファイルに以下を追加します。
+
+[cols="a"]
+|====
+|*Web.config の場合:*
+
+|---- 
+<configuration> 
+ <infragistics.web enableAppStyling="true" styleSetName="Default" styleSetPath="ig_res/" /> 
+</configuration>
+----
+
+|====
+
+styleSetPath は IIS の `ig_res` 仮想ディレクトリがあるパスに一致します。

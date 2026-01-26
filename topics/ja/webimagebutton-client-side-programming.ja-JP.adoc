@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "webimagebutton-client-side-programming",
+    "controlName": ["WebImageButton"],
+    "tags": ["Layouts","Styling"],
+    "guid": "{68D3B8D9-8A5D-4E3D-B74F-C8D8641D4574}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= クライアント側プログラミング
+
+このセクションでは、WebImageButton™ のクライアント側の特徴および機能の情報を提供します。
+
+以下のリンクをクリックすると、それぞれの領域についての説明を読むことができます。
+
+* link:webimagebutton-csom-overview.html[CSOM の概要]
+* link:webimagebutton-handle-click-event.html[クリック イベントの処理]

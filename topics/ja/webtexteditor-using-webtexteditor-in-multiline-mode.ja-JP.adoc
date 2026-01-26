@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "webtexteditor-using-webtexteditor-in-multiline-mode",
+    "controlName": ["WebTextEditor"],
+    "tags": ["Editing","How Do I","Styling"],
+    "guid": "{A85A6006-E431-4E01-AB95-93A2BC8B21AA}",  
+    "buildFlags": [],
+    "createdOn": "2009-03-06T09:45:42Z"
+}
+|metadata|
+////
+
+= 複数行モードで WebTextEditor を使用
+
+WebTextEditor™ は簡単に複数行モードに構成でき、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.multiline.html[MultiLine]"]  オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.multiline~rows.html[Rows]"]  および  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.multiline~columns.html[Columns]"]  プロパティを設定することで、表示される行数や 1 行当たりの文字数を指定することができます。テキスト領域のテキストを折り返したり、オーバーフロー スタイルを制御するために、MultiLine オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.multiline~wrap.html[Wrap]"]  および  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.multiline~overflow.html[Overflow]"]  プロパティを設定することもできます。
+
+複数行モードで WebTextEditor を使用するには、コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webtexteditor~textmode.html[TextMode]"]  プロパティを MultiLine に設定する必要があります。Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、TextMode プロパティを MultiLine に設定できます。
+
+*Visual Basic の場合：*
+
+----
+WebTextEditor1.TextMode = TextBoxMode.MultiLine
+----
+
+*C# の場合：*
+
+----
+WebTextEditor1.TextMode = TextBoxMode.MultiLine;
+----

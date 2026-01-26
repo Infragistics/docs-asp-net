@@ -1,0 +1,94 @@
+﻿////
+|metadata|
+{
+    "name": "webdatagrid-behaviors",
+    "controlName": ["WebDataGrid"],
+    "tags": ["How Do I"],
+    "guid": "{3EDDA92E-1FF4-4BCB-A186-ABF4C7C38ED2}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 動作
+
+pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.behaviors.html[Behaviors]"]  コレクションを使用して WebDataGrid™ の動作をカスタマイズできます。必要に応じて複数の動作を組み合わせることができます。このコントロールは、サーバーサイドに追加される動作にクライアント サイド javascript のみ読み込みます (pay to play モデル)。これによって WebDataGrid でパフォーマンスを高めます。必要な機能の必要なオーバーヘッドを被るだけだからです。
+
+以下のリンクには WebDataGrid の動作についての特定の情報があります。
+
+link:webdatagrid-using-behaviors.html[デザイン時に動作を追加する]
+
+このトピックは、Microsoft® Visual Studio™ Designer で動作を追加する方法を説明します。
+
+link:webdatagrid-adding-a-behavior-at-runtime.html[実行時に動作を追加する]
+
+このトピックは、実行時に動作を追加する方法を説明します。
+
+link:webdatagrid-auto-post-back-events.html[自動ポストバック イベント]
+
+このトピックは、自動ポストバックをトリガーする方法を説明します。
+
+link:webdatagrid-activation.html[アクティブ化]
+
+このセクションでは、アクティブ化動作の設定と使用について説明します。
+
+link:webdatagrid-cell-merging.html[セルの結合]
+
+このセクションでは、セルの結合動作の設定と使用について説明します。
+
+link:webdatagrid-clipboard.html[クリップボード]
+
+このセクションでは、クリップボードの動作の設定と使用について説明します。
+
+link:webdatagrid-column-fixing.html[列固定]
+
+このセクションでは、列固定の動作の設定と使用について説明します。
+
+link:webdatagrid-column-moving.html[列の移動]
+
+このトピックでは、列移動の動作の設定と使用について説明します。
+
+link:webdatagrid-column-resizing.html[列のリサイズ]
+
+このトピックでは、列のサイズ変更の動作の設定と使用について説明します。
+
+link:webdatagrid-editing.html[編集]
+
+このトピックでは、WebDataGrid の EditingCore 動作の機能を説明します。
+
+link:webdatagrid-enabling-row-selectors.html[行セレクターを有効にする]
+
+このトピックでは、行選択の動作の設定と使用について説明します。
+
+link:webdatagrid-filtering.html[フィルタリング]
+
+このセクションでは、フィルタリング動作の設定と使用について説明します。
+
+link:webdatagrid-excelstylefiltering-landingpage.html[Excel スタイル フィルタリング]
+
+このトピックでは、Excel スタイル フィルタリングの設定と使用について説明します。
+
+link:webdatagrid-paging.html[ページング]
+
+このトピックでは、ページング動作の設定と使用について説明します。
+
+link:webdatagrid-removing-a-behavior.html[動作の削除]
+
+このトピックは、動作を削除または無効にする方法を説明します。
+
+link:webdatagrid-selection.html[選択]
+
+このセクションでは、選択の動作の設定と使用について説明します。
+
+link:webdatagrid-sorting.html[並べ替え]
+
+このセクションでは、並べ替えの動作の設定と使用について説明します。
+
+link:webdatagrid-summary-row.html[集計行]
+
+このセクションでは、集計行の動作の設定と使用について説明します。
+
+link:webdatagrid-virtual-scrolling.html[バーチャル スクローリング]
+
+このセクションでは、バーチャル スクローリングの動作の設定と使用について説明します。

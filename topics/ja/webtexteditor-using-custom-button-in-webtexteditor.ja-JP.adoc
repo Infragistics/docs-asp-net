@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "webtexteditor-using-custom-button-in-webtexteditor",
+    "controlName": ["WebTextEditor"],
+    "tags": [],
+    "guid": "{10DEAAF5-E26F-4FAA-B1DC-6BFBD3E8E00D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebTextEditor でカスタム ボタンを使用
+
+WebTextEditor™ によって、クライアント イベントおよびサーバー イベントを主に起動するためのカスタマイズされたボタンを持つことができます。これらのイベントは警告、ダイアログ、ドロップダウンを表示するなどのカスタムアクションを実装する、または検証を実行する、ポストバックを発生させるなどのために使用できます。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~custombuttondisplay.html[CustomButtonDisplay]"]  プロパティを設定するだけで左または右にカスタム ボタンを表示できます。カスタムのボタン クリック イベントを起動するキー アクションのリストはコントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~custombuttonhotkeys.html[CustomButtonHotKeys]"]  プロパティを使用することによって設定できます。
+
+*Visual Basic の場合：*
+
+----
+WebTextEditor1.Buttons.CustomButtonDisplay = Infragistics.Web.UI.EditorControls.ButtonDisplay.OnRight
+----
+
+*C# の場合：*
+
+----
+WebTextEditor1.Buttons.CustomButtonDisplay = Infragistics.Web.UI.EditorControls.ButtonDisplay.OnRight;
+----
+
+pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~custombutton.html[CustomButton]"]  プロパティを使用することによって、カスタムボタンのテキスト、画像、ツールチップのようなさまざまなプロパティを設定することも可能です。
+
+*Visual Basic の場合：*
+
+----
+WebTextEditor1.Buttons.CustomButton.Text = "IG"
+----
+
+*C# の場合：*
+
+----
+WebTextEditor1.Buttons.CustomButton.Text = "IG";
+----
+
+image::images/WebTextEditor_Using_Custom_Button_in_WebTextEditor_01.png[]

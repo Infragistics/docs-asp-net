@@ -1,0 +1,53 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-using-webdatagrid",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Getting Started"],
+    "guid": "{FB742188-F8B7-408E-AF81-8047A313E0ED}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDataGrid の使用
+
+このセクションは、WebDataGrid™ コントロールの重要な概念および機能を効果的に使用するためのタスク ベースの情報について説明します。
+
+link:webdatagrid-webdatagrid-smart-tag.html[スマート タグ]
+
+このトピックではスマートタグを使用する方法について説明します。
+
+link:webdatagrid-supported-data-sources.html[サポートされるデータ ソース]
+
+このトピックでは、WebDataGrid でサポートされるデータソースについて説明します。
+
+link:webdatagrid-behaviors.html[動作]
+
+このセクションでは、WebDataGrid の設定と動作について説明します。
+
+link:webdatagrid-columns.html[列]
+
+このセクションでは、列を追加および削除する方法について説明します。また、列ビューをカスタマイズする方法についても説明します。
+
+link:webdatagrid-editor-providers.html[エディター プロバイダー]
+
+このセクションは、エディター プロバイダーとその設定方法について説明します。
+
+link:webdatagrid-events.html[イベント]
+
+このセクションは WebDataGrid のイベントの概要について説明します。
+
+link:webdatagrid-templates.html[テンプレート]
+
+このセクションでは、WebDataGrid の設定と動作について説明します。
+
+link:webdatagrid-ajax-indicator-support-for-webdatagrid.html[WebDataGrid Ajax インジケーターのサポート]
+
+AJAX のコールバック時に WebDataGrid は待ち受け通知を表示します。このトピックは、ビューをカスタマイズする方法について説明します。
+
+link:webdatagrid-tips-and-tricks.html[使用上のヒント]
+
+このセクションでは、WebDataGrid の高度なシナリオを処理する情報を提供します。

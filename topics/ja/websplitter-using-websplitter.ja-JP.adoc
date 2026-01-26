@@ -1,0 +1,53 @@
+﻿////
+
+|metadata|
+{
+    "name": "websplitter-using-websplitter",
+    "controlName": ["WebSplitter"],
+    "tags": ["How Do I"],
+    "guid": "{7E540F91-1084-4163-BB2B-3D95AFFFAE0B}",  
+    "buildFlags": [],
+    "createdOn": "2008-12-01T21:08:55Z"
+}
+|metadata|
+////
+
+= WebSplitter の使用
+
+このセクションは、WebSplitter™ コントロールの重要な概念および機能を効果的に使用するためのタスク ベースの情報について説明します。
+
+link:websplitter-change-the-splitter-bars-orientation.html[スプリッターの向きを変更する]
+
+このセクションでは、スプリッターの向きを決定するプロパティを使用する方法を説明します。
+
+link:websplitter-lock-a-panes-size.html[ペインのサイズをロック]
+
+このセクションでは、ペインをロックしてサイズ変更できないようにする方法を学びます。
+
+link:websplitter-nesting-the-splitter-bars-inside-panes.html[ペインでスプリッターをネストする]
+
+このセクションでは、ペインでスプリッターをネストする方法を詳しく説明します。
+
+link:websplitter-pane-collapsing.html[ペインの縮小]
+
+WebSplitter コントロールはペインの縮小をサポートします。このセクションでは、その動作と使用方法について学びます。
+
+link:websplitter-pane-resizing.html[ペインのサイズ変更]
+
+このセクションでは、ペインのサイズを変更する方法を学びます。
+
+link:retrieving-a-reference-to-a-client-side-html-element.html[クライアント側 HTML 要素への参照を取得する]
+
+このセクションでは、WebSplitter コントロールでクライアント側の HTML 要素への参照を取得する方法を学びます。
+
+link:websplitter-set-a-panes-size.html[ペインのサイズを設定]
+
+このセクションでは、WebSplitter コントロールのペインのサイズを設定する方法を学びます。
+
+link:setting-up-a-client-side-event.html[クライアント側イベントを設定]
+
+このセクションでは、クライアント側イベントを設定する方法を学びます。
+
+link:websplitter-websplitter-smart-tag.html[WebSplitter スマート タグ]
+
+このセクションでは WebSplitter スマート タグを設定する方法を学びます。

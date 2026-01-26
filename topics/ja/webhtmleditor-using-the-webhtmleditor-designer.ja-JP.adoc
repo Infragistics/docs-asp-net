@@ -1,0 +1,30 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-using-the-webhtmleditor-designer",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Design Environment","Editing","Getting Started","How Do I"],
+    "guid": "{93CE7E21-F405-4E0F-8ADA-204C6746F58A}",  
+    "buildFlags": [],
+    "createdOn": "2006-01-02T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor デザイナの使用
+
+WebHtmlEditor コントロールではデザインタイム クイック デザインが提供されており、これを使用すると Microsoft® Visual Studio® .NET のデザイン環境でこのコントロールの外観と動作をカスタマイズできます。
+
+以下のリンクをクリックすると、WebHtmlEditor クイック デザインの使い方についての説明、およびその個々のタブの使い方についての詳しいチュートリアルにアクセスできます。
+
+* link:webhtmleditor-overview-of-the-webhtmleditor-designer.html[WebHtmlEditor デザイナの概要]
+* link:webhtmleditor-webhtmleditor-designer-general-tab.html[WebHtmlEditor デザイナ（全般タブ）]
+* link:webhtmleditor-webhtmleditor-designer-format-tab.html[WebHtmlEditor デザイナ（書式タブ）]
+* link:webhtmleditor-webhtmleditor-designer-toolbar-tab.html[WebHtmlEditor デザイナ（ツールバー タブ）]
+* link:webhtmleditor-webhtmleditor-designer-text-window-tab.html[WebHtmlEditor デザイナ（テキスト ウィンドウ タブ）]
+* link:webhtmleditor-webhtmleditor-designer-tabstrip-tab.html[WebHtmlEditor デザイナ（タブストリップ タブ）]
+* link:webhtmleditor-webhtmleditor-designer-progress-bar-tab.html[WebHtmlEditor デザイナ（プログレス バー タブ）]
+* link:webhtmleditor-webhtmleditor-designer-skins-tab.html[WebHtmlEditor デザイナ（スキン タブ）]
+* link:webhtmleditor-webhtmleditor-designer-down-level-tab.html[WebHtmlEditor デザイナ（ダウン レベル タブ）]
+* link:webhtmleditor-webhtmleditor-designer-languages-tab.html[WebHtmlEditor デザイナ（言語タブ）]

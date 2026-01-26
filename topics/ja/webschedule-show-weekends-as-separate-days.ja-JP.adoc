@@ -1,0 +1,50 @@
+﻿////
+|metadata|
+{
+    "name": "webschedule-show-weekends-as-separate-days",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling","Styling"],
+    "guid": "{72F075D2-5453-4B98-92ED-7EBA1DBEA584}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 個別の日として週末を表示
+
+デフォルトで、WebMonthView は週末を1日に圧縮して表示します。 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webmonthview~weekenddisplayformat.html[WeekendDisplayFormat]"] プロパティを設定することによって希望する場合にはこの機能を変更できます。 
+
+以下のコードは  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.weekenddisplayformat.html[WeekendDisplayFormat]"] 列挙体を使用したこのプロパティの設定を示しています。
+
+image::images/WebSchedule_How_to_Show_Separate_Days_for_Saturday_and_Sunday_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.WebUI.WebSchedule
+...
+Private Sub Page_Load(ByVal sender As System.Object, ByVal e _
+As System.EventArgs) Handles MyBase.Load
+Me.WebMonthView1.WeekendDisplayFormat = WeekendDisplayFormat.Full
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.WebUI.WebSchedule;
+...
+private void Page_Load(object sender, System.EventArgs e)
+{
+this.WebMonthView1.WeekendDisplayFormat = WeekendDisplayFormat.Full;
+}
+----
+
+== 関連トピック
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[WebSchedule 名前空間]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webcalendarview.html[WebCalendarView クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.appointment.html[Appointments クラス]"]

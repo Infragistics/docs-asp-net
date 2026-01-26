@@ -1,0 +1,653 @@
+﻿////
+|metadata|
+{
+    "name": "web-deployment-overview",
+    "controlName": [],
+    "tags": ["Deployment","FAQ","Getting Started","How Do I"],
+    "guid": "{FCF74818-0662-44A0-B545-44C5477B6407}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 配置の概要
+
+{ProductName} ツールセットのツールを含むアプリケーションを配備するには、まず第 1 ステップとして配備パッケージとして必要なリソースを決定しなければなりません。以下のリンクをクリックすると、各要素が必要とするリソースを学習します。
+
+$$.NET$$ アプリケーションを配備する時、実行ファイルに加えて特定のファイルを配布する必要があります。アプリケーションがひとつ以上の Infragistics 要素を含む場合、アプリケーションの一部としてひとつ以上の Infragistics アセンブリファイルを配布または配備する必要があります。このトピックでは、再配布する必要があるファイルの概要を述べます。
+
+
+*注：* このトピックで説明していないファイルは再配布できないと考えてください。ご使用の Infragistics 製品に含まれているがここにリストされていないファイルは、配布用にライセンスされていません。したがってライセンスされた Infragistics 製品がインストールされているマシン以外のマシンにコピー、移動、または共有しないでください。
+
+
+== すべてのコントロール/コンポーネントで必要なアセンブリ
+
+各コントロール/コンポーネントでリストされる個々のアセンブリ ファイルに加えて、{ProductName} コントロール/コンポーネントを配備するには次のファイルの再配布も必要です。
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.WebUI.Shared.v{ProductVersion}.dll
+|$$.NET$$ の Infragistics Web Application Shared サポート アセンブリ
+
+|====
+
+以下のコントロールおよびコンポーネントは Shared アセンブリを必要としません。
+
+* Infragistics Document Engine
+* Infragistics Excel Engine
+* Infragistics Word Library 
+* WebDataGrid™
+* WebDataMenu™
+* WebDataTree™
+* WebDropDown™
+* WebProgressBar™
+* WebDialogWindow™
+* WebHierarchicalDataGrid™
+* WebHierarchicalDataSource™
+* WebImageViewer™
+* WebResizingExtender™
+* WebSlider™
+* WebSplitter™
+* WebTab™ 
+* WebUpload™
+* WebVideoPlayer™
+
+== 配備オプション
+
+配備にどのリソースを含める必要があるかを決定したら、以下の配備オプションを使用してどのように配備するかを学ぶことができます。
+
+* link:web-using-global-assembly-cache-gac-deployment.html[GAC を使用した配備]
+
+== 個々のコントロール/コンポーネントで必要なアセンブリ
+
+以下の表は、それぞれの個別コントロールまたはコンポーネントを配備する時にどのアセンブリ、javascript ファイルおよび画像が必要であるかを識別します。
+
+
+*注：* 開発マシンに製品をインストールすると、開発マシンのローカルの Web サーバーに基づいて正しい場所にこれらの要素が配備されます。これらの場所にあるファイルは、コントロールのデフォルト設定値に基づいて動作します。開発マシンの構成は、プロダクション サーバーにミラーリングできます。コントロールは、ミラーリングしたプロダクション サーバー上でデフォルト設定で動作します。プロダクション サーバーの構成が開発マシンと異なる場合は、アプリケーションの Infragistics Web コントロールのデフォルト値を変更する必要があります。
+
+
+== WebCalcManager™
+
+ 
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.WebUI.UltraWebCalcManager.v{ProductVersion}.dll
+|WebCalcManager™ CalcEngine を含む .NET アセンブリ。
+
+|====
+
+ 
+
+== WebCurrencyEditor™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.Web.v{ProductVersion}.dll
+|WebDatePicker、WebDateTimeEditor、WebMaskEditor、WebMonthCalendar、WebNumericEditor、WebPercentEditor、WebTextEditor、WebDialogWindow、WebHierarchicalDataGrid、WebHierarchicalDataSource、WebDataGrid、WebImageViewer、WebSlider、WebSplitter、および WebTab コントロールを含む .NET アセンブリ。
+
+|====
+
+== WebDatePicker™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.Web.v{ProductVersion}.dll
+|WebCurrencyEditor、WebDateTimeEditor、WebMaskEditor、WebMonthCalendar、WebNumericEditor、WebPercentEditor、WebTextEditor、WebDialogWindow、WebHierarchicalDataGrid、WebHierarchicalDataSource、WebDataGrid、WebImageViewer、WebSlider、WebSplitter、および WebTab コントロールを含む .NET アセンブリ。
+
+|====
+
+== WebDateTimeEditor™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.Web.v{ProductVersion}.dll
+|WebCurrencyEditor、WebDatePicker、WebMaskEditor、WebMonthCalendar、WebNumericEditor、WebPercentEditor、WebTextEditor、WebDialogWindow、WebHierarchicalDataGrid、WebHierarchicalDataSource、WebDataGrid、WebImageViewer、WebSlider、WebSplitter、および WebTab コントロールを含む .NET アセンブリ。
+
+|====
+
+== WebMaskEditor™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.Web.v{ProductVersion}.dll
+|WebCurrencyEditor、WebDatePicker、WebDateTimeEditor、WebMonthCalendar、WebNumericEditor、WebPercentEditor、WebTextEditor、WebDialogWindow、WebHierarchicalDataGrid、WebHierarchicalDataSource、WebDataGrid、WebImageViewer、WebSlider、WebSplitter、および WebTab コントロールを含む .NET アセンブリ。
+
+|====
+
+== WebMonthCalendar™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.Web.v{ProductVersion}.dll
+|WebCurrencyEditor、WebDatePicker、WebDateTimeEditor、WebMaskEditor、WebNumericEditor、WebPercentEditor、WebTextEditor、WebDialogWindow、WebHierarchicalDataGrid、WebHierarchicalDataSource、WebDataGrid、WebImageViewer、WebSlider、WebSplitter、および WebTab コントロールを含む .NET アセンブリ。
+
+|====
+
+== WebNumericEditor™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.Web.v{ProductVersion}.dll
+|WebCurrencyEditor、WebDatePicker、WebDateTimeEditor、WebMaskEditor、WebMonthCalendar、WebPercentEditor、WebTextEditor、WebDialogWindow、WebHierarchicalDataGrid、WebHierarchicalDataSource、WebDataGrid、WebImageViewer、WebSlider、WebSplitter、および WebTab コントロールを含む .NET アセンブリ。
+
+|====
+
+== WebPercentEditor™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.Web.v{ProductVersion}.dll
+|WebCurrencyEditor、WebDatePicker、WebDateTimeEditor、WebMaskEditor、WebMonthCalendar、WebNumericEditor、WebTextEditor、WebDialogWindow、WebHierarchicalDataSource、WebHierarchicalDataSource、WebDataGrid、WebImageViewer、WebSlider、WebSplitter、および WebTab コントロールを含む .NET アセンブリ。
+
+|====
+
+== WebTextEditor™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.Web.v{ProductVersion}.dll
+|WebCurrencyEditor、WebDatePicker、WebDateTimeEditor、WebMaskEditor、WebMonthCalendar、WebNumericEditor、WebPercentEditor、WebDialogWindow、WebHierarchicalDataGrid、WebHierarchicalDataSource、WebDataGrid、WebImageViewer、WebSlider、WebSplitter、および WebTab コントロールを含む .NET アセンブリ。
+
+|====
+
+== WebCalendarView™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.WebUI.WebSchedule.v{ProductVersion}.dll
+|WebCalendarView™ コントロールを含む .NET アセンブリ。
+
+|====
+
+ASP.NET アプリケーションで製品をサポートするためには以下のファイルが必要です。
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|`ig_webcalendarview.js`
+|WebCalendarView 用の JavaScript サポート ファイル
+
+| _（複数画像）_ 
+|コントロールをサポートするために必要なさまざまな画像を開発マシンにインストールしますが、コントロールを稼働するためにはサーバーに配備する必要があります。
+
+|====
+
+== WebChart™
+
+ 
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.WebUI.UltraWebChart.v{ProductVersion}.dll
+|WebChart コントロールが含まれている .NET アセンブリ。
+
+|====
+
+ASP.NET アプリケーションで製品をサポートするためには以下のファイルが必要です。
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|`ig_webchart.js`
+|UltraWebChart 要素の JavaScript マスター チャート要素ファイル。
+
+|チャート画像
+|ファイル システムの画像配備でチャート画像を保存するためにサーバー上に ChartImages フォルダーを作成する必要があります。さらに、EnableScrollbar プロパティが True に設定されると、このフォルダーにはスクロール バーを表示するために必要な画像が含まれます。
+
+|====
+
+ 
+
+== WebDataGrid™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.Web.v{ProductVersion}.dll
+|WebCurrencyEditor、WebDatePicker、WebDateTimeEditor、WebMaskEditor、WebMonthCalendar、WebNumericEditor、WebPercentEditor、WebTextEditor、WebDialogWindow、WebHierarchicalDataGrid、WebHierarchicalDataSource、WebDataGrid、WebDataMenu、WebDataTree、WebDropDown、WebProgressBar、WebImageViewer、WebSlider、WebSplitter、および WebTab コントロールを含む .NET アセンブリ。
+
+|====
+
+== WebDataMenu™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.Web.v{ProductVersion}.dll
+|WebCurrencyEditor、WebDatePicker、WebDateTimeEditor、WebMaskEditor、WebMonthCalendar、WebNumericEditor、WebPercentEditor、WebTextEditor、WebDialogWindow、WebHierarchicalDataGrid、WebHierarchicalDataSource、WebDataGrid、WebDataMenu、WebDataTree、WebDropDown、WebProgressBar、WebImageViewer、WebSlider、WebSplitter、および WebTab コントロールを含む .NET アセンブリ。
+
+|====
+
+== WebDataTree
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.Web.v{ProductVersion}.dll
+|WebCurrencyEditor、WebDatePicker、WebDateTimeEditor、WebMaskEditor、WebMonthCalendar、WebNumericEditor、WebPercentEditor、WebTextEditor、WebDialogWindow、WebHierarchicalDataGrid、WebHierarchicalDataSource、WebDataGrid、WebDataMenu、WebDataTree、WebDropDown、WebProgressBar、WebImageViewer、WebSlider、WebSplitter、および WebTab コントロールを含む .NET アセンブリ。
+
+|====
+
+== WebDropDown
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.Web.v{ProductVersion}.dll
+|WebCurrencyEditor、WebDatePicker、WebDateTimeEditor、WebMaskEditor、WebMonthCalendar、WebNumericEditor、WebPercentEditor、WebTextEditor、WebDialogWindow、WebHierarchicalDataGrid、WebHierarchicalDataSource、WebDataGrid、WebDataMenu、WebDataTree、WebDropDown、WebProgressBar、WebImageViewer、WebSlider、WebSplitter、および WebTab コントロールを含む .NET アセンブリ。
+
+|====
+
+== WebProgressBar™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.Web.v{ProductVersion}.dll
+|WebCurrencyEditor、WebDatePicker、WebDateTimeEditor、WebMaskEditor、WebMonthCalendar、WebNumericEditor、WebPercentEditor、WebTextEditor、WebDialogWindow、WebHierarchicalDataGrid、WebHierarchicalDataSource、WebDataGrid、WebDataMenu、WebDataTree、WebDropDown、WebProgressBar、WebImageViewer、WebSlider、WebSplitter、および WebTab コントロールを含む .NET アセンブリ。
+
+|====
+
+== WebDayView™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.WebUI.WebSchedule.v{ProductVersion}.dll
+|WebDayView™ コントロールを含む .NET アセンブリ。
+
+|====
+
+ASP.NET アプリケーションで製品をサポートするためには以下のファイルが必要です。
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|`ig_webdayview.js`
+|WebDayView 用の JavaScript サポート ファイル
+
+| _（複数画像）_ 
+|コントロールをサポートするために必要なさまざまな画像を開発マシンにインストールしますが、コントロールを稼働するためにはサーバーに配備する必要があります。
+
+|====
+
+== WebDialogWindow™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.Web.v{ProductVersion}.dll
+|WebCurrencyEditor、WebDatePicker、WebDateTimeEditor、WebMaskEditor、WebMonthCalendar、WebNumericEditor、WebPercentEditor、WebTextEditor、WebDialogWindow、WebHierarchicalDataGrid、WebHierarchicalDataSource、WebDataGrid、WebDataMenu、WebDataTree、WebDropDown、WebProgressBar、WebImageViewer、WebSlider、WebSplitter、および WebTab コントロールを含む .NET アセンブリ。
+
+|====
+
+== WebGauge™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.WebUI.UltraWebGauge.v{ProductVersion}.dll
+|WebGauge コントロールが含まれている .NET アセンブリ。
+
+|====
+
+ASP.NET アプリケーションで製品をサポートするためには以下のファイルが必要です。
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+| _（ゲージ画像）_ 
+|ファイル システムの画像配備でチャート画像を保存するためにサーバー上に GaugeImages フォルダーを作成する必要があります。さらに、EnableScrollbar プロパティが True に設定されると、このフォルダーにはスクロール バーを表示するために必要な画像が含まれます。
+
+|====
+
+ 
+
+== WebGroupBox™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.WebUI.Misc.v{ProductVersion}.dll
+|WebGroupBox コントロールおよび WebPanel コントロールを含む .NET アセンブリ
+
+|====
+
+ASP.NET アプリケーションで製品をサポートするためには以下のファイルが必要です。
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|`ig_webpanel.js`
+|WebPanel コントロールの JavaScript サポート ファイル。
+
+|====
+
+ 
+
+== WebHierarchicalDataGrid™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.Web.v{ProductVersion}.dll
+|WebCurrencyEditor、WebDatePicker、WebDateTimeEditor、WebMaskEditor、WebMonthCalendar、WebNumericEditor、WebPercentEditor、WebTextEditor、WebDialogWindow、WebHierarchicalDataGrid、WebHierarchicalDataSource、WebDataGrid、WebDataMenu、WebDataTree、WebDropDown、WebProgressBar、WebImageViewer、WebSlider、WebSplitter、および WebTab コントロールを含む .NET アセンブリ。
+
+|====
+
+== WebHierarchicalDataSource™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.Web.v{ProductVersion}.dll
+|WebCurrencyEditor、WebDatePicker、WebDateTimeEditor、WebMaskEditor、WebMonthCalendar、WebNumericEditor、WebPercentEditor、WebTextEditor、WebDialogWindow、WebHierarchicalDataGrid、WebHierarchicalDataSource、WebDataGrid、WebDataMenu、WebDataTree、WebDropDown、WebProgressBar、WebImageViewer、WebSlider、WebSplitter、および WebTab コントロールを含む .NET アセンブリ。
+
+|====
+
+ 
+
+== WebHtmlEditor™
+
+ 
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.WebUI.WebHtmlEditor.v{ProductVersion}.dll
+|WebHtmlEditor™ コントロールを含む .NET アセンブリ。
+
+|====
+
+ASP.NET アプリケーションで製品をサポートするためには以下のファイルが必要です。
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|`ig_htmleditor.js`
+|WebHtmlEditor 用の JavaScript サポート ファイル
+
+|`ig_htmleditor_ie.js`
+|WebHtmlEditor 用の JavaScript サポートファイル（Internet Explorer をサポート）
+
+|`ig_htmleditor_moz.js`
+|WebHtmlEditor 用の JavaScript サポート ファイル（Mozilla をサポート）
+
+|`ig_htmleditor_upload.js`
+|WebHtmlEditor のファイル アップロード機能をサポートする JavaScript サポート ファイル
+
+|localization-de-DE.xml 
+
+localization-es-ES.xml 
+
+localization-fr-FR.xml 
+
+localization.xml (US English)
+|LocalizationType を変更する時に使用される言語ローカライゼーション ファイル。このファイルは JavaScript ファイルと共に配備します。
+
+| _（複数画像）_ 
+|コントロールをサポートするために必要なさまざまな画像を開発マシンにインストールしますが、コントロールを稼働するためにはサーバーに配備する必要があります。
+
+|====
+
+ 
+
+== WebImageButton™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.WebUI.WebDataInput.v{ProductVersion}.dll
+|WebEditor のコントロールおよび WebImageButton™ が含まれている .NET アセンブリ。
+
+|====
+
+ASP.NET アプリケーションで製品をサポートするためには以下のファイルが必要です。
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|`ig_shared.js`
+|すべての {ProductName} コントロール（クライアント側の動作がある場合）で使用される JavaScript ファイル。
+
+|`ig_button.js`
+|クライアント側 WebDataInput が機能するための JavaScript サポート ファイルです。
+
+|====
+
+ 
+
+== WebImageViewer™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.Web.v{ProductVersion}.dll
+|WebCurrencyEditor、WebDatePicker、WebDateTimeEditor、WebMaskEditor、WebMonthCalendar、WebNumericEditor、WebPercentEditor、WebTextEditor、WebDialogWindow、WebHierarchicalDataGrid、WebHierarchicalDataSource、WebDataGrid、WebDataMenu、WebDataTree、WebDropDown、WebProgressBar、WebImageViewer、WebSlider、WebSplitter、および WebTab コントロールを含む .NET アセンブリ。
+
+|====
+
+ 
+
+== WebPageStyler™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.WebUI.Misc.v{ProductVersion}.dll
+|WebPageStyler™ コンポーネントを含む .NET アセンブリ。
+
+|====
+
+== WebResizingExtender™
+
+ 
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.Web.v{ProductVersion}.dll
+|WebResizingExtender™ コントロールを含む .NET アセンブリ。
+
+|====
+
+ 
+
+== WebSchedule™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.WebUI.WebSchedule.v{ProductVersion}.dll
+|WebDayView™、WebCalendarView™、WebScheduleInfo™、および WebMonthView™ コントロールを含む .NET アセンブリ。
+
+|Infragistics4.WebUI.WebScheduleDataProvider.v{ProductVersion}.dll
+|WebScheduleOleDbProvider™ および WebScheduleSqlClientProvider™ を含む .NET アセンブリ。
+
+|====
+
+ASP.NET アプリケーションで製品をサポートするためには以下のファイルが必要です。
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|`ig_webcalendarview.js`
+|WebCalendarView 用の JavaScript サポート ファイル
+
+|`ig_webdayview.js`
+|WebDayView 用の JavaScript サポート ファイル
+
+|`ig_webmonthview.js`
+|WebMonthView 用の JavaScript サポート ファイル
+
+|`ig_webscheduleinfo.js`
+|WebScheduleInfo 用の JavaScript サポート ファイル
+
+|`C:\Inetpub\wwwroot\aspnet_client\infragistics\{ProductVersion}\Styles`
+|WebSchedule コントロールによって使用されるすべてのスタイル シートの場所。使用しているスタイルのフォルダーをサーバーにコピーすることを確認します。これらのフォルダーには、コントロールによって使用される Cascading Style Sheets を含みます。
+
+|`C:\Inetpub\wwwroot\aspnet_client\infragistics\{ProductVersion}\Forms`
+|フォーム プロジェクトによって使用されるフォームの位置で、これはアクティビティ/予定を編集する時に表示されます。このフォルダー全体とコンテンツをサーバーにコピーすることを確認します。 
+
+Forms\WebSchedule でプロパティを変更し、プロパティ ページの [アプリケーションを作成] ボタンをクリックして IIS でアプリケーションを作成する必要があります。Forms\WebSchedule 仮想ディレクトリをマークすることに失敗すると、アプリケーション レベルを超える allowDefinition='MachineToApplication' として登録されたセクションを使用することについて、アプリケーションは不明瞭な ASP.NET 解析エラー メッセージとなります。
+
+| _（複数画像）_ 
+|コントロールをサポートするために必要なさまざまな画像を開発マシンにインストールしますが、コントロールを稼働するためにはサーバーに配備する必要があります。
+
+|====
+
+さらに、データベースに配備する必要もあります。
+
+* WebScheduleOleDbProvider を使用している場合、.mdb を配備する必要があります。空の .mdb ファイルは、各オペレーティング システムで以下のフォルダーにあります:
+
+** XP -- {InstallPathXP}\\{PlatformName}\WebSchedule\Data
+** Vista -- {InstallPathVista}\\{PlatformName}\WebSchedule\Data
+
+* WebScheduleSqlClientProvider を使用している場合、空のデータベースを作成するための WebSchedule2.sql である SQL インストール スクリプトを実行する必要があります。このスクリプトは、オペレーティング システムに基づき以下のフォルダーに配置されています。
+
+** XP -- {InstallPathXP}\\{PlatformName}\WebSchedule\Data
+** Vista -- {InstallPathVista}\\{PlatformName}\WebSchedule\Data
+
+さらに、詳細は link:webschedule-deploying-to-microsoft-sql-server.html[「SQL サーバーで配備」]を参照してください。
+
+== WebSlider™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.Web.v{ProductVersion}.dll
+|WebCurrencyEditor、WebDatePicker、WebDateTimeEditor、WebMaskEditor、WebMonthCalendar、WebNumericEditor、WebPercentEditor、WebTextEditor、WebDialogWindow、WebHierarchicalDataGrid、WebHierarchicalDataSource、WebDataGrid、WebDataMenu、WebDataTree、WebDropDown、WebProgressBar、WebImageViewer、WebSlider、WebSplitter、および WebTab コントロールを含む .NET アセンブリ。
+
+|====
+
+ 
+
+== WebSplitter™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.Web.v{ProductVersion}.dll
+|WebCurrencyEditor、WebDatePicker、WebDateTimeEditor、WebMaskEditor、WebMonthCalendar、WebNumericEditor、WebPercentEditor、WebTextEditor、WebDialogWindow、WebHierarchicalDataGrid、WebHierarchicalDataSource、WebDataGrid、WebDataMenu、WebDataTree、WebDropDown、WebProgressBar、WebImageViewer、WebSlider、WebSplitter、および WebTab コントロールを含む .NET アセンブリ。
+
+|====
+
+ 
+
+== WebTab™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.Web.v{ProductVersion}.dll
+|WebCurrencyEditor、WebDatePicker、WebDateTimeEditor、WebMaskEditor、WebMonthCalendar、WebNumericEditor、WebPercentEditor、WebTextEditor、WebDialogWindow、WebHierarchicalDataGrid、WebHierarchicalDataSource、WebDataGrid、WebDataMenu、WebDataTree、WebDropDown、WebProgressBar、WebImageViewer、WebSlider、WebSplitter、および WebTab コントロールを含む .NET アセンブリ。
+
+|====
+
+ 
+
+== WebUpload™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.Web.jQuery.v{ProductVersion}.dll
+|WebUpload および WebVideoPlayer コントロールを含む .NET アセンブリ。
+
+|====
+
+ASP.NET アプリケーションで製品をサポートするためには以下のファイルが必要です。
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|ig.ui.upload.min.js
+|WebUpload コントロールのための JavaScript サポート ファイル。
+
+| _（複数画像）_ 
+|コントロールをサポートするために必要なさまざまな画像を開発マシンにインストールしますが、コントロールを稼働するためにはサーバーに配備する必要があります。
+
+|====
+
+ 
+
+== WebVideoPlayer™
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|Infragistics4.Web.jQuery.v{ProductVersion}.dll
+|WebUpload および WebVideoPlayer コントロールを含む .NET アセンブリ。
+
+|====
+
+ASP.NET アプリケーションで製品をサポートするためには以下のファイルが必要です。
+
+[options="header", cols="a,a"]
+|====
+|ファイル名|説明
+
+|ig.ui.videoplayer.min.js
+|WebUpload コントロールのための JavaScript サポート ファイル。
+
+| _（複数画像）_ 
+|コントロールをサポートするために必要なさまざまな画像を開発マシンにインストールしますが、コントロールを稼働するためにはサーバーに配備する必要があります。
+
+|====

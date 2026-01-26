@@ -1,0 +1,40 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdialogwindow-show-the-minimize-and-maximize-buttons",
+    "controlName": ["WebDialogWindow"],
+    "tags": ["How Do I"],
+    "guid": "{3BF84148-A45F-4E6E-B6FD-6B34C52CE396}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 最小化ボタンと最大化ボタン表示
+
+WebDialogWindow™ によって、Windows フォーム ウィンドウと非常に似ていますがヘッダの 2 つのボタンを使用することにより、エンド ユーザーはダイアログ ウィンドウを最小化または最大化することができます。いずれも  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.webdialogwindow~header.html[Header]"]  オブジェクトにありますが、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.restoredialogbutton~visible.html[MaximizeBox.Visible]"]  プロパティと  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.restoredialogbutton~visible.html[MinimizeBox.Visible]"]  プロパティは最大化ボックスと最小化ボックスをそれぞれ表示することができます。
+
+エンド ユーザーが最小化ボックスをクリックすると、ダイアログ ウィンドウはヘッダを除きすべて消えます。ヘッダ自体は 100 ピクセルのデフォルト サイズに幅が狭くなります。最小化された幅を手動で修正できます。詳細は link:webdialogwindow-maintain-the-headers-width-on-minimize.html[Minimize でヘッダの幅を保持]を参照してください。
+
+エンド ユーザーが最大化ボックスをクリックすると、ダイアログ ウィンドウはその親ページ内の画面領域すべてを使い切るまで大きくなります。大量の情報がダイアログ ウィンドウ内にある場合、またはその中に表示する別の Web ページがある場合には、エンド ユーザーはダイアログウィンドウを最大化したいかもしれません。
+
+以下のコードは、ダイアログ ウィンドウのヘッダー内に最大化ボックスと最小化ボックスの両方を表示する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+' 最小化ボタンと最大化ボタンを表示します。
+Me.WebDialogWindow1.Header.MaximizeBox.Visible = True
+Me.WebDialogWindow1.Header.MinimizeBox.Visible = True
+----
+
+*C# の場合：*
+
+----
+// 最小化ボタンと最大化ボタンを表示します。
+this.WebDialogWindow1.Header.MaximizeBox.Visible = true;
+this.WebDialogWindow1.Header.MinimizeBox.Visible = true;
+----
+

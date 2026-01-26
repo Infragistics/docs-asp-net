@@ -1,0 +1,55 @@
+﻿////
+
+|metadata|
+{
+    "name": "webpercenteditor-styling-negative-text-in-webpercenteditor",
+    "controlName": ["WebPercentEditor"],
+    "tags": ["Editing","How Do I","Styling"],
+    "guid": "{D475DDBD-A405-49DB-8622-CF950E26B4BF}",  
+    "buildFlags": [],
+    "createdOn": "2009-03-06T13:51:37Z"
+}
+|metadata|
+////
+
+= WebPercentEditor で負のテキストをスタイル
+
+WebPercentEditor™ によって、コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webnumericeditor~negativecssclass.html[NegativeCssClass]"]  プロパティを設定するだけで、負のパーセント値をスタイルすることができます。これにより、WebPercentEditor コントロールの負の値がすぐ分かるようになります。
+
+== WebPercentEditor で負のテキストをスタイルするには:
+
+[start=1]
+. ScriptManager コンポーネントと WebPercentEditor コントロールを WebForm に配置します。
+[start=2]
+. ASPX ソースに以下のコードを含めて負のテキストの CSS クラスを定義します。この CSS クラスが WebPercentEditor コントロールに関連付けられたら、負の値がコントロールに入力されるとすぐにテキストは赤に変わります。
+
+*JavaScript の場合：*
+
+----
+     <style type="text/css">
+     .NegativeText
+     {
+        color : Red;
+     } 
+    </style>
+----
+
+[start=3]
+. Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、NegativeCssClass プロパティを設定します:
+
+*Visual Basic の場合：*
+
+----
+WebPercentEditor1.NegativeCssClass = "NegativeText"
+----
+
+*C# の場合：*
+
+----
+WebPercentEditor1.NegativeCssClass = "NegativeText";
+----
+
+[start=4]
+. アプリケーションを保存して実行します。エディターに負の値を入力すると、以下の画像のように、コントロールがフォーカスを失うとすぐに、CSS クラスがエディターに適用されるのが分かります。
+
+image::images/WebPercentEditor_Styling_negative_text_in_WebPercentEditor_01.png[]

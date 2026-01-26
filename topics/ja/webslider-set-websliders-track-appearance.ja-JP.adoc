@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "webslider-set-websliders-track-appearance",
+    "controlName": ["WebSlider"],
+    "tags": [],
+    "guid": "{9CF22204-5E13-4CE7-82F9-A8710B5308BF}",  
+    "buildFlags": [],
+    "createdOn": "2008-12-05T17:01:44Z"
+}
+|metadata|
+////
+
+= WebSlider のトラック外観を設定
+
+2 つの値を有効にした時の WebSlider™ コントロールのトラックの外観をカスタマイズできます。2 つの値の使用に関する詳細は、 link:webslider-edit-two-values.html[「2 つの値を編集」]を参照してください。
+
+pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.slidertrack~fillvaluemode.html[FillValueMode]"]  プロパティによって、2 つの値を使用している時にトラックがどのように表示するのかをカスタマイズできます:
+
+* Range - セカンダリ値の方が大きい時に、プライマリ値とセカンダリ値の間の範囲のみを表示します。
+* Main Value - メインの値の範囲のみを表示します。
+* None - 値を一切表示しません。
+* All - すべての範囲を表示します。
+
+以下の例のコードは、プライマリ値とセカンダリ値の間の範囲のみを表示する方法を示します。
+
+image::images/WebSlider_Set_WebSliders_Track_Appearance_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Me.WebSlider1.Track.FillValueMode = _
+Infragistics.Web.UI.EditorControls.SliderTrackFillValueMode.Range
+----
+
+*C# の場合：*
+
+----
+this.WebSlider1.Track.FillValueMode = Infragistics.Web.UI.EditorControls.SliderTrackFillValueMode.Range;
+----
+
+== 関連トピック
+
+link:webslider-set-websliders-track-behavior.html[WebSlider のトラックの動作を設定]

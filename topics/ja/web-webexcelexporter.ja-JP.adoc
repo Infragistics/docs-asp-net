@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webexcelexporter",
+    "controlName": ["WebExcelExporter"],
+    "tags": [],
+    "guid": "d10f4d28-aa7a-4cc7-b8e6-c297307132f3",  
+    "buildFlags": [],
+    "createdOn": "2010-06-06T07:40:24.5456939Z"
+}
+|metadata|
+////
+
+= WebExcelExporter
+
+このページには、WebExcelExporter™ コントロール関連の概要/タスクベースの情報がすべて含まれています。このセクションには、コンポーネントが何を実行するのか、またアプリケーションでなぜコンポーネントを使用したくなるのかから、コンポーネントを使用して一般的なタスクを完了する方法に関するステップバイステップの手順まで、コンポーネントに関する貴重な情報が含まれています。
+
+WebExcelExporter コントロールについての詳細は、以下のリンクをクリックしてください。
+
+== link:web-webexcelexporter-about-webexcelexporter.html[WebExcelExporter について]
+
+このセクションには、WebExcelExporter コンポーネントの機能の理解を深めるのに役立つ情報があります。さらに、コンポーネントの目的も理解できます。
+
+== link:webexcelexporter-getting-started-with-webexcelexporter.html[WebExcelExporter を使用した作業の開始]
+
+このセクションは、WebExcelExporter コンポーネントで可能な限り迅速に起動および実行する方法についての情報を提供します。
+
+== link:webexcelexporter-using-webexcelexporter.html[WebExcelExporter の使用]
+
+このセクションは、WebExcelExporter で使用可能な機能を使用する方法を示すタスクベースの情報を提供します。
+
+== link:webexcelexporter-api-overview.html[API の概要]
+
+このトピックでは、WebExcelExporter コンポーネントを使用してプログラミングするときに取り扱う名前空間とクラスのリストを掲載しています。このトピックにリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンスガイド」セクションに便宜的にリンクされています。

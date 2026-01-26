@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatetimeeditor-setting-prompt-character-for-webdatetimeeditor",
+    "controlName": ["WebDateTimeEditor"],
+    "tags": ["Editing","How Do I","Styling","Tips and Tricks"],
+    "guid": "{14ABB44B-163E-4D81-89A9-33B1C83C1DC8}",  
+    "buildFlags": [],
+    "createdOn": "2009-04-06T17:10:13Z"
+}
+|metadata|
+////
+
+= WebDateTimeEditor のプロンプト文字を設定
+
+WebDateTimeEditor™ によってコントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webdatetimeeditor~promptchar.html[PromptChar]"]  プロパティを設定するだけでコントロールにフォーカスがある時に欠落した日付フィールドを埋めるために使用されるプロンプト文字を設定できます。デフォルトで、プロンプト文字は '_' に設定されます。
+
+Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、PromptChar プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+WebDateTimeEditor1.PromptChar = "*"c
+----
+
+*C# の場合：*
+
+----
+WebDateTimeEditor1.PromptChar = '*';
+----
+
+*JavaScript の場合：*
+
+----
+$find("WebDateTimeEditor").set_promptChar('$$*$$');
+----
+
+image::images\WebDateTimeEditor_Setting_Prompt_Character_for_WebDateTimeEditor_01.png[]

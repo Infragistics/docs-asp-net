@@ -1,0 +1,117 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatagrid-sorting",
+    "controlName": ["WebHierarchicalDataGrid"],
+    "tags": ["Grids","Sorting"],
+    "guid": "{733E7A3E-58BE-4D97-B9C4-60699418BC54}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 並べ替え
+
+== 始める前に
+
+WebHierarchicalDataGrid™ 並べ替えは、列の並べ替えを有効にする動作です。単一または複数の列の並べ替えを持つことができます。
+
+== 達成すること
+
+デザイン タイムに WebHierarchicalDataGrid の親および子レベルの列の並べ替えを有効にします。
+
+== 次の手順を実行します
+
+[start=1]
+. WebHierarchicalDataGrid を WebHierarchicalDataSource™ コンポーネントにバインドし、Categories および Products テーブルからデータを取得します。実行についての詳細は、 link:webhierarchicaldatasource-using-webhierarchicaldatasource.html[階層的なデータ ソースにバインド]トピックを参照してください。
+[start=2]
+. Microsoft® Visual Studio [プロパティ] ウィンドウで、Behaviors プロパティを指定して、省略記号 (...) ボタンをクリックし、[動作エディター] ダイアログを起動します。
+[start=3]
+. 動作を有効にするために左側の動作のリストの並べ替えの隣のチェックボックスをチェックします。
+
+image::Images/WebHierarchicalDataGrid_Enabling_Sorting_01.png[]
+
+[start=4]
+. プロパティで SortingMode を Single のままにしておきます。
+
+*注：* Sorting を固有のバンドだけに限定したい場合、WebHierarchicalDataGrid コントロールの [スマート タグ] > [バンドの編集] をクリックして、[WebHierarchicalDataGrid デザイナーの編集] ダイアログを起動します。左側のバンドのリストから、動作を有効にしたい固有のバンドを選択します。手順 2 ～ 4 に従います。
+
+[start=5]
+. link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.sorting~enableinheritance.html[EnableInheritance] プロパティを True に設定します。これによって、すべての子レベルで Sorting 動作が自動的に継承されます。このプロパティのデフォルト値は False です。
+[start=6]
+. [適用] そして [OK] ボタンをクリックしてダイアログ ウィンドウを閉じます。
+
+*注：* ページング動作と組み合わせて Sorting を使用するには、HierarchicalDataGrid の各バンドごとに DataKeyFields を設定する必要があります。
+
+[start=7]
+. アプリケーションを実行します。WebHierarchicalDataGrid で一度に並べ替えが可能なのは 1 列のみです。子バンドも並べ替えることができます。
+
+image::Images/WebHierarchicalDataGrid_Enabling_Sorting_02.png[]
+
+== コードで列を並べ替え
+
+サーバー側またはクライアント側のコードを使用して、WebHierarchicalDataGrid™ を並べ替えることができます。サーバー側には  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.sorting~sortedcolumns.html[SortedColumns]"]  プロパティがあります。このトピックでは、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webhierarchicaldatagrid~rowislanddatabinding_ev.html[RowIslandDataBinding]"]  イベントは、親および子列を並べ替えるために処理されます。
+
+クライアントでは、sortColumn メソッドを使用します。sortColumn メソッドでは、列名および並べ替えの方向パラメーターが必要です。並べ替えの方向は、なし、昇順、降順に対して 0、1 または 2 です。RowExpanded クライアントイベントは、子レベルの列を並べ替えるために処理できます。
+
+以下のコードは、WebHierarchicalDataGrid の列を並べ替える方法を示します。並べ替えが有効であり、その  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.editingcore~enableinheritance.html[EnableInheritance]"]  プロパティが True に設定されていることが前提です。
+
+*Visual Basic の場合：*
+
+----
+' RowIslandDataBinding イベントを接続します 
+AddHandler Me.WebHierarchicalDataGrid1.RowIslandDataBinding, AddressOf WebHierarchicalDataGrid1_RowIslandDataBinding
+Private Sub WebHierarchicalDataGrid1_RowIslandDataBinding(ByVal sender As Object, ByVal e As RowIslandEventArgs) Handles WebHierarchicalDataGrid1.RowIslandDataBinding
+' 親バンドの列を並べ替えます 
+    If e.RowIsland.DataMember = "SqlDataSource1_DefaultView" Then
+        Dim sort As Sorting = e.RowIsland.Behaviors.Sorting
+        sort.SortedColumns.Add("CategoryName", Infragistics.Web.UI.SortDirection.Descending)
+    End If
+' 子バンドの列を並べ替えます 
+    If e.RowIsland.DataMember = "SqlDataSource2_DefaultView" AndAlso e.RowIsland.ParentRow = Me.WebHierarchicalDataGrid1.GridView.Rows(1) Then
+        Dim sort As Sorting = e.RowIsland.Behaviors.Sorting
+        sort.SortedColumns.Add(e.RowIsland.Columns(1), Infragistics.Web.UI.SortDirection.Ascending)
+    End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+// RowIslandDataBinding イベントを接続します
+this.WebHierarchicalDataGrid1.RowIslandDataBinding += new RowIslandEventHandler(WebHierarchicalDataGrid1_RowIslandDataBinding);
+void WebHierarchicalDataGrid1_RowIslandDataBinding(object sender, RowIslandEventArgs e)
+{
+   // 親バンドの列を並べ替えます
+   if (e.RowIsland.DataMember == "SqlDataSource1_DefaultView")
+   {
+      Sorting sort = e.RowIsland.Behaviors.Sorting;
+      sort.SortedColumns.Add("CategoryName", Infragistics.Web.UI.SortDirection.Descending);
+   }
+   // 子バンドの列を並べ替えます
+   if (e.RowIsland.DataMember == "SqlDataSource2_DefaultView"
+      && e.RowIsland.ParentRow == this.WebHierarchicalDataGrid1.GridView.Rows[1])
+   {
+      Sorting sort = e.RowIsland.Behaviors.Sorting;
+      sort.SortedColumns.Add(e.RowIsland.Columns[1], Infragistics.Web.UI.SortDirection.Ascending);
+   }
+}
+----
+
+*JavaScript の場合：*
+
+----
+var grid = $find("WebHierarchicalDataGrid1");
+// 親バンドの列を並べ替えます
+var parentGrid = grid.get_gridView();
+if (parentGrid != null) parentGrid.get_behaviors().get_sorting().sortColumn(parentGrid.get_columns().get_columnFromKey("CategoryName"), 2, false);
+// 子バンドの列を並べ替えます 
+var childGrid = grid.get_gridView().get_rows().get_row(0).get_rowIslands(0)[0];
+if (childGrid != null) childGrid.get_behaviors().get_sorting().sortColumn(childGrid.get_columns().get_columnFromKey("ProductName"), 2, false);
+----
+
+== 関連トピック
+
+link:webhierarchicaldatagrid-behaviors.html[動作]

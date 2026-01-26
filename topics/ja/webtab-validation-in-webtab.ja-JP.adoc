@@ -1,0 +1,74 @@
+﻿////
+
+|metadata|
+{
+    "name": "webtab-validation-in-webtab",
+    "controlName": ["WebTab"],
+    "tags": ["How Do I"],
+    "guid": "{80286CE8-658D-47F3-80E3-B95BD4081AE9}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebTab で検証
+
+WebTab™ は、デフォルトで選択したタブで ASP バリデーターの検証をサポートします。コンテンツ ペインにバリデーターがあり、選択したタブの変更またはタブのリロードの前であれば、バリデーターは検証されます。検証に失敗する場合、選択したタブは変更またはリロードされません。コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.webtab~enablevalidation.html[EnableValidation]"]  プロパティを False に設定することによって、この機能を無効にできます。
+
+*HTML の場合:*
+
+----
+<ig:WebTab ID="WebTab1" runat="server" Height="367px" 
+             Width="863px" EnableValidation=" >
+            <Tabs>
+                …
+            </Tabs>
+</ig:WebTab>
+----
+
+*Visual Basic の場合：*
+
+----
+WebTab1.EnableValidation = false
+----
+
+*C# の場合：*
+
+----
+WebTab1.EnableValidation = false;
+----
+
+*注：* この機能は、タブ項目のテンプレートに配置されている子コントロールおよび  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.contentpane~contenturl.html[ContentUrl]"]  （ContentUrl がローカルの aspx ページをポイントする場合に限り）を検証します。
+
+== 関連トピック
+
+link:webtab-about-webtab.html[WebTab の理解]
+
+link:webtab-getting-started-with-webtab.html[WebTabで開始]
+
+link:webtab-header-and-content-panes.html[ヘッダー ペイントとコンテンツ ペイン]
+
+link:webtab-tab-states.html[タブの状態]
+
+link:webtab-ajax-indicator-support-for-webtab.html[WebTab の Ajax インジケーターのサポート]
+
+link:webtab-display-modes.html[表示モード]
+
+link:webtab-animations.html[アニメーション]
+
+link:webtab-handling-overflow-in-webtab.html[WebTab でオーバーフローを処理]
+
+link:webtab-load-on-demand.html[ロードオンデマンド]
+
+link:webtab-orientation-and-alignment.html[方向と配置]
+
+link:webtab-overlapping-tabs.html[タブの重複]
+
+link:webtab-tab-moving.html[タブの移動]
+
+link:webtab-scrolling.html[スクロール]
+
+link:webtab-api-overview.html[API の概要]
+
+link:webtab-client-side-object-model.html[クライアント サイド オブジェクト モデル（CSOM）の概要]

@@ -1,0 +1,89 @@
+﻿////
+
+|metadata|
+{
+    "name": "webexplorerbar-selection-behavior",
+    "controlName": ["WebExplorerBar"],
+    "tags": ["How Do I","Selection"],
+    "guid": "{697A84CD-BE77-4FFD-BBEB-08A1214F4051}",  
+    "buildFlags": [],
+    "createdOn": "2010-01-03T22:57:15Z"
+}
+|metadata|
+////
+
+= 選択動作
+
+WebExplorerBar™ は、ひとつだけのグループまたは項目の選択をサポートします。マウスを使用する時に、エンドユーザーはマウスの左ボタンをクリックするだけでグループまたは項目を選択できます。この動作によりグループまたは項目がアクティブで選択された状態になります。キーボードを使用する時には、エンドユーザーは上矢印キーまたは下矢印キーを使用してノードをアクティブ化して選択します。
+
+以下のコードを使用することによってグループまたは項目を選択できます。
+
+*HTML の場合:*
+
+----
+<ig:WebExplorerBar ID="WebExplorerBar1" runat="server">
+    <Groups>
+        <ig:ExplorerBarGroup Text="FirstGroup" Selected="true">
+            <Items>
+                <ig:ExplorerBarItem Text="FirstItem">
+                </ig:ExplorerBarItem>
+            </Items>
+        </ig:ExplorerBarGroup>
+    </Groups>
+</ig:WebExplorerBar>
+----
+
+*Visual Basic の場合：*
+
+----
+'aspx でグループと項目を定義したら、
+'以下のコードによって最初のグループを選択できます。
+Me.WebExplorerBar1.Groups(0).Selected = true
+----
+
+*C# の場合：*
+
+----
+//aspx でグループと項目を定義したら、
+//以下のコードによって最初のグループを選択できます。
+this.WebExplorerBar1.Groups[0].Selected = true;
+----
+
+*JavaScript の場合：*
+
+----
+//希望のブラウザー イベントに接続したら、
+//以下のコードを追加して最初のグループを選択します。
+var explorerBar = $find('<%= WebExplorerBar1.ClientID %>');
+var items = explorerBar.getExplorerBarItems();
+var item = items.getItem(0);
+item.set_selected(true);
+----
+
+
+*注：* サーバー側で複数のグループまたは項目を選択しようとすると、選択されたグループまたは項目が Selected プロパティが True に設定されて表示する最初のグループまたは項目になります。
+
+
+== 関連トピック
+
+link:webexplorerbar-smart-tag.html[WebExplorerBar スマートタグ]
+
+link:webexplorerbar-keyboard-navigation.html[キーボード ナビゲーション]
+
+link:webexplorerbar-height-properties.html[WebExplorerBar の高さのプロパティ]
+
+link:webexplorerbar-setting-navigateurl-and-target-properties.html[NavigateURL と Target プロパティの設定]
+
+link:webexplorerbar-binding-to-an-xml-data-source.html[XML データ ソースにバインドする]
+
+link:webexplorerbar-binding-to-webhierarchcialdatasource.html[WebHierarchcialDataSource にバインド]
+
+link:webexplorerbar-serverevents.html[サーバー側イベント]
+
+link:webexplorerbar-selection-behavior.html[選択動作]
+
+link:webexplorerbar-clientside-api.html[ClientSide API]
+
+link:webexplorerbar-clientevents.html[クライアント側イベント]
+
+link:webexplorerbar-styling.html[CSS クラス プロパティ]

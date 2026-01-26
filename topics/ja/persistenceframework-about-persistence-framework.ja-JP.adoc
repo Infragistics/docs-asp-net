@@ -1,0 +1,121 @@
+﻿////
+
+|metadata|
+{
+    "name": "persistenceframework-about-persistence-framework",
+    "controlName": ["PersistenceFramework"],
+    "tags": ["Persistence"],
+    "guid": "08d37ac5-c5d4-452d-a029-5ac24eaf351a",  
+    "buildFlags": [],
+    "createdOn": "2011-03-31T07:43:50.0743708Z"
+}
+|metadata|
+////
+
+= Persistence Framework について
+
+{ProductName} 製品には Persistence Framework という新機能が装備されています。このフレームワークはページにコントロールの状態を保存して後で再読み込みする機能を提供します。ページが閉じられる場合や、新しいブラウザーで開かれる場合であっても、サイトのページをナビゲートする間、ページの状態は保持されます。Persistence Framework によってページにすべてのコントロールを保存するだけでなく、個々のコントロールを保存したりグループ化することができます。すべてのページを保持する、または特定のページのみを保存するようにフレームワークを調整できます。
+
+== Persistence Framework の仕組み
+
+Persistence Framework はリフレクションを使用して保持されたデータを保存および読み込みます。pick:[asp-net="* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.framework.persistence.persistencemanager.html[PersistenceManager]*"] と呼ばれるオブジェクトがフレームワークでのデータの操作を担当します。Singleton デザイン パターンを使用して、マネージャーオブジェクトが実装されます。これにより、このプロセスを処理するインスタンスがひとつのみであることが保証されます。
+
+サーバーへの要求のたびに、このフレームワークは特定の手順を実行します。パーシステンスには 2 段階あります。
+
+* コントロールのすでに保持された状態の読み込み
+* コントロールの現在の状態の保持
+
+ページ オブジェクトの InitComplete イベントが発生すると、最初の段階が発生します。PreRenderComplete が処理されると第二段階が発生します。このサイクルの間、開発者は保持されたデータを取得することができ、そのデータを保存する方法（および場所）を選択する機能を装備しています。このフレームワークには、WebDataGrid コントロールと WebHierarchicalDataGrid コントロール、および複雑なプロパティを処理するための特別な実装も含まれます。
+
+== Persistence Framework の構成
+
+_configuration_  タグの下にある、web.config ファイルの Infragistics セクションを使用して、このフレームワークを有効にできます。
+
+*注:* デフォルトでオンの時、インフラジスティックスのコントロールではないコントロールを含み、ページ上のすべてのコントロールが保持されます。
+
+[cols="a"]
+|====
+|*ASPX の場合:*
+
+|---- 
+ <infragistics.web enablePersistence="true" 
+ persistenceIgnoreLoadingOnPostBack="true" 
+ persistenceIgnorePasswords="true"/>
+----
+
+|====
+
+Persistence Framework の変更を可能にするインフラジスティックス構成設定には以下の 3 つの属性があります。
+
+*  _enablePeristence_  - True に設定すると、フレームワークを有効にします。これは、Page.InitComplete と Page.PreRenderComplete が発生すると、パーシステンス メカニズムが自動的に起動することを意味します。
+*  _persistenceIgnoreLoadingOnPostBack_  - この属性が False に設定されると、上記の通常のサイクルを通過します。サーバーへの要求のたびに、最初に Persistence マネージャーは保持されたコントロールの読み込みを試み、次にコレクションの新しい変更されたデータを収集します。場合によっては、不要なロジックを多数実行することになります。persistenceIgnoreLoadingOnPostBack 属性を True に設定すると、ページを初めて要求した時だけ（ポストバックでない時）、持続データを読み込むのはこのためです。これはページのパフォーマンスを高めることができます。ページがポストバックの時、ViewState オブジェクトはコントロールの状態の保存を処理します。それにもかかわらず、要求のたびにコントロールを読み込む必要がある場合が生じます。このフレームワークはこれを実行するための柔軟性を提供します。
+*  _persistenceIgnorePasswords_  - この属性が False の時、デフォルトでこのフレームワークは危険性がある特定のパスワードを含むコントロールのデータを保存します。パーシステンス コンポーネントは、パーシステンス プロセスの間パスワードを無視する機能を提供します。パスワードを含むことができるコントロールは以下のとおりです。
+
+* ASP.NET TextBox コントロール
+* IPasswordContainer インターフェイスを実装するすべてのインフラジスティックス コントロール
+
+== シリアル化およびイベント
+
+上記ではフレームワークの仕組みと構成方法を説明しました。
+
+開発者が注意しなければならないのは、永続的なソース上に保持されたデータを保存する方法と場所です。セッションまたはアプリケーション、ファイルまたは SQL で保存できます。Persistence Framework が提供するのは、以下のような異なるフォーマットにデータをシリアル化または逆シリアル化する機能です。
+
+* XML
+* JSON
+* Stream
+
+Persistence Framework モジュールは 4 つのイベントを発生します。これらのイベントに添付するハンドラー内で、保持されたデータをシリアル化、逆シリアル化および変更できます。
+
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.framework.persistence.apppersistencemanager~persistenceloading_ev.html[PersistenceLoading]"] 
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.framework.persistence.apppersistencemanager~persistenceloaded_ev.html[PersistenceLoaded]"] 
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.framework.persistence.apppersistencemanager~persistencesaving_ev.html[PersistenceSaving]"] 
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.framework.persistence.apppersistencemanager~persistencesaved_ev.html[PersistenceSaved]"] 
+
+== 無視されるコントロールおよびプロパティ
+
+Persistence Framework には、どのコントロールとプロパティを保持し、どれをスキップするかという、特定のルールがあります。このフレームワークは以下を保持しません。
+
+* シンプルな読み取り専用プロパティ（int、float など）。
+* 複雑な読み取り専用プロパティ（複合型）は、プレフィックス ShouldSerializeXYZ（XYZ はプロパティ名）が付けられたメソッドが付いている場合に限り保持されます。これは、.NET フレームワークによって使用される標準的なメソッド規則です。
+* プロパティの値がデフォルト値の場合、.NET 属性の DefaultValue を使用することによって設定されます。
+* PersistenceIgnoreAttribute でマークされたプロパティ
+* 以下のタイプからのプロパティ (最後の 2 つのタイプは Infragistics タイプです): Page、ControlCollection、Version、ISite、ITemplate、IDataSource、UIObject、RendererBase
+* 以下のカスタム プロパティ名:
+
+* DataSource
+* DataSourceID
+* DataMemeber
+* EnableTheming
+* SkinID
+* EnableViewState
+* ViewStateMode
+* ID
+* ClientIDMode
+* TabIndex
+* AppRelativeTemplateSourceDirectory
+* Capacity
+* TemplateControl
+
+同時に、Persistence Framework は以下のタイプから継承するコントロールをスキップします。
+
+* IValidator
+* IDataSource
+* IHeirarchicalDataSource
+* Literal
+* LiteralControl
+* Label
+* HiddenField
+* ScriptManager
+
+*注:* コントロールまたはプロパティが永続化されない場合、Persistence Framework でコントロールまたはプロパティは無視されます。
+
+== 限度リスト
+
+パーシステンス プロセスでコントロールのすべてのプロパティを保存しなければならないわけではありません。保持または読み込みをフレームワークが制限されるリストは以下のとおりです。
+
+* ITemplate インターフェイスを実装するプロパティ
+* BoundCheckBoxField の ValueConverter プロパティ
+
+== 関連トピック
+
+link:persistenceframework-getting-started-with-persistence-framework.html[はじめにトピック]

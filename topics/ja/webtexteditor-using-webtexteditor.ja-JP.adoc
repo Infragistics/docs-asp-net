@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "webtexteditor-using-webtexteditor",
+    "controlName": ["WebTextEditor"],
+    "tags": ["Editing","Getting Started"],
+    "guid": "{12E7DF14-8911-489E-BD73-F47AC389449E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebTextEditor の使用
+
+このセクションは、WebTextEditor™ コントロールの重要な概念および機能を効果的に使用するためのタスク ベースの情報について説明します。
+
+link:webtexteditor-using-webtexteditor-in-password-mode.html[WebTextEditor をパスワード モードで使用]
+
+このセクションでは、WebTextEditor コントロールのパスワード モードについて説明します。
+
+link:webtexteditor-using-webtexteditor-in-multiline-mode.html[WebTextEditor のマルチライン モード]
+
+このセクションでは、WebTextEditor コントロールのマルチライン モードについて説明します。
+
+link:webtexteditor-spinning-through-a-list-of-values-in-webtexteditor.html[WebTextEditor]
+
+このセクションでは、コントロールの値リストでスピン ボタンを使用する方法を学びます。
+
+link:webtexteditor-using-custom-button-in-webtexteditor.html[WebTextEditor のカスタム ボタンを使用]
+
+このセクションでは、カスタマイズされたボタンを実装してカスタムなアクションを実行する方法を学びます。
+
+link:webtexteditor-webtexteditor-smart-tag.html[WebTextEditor スマート タグ]
+
+このセクションでは、WebTextEditor スマート タグについて学びます。

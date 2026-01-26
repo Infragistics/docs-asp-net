@@ -1,0 +1,214 @@
+﻿////
+
+|metadata|
+{
+    "name": "gridsmigrationoutlookgroupby",
+    "controlName": [],
+    "tags": [],
+    "guid": "91bfac8a-0823-443a-bd6a-41b36ae44d62",  
+    "buildFlags": [],
+    "createdOn": "2016-03-01T12:50:26.6572646Z"
+}
+|metadata|
+////
+
+= グリッドの移行 - Outlook GroupBy
+
+OutlookGroupBy 機能により、列のデータ値に基づきグリッドの列をグループ化できます。この機能は、WebHierarchicalDataGrid (WHDG) でサポートされますが、WebDataGrid (WDG)　ではサポートされません。OutlookGroupBy を持つフラットグリッドが必要な場合は、WHDG を 1 レベルのデータにバインドします。
+
+[[_Toc291828865]]
+== 機能の有効化
+
+OutlookGroupBy 機能を有効にするには、WHDG のプロパティ ウィンドウを使用します。
+
+[start=1]
+. Microsoft® Visual Studio™ のプロパティ ウィンドウで、[GroupingSettings] プロパティを検索し、展開します。
+[start=2]
+. [EnableColumnGrouping] プロパティを「True」に設定します。これにより、グループ化機能を使用できるようになります。
+[start=3]
+. この時点で、[GroupAreaVisibility] プロパティのような、他のプロパティ設定をカスタマイズすることもできます（このプロパティは、エンドユーザーが機能の UI を使用できる、つまり、列をドラッグし、グループ データにドロップできるかどうかをコントロールします）。
+
+注: [GroupingSettings] プロパティはバンド レベルのプロパティで、その属性はバンドごとにカスタマイズできます。
+
+OutlookGroupBy 機能は、バンドの .aspx ソース コードに追加することもできます。
+
+*ASPX の場合:*
+
+[source,html]
+----
+<GroupingSettings EnableColumnGrouping="True" 
+ ShowBandInGroupByArea="true" GroupAreaVisibility="Visible">
+</GroupingSettings>
+----
+
+[[_Toc291828866]]
+== 列をグループ化する方法
+
+列は複数の異なる方法でグループ化できます。UI が有効な場合は、列をドラッグし、GroupByArea にドロップしてグループ化することができます。また、GroupByArea からドラッグしてグループ化を解除することができます。
+
+[[_Toc291828867]]
+==== デザイナーによる列のグループ化
+
+[start=1]
+. Microsoft® Visual Studio™ のプロパティ ウィンドウで、[GroupingSettings] プロパティを検索し、展開します。
+[start=2]
+. [EnableColumnGrouping] プロパティを「True」に設定します。これにより、グループ化機能を使用できるようになります。
+[start=3]
+. [GroupingSettings] プロパティの下で、[GroupedColumns] プロパティを検索し、右側の省略記号（...）をクリックします。これによってデザイン ダイアログが表示され、グループ化する列を追加することができます。
+
+[[_Toc291828868]]
+==== ASPX でのグループ化
+
+ASPX の列をグループ化することもできます。
+
+*ASPX の場合:*
+
+[source,html]
+----
+<GroupingSettings EnableColumnGrouping="True"  ShowBandInGroupByArea="true"  GroupAreaVisibility="Visible">
+            <GroupedColumns>
+                <ig:GroupedColumn ColumnKey="Color" SortDirection="Descending" />
+                <ig:GroupedColumn ColumnKey="Salary" />
+            </GroupedColumns>
+</GroupingSettings>
+----
+
+[[_Toc291828869]]
+==== コード ビハインドでのグループ化
+
+ハンドラー InitializeBand イベント、およびイベント ハンドラーで次を実行します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+void WebHierarchicalDataGrid1_InitializeBand(object sender, BandEventArgs e)
+{
+      /* トップ バンドでのグループ化 * /
+      if (e.Band.DataMember == "Root")
+      {
+         /* We only want to add a column to the GroupedColumns collection once
+ because the grid will save this addition in its view state */             if (!this.IsPostBack)
+            {
+                  this.WebHierarchicalDataGrid1.GroupingSettings.GroupedColumns.Add("FirstName");
+                  this.WebHierarchicalDataGrid1.GroupingSettings.GroupedColumns.Add("LastName",
+                              GroupingSortDirection.Descending);
+                  /* Alt Text 変更する * /
+                  this.WebHierarchicalDataGrid1.GroupingSettings.AscendingImageAltText = "Top Assend";
+            }
+      }
+      /* 下部バンドでのグループ化。* /
+      else if (e.Band.DataMember == "Address")
+      { 
+ /* We only want to add a column to the GroupedColumns collection once 
+because the grid will save this addition in its view state */ 
+            if (!this.IsPostBack)
+            {
+                  e.Band.GroupingSettings.GroupedColumns.Add("AddressType");
+                  /* Don't show the remove button when you hover over the grouped column * / 
+                  e.Band.GroupingSettings.ShowRemoveButton = false;
+                  e.Band.GroupingSettings.AscendingImageAltText = "Adr Assend";
+            }
+      }
+}
+----
+
+同様の方法で、グループ化された列を削除できます。
+
+*C# の場合:*
+
+[source,csharp]
+----
+GroupedColumns grpCols = this.WebHierarchicalDataGrid1.GroupingSettings.GroupedColumns;
+grpCols.Remove(grpCols["FirstName"]);
+----
+
+[[_Toc291828870]]
+==== JavaScript での列のグループ化
+
+*JavaScript の場合:*
+
+[source,js]
+----
+/* 最上位　* /
+var WHDG = $find("WebHierarchicalDataGrid1");
+var settings = WHDG.get_groupingSettings();
+/* グループ化された列を追加する * /
+settings.get_groupedColumns().add("DOB");
+/* グループ化された列範囲を追加する * /
+var grpArray = [];
+grpArray[0] = new $IG.ClientGroupedColumn("DOB", $IG.SortDirection.Descending);
+grpArray[1] = new $IG.ClientGroupedColumn("FavoriteColor");
+settings.get_groupedColumns().addRange(grpArray);
+/* グループ化された列を削除する * /
+settings.get_groupedColumns().removeAt(0);
+settings.get_groupedColumns().remove(settings.get_groupedColumns().getItemFromKey("Name"));
+/* グループ化された列範囲を削除する * /
+grpArray = [];
+grpArray[0] = settings.get_groupedColumns().getItemFromKey("Salary");
+grpArray[1] = settings.get_groupedColumns().getItemFromKey("Boss");
+settings.get_groupedColumns().removeRange(grpArray);
+/* 下部のバンド * /
+var lowerBand = WHDG.get_bands()[0];
+settings = lowerBand.get_groupingSettings();
+/* グループ化された列の追加と削除は上記同様。* /
+----
+
+[[_Toc291828871]]
+== グループ化された行の確認
+
+グループ化された行は、コード ビハインドまたは JavaScript で確認することができます。
+
+*C# の場合:*
+
+[source,csharp]
+----
+ContainerGrid gridView = this.WebHierarchicalDataGrid1.GridView;
+            foreach (GroupedRecord grpRow in gridView.GroupedRows)
+            {
+                  /* グループ行の下のデータ行で繰り返すには * /
+                  GroupRecordEnumerator itr = grpRow.Rows;
+                  while (itr.Current != null)
+                  {
+                        ContainerGridRecord r = (ContainerGridRecord)itr.Current;
+                        itr.MoveNext();
+                  }
+                  /* If the Band is grouped by more than one column then a
+                   grouped row will have grouped rows of its own */ 
+                  foreach (GroupedRecord childGrpRow in grpRow.ChildGroupRows)
+                  {
+                        /* From the child grouped row you can see if it has grouped rows of its own in the same way.
+                   You can also iterate through the data rows for this group */
+                        itr = childGrpRow.Rows;
+                        while (itr.Current != null)
+                        {
+                              ContainerGridRecord r = (ContainerGridRecord)itr.Current;
+                              itr.MoveNext();
+                        }
+                  }
+            }
+----
+
+*JavaScript の場合:*
+
+[source,js]
+----
+var WHDG = $find("WebHierarchicalDataGrid1");
+var gridView = WHDG.get_gridView();
+var grpRows = gridView.get_groupRows();
+for (var i = 0; i < grpRows.get_length(); i++)
+{
+    var grpRow = grpRows.get_row(i);
+    var text = grpRow.get_text();
+    /* グループ化された行の下のデータ行 * /
+    var dataRows = grpRow.get_rows();
+    /* グループ化された子行 * /
+    var childRows = grpRow.get_childGroupRows();
+    for (var j = 0; j < childRows.get_length(); j++)
+    {
+        var grpChRow = childRows.get_row(j);
+        /* グループ化された子行の下のデータ行 * /
+        var chDataRows = grpChRow.get_rows();
+    }
+}
+----

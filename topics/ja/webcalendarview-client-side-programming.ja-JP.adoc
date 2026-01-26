@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcalendarview-client-side-programming",
+    "controlName": ["WebCalendarView"],
+    "tags": ["How Do I"],
+    "guid": "{B466285A-27F3-4C74-BA6F-0B1A09236462}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= クライアント側プログラミング
+
+このセクションでは、WebCalendarView™ のクライアント側の特徴および機能の情報を提供します。
+
+以下のリンクをクリックすると、それぞれの領域についての説明を読むことができます。
+
+* link:webcalendarview-csom-overview.html[CSOM の概要]
+* link:webcalendarview-reference-the-control.html[コントロールの参照]

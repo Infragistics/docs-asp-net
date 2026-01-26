@@ -1,0 +1,28 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-appearance-tab",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{F4C249D8-B2F4-4213-8D05-68AC730C3FC8}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 外観タブ
+
+[外観] タブによって、各プロパティの外観をカスタマイズすることができます。ゲージ エクスプローラで任意の項目をクリックする、またはインタラクティブなプレビュー領域でゲージ上の任意の項目をクリックすることによって、このタブにアクセスできます。
+
+タブは以下の 2 つのペインに分割されています。
+
+* link:webgauge-brush-pane.html[ブラシ]
+* link:webgauge-stroke-pane.html[ストローク]
+
+image::images/Appearance_Tab_01.png[]
+
+以下のスクリーンショットは、上記のスクリーンショットで指定された外観設定に基づいて作成されたリニア ゲージを示しています。
+
+image::images/Appearance_Tab_02.png[]

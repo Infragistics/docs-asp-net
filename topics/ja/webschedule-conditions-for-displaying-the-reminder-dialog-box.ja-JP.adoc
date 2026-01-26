@@ -1,0 +1,30 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-conditions-for-displaying-the-reminder-dialog-box",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling"],
+    "guid": "{27B892D7-F7E9-4DFC-B8FA-9AB383CD42BA}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アラーム ダイアログ ボックスを表示するための条件
+
+[アラーム] ダイアログは以下のシナリオで表示されます。
+
+[start=1]
+. アプリケーションが最初に開く場合、アラームが期限であれば、[アラーム] ダイアログが表示します。
+[start=2]
+. アクティビティが過去に追加されると、アクティビティのために EnableReminder が True に設定されます。
+[start=3]
+. 過去のアクティビティが更新されると、アクティビティのために EnableReminder が True になります。
+[start=4]
+. ポストバック時に、予定が期限になっていれば、ポストバックされます。
+[start=5]
+. ポストバック時に、再通知時刻が切れていれば、ポストバックされます。
+
+image::images\WebSchedule_Related_Topics_Reminder_Dialog_Display_Rules_01.png[]

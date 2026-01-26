@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-effects",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{6BD1E3CF-1E47-41D7-B0A0-56C31F640671}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 効果
+
+このセクションは、ゲージに効果を適用する方法に関するタスクベースの手順だけでなく、WebGauge コントロール内で使用可能な効果について役に立つ情報を提供します。
+
+* link:webgauge-shadow-effects.html[シャドー効果]
+* link:webgauge-apply-shadow-effects.html[シャドー効果の適用]

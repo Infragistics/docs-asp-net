@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webdocumentexporter",
+    "controlName": ["WebDocumentExporter"],
+    "tags": [],
+    "guid": "cfa11492-da46-4820-931d-c367e0659da2",  
+    "buildFlags": [],
+    "createdOn": "2010-09-29T07:48:24.0625854Z"
+}
+|metadata|
+////
+
+= WebDocumentExporter
+
+このページには、WebDocumentExporter™ 関連の概要/タスクベースの情報がすべて含まれています。このセクションには、コンポーネントが何を実行するのか、またアプリケーションでなぜコンポーネントを使用したくなるのかから、コンポーネントを使用して一般的なタスクを完了する方法に関するステップバイステップの手順まで、コンポーネントに関する貴重な情報が含まれています。
+
+WebDocumentExporter コントロールについての詳細は、以下のリンクをクリックしてください。
+
+== link:webdocumentexporter-about-webdocumentexporter.html[WebDocumentExporter について]
+
+このセクションには、WebDocumentExporter コンポーネントの機能の理解を深めるのに役立つ情報があります。さらに、コンポーネントの目的も理解できます。
+
+== link:webdocumentexporter-getting-started-with-webdocumentexporter.html[WebDocumentExporter で開始]
+
+このセクションは、WebDocumentExporter コンポーネントで可能な限り迅速に起動および実行する方法についての情報を提供します。
+
+== link:webdocumnetexporter-api-overview.html[API の概要]
+
+このトピックでは、WebDocumentExporter コンポーネントを使用してプログラミングするときに取り扱う名前空間とクラスのリストを掲載しています。このトピックにリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンスガイド」セクションに便宜的にリンクされています。

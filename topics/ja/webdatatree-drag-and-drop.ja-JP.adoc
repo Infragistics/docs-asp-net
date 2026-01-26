@@ -1,0 +1,49 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatatree-drag-and-drop",
+    "controlName": ["WebDataTree"],
+    "tags": [],
+    "guid": "d338256b-548a-44ef-a077-252afd7a16fc",  
+    "buildFlags": [],
+    "createdOn": "2010-06-03T06:51:12.4035216Z"
+}
+|metadata|
+////
+
+= ドラッグ アンド ドロップ
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatatree.html[WebDataTree™] のドラッグ アンド ドロップ機能は、ノードまたはノードのグリッドをドラッグし、同じ WebDataTree または別の WebDataTree コントロールにドロップする機能を提供します。
+
+この動作には、以下のの 3 つのモードがあります。
+
+* コピー - ノードが新しい位置にドロップされたときに、ドラッグされたノードのコピーがターゲットにドロップされます。既存のノードは元の位置に保持されます。
+* 移動 - ノードがドロップされると、元の位置から削除され、新しいターゲットに追加されます。
+* デフォルト - このモードはコピーと移動モードを組み合わされています。Ctrl キーを押しながらドラッグアンドドロップ操作するとコピー モードになり、Ctrl キーを使用しない場合には移動モードになります。
+
+*ツリーのドロップ位置*
+
+ノードの前後やノード間だけでなく、選択したノードに挿入できます。この場合、ドロップしたノードがドロップされたノードの子になります。ドラッグしたノードが他のノードの上に移動されているときに、ドロップ可能な位置にツールチップが表示されます。2 つのノード間を移動している場合、ノード間に線と「前のノードに挿入」が現れます。ツールチップは、「ノードの前に挿入」または「ノードの後に挿入」にも表示されます。
+
+*イベント*
+
+WebDataTree は、ドラッグアンドドロップ操作に関連付けられるサーバー側とクライアント側イベントを提供します。これらの詳細については、 link:webdatatree-drag-and-drop-client-side-events.html[ClientSideEvents] および link:webdatatree-drag-and-drop-handle-server-side-event.html[ServerSideEvents]トピックを参照してください。
+
+*ドラッグ アンド ドロップの有効化*
+
+ドラッグ アンド ドロップを有効にするには、WebDataTree コントロールの AllowDrop および EnableDragDrop を True に設定するだけです。ドラッグ アンド ドロップのその他のシナリオやロジック処理としては、WebDataTree コントロールのドラッグ アンド ドロップに関連するサーバー側またはクライアント側イベントを処理できます。
+
+*ドラッグ アンド ドロップ処理をキャンセル*
+
+注：ドラッグ アンド ドロップ操作のキャンセルは、Esc キーを押すか、WebDataTree 領域の外側にドラッグされたノードをターゲットでないノード領域にドロップすることによってキャンセルできます。
+
+== 関連トピック
+
+link:webdatatree-drag-and-drop-client-side-api.html[クライアント側 API]
+
+link:webdatatree-drag-and-drop-client-side-events.html[クライアント側イベント]
+
+link:webdatatree-drag-and-drop-modes.html[ドラッグ アンド ドロップ モード]
+
+link:webdatatree-drag-and-drop-handle-server-side-event.html[サーバー側イベント]

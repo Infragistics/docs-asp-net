@@ -1,0 +1,28 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-working-with-webhtmleditors-toolbar",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing","How Do I"],
+    "guid": "{351D09DA-FAA4-47B9-AB21-350FE884F187}",  
+    "buildFlags": [],
+    "createdOn": "2006-03-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor のツールバーの機能
+
+このセクションでは、WebHtmlEditor のツールバーのボタンについて説明します。
+
+以下のリンクをクリックすると、それぞれのボタンついての説明を読むことができます。
+
+* link:webhtmleditor-list-of-webhtmleditors-toolbar-buttons.html[WebHtmlEditor のツールバー ボタンのリスト]
+* link:webhtmleditor-general-purpose-buttons-of-webhtmleditors-toolbar.html[WebHtmlEditor のツールバーの汎用ボタン]
+* link:webhtmleditor-dialog-box-buttons-of-webhtmleditors-toolbar.html[WebHtmlEditor のツールバーのダイアログ ボックス ボタン]
+* link:webhtmleditor-drop-down-lists-of-webhtmleditor-toolbar.html[WebHtmlEditor のツールバーのドロップダウン リスト]
+* link:webhtmleditor-image-buttons-of-webhtmleditors-toolbar.html[WebHtmlEditor のツールバーの画像ボタン]
+* link:webhtmleditor-menu-buttons-of-webhtmleditors-toolbar.html[WebHtmlEditor のツールバーのメニュー ボタン]
+* link:webhtmleditor-text-buttons-of-webhtmleditors-toolbar.html[WebHtmlEditor のツールバーのテキスト ボタン]
+* link:webhtmleditor-upload-buttons-of-webhtmleditors-toolbar.html[WebHtmlEditor のツールバーのアップロード ボタン]

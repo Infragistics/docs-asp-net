@@ -1,0 +1,46 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-whats-new-in-2008-volume-3",
+    "controlName": [],
+    "tags": ["FAQ","Getting Started"],
+    "guid": "{2EA1688C-8A8B-4118-B0A7-F6DACF959702}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 2008 Volume 3 の新機能
+
+{ProductName} 2008 Volume 3 リリースには多数の強力な新機能と {ProductName} AJAX フレームワーク上に構築された待望の WebDataGrid™ コントロールが含まれています。
+
+== 新しい WebDataGrid コントロール
+
+WebDataGrid™ コントロールは {ProductName} AJAX コントロールの広範なリストへの新たな追加です。WebDataGrid の新しいデザインによって、ネーティブの AJAX 機能を持った、軽量で拡張可能なグリッド コントロールとなります。
+
+柔軟で拡張可能なグリッド コントロールを作成するためのすべての機能が WebDataGrid にあります。
+
+すべての {ProductName} AJAX コントロールのように、WebDataGrid は Infragistics® Application Styling フレームワークにシームレスに統合します。CSS ベースのプロパティを使用すると、既存のスタイルシートを利用することによって、WebDataGrid コントロールを手動でカスタマイズできます。
+
+WebDataGrid の機能のいくつかは以下の通りです。
+
+* *ハイパフォーマンス* - 軽量のマークアップと最適化されたコードがパフォーマンスを向上します。
+* *標準への適合* - CSS 2 および XHTML 1.0 に準拠します。
+* *多数のデータ ソースをサポート* - IEnumerable を実装している 標準的な Microsoft データ ソース コントロールおよびオブジェクトを含み、広範なバインド可能なデータ ソースをサポートします。
+* *ページング* - データをより小さい表示可能なデータのページに分割します。
+* *フィルタリング* - カスタマイズ可能なフィルタ条件と値によって、ユーザーのニーズと仕様に応じてよりカスタマイズされたフィルタリングが可能となります。
+* *仮想および遅延したスクロール* - 最初はエンド ユーザーの表示可能なレコードのみをロードします。WebDataGrid Scrollbar を非同期でスクロールすると残りのレコードを要求するため、効率性とパフォーマンスが向上します。
+* *テンプレート* - WebDataGrid のほとんどのエレメントは、最大限の柔軟性とカスタマイズを可能とするためにテンプレート化できます。
+* *ネーティブの AJAX サポート* - {ProductName} AJAX コントロールは Microsoft® ASP.NET 2.0 AJAX Extensions 1.0 基盤の上に構築されているので、ほとんどの WebDataGrid’s 機能は AJAX を使用して実行されます。これによりフルページ ポストバックの障害を削減します。
+
+== 関連トピック
+
+link:web-webdatagrid-webdatagrid.html[WebDataGrid]
+
+link:webdatagrid-getting-started-with-webdatagrid.html[WebDataGrid で開始]
+
+link:webdatagrid-about-webdatagrid.html[WebDataGrid について]
+
+link:webdatagrid-using-webdatagrid.html[WebDataGrid の使用]

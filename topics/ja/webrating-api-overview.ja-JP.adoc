@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "webrating-api-overview",
+    "controlName": ["WebRating"],
+    "tags": ["API","Selection"],
+    "guid": "4a687ec9-c529-45a2-950c-021ee9e2f068",  
+    "buildFlags": [],
+    "createdOn": "2010-06-01T04:47:46.8227535Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションではコントロールに関連する各名前空間を示します。このコントロールでプログラムする間に使用するいくつかのキー クラスも提供します。このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+=== WebRating 名前空間:
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols_namespace.html[Infragistics.Web.UI.EditorControls]
+
+=== キー クラス：
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webrating.html[WebRating]
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.ratingimageitem.html[RatingImageItem]
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.ratingclientevents.html[RatingClientEvents]

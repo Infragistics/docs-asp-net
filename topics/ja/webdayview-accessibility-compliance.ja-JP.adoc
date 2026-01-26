@@ -1,0 +1,53 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdayview-accessibility-compliance",
+    "controlName": ["WebDayView"],
+    "tags": ["Section 508"],
+    "guid": "{958511BF-7CBA-435A-A51A-F5DE71ACFD97}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDayView アクセシビリティの遵守
+
+弊社の ASP.NET コントロールおよびコンポーネントはすべて、1973 年のリハビリテーション法第 508 条第 1194 部 22 条を遵守しています。以下は、第 1194 部 22 条の 16 の規則と各規則を遵守する方法を含んだ表です。場合によって、プロパティを設定する必要があります。それ以外の場合には、コントロールがすべての作業を実行するため、ユーザーは何もする必要がありません。
+
+[options="header", cols="a,a"]
+|====
+|規則|規則を遵守する方法
+
+|(a)
+|コントロールの pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleviewbase~section508compliant.html[Section508Compliant]"] プロパティを有効にすることによって、すべての非テキスト エレメントがテキストに相当する情報をレンダリングします。 
+
+
+*注：* テキストに相当する情報はデフォルトで提供されますが、ニーズに合わせてカスタマイズできます。 
+
+
+|(d)
+|この動作の取得を可能にするものは何もありません。 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webdayview~stylesheetfilename.html[StyleSheetFileName]"] プロパティを実在しないスタイル シート ファイル名に指定すると、表示は依然としてレンダリングされ機能します。
+
+|(h)
+|コントロールの Section508Compliant プロパティを有効にすることによって、列ヘッダとして DayOfWeek ヘッダを、行ヘッダとして WeekNumbers を識別するように範囲属性がレンダリングされます。
+
+|(n)
+|pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleviewbase~enablekeyboardnavigation.html[EnableKeyboardNavigation]"]  および TabIndex プロパティを設定することによって、キーボードを使用して、コントロールとその要素をナビゲートすることができます。 
+
+以下のようにコントロールをナビゲートできます。 
+
+* Tab キーを押すと、コントロールを全体として、次にコントロールのナビゲーション ボタン、次に次のボタンへとトラバースできます。矢印キーを使用すると、コントロールを日にちごとにナビゲートできます。 
+
+* フォーカスが日ヘッダにある場合: 
+
+** その日に予定がまったくない場合、Enter キーを押すと、[予定を追加] ダイアログ ボックスが起動します。 
+
+** 予定が使用可能な場合には、Enter キーを押すと、予定のリストを下にトラバースできます。これで矢印キーを使用して予定の要素でフォーカスをナビゲートできます。 
+
+** スペース バーを押すと、その日に予定があるかどうかにかかわらず、[予定を追加] ダイアログ ボックスが起動します。 
+
+* 予定にフォーカスがあるときには、スペース バーを押すか Enter キーをクリックすると、その予定に対応する [予定を編集] ダイアログ ボックスが起動します。 
+
+|====

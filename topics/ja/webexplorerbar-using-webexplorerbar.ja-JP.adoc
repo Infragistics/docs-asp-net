@@ -1,0 +1,65 @@
+﻿////
+
+|metadata|
+{
+    "name": "webexplorerbar-using-webexplorerbar",
+    "controlName": ["WebExplorerBar"],
+    "tags": ["How Do I"],
+    "guid": "{AAF5B70F-7941-435C-8983-FCF22009F86C}",  
+    "buildFlags": [],
+    "createdOn": "2010-01-03T23:00:36Z"
+}
+|metadata|
+////
+
+= WebExplorerBar の使用
+
+このセクションは、WebExplorerBar™ コントロールの重要な概念および機能を効果的に使用するためのタスク ベースの情報について説明します。
+
+link:webexplorerbar-smart-tag.html[WebExplorerBar スマート タグ]
+
+このトピックでは WebExplorerBar スマート タグ アンカーとポップアップ パネルについて説明し、さまざまなコントロール プロパティと設定について示します。
+
+link:webexplorerbar-keyboard-navigation.html[キーボード ナビゲーション]
+
+このトピックは WebExplorerBar コントロールのグループと項目間をナビゲートする方法を説明します。
+
+link:webexplorerbar-display-modes.html[表示モード]
+
+WebExplorerBar™ コントロールの動作を制御する 2 つのコントロールについて説明します。
+
+link:webexplorerbar-height-properties.html[WebExplorerBar Height プロパティ]
+
+さまざまなプロパティを使用して WebExplorerBar™ の高さを設定する方法を示します。
+
+link:webexplorerbar-setting-navigateurl-and-target-properties.html[NavigateURL と Target プロパティの設定]
+
+WebExplorerBar の項目をナビゲーション リンクとして利用する方法を説明します。
+
+link:webexplorerbar-binding-to-an-xml-data-source.html[XML データ ソース]
+
+WebExplorerBar は 階層型データ ソース (XML を含む) へバインドできます。このトピックは XMLDataSource コンポーネントを使用した例の実装を示します。
+
+link:webexplorerbar-binding-to-webhierarchcialdatasource.html[WebHierarchcialDataSource へのバインド]
+
+WebExplorerBar は階層型データソースへバインドし、データ階層の各レベルを表示します。この例の WebHierarchicalDataSource コントロールは コンポーネントへ接続しています。
+
+link:webexplorerbar-serverevents.html[サーバー側イベント]
+
+このトピックでは、WebExplorerBar のサーバー側のイベントを一覧で示します。
+
+link:webexplorerbar-selection-behavior.html[選択動作]
+
+この例では WebExplorerBar コントロールのグループや項目を有効にする方法を学びます。
+
+link:webexplorerbar-clientside-api.html[ClientSide API]
+
+WebExplorerBar コントロールの基本的なクライアント側メソッドの使用について説明します。
+
+link:webexplorerbar-clientevents.html[クライアント側イベント]
+
+WebExplorerBar コントロールのクライアント側イベントの一覧を示します。
+
+link:webexplorerbar-styling.html[CSS クラス プロパティ]
+
+このトピックでは、コントロールの外観をカスタマイズする WebExplorerBar の CSS プロパティについて説明します。

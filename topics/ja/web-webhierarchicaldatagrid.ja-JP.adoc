@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webhierarchicaldatagrid",
+    "controlName": ["WebHierarchicalDataGrid"],
+    "tags": ["Grids"],
+    "guid": "{BB9379D2-6925-4818-835A-45A926C6D742}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHierarchicalDataGrid
+
+このページには、WebHierarchicalDataGrid™ コントロール関連の概要/タスクベースの情報がすべて含まれています。このセクションには、コントロールが何を実行するのか、またアプリケーションでなぜコントロールを使用したくなるのかから、コントロールを使用して一般的なタスクを完了する方法に関するステップバイステップの手順まで、WebHierarchicalDataGrid に関する貴重な情報が含まれています。
+
+以下のリンクをクリックして、WebHierarchicalDataGrid コントロールについての情報にアクセスします。
+
+== link:webhierarchicaldatagrid-about-webhierarchicaldatagrid.html[WebHierarchicalDataGrid について]
+
+このセクションには WebHierarchicalDataGrid コントロールの機能をより理解するための情報があります。さらに、なぜアプリケーション ビルドに使用されるかも説明します。
+
+== link:webhierarchicaldatagrid-getting-started-with-webhierarchicaldatagrid.html[WebHierarchicalDataGrid を使用した作業の開始]
+
+WebHierarchicalDataGrid コントロールを用いたアプリケーションをすばやく作成し実行できるよう、使用方法についての情報を提供します。
+
+== link:webhierarchicaldatagrid-using-webhierarchicaldatagrid.html[WebHierarchicalDataGrid の使用]
+
+このセクションは、WebHierarchicalDataGrid コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+== link:webhierarchicaldatagrid-accessibility-compliance.html[WebHierarchicalDataGrid アクセシビリティの遵守]
+
+このトピックは、WebHierarchicalDataGrid が第 508 条の要件を満たす方法を概略します。このアクセシビリティの遵守によって、エンド ユーザー、特に障害を持つユーザーが WebHierarchicalDataGrid コントロールを使用して構築された Web アプリケーションにアクセスおよび使用することを可能にします。
+
+== link:webhierarchicaldatagrid-api-overview.html[API の概要]
+
+このトピックは、WebHierarchicalDataGrid コントロールでプログラミング中に作業する名前空間とクラスをリストします。このトピックにリストされている名前空間とクラスは、{ProductName} ヘルプの「API 参照ガイド」セクションに便宜的にリンクされています。
+
+== link:webhierarchicaldatagrid~infragistics.web.ui_namespace.html[CSOM の概要]
+
+WebHierarchicalDataGrid™ コントロールは、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを提供します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクトで構成され、開発者はサーバー側にポストバックしなくても、コントロールに関連する重要な機能単位をプログラムできます。

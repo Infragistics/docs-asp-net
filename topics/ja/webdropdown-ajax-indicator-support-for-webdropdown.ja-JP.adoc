@@ -1,0 +1,49 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdropdown-ajax-indicator-support-for-webdropdown",
+    "controlName": ["WebDropDown"],
+    "tags": [],
+    "guid": "{F0F84A14-21C8-4F5C-8243-E58E1BD65F36}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDropDown の Ajax インジケーターのサポート
+
+WebDropDown™ コントロールの AJAX インジケーターは、コントロールがコールバックの完了を待機する時に必ず待機通知をエンドユーザーに表示します。デフォルトで、AJAX インジケーターはその他の {ProductName} AJAX コントロールと共有されます。ただし、共有された AJAX インジケーター設定はコントロールレベルでオーバーライドできます。待機メッセージは、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.ajaxindicator~text.html[Text]"]  または  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.ajaxindicator~imageurl.html[ImageUrl]"]  プロパティ設定を使用して、テキストまたは画像を表示するように構成可能です。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.ajaxindicator~location.html[Location]"]  プロパティを使用することによってインジケーターの画面の位置を設定することも可能です。AJAX インジケーターの詳細は、 link:web-ajax-indicator.html[AJAX Indicator について]トピックを参照してください。
+
+LoadingItemsMessageText プロパティと LoadingItemsTemplate プロパティが設定されない場合、デフォルトで WebDropDown は Ajax インジケーターを使用します。
+
+*Visual Basic の場合：*
+
+----
+' コントロール レベルで Ajax インジケーターを有効にします
+Me.WebDropDown1.AjaxIndicator.Enabled = Infragistics.Web.UI.DefaultableBoolean.[True] 
+' Ajax インジケーターの待機メッセージを設定します 
+Me.WebDropDown1.AjaxIndicator.Text = "Ajax Call Wait" 
+' Ajax インジケーターの位置を設定します 
+Me.WebDropDown1.AjaxIndicator.Location = Infragistics.Web.UI.RelativeLocation.AboveCenter 
+' コントロール固有の Ajax インジケーターの位置を設定します 
+Me.WebDropDown1.AjaxIndicator.RelativeToControl = Infragistics.Web.UI.DefaultableBoolean.[True]
+----
+
+*C# の場合：*
+
+----
+// コントロール レベルで Ajax インジケーターを有効にします
+this.WebDropDown1.AjaxIndicator.Enabled = Infragistics.Web.UI.DefaultableBoolean.True;
+// Ajax インジケーターの待機メッセージを設定します
+this.WebDropDown1.AjaxIndicator.Text = "Ajax Call Wait";
+// Ajax インジケーターの位置を設定します
+this.WebDropDown1.AjaxIndicator.Location = Infragistics.Web.UI.RelativeLocation.AboveCenter;
+// コントロール固有の Ajax インジケーターの位置を設定します
+this.WebDropDown1.AjaxIndicator.RelativeToControl = Infragistics.Web.UI.DefaultableBoolean.True;
+----
+
+== 関連トピック
+
+link:web-ajax-indicator.html[コントロール レベルで AJAX インジケーターを構成]

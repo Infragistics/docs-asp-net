@@ -1,0 +1,166 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-persistent-selection",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Grids","Persistence"],
+    "guid": "ba8c93d3-a6cc-48ea-8dfc-be9c5e492153",  
+    "buildFlags": [],
+    "createdOn": "2010-09-30T07:40:44.3761579Z"
+}
+|metadata|
+////
+
+= 永続的な選択
+
+== 始める前に
+
+以下のチュートリアルは、SqlDataSource コントロールを使用して、Northwind データベースにバインドされた WebDataGrid のインスタンスを使用します。
+
+link:http://ja.wikipedia.org/wiki/%E4%B8%BB%E3%82%AD%E3%83%BC[リレーショナル データベース固有のキー操作を知っている必要があります]。WebDataGrid は、シンプルな単一列キーだけでなく、複数列の複合キーでの作業を行うためにも十分に柔軟です。
+
+== 達成すること
+
+今回 WebDataGrid に「永続的な選択」動作が含まれました。これまでは、グリッドで行を選択して、次にページを変更または仮想スクロールを使用してデータの別の論理セクションにスクロールした場合、以前の選択は失われていました。これからは、グリッドをナビゲートし、異なる行を選択すると、各行は追跡されサーバー側で識別できるようになります。
+
+各行を識別に使用できますが、グリッドを操作する時に 2 つの異なるデータの状態があることを認識しておいてください。
+
+* スコープ内行:ユーザーが選択したのと同じグリッド ページに選択された行がある時にポストバックが発生すると、これらの行は「スコープ内」にあると言われます。スコープ内行には、RowSelectionChanged イベントで使用可能なフル GridRecord クラスがあります。
+* スコープ外行:ユーザーが選択したのと同じページにグリッドがない時にポストバックが発生すると、これらの行は「スコープ外」にあると言われます。スコープ外行は、GridRecord クラスのフル インスタンスとして RowSelectionChanged イベントに公開されません。そうではなくむしろ、主要な情報は e.CurrentSelectedRows.GetIDPair への呼び出しによって使用可能となります。GetIDPair メソッドは適切なデータを返すために行インデックスを必要とします。e.CurrentSelectedRows にある選択行のループの間に GridRecord クラスの現在のインスタンスが null かどうかを確認するためにチェックすることによって、スコープ外行は決定されます。
+
+このチュートリアルは、ページングと仮想スクロールが有効な時に WebDataGrid でスコープ内の選択行とスコープ外の選択行を識別する方法を示します。
+
+*注：* グリッドで複数選択を作成することは、Ctrl キーを押してからマウスをクリックすることによって可能となります。ページを変更、またはグリッドの別の位置にスクロールする時でさえ、キー/マウスの組み合わせが必要です。
+
+== 次の手順を実行します
+
+[start=1]
+. ASP.NET Web ページを作成します。
+[start=2]
+. ツールボックスからページに ScriptManager コンポーネントをドラッグします。
+[start=3]
+. ツールボックスからページに WebDataGrid コントロールをドラッグします。
+[start=4]
+. ツールボックスから SqlDataSource コントロールをページにドラッグします。
+[start=5]
+. Northwind データベースから製品情報を取得するように SqlDataSource を設定します。
+
+*HTML の場合:*
+
+----
+<asp:SqlDataSource id="ds" runat="server" 
+    ConnectionString="<%$ ConnectionStrings:NorthwindConnectionString %>" 
+    SelectCommand="SELECT [ProductID], [ProductName], [QuantityPerUnit], [UnitPrice], [UnitsInStock], [UnitsOnOrder], [ReorderLevel] FROM [Products]" >
+</asp:SqlDataSource>
+----
+
+[start=6]
+. WebDataGrid の DataSourceID を SqlDataSource の ID に等しく設定します（この場合、ID は "ds"）。この変更を行ったら、デザイナーが SqlDataSource から読み取るように WebDataGrid を構成します。
+[start=7]
+. WebDataGrid の DataKeyFields プロパティに正しい値が入っていることを検証します。この例では、DataKeyFields は ProductID に等しくなければなりません。
+[start=8]
+. 次に、ページングと選択動作を有効にする必要があります。スマートタグ デザインを使用して、またはマークアップで直接これらの項目を構成できます。以下のリストは、ASP.NET マークアップでページング（デフォルト設定）および選択（いくつかのカスタマイズにより）を構成する方法を示します。
+
+*HTML の場合:*
+
+----
+<ig:WebDataGrid ID="grid"  
+    AutoGenerateColumns="True"
+    DataSourceID="ds" 
+    DataKeyFields="ProductID"
+    Width="800px" 
+    Height="300px"
+    runat="server">
+    <Behaviors>
+        <ig:RowSelectors />
+        <ig:Paging />
+        <ig:Selection 
+            CellClickAction="Row" 
+            EnableCrossPageSelection="True" 
+            RowSelectType="Multiple" />
+    </Behaviors>
+</ig:WebDataGrid>
+----
+
+AutoGenerateColumns プロパティは "True" に設定されます。関連フィールドのみが SqlDatasource で選択されるからです。以前述べたように、DataSourceID は "ds" に設定されるため、データ アクセスのために添付の SqlDataSource コントロールを使用します。DataKeyFields プロパティは、グリッドにデータを表示する時に使用されるプライマリ キー フィールドをリストします。この事例では、プライマリ キー フィールドは ProductID です。幅と高さプロパティとして、フルサイズ ページのグリッドに適正な値が提供されます。
+
+グリッドで次に動作コレクションが定義されます。RowSelectors 動作と Paging 動作は有効でデフォルト値と使用されます。選択動作は有効でいくつかのカスタマイズを含んでいます。グリッドの単一セルをクリックしただけでも、グリッドが行全体を選択できるように、CellClickAction 属性が行に設定されます。属性 EnableCrossPageSelection は True に設定され、データの異なるページがスコープ内に入った後で、選択を永続させるために追跡動作を有効にすることを担当します。最後に、グリッド全体で複数行を選択する機能をユーザーに与えるために、RowSelectType 属性が Multiple に設定されます。
+[start=9]
+. これで、異なるページで複数選択を受け入れて追跡するようにグリッドの動作が構成されます。次の手順はページでコードを更新し、さらなる処理のために選択されたレコード情報を抽出します。
+
+グリッドが選択アクションを処理するためには、SelectedRows イベントにイベント ハンドラーを定義する必要があります。これを実行するにはデザイン ビューに切り替えて、[プロパティ] ペインでイベント リストを指定します。[プロパティ] ウィンドウで、[動作] リストの Selection.RowSelectionChanged を見つけ、このイベントをダブルクリックします。IDE は、イベント ハンドラーがスタブされてコード ビハインド ウィンドウを開きます。
+[start=10]
+. 次に以下のリストに一致するようにメソッド スタブを更新します。
+
+*C# の場合：*
+
+----
+using System;
+using System.Collections.Generic;
+using Infragistics.Web.UI.GridControls;
+...
+protected void grid_RowSelectionChanged(object sender, SelectedRowEventArgs e)
+{
+    IList<int> ids = new List<int>();
+    int id = 0;
+    int index = 0;
+    foreach (GridRecord row in e.CurrentSelectedRows)
+    {
+        if (row == null)
+        {
+            IDPair pair = e.CurrentSelectedRows.GetIDPair(index);
+            id = Convert.ToInt32(pair.Key[0]);
+        }
+        else
+        {
+            id = Convert.ToInt32(row.DataKey[0]);
+        }
+        if (!ids.Contains(id))
+        {
+            ids.Add(id);
+        }
+        index++;
+    }
+    // TODO:選択された ID を使用してデータベースを更新し、
+    // サービスまたはその他の操作を呼び出します
+    System.Diagnostics.Debug.WriteLine(ids.Count);
+}
+----
+
+このリスト作成で収集されたレコード情報の結果、ProductIDs のリストができあがります。このリストができたら、値をデータ レイヤー、サービス レイヤーに渡す、またはアプリケーションが必要とする任意の方法で処理することができます。
+
+上から開始し、ids という名前の一般的なリストが作成されます。このリストはグリッドの選択行から各 ID を追跡します。コードで後で変数をサポートするために次の 2 つの変数、id と index が使用され、コンテキストで検討されます。
+
+このコードの次のセクションは、グリッド内の選択行を循環するために使用される foreach ループです。上記で説明したように、選択行にはスコープ内行とスコープ外行の 2 タイプあります。選択された項目をループする間、イベント ハンドラーは、ループの行が null かどうかを確認するためにチェックします。行が null の場合、別のページで行が選択されたか、グリッドの仮想スクロールにあります。したがって、GridRecord に直接アクセスする代わりに、CurrentSelectedRows コレクションから GetIDPair を呼び出すためにイベント引数が質問されます。GetIDPair は行のインデックス値を必要とします。index という名前の変数は以前に 0 に初期化されており、メソッドの終わりに増分されます。これによって、インデックス値に、GetIDPair に渡すために使用可能な現在の行のインデックス値が常にあることを保証します。GetIDPairMethod は IDPair クラスのインスタンスを返します。
+
+IDPair クラスは、スコープ外の選択行の主要情報の保持を担当します。IDPair のインスタンスを持ったら、次に主要な値を見つけ出すために Key プロパティにアクセスできます。IDPair クラスは複数列キーを処理できることに注意してください。これによりこのレコードのキーとして単一の ProductID 値を見つけるためにインデクサｰが使用されます。結果は整数としてキャストされ（データベース テーブル内のフィールドのデータ タイプ）、id 変数値に設定されます。
+
+あるいは、選択行がスコープ内にある場合、DataKey プロパティをクエリすることによって GridRecord のインスタンスに直接アクセスできます（繰り返しになりますが、DataKey は複数列キーをサポートします。このためインデクサｰが必要とされます）。
+
+キー値がどちらか一方の方法で指定されたら、リストにまだ存在しない場合には id がリストに追加されます。完全に移植されたリストにより、開発者はアプリケーションに適した方法で選択行の処理を続行することを選択できます。
+
+*仮想スクロールの使用*
+
+上記の例は、永続的な選択を示すためにページングを使用しました。仮想スクロールに対してこの動作を有効にするために、全く同じコード ビハインドが機能し、ページングの代わりに仮想スクロールを使用するように ASP.NET マークアップを更新するだけです。
+
+*HTML の場合:*
+
+----
+<ig:WebDataGrid ID="grid"  
+    AutoGenerateColumns="True"
+    DataSourceID="ds" 
+    DataKeyFields="ProductID"
+    Width="800px" 
+    Height="300px"
+    runat="server">
+    <Behaviors>
+        <ig:RowSelectors />
+        <ig:VirtualScrolling />
+        <ig:Selection 
+            CellClickAction="Row" 
+            EnableCrossPageSelection="True" 
+            RowSelectType="Multiple" />
+    </Behaviors>
+</ig:WebDataGrid>
+----

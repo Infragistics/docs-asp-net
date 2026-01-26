@@ -1,0 +1,150 @@
+﻿////
+
+|metadata|
+{
+    "name": "webresizingextender-resizeeventargs-object",
+    "controlName": [],
+    "tags": ["API","How Do I"],
+    "guid": "{6954D47B-85E5-4936-AD0C-5619FC275276}",  
+    "buildFlags": [],
+    "createdOn": "2007-08-02T08:04:26Z"
+}
+|metadata|
+////
+
+= ResizeEventArgs オブジェクト
+
+== ResizeEventArgs
+
+このクラスは、WebResizingExtender の resize および resizing イベントのイベント ハンドラで第 2 のパラメータとして使用されます。
+
+=== ResizeEventArgs メソッド
+
+[cols="a,a"]
+|====
+|*get_cancel* 
+|このメソッドによって、resize および resizing イベントがキャンセルされたかどうかをチェックすることができます。 
+
+*戻り値*
+
+ブール値。True の値は、アクションがキャンセルされることを意味します。
+
+|*getBrowserEvent* 
+|このメソッドによって、イベント オブジェクトへの参照を取得することができます。 
+
+*戻り値*
+
+イベントへの参照、または null。
+
+|*getHeight* 
+|このメソッドによって、リサイジング パネルの新しい高さをチェックすることができます。 
+
+*戻り値*
+
+数値。 
+
+*解説*
+
+例： 
+
+---- 
+ function myResizeFnc(sender, args)  { 	window.status = 'New height=' + args.getHeight();  }
+----
+
+|*getOldHeight* 
+|このメソッドによって、リサイジング パネルの以前の高さをチェックすることができます。 
+
+*戻り値*
+
+数値。 
+
+*解説*
+
+例： 
+
+---- 
+ function myResizeFnc(sender, args)  { 	window.status = 'Old height=' + args.getOldHeight();  }
+----
+
+|*getOldWidth* 
+|このメソッドによって、リサイジング パネルの以前の幅をチェックすることができます。 
+
+*戻り値*
+
+数値。 
+
+*解説*
+
+例： 
+
+---- 
+ function myResizeFnc(sender, args)  { 	window.status = 'Old width=' + args.getOldWidth();  }
+----
+
+|*getWidth* 
+|このメソッドによって、リサイジング パネルの新しい幅をチェックすることができます。 
+
+*戻り値*
+
+数値。 
+
+*解説*
+
+例： 
+
+---- 
+ function myResizeFnc(sender, args)  { 	window.status = 'New width=' + args.getWidth();  }
+----
+
+|*set_cancel* 
+|このメソッドによって、resize または resizing イベントをキャンセルすることができます。 
+
+*パラメータ*
+
+_value_ 
+
+ブール値。True の値はアクションをキャンセルします。 
+
+*解説*
+
+例： 
+
+---- 
+ function myResizeFnc(sender, args)  { 	if(args.getWidth() == 20) if(args.getOldWidth() == 100) 		args.set_cancel(true);  }
+----
+
+|*setHeight* 
+|このメソッドは、resize イベントを処理する間に resizing パネルの高さの値を設定することができます。 
+
+*パラメータ*
+
+_value_ 
+
+高さの数値。 
+
+*解説*
+
+例： 
+
+---- 
+ function myResizeFnc(sender, args)  { 	if(args.getHeight() == 20) 		args.setHeight(50);  }
+----
+
+|*setWidth* 
+|このメソッドは、resize イベントを処理する間に resizing パネルの幅の値を設定することができます。 
+
+*パラメータ*
+
+_value_ 
+
+幅の数値。 
+
+*解説*
+
+例： 
+
+---- 
+ function myResizeFnc(sender, args)  { 	if(args.getWidth() == 20) 		args.setWidth(50);  }
+----
+
+|====

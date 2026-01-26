@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "webtexteditor-api-overview",
+    "controlName": ["WebTextEditor"],
+    "tags": ["API"],
+    "guid": "{1CAC4D16-ADCD-4330-852F-552D26268214}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションではコントロールに関連する各名前空間を示します。このコントロールでプログラムする間に使用するいくつかのキー クラスも提供します。このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+=== WebTextEditor 名前空間：
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols_namespace.html[Infragistics.Web.UI.EditorContols]
+
+=== キー クラス：
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webtexteditor.html[WebTextEditor]
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons.html[TextEditorButtons]

@@ -1,0 +1,32 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-dial-layout-tab",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{0D42A94F-61CD-459F-8315-AB6736630D65}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 目盛盤レイアウト タブ
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgauge~dial.html[Dial]"]  プロパティはラジアル ゲージの形状を決定します。デフォルトで、目盛盤は 360 度を描くため、円として表示されます。
+
+[プロパティ] パネルの [目盛盤レイアウト] タブを使用して、ゲージ上の目盛盤をカスタマイズできます。ゲージ エクスプローラで [目盛盤] をクリックする（[ラジアル ゲージ] > [目盛盤]）をクリックする、またはインタラクティブなプレビュー領域でラジアル ゲージの目盛盤をクリックするのいずれかで、このタブにアクセスすることができます。
+
+タブは以下の 4 つのペインに分割されています。
+
+* link:webgauge-bounds-pane.html[境界]
+* link:webgauge-angle-and-extents-pane.html[角度と範囲]
+* link:webgauge-corners-pane.html[角]
+* link:webgauge-shape-pane.html[形状]
+
+image::images/Dial_Layout_Tab_01.png[]
+
+以下のスクリーンショットは、上記のスクリーンショットで指定されたレイアウト設定に基づいて作成された目盛盤を示しています。
+
+image::images/Dial_Layout_Tab_02.png[]

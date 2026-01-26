@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "webupload",
+    "controlName": ["WebUpload"],
+    "tags": ["Getting Started","Selection"],
+    "guid": "aaec0e24-8215-41d5-9126-ca917c47819e",  
+    "buildFlags": [],
+    "createdOn": "2011-04-01T19:43:30.8123397Z"
+}
+|metadata|
+////
+
+= WebUpload
+
+以下のリンクをクリックして、WebUpload を素早く起動して実行する方法についての情報を参照してください。
+
+* link:webupload-overview.html[WebUpload の概要]
+* link:webupload-using-client-side-events.html[クライント側イベントを使用した WebUpload]
+* link:webupload-http-module-and-handler.html[WebUpload HTTP モジュールおよびハンドラー]
+* link:webupload-styling-and-theming.html[WebUpload のスタイリングおよびテーマ化]
+* link:webupload-accessibility-compliance.html[WebUpload_アクセシビリティの遵守]
+* link:webupload-known-issues.html[WebUpload の既知の問題]
+* link:webupload-jquery-and-asp-net-helper-api-links.html[WebUpload jQuery および ASP.NET Helper API のリンク]

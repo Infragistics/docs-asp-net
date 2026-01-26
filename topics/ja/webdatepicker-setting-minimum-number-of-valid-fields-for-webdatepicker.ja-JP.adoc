@@ -1,0 +1,38 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatepicker-setting-minimum-number-of-valid-fields-for-webdatepicker",
+    "controlName": ["WebDatePicker"],
+    "tags": ["How Do I","Tips and Tricks"],
+    "guid": "{53A0548E-DCF9-468E-B007-A3605C9DAD53}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDatePicker の有効なフィールドの最小数を設定
+
+WebDatePicker™ によって入力された日付を有効なものにするために日付文字列の最小フィールド数を設定できます。これはエンドユーザーが月と年のみを入力することを可能にするように WebDatePicker を構成でき、この日付が有効となることを意味します。この機能は、コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webdatetimeeditor~minimumnumberofvalidfields.html[MinimumNumberOfValidFields]"]  プロパティを 0 から 7 の値に設定することだけで実行できます。このプロパティが 0 に設定されると、すべてのフィールドが任意の編集モード書式で検証されます。日付フィールドは、日付書式のパターンに表示されたとおり、左から右へカウントされます。
+
+
+*注：* 必要なフィールド以外の欠落フィールドがある場合、WebDatePicker は欠落した時間、分、秒、ミリ秒フィールドを 0 で置き換え、欠落した年、月、日フィールドは今日の日付で置き換えます。また検証時にも、曜日と AM/PM フィールドはスキップされます。
+
+
+Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、MinimumNumberOfValidFields プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+WebDatePicker1.MinimumNumberOfValidFields = 4
+----
+
+*C# の場合：*
+
+----
+WebDatePicker1.MinimumNumberOfValidFields = 4;
+----
+
+
+*注：* デフォルトで、MinimumNumberOfValidFields プロパティは 3 に設定され、これは日付を有効にするためにエンドユーザーは年、月、日付フィールドを入力する必要があることを示します。

@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webvideoplayer",
+    "controlName": ["WebVideoPlayer"],
+    "tags": ["Getting Started"],
+    "guid": "53e8ff6a-3eff-473d-a791-2dbc2a556a3b",  
+    "buildFlags": [],
+    "createdOn": "2011-04-01T19:28:42.6795353Z"
+}
+|metadata|
+////
+
+= WebVideoPlayer
+
+以下のリンクをクリックして、WebVideoPlayer を素早く起動して実行する方法についての情報を参照してください。
+
+* link:webvideoplayer-overview.html[WebVideoPlayer の概要]
+* link:webvideoplayer-jquery-and-asp-net-helper-api-links.html[WebVideoPlayer jQuery および ASP.NET Helper API リンク]
+* link:webvideoplayer-accessibility-compliance.html[WebVideoPlayer アクセシビリティの遵守]
+* link:webvideoplayer-known-issues.html[WebVideoPlayer の既知の問題]
+* link:webvideoplayer-working-with-html5-video.html[WebVideoPlayer の HTML5 ビデオとの動作]
+* link:webvideoplayer-styling-and-theming.html[WebVideoPlayer のスタイリングとテーマ化]

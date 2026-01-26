@@ -1,0 +1,54 @@
+﻿////
+|metadata|
+{
+    "name": "webschedule-change-the-style-of-the-active-days-header",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling","Styling"],
+    "guid": "{B87DF25D-A70F-4388-A3A9-AB8F036708B6}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アクティブな日のスタイルを変更
+
+ヘッダをより目立つようにするために、 pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.shared.smartdate~utcnow.html[ActiveDayUtc]"] のヘッダを変更しなければならない場合があります。 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.dayorientedscheduleview~activedayheaderstyle.html[ActiveDayHeaderStyle]"] は、WebMonthView で ActiveDay のヘッダ領域のスタイルを制御します。 
+
+ActiveDayHeaderStyle オブジェクトは、ほとんどの {ProductName} コントロールに定義されている同じ pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.shared.style.html[Style]"]  クラスを使用します。 
+
+以下のコードは、3 つのビューの ActiveDayHeaderStyle BackColor を赤に変更して、 pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.shared.smartdate~utcnow.html[ActiveDayUtc]"] を 2005年10月11日に設定します。
+
+image::images/WebSchedule_How_to_Change_the_ActiveDays_Header_Style_01.png[] 
+
+image::images/WebSchedule_How_to_Change_the_ActiveDays_Header_Style_02.png[]
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.WebUI.Shared
+...
+Private Sub Page_Load(ByVal sender As System.Object, ByVal e _
+  As System.EventArgs) Handles MyBase.Load
+        Me.WebMonthView1.ActiveDayHeaderStyle.BackColor = Color.Magenta
+        Me.WebScheduleInfo1.ActiveDay = _
+          Me.WebScheduleInfo1.ConvertTimeZoneTimeToUtc(New SmartDate(2005, 10, 24))
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.WebUI.Shared;
+...
+private void Page_Load(object sender, System.EventArgs e)
+{
+        this.WebMonthView1.ActiveDayHeaderStyle.BackColor = Color.Magenta;
+        this.WebScheduleInfo1.ActiveDay = 
+          this.WebScheduleInfo1.ConvertTimeZoneTimeToUtc(new SmartDate(2005, 10, 24));
+}
+----
+
+== 関連トピック
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[WebSchedule 名前空間]"]

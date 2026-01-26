@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "webresizingextender-understanding-webresizingextender",
+    "controlName": ["WebResizingExtender"],
+    "tags": [],
+    "guid": "{15788B3B-EC41-462C-9230-9BE8F234C8FB}",  
+    "buildFlags": [],
+    "createdOn": "2006-08-12T14:11:38Z"
+}
+|metadata|
+////
+
+= WebResizingExtender の理解
+
+WebResizingExtender コントロール、およびその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WebResizingExtender コントロールを使用することの利点を理解できます。
+
+WebResizingExtender コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:webresizingextender-about-webresizingextender.html[WebResizingExtender について]
+* link:webresizingextender-aspnet-ajax-extenders.html[ASP.NET AJAX エクステンダ]

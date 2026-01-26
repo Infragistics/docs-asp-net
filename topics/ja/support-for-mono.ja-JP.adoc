@@ -1,0 +1,47 @@
+﻿////
+
+|metadata|
+{
+    "name": "support-for-mono",
+    "controlName": [],
+    "tags": ["API"],
+    "guid": "85afeae0-fb50-4bba-a966-d4dd1ccec25e",  
+    "buildFlags": [],
+    "createdOn": "2010-06-01T06:28:23.1433206Z"
+}
+|metadata|
+////
+
+= Mono のサポート
+
+{ProductName} コントロールの Mono ベースの ASP.NET アプリケーションへの統合をサポートしています。Mono で作業を開始する詳細は、 link:http://www.mono-project.com/Start[「Start」]を参照してください。
+
+Mono をサポートする方法については以下の表を参照してください。
+
+[options="header", cols="a,a"]
+|====
+|環境|サポートされるバージョン
+
+|Mono
+|Mono バージョン 2.6.3.0 以降
+
+|{ProductName}
+|{ProductName} v10.1 CLR 3.5 以降
+
+|ブラウザー
+|現在サポートしている全ブラウザー
+
+|プラットフォーム
+|Mono がサポートする全プラットフォームについては、 link:http://www.mono-project.com/Supported_Platforms[「サポートされるプラットフォーム」]を参照してください。
+
+|====
+
+== 既知の問題
+
+Linux で実行する時、ファイルの大文字小文字の識別がアプリケーションに障害を発生させる場合があります。たとえば、ig_datagrid.css としてページの先頭部分で ig_dataGrid.css が参照されますが、これは Windows ベースの Web サーバーでは動作しますが、Linux ボックスでは障害が発生します。回避策のひとつは、小文字でファイル名を変更することです。
+
+== 関連トピック
+
+link:http://www.go-mono.com/mono-downloads/download.html[Mono のダウンロード]
+
+link:http://www.mono-project.com/ASP.NET[Mono と ASP.NET]

@@ -1,0 +1,176 @@
+﻿////
+
+|metadata|
+{
+    "name": "webexcelexporter-exporting-custom-summary",
+    "controlName": ["WebExcelExporter"],
+    "tags": ["Exporting","Grids","Summaries"],
+    "guid": "359d53ed-9355-4767-ab8f-da25bba89960",  
+    "buildFlags": [],
+    "createdOn": "2010-10-06T08:01:03.13388Z"
+}
+|metadata|
+////
+
+= カスタム集計をエクスポートする
+
+== 達成すること
+
+Excel™ ファイル形式で WebDataGrid/WebHierarchicalDataGrid カスタム集計式をエクスポートする方法を学習します。
+
+== 始める前に
+
+ここに示すサンプルをコンパイルおよび実行するためには、NetAdvatage for ASP.NET v. 10.2 をインストールする必要があります。SQL サーバー（Express またはその他任意のエディション）の実行中のインスタンスも必要となりますが、SQL サーバーのインスタンスに NorthWind データベースを添付することも必要となります。 link:http://msdn.microsoft.com/ja-jp/library/8b6y4c7s.aspx[http://msdn.microsoft.com/ja-jp/library/8b6y4c7s.aspx] の指示に従い、NorthWind データベースをインストールする、または link:http://www.microsoft.com/downloads/details.aspx?familyid=06616212-0356-46a0-8da2-eebc53a68034&displaylang=en[http://www.microsoft.com/downloads/details.aspx?familyid=06616212-0356-46a0-8da2-eebc53a68034&displaylang=en] (英語) から直接データベースをダウンロードできます。
+
+== 次の手順を実行します
+
+[start=1]
+. WebDataGrid を Products テーブルにバインドして Web ページ（ASP.NET Web フォーム）を作成します。 link:webdatagrid-adding-custom-summary.html[カスタム集計を追加します。]
+
+*HTML の場合:*
+
+----
+    <ig:WebDataGrid runat="server" ID="wdgProducts"   DataSourceID="SqlDsProducts" DataKeyFields="ProductID"
+        AutoGenerateColumns="  OnCalculateCustomSummary="WebDataGrid1_CalculateCustomSummary">
+        <Columns>
+            <ig:BoundDataField DataFieldName="ProductID"          DataType="System.Int32" Key="ProductID">
+            </ig:BoundDataField>
+            <ig:BoundDataField DataFieldName="ProductName"                DataType="System.String" Key="ProductName">
+            </ig:BoundDataField>
+            <ig:BoundDataField DataFieldName="UnitPrice"          DataType="System.Decimal" Key="UnitPrice">
+            </ig:BoundDataField>
+            <ig:BoundDataField DataFieldName="UnitsInStock"               DataType="System.Int32" Key="UnitsInStock">
+            </ig:BoundDataField>
+            <ig:BoundDataField DataFieldName="UnitsOnOrder"               DataType="System.Int32" Key="UnitsOnOrder">
+            </ig:BoundDataField>
+        </Columns>
+        <Behaviors>
+            <ig:SummaryRow>
+                <ColumnSummaries>
+                    <ig:ColumnSummaryInfo ColumnKey="UnitPrice">
+                        <Summaries>
+                            <ig:Summary CustomSummaryName="STDEV"                                 SummaryType="Custom" />
+                            <ig:Summary SummaryType="Average" />
+                        </Summaries>
+                    </ig:ColumnSummaryInfo>
+                </ColumnSummaries>
+                <ColumnSettings>
+                    <ig:SummaryRowSetting ColumnKey="UnitPrice">
+                        <SummarySettings>
+                            <ig:SummarySetting CustomSummaryName="STDEV"                                          SummaryType="Custom" />
+                        </SummarySettings>
+                    </ig:SummaryRowSetting>
+                </ColumnSettings>
+            </ig:SummaryRow>
+        </Behaviors>
+    </ig:WebDataGrid>
+    <asp:SqlDataSource ID="SqlDsProducts" runat="server"   ConnectionString="<%$ ConnectionStrings:SamplesDB %>"
+        SelectCommand="SELECT  [ProductID], [ProductName], [UnitPrice], [UnitsInStock], [UnitsOnOrder] FROM [Products]">
+    </asp:SqlDataSource>
+----
+
+*C# の場合：*
+
+----
+protected object WdgProducts_CalculateCustomSummary(object sender, CustomSummaryEventArgs e)
+ {
+     if (e.Summary.CustomSummaryName == "STDEV")
+     {
+         double sum = 0.0;
+         int n = 0;
+         foreach (GridRecord gr in this.WebDataGrid1.Rows)
+         {
+             sum += Convert.ToDouble(gr.Items[2].Value);
+             ++n;
+         }
+         double mean = sum / n;
+         sum = 0;
+         foreach (GridRecord gr in this.WebDataGrid1.Rows)
+         {
+             sum += Math.Pow(mean - Convert.ToDouble(gr.Items[2].Value), 2);
+         }
+         sum = sum / (n - 1);
+         return Math.Round(Math.Sqrt(sum), 2);
+     }
+     return null;
+ }
+----
+
+[start=2]
+. WebExcelExporter コントロールを Visual Studio Toolbox からページにドラッグします。
+
+.. WebExcelExporter の ExportMode プロパティを Download に設定します。
+.. コントロールの ID プロパティを WebExcelExporter に設定します。
+.. コントロールの DownloadName プロパティを "ExportedData" に設定します。
+.. OnGridFieldCaptionExported イベント ハンドラーを追加します。
+
+イベント ハンドラーで、カスタムの集計式を追加する必要があります。この例は、標準偏差式を使用します。これは Excel で使用できます。数式が実行されるセル アドレスを追加する必要があります。
+
+[cols="a"]
+|====
+|コード ビハインド（C#）の場合:
+
+|protected WebExcelExporter1_GridRecordExporting(object sender, GridFieldCaptionExportedEventArgs e) 
+
+{ 
+
+if (e.IsSummaryCell && e.Summary != null) 
+
+{ 
+
+if (e.Summary.CustomSummaryName == "STDEV") 
+
+{ 
+
+string formula = "=\"STDEV = \" & STDEV(C2:C78)"; 
+
+e.WorksheetCell.ApplyFormula(formula); 
+
+} 
+
+} 
+
+}
+
+|====
+
+*HTML の場合:*
+
+----
+<ig:WebExcelExporter  runat="server" ID="WebExcelExporter" ExportMode ="Download" DownloadName="ExportedData" OnGridFieldCaptionExported="WebExcelExporter_GridRecordExporting" />
+----
+
+[start=3]
+. Button コントロールを Visual Studio Toolbox からページにドラッグします。
+
+.. ボタンの ID プロパティを btnExport に設定します。
+.. コントロールの Text プロパティを「データのエクスポート」に設定します。
+.. コントロールの OnClick を "btnExport_Click" に設定します。
+.. コード ビハインドで "btnExport_Click" ハンドラーを定義し、WebDocumentExporter Export() メソッド オーバーロードのひとつを呼び出します。
+
+[cols="a"]
+|====
+|コード ビハインド（C#）の場合:
+
+|protected void btnExport_Click(object sender, EventArgs e) 
+
+{ 
+
+this.WebExcelExporter.Export(this.wdgProducts); 
+
+}
+
+|====
+
+*HTML の場合:*
+
+----
+<asp:Button runat="server" ID="btnExport" Text="データのエクスポート" OnClick="btnExport_Click" />
+----
+
+[start=4]
+. アプリケーションを実行します。
+[start=5]
+. [データのエクスポート] ボタンをクリックします。
+
+[データのエクスポート] ボタンをクリックした後、ブラウザーで "ExportedData.xls" という名前のファイルを開くのかそれとも保存するのかを尋ねられます。

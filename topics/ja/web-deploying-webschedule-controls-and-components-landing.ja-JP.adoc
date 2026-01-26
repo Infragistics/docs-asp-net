@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-deploying-webschedule-controls-and-components-landing",
+    "controlName": ["WebSchedule"],
+    "tags": [],
+    "guid": "{153BA6CE-D2F0-4EE6-A748-CB03CEF27542}",  
+    "buildFlags": [],
+    "createdOn": "2006-04-06T00:00:00Z"
+}
+|metadata|
+////
+
+= WebSchedule コントロールとコンポーネントの導入
+
+以下のリンクをクリックして、WebSchedule コントロールとコンポーネントを含むアプリケーションの配備に関する情報を参照してください。
+
+* link:webschedule-deploying-to-microsoft-sql-server.html[Microsoft SQL サーバーへの配備]
+* link:web-webschedule-including-webschedule-dialog-forms-in-your-cs-web-site.html[Microsoft SQL サーバーへの配備]
+* link:web-webschedule-including-webschedule-dialog-forms-in-your-vb-net-web-site.html[Microsoft SQL サーバーへの配備]
+* link:webschedule-sql-authentication-in-microsoft-sql-server.html[Microsoft SQL サーバーの SQL 認証]
+* link:webschedule-windows-authentication-in-microsoft-sql-server.html[Microsoft SQL サーバーの Windows 認証]

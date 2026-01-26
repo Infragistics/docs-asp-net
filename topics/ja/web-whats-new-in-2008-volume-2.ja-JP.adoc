@@ -1,0 +1,100 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-whats-new-in-2008-volume-2",
+    "controlName": [],
+    "tags": ["FAQ","Getting Started"],
+    "guid": "{F4BB41F0-C82B-488B-9904-544E0D6668B7}",  
+    "buildFlags": [],
+    "createdOn": "2008-01-05T15:05:48Z"
+}
+|metadata|
+////
+
+= 2008 Volume 2 の新機能
+
+{ProductName} 2008 Volume 2 リリースには、ASP.NET コントロールとコンポーネントの機能をこれまで以上に活用するための、いくつかの強力な新しい特性と機能が追加されています。
+
+== WebChart 2008.2
+
+== 追加された新しい Treemap チャート
+
+新しいツリーマップ チャートを WebChart™ コンポーネントに追加しました。
+
+ツリーマップ チャートを使用して、四角形の領域に大きい階層データ セットを表示することができます。ツリーマップ チャートは多くのディレクトリ レベルに数千のファイルが格納されているハードドライブのコンテンツを視覚化するために通常使用されます。
+
+image::images/Chart_About_Treemap_Chart_01.png[Chart_About_Treemap_Chart_01]
+
+== 関連トピック
+
+link:chart-treemap-chart-2d.html[ツリーマップ チャート]
+
+== スクロールバー拡張
+
+スクロール バーをドラッグしてチャート全体を移動することが可能になりました。
+
+image::images/Chart_Scroll_Bar_Enhancement_01.png[]
+
+== 関連トピック
+
+link:chart-scrolling-and-scaling-charts.html[チャートのスクロールとスケール]
+
+== 新しい WebHierarchicalDataSource コンポーネント
+
+WebHierarchicalDataSource™ コンポーネントによってさまざまなタイプの標準的な Microsoft® データ ソースを簡単に編集、追加および操作することができます。この新しいコンポーネントを使用すると、2 つの異なるデータソースコントロール間の関係を追加して、データバインドされたコントロールに階層として表示することができます。表示したいデータをデザインする時にデータソースを追加する、またはすでにアプリケーション内にある既存のデータソースを使用することができます。データソースを一緒にリンクすることは簡単かつ柔軟です。WebHierarchicalDataSource をアプリケーションへの強力な追加機能とします。
+
+アプリケーションに 2 つの既存のデータ ソースがあると想定します。WebHierarchicalDataSource のクイック デザイナを数回クリックすることで、データを結合して単一のデータ ソースとして表示できます。データを手動で結合するために固有のロジックを作成する必要はありません。
+
+WebHierarchicalDataSource の機能の一部としては以下が挙げられます:
+
+* *複数のデータ ソース* – 複数のデータ ソースをコンポーネントに追加してそれらの間にデータ関係を作成します。
+* *単一の親対単一の子の関係*
+* *単一の親対複数の子の関係*
+* *複合キーの関係*
+* *自己関係的な関係*
+* *シンプルなインタフェース* – WebHierarchicalDataSource の機能はすべてデザイナを通して使用できます。これによりデータ ソースに素早く変更を行うことができます。
+* *標準的なサポート* – WebHierarchicalDataSource は Microsoft® データ ソース コントロールを使用することができ、階層的なデータ ソースをサポートするデータ バインドされたコントロールによってサポートされます。
+
+== 関連トピック
+
+link:web-webhierarchicaldatasource.html[WebHierarchicalDataSource]
+
+link:webhierarchicaldatasource-about-webhierarchicaldatasource.html[WebHierarchicalDataSource について]
+
+link:webhierarchicaldatasource-using-webhierarchicaldatasource.html[WebHierarchicalDataSource の使用]
+
+link:webhierarchicaldatasource-api-overview.html[API の概要]
+
+== 新しい WebSlider コントロール
+
+WebSlider™ コントロールによってエンド ユーザーはアプリケーションの値を素早く簡単に変更できます。このコントロールはひとつまたは 2 つの値、または値の範囲を変更できます。WebSlider は 2 つのボタン、ひとつのトラックそしていくつかのつまみで構成され、これらすべてを使用して値を変更することができます。コントロールの簡単に使用できるデザインによって、動的なデータ操作をシンプルかつ洗練されたものにします。
+
+WebSlider コントロールは {ProductName} AJAX Framework を使用します。これは Application Styling Framework™ (ASF) にシームレスに統合します。業界標準の CSS ベースのプロパティを使用すると、WebSlider の外観を手動でスタイルして既存のスタイルシートを活用できます。
+
+WebSlider の機能には以下が含まれます。
+
+* *スライドの移動* – WebSlider のつまみをつかんで端から端に移動して値を増減します。
+* *データ操作* – WebSlider コントロールは、その値に基づいてその他のコントロール/コンポーネントの値を変更する（およびその逆）ために使用できるイベントとプロパティを公開します。　
+* *カスタマイズ* – CSS を使用すると、WebSlider を構成するコンポーネントのいくつかをスタイルできます。動作の特定のプロパティを設定することにより WebSlider をカスタマイズすることもできます。これにより、ひとつの WebSlider コントロールが次のコントロールの外観および動作と完全に異なるようにすることができます。
+* *キーボードのサポート* – 組み込みキーボードのサポートで WebSlider の値を変更します。
+
+image::images/Web_New_WebSlider_Control.png[]
+
+== 関連トピック
+
+link:web-webslider.html[WebSlider]
+
+link:webslider-about-webslider.html[WebSlider について]
+
+link:webslider-using-webslider.html[WebSlider の使用]
+
+link:webslider-api-overview.html[API の概要]
+
+== WebGrid はカスタム ComboBox 値をサポート
+
+これまで、WebGrid™ コントロールに WebCombo™ を埋め込むと、エンド ユーザーは WebCombo のドロップダウン リストに含まれていない値を入力できませんでした。ところが、{ProductName} 2008 Volume 2 では、エンド ユーザーは埋め込み WebCombo コントロールでセルに値を入力してその値を保持することができるようになりました。
+
+== WebSchedule コントロールは Safari ブラウザをサポート
+
+{ProductName} 2008 Volume 2 から開始しましたが、WebSchedule™ コントロールは Apple® Safari™ Web ブラウザをサポートします。Safari でこれまで使用できなかったこれらのコントロールのリッチな機能が今回ブラウザに実装されました。

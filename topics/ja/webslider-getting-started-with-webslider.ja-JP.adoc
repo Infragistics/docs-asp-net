@@ -1,0 +1,80 @@
+﻿////
+
+|metadata|
+{
+    "name": "webslider-getting-started-with-webslider",
+    "controlName": ["WebSlider"],
+    "tags": ["Editing","Getting Started","Selection"],
+    "guid": "{4D2A8076-D7D6-4A1A-B2EF-38733D2CBE0A}",  
+    "buildFlags": [],
+    "createdOn": "2008-12-05T11:03:43Z"
+}
+|metadata|
+////
+
+= WebSlider で開始
+
+== 始める前に
+
+WebSlider™ コントロールによって簡単でユーザー フレンドリなデータ操作が可能となります。
+
+== 達成すること
+
+テキストボックスの値を変更するように WebSlider を設定する方法を学習します。基本的に、WebSlider は TextBox 内の値のエディタとして使用されます。
+
+[start=1]
+. 新しい ASP.NET AJAX 対応の Web サイトを作成します。
+[start=2]
+. ASP.NET Ajax ScriptManager インスタンスを WebForm にドラッグします。
+[start=3]
+. WebSlider コントロールを Microsoft® Visual Studio® ツールボックスから WebForm にドラッグします。
+[start=4]
+. プロンプトを認めてデフォルトの AppStylist スタイルを追加します。
+[start=5]
+. ASP.NET TextBox コントロールを Visual Studio ツールボックスから WebForm にドラッグします。
+[start=6]
+. TextBox コントロールの Text プロパティを 50 に設定します。
+[start=7]
+. WebForm をダブルクリックして、ページのロード イベントのためのイベント ハンドラを追加します。
+[start=8]
+. ロード イベントで、以下のコードを追加して WebSlider コントロールの編集可能な範囲と開始値を設定します。
+
+*Visual Basic の場合：*
+
+----
+' 編集可能な範囲を設定します。 
+Me.WebSlider1.MaxValue = 100 
+Me.WebSlider1.MinValue = 0 
+' 開始の TextBox 値として WebSlider の開始値を設定します。 
+Me.WebSlider1.Value = Int32.Parse(Me.TextBox1.Text)
+----
+
+*C# の場合：*
+
+----
+// 編集可能な範囲を設定します。        
+this.WebSlider1.MaxValue = 100;
+this.WebSlider1.MinValue = 0;
+// 開始の TextBox 値として WebSlider の開始値を設定します。
+this.WebSlider1.Value = Int32.Parse(this.TextBox1.Text);
+----
+
+[start=9]
+. WebSlider の ValueChanged イベントのイベント ハンドラを作成して、テキスト ボックスの値を変更します。
+
+*JavaScript の場合*
+
+----
+function WebSlider1_ValueChanged(sender, e)
+{
+    var textBox = document.getElementById("TextBox1");
+    textBox.value = e.get_newValue();
+}
+----
+
+[start=10]
+. イベント ハンドラを WebSlider のクライアント側イベントに必ずフックします。WebSlider のプロパティ ウィンドウで  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.sliderclientevents.html[ClientEvents]"]  の下にある  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.sliderclientevents~valuechanged.html[ValueChanged]"]  フィールドの値として JavaScript 関数の名前を入力することによって、これを実行できます。
+[start=11]
+. アプリケーションを実行します。WebSlider コントロールを使用して、テキスト ボックスの値を変更できます。
+
+image::images/WebSlider_Getting_Started_with_WebSlider_01.png[]

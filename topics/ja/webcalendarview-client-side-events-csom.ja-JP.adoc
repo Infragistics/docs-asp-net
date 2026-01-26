@@ -1,0 +1,111 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcalendarview-client-side-events-csom",
+    "controlName": [],
+    "tags": ["API","How Do I"],
+    "guid": "{DDB0D671-EA5D-416C-AD43-DA279CA18182}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebCalendarView クライアント側イベント
+
+== Client Events
+
+=== Client Events メソッド
+
+[cols="a,a"]
+|====
+|*Click* 
+|このイベントは CalendarView の要素がクリックされると起動します。 
+
+*パラメータ*
+
+_oCalendarView_ 
+
+WebCalendarView クライアント側オブジェクト。 _oEvent_ 
+
+イベントのキャンセル、ポストバックのキャンセルまたは要求を実行するイベント オブジェクト。 _element_ 
+
+クリックしたものに対応する html 要素。
+
+|*DblClick* 
+|このイベントは CalendarView の要素がダブルクリックされると起動します。 
+
+*パラメータ*
+
+_oCalendarView_ 
+
+WebCalendarView クライアント側オブジェクト。 _oEvent_ 
+
+イベントのキャンセル、ポストバックのキャンセルまたは要求を実行するイベント オブジェクト。 _element_ 
+
+ダブルクリックしたものに対応する html 要素。
+
+|*Initialize* 
+|このイベントは CalendarView が初期化されると起動します。 
+
+*パラメータ*
+
+_oCalendarView_ 
+
+WebCalendarView クライアント側オブジェクト。
+
+|*MouseDown* 
+|このイベントは CalendarView の要素にマウスダウンをすると起動されます。 
+
+*パラメータ*
+
+_oCalendarView_ 
+
+WebCalendarView クライアント側オブジェクト。 _oEvent_ 
+
+イベントのキャンセル、ポストバックのキャンセルまたは要求を実行するイベント オブジェクト。 _element_ 
+
+マウス ボタンを押した場所に対応する html 要素。
+
+|*MouseUp* 
+|このイベントは DayView の要素にマウスアップをすると起動されます。 
+
+*パラメータ*
+
+_oCalendarView_ 
+
+WebCalendarView クライアント側オブジェクト。 _oEvent_ 
+
+イベントのキャンセル、ポストバックのキャンセルまたは要求を実行するイベント オブジェクト。 _element_ 
+
+マウス ボタンを放した場所に対応する html 要素。
+
+|*Navigate* 
+|[次にナビゲート] ボタンまたは [前にナビゲート] ボタンを押すと、このイベントが発生します。 
+
+*パラメータ*
+
+_oCalendarView_ 
+
+WebCalendarView クライアント側オブジェクト。 _oEvent_ 
+
+イベントのキャンセル、ポストバックのキャンセルまたは要求を実行するイベント オブジェクト。 _date_ 
+
+ナビゲート先の月の最初の日。
+
+|*RenderDay* 
+|このイベントは日付が描出される前に発生します。テキストと CSS クラスは、oDay パラメータのメンバ変数を使用して変更できます。描出の任意の項目は、日付を表す HTML 要素を使用して明示的に変更できます。日付を描出するデフォルト ロジックはキャンセルできます。 
+
+*パラメータ*
+
+_oCalendarView_ 
+
+WebCalendarView クライアント側オブジェクト。 _oEvent_ 
+
+イベントのキャンセル、ポストバックのキャンセルまたは要求を実行するイベント オブジェクト。 _oDay_ 
+
+描画される日を表す oDayオブジェクト。
+
+|====
+

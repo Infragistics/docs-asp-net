@@ -1,0 +1,137 @@
+﻿////
+
+|metadata|
+{
+    "name": "draganddropframework-getting-started-with-drag-and-drop",
+    "controlName": ["WebDragandDropFramework"],
+    "tags": ["Extending","Getting Started","Patterns and Practices"],
+    "guid": "{676CC529-3E69-4CE5-9955-58D5732C79AF}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ドラッグ アンド ドロップで開始
+
+== 始める前に
+
+ドラッグ アンド ドロップ フレームワーク を使用して、ある場所から別の場所に要素を移動するなど、基本的なドラッグアンドドラッグ機能を追加することは非常にシンプルです。要素でドラッグアンドドロップを有効にするプロセスは、ソース要素、ターゲット要素、ドロップモードおよびアクションの設定という主要なステップを伴います。ソース要素をターゲット要素にドラッグ アンド ドロップすることが許可されます。ドラッグ アンド ドロップモードはドラッグアンド ドロップの結果を決定します。
+
+== 達成すること
+
+画像でドラッグ アンド ドロップを有効にする方法を学習します。これによりエンドユーザーは画像を Div にドラッグ アンド ドロップすることが可能となります。
+
+== 次の手順を実行します
+
+[start=1]
+. AJAX 対応の ASP.NET Web サイトを作成します。
+[start=2]
+. Infragistics4.Web.v{ProductVersion} アセンブリを参照します。
+[start=3]
+. 必要なスクリプト参照をページに追加します。
+
+*HTML の場合:*
+
+----
+<asp:ScriptManager ID="ScriptManager1" runat="server">
+    <Scripts>
+        <asp:ScriptReference Assembly="Infragistics4.Web.v{ProductVersion}, Version={ProductVersion}.{ProductVersionFull}.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" Name="Infragistics.Web.UI.SharedScripts.igDragDrop.js" />
+        <asp:ScriptReference Assembly="Infragistics4.Web.v{ProductVersion}, Version={ProductVersion}.{ProductVersionFull}.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" Name="Infragistics.Web.UI.Scripts.5_igObjects.js" />
+        <asp:ScriptReference Assembly="Infragistics4.Web.v{ProductVersion}, Version={ProductVersion}.{ProductVersionFull}.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" Name="Infragistics.Web.UI.SharedScripts.igAnimation.js" />
+    </Scripts>
+</asp:ScriptManager>
+----
+
+
+*注：* 
+製品によって上記のコードでバージョン番号を修正します。
+
+
+[start=4]
+. 画像のレイアウトのための以下のマークアップと Div を追加します。
+
+*HTML の場合:*
+
+----
+<div id="imageList" style="height: 70px; width: 600px; top: 65px; position: relative; text-align: center;">
+    <img src="Pictures/8ball.bmp" id="8-ball" />
+    <img src="Pictures/bell.bmp" id="Bell" />
+    <img src="Pictures/CD.bmp" id="CD" />
+</div>
+<div id="cartAreaDIV" style="position: relative; left: 17px; top: 65px; width: 600px; border: solid 1px black;
+    height: 125px;">
+</div>
+----
+
+[start=5]
+. ScriptManager コンポーネントの下のページの任意の場所にスクリプト ブロックを追加します。
+
+*HTML の場合:*
+
+----
+<script type="text/javascript">
+// TODO:  ドラッグ アンド ドロップを処理するためのコードを追加します。
+</script>
+----
+
+[start=6]
+. ドラッグ アンド ドロップ機能を実装するためにスクリプト ブロックに Javascript を追加します。
+
+.. アプリケーションのロード イベントを処理します。
+
+*JavaScript の場合：*
+
+----
+Sys.Application.add_load(appLoaded);
+function appLoaded() {
+    //TODO: ドラッグ アンド ドロップ機能を設定するためのコードを追加します。
+}
+----
+
+.. ドラッグ アンド ドロップの設定を実装するためにドラッグ アンド ドロップ動作を作成します。
+
+*JavaScript の場合：*
+
+----
+var ddb = new $IG.DragDropBehavior();
+----
+
+.. ドロップ モードを Copy に、ドロップ アクションを Append に設定します。
+
+*JavaScript の場合：*
+
+----
+ddb.set_defaultDropAction($IG.DragDropAction.Append);
+ddb.set_dragDropMode($IG.DragDropEffects.Copy);
+----
+
+.. Div コンテナ内で画像を列挙することによってドラッグ アンド ドロップのソースとして画像を設定します。
+
+*JavaScript の場合：*
+
+----
+var list = $get("imageList");
+var count = list.childNodes.length;
+var child;
+for (var i = 0; i < count; i++) {
+    child = list.childNodes[i];
+    // ドラッグ アンド ドロップのソースとして各 IMG を設定します
+    if (child.getAttribute)
+        ddb.addSourceElement(child);
+    }
+----
+
+.. ターゲット要素を設定します。
+
+*JavaScript の場合：*
+
+----
+// ターゲット要素を Div として設定します
+ddb.addTargetElement($get("cartAreaDIV"), true);
+----
+
+[start=7]
+. アプリケーションを実行します。画像を Div 領域にドラッグ アンド ドロップできます。画像のコピーが作成されて Div 内に配置されます。
+
+image::images/DragandDropFramework_Getting_Started_with_Drag_and_Drop_01.png[]

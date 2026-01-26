@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "websplitter-csom-overview",
+    "controlName": ["WebSplitter"],
+    "tags": ["Events","How Do I"],
+    "guid": "{F468F474-CC75-4549-819B-1BC20EE511D6}",  
+    "buildFlags": [],
+    "createdOn": "2008-12-01T21:10:06Z"
+}
+|metadata|
+////
+
+= CSOM の概要
+
+WebSplitter™ コントロールは、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを提供します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクトで構成され、開発者はサーバー側にポストバックしなくても、分割バーに関連する重要な機能単位をプログラムできます。
+
+link:websplitter~infragistics.web.ui_namespace.html[WebSplitter CSOM の概要]

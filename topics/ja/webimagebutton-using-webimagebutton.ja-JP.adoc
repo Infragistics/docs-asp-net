@@ -1,0 +1,89 @@
+﻿////
+
+|metadata|
+{
+    "name": "webimagebutton-using-webimagebutton",
+    "controlName": ["WebImageButton"],
+    "tags": ["Layouts","Styling"],
+    "guid": "{5167BDEA-3F00-4F84-81FF-B199C4754908}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebImageButton の使用
+
+以下のチュートリアルは、WebImageButton コントロールおよびそのプロパティと動作が開発者に馴染みがるように作成されています。一部の手順は最終結果の転用で、これらの手順は、コントロールの基本設定の調査として意図されています。
+
+[start=1]
+. *WebImageButton を Web フォームに追加し、Text プロパティを設定します。*
+
+pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.webcontrols.buttons.webbuttonbase~text.html[Text]"]  プロパティの設定は必須ではありませんが、ほとんどのボタンは、その機能を示すためのテキストを持ちます。
+
+image::Images/WebImageButton_Tutorial_01.png[]
+
+[start=2]
+. *Appearance.Style および Appearance.InnerBorder プロパティ下の設定で実験します。*
+
+この実験では、ボタンは次のように設定されています。Appearance.Style.BorderStyle = Solid、Appearance.Style.BorderColor = Blue、Appearance.Style.BorderWidth = 5px。そして、Appearance.InnerBorder では、5px Solid Orange border となります。5px Solid Orange 境界を選択しました。結果は次のように描画されます。2 つの境界がある WebImageButton で、内部はオレンジで外部は青です。
+
+image::Images/WebImageButton_Tutorial_02.png[]
+
+背景がシンプルな bgcolor の場合、WebImageButton は Transparent 色もサポートします。デモを行うために、Page bgcolor を Green、WebImageButton.Style.BackColor を Transparent に設定します。この結果はデザイナで確認できますが、プロジェクトをビルドしてページを Web ブラウザで表示する時間がかかります。
+
+image::Images/WebImageButton_Tutorial_03.png[]
+
+他の重要事項は、WebImageButton がこのレベルにカスタマイズされている場合です。 pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.webcontrols.buttons.webbuttonbase~usebrowserdefaults.html[UseBrowserDefaults]"]  プロパティを False に設定し、特定の外観プロパティが明示的に設定されていない場合にクライアント ブラウザがデフォルト スタイル設定に戻らないようにします。
+[start=3]
+. *WebImageButton に PressedAppearance を設定します。*
+
+これは  pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.webcontrols.buttons.webbuttonbase~pressedappearance.html[PressedAppearance]"]  プロパティで行われます。このサンプルでは、PressedAppearance.Style.BackColor は White に設定され、5px Yellow 境界が PressedAppearance.Style で使用されます。このページを実行してボタンをクリックし、ボタンを押した場合に外観がどのように変わるかを観察してください。InnerBorder が変化しないことも確認します。PressedAppearance.InnerBorder の下にプロパティが設定されていないので、Appearance.InnerBorder の下の設定はオーバーライドされません。
+
+image::Images/WebImageButton_Tutorial_04.png[]
+
+WebImageButton の外観が Appearance プロパティの設定でどのように影響されるかを確認し、RoundedCorners を使用して人気のあるボタン スタイルを調べてみます。
+[start=4]
+. *StylePreset プロパティを Mac に設定します。*
+
+image::Images/WebImageButton_Tutorial_05.png[]
+
+すべての境界が、このプロパティの設定直後にどのように消えるかに注意してください。これは、StylePreset プロパティがコントロール全体に変更を適用し、Appearance などのプロパティをリセットしたからです。プロパティ グリッドをスキャンし、プロパティ設定がコントロール全体でどのように変化するかに注意してください。
+
+RoundedCorners を使用している場合、これらの境界は標示されないので、WebImageButton 境界に設定したプロパティがリセットされるかどうかは関係ありません。
+
+どのように機能するかを見ましょう。RoundedImages プロパティの下でプロパティ グリッドを調べ、Mac プリセットで行った設定をメモします。
+
+注意すべき最初の事は、さまざまな画像 URL プロパティの下で設定された画像の URL です。これらの URL はコントロールの ImageDirectory プロパティに相対します。デフォルトでは、これは `/ig_common/images/` で、{ProductName} インストーラを実行すると、これは `C:\inetpub\wwwroot\aspnet_client\infragistics\images` （デフォルト）に割り当てられる仮想ディレクトリとなります。Windows Explorer でこのフォルダを参照し、画像ファイルを開いて、ボタンの外観を生成するために実際に使用されている画像を確認します。
+
+[options="header", cols="a,a,a"]
+|====
+|ImageUrl|HoverImageUrl|PressedImageUrl
+
+|image::Images/WebImageButton_Tutorial_06.png[]
+|image::Images/WebImageButton_Tutorial_07.png[]
+|image::Images/WebImageButton_Tutorial_08.png[]
+
+|`ig_butmac1.gif`
+|`ig_butmac2.gif`
+|`ig_butmac4.gif`
+
+|====
+
+画像はワイドで、このデモと同じように小さいボタンにするために圧縮されていることに注意してください。
+
+このような画像を使用して制限を理解する良い機会です。より小さいボタンにするために圧縮できますが、大きいボタンにするために拡大はできません。このため、RoundedCorners.MaxWidth および RoundedCorners.MaxHeight プロパティはそれぞれ 23 と 300 に固定されています。50 と 500 に値を変更して、コントロールを拡大してみます。この結果は、ソース画像のサイズを超えて画像ベースのボタンを拡大するとマイナスの影響がでることが分かります。
+
+image::Images/WebImageButton_Tutorial_09.png[]
+
+これらの次元の Mac スタイルの ImageButton を作成するには、新規で大きなソース画像を作成する必要があります。
+[start=5]
+. *RoundedCorners.RenderingType を BordersByTableCells に設定する。*
+
+image::Images/WebImageButton_Tutorial_10.png[]
+
+すべての Mac スタイルがどのように消えるかに注意してください。BordersByTableCells からの描画は、ファイル画像の使用を無効にし、ボタンの周囲の丸い形状に 1 ピクセル テーブルのセルを生成することで丸角を作成し、XP スタイルの丸いボタンを作成します。
+
+XP スタイル画像の代わりにこの RenderingType を使用するメリットは、画像が使用されないので、BackColor および Border/InnerBorder などのプロパティをカスタマイズできることです。ただし、丸角境界としてのテーブル セルの性質のため、境界には 1 ピクセル幅の制限があります。
+
+image::Images/WebImageButton_Tutorial_11.png[]

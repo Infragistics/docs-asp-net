@@ -1,0 +1,107 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatagrid-enabling-cell-merging",
+    "controlName": ["WebHierarchicalDataGrid"],
+    "tags": [],
+    "guid": "c795a731-c741-46f8-9bc7-28684bfd40b7",  
+    "buildFlags": [],
+    "createdOn": "2012-04-12T19:49:54.45834Z"
+}
+|metadata|
+////
+
+= セル結合を有効にする
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、コード例を示して、並べ替えおよびグループ化動作に対し、 _WebHierarchicalDataGrid_™ コントロールのセル結合機能を有効にする方法について説明します。セル結合機能自体についての詳細を知る必要がある場合は、「 link:webhierarchicaldatagrid-cell-merging-overview.html[セル結合の概要]」を参照してください。
+
+=== 前提条件
+
+以下の表に、このトピックを理解するための前提条件として求められる素材をリストします。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:webhierarchicaldatagrid-sorting.html[並べ替え]
+|このトピックでは、コード例を示して、 _WebHierarchicalDataGrid_ のユーザーが並べ替えを行うことができるようにする方法について説明します。
+
+| link:webhierarchicaldatagrid-about-outlook-groupby.html[Outlook GroupBy について]
+|このトピックでは、 _WebHierarchicalDataGrid_ の Outlook GroupBy 機能について説明し、コード例を示して、それを有効にする方法を紹介します。
+
+| link:webhierarchicaldatagrid-cell-merging-overview.html[セル結合の概要]
+|このトピックでは、 _WebHierarchicalDataGrid_ のセル結合機能の概要について説明します。
+
+|====
+
+== セル結合を有効にする
+
+=== 概要
+
+デフォルトでは、 link:webhierarchicaldatagrid-cell-merging.html[セルの結合]は無効になっています。有効にするには、並び替え動作を有効にし、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.sorting~enablecellmerging.html[EnableCellMerging] プロパティに  _true_   を設定する必要があります。
+
+子バンドの場合、バンドごとにセル結合を個別に有効にする必要があります。これは、子機能にも当てはまります。すべてのバンドについて結合オプションを個別に指定する必要があります。
+
+=== プロパティ設定
+
+以下の表に、望ましいセル結合の有効化とプロパティのマッピングを示します。
+
+[options="header", cols="a,a,a"]
+|====
+|以下を行うために...|このプロパティの使用:|それを次に設定...
+
+|セル結合の有効化
+| link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.sorting~enablecellmerging.html[EnableCellMerging]
+| _True_ 
+
+|====
+
+=== 説明
+
+以下のコードでは、グリッドの並べ替え動作とグループ化動作に対し、セル結合をサーバー側で有効にする方法を紹介します。
+
+=== コード例: 並べ替え時のセル結合の有効化
+
+*ASPX の場合:*
+
+[source,html]
+----<ig:WebHierarchicalDataGrid ID="WebHierarchicalDataGrid1" runat="server"> 
+        <Behaviors>
+             <ig:Sorting Enabled="true" EnableCellMerging="true">
+              </ig:Sorting>
+       </Behaviors>
+</ig:WebHierarchicalDataGrid>
+----
+
+=== コード例: グループ化時のセル結合の有効化
+
+*ASPX の場合:*
+
+[source,html]
+----<ig:WebHierarchicalDataGrid ID="WebHierarchicalDataGrid1" runat="server">
+            <GroupingSettings EnableColumnGrouping="True" GroupAreaVisibility="Visible" GroupAreaCssClass="GroupArea" EnableCellMerging="true" />
+</ig:WebHierarchicalDataGrid>
+----
+
+== 関連内容
+
+=== サンプル
+
+以下のサンプルでは、このトピックに関連する情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|サンプル|目的
+
+| link:{SamplesURL}/samples/webhierarchicaldatagrid/organization/sortingcellmerging/default.aspx?cn=hierarchical-data-grid&sid=bec77c3a-c432-4f5f-a526-a6e7bb4cc9c2[セルの結合と並べ替え]
+|このサンプルでは、 _WebHierarchicalDataGrid_ の並べ替え時のセル結合機能を紹介します。
+
+| link:{SamplesURL}/samples/webhierarchicaldatagrid/organization/groupbycellmerging/default.aspx?cn=hierarchical-data-grid&sid=79b0908a-792b-419f-ae00-c6d3947b2866[グループ化されたセルの結合]
+|このサンプルでは、 _WebHierarchicalDataGrid_ のグループ化時のセル結合機能を紹介します。
+
+|====

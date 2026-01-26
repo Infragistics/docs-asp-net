@@ -1,0 +1,61 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-add-or-remove-a-column",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Grids"],
+    "guid": "{F383C0CD-CED8-46EC-B848-046694D5F3FC}",  
+    "buildFlags": [],
+    "createdOn": "2008-10-09T14:49:31Z"
+}
+|metadata|
+////
+
+= 列の追加または削除
+
+WebDataGrid™ によってバインドされたデータ フィールドとテンプレート データ フィールドを追加または削除することができます。バインドされたフィールドを追加する時に、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.bounddatafield~datafieldname.html[DataFieldName]"]  を指定して元となるデータソースのそのフィールドからデータを取得する必要があります。テンプレート列を追加する時、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.templatedatafield~itemtemplate.html[ItemTemplate]"] 、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.templatedatafield~alternatingitemtemplate.html[AlternateItemTemplate]"] 、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.templatedatafield~headertemplate.html[HeaderTemplate]"]  または  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.templatedatafield~footertemplate.html[FooterTemplate]"]  を設定してその列の外観を定義することができます。任意のテンプレートを指定しない場合には列は空です。列テンプレートに関する詳細は、 link:webdatagrid-column-templates.html[列テンプレート]を参照してください。
+
+以下のコードはバインドされたデータ フィールドとテンプレート データ フィールドの両方を追加または削除する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+' 列を定義します。 
+Dim boundField1 As New BoundDataField(True) 
+boundField1.Key = "CompanyName1" 
+boundField1.Header.Text = "Company Name1" 
+'データ ソースで CompanyName フィールドにバインドします。 
+boundField1.DataFieldName = "CompanyName" 
+Dim templateField1 As New TemplateDataField(True) 
+templateField1.Key = "TemplateField1" 
+templateField1.Header.Text = "Template Column" 
+' この時点で、テンプレート列のためにテンプレートを設定できます。 
+' 列を追加します。 
+Me.WebDataGrid1.Columns.Add(boundField1) 
+Me.WebDataGrid1.Columns.Add(templateField1) 
+' 列を削除します。 
+Me.WebDataGrid1.Columns.Remove(Me.WebDataGrid1.Columns("CompanyName1")) 
+Me.WebDataGrid1.Columns.Remove(Me.WebDataGrid1.Columns("TemplateField1"))
+----
+
+*C# の場合：*
+
+----
+// 列を定義します。
+BoundDataField boundField1 = new BoundDataField(true);
+boundField1.Key = "CompanyName1";
+boundField1.Header.Text = "Company Name1";
+//データ ソースで CompanyName フィールドにバインドします。
+boundField1.DataFieldName = "CompanyName";
+TemplateDataField templateField1 = new TemplateDataField(true);
+templateField1.Key = "TemplateField1";
+templateField1.Header.Text = "Template Column";
+// この時点で、テンプレート列のためにテンプレートを設定できます。
+// 列を追加します。
+this.WebDataGrid1.Columns.Add(boundField1);
+this.WebDataGrid1.Columns.Add(templateField1);
+// 列を削除します。
+this.WebDataGrid1.Columns.Remove(this.WebDataGrid1.Columns["CompanyName1"]);       
+this.WebDataGrid1.Columns.Remove(this.WebDataGrid1.Columns["TemplateField1"]);
+----

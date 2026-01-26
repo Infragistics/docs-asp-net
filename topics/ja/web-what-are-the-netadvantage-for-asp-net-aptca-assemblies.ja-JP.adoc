@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-what-are-the-netadvantage-for-asp-net-aptca-assemblies",
+    "controlName": [],
+    "tags": ["Application Scenarios","FAQ"],
+    "guid": "{951ECF59-3469-4E35-811A-BF0BE998B27D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= {ProductName} APTCA アセンブリとは
+
+2006 Volume 3 リリースから開始しましたが、{ProductName} 製品には AllowPartiallyTrustedCallersAttribute (APTCA) 属性でマークされ、Partial-trust 環境で実行可能な一連のアセンブリが含まれています。これらの特別にマークされたアセンブリは、{ProductName} インストールの一部として、ZIP アーカイブで圧縮されます。ZIP を解凍するだけで APTCA アセンブリを Web サイトに配備することができます。Web アプリケーションを Partial-trust 環境に配備する予定がない場合には、ZIP を解凍する必要はありません。
+
+APTCA アセンブリは、{ProductName} アセンブリと同一の実行可能コードからビルドされており、NetAdvantge ASP.NET アセンブリと同一のバージョンおよびビルド番号を持っています。
+
+Infragistics は、アプリケーションが Partial-trust でしか認められていない共有ホスティング環境で弊社の ASP.NET コントロール/コンポーネントを積極的に使用している開発コミュニティからのフィードバックに耳を傾けてきました。これまで開発者は、Partial-trust 下で実行できるようにアセンブリをマークするためにソース コードからアセンブリを手動でビルドせざるを得ませんでした。APTCA アセンブリを使用可能にすることによって、共有ホスティングおよび Partial-trust 環境で実行するときに Web アプリケーションの配備を簡略化する支援を行っています。
+
+*注：* {ProductName} インストールの一部として含まれている APTCA アセンブリは、{ProductName} 製品の代替えではありません。{ProductName} リリースは、APTCA パッケージに含まれていないインストーラーとともに、これらのアセンブリのリリース ビルド（APTCA 属性でマークされていない）、コントロール デザイナー、ドキュメント、サンプルをパッケージしています。
+
+Microsoft® Visual Studio® .NET で開発中は、リリース（非APTCA）アセンブリの使用を続行する必要があります。{ProductName} インストーラーはリリース アセンブリを、ご使用の開発マシン上の Global Assembly Cache (GAC) に配置して、Full trust で実行することを保証します。Visual Studio .NET でデザイナーに提供された拡張されたデザイン タイム エクスペリエンスは、現在 Full trust が指定されているかどうか次第です。
+
+Medium trust は、複数ユーザーが共有可能な Web サーバーのリソースをシステム管理者が安全に管理する支援を行うことを目的としてセキュリティ サンドボックスを提供します。ユーザー固有の開発マシンを開発中の場合、Partial-trust で Visual Studio .NET を実行しても同様のメリットはありません。
+
+== 関連トピック
+
+link:web-deploying-an-application-to-a-partial-trust-environment.html[アプリケーションを部分信頼環境に配備]

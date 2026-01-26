@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "webrating-using-webrating",
+    "controlName": ["WebRating"],
+    "tags": ["Getting Started","Selection"],
+    "guid": "1329efa9-fa77-4286-9517-3c41de14c23e",  
+    "buildFlags": [],
+    "createdOn": "2010-06-01T04:45:54.3907535Z"
+}
+|metadata|
+////
+
+= WebRating の使用
+
+このセクションは、WebRating™ コントロールの重要な概念および機能を効果的に使用するためのタスク ベースの情報について説明します。
+
+link:webrating-adding-webrating-items.html[WebRating 項目の追加]
+
+このトピックでは、WebRating のデフォルトのレーティング項目 (星) 以外の項目を追加してカスタマイズする方法を学びます。
+
+link:webrating-editor-provider.html[WebRating エディター プロバイダー]
+
+このトピックでは、WebRating コントロールをエディター プロバイダーとして使用する方法を示します。
+
+link:webrating-styling-webrating.html[WebRating のスタイル設定]
+
+このトピックでは、WebRating の外観

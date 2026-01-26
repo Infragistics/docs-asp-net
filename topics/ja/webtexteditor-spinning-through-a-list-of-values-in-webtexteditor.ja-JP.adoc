@@ -1,0 +1,71 @@
+﻿////
+
+|metadata|
+{
+    "name": "webtexteditor-spinning-through-a-list-of-values-in-webtexteditor",
+    "controlName": ["WebTextEditor"],
+    "tags": ["Editing","How Do I","Styling"],
+    "guid": "{15E38553-81B8-467F-93C8-C7943A094B05}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebTextEditor で値のリストをスピン
+
+WebTextEditor™ は、スピン ボタンを使用して値のリストからスピンするためのオプションを提供します。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~spinbuttonsdisplay.html[SpinButtonsDisplay]"]  プロパティを OnRight または OnLeft のいずれかに設定することによってスピン ボタンを表示できます。デフォルトでこのプロパティは None に設定されます。スピン ボタンには、エンドユーザーが次の値と前の値に移動できるように下側のボタンと上側のボタンの 2 つのボタンがあります。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~lowerspinbutton.html[LowerSpinButton]"]  および  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~upperspinbutton.html[UpperSpinButton]"]  プロパティをそれぞれ設定することによって、上下のボタンをカスタマイズできます。
+
+Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、SpinButtonsDisplay プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+'スピン ボタンを右側に表示します
+WebTextEditor1.Buttons.SpinButtonsDisplay = Infragistics.Web.UI.EditorControls.ButtonDisplay.OnRight
+----
+
+*C# の場合：*
+
+----
+//スピン ボタンを右側に表示します
+WebTextEditor1.Buttons.SpinButtonsDisplay = Infragistics.Web.UI.EditorControls.ButtonDisplay.OnRight;
+----
+
+WebTextEditor によって、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webtexteditor~buttons.html[Buttons]"]  オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~listofvalues.html[ListOfValues]"]  プロパティを使用して、反復したい値のリストを追加できます。Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、ListOfValues プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+WebTextEditor1.Buttons.ListOfValues = "ASP.NET Controls|Windows Forms Controls|WPF Controls|Silverlight"
+----
+
+*C# の場合：*
+
+----
+WebTextEditor1.Buttons.ListOfValues = "ASP.NET Controls|Windows Forms Controls|WPF Controls|Silverlight";
+----
+
+*注：* リストの項目は ListOfValues プロパティを使用する時には "|" 文字によって分割する必要があります。
+
+ただし、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons.html[TextEditorButtons]"]  オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~insertlistvalueatindex.html[InsertListValueAtIndex]"]  メソッドを使用して値をリストに挿入することもできます。
+
+*Visual Basic の場合：*
+
+----
+'特定のインデックスでリストに値を挿入します     
+WebTextEditor1.Buttons.InsertListValueAtIndex(0, "ASP.NET Controls")
+WebTextEditor1.Buttons.InsertListValueAtIndex(1, "Windows Forms Controls")
+WebTextEditor1.Buttons.InsertListValueAtIndex(2, "WPF Controls")
+WebTextEditor1.Buttons.InsertListValueAtIndex(3, "Silverlight")
+----
+
+*C# の場合：*
+
+----
+//特定のインデックスでリストに値を挿入します
+WebTextEditor1.Buttons.InsertListValueAtIndex(0, "ASP.NET Controls");
+WebTextEditor1.Buttons.InsertListValueAtIndex(1, "Windows Forms Controls");
+WebTextEditor1.Buttons.InsertListValueAtIndex(2, "WPF Controls");
+WebTextEditor1.Buttons.InsertListValueAtIndex(3, "Silverlight");
+----

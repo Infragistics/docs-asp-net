@@ -1,0 +1,58 @@
+﻿////
+|metadata|
+{
+    "name": "webschedule-set-the-active-day",
+    "controlName": ["WebSchedule"],
+    "tags": ["Design Environment","How Do I","Scheduling"],
+    "guid": "{3A7A0BEC-5D49-41B1-9BC1-662AABC876F2}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アクティブ日の設定
+
+WebScheduleInfo コントロールの  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~activedayutc.html[ActiveDayUtc]"]  プロパティは、ユーザー インタフェース内の参照ポイントおよびフォーカスとして使用されるひとつの日付を表します。ActiveDayUtc は、その日を強調表示して、ユーザーにより分かりやすくする特定のスタイルを使用して、WebCalendarView および WebMonthView で描画されます。
+
+WebCalendarView および WebMonthView 内で異なる日をクリックすると、ActiveDayUtc プロパティはそれに応じて変更されます。
+
+一方、WebDayView はユーザー インタフェース内で ActiveDayUtc への変更を反映しません。また異なる日の領域をクリックしても、ActiveDayUtc への変更も反映しません。
+
+以下のコードは、アクティブ日が 2005 年 10 月 3 日でロードするように WebSchedule コントロールを設定します。
+
+*注：* 新しい  pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.shared.smartdate.html[SmartDate]"]  を作成し、それに時間を割り当てない場合、WebScheduleInfoの  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~converttimezonetimetoutc.html[ConvertTimeZoneTimeToUtc]"]  メソッドを使用する必要があります。
+
+image::images\WebSchedule_How_to_Set_the_ActiveDay_01.png[]
+
+image::images\WebSchedule_How_to_Set_the_ActiveDay_02.png[]
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.WebUI.Shared
+...
+Private Sub Page_Load(ByVal sender As System.Object, ByVal e _
+ As System.EventArgs) Handles MyBase.Load
+	' アクティブ日にしたい日として新しい SmartDate を作成し、
+	' その新しい日付に WebScheduleInfo の ActiveDay プロパティを割り当てます。
+	Me.WebScheduleInfo1.ActiveDayUtc = New SmartDate(2005, 10, 3, 10, 11, 11)
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.WebUI.Shared;
+...
+private void Page_Load(object sender, System.EventArgs e)
+{
+	// アクティブ日にしたい日として新しい SmartDate を作成し、
+	// その新しい日付に WebScheduleInfo の ActiveDay プロパティを割り当てます。
+	this.WebScheduleInfo1.ActiveDayUtc = new SmartDate(2005,10,3,10,11,11);
+}
+----
+
+== 関連トピック
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[WebSchedule 名前空間]"]

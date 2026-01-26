@@ -1,0 +1,449 @@
+﻿////
+|metadata|
+{
+    "name": "webschedule-overview-of-the-stored-procedures-used-by-the-webschedule-data-providers",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling"],
+    "guid": "{618415CB-7CA0-4712-9FD0-C1E89D5EF7AE}",
+    "buildFlags": [],
+    "createdOn": "2006-02-05T00:00:00Z"
+}
+|metadata|
+////
+
+= WebSchedule データ プロバイダで使用されるストアド プロシージャの概要
+
+以下の表には、WebSchedule™ データ プロバイダーが必要とするストアド プロシージャの名前、説明、パラメーター リスト、および結果セット（適宜）を示します。固有のデータ モデルを WebSchedule に適応させるためには、これらのストアド プロシージャの実装を再定義する必要があります。各ストアド プロシージャの意図する目的、提供するパラメーター、およびストアド プロシージャに返すことを求める結果セットによく注意します。
+
+ここにリストされているすべてのストアド プロシージャの完全な Transact SQL 定義は、"WebSchedule2.sql" データベース スクリプトにあります。このスクリプトは、オペレーティング システムに基づき以下のフォルダに見つかります。
+
+* XP -- {InstallPathXP}\\{PlatformName}\WebSchedule\Data
+* Vista 以後　-- {InstallPathVista}\\{PlatformName}\WebSchedule\Data
+
+*注* :2009.2 以前のバージョンからの WebSchedule2.sql ファイルを使用している場合、スキーマおよびストアド プロシージャを更新する必要があります。SQL データベースの更新についての詳細は、「既存の SQL データおよびストアド プロシージャの更新」を参照してください。
+
+==== *Activity_Add*
+
+名前が指定された Resource に関連付けられたデータベースにアクティビティを挿入します。
+
+*パラメーター* 
+
+* @AllDayEvent (ブール値) 
+* @ActivityDescription (文字列) 
+* @Duration（Int32） 
+* @Location (文字列) 
+* @StartDateTimeUtc (DateTime) 
+* @Subject (文字列) 
+* @EnableReminder (ブール値) 
+* @ReminderInterval (Int32) 
+* @ShowTimeAs (Int32) 
+* @Importance (Int32) 
+* @Status (Int32) 
+* @RecurrenceKey (Int32) 
+* @ResourceName (文字列)
+
+*戻り値*
+
+`[Activity].[ActivityID]`
+
+==== *Activity_Rem*
+
+任意のリソース、繰り返し、バリアンスとの関連付けを含みデータベースからアクティビティを削除します。
+
+*パラメーター*
+
+* @DataKey (Int32)
+
+*戻り値*
+
+なし
+
+==== *Activity_SelByDate*
+
+ひとつのリソースに関連付けられており、アプリケーション定義の日付範囲内で開始するすべてのアクティビティを選択します。このストアド プロシージャはバリアンス行を返しません。Variance_Sel によって返されます。
+
+*パラメーター*
+
+* @StartDateTimeUtc (DateTime) 
+* @EndDateTimeUtc (DateTime) 
+* @OrganizerName (文字列)
+
+*戻り値*
+
+```
+[Activity].[AllDayEvent], 
+[Activity].[Description], 
+[Activity].[Duration], 
+[Activity].[Location], 
+[Activity].[ActivityID], 
+[Activity].[StartDateTimeUtc], 
+[Activity].[Subject], 
+[Activity].[EnableReminder], 
+[Activity].[ReminderInterval], 
+[Activity].[ShowTimeAs], 
+[Activity].[Importance], 
+[Activity].[Status], 
+[Activity].[RecurrenceID], 
+[Activity].[VarianceID], 
+[Activity].[_ts] 
+[ActivityResource].[ResourceID]
+```
+
+==== *Activity_SelAllByDate*
+
+すべてのリソースに対してすべてのアクティビティを選択します。このストアド プロシージャはバリアンス行を返しません。Variance_Sel によって返されます。
+
+*パラメーター*
+
+* @StartDateTimeUtc (DateTime) 
+* @EndDateTimeUtc (DateTime)
+
+*戻り値*
+
+```
+[Activity].[AllDayEvent], 
+
+[Activity].[Description], 
+
+[Activity].[Duration], 
+
+[Activity].[Location], 
+
+[Activity].[ActivityID], 
+
+[Activity].[StartDateTimeUtc], 
+
+[Activity].[Subject], 
+
+[Activity].[EnableReminder], 
+
+[Activity].[ReminderInterval], 
+
+[Activity].[ShowTimeAs], 
+
+[Activity].[Importance], 
+
+[Activity].[Status], 
+
+[Activity].[RecurrenceID], 
+
+[Activity].[VarianceID], 
+
+[Activity].[_ts] 
+
+[ActivityResource].[ResourceID]
+```
+
+==== *Activity_SelTS*
+
+更新をコミットする前にアクティビティでタイムスタンプを選択します。並行処理の競合を検出するために使用されます。
+
+*パラメーター*
+
+* @ActivityID (Int32)
+
+*戻り値*
+
+```
+[Activity].[_ts]
+```
+
+==== *Activity_Upd*
+
+既存のアクティビティを更新します。このストアド プロシージャは、アクティビティのリソース関連性を変更することができないため、バリアンスの更新に適していません。
+
+*パラメーター*
+
+* @AllDayEvent (ブール値) 
+* @ActivityDescription (文字列) 
+* @Duration (Int32) 
+* @Location (String) 
+* @StartDateTimeUtc (DateTime) 
+* @Subject (文字列) 
+* @EnableReminder (ブール値) 
+* @ReminderInterval (Int32) 
+* @ShowTimeAs (Int32) 
+* @Importance (Int32) 
+* @Status (Int32) 
+* @RecurrenceKey (Int32) 
+* @VarianceKey (GUID) 
+* @DataKey (Int32)
+
+*戻り値*
+
+なし
+
+==== *Recurrence_Add*
+
+エンドユーザーが既存のアクティビティを新しい繰り返しシリーズのルート アクティビティにするときに新しい繰り返しを挿入します。
+
+*パラメーター*
+
+* @EndDateUtc (DateTime) 
+* @DayOfWeekMask (Int32) 
+* @DayOfMonth (Int32) 
+* @MonthOfYear (Int32) 
+* @PeriodMultiple (Int32) 
+* @Period (Char) 
+* @EditType (Int32)
+
+*戻り値*
+
+```
+[Recurrence].[RecurrenceID]
+```
+
+==== *Recurrence_Rem*
+
+既存の繰り返しと任意のバリアンスを削除します。これによってオリジナルのルート アクティビティが非繰り返し予定として残されます。
+
+*パラメーター*
+
+* @DataKey (Int32) 
+* @RecurrenceKey (Int32)
+
+*戻り値*
+
+なし
+
+==== *Recurrence_Sel*
+
+指定されたリソースで繰り返しアクティビティの特定の日の範囲に対して適用可能な繰り返しを選択します。
+
+*パラメーター*
+
+* @StartDateTimeUtc (DateTime) 
+* @EndDateTimeUtc (DateTime) 
+* @OrganizerName (文字列)
+
+*戻り値*
+
+```
+[Recurrence].[RecurrenceID], 
+[Recurrence].[EndDateUtc], 
+[Recurrence].[DayOfWeekMask], 
+[Recurrence].[DayOfMonth], 
+[Recurrence].[MonthOfYear], 
+[Recurrence].[PeriodMultiple], 
+[Recurrence].[Period], 
+[Recurrence].[EditType], 
+[Recurrence].[LastReminderDateTimeUtc], 
+[Recurrence].[_ts]
+```
+
+==== *Recurrence_SelTS*
+
+更新をコミットする前に繰り返しでタイムスタンプを選択します。並行処理の競合を検出するために使用されます。
+
+*パラメーター*
+
+* @RecurrenceID (Int32)
+
+*戻り値*
+
+```
+[Recurrence].[_ts]
+```
+
+==== *Reminder_Sel*
+
+アラーム通知がアプリケーション定義の時間フレーム内で保留しているリソースに属しているアクティビティを選択します。
+
+*パラメーター*
+
+* @LookAheadWindowEndTime (DateTime) 
+* @ResourceID (Int32)
+
+*戻り値*
+
+```
+[Activity].[AllDayEvent], 
+[Activity].[Description], 
+[Activity].[Duration], 
+[Activity].[Location], 
+[Activity].[ActivityID], 
+[Activity].[StartDateTimeUtc], 
+[Activity].[Subject], 
+[Activity].[EnableReminder], 
+[Activity].[ReminderInterval], 
+[Activity].[ShowTimeAs], 
+[Activity].[Importance], 
+[Activity].[Status], 
+[Activity].[_ts]
+```
+
+==== *Reminder_Upd*
+
+アラーム通知が解除されたときに非繰り返しアクティビティを期限切れの状態に更新します。
+
+*パラメーター*
+
+* @Status (Int32) 
+* @ActivityID (Int32)
+
+*戻り値*
+
+なし
+
+==== *Reminder_UpdByRecurrence*
+
+アラームを受け取る繰り返しアクティビティの最後の発生の日時を更新します。
+
+*パラメーター*
+
+* @LastReminderDateTimeUtc (DateTime) 
+* @RecurrenceID (Int32)
+
+*戻り値*
+
+なし
+
+==== *Resource_Add*
+
+新しいリソースとその ResourcePreference を挿入します。このストアド プロシージャは、WebSchedule データ プロバイダーの管理 API によってのみ起動します。
+
+*パラメーター*
+
+* @ResourceName (文字列) 
+* @ResourceDesc (文字列) 
+* @ResourceEmail (文字列) 
+* @EnableEmailReminders (Int32)
+
+*戻り値*
+
+```
+[Resource].[ResourceID]
+```
+
+==== *Resource_RemByName*
+
+ResourceName によって既存のリソースとその ResourcePreference を削除します。ただし任意のアクティビティというわけではありません。このストアド プロシージャは、WebSchedule データ プロバイダーの管理 API によってのみ起動します。 
+
+*注：* 削除されたリソースに関連付けられているすべてのアクティビティは非割り当てリソースに戻されます。非割り当てを回避するには、リソースを削除する前にリソースのアクティビティを削除する必要があります。
+
+*パラメーター*
+
+* @ResourceName (文字列)
+
+*戻り値*
+
+なし
+
+==== *Resource_Sel*
+
+データベースからすべてのリソースを選択します。このストアド プロシージャは、WebSchedule データ プロバイダーの管理 API によってのみ起動します。
+
+*パラメーター*
+
+なし
+
+*戻り値*
+
+```
+[Resource].[ResourceID], 
+[Resource].[ResourceName], 
+[Resource].[ResourceDescription], 
+[Resource].[EmailAddress], 
+[ResourcePreference].[EnableEmailReminders], 
+[Resource].[_ts]
+```
+
+==== *Resource_SelByName*
+
+一意に識別されている名前によってひとつのリソースを選択します。
+
+*パラメーター*
+
+* @ResourceName (文字列)
+
+*戻り値*
+
+```
+[Resource].[ResourceID], 
+[Resource].[ResourceName], 
+[Resource].[ResourceDescription], 
+[Resource].[EmailAddress], 
+[ResourcePreference].[EnableEmailReminders], 
+[Resource].[_ts]
+```
+
+*Resource_SelTS*
+
+更新をコミットする前にリソースでタイムスタンプを選択します。並行処理の競合を検出するために使用されます。このストアド プロシージャは、WebSchedule データ プロバイダーの管理 API によってのみ起動します。
+
+*パラメーター*
+
+* @ResourceID (Int32)
+
+*戻り値*
+
+```
+[Resource].[_ts]
+```
+
+==== *Resource_Upd*
+
+リソースとその ResourcePreference を更新します。このストアド プロシージャは、WebSchedule データ プロバイダーの管理 API によってのみ起動します。
+
+*パラメーター*
+
+* @ResourceID (Int32) 
+* @ResourceName (文字列) 
+* @ResourceDesc (文字列) 
+* @ResourceEmail (文字列) 
+* @EnableEmailReminders (Int32)
+
+*戻り値*
+
+なし
+
+==== *Variance_Rem*
+
+削除済みのステータスのバリアンスを含むアクティビティ行をマークします。
+
+*パラメーター*
+
+* @DeletedStatusCode (Int32) 
+* @ActivityID (Int32)
+
+*戻り値*
+
+なし
+
+==== *Variance_Sel*
+
+特定の繰り返しシリーズのバリアンスを表すアクティビティを選択します。各バリアンス行は、繰り返しルート アクティビティとは異なるひとつまたは複数のフィールド値を持つアクティビティです。
+
+*パラメーター*
+
+* @StartDateTimeUtc (DateTime) 
+* @EndDateTimeUtc (DateTime) 
+* @OrganizerName (文字列) 
+* @RecurrenceKey (Int32) 
+* @VarianceKey (GUID)
+
+*戻り値*
+
+```
+[Activity].[AllDayEvent], 
+[Activity].[Description], 
+[Activity].[Duration], 
+[Activity].[Location], 
+[Activity].[ActivityID], 
+[Activity].[StartDateTimeUtc], 
+[Activity].[Subject], 
+[Activity].[EnableReminder], 
+[Activity].[ReminderInterval], 
+[Activity].[ShowTimeAs], 
+[Activity].[Importance], 
+[Activity].[Status], 
+[Activity].[RecurrenceID], 
+[Activity].[VarianceID], 
+[Activity].[OriginalStartDateTimeUtc], 
+[Activity].[_ts] 
+[ActivityResource].[ResourceID]
+```
+
+== 関連トピック
+
+link:webschedule-update-data-and-stored-procedures.html[データおよびストアド プロシージャの更新]

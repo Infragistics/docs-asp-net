@@ -1,0 +1,51 @@
+﻿////
+
+|metadata|
+{
+    "name": "waw-chart",
+    "controlName": ["WebChart"],
+    "tags": [],
+    "guid": "{1037844A-4664-4E23-9D89-8A1B4EF711AC}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebChart
+
+WebChart コントロールに関連した概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションは、コントロールについての概要からアプリケーションで使用する理由、コントロールを使用して共通タスクを達成するための方法の手順などの WebChart についての有益な情報を含んでいます。
+
+以下のリンクをクリックして、WebChart コントロールについての情報にアクセスします。
+
+== link:chart-understanding-chart.html[チャートの概要]
+
+このセクションには WebChart コントロールの機能をより理解するための情報があります。なぜアプリケーションのビルドの一部として使用するかも説明します。
+
+== link:chart-chart-types.html[チャート タイプ]
+
+この重要なセクションには、すべての平面および立体のチャート タイプの包括的なリストと、チャート タイプの簡単な概要、チャート タイプを生成するために必要となるデータ タイプの情報、チャート タイプ固有のプロパティのリストが含まれます。
+
+== link:chart-getting-started-with-chart.html[チャートで開始]
+
+WebChart コントロールで出来る限り素早く起動して実行するために、コントロール（たとえば、フォームに WebChart を追加）を使用する方法についての情報を提供します。
+
+== link:chart-using-chart.html[チャートの使用]
+
+このセクションには、WebChart コントロールで提供される主要な特徴および機能についての情報が含まれています。
+
+== link:chart-deploying-webchart-landing.html[WebChart を配備]
+
+アプリケーションに WebChart コントロールが含まれている場合、アプリケーションの一部として再配布する必要がある Infragistics .NET のリストのトピックを参照してください。
+
+== link:chart-webchart-accessibility-compliance.html[WebChart アクセシビリティの遵守]
+
+このトピックは、WebChart が第 508 条の要件を満たす方法を概略します。このアクセシビリティの遵守によって、エンド ユーザー、特に障害を持つユーザーが WebChart コントロールを使用して構築された Web アプリケーションにアクセスおよび使用することを可能にします。
+
+== link:chart-webchart-api-overview.html[API 概要]
+
+このトピックは、WebChart コントロールでプログラミング中に作業する名前空間とクラスをリストします。このトピックにリストされる名前空間とクラスは、{ProductName} ヘルプの link:web-api-reference-guide.html[「API リファレンスガイド」]に便宜上リンクします。
+
+== link:chart-webchart-csom-overview.html[クライアント サイド オブジェクト モデル (CSOM) 概要]
+
+このトピックは、WebChart でクライアント側をプログラミング中に作業するユーティリティ関数、オブジェクト、およびイベントのページをリストします。このトピックにリストされるユーティリティ関数、オブジェクト、およびイベントは、{ProductName} ヘルプの「Client-Side Model （CSOM）リファレンスガイド」に便宜上リンクします。

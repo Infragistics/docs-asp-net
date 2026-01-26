@@ -1,0 +1,64 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcaptcha-captcha-validation",
+    "controlName": ["WebCaptcha"],
+    "tags": ["Validation"],
+    "guid": "162d032f-0fca-4ebf-aace-04c1b803e7c0",  
+    "buildFlags": [],
+    "createdOn": "2010-05-31T13:08:23.3938633Z"
+}
+|metadata|
+////
+
+= キャプチャの検証
+
+WebCaptcha™ コントロールは、サーバー側とクライアント側の両方で検証状態をチェックする機能を提供します。
+
+* サーバー側で、ページがロードする時にコントロールの link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webcaptcha~validate.html[Validate] メソッドが自動的に呼び出されます。このイベントの間、コントロールの link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webcaptcha~isvalid.html[IsValid] プロパティを使用して、検証が成功したかどうかをチェックすることも可能です。コントロールの link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webcaptcha~validate.html[Validate] メソッドを呼び出してからコントロールの link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webcaptcha~isvalid.html[IsValid] プロパティを呼び出すことによって、他のいかなるイベントで検証状態をチェックすることも可能です。
+
+*C# の場合：*
+
+----
+this.WebCaptcha1.Validate();
+if (this.WebCaptcha1.IsValid)
+{
+    //ここでロジックを追加します。
+}
+----
+
+*Visual Basic の場合：*
+
+----
+Me.WebCaptcha1.Validate()
+If Me.WebCaptcha1.IsValid Then
+'ここでロジックを追加します。 
+End If
+----
+
+* クライアント側で、コントロールの link:webcaptcha~infragistics.web.ui.webcaptcha~validationfailed.html[validationFailed] プロパティを呼び出すことによって、検証状態をチェックできます。キャプチャ検証がサーバーで失敗したかどうかを示します。
+
+*JavaScript の場合*
+
+----
+var captcha = $IG.WebCaptcha.find('WebCaptcha1'); // WebCaptcha コントロールへの参照を取得します。
+if (captcha.get_validationFailed()) // 検証がサーバーで成功したかどうかをチェックします。
+{
+//ここでロジックを追加します。
+}
+----
+
+== 関連トピック
+
+link:webcaptcha-protection-modes.html[保護モード]
+
+link:webcaptcha-dictionary-modes.html[辞書モード]
+
+link:webcaptcha-configuring-captcha-buttons.html[キャプチャ ボタンの構成]
+
+link:webcaptcha-configuring-captcha-image-properties.html[キャプチャ画像プロパティの構成]
+
+link:webcaptcha-configuring-captcha-input-field.html[キャプチャ入力フィールドの構成]
+
+link:webcaptcha-configuring-captcha-audio.html[キャプチャ オーディオの構成]

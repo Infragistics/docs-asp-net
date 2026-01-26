@@ -1,0 +1,34 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdropdown-using-loading-items-message-template-in-webdropdown",
+    "controlName": ["WebDropDown"],
+    "tags": ["Templating"],
+    "guid": "{8B6BCE70-3744-4B72-AFC7-9DAC67672A84}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDropDown でローディング項目メッセージ テンプレートの使用
+
+ロードオンデマンド機能を使用する場合、WebDropDown™ によって  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~loadingitemsmessagetext.html[LoadingItemsMessageText]"]  プロパティを設定することでカスタマイズされたローディング メッセージを示すことができます。このプロパティが設定されると、AJAX ポストバック中にローディングが進行中であることをエンドユーザーに通知するメッセージが表示します。ただし、WebDropDown コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~loadingitemsmessagetemplate.html[LoadingItemsMessageTemplate]"]  プロパティを使用することによって、ローディング項目メッセージ テンプレートをローディング メッセージに適用することもできます。
+
+== WebDropDown でローディング項目メッセージ テンプレートを使用するには：
+
+* Visual Studio™ ツールボックスから、ScriptManager コンポーネントと WebDropDown コントロールをフォームにドラッグ アンド ドロップします。
+* ソース コードで、LoadingItemsMessageTemplate タグを使用してローディング メッセージを示すために WebDropDown タグ間に以下のコードを含めます。
+
+*HTML の場合:*
+
+----
+<LoadingItemsMessageTemplate>
+                <div id="loadTemplate" style="background-color : Aqua">
+                    <span id="actualMsg">Loading, please wait…</span>
+                </div>
+</LoadingItemsMessageTemplate>
+----
+
+* アプリケーションを保存して実行します。ドロップダウン コンテナのスクロールバーをスクロールダウンすると、ローディング項目メッセージ テンプレートがローディング メッセージに適用されるのが分かります。

@@ -1,0 +1,48 @@
+﻿////
+
+|metadata|
+{
+    "name": "whats-new-in-2015-volume-1",
+    "controlName": [],
+    "tags": [],
+    "guid": "f934e8c1-159c-4f1e-8ab2-245cd0355432",  
+    "buildFlags": [],
+    "createdOn": "2015-03-15T20:23:54.1588705Z"
+}
+|metadata|
+////
+
+= 2015 Volume 1 の新機能
+
+== トピックの概要
+
+=== 目的
+
+このトピックでは、Infragistics® ASP.NET 2015 Volume 1 リリースの新機能の概要について紹介します。
+
+== 新機能の概要
+
+=== 新機能の概要表
+
+以下の表は 2015 Volume 1 リリースの新機能の概要を示します。詳細については、概要表の下をご覧ください。
+
+==== <<_Ref367305754,全般>>
+
+[options="header", cols="a,a"]
+|====
+|機能|説明
+
+|<<wrapper-igniteui,WebHtmlEditor の EnableSpellCheck プロパティ>>
+|WebHtmlEditor コンポーネントにエディターのスペルチェックを有効にするプロパティがあります。
+
+|====
+
+[[_Ref367305754]]
+
+== 全般
+
+[[wrapper-igniteui]]
+
+=== WebHtmlEditor の EnableSpellCheck プロパティ
+
+WebSpellchecker コンポーネントは、2015.1 よりツールセットから削除されています。WebHtmlEditor にスペルチェック属性をエディターに設定する新しいプロパティ  pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.webhtmleditor~enablespellcheck.html[EnableSpellCheck]"]  があります。プロパティを true に設定すると WebHtmlEditor はブラウザーの文書校正を使用します。

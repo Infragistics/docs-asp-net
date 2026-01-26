@@ -1,0 +1,51 @@
+﻿////
+
+|metadata|
+{
+    "name": "persistenceframework-landing-page",
+    "controlName": ["PersistenceFramework"],
+    "tags": ["Getting Started","Persistence"],
+    "guid": "c81280f3-2665-4d77-9d28-d4321f81add9",  
+    "buildFlags": [],
+    "createdOn": "2011-03-31T07:59:32.9136453Z"
+}
+|metadata|
+////
+
+= Persistence Framework
+
+このページには、Persistence Framework 関連の概要/タスクベースの情報がすべて含まれています。
+
+以下のリンクをクリックして Persistence Framework に関する重要情報にアクセスします。
+
+== link:persistenceframework-about-persistence-framework.html[Persistence Framework について]
+
+このトピックでは、Persistence Framework の機能をより適切に理解する支援となる情報だけでなく、使いたくなる理由を提供します。
+
+== link:persistenceframework-getting-started-with-persistence-framework.html[Persistence Framework で開始]
+
+Persistence Framework を使用してできる限り素早く起動して実行するために、作業を開始する方法についての情報を提供します。
+
+== link:persistenceframework-handling-persistence-events.html[パーシステンス イベントの処理]
+
+ページのライフサイクル中のイベントおよびそれらの機能特有の引数について学習します。
+
+== link:persistenceframework-saving-data-in-application-session-and-in-a-file.html[アプリケーション、セッション、ファイルでデータを保存]
+
+このトピックでは、パーシステンス データを保存する方法を学習します。
+
+== link:persistenceframework-exclude-control.html[コントロールの除外]
+
+データの保持からコントロールを除外する方法を学習します。
+
+== link:persistenceframework-exclude-control-properties.html[コントロール プロパティの除外]
+
+このトピックは、ユーザーにとって重要となるコントロールのプロパティの保持方法を示します。
+
+== link:persistenceframework-persist-control.html[コントロールを保持]
+
+個別のページでコントロールを手動で保持する方法を学習します。
+
+== link:persistenceframework-api-overview.html[API の概要]
+
+このトピックは、Persistence Framework でプログラミング中に作業する名前空間とクラスをリストします。このトピックにリストされている名前空間とクラスは、{ProductName} ヘルプの「API 参照ガイド」セクションに便宜的にリンクされています。

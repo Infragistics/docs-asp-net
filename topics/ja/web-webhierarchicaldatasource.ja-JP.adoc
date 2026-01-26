@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webhierarchicaldatasource",
+    "controlName": ["WebHierarchicalDataSource"],
+    "tags": [],
+    "guid": "{55CE966B-7CF7-48E8-8CC3-2F1C67E517FB}",  
+    "buildFlags": [],
+    "createdOn": "2008-02-05T11:18:01Z"
+}
+|metadata|
+////
+
+= WebHierarchicalDataSource
+
+このページには、WebHierarchicalDataSource™ コントロール関連の概要/タスクベースの情報がすべて含まれています。このセクションは、コントロールについての概要からアプリケーションで使用する理由、コントロールを使用して共通タスクを達成するための方法の手順などの WebHierarchicalDataSource についての有益な情報を含んでいます。
+
+以下のリンクをクリックして、WebHierarchicalDataSource コントロールについての情報にアクセスします。
+
+== link:webhierarchicaldatasource-about-webhierarchicaldatasource.html[WebHierarchicalDataSource について]
+
+このセクションには WebHierarchicalDataSource コントロールの機能をより理解するための情報があります。なぜアプリケーションのビルドの一部として使用するかも説明します。
+
+== link:webhierarchicaldatasource-getting-started-with-webhierarchicaldatasource.html[WebHierarchicalDataSource を使用した作業の開始]
+
+WebHierarchicalDataSource コントロールでできる限り素早く起動して実行するために、コントロールを使用する方法についての情報を提供します。
+
+== link:webhierarchicaldatasource-using-webhierarchicaldatasource.html[WebHierarchicalDataSource の使用]
+
+このセクションは、WebHierarchicalDataSource コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+== link:webhierarchicaldatasource-api-overview.html[API の概要]
+
+このトピックは、WebHierarchicalDataSource コントロールでプログラミングする間に作業をする名前空間とクラスをリストします。このトピックにリストされている名前空間とクラスは、{ProductName} ヘルプの「API 参照ガイド」セクションに便宜的にリンクされています。

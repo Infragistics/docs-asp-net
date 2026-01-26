@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webscheduleinfo-using-webscheduleinfo",
+    "controlName": ["WebScheduleInfo"],
+    "tags": [],
+    "guid": "{B457388B-E285-4EA3-B9AF-862E5B3094DA}",  
+    "buildFlags": [],
+    "createdOn": "2007-05-11T14:38:01Z"
+}
+|metadata|
+////
+
+= WebScheduleInfo の使用
+
+このセクションは、WebScheduleInfo™ コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:webscheduleinfo-client-side-programming.html[WebScheduleInfo オブジェクトへの参照を取得（クライアント側）]

@@ -1,0 +1,168 @@
+﻿////
+
+|metadata|
+{
+    "name": "gridmigrationmultirowsummaries",
+    "controlName": [],
+    "tags": [],
+    "guid": "68f8c45b-9292-4228-b162-38e44110068f",  
+    "buildFlags": [],
+    "createdOn": "2016-03-01T12:48:34.9705754Z"
+}
+|metadata|
+////
+
+= グリッドの移行 - 複数行の集計
+
+== UltraWebGrid
+
+サポートされません。
+
+==== WebDataGrid
+
+WebDataGrid では、数値データの集計を任意の列に表示できます。
+
+次の集計ができます。
+
+* カウント
+* 合計値
+* 平均
+* 最小値
+* 最大値
+* カスタム集計
+
+標準集計は、数値データのみに使用可能です。例外は、常に使用可能なカウントの集計タイプです。それらはすべて同時に表示できます。
+
+有効な場合、動作は各ヘッダーに集計ボタンを追加します。このボタンを押すと、使用可能な集計を示すドロップダウンが表示されます。
+
+==== 集計行の有効化
+
+*ASPX の場合:*
+
+[source,html]
+----
+<Behaviors>
+    <ig:SummaryRow AnimationType="Linear">
+        <ColumnSummaries>
+            <ig:ColumnSummaryInfo ColumnKey="UnitPrice">
+                <Summaries>
+                    <ig:Summary SummaryType="Average" />
+                    <ig:Summary SummaryType="Max" />
+                </Summaries>
+            </ig:ColumnSummaryInfo>
+        </ColumnSummaries>
+    </ig:SummaryRow>
+</Behaviors>
+----
+
+コード ビハインドから集計行を追加するには、次のコードを追加します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+WebDataGrid1.Behaviors.CreateBehavior<SummaryRow>();
+ColumnSummaryInfo unitPriceSummary = new ColumnSummaryInfo();
+unitPriceSummary.ColumnKey = "UnitPrice";
+unitPriceSummary.Summaries.Add(SummaryType.Average);
+unitPriceSummary.Summaries.Add(SummaryType.Max);
+WebDataGrid1.Behaviors.SummaryRow.ColumnSummaries.Add(unitPriceSummary);
+----
+
+*CompactRendering*
+
+集計を描画する際のサイズを指定します。「On」に設定すると、集計表示の最小化が有効になり、複数の集計を 1 行に表示します。「Off」に設定すると、各集計タイプが別の行に表示されます。「Auto」に設定すると、表示可能な集計の最大数が 1 以下の場合「Off」を使用します。そうでない場合、「On」を使用します。
+
+集計列の動作には、CompactRendering と呼ばれるプロパティがあります。このプロパティは集計を表示する方法を指定します。使用可能なオプションは 3 つあります。
+
+* Auto（デフォルト）- 集計の最大数が 1 以下の場合、集計表示の最小化が有効になります。そうでない場合は、各集計が別の行に表示されます。
+
+image::images/Grids_Migration_-_Multi-row_summaries_1.png[]
+
+image::images/Grids_Migration_-_Multi-row_summaries_2.png[]
+
+* On - 集計表示の最小化が有効になり、複数の集計を 1 行に表示します。
+
+image::images/Grids_Migration_-_Multi-row_summaries_3.png[]
+
+image::images/Grids_Migration_-_Multi-row_summaries_4.png[]
+
+* Off - 各集計タイプが別の行に表示されます。
+
+image::images/Grids_Migration_-_Multi-row_summaries_5.png[]
+
+== WebHierarchicalDataGrid
+
+WebDataGrid の集計列機能は、WebHierarchicalDataGrid で使用できます。この動作によって、標準集計（カウント、合計値、平均、最小値、最大値）およびカスタム集計の追加が可能になります。
+
+WebHierarchicalDataGrid の各バンドに、集計列の動作を割り当てることができます。子バンドが設定を継承できるように、バンドの [EnableInheritance] プロパティを設定できます。これによって、データの各バンドで集計行の動作をカスタマイズできます。たとえば、WebHierarchicalDataGrid のすべてのバンドの集計が必要な場合は、ルート レベルで SummaryRow 動作を有効にし、EnableInheritance を「True」に設定するだけです。特定の子バンドの動作を無効にする場合は、その特定のバンドの動作を無効にします。
+
+有効な場合、動作は各ヘッダーに集計ボタンを追加します。このボタンを押すと、使用可能な集計を示すドロップダウンが表示されます。
+
+==== 集計行の有効化
+
+*ASPX の場合:*
+
+[source,html]
+----
+<ig:WebHierarchicalDataGrid ID="WebHierarchicalDataGrid1" runat="server" DataSourceID="WebHierarchicalDataSource1" 
+ Height="400px" Width="750px" DataKeyFields="ProductID" >
+            <Bands>
+                <ig:Band Height="100" DataMember="AccessDataSource1_Orders" DataKeyFields="OrderID">
+                    <Behaviors>
+                        <ig:SummaryRow>
+                            <ColumnSummaries>
+                                <ig:ColumnSummaryInfo ColumnKey="Quantity">
+                                    <Summaries>
+                                        <ig:Summary SummaryType="Sum"></ig:Summary>
+                                        <ig:Summary SummaryType="Max"></ig:Summary>
+                                    </Summaries>
+                                </ig:ColumnSummaryInfo>
+                            </ColumnSummaries>
+                        </ig:SummaryRow>
+                    </Behaviors>
+                </ig:Band>
+            </Bands>
+            <Behaviors>
+                <ig:SummaryRow EnableInheritance="true">
+                    <ColumnSummaries>
+                        <ig:ColumnSummaryInfo ColumnKey="UnitPrice">
+                            <Summaries>
+                                <ig:Summary SummaryType="Average"></ig:Summary>
+                            </Summaries>
+                        </ig:ColumnSummaryInfo>
+                    </ColumnSummaries>
+                </ig:SummaryRow>
+            </Behaviors>
+        </ig:WebHierarchicalDataGrid>
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+protected void WebHierarchicalDataGrid1_InitializeBand(object sender, BandEventArgs e)
+{
+    if (e.Band.Key == "Products")
+    {
+        e.Band.Behaviors.CreateBehavior<SummaryRow>();
+        e.Band.Behaviors.SummaryRow.EnableInheritance = true;
+        ColumnSummaryInfo unitPriceSummary = new ColumnSummaryInfo();
+        unitPriceSummary.ColumnKey = "UnitPrice";
+        unitPriceSummary.Summaries.Add(SummaryType.Average);
+        e.Band.Behaviors.SummaryRow.ColumnSummaries.Add(unitPriceSummary);
+        this.WebHierarchicalDataGrid1.RefreshBehaviors();
+    }
+    else if (e.Band.Key == "Orders")
+    {
+        e.Band.Behaviors.CreateBehavior<SummaryRow>();
+        e.Band.Behaviors.SummaryRow.EnableInheritance = true;
+        ColumnSummaryInfo quantitySummary = new ColumnSummaryInfo();
+        quantitySummary.ColumnKey = "Quantity";
+        quantitySummary.Summaries.Add(SummaryType.Sum);
+        quantitySummary.Summaries.Add(SummaryType.Max);
+        e.Band.Behaviors.SummaryRow.ColumnSummaries.Add(quantitySummary);
+        this.WebHierarchicalDataGrid1.RefreshBehaviors();
+    }
+}
+----

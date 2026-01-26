@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "word-understanding-infragistics-word-library",
+    "controlName": ["Infragistics Word Library"],
+    "tags": ["Editing","Getting Started"],
+    "guid": "a5b0fb25-323b-4948-94f6-dc389552ffc5",  
+    "buildFlags": [],
+    "createdOn": "2011-06-15T13:27:52.4920731Z"
+}
+|metadata|
+////
+
+= Infragistics Word ライブラリの理解
+
+Word ライブラリ、およびその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで Word ライブラリを使用することの利点を理解できます。
+
+Word ライブラリの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:word-about-infragistics-word-library.html[Infragistics Word ライブラリについて]
+* link:word-word-document-generation-references-and-dependencies.html[Word 文書生成び参照と依存関係]

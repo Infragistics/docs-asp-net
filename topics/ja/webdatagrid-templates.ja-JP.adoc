@@ -1,0 +1,47 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-templates",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Grids","Templating"],
+    "guid": "{E7DD9E0F-C757-4C97-86BE-F289601F875E}",  
+    "buildFlags": [],
+    "createdOn": "2008-12-08T12:26:31Z"
+}
+|metadata|
+////
+
+= テンプレート
+
+テンプレートを使用して WebDataGrid™ の特定の機能にカスタムのユーザー インターフェイスを設定できます。ページングと編集のためのカスタム テンプレートを使用できます。例外通知のためのエラー テンプレートだけでなく、データのないコントロールのメッセージを表示するためのテンプレートがあります。さらに、テンプレートを使用して、列のあらゆる側面（セル、ヘッダーおよびフッター）をカスタマイズできます。テンプレートの作成は、デザイナーを使用すると素早く簡単に実行できます。ランタイムに、ITemplate インターフェイスを実装して、カスタム テンプレートを作成できます。
+
+使用可能な特定のテンプレートと使用方法についての詳細は、以下のリンクをクリックします。
+
+link:webdatagrid-column-templates.html[列テンプレート]
+
+WebDataGrid には、列、ヘッダー、フッター、項目の 4 タイプのテンプレートに加え、代替項目テンプレートがあります。これらのテンプレートは、ヘッダー、フッター、および列の各項目の代わりとして使用します。
+
+link:webdatagrid-enable-empty-template.html[空テンプレートの有効化]
+
+このセクションは、データソースに行がない場合に、空行テンプレートを適用する方法を説明します。
+
+link:webdatagrid-enable-error-template.html[エラー テンプレートの有効化]
+
+このトピックはエラー テンプレートを適用して、コントロール内で例外が発生したときにカスタム メッセージを表示する方法を説明します。
+
+link:webdatagrid-using-custom-paging-template.html[カスタム ページング テンプレートの使用]
+
+このトピックがカスタム ページ テンプレートの設定とその使用法について説明します。
+
+link:webdatagrid-row-editing-template.html[行編集テンプレート]
+
+このトピックはカスタム ページ テンプレートの設定とその使用法について説明します。
+
+link:webdatagrid-template-control-bindings.html[テンプレート コントロールのバインディング]
+
+このトピックはテンプレートで使用するコントロールを WebDataGrid のフィールドへバインドする方法について説明します。
+
+link:webdatagrid-using-the-template-collection.html[テンプレート コレクションの使用]
+
+このトピックは共通うテンプレートの保存と使用について説明します。

@@ -1,0 +1,97 @@
+﻿////
+
+|metadata|
+{
+    "name": "webnumericeditor-spinning-through-a-list-of-values-in-webnumericeditor",
+    "controlName": ["WebNumericEditor"],
+    "tags": [],
+    "guid": "{2C27596A-3C7F-4445-AD18-5AEE144584E9}",  
+    "buildFlags": [],
+    "createdOn": "2009-03-06T10:42:11Z"
+}
+|metadata|
+////
+
+= WebNumericEditor で値のリストをスピン
+
+WebNumericEditor™ は、スピン ボタンを使用して値のリストからスピンするためのオプションを提供します。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~spinbuttonsdisplay.html[SpinButtonsDisplay]"]  プロパティを OnRight または OnLeft のいずれかに設定することによってスピン ボタンを表示できます。デフォルトでこのプロパティは None に設定されます。スピン ボタンには、エンドユーザーが次の値と前の値に移動できるように下側のボタンと上側のボタンの 2 つのボタンがあります。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~lowerspinbutton.html[LowerSpinButton]"]  および  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~upperspinbutton.html[UpperSpinButton]"]  プロパティをそれぞれ設定することによって、上下のボタンをカスタマイズできます。
+
+Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、SpinButtonsDisplay プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+'スピン ボタンを右側に表示します
+WebNumericEditor1.Buttons.SpinButtonsDisplay = Infragistics.Web.UI.EditorControls.ButtonDisplay.OnRight
+----
+
+*C# の場合：*
+
+----
+//スピン ボタンを右側に表示します
+WebNumericEditor1.Buttons.SpinButtonsDisplay = Infragistics.Web.UI.EditorControls.ButtonDisplay.OnRight;
+----
+
+WebNumericEditor によって、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~spinwrap.html[SpinWrap]"]  プロパティを True に設定することによって、リストで最初の値または最後の値に到達した場合であっても連続してリストをスピンすることもできます。
+
+== 値をリストに追加および挿入:
+
+WebNumericEditor によって、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons.html[TextEditorButtons]"]  オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~listofvalues.html[ListOfValues]"]  プロパティを使用して、反復したい値のリストを追加できます。Microsoft® Visual Studio® [プロパティ] ウィンドウを使用して ListOfValues プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+WebNumericEditor1.Buttons.ListOfValues = "111|222|333|444|555"
+----
+
+*C# の場合：*
+
+----
+WebNumericEditor1.Buttons.ListOfValues = "111|222|333|444|555";
+----
+
+*注：* リストの項目は ListOfValues プロパティを使用する時には "|" 文字によって分割する必要があります。
+
+ただし、TextEditorButtons オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons~insertlistvalueatindex.html[InsertListValueAtIndex]"]  メソッドを使用して値をリストに挿入することもできます。
+
+*Visual Basic の場合：*
+
+----
+'特定のインデックスでリストに値を挿入します。 
+WebNumericEditor1.Buttons.InsertListValueAtIndex(0, "111")
+WebNumericEditor1.Buttons.InsertListValueAtIndex(1, "222")
+WebNumericEditor1.Buttons.InsertListValueAtIndex(2, "333")
+WebNumericEditor1.Buttons.InsertListValueAtIndex(3, "444")
+WebNumericEditor1.Buttons.InsertListValueAtIndex(4, "555")
+----
+
+*C# の場合：*
+
+----
+//特定のインデックスでリストに値を挿入します 
+WebNumericEditor1.Buttons.InsertListValueAtIndex(0, "111");
+WebNumericEditor1.Buttons.InsertListValueAtIndex(1, "222");
+WebNumericEditor1.Buttons.InsertListValueAtIndex(2, "333");
+WebNumericEditor1.Buttons.InsertListValueAtIndex(3, "444");
+WebNumericEditor1.Buttons.InsertListValueAtIndex(4, "555");
+----
+
+== 編集値の増分/減分
+
+WebNumericEditor によって、スピン ボタンを使用して編集値を増分/減分することもできます。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webnumericeditor~spindelta.html[SpinDelta]"]  プロパティを設定するだけで増分/減分係数を設定することができます。たとえば、SpinDelta プロパティを 10 に設定すると、上側のボタンをクリックすると値は 10 だけ増えます。同様に下側のボタンをクリックすると値は 10 だけ減ります。
+
+Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、SpinDelta プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+WebNumericEditor1.SpinDelta = 10
+----
+
+*C# の場合：*
+
+----
+WebNumericEditor1.SpinDelta = 10;
+----
+
+*注：* ListOfValues プロパティは SpinDelta プロパティよりも優先されます。

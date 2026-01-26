@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webcaptcha",
+    "controlName": ["WebCaptcha"],
+    "tags": ["Getting Started"],
+    "guid": "43556d83-fed2-4e43-a122-55b0232ae670",  
+    "buildFlags": [],
+    "createdOn": "2010-05-31T10:58:26.797816Z"
+}
+|metadata|
+////
+
+= WebCaptcha
+
+このページには、WebCaptcha™ コントロール関連の概要/タスクベースの情報がすべて含まれています。このセクションには、コントロールが何を実行するのか、またアプリケーションでなぜコントロールを使用したくなるのかから、コントロールを使用して一般的なタスクを完了する方法に関するステップバイステップの手順まで、コントロールに関する貴重な情報が含まれています。
+
+WebCaptcha コントロールについての詳細は、以下のリンクをクリックしてください。
+
+== link:webcaptcha-about-webcaptcha.html[WebCaptcha について]
+
+このセクションには、WebCaptcha コントロールの機能の理解を深めるのに役立つ情報があります。さらに、コントロールの目的も理解できます。
+
+== link:webcaptcha-getting-started-with-webcaptcha.html[WebCaptcha で開始]
+
+このセクションは、WebCaptcha コントロールで可能な限り迅速に起動および実行する方法についての情報を提供します。
+
+== link:webcaptcha-using-webcaptcha.html[WebCaptcha の使用]
+
+このセクションは、WebCaptcha で使用可能な機能を使用する方法を示すタスクベースの情報を提供します。
+
+== link:webcaptcha-accessibility-compliance-.html[WebCaptcha アクセシビリティの遵守]
+
+このトピックは、WebCaptcha が第 508 条の要件を満たす方法を概略します。このアクセシビリティの遵守によって、エンドユーザー、特に障害を持つユーザーが WebCaptcha コントロールを使用して構築された Web アプリケーションにアクセスおよび使用することを可能にします。
+
+== link:webcaptcha-api-overvew.html[API の概要]
+
+このトピックは、WebCaptcha コントロールでプログラミング中に作業する名前空間とクラスをリストします。このトピックにリストされている名前空間とクラスは、{ProductName} ヘルプの「API リファレンス ガイド」セクションに便宜的にリンクされています。
+
+== link:webcaptcha~infragistics.web.ui_namespace.html[クライアント側オブジェクト モデル（CSOM）の概要]
+
+WebCaptcha コントロールは、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを提供します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクトで構成され、開発者はサーバー側にポストバックしなくても、コントロールに関連する重要な機能単位をプログラムできます。

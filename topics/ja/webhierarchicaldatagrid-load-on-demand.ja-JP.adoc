@@ -1,0 +1,131 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatagrid-load-on-demand",
+    "controlName": ["WebHierarchicalDataGrid"],
+    "tags": ["Grids","Performance"],
+    "guid": "{E99010B2-55F5-47AF-9E67-8BFF81802576}",  
+    "buildFlags": [],
+    "createdOn": "2009-01-10T13:46:13Z"
+}
+|metadata|
+////
+
+= ロードオンデマンド
+
+WebHierarchicalDataGrid™ コントロールにはロードオンデマンド機能があります。行が展開された時などの必要な場合に限り、コントロールはデータを取得します。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webhierarchicaldatagrid~initialdatabinddepth.html[InitialDataBindDepth]"]  プロパティはこの機能を制御します。このプロパティはデフォルトでは 0 に設定され、ルート データを最初にロードするだけです。したがって任意の数値は、開始時にロードするために連続するデータ レベルを決定します。-1 の値はロードオンデマンドを無効にし、すべてのデータ レベルをロードします。
+
+pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webhierarchicaldatagrid~enableajax.html[EnableAjax]"]  プロパティは、ロードオンデマンドを使用している時にデータが受け取る方法に影響を与えます。このプロパティはデフォルトで True で、非同期でのデータの取得を許可します。このプロパティが False の場合、データの取得はフル ページ ポストバックとなります。
+
+===== 自動モード
+
+WebHierarchicalDataGrid は、階層的なデータオンデマンドを自動的にロードします。デザイン タイムにグリッドをデータ ソースをバインドし、InitialDataBindDepth プロパティを 0 に設定します。他のプロパティ設定は不要です。データバインディングが発生して、必要に応じて子行アイランドをバインドする時に、グリッドは自動的にデータ ソースから検出します。
+
+ランタイムにバインドすると、WebHierarchicalDataGrid が取得するデータ レベルを認識するように、DataSource/DataSourceID プロパティをポストバックのたびに設定する必要があります。ページロードのたびにこれを行うことができます。または最初のページロードでひとつのデータバインドを実行し、以降のデータ バインドを WebHierarchicalDataGrid の RowIslandsPopulating イベントで実行できます。
+
+次のコードは、ロードオンデマンドを有効にする方法を示します。
+
+*HTML の場合:*
+
+----
+<ig:WebHierarchicalDataGrid ID="WebHierarchicalDataGrid1" runat="server" Height="350px"
+    Width="800px"  
+    DataKeyFields="CategoryID" DataMember="SqlDataSource1_DefaultView" 
+    DataSourceID="WebHierarchicalDataSource1" Key="SqlDataSource1_DefaultView" 
+    InitialDataBindDepth="0">
+<ig:WebHierarchicalDataGrid>
+----
+
+*Visual Basic の場合：*
+
+----
+Me.WebHierarchicalDataGrid1.InitialDataBindDepth = 0
+----
+
+*C# の場合：*
+
+----
+this.WebHierarchicalDataGrid1.InitialDataBindDepth = 0;
+----
+
+===== サーバー イベント
+
+pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webhierarchicaldatagrid~rowislandspopulating_ev.html[RowIslandsPopulating]"]  – これは行アイランドが作成およびバインドされる前に発生するキャンセル可能なイベントです。このイベントを手動ロードオンデマンドに使用できます。キャンセルされると、新しい行アイランドは作成されず、行はクライアントで展開されません。
+
+pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webhierarchicaldatagrid~rowislandspopulated_ev.html[RowIslandsPopulated]"]  – これは行アイランドが作成およびバインドされた後に発生するイベントです。
+
+===== クライアント イベント
+
+生成中 - これはグリッドがサーバーに子行をロードする要求を開始する前に発生するキャンセル可能なイベントです。キャンセルされると行は展開されません。
+
+生成済み - これは子行をサーバーから受け取った後、行の展開イベントの前に発生するイベントです。
+
+===== 手動モード
+
+手動でロードオンデマンドのプロセスを制御できます。コントロールの link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webhierarchicaldatagrid~rowislandspopulating_ev.html[RowIslandsPopulating] イベントは、行が展開される毎に発生します。この時点で行の子行アイランドに対してデータが要求されます。このイベントを使用して行アイランドを表すコンテナ グリッドを手動で作成し、ユーザーが取得したデータにバインドすることができます。
+
+以下のコードは、Northwind データベースから Categories および Products テーブルを使用して、手動のロードオンデマンドを実行する方法を示します。以下の名前空間を含むことを確認してください。
+
+* System.Data.SqlClient
+* System.Data
+* Infragistics.Web.UI.GridControls
+
+WebHierarchicalDataGrid コントロールは、デザイン タイムに WebHierarchicalDataSource™ コントロールにバインドされます。WebHierarchicalDataSource へのバインドについての詳細は、 link:webhierarchicaldatasource-using-webhierarchicaldatasource.html[「階層的なデータ ソースにバインド」]トピックを参照してください。
+
+*Visual Basic の場合：*
+
+----
+Protected Sub WebHierarchicalDataGrid1_RowIslandsPopulating(ByVal sender As Object, ByVal e As ContainerRowCancelEventArgs) Handles WebHierarchicalDataGrid1.RowIslandsPopulating
+'デフォルトの自動ロードオンデマンド操作をキャンセルします 
+   e.Cancel = True
+' データ キーを取得します 
+   Dim key As Integer = CInt(e.Row.DataKey(0))
+   Dim con As New SqlConnection("Data Source=.\sqlexpress;Initial Catalog=Northwind;Integrated Security=True")
+' 親行に属するレコードのセットだけを選択するためにデータ キーを使用します 
+   Dim com As New SqlCommand("SELECT * FROM Products Where CategoryId = @Id", con)
+   com.Parameters.AddWithValue("@Id", key)
+' データでデータセットを埋めるためにデータ アダプタを設定します 
+   Dim da As New SqlDataAdapter(com)
+   Dim products As New DataSet()
+   con.Open()
+' データを取得します 
+   da.Fill(products, "ProductRowIsland")
+   con.Close()
+' コンテナ グリッドを作成します 
+   Dim childGrid As New ContainerGrid()
+   e.Row.RowIslands.Add(childGrid)
+' グリッドをバインドします 
+   childGrid.DataSource = products
+   childGrid.DataBind()
+End Sub
+----
+
+*C# の場合：*
+
+----
+protected void WebHierarchicalDataGrid1_RowIslandsPopulating(object sender, ContainerRowCancelEventArgs e)
+{
+   //デフォルトの自動ロードオンデマンド操作をキャンセルします
+   e.Cancel = true;
+// データ キーを取得します
+   int key = (int)e.Row.DataKey[0];
+   SqlConnection con = new SqlConnection(@"Data Source=.\sqlexpress;Initial Catalog=Northwind;Integrated Security=True");
+// 親行に属するレコードのセットだけを選択するためにデータ キーを使用します
+   SqlCommand com = new SqlCommand("SELECT * FROM Products Where CategoryId = @Id", con);
+   com.Parameters.AddWithValue("@Id", key);
+// データでデータセットを埋めるためにデータ アダプタを設定します
+   SqlDataAdapter da = new SqlDataAdapter(com);
+   DataSet products = new DataSet();
+   con.Open();
+// データを取得します
+   da.Fill(products, "ProductRowIsland");
+   con.Close();
+// コンテナ グリッドを作成します
+   ContainerGrid childGrid = new ContainerGrid();
+   e.Row.RowIslands.Add(childGrid);
+// グリッドをバインドします
+   childGrid.DataSource = products;
+   childGrid.DataBind();
+}
+----

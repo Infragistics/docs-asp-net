@@ -1,0 +1,145 @@
+﻿////
+|metadata|
+{
+    "name": "webhtmleditor-populating-custom-list-objects-into-webhtmleditors-drop-down-lists",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing","Templating"],
+    "guid": "{B42A4F92-176F-44EF-99A5-DB42889626CE}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor のドロップダウン リストへのカスタム リスト オブジェクトの移植
+
+WebHtmlEditor では、標準ツールバーでいくつかのドロップダウン リスト ボックスが提供されています。これらのドロップダウン リストには、カスタム リスト項目を追加することができます。これらのドロップダウン リストは、トピック  link:webhtmleditor-drop-down-lists-of-webhtmleditor-toolbar.html[ツールバード ロップダウン リスト]で紹介されています。また、このトピックでは、異なる種類のドロップダウン リストを格納する方法についても説明しています。このトピックでは、すべてのドロップダウン リストとカスタム リストについて、満遍なく説明しています。
+
+WebHtmlEditor では、ツールバードロップダウン リストのいくつかについて、リストタイプのプロパティが提供されています（以下を参照）。
+
+[cols="a,a"]
+|====
+
+|image::images/WebHtmlEditor_Overview_Populating_Custom_List_Objects_1.png[] 
+
+FontNameList
+|image::images/WebHtmlEditor_Overview_Populating_Custom_List_Objects_2.png[] 
+
+FontSizeList
+
+|image::images/WebHtmlEditor_Overview_Populating_Custom_List_Objects_3.png[] 
+
+FontFormattingList
+|image::images/WebHtmlEditor_Overview_Populating_Custom_List_Objects_4.png[] 
+
+FontStyleList
+
+|====
+
+詳細なガイドで、 link:webhtmleditor-using-the-webhtmleditor-designer.html[「WebHtmlEditor デザイナの使用」]では、デザイン時に [プロパティ] ダイアログ ボックスを使用して FontStyleList（または、その他のリスト オブジェクト）に固定項目を追加する方法について説明しました。しかし、たとえば、現在のユーザーの好みのスタイルのリストなど、より動的な環境に対応する項目を追加するのであれば、次のコード例に示したように、実行時に項目をリストに追加しなければなりません。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.WebUI.WebHtmlEditor
+...
+Private Sub Page_Load(ByVal sender As System.Object, ByVal e As _ 
+  System.EventArgs) Handles MyBase.Load
+	If( Not Page.IsPostBack ) Then
+		' CSS スタイル定義を使用してカスタム スタイルを FontStyleList に追加します。
+		Me.WebHtmlEditor1.FontStyleList.Add( "strikeout", _
+		  "color: red; text-decoration: line-through;")
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+using Infragistics.WebUI.WebHtmlEditor;
+...
+private void Page_Load( object sender, System.EventArgs e)
+{
+	if( !Page.IsPostBack)
+	{
+		// CSS スタイル定義を使用してカスタム スタイルを FontStyleList に追加します。
+		this.WebHtmlEditor1.FontStyleList.Add( "strikeout", 
+		  "color:red; text-decoration:line-through;");
+	}
+}
+----
+
+*注:* Load イベントが発生すると、WebHtmlEditor がその [ツールバー] ドロップダウン リストに特別なリスト オブジェクトで見つかった項目を移植します。項目を WebHtmlEditor のリスト プロパティすべてに追加するには、Load イベント中に（または、ASP.NET Page ライフサイクルのもっと早い段階で）それらの項目を追加することを忘れないでください。
+
+
+ツールバード ロップダウン リスト付きのカスタム リストのもう 1 つの例は、挿入リストです。このリストには、いくつかの項目が含まれています（「挨拶」や「署名」など）。ユーザーがこれらの項目の 1 つを選択すると、ドキュメント内の現在のキャレット位置にテキストが挿入されます。
+
+作成する Web アプリケーションでユーザーが規制文書の内容を作成できるようにし、そのためのボイラープレート テキスト（免責条項や株式を公開した企業のプレスリリースなどの将来の見通しに関する記述など）のライブラリを提供するような場合があります。それらのテキストに、短くて、しかも意味が分かりやすい名前をつけて、ユーザーが簡単に選択できるようにする必要があります。
+
+このようなカスタム項目を [ツールバーを挿入] ドロップダウン リストに追加するには、 pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.toolbardropdownitem.html[ToolbarDropDownItem]"]  オブジェクトとして名前と値のセットを設定し、以下のサンプルに示したように、それをページの PreRender イベント発生時にツールバーに追加する必要があります。
+
+*Visual Basic の場合：*
+
+----
+Private Sub Page_PreRender(ByVal sender As System.Object, ByVal e As _ 
+  System.EventArgs) Handles MyBase.PreRender
+	If( Not Page.IsPostBack ) Then
+	Dim dropDown As ToolbarDropDown
+	' ToolBar.Items コレクション内の Insert ドロップダウン項目を見つけます。
+	dropDown = CType( _
+	  Me.WebHtmlEditor1.Toolbar.Items.GetByType(ToolbarItemType.Insert), ToolbarDropDown)
+	' Insert ドロップダウンとの対話用に標準の免責条項を追加します。
+	dropDown.Items.Add( New ToolbarDropDownItem( _
+	  "Disclaimer", _
+	  "THIS MESSAGE IS PROVIDED AS IS WITHOUT" + _
+	  " WARRANTY OR GUARANTEE FOR ANY PURPOSE." ) )
+	End If
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void Page_PreRender( object sender, System.EventArgs e)
+{
+	if ( !Page.IsPostBack)
+	{
+		// ToolBar.Items コレクション内の Insert ドロップダウン項目を見つけます。
+		ToolbarDropDown dropDown = (ToolbarDropDown)
+		this.WebHtmlEditor1.Toolbar.Items.GetByType(
+		  ToolbarItemType.Insert);
+		// Insert ドロップダウンとの対話用に標準の免責条項を追加します。
+		dropDown.Items.Add( new ToolbarDropDownItem( "Disclaimer",
+		  "THIS MESSAGE IS PROVIDED AS IS WITHOUT " + 
+		  "WARRANTY OR GUARANTEE FOR ANY PURPOSE." ) );
+	}
+}
+. . .
+private void InitializeComponent()
+{    
+	// Page.PreRender イベントを処理します。.
+	this.PreRender += new System.EventHandler(this.Page_PreRender);
+}
+----
+
+*注：* 上の例で、Toolbar ドロップダウン リストに項目を追加するときには、必ずページの PreRender イベント中に追加することが重要です。なぜならば、ドロップダウン リストは Load イベント中に初期デフォルト値が追加されるからです。もしロード中に Toolbar ドロップダウンに項目を追加しようとすると、デフォルト値が上書きされてしまい、カスタム項目が期待したように表示されないことがあります。
+
+次の表は、上記のプラクティスを実行するのに適した条件をまとめたものです。
+
+[options="header", cols="a,a"]
+|====
+|条件|ベストプラクティス
+
+|事前にすべての項目が用意されており、WebHtmlEditor で対応するリストタイプのプロパティが提供されている。
+|WebHtmlEditor プロパティ ダイアログボックス（全般タブ）を使用する。
+
+|リスト項目が動的に変更され、WebHtmlEditor で対応するリストタイプのプロパティが提供されている。
+|Page.Load イベント ハンドラ発生中にドロップダウン リストに対応するリストタイプのプロパティのAdd、Clear、Remove メソッドのいずれか、またはすべてを実行する。
+
+|リスト項目が動的に変更され、WebHtmlEditor で対応するリストタイプのプロパティが提供されていない。
+|Page.PreRender イベント ハンドラ発生時に、リストタイプのプロパティに対応するドロップダウン リストの ToolbarItemType を取得する。対象の名前・値セットがあるドロップダウン リストを移植するために Add、Clear、Remove、またはそのいずれかのメソッドを呼び出す。
+
+|リスト項目が動的に変更されることがあり、WebHtmlEditor で対応するリストタイプのプロパティが提供されているが、それによってユーザーに対して表示される名前と適用される値を区別することができない。
+|同上。 link:webhtmleditor-make-the-fontsize-drop-down-list-render-previews.html[フォントサイズ ドロップダウン リスト レンダリング プレビューの作成]を参照のこと。
+
+|====

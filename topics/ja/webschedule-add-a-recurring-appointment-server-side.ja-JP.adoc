@@ -1,0 +1,85 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-add-a-recurring-appointment-server-side",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling"],
+    "guid": "{734A9BD0-2C62-4A12-BE60-EDEF2DE2D918}",  
+    "buildFlags": [],
+    "createdOn": "2006-10-04T00:00:00Z"
+}
+|metadata|
+////
+
+= サーバー側の繰り返し予定を追加
+
+繰り返し予定の追加は以下の 3 つの手順で実行します。
+
+[start=1]
+. pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.appointment.html[予定]"]  を作成します。
+[start=2]
+. pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.recurrence.html[Recurrence]"]  オブジェクトを作成します。
+[start=3]
+. 予定をデータベースに追加します。
+
+Recurrence オブジェクトを作成するためには全く新しい予定を作成する必要はありません。以前作成した予定から Recurrence オブジェクトを作成することができます。Recurrence オブジェクトが作成されるまで、予定の Recurrence オブジェクトは Null/Nothing です。いったん作成されたら、Recurrence オブジェクトでプロパティを設定して、データベースに予定を追加することができます。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.WebUI.Shared
+Imports Infragistics.WebUI.WebSchedule
+...
+' 新しい予定を作成して、件名と開始日を設定します。
+Dim appointment As New Appointment(Me.WebScheduleInfo1)
+appointment.Subject = "My Recurring Appointment"
+appointment.StartDateTime = New SmartDate(DateTime.Now)
+' Key プロパティを各予定の一意の値に設定します。
+appointment.Key = "100"
+' 作成したばかりの予定から recurrence オブジェクトを作成します。
+appointment.CreateRecurrence()
+' 予定の recurrence オブジェクトを表すために
+' 新しい recurrence オブジェクトを作成します。
+Dim recurrenceObject As Recurrence = appointment.Recurrence
+recurrenceObject.Period = RecurrencePeriod.Daily
+recurrenceObject.PeriodMultiple = 1
+recurrenceObject.MaxOccurrences = 3
+' 予定をデータ プロバイダに追加します。
+Me.WebScheduleOleDbProvider1.AddActivity(appointment, Me.WebScheduleInfo1.ActiveResource)
+----
+
+*C# の場合：*
+
+----
+using Infragistics.WebUI.Shared;
+using Infragistics.WebUI.WebSchedule;
+...
+// 以下の using ディレクティブを使用すると、完全に記述した名前を
+// 毎回入力する必要がありません。 
+using Infragistics.WebUI.Shared;
+using Infragistics.WebUI.WebSchedule;
+// 新しい予定を作成して、件名と開始日を設定します。
+Appointment appointment = new Appointment(this.WebScheduleInfo1);
+appointment.Subject = "My Recurring Appointment";
+appointment.StartDateTime = new SmartDate(DateTime.Now);
+// Key プロパティを各予定の一意の値に設定します。
+appointment.Key = "100";
+// 作成したばかりの予定から recurrence オブジェクトを作成します。
+appointment.CreateRecurrence();
+// 予定の recurrence オブジェクトを表すために
+// 新しい recurrence オブジェクトを作成します。
+Recurrence recurrenceObject = appointment.Recurrence;
+recurrenceObject.Period = RecurrencePeriod.Daily;
+recurrenceObject.PeriodMultiple = 1;
+recurrenceObject.MaxOccurrences = 3;
+// 予定をデータ プロバイダに追加します。
+this.WebScheduleOleDbProvider1.AddActivity(appointment,
+  this.WebScheduleInfo1.ActiveResource);
+----
+
+== 関連トピック
+
+link:webschedule-update-a-recurring-appointment-server-side.html[サーバー側で繰り返し予定を更新]
+
+link:webschedule-delete-a-recurring-appointment-server-side.html[サーバー側で繰り返し予定を削除]

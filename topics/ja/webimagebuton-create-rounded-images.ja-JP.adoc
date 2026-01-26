@@ -1,0 +1,49 @@
+﻿////
+
+|metadata|
+{
+    "name": "webimagebuton-create-rounded-images",
+    "controlName": ["WebImageButton"],
+    "tags": ["Layouts","Styling"],
+    "guid": "{6EC5F21C-A624-4C1C-8B62-38681BF09812}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 角丸イメージの作成
+
+=== WebImageButton:角丸イメージの使用
+
+WebImageButton に固有の外観を与えるひとつの方法は、カスタムの角丸イメージを作成することです。画像の最も一般的なフォーマットは、透過をサポートしている GIF です。PNG 画像も人気ですが、Microsoft Internet Explorer 6.0 での PNG ファイル表示のサポートには制約があります。
+
+いずれのフォーマットを使用しても、画像の仕様に一致するには WebImageButton コントロールにプロパティを設定する必要があります。これらの設定は以下の図で説明します。
+
+image::Images\WebImageButon_Using_Rounded_Images_01.png[]
+
+これらのプロパティは  pick:[asp-net="link:{ApiPlatform}webui.webdatainput{ApiVersion}~infragistics.webui.webdatainput.webimagebutton~roundedcorners.html[WebImageButton.RoundedCorners]"]  にあります。
+
+*  pick:[asp-net="link:{ApiPlatform}webui.webdatainput{ApiVersion}~infragistics.webui.webdatainput.buttonroundedcorners~heightofbottomedge.html[HeightOfBottomEdge]"] :
+
+垂直の形状を保持するためにボタンを静的にする必要がある画像部分の下からの高さ。下ではなくサイドが丸いボタンでは、ボタンの高さを調節できないので、このプロパティは 0 に設定されます。
+
+HeightOfBottomEdge プロパティを 0 に設定すると、WebImageButton の MaxHeight 以下に削減されないようにできます。
+*  pick:[asp-net="link:{ApiPlatform}webui.webdatainput{ApiVersion}~infragistics.webui.webdatainput.buttonroundedcorners~widthofrightedge.html[WidthOfRightEdge]"] :
+
+水平の形状を保持するためにボタンを静的にする必要がある画像部分の右側からの高さ。
+
+WidthOfRightEdge プロパティを 0 に設定すると、WebImageButton が MaxWidth 以下に削減されないようにできます。
+*  pick:[asp-net="link:{ApiPlatform}webui.webdatainput{ApiVersion}~infragistics.webui.webdatainput.buttonroundedcorners~maxheight.html[MaxHeight]"] :
+
+WebImageButton がサポートできる最大の高さ。ほとんどの場合、これは画像の実際の高さとなります。
+*  pick:[asp-net="link:{ApiPlatform}webui.webdatainput{ApiVersion}~infragistics.webui.webdatainput.buttonroundedcorners~maxwidth.html[MaxWidth]"] :
+
+WebImageButton がサポートできる最大の幅。ほとんどの場合、これは画像の実際の幅となります。
+
+上記の図のボタン画像は以下のようになっています。
+
+* HeightOfBottomEdge:0px
+* WidthOfRightEdge:35px
+* MaxHeight: 150
+* MaxWidth: 600

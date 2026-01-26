@@ -1,0 +1,82 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-architecture",
+    "controlName": [],
+    "tags": ["API","Getting Started"],
+    "guid": "{74474E97-CE99-4B95-919C-B6039415480F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アーキテクチャ
+
+{ProductName} コントロールとコンポーネントは、サーバー側とクライアント側のアーキテクチャ フレームワークに組み込まれています。
+
+== Web アーキテクチャの紹介
+
+Infragistics Web 要素のアーキテクチャは、サーバー側アーキテクチャとクライアント側アーキテクチャの 2 つの領域に明示されます。これらの 2 つの領域内のオブジェクトは、JavaScript および xml を使用して通信および応答します。サーバー側要素のフレームワークロジックの多くは、Infragistics.WebUI.Shared と呼ばれる共有アセンブリに配置されます。このアセンブリは、提供される共通の動作や機能に対するすべての Infragistics Web コントロールによって要求されます。
+
+クライアント サイド オブジェクト モデルのフレームワークオブジェクトは、コントロールのオブジェクト モデルとともにブラウザでロードされる ig_shared.js という JavaScript ファイルに含まれます。
+
+== サーバー側のアーキテクチャの概要
+
+サーバー側オブジェクトは、Microsoft ASP.NET Framework 内に実装して使用するように設計されています。その動作と機能性の大部分は、フレームワークにあるクラス、構造体、およびイベントから派生するものです。
+
+=== WebControlBase
+
+["link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.webcontrols_namespace.html[WebControlBase]"]  は、Infragistics のほとんどすべてのコントロールの基礎となっているクラスです。このクラスは、ASP.NET WebControl クラスから継承されたものです。WebControlBase クラスの機能の中には、画像ディレクトリ解像機能とクライアント ブラウザ機能が含まれています。
+
+WebControlBase によって、 pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.webcontrols.iprovideimagedirectoryresolution.html[IProvideImageDirectoryResolution]"]  と  pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.util.serialization.isupportpresetserialization.html[ISupportPresetSerialization]"]  の 2 つのインターフェイスが実装されます。
+
+IProvideImageDirectoryResolution は、コントロール デザイナとコントロール レンダリング ロジックによるページにレンダリングされている画像タグの画像ディレクトリ解像機能の取得を可能にします。
+
+ISupportPresetSerialization は、デザイナなどの外部オブジェクトによるコントロール固有のプリセット ローディングと保存の開始を可能にします。
+
+=== RendererBase
+
+pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.shared.rendererbase.html[RendererBase]"]  クラスは、さまざまなコントロールがブラウザへのレンダリングを行うときに使用する共通レンダリング ロジックと機能を提供します。これにより、スタイルや属性の HTML ストリーム レンダリングや、HTML を読みやすくフォーマットすることが可能となります。
+
+=== Infragistics.WebUI.Shared.Style
+
+Infragistics の  pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.shared.style.html[Style]"]  クラスは、System.Web.UI.Style クラスを拡張し、開発者がこのクラスに含まれていない CSS スタイル ルールを使用することを可能にする CustomRules プロパティとともに追加の CSS スタイル プロパティを提供します。
+
+Infragistics.WebUI.Shared は、基本的な共通オブジェクトのほかに、WebControl 要素の内部で使用される別の多くのオブジェクトを備えています。それには、たとえば、ViewState 管理クラス、レンダリングクラス、コレクション管理クラスなどがあります。
+
+== クライアント側のアーキテクチャの概要
+
+クライアント側フレームワークのアーキテクチャは、ig_shared.js ソース ファイル内に置かれているオブジェクトおよびユーティリティ メソッドを通して、また共通の描画技術の使用や個別のコントロールのオブジェクト モデルに対して共有されたデザイン パターンを通して実装されます。
+
+ig_shared.js で使用できるオブジェクトおよびメソッドには、ブラウザ認識ユーティリティ関数、Event オブジェクトなどのクライアント側イベントの実装で使用されるオブジェクト、サーバーへのコミュニケーション バックのためのクライアント側変更の蓄積を管理するためのオブジェクトが含まれます。
+
+=== クライアント サイド オブジェクト モデル（CSOM）
+
+{ProductName} 製品の各 Web コントロール要素は、クライアント ブラウザ内のオブジェクト モデルを公開し、これによって開発者は JavaScript を使用してランタイムにコンポーネントの機能や動作にアクセスおよび操作することができます。公開されたオブジェクトおよびイベントの設定がコントロールごとに異なりますが、共通する多くの機能を持っています。
+
+クライアント側の各コントロールについては、コントロール オブジェクトを表すために作成された最上位レベルのオブジェクトがあります。ページがブラウザによってロードされ、コントロールの html が解析された後で各コントロールがクライアントに作成されます。
+
+しばしば、オブジェクトおよびオブジェクト コレクションは、サーバーのコントロールのオブジェクト モデルに似ています。たとえば、WebTree™ CSOM には Node オブジェクトが含まれ、各 Node オブジェクトには getNodes() メソッドが含まれます。これは、サーバー側の Node オブジェクトと Node.Nodes コレクションに似ています。
+
+*注：* 
+CSOM内では、コレクションは JavaScript 配列として一般的に実装されます。
+
+=== クライアント側イベント
+
+クライアント側イベントは、各イベントがブラウザ内および Web コントロールのオブジェクト モデル内で発生する際に発生するページで JavaScript 関数として実装されます。サーバーで開始すると、メソッド名が Infragistics コントロールの ClientEvents オブジェクトに入力され、その名前の対応するメソッドが同じページ内にインスタンス化されます。クライアントのブラウザにページがロードされると、そのイベントが発生し、適切なコンテキスト情報でメソッドが呼び出されるので、アプリケーションは応答または動作を実行できます。各クライアント側イベントシグネチャには、最初のパラメーター内のコントロールオブジェクトに対する参照が含まれ、対象となるイベントに固有の引数が続き、最後に Event オブジェクトが提供されます。これによってアプリケーションはイベントのキャンセルを制御することができ、イベントの応答でページのポストバックを強制または防止も行うことができます。
+
+=== 拡張されたアーキテクチャ
+
+前述したクラスおよび構造に加えて、volume 2005.3 で開始する {ProductName} の一部である最近のコントロールには、以前の基本クラスに基づいて構築されたより高度で包括的な共有機能が含まれています。たとえば、WebSchedule™ 要素は、より高度で自立的なアーキテクチャを描画するために Smart のクラス プレフィックスに基づく一連の基本クラスが統合されています。たとえば、SmartWebControl は、WebScheduleInfo$™ コントロールの基本クラスで、WebControlBase は SmartWebControl の基本クラスです。描画クラスやその他のクラスと同様、派生クラスのオブジェクト モデルを小さくして整合性を維持するためにより多くの共通な機能がフレームワークに入れられています。
+
+さらに、クライアント サイド オブジェクト モデルは JavaScript 継承を使用して継続的に強固かつ豊かにされ、基本クラスのビルディング ブロックを使用して豊富なクライアント側動作を提供します。
+
+=== UI 要素
+
+Volume 2005.3 および WebSchedule コンポーネントで開始すると、UI 描画フレームワークは、コントロールのページ キャンバス内の具象領域および領域タイプを表す UI 要素で構成されます。コントロールの全体領域を表す最上位レベルの UI Element で開始すると、描画されるコントロールのそれぞれの一意の領域を分割およびカバーするために、補足的な UI Element が最上位レベルの要素内そして互いにネストされます。コントロールの描画段階では、UI Element ツリーは、各 UI Element の描画メソッドを発生するために再帰的にトラバースされます。
+
+== 関連トピック
+
+link:web-client-side-object-model-csom-reference-guide.html[クライアント側オブジェクト モデル（CSOM）リファレンスガイド] – クライアント側 JavaScript プログラミング環境内で CSOM を提供する ASP.NET コントロールとコンポーネントのすべてをリストします。

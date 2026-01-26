@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webschedule",
+    "controlName": ["WebSchedule"],
+    "tags": [],
+    "guid": "{5F4FE975-47B2-400F-BBE9-D9853EC593F3}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebSchedule
+
+WebSchedule コントロール（WebCalendarView、WebMonthView、WebScheduleInfo など）は WebSchedule アセンブリの一部であり、同様の機能を活用するため、複数の WinSchedule コントロールに適用されるトピックをこのセクションにまとめました。
+
+以下は、WebSchedule コントロールの機能やアプリケーションでこれを使いたくなる理由から、複数の WebSchedule に共通するタスクを実行する際のステップごとの手順に至るまで、WebSchedule コントロールに関する貴重な情報へのリンクです。
+
+* link:webschedule-understanding-webschedule-controls-and-components.html[WebSchedule コントロールおよびコンポーネントの理解] --  このセクションには WebSchedule コントロールの機能をより理解するための情報があります。なぜアプリケーションのビルドの一部として使用するかも説明します。
+* link:webschedule-getting-started-with-webschedule-controls-and-components.html[WebSchedule コントロールおよびコンポーネントで開始] -- WebSchedule コントロール/コンポーネントで出来る限り素早く起動して実行するために、コントロール（つまり、WebSchedule コントロールのクイック デザインを使用）を使用する方法についての情報を提供します。
+* link:webschedule-using-the-webschedule-controls-and-components.html[WebSchedule コントロールおよびコンポーネントの使用] -- このセクションは、WebSchedule コントロール/コンポーネントによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウエイです。
+* link:webschedule-api-overview.html[API 概要] -- このトピックでは、WebSchedule コントロールおよびコンポーネントを使ってプログラミングする際に作業する名前空間とクラスをリストします。このトピックにリストされる名前空間とクラスは、{ProductName} ヘルプの link:web-api-reference-guide.html[「API リファレンスガイド」]に便宜上リンクします。
+* link:webschedule-csom.html[クライアント側オブジェクトモデル（CSOM）の概要] --  このトピックは、WebSchedule コントロールおよびコンポーネントを使用してクライアント側のプログラミングを行うときに必要となる、ユーティリティ関数、オブジェクト、イベントのページをリストアップしています。このトピックにリストされるユーティリティ関数、オブジェクト、およびイベントは、{ProductName} ヘルプの「Client-Side Model （CSOM）リファレンスガイド」に便宜上リンクします。

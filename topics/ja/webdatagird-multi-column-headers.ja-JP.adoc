@@ -1,0 +1,214 @@
+﻿////
+|metadata|
+{
+    "name": "webdatagird-multi-column-headers",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Grids","Grouping"],
+    "guid": "dc157194-fe56-48e3-8de1-68a309ce110b",
+    "buildFlags": [],
+    "createdOn": "2011-10-21T08:16:24.6098747Z"
+}
+|metadata|
+////
+
+= WebDataGrid 複数列ヘッダーの構成
+
+== 目的
+
+このトピックでは、*WebDataGrid™* .における複数列ヘッダーのセットアップ方法を示します。
+
+=== このトピックの構成
+
+このトピックには次のセクションがあります。
+
+*複数列ヘッダーの構成の概要*
+
+** コントロールの構成チャート
+
+*複数列ヘッダーの構成*
+
+** 複数列ヘッダーの詳細
+** 複数列ヘッダーのプロパティ設定値
+** 例: 複数列ヘッダーの構成
+** 複数列ヘッダーのプロパティ リファレンス
+
+== 関連トピック
+=== 前提条件
+
+まず以下のトピックを読む必要があります。
+
+* link:webdatagrid-getting-started-with-webdatagrid.html[WebDataGrid を使用した作業の開始]
+* link:webdatagrid-columns.html[列]
+
+== 複数列ヘッダーの構成の概要
+
+=== コントロールの構成チャート
+
+下の表は、ユーザーが制御できる WebDataGrid コントロールの動作をリストしたものです。
+
+[options="header", cols="a,a,a"]
+|====
+|構成可能な動作|構成の詳細|構成プロパティ
+
+|*複数列ヘッダー*
+|複数列ヘッダーは、GroupField オブジェクトを元にしてその GroupField の列コレクションに他の列を追加していくという形で作成します。
+|
+* GroupField 
+
+* 列 
+
+|====
+
+== 複数列ヘッダーの構成
+
+=== 複数列ヘッダーの詳細
+
+複数レベルのヘッダーを作成する必要のある場合や、ヘッダーを複数のカテゴリーにグループ分けする必要のある場合には、複数列ヘッダーを有効にすると、こうしたことが可能になります。GroupField オブジェクトは、その列コレクションに他の列を入れることのできるフィールドです。GroupField オブジェクトの列コレクションに他の列を入れると、その列の上に GroupField のヘッダーが表示されます。グリッドのサイズ変更/並べ替え/選択/フィルター処理/移動の各動作は、この新しいレイアウトのニーズに合わせてデザインしなおされています。
+
+image::Images/WebDataGrid_MultiHeader_01.png[]
+
+=== 複数列ヘッダーのプロパティ設定値
+
+以下の表は、プロパティ設定の推奨構成をマップしています。プロパティの設定画面はClipboard コレクションから呼び出します。
+
+[options="header", cols="a,a,a"]
+|====
+|以下を行うために...|使用するプロパティ|設定値
+
+|*複数列ヘッダーを構成します*
+|列
+|_列オブジェクトのコレクション_
+
+|====
+
+=== 例: 複数列ヘッダーの構成
+
+=== はじめに
+
+この例では、実際に ASP.NET ページのマークアップで複数列ヘッダーを定義することによって複数列ヘッダーを備えた Infragistics Grid を構成する手順を示します。
+
+=== プレビュー
+
+以下は最終結果のプレビューです。
+
+image::Images/WebDataGrid_MultiHeader_02.png[]
+
+=== 要件
+
+この手順を完了させるには、以下の作業を行う必要があります。
+
+* データにバインドされた WebDataGrid の用意
+
+=== 概要
+
+以下はプロセスの概念的概要です。
+
+*1. GroupField の定義*
+
+*2. ヘッダー テキストの構成*
+
+*3. GroupField の列コレクションへの列の追加*
+
+=== 手順
+
+[start=1]
+. *GroupField を定義します。*
+
+.. *GroupField を定義します。*
++
+GroupField は他の列と同じように定義されます。データにはバインドされませんが、他の列と同じようにキーが必要です。
++
+*ASPX の場合:*
++
+----
+<ig:GroupField Key="ContactInfo">
+</ig:GroupField>
+----
++
+*C# の場合：*
++
+----
+GroupField groupField = new GroupField();
+groupField.Key = "ContactInfo";
+----
+
+.. *C# では、列コレクションを追加します。*
+
+*C# の場合：*
+
+----
+this.WebDataGridView.Columns.Add(groupField);
+----
+
+[start=2]
+. *ヘッダー テキストを構成します。*
+
+ヘッダー テキストは、その列に表示されるテキストです。これは、GridField の Header オブジェクトの Text プロパティで構成します。
+
+*HTML の場合:*
+
+----
+<Header Text="Contact Information" />
+----
+
+*C# の場合：*
+
+----
+groupField.Header.Text = "Contact Information";
+----
+
+[start=3]
+. *GroupField の列コレクションに列を追加します。*
+
+子列を表示するには、子列を GroupField の Columns コレクションに追加します。
+
+*HTML の場合:*
+
+----
+<Columns>
+    <ig:BoundDataField DataFieldName="ContactName" Key="ContactName">
+        <Header Text="ContactName" />
+    </ig:BoundDataField>
+    <ig:BoundDataField DataFieldName="ContactTitle" Key="ContactTitle">
+        <Header Text="ContactTitle" />
+    </ig:BoundDataField>
+</Columns>
+----
+
+*C# の場合：*
+
+----
+/* BoundDataField の作成 * /
+BoundDataField field = new BoundDataField();
+field.DataFieldName = "ContactName";
+field.Key = " ContactName ";
+field.Header.Text = " ContactName ";
+/* 上で作成した GroupedField への  
+* BoundDataField の追加
+*/
+groupField.Columns.Add(field);
+/* BoundDataField の作成 * /
+field = new BoundDataField();
+field.DataFieldName = "ContactTitle";
+field.Key = " ContactTitle ";
+field.Header.Text = " ContactTitle ";
+/* 上で作成した GroupedField への  
+* BoundDataField の追加
+*/
+groupField.Columns.Add(field);
+----
+
+=== 複数列ヘッダーのプロパティ リファレンス
+
+こうしたプロパティの詳細については、プロパティ リファレンス セクションにあるプロパティの一覧を参照してください。
+
+* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webdatagrid.html[WebDataGrid API ドキュメンテーション ]
+
+== 関連トピック
+
+以下は、その他の役立つトピックです。
+
+* link:webdatagrid-add-or-remove-a-column.html[列を追加または削除]
+* link:webdatagrid-setting-column-settings-for-a-behavior.html[動作の列設定の設定]
+* link:webdatagrid-hiding-a-column.html[列の非表示]
+* link:webdatagrid-custom-column-styling.html[カスタムの列スタイル]

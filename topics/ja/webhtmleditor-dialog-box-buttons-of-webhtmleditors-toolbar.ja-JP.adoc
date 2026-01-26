@@ -1,0 +1,57 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-dialog-box-buttons-of-webhtmleditors-toolbar",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing"],
+    "guid": "{7418E769-0043-4E5E-A50D-7249D3740A0A}",  
+    "buildFlags": [],
+    "createdOn": "2006-03-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor のツールバーのダイアログボックス ボタン
+
+ユーザーがアプリケーションをクリックすると、 pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.toolbardialogbutton.html[ToolbarDialogButton]"]  クラスのインスタンスがポップアップ ダイアログ ボックスを開きます。ユーザーがタスクを遂行するためにさらに入力する必要があるときにこのボタンを使用します。エンド ユーザーは、ダイアログ ボックス ボタンをクリックしてから、タスクの遂行を取りやめるために開いたダイアログ ボックスを閉じることができます。表示されるダイアログ ボックスは、各 ToolbarDialogButton オブジェクトの  pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.htmlboxdialog~caption.html[Caption]"]  プロパティと  pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.htmlboxdialog~text.html[Text]"]  プロパティを使ってカスタマイズできます。ダイアログ ボタンを使用する操作には、ユーザーがパレットから色を選択（ハイライト、テキストの前景色など）したり、関数のパラメータを指定（検索や置換）したりする例が挙げられます。
+
+次の表に、WebHtmlEditor コントロールのツールバーの CategoryName ボタンのリストを示します。各ボタンの説明は、 link:webhtmleditor-list-of-webhtmleditors-toolbar-buttons.html[WebHtmlEditor のツールバー ボタンのリスト]をお読みください。
+
+[options="header", cols="a,a"]
+|====
+|ボタン|ボタン名
+
+|image::Images/custom.gif[] 
+
+|カスタムダイアログボタン
+
+|image::Images/findreplace.gif[] 
+
+|検索と置換
+
+|image::Images/fontcolor.gif[] 
+
+|フォントの色
+
+|image::Images/fonthighlight.gif[] 
+
+|フォントのハイライト
+
+|image::Images/help.gif[] 
+
+|ヘルプ
+
+|image::Images/insertbookmark.gif[] 
+
+|ブックマークの挿入
+
+|image::Images/insertrule.gif[] 
+
+|罫線の挿入
+
+|image::Images/specialcharacter.gif[] 
+
+|特殊文字
+
+|====

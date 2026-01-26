@@ -1,0 +1,30 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webexcelexporter-about-webexcelexporter",
+    "controlName": ["WebExcelExporter"],
+    "tags": ["Exporting","Grids","How Do I"],
+    "guid": "05f0cf69-e056-4e0e-83ac-109bdae8b1c1",  
+    "buildFlags": [],
+    "createdOn": "2010-06-06T07:45:51.6196939Z"
+}
+|metadata|
+////
+
+= WebExcelExporter について
+
+WebExcelExporter コントロールによって、Grid データを自動的にエクスポートできます。どのような種類の Infragistics DataGrid を使用しているかにかかわらず（WebDataGrid または WebHierarchicalDataGrid）、好みの形式でデータを Excel™ ファイルにエクスポートして取得するという目的を簡単に達成できます。サポートされる Excel™ ファイル形式は、Excel™ 97 から Excel™ 2003（これらすべてのバージョンは共通の形式を共有）および Excel™ 2007 です。
+
+WebExcelExporter は Infragistics.Web.UI.GridControls 名前空間にある別個のコントロールです。したがって使用するためには追加のタグ プレフィックスや名前空間宣言は不要です。
+
+以下は WebExcelExporter によって現在サポートされている機能のリストです。
+
+* ExportMode - エクスポートされたファイルが提示される方法を定義します。ファイルは自動的なダウンロードのためにブラウザーに送信することもできますし、WorkBook インスタンスに保存するだけも可能なので、結果をどうするのかを決定します。
+* 同じワークシートにあるすべてのグリッドをエクスポートするのか、別個のワークシート上の各グリッドをエクスポートするのか（デフォルト）を指定する追加オプションを使用して、一度に複数のグリッドをエクスポートします。
+* グリッド データのみをエクスポートするのか（Paging または VirtualScrolling を有効にした時）、データ ソースにあるデータ全体をエクスポートします。
+* 複数の Excel™ ファイル形式（Excel™ 97/Excel™ 2003 および Excel™ 2007 以後）にエクスポートします。
+* スタイルをエクスポートします。これによって、アプリケーションのルック アンド フィールを失いません。
+* 提供されている WorkBook または WorkSheet インスタンスにあるデータをエクスポートします。
+* エクスポートされたデータのために WorkSheet で行オフセットおよび列オフセットを指定します。
+* エクスポートされた各行だけでなく、データがエクスポートされる前後にカスタム ロジックを適用するために処理できるサーバー イベント。

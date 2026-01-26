@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "webappstylist-walkthroughs",
+    "controlName": ["WebAppStylist"],
+    "tags": [],
+    "guid": "{F7870732-831B-4D51-83E4-348A48A1B9AE}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 詳細なガイド
+
+以下は Infragistics AppStylist for ASP.NET で一般的なタスクを完了する際に役に立つ詳細なガイドのリストです。
+
+* link:webappstylist-creating-a-gradient-background.html[グラデーション背景を作成]
+* link:webappstylist-personalizing-your-style-libraries.html[スタイル ライブラリのパーソナライズ]
+* link:webappstylist-styling-roles-through-inheritance.html[継承を使用してロールをスタイル]

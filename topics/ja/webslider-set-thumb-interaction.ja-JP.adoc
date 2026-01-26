@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "webslider-set-thumb-interaction",
+    "controlName": ["WebSlider"],
+    "tags": [],
+    "guid": "{3ED9B6E4-9214-4B51-B335-4EE1DFEDE363}",  
+    "buildFlags": [],
+    "createdOn": "2008-12-05T15:56:28Z"
+}
+|metadata|
+////
+
+= つまみの操作を設定
+
+WebSlider™ で 2 つのつまみを有効にすると、各つまみが互いに作用する方法を調整できます。ThumbsInteractionMode 列挙体は、さまざまなシナリオで WebSlider のつまみの動作を処理するための広範なオプションを提供します。
+
+つまみはいくつかの異なる方法で作用します:
+
+* Free - つまみは互いを自由に通過してスライドできます。
+* Push - つまみをもう一方のつまみの横にスライドすると、互いにプッシュします。
+* Lock - つまみは互いを通過してスライドすることも互いをプッシュすることもできません。
+
+以下の例のコードは、WebSlider のつまみの操作モードを Push に設定する方法を示します。
+
+image::images/WebSlider_Set_Thumb_Interaction_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Me.WebSlider1.ThumbsInteractionMode = _ Infragistics.Web.UI.EditorControls.SliderThumbsInteractionMode.Push
+----
+
+*C# の場合：*
+
+----
+this.WebSlider1.ThumbsInteractionMode = Infragistics.Web.UI.EditorControls.SliderThumbsInteractionMode.Push;
+----
+
+== 関連トピック
+
+link:webslider-set-thumb-appearance.html[つまみの外観を設定]

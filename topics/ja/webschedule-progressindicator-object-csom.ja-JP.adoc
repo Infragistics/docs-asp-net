@@ -1,0 +1,113 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-progressindicator-object-csom",
+    "controlName": [],
+    "tags": ["API","How Do I"],
+    "guid": "{D33F0381-6C43-483B-A16F-2DC91EB63A6F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ProgressIndicator オブジェクト
+
+== ProgressIndicator
+
+進捗インジケータは SmartCallbacks の間に表示されるクライアント側オブジェクトです。
+
+=== ProgressIndicator メソッド
+
+[cols="a,a"]
+|====
+|*display* 
+|進捗インジケータを表示します。
+
+|*getImageUrl* 
+|進捗インジケータに使用されている ImageUrl を取得します。
+
+|*getTemplate* 
+|進捗インジケータに設定されている HTML を取得します。
+
+|*hide* 
+|進捗インジケータを非表示にします。
+
+|*setImageUrl* 
+|進捗インジケータの ImageUrl を設定します。 
+
+*パラメータ*
+
+_imageUrl_ 
+
+設定する画像の URL。 
+
+*解説*
+
+setHtml メソッドを使用して設定されている HTML がない場合、進捗インジケータはこの画像を使用します。
+
+|*setLocation* 
+|ページに相対して、進捗インジケータを表示すべき場所を設定します。 
+
+*パラメータ*
+
+_location_ 
+
+ig_Location.TopLeft = 0 
+
+ig_Location.TopCenter = 1 
+
+ig_Location.TopRight = 2 
+
+ig_Location.TopInfront = 3 
+
+ig_Location.TopBehind = 4 
+
+ig_Location.MiddleLeft = 8 
+
+ig_Location.MiddleCenter = 9 
+
+ig_Location.MiddleRight = 10 
+
+ig_Location.MiddleInfront = 11 
+
+ig_Location.MiddleBehind = 12 
+
+ig_Location.BottomLeft = 16 
+
+ig_Location.BottomCenter = 17 
+
+ig_Location.BottomRight = 18 
+
+ig_Location.BottomInfront = 19 
+
+ig_Location.BottomBehind = 20 
+
+ig_Location.AboveLeft = 32 
+
+ig_Location.AboveCenter = 33 
+
+ig_Location.AboveRight = 34 
+
+ig_Location.AboveInfront = 35 
+
+ig_Location.AboveBehind = 36 
+
+ig_Location.BelowLeft = 64 
+
+ig_Location.BelowCenter = 65 
+
+ig_Location.BelowRight = 66 
+
+ig_Location.BelowInfront = 67 
+
+ig_Location.BelowBehind = 68
+
+|*setRelativeContainer* 
+|進捗インジケータを表示するコンテナを設定します。進捗インジケータに設定される場所は、コンテナのどこに表示されるのかを決定します。
+
+|*setTemplate* 
+|進捗インジケータで使用される HTML を設定します。
+
+|====

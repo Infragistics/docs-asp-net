@@ -1,0 +1,51 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-api-overview",
+    "controlName": ["WebSchedule"],
+    "tags": ["API"],
+    "guid": "{5DD82A3B-0163-46A9-B0B2-D4FCB4793ABA}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションではコントロールに関連する各名前空間を示します。このコントロールでプログラムに使用するいくつかのキー クラスも提供します。このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+[cols="a,a"]
+|====
+|*WebSchedule 名前空間:* 
+
+link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[Infragistics.WebUI.UltraWebSchedule]"]
+|*キー クラス:* 
+
+link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[Activity]"] 
+
+link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.appointment.html[Appointment]"] 
+
+link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webcalendarview.html[WebCalendarView]"] 
+
+link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webdayview.html[WebDayView]"] 
+
+link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webmonthview.html[WebMonthView]"] 
+
+link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo.html[WebScheduleInfo]"]
+
+|*データ名前空間:* 
+
+link:{ApiPlatform}webui.webscheduledataprovider{ApiVersion}~infragistics.webui.data_namespace.html[Infragistics.WebUI.Data]"]
+|*キー クラス:* 
+
+link:{ApiPlatform}webui.webscheduledataprovider{ApiVersion}~infragistics.webui.data.webscheduledataproviderbase.html[WebScheduleDataProviderBase]"] 
+
+link:{ApiPlatform}webui.webscheduledataprovider{ApiVersion}~infragistics.webui.data.webscheduledbprovider.html[WebScheduleDbProvider]"] 
+
+link:{ApiPlatform}webui.webscheduledataprovider{ApiVersion}~infragistics.webui.data.webscheduleoledbprovider.html[WebScheduleOleDbProvider]"] 
+
+link:{ApiPlatform}webui.webscheduledataprovider{ApiVersion}~infragistics.webui.data.webschedulesqlclientprovider.html[WebScheduleSqlClientProvider]"]
+
+|====

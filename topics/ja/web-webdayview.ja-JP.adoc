@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webdayview",
+    "controlName": ["WebDayView"],
+    "tags": ["Getting Started"],
+    "guid": "{44055B6B-9FF8-443D-BD49-26F5C9BD54EF}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDayView
+
+以下のリンクをクリックすると、WebDayView コントロールに関する説明を読むことができます。
+
+* link:webdayview-understanding-webdayview.html[WebDayView の理解] -- このセクションでは、WebDayView コントロールの機能をより良く理解するための支援となるあらゆる情報や、アプリケーション構築の一環としてこのコントロールの機能を使いたくなる理由が説明されています。
+* link:web-webdayview-using-webdayview.html[WebDayView の使用] --このセクションは、WebGrid コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。  
+* link:webdayview-accessibility-compliance.html[WebDayView アクセシビリティの遵守] -- このトピックは、WebDayView が第 508 条の要件を満たす方法を概略します。このアクセシビリティの遵守によって、エンド ユーザー、特に障害を持つユーザーが WebDayView コントロールを使用して構築された Web アプリケーションにアクセスおよび使用することを可能にします。
+* link:webdayview-api-overview.html[API 概要] -- このトピックでは、WebDayView コントロールを使ってプログラミングする際に作業する名前空間とクラスをリストします。このトピックにリストされる名前空間とクラスは、{ProductName} ヘルプの link:web-api-reference-guide.html[「API リファレンスガイド」]に便宜上リンクします。
+* link:webdayview-csom-overview.html[CSOM の概要] -- このトピックは、WebDayView コントロールのクライアント サイド オブジェクト モデルに関する参照です。
+
+WebDayView コントロールは、コントロールおよびコンポーネントの WebSchedule グループの一部です。複数の WebSchedule コントロールおよびコンポーネント（WebDayView、WebMonthView、WebScheduleInfo など）に共通する概要/タスクベースの情報を収めているセクションを探している場合には、以下のリンクをクリックします。
+
+* link:web-webschedule.html[WebSchedule]

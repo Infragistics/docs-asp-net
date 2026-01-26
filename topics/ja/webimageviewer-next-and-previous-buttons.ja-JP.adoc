@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "webimageviewer-next-and-previous-buttons",
+    "controlName": ["WebImageViewer"],
+    "tags": ["Layouts","Selection","Styling"],
+    "guid": "{7E2977E3-23B1-4BB4-B0AB-702A0C8EE878}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 次へボタンと前へボタン
+
+WebImageViewer™ コントロールはビューポートを使用して、基本の画像ストリップの表示部分を制限します。ナビゲーションのために WebImageViewer コントロールは [前へ] ボタンと [次へ] ボタンを公開します。エンド ユーザーは画像をスクロールするためにこれらのボタンを利用できます。
+
+画像をナビゲートする間、スクロール アニメーションを使用してスクロールされます。詳細は、 link:webimageviewer-change-how-the-image-viewer-scrolls-through-images.html[「画像ビューアが画像をスクロールする方法を変更」]を参照してください。
+
+デフォルトで、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webimageviewer~nextbutton.html[NextButton]"]  オブジェクトと  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webimageviewer~previousbutton.html[PreviousButton]"]  オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.imagebutton~visible.html[Visible]"]  プロパティは True に設定されています。
+
+以下のコード スニペットは、NextButton オブジェクトでプロパティを設定する方法を示します。
+
+image::images/WebImageViewer_Set_Navigation_Type_01.png[WebImageViewer_Set_Navigation_Type_01]
+
+*Visual Basic の場合：*
+
+----
+Me.WebImageViewer1.NextButton.altText = "Next Button"
+----
+
+*C# の場合：*
+
+----
+this.WebImageViewer.NextButton.altText = "Next Button";
+----

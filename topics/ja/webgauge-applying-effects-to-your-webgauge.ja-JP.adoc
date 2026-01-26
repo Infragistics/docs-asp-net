@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-applying-effects-to-your-webgauge",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{B0C61FA3-2FAA-4765-9BB7-A4865EC1A3E0}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 効果を WebGauge に適用
+
+[プロパティ] パネルの [効果] タブによって、さまざまな効果をゲージのプロパティに適用できます。たとえば、ラジアル ゲージのアンカーにドロップ シャドー効果を適用するためにこのタブを使用できます。
+
+プロパティ パネルで使用可能な [効果] タブの説明については、以下のリンクをクリックしてください。
+
+* link:webgauge-effects-tab.html[効果タブ]

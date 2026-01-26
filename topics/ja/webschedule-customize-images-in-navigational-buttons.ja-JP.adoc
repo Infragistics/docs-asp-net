@@ -1,0 +1,56 @@
+﻿////
+|metadata|
+{
+    "name": "webschedule-customize-images-in-navigational-buttons",
+    "controlName": ["WebSchedule"],
+    "tags": ["Navigation","Scheduling","Styling"],
+    "guid": "{FF1A5300-0620-4587-8C25-B7A889F73920}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ナビゲーション ボタンの画像をカスタマイズ
+
+WebSchedule UI 要素内のナビゲーション ボタンは、ボタンの代わりに固有の画像を使用することによってカスタマイズできます。 
+
+固有の [前へ] ボタンと [次へ] ボタンを表示するには、WebMonthView または WebDayView 要素で  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleviewbase~prevbuttonimage.html[PrevButtonImage]"] および pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleviewbase~nextbuttonimage.html[NextButtonImage]"] オブジェクト プロパティを設定するだけです。 
+
+PrevButtonImage オブジェクトと NextButtonImage オブジェクトの両方に設定可能な 4 つのプロパティがあります。 
+
+* pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.webcontrols.simpleimage~url.html[Url]"]   -- このプロパティはそのボタンに表示したい画像のソースに設定する主要なプロパティです。 
+
+* pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.webcontrols.image~height.html[Height]"] -- このプロパティを使用して、ユーザー インタフェースの画像の高さを指定します。このプロパティはオプションです。 
+
+* pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.webcontrols.image~width.html[Width]"]  -- このプロパティを使用して、ユーザー インタフェースの画像の幅を指定します。 
+
+* pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.webcontrols.simpleimage~alternatetext.html[AlternateText]"]  -- このプロパティは画像が使用できなかった場合に表示したい文字列に設定できます。 
+
+以下のコードは、PrevButtonImage オブジェクトと NextButtonImage オブジェクトの両方の Url プロパティを設定する例を示しています。
+
+image::images\WebSchedule_How_to_Customize_the_Navigational_Buttons_Images_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Private Sub Page_Load(ByVal sender As System.Object, ByVal _
+  e As System.EventArgs) Handles MyBase.Load
+	Me.WebDayView1.NextButtonImage.Url = "./add_down.gif"
+	Me.WebDayView1.PrevButtonImage.Url = "./del_down.gif"
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void Page_Load(object sender, System.EventArgs e)
+{
+	this.WebDayView1.PrevButtonImage.Url = "./del_down.gif";
+	this.WebDayView1.NextButtonImage.Url = "./add_down.gif";
+}
+----
+
+== 関連トピック
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[WebSchedule 名前空間]"]

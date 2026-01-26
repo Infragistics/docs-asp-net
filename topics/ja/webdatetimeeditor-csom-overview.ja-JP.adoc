@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatetimeeditor-csom-overview",
+    "controlName": ["WebDateTimeEditor"],
+    "tags": ["API"],
+    "guid": "{43DD3539-6B1E-4F73-8521-022433351532}",  
+    "buildFlags": [],
+    "createdOn": "2009-04-06T17:03:41Z"
+}
+|metadata|
+////
+
+= CSOM の概要
+
+WebDateTimeEditor™ コントロールは、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを提供します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクトで構成され、開発者はサーバー側にポストバックしなくても、コントロールに関連する重要な機能単位をプログラムできます。
+
+link:webtexteditor~infragistics.web.ui_namespace.html[WebDateTimeEditor CSOM の概要]

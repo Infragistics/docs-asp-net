@@ -1,0 +1,42 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-image-deployment-in-webgauge",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{AE35BA63-A371-41FA-8066-8E1F28B0E518}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebGauge での画像の配備
+
+WebGauge は、HTML を作成する以外に、各要求ごとにサーバー上に画像を生成する点が他の Web コントロールと異なります。生成された画像は、クライアントのブラウザ ウィンドウからアクセスできるように何らかの方法で配備される必要があります。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.webui.ultrawebgauge.ultragauge~deploymentscenario.html[DeploymentScenario]"]  プロパティから以下の 2 つのオプションが提供されます。
+
+* DeploymentScenario = Session:ゲージ画像は、ひとつの  pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.webui.ultrawebgauge.gaugeimagepipe.html[GaugeImagePipe]"]  コントロールを含む GaugeImagePipe.aspx と呼ばれるページからストリームされます。
+* DeploymentScenario = FileSystem:ゲージ画像が、ファイル システム上にファイルとして保存されます。
+
+以下のセクションでは、上記のシナリオについてより詳しく説明しています。
+
+== セッションベースの配備
+
+ブラウザがゲージが含まれるページを要求すると、サーバーはゲージ画像を作成して、それを識別するための一意のキーを付けてセッション状態で格納します。
+
+サーバーは GaugeImagePipe ページ（普通は GaugeImage.aspx という名前）へのリンクを含む IMG エレメントを QueryString とともにレンダリングします。QueryString には、セッション状態で格納されたゲージへの一意のキーが含まれています。ブラウザがこの IMG エレメントを要求すると、GaugeImagePipe ページがロードされ、ゲージ画像をストリームに送ります。これで、画像がクライアントのブラウザに表示できるようになります。
+
+セッションベースの配備は、負荷がバランスされた「Web ファーム」環境で、セッション状態がアプリケーションで正常に管理されている場合に有効です。
+
+*注:* セッション状態が「InProc」に設定されていると、この配備方法は複数のサーバー上で機能しません。
+
+DeploymentScenario.Scenario プロパティが Session に設定されている場合は、アプリケーションにひとつの GaugeImagePipe コントロールがある ASPX ページがなければなりません。通常は、このページは GaugeImage.aspx と名付けられ、ゲージが含まれている Web フォームと同じフォルダに入っています。ただし、このページの名前と位置は、*ImagePipePageName* プロパティを使用してカスタマイズできます。
+
+== ファイル システムベースの展開
+
+ファイル システム画像配備においては、画像は Web サーバー上のファイル システムに保存され、それに対応する URL が生成されます。 pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.webui.ultrawebgauge.webgaugedeploymentscenario~imageurl.html[DeploymentScenario.ImageURL]"]  プロパティにトークン「#SEQNUM」が含まれていると、ゲージには有限数の画像が保存されてファイル名がリセットされます。たとえば、ImageURL プロパティが「Gauge_#SEQNUM(100).jpg」に設定されていると、「Gauge_1.jpg」、「Gauge_2.jpg」というようにファイルに名前が付けられます。「Gauge_99.jpg」、「Gauge_100.jpg」に達すると、「Gauge_1.jpg」に戻ります。
+
+このシナリオでは、この Web アプリケーションを実行しているユーザー アカウントには、 pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.webui.ultrawebgauge.webgaugedeploymentscenario~filepath.html[DeploymentScenario.FilePath]"]  プロパティで指定されたフォルダにあるファイルに書き込みや変更を行う権限が必要です。デフォルトでは、このユーザー アカウントは、Windows® XP では「ASPNET」に、Windows Server 2003 では「NETWORK SERVICE」です。

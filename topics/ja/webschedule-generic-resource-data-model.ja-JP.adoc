@@ -1,0 +1,64 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-generic-resource-data-model",
+    "controlName": ["WebSchedule"],
+    "tags": ["Scheduling"],
+    "guid": "{B435040C-1C22-4186-8C88-9709490634AD}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 汎用的なリソース データ モデル
+
+このに示されるリソースの表は、WebSchedule™ Resource のサンプル データ ソースを説明します。これはアクティビティが予定される人、場所、ものです。すべての列は特に明記されていない限り、Resource オブジェクトで同じ名前を持つ .NET プロパティに対応します。カスタム データ ソースが、ここに示されている列名に一致するプロパティ名を公開している場合、フィールド バインディングが自動的に行われます。異なる名前がある場合、バインディング オブジェクトを使用してフィールド バインディングを指定します。詳細については、 link:webschedule-data-bindings.html[「データ バインディング」]を参照してください。
+
+以下は、リソースの表で必要となるフィールドを示します。
+
+* ID
+* ResourceName
+
+[options="header", cols="a,a,a,a"]
+|====
+|列名|データ型|Null を許可|注記
+
+|ID
+|int
+|いいえ
+|プライマリ キー。このリソースを一意に識別する数値。
+
+|ResourceName
+|nvarchar(64)
+|いいえ
+|リソースを一意に識別する名前で、よりユーザー フレンドリなキーになります。
+
+|ResourceDescription
+|ntext
+|はい
+|このリソースを記述する自由書式のテキスト。
+
+|EmailAddress
+|nvarchar(64)
+|はい
+|リソースの電子メール アドレスを含む自由書式のテキスト。
+
+|EnableEmailReminders
+|bit
+|はい
+|予定の電子メール アラームを有効にします。
+
+|_ts
+|timestamp
+|はい
+|並行処理の競合を検出するために使用されるタイムスタンプ。
+
+|====
+
+*注：* WebSchedule は、"Unassigned Resource" が存在していることを前提としています。このデータ モデルは、-999 の Resource ID を事前に入力しなければならない Resource の行のひとつの行の存在を必要とすることによって、表間の関係で null 値を持つことを回避します。
+
+== 関連トピック
+
+link:webschedule-generic-activityvariance-data-model.html[汎用的なアクティビティ/バリアンス データ モデル]

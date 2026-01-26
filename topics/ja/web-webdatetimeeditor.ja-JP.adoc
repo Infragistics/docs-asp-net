@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webdatetimeeditor",
+    "controlName": ["WebDateTimeEditor"],
+    "tags": [],
+    "guid": "{E8E656D6-AAD2-4B53-B46B-05443E7A49D4}",  
+    "buildFlags": [],
+    "createdOn": "2009-04-06T17:00:19Z"
+}
+|metadata|
+////
+
+= WebDateTimeEditor
+
+このページには、WebDateTimeEditor™ コントロール関連の概要/タスクベースの情報がすべて含まれています。このセクションには、コントロールが何を実行するのか、またアプリケーションでなぜコントロールを使用したくなるのかから、コントロールを使用して一般的なタスクを完了する方法に関するステップバイステップの手順まで、コントロールに関する貴重な情報が含まれています。
+
+WebDateTimeEditor コントロールについての詳細は、以下のリンクをクリックしてください。
+
+== link:webdatetimeeditor-about-webdatetimeeditor.html[WebDateTimeEditor について]
+
+このセクションには、WebDateTimeEditor コントロールの機能の理解を深めるのに役立つ情報があります。さらに、コントロールの目的も理解できます。
+
+== link:webdatetimeeditor-using-webdatetimeeditor.html[WebDateTimeEditor の使用]
+
+このセクションは、WebDateTimeEditor で使用可能な機能を使用する方法を示すタスクベースの情報を提供します。
+
+== link:webdatetimeeditor-accessibility-compliance.html[WebDateTimeEditor アクセシビリティの遵守]
+
+このトピックは、WebDateTimeEditor が第 508 条の要件を満たす方法を概略します。このアクセシビリティの遵守によって、エンドユーザー、特に障害を持つユーザーが WebDateTimeEditor コントロールを使用して構築された Web アプリケーションにアクセスおよび使用することを可能にします。
+
+== link:webdatetimeeditor-api-overview.html[API の概要]
+
+このトピックは、WebDateTimeEditor コントロールでプログラミング中に作業する名前空間とクラスをリストします。このトピックにリストされている名前空間とクラスは、{ProductName} ヘルプの「API 参照ガイド」セクションに便宜的にリンクされています。
+
+== link:webtexteditor~infragistics.web.ui_namespace.html[CSOM の概要]
+
+WebDateTimeEditor™ コントロールは、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを提供します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクトで構成され、開発者はサーバー側にポストバックしなくても、コントロールに関連する重要な機能単位をプログラムできます。

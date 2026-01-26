@@ -1,0 +1,58 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-object-csom",
+    "controlName": [],
+    "tags": ["API","How Do I"],
+    "guid": "{127712A8-29C5-4B60-B711-1A3A05B91BB1}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor オブジェクト
+
+== WebHtmlEditor
+
+WebHtmlEditor オブジェクトは、WebHtmlEditor コントロールのコントロール レベルの機能へのアクセスを提供します。
+
+=== WebHtmlEditor メソッド
+
+[cols="a,a"]
+|====
+|*focus* 
+|エディタに入力フォーカスを設定することができるクライアントでの WebHtmlEditor のメンバ関数。 
+
+---- 
+Example: var editor = iged_getById("WebHtmlEditor"); if(editor) 	editor.focus();
+----
+
+|*getText* 
+|WebHtmlEditor のテキストを HTML フォーマットで返します。
+
+|*hasFocus* 
+|ブール値を返し、エディタが入力フォーカスを持つかどうかをチェックできるクライアントでの WebHtmlEditor のメンバ関数。 
+
+---- 
+Example: var editor = iged_getById("WebHtmlEditor"); if(editor) 	alert("Editor has focus:" + editor.hasFocus());
+----
+
+|*print* 
+|"Print" ツールバー ボタンがクリックされた時に呼び出されるクライアントでの WebHtmlEditor のメンバ関数。この関数によってエディタの内容を印刷できます。 
+
+---- 
+Example: var editor = iged_getById("WebHtmlEditor"); if(editor) 	editor.print();
+----
+
+|*setText* 
+|WebHtmlEditor のテキストを設定します。テキストは HTML フォーマットに設定できます。
+
+|====
+
+=== WebHtmlEditor プロパティ
+
+==== ID
+
+WebHtmlEditor の ClientId。このプロパティは変更せずに読み取り専用として取り扱うことをお勧めします。

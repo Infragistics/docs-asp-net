@@ -1,0 +1,405 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-whats-new-in-2009-volume-2",
+    "controlName": [],
+    "tags": ["FAQ","Getting Started"],
+    "guid": "{348415E0-7F60-4D76-B250-7ED46A945DE7}",  
+    "buildFlags": [],
+    "createdOn": "2009-05-06T11:15:21Z"
+}
+|metadata|
+////
+
+= 2009 Volume 2 の新機能
+
+{ProductName} 2009 Volume 2 リリースには {ProductName} AJAX フレームワーク上に構築された新しいコントロールのコレクションが含まれています。
+
+== 新しい AJAX インジケーター
+
+新しい AJAX インジケーター機能は、AJAX 呼び出しの応答を待機している間にメッセージをエンドユーザーに表示する方法を提供します。インジケーターは、コントロールが AJAX の呼び出しを起動する時に表示し、サーバーの応答がクライアントで完了したら自動的に非表示になります。
+
+デフォルトで、すべての Infragistics™ AJAX コントロールには共通のプロパティ設定とともに共有された AJAX インジケーターが存在します。各コントロールで個々にインジケーターを構成することも可能ですが、web.config ファイルによってアプリケーション全体にグローバルに構成することも可能です。コントロール レベルから、または web.config ファイルによって適用された設定は共有の AJAX インジケーター設定よりも優先されます。
+
+AJAX インジケーターは完全にカスタマイズ可能です。使用可能な重要なカスタマイズのいくつかを以下にリストします:
+
+* インジケーターを有効/無効にします。
+* インジケーターの位置を、ページに相対する、特定のコントロールに相対するのいずれかで設定します。
+* AJAX 呼び出しの間コントロールまたは Web ページ全体を無効またはグレー表示にします。
+* AJAX 呼び出しの間の待機メッセージの画像とテキストを指定します。
+
+以下の Infragistics™ AJAX コントロールは新しい AJAX インジケーターをサポートします。
+
+* WebDataGrid™
+* WebDataTree™
+* WebDropDown™
+* WebHierarchicalDataGrid™
+
+== 関連トピック
+
+link:web-ajax-indicator.html[AJAX インジケーター]
+
+== 新しい WebCurrencyEditor コントロール
+
+WebCurrencyEditor™ コントロールは {ProductName} AJAX コントロールの広範なリストへの新たな追加です。WebCurrencyEditor コントロールの新しいデザインによってネーティブの AJAX 機能を使用して効率的で拡張性の高いエディターコントロールとなっています。
+
+すべての {ProductName} AJAX コントロールのように、WebCurrencyEditor は Infragistics® Application Styling Framework にシームレスに統合します。CSS ベースのプロパティを使用すると、既存のスタイルシートを利用することによって、WebCurrencyEditor コントロールを手動でカスタマイズできます。
+
+WebCurrencyEditor の機能のいくつかは以下の通りです。
+
+* *ハイパフォーマンス* -- 軽量のマークアップと最適化されたコードがパフォーマンスを向上します。
+* *標準への適合* -- CSS 2 および XHTML 1.0 に準拠します。
+* *スピン ボタン* -- エンドユーザーは値のリストを簡単にスピンできます。
+* *標準的なバリデーターのサポート* -- ASP.NET バリデーター コントロールをサポートします。
+* *NegativeCssClass* -- これは値が負の時にエディターに適用されます。
+* *DisplayFactor* -- 乗数を値に適用します（サポートされる値のリスト: 1、10、100、1000、10000、100000、1000000）。
+* *最大値と最小値* -- エディターに入力できる許容可能な範囲を簡単に指定できます。
+* *MinDecimalPlaces* -- コントロールがフォーカスを失った時に表示される小数点以下の最小桁数を設定することができます。
+* *SelectionOnFocus* -- 編集モードに入ると必ず異なる選択タイプを設定できます。
+* *カルチャー* -- ローカライズされたフォーマットのためにコントロールによって使用される CultureInfo オブジェクトを設定できます。
+* *ネーティブの AJAX サポート* - {ProductName} AJAX コントロールは Microsoft® ASP.NET AJAX Extensions 上に構築されているので、ほとんどの WebCurrencyEditor の機能は AJAX を使用して実行されます。これによりフル ページ ポストバックを排除します。
+
+== 関連トピック
+
+link:webcurrencyeditor-about-webcurrencyeditor.html[WebCurrencyEditor について]
+
+link:webcurrencyeditor-using-webcurrencyeditor.html[WebCurrencyEditor の使用]
+
+== 新しい WebDatePicker コントロール
+
+WebDatePicker™ コントロールは {ProductName} AJAX コントロールの広範なリストへの新たな追加です。WebDatePicker コントロールの新しいデザインによってネーティブの AJAX 機能を使用して効率的で拡張性の高いエディターコントロールとなっています。
+
+すべての {ProductName} AJAX コントロールのように、WebDatePicker は Infragistics® Application Styling Framework にシームレスに統合します。CSS ベースのプロパティを使用すると、既存のスタイルシートを利用することによって、WebDatePicker コントロールを手動でカスタマイズできます。
+
+WebDatePicker の機能のいくつかは以下の通りです。
+
+* *ハイパフォーマンス* -- 軽量のマークアップと最適化されたコードがパフォーマンスを向上します。
+* *標準への適合* -- CSS 2 および XHTML 1.0 に準拠します。
+* *スピン ボタン* -- エンドユーザーは値のリストを簡単にスピンできます。
+* *標準的なバリデーターのサポート* -- ASP.NET バリデーター コントロールをサポートします。
+* *最大値と最小値* -- エディターに入力できる日時の許容可能な範囲を簡単に指定できます。
+* *ReduceDayOnInvalidDate* -- エンドユーザーが月の最大日よりも大きい値を入力すると、値は自動的に小さくできます。
+* *ShowPatternOnFocus* -- 編集モードで、表示される文字列（入力パターン）はカレットの右側のカットオフ プロンプトとリテラル文字で動的に構築できます。
+* *SelectionOnFocus* -- 編集モードに入ると必ず異なる選択タイプを設定できます。
+* *カルチャー* -- ローカライズされたフォーマットのためにコントロールによって使用される CultureInfo オブジェクトを設定できます。
+* *カスタムのドロップダウン カレンダー* -- カスタムのドロップダウン カレンダーはコントロールを使用するように設定できます。
+* *UseLastGoodDate* -- コントロールがフォーカスを失って日付フィールドに無効値があるとき、自動的に最後の有効な日付値を使用できます。
+* *CenturyThreshold* -- エンドユーザーが 1 桁または 2 桁のみを入力する場合に、20 世紀または 21 世紀を年フィールドでオートフィルします。
+* *ネーティブの AJAX サポート* -- {ProductName} AJAX コントロールは Microsoft® ASP.NET AJAX Extensions 上に構築されているので、ほとんどの WebDatePicker の機能は AJAX を使用して実行されます。これによりフル ページ ポストバックを排除します。
+
+== 関連トピック
+
+link:webdatepicker-about-webdatepicker.html[WebDatePicker について]
+
+link:webdatepicker-using-webdatepicker.html[WebDatePicker の使用]
+
+== 新しい WebDateTimeEditor コントロール
+
+WebDateTimeEditor™ コントロールは {ProductName} AJAX コントロールの広範なリストへの新たな追加です。WebDateTimeEditor コントロールの新しいデザインによってネーティブの AJAX 機能を使用して効率的で拡張性の高いエディターコントロールとなっています。
+
+すべての {ProductName} AJAX コントロールのように、WebDateTimeEditor は Infragistics® Application Styling Framework にシームレスに統合します。CSS ベースのプロパティを使用すると、既存のスタイルシートを利用することによって、WebDateTimeEditor コントロールを手動でカスタマイズできます。
+
+WebDateTimeEditor の機能のいくつかは以下の通りです。
+
+* *ハイパフォーマンス* -- 軽量のマークアップと最適化されたコードがパフォーマンスを向上します。
+* *標準への適合* -- CSS 2 および XHTML 1.0 に準拠します。
+* *スピン ボタン* -- エンドユーザーは値のリストを簡単にスピンできます。
+* *標準的なバリデーターのサポート* -- ASP.NET バリデーター コントロールをサポートします。
+* *最大値と最小値* -- エディターに入力できる日時の許容可能な範囲を簡単に指定できます。
+* *ReduceDayOnInvalidDate* -- エンドユーザーが月の最大日よりも大きい値を入力すると、値は自動的に小さくできます。
+* *ShowPatternOnFocus* -- 編集モードで、表示される文字列（入力パターン）はカレットの右側のカットオフ プロンプトとリテラル文字で動的に構築できます。
+* *SelectionOnFocus* -- 編集モードに入ると必ず異なる選択タイプを設定できます。
+* *カルチャー* -- ローカライズされたフォーマットのためにコントロールによって使用される CultureInfo オブジェクトを設定できます。
+* *ネーティブの AJAX サポート* - {ProductName} AJAX コントロールは Microsoft® ASP.NET AJAX Extensions 上に構築されているので、ほとんどの WebDateTimeEditor の機能は AJAX を使用して実行されます。これによりフル ページ ポストバックを排除します。
+
+== 関連トピック
+
+link:webdatetimeeditor-about-webdatetimeeditor.html[WebDateTimeEditor について]
+
+link:webdatetimeeditor-using-webdatetimeeditor.html[WebDateTimeEditor の使用]
+
+== 新しい WebMaskEditor コントロール
+
+WebMaskEditor™ コントロールは {ProductName} AJAX コントロールの広範なリストへの新たな追加です。WebMaskEditor コントロールの新しいデザインによってネーティブの AJAX 機能を使用して効率的で拡張性の高いエディターコントロールとなっています。
+
+すべての {ProductName} AJAX コントロールのように、WebMaskEditor は Infragistics® Application Styling Framework にシームレスに統合します。CSS ベースのプロパティを使用すると、既存のスタイルシートを利用することによって、WebMaskEditor コントロールを手動でカスタマイズできます。
+
+WebMaskEditor の機能のいくつかは以下の通りです。
+
+* *ハイパフォーマンス* -- 軽量のマークアップと最適化されたコードがパフォーマンスを向上します。
+* *標準への適合* -- CSS 2 および XHTML 1.0 に準拠します。
+* *スピン ボタン* -- エンドユーザーは値のリストを簡単にスピンできます。
+* *標準的なバリデーターのサポート* -- ASP.NET バリデーター コントロールをサポートします。
+* *ShowMaskOnFocus* -- 編集モードで、表示される文字列（入力パターン）はカレットの右側のカットオフ プロンプトとリテラル文字で動的に構築できます。
+* *SelectionOnFocus* -- 編集モードに入ると必ず異なる選択タイプを設定できます。
+* *InputMask* -- キーボード入力をフィルタリングするために使用される入力マスクを設定することができます。
+* *ネーティブの AJAX サポート* -- {ProductName} AJAX コントロールは Microsoft® ASP.NET AJAX Extensions 上に構築されているので、ほとんどの WebMaskEditor の機能は AJAX を使用して実行されます。これによりフル ページ ポストバックを排除します。
+
+== 関連トピック
+
+link:webmaskeditor-about-webmaskeditor.html[WebMaskEditor について]
+
+link:webmaskeditor-using-webmaskeditor.html[WebMaskEditor の使用]
+
+== 新しい WebMonthCalendar コントロール
+
+WebMonthCalendar™ コントロールは {ProductName} AJAX コントロールの広範なリストへの新たな追加です。WebMonthCalendar コントロールの新しいデザインによってネーティブの AJAX 機能を使用して効率的で拡張性の高いカレンダーコントロールとなっています。
+
+すべての {ProductName} AJAX コントロールのように、WebMonthCalendar は Infragistics® Application Styling Framework にシームレスに統合します。CSS ベースのプロパティを使用すると、既存のスタイルシートを利用することによって、WebMonthCalendar コントロールを手動でカスタマイズできます。
+
+WebMonthCalendar の機能のいくつかは以下の通りです。
+
+* *ハイパフォーマンス* -- 軽量のマークアップと最適化されたコードがパフォーマンスを向上します。
+* *標準への適合* -- CSS 2 および XHTML 1.0 に準拠します。
+* *キーボード ナビゲーション* -- キーボードを使用したコントロールへのアクセスをサポートします。
+* *標準的なバリデーターのサポート* -- ASP.NET バリデーター コントロールをサポートします。
+* *最大値と最小値* -- エディターに入力できる日付の許容可能な範囲を簡単に指定できます。
+* *CustomDays* -- カレンダーで特定の日の外観を修正できます。
+* *ドロップダウン リストのカスタマイズ* -- 月と年のドロップダウン リストの列数と年のリストの行数をカスタマイズするオプションを提供します。
+* *EnableWeekNumbers* -- カレンダーの週番号をエンドユーザーに表示するためのオプションを提供します。
+* *SelectionType* -- 一日、一週間または複数日のようにエンドユーザーが日付を選択する方法を制御できます。
+* *SelectionOnFocus* -- 編集モードに入ると必ず異なる選択タイプを設定できます。
+* *カルチャー* -- ローカライズされたフォーマットのためにコントロールによって使用される CultureInfo オブジェクトを設定できます。
+* *Animations* -- ドロップダウン リストを開く/閉じる時のアニメーションをカスタマイズできます。
+* *フォーカスおよびホバーのための CssClasses* -- すべての領域のマウスオーバーのスタイルと日ごとのフォーカス スタイルをサポートします。
+* *ネーティブの AJAX サポート* -- {ProductName} AJAX コントロールは Microsoft® ASP.NET AJAX Extensions 上に構築されているので、ほとんどの WebMonthCalendar の機能は AJAX を使用して実行されます。これによりフル ページ ポストバックを排除します。
+
+== 関連トピック
+
+link:webmonthcalendar-about-webmonthcalendar.html[WebMonthCalendar について]
+
+link:webmonthcalendar-using-webmonthcalendar.html[WebMonthCalendar の使用]
+
+== 新しい WebNumericEditor コントロール
+
+WebNumericEditor™ コントロールは {ProductName} AJAX コントロールの広範なリストへの新たな追加です。WebNumericEditor コントロールの新しいデザインによってネーティブの AJAX 機能を使用して効率的で拡張性の高いエディターコントロールとなっています。
+
+すべての {ProductName} AJAX コントロールのように、WebNumericEditor は Infragistics® Application Styling Framework にシームレスに統合します。CSS ベースのプロパティを使用すると、既存のスタイルシートを利用することによって、WebNumericEditor コントロールを手動でカスタマイズできます。
+
+WebNumericEditor の機能のいくつかは以下の通りです。
+
+* *ハイパフォーマンス* -- 軽量のマークアップと最適化されたコードがパフォーマンスを向上します。
+* *標準への適合* -- CSS 2 および XHTML 1.0 に準拠します。
+* *スピン ボタン* -- エンドユーザーは値のリストを簡単にスピンできます。
+* *標準的なバリデーターのサポート* -- ASP.NET バリデーター コントロールをサポートします。
+* *NegativeCssClass* -- これは値が負の時にエディターに適用されます。
+* *DisplayFactor* -- 乗数を値に適用します（サポートされる値のリスト: 1、10、100、1000、10000、100000、1000000）。
+* *最大値と最小値* -- エディターに入力できる数の許容可能な範囲を簡単に指定できます。
+* *MinDecimalPlaces* -- コントロールがフォーカスを失った時に表示される小数点以下の最小桁数を設定することができます。
+* *ネーティブの AJAX サポート* -- {ProductName} AJAX コントロールは Microsoft® ASP.NET AJAX Extensions 上に構築されているので、ほとんどの WebNumericEditor の機能は AJAX を使用して実行されます。これによりフル ページ ポストバックを排除します。
+
+== 関連トピック
+
+link:webnumericeditor-about-webnumericeditor.html[WebNumericEditor について]
+
+link:webnumericeditor-using-webnumericeditor.html[WebNumericEditor の使用]
+
+== 新しい WebPercentEditor コントロール
+
+WebPercentEditor™ コントロールは {ProductName} AJAX コントロールの広範なリストへの新たな追加です。WebPercentEditor コントロールの新しいデザインによってネーティブの AJAX 機能を使用して効率的で拡張性の高いエディターコントロールとなっています。
+
+すべての {ProductName} AJAX コントロールのように、WebPercentEditor は Infragistics® Application Styling Framework にシームレスに統合します。CSS ベースのプロパティを使用すると、既存のスタイルシートを利用することによって、WebPercentEditor コントロールを手動でカスタマイズできます。
+
+WebPercentEditor の機能のいくつかは以下の通りです。
+
+* *ハイパフォーマンス* -- 軽量のマークアップと最適化されたコードがパフォーマンスを向上します。
+* *標準への適合* -- CSS 2 および XHTML 1.0 に準拠します。
+* *スピン ボタン* -- エンドユーザーは値のリストを簡単にスピンできます。
+* *標準的なバリデーターのサポート* -- ASP.NET バリデーター コントロールをサポートします。
+* *NegativeCssClass* -- これは値が負の時にエディターに適用されます。
+* *DisplayFactor* -- 乗数を値に適用します（サポートされる値のリスト: 1、10、100、1000、10000、100000、1000000）。
+* *最大値と最小値* -- エディターに入力できる許容可能な範囲を簡単に指定できます。
+* *MinDecimalPlaces* -- コントロールがフォーカスを失った時に表示される小数点以下の最小桁数を設定することができます。
+* *SelectionOnFocus* -- 編集モードに入ると必ず異なる選択タイプを設定できます。
+* *ネーティブの AJAX サポート* -- {ProductName} AJAX コントロールは Microsoft® ASP.NET AJAX Extensions 上に構築されているので、ほとんどの WebPercentEditor の機能は AJAX を使用して実行されます。これによりフル ページ ポストバックを排除します。
+
+== 関連トピック
+
+link:webpercenteditor-about-webpercenteditor.html[WebPercentEditor について]
+
+link:webpercenteditor-using-webpercenteditor.html[WebPercentEditor の使用]
+
+== 新しい WebTextEditor コントロール
+
+WebTextEditor™ コントロールは {ProductName} AJAX コントロールの広範なリストへの新たな追加です。WebTextEditor コントロールの新しいデザインによってネーティブの AJAX 機能を使用して効率的で拡張性の高いエディターコントロールとなっています。
+
+すべての {ProductName} AJAX コントロールのように、WebTextEditor は Infragistics® Application Styling Framework にシームレスに統合します。CSS ベースのプロパティを使用すると、既存のスタイルシートを利用することによって、WebTextEditor コントロールを手動でカスタマイズできます。
+
+WebTextEditor の機能のいくつかは以下の通りです。
+
+* *ハイパフォーマンス* -- 軽量のマークアップと最適化されたコードがパフォーマンスを向上します。
+* *標準への適合* -- CSS 2 および XHTML 1.0 に準拠します。
+* *複数行テキスト* -- ディスプレイで複数行テキストを編集できます。
+* *スピン ボタン* -- エンドユーザーは値のリストを簡単にスピンできます。
+* *CustomButtonHotKeys* -- ホット キーを使用してカスタム ボタン クリックを起動することができます。
+* *パスワード モード* -- 単一プロパティを設定することにより入力文字をマスクします。
+* *標準的なバリデーターのサポート* -- ASP.NET バリデーター コントロールをサポートします。
+* *SelectionOnFocus* -- 編集モードに入ると必ず異なる選択タイプを設定できます。
+* *ネーティブの AJAX サポート* -- {ProductName} AJAX コントロールは Microsoft® ASP.NET AJAX Extensions 上に構築されているので、ほとんどの WebTextEditor の機能は AJAX を使用して実行されます。これによりフル ページ ポストバックを排除します。
+
+== 関連トピック
+
+link:webtexteditor-about-webtexteditor.html[WebTextEditor について]
+
+link:webtexteditor-using-webtexteditor.html[WebTextEditor の使用]
+
+== 新しい WebHierarchicalDataGrid コントロール
+
+新しい WebHierarchicalDataGrid™ コントロールによって階層的なデータを表示できます。これは WebDataGrid™ コントロールから派生し、多くの関連機能があります。WebHierarchicalDataGrid は単一レベルに複数の子バンドを持つ複数レベルのデータソースにバインドできます。
+
+柔軟で機能豊かなグリッド コントロールのすべての機能が WebHierarchicalDataGrid にあります。
+
+以下のリストは、WebHierarchicalDataGrid 機能の一部を示しています:
+
+* *階層的なデータ ソースのサポート* – Dataset オブジェクトや IEnumerable インターフェイスを実装するオブジェクトだけでなくすべての階層的なデータ ソース コントロールをサポートします。
+* *AJAX を有効化* – より円滑なデータ検索と人目にわからないデータ操作のためにコントロールで AJAX を完全に有効にできます。
+* *クライアント サイド オブジェクト モデル* - 広範な JavaScript API を使用してクライアント側でコントロールで動的に作業します。
+* *バンドおよび列の自動生成* - WebHierarchicalDataGrid はバンドと列を自動的に生成するために階層的なデータをオプションで調べます。
+* *ページング* - データをより小さい表示可能なデータのページに分割します。ページングは親レベルと子レベルの両方で有効にできます。
+* *テンプレート* - WebHierarchicalDataGrid のほとんどの要素は、最大限の柔軟性とカスタマイズを可能とするためにテンプレート化できます。
+* *編集* - セルの編集、行の追加、行の削除、カスタマイズ可能な編集のための行編集テンプレート、ならびにデータ ソースへの自動更新。すべての編集タスクは親レベルと子レベルで有効にできます。
+* *並べ替え* - 子レベルだけでなく親レベルでの表示をより整理するために WebHierarchicalDataGrid コントロールのデータを並べ替えます。
+* *エディターの自動検出* –Editor コントロールは、編集がオンの時に列データ タイプに基づいて自動的に設定されます。
+
+image::images/WebHierarchicalDataGrid_Binding_to_Data_03.png[]
+
+== 関連トピック
+
+link:webhierarchicaldatagrid-about-webhierarchicaldatagrid.html[WebHierarchicalDataGrid について]
+
+link:webhierarchicaldatagrid-getting-started-with-webhierarchicaldatagrid.html[WebHierarchicalDataGrid で開始]
+
+link:webhierarchicaldatagrid-using-webhierarchicaldatagrid.html[WebHierarchicalDataGrid の使用]
+
+== 新しい WebDataGrid の列の固定
+
+WebDataGrid™ コントロールは列の固定をサポートするようになりました。エンドユーザーはグリッド領域内で列を固定できるようになりました。この操作はクライアントで実行されますエンドユーザーがグリッドを水平にスクロールしても、固定された列は常にグリッド内で表示されたままです。
+
+列の固定は、以下のオプションのカスタマイズを可能にするいくつかの UI 拡張も装備しています。
+
+* すべての列または個々の列で列ヘッダー上のプッシュピン ボタンを非表示/表示します。
+* ボタンをキャプションの左または右に配列します。
+* 列をグリッドの左または右に固定します。
+
+== 関連トピック
+
+link:webdatagrid-column-fixing.html[列固定]
+
+== 新しい WebDataGrid 仮想スクロール
+
+WebDataGrid™ コントロールは、エンドユーザーがコントロールをスクロールした時に、データレコードの一部をクライアントに送信し、オンデマンドで追加のデータレコードを要求することを可能にする仮想スクロールをサポートします。したがって、データソース全体をクライアントに送信することなくエンドユーザーが大量のデータをナビゲートすることを可能にすることによって、仮想スクロールの動作はパフォーマンスを多大に向上します。
+
+仮想スクロール動作は以下の 2 つの異なるモードで動作します:仮想モードによって行の表示可能なスクロールが可能となります。エンドユーザーがスクロールバーをドラッグすると、行キャッシュ内でスクロールは滑らかで表示可能になります。遅延スクロールを使用すると、スクロール時に行の移動はありません。WebDataGrid はユーザーがスクロールする時にロードされる行番号を表示するツールチップをスクロールバーの横に表示します。ユーザーがスクロールを止めると、そのスクロール領域の行がビュー ポートに表示されます。
+
+== 関連トピック
+
+link:webdatagrid-virtual-scrolling.html[仮想スクロール]
+
+== 新しい WebDataGrid の列の非表示
+
+WebDataGrid™ コントロールによってエンドユーザーに表示したくない列を非表示にすることができます。たとえば、エンドユーザーに意味のない列を表示したくない場合があります。サーバー側またはクライアント側のいずれかからデザイナーによってまたはプログラムによって列を簡単に非表示にできます。
+
+== 関連トピック
+
+link:webdatagrid-hiding-a-column.html[列の非表示]
+
+== WebDataGrid の更新されたエディター プロバイダーとデフォルト エディター
+
+WebDataGrid™ は新しい軽量の ASP.NET AJAX エディター コントロールに基づいて以下のエディター プロバイダーを使用するようになりました。これにより今日の WebEditors の進化が次の段階へと導かれます:
+
+* CurrencyEditorProvider
+* DatePickerProvider
+* DateTimeEditorProvider
+* MaskEditorProvider
+* MonthCalendarProvider
+* NumericEditorProvider
+* PercentEditorProvider
+* TextEditorProvider
+
+新しいエディター プロバイダーはより強力なデータ入力アプリケーションを持てるようにより拡張された機能を提供します。
+
+== デフォルト エディター
+
+編集対応の WebDataGrid コントロールで、列のデータ型に基づいて最も適切なエディター プロバイダーが各列で使用されます。たとえば、数値および DateTime データ型列は自動的に Numeric EditorProvider と DateTimeEditorProvider をそれぞれ使用します。ただし、このデフォルトの機能をオーバーライドしたい場合には、固有のエディター プロバイダーを常に指定できます。
+
+== 関連トピック
+
+link:webdatagrid-editor-providers.html[エディター プロバイダー]
+
+link:webdatagrid-using-editor-providers.html[DatePicker を WebDataGrid のエディター プロバイダーとして使用する]
+
+== 新しい WebDataTree の自動チェックの無効化
+
+WebDataTree™ は、チェックボックス ツリー ノードの自動チェックを無効にできる新機能を装備しています。たとえば、エンドユーザーが WebDataTree で子ノードをチェックすると、親ノード（チェックされない場合）が部分的にチェックされる（TriState CheckBoxMode）、または完全にチェックされる（すべての子ノードがチェックされる場合）、または親ノードがチェックされる場合、すべての子ノードもチェックされます。ただし、自動チェック機能を無効にすると、この動作が必要とされない状況下では、ツリー ノードのチェックは中止できます。
+
+== 関連トピック
+
+link:webdatatree-disabling-auto-checking-in-webdatatree.html[WebDataTree で自動チェックを無効にする]
+
+== 新しい WebScheduleGenericDataProvider コンポーネント
+
+WebScheduleGenericDataProvider™ コンポーネントによって、WebSchedule™ コントロールを任意のサポートされるデータ ソースにバインドできます。この WebScheduleGenericDataProvider コンポーネントの追加によって、WebSchedule データソースの選択により高い柔軟性を提供します。データ バインディングのために SqlDataProvider や OleDbDataProvider に依存する必要はなくなります。
+
+== サポートされるデータ ソース
+
+以下は WebScheduleGenericDataProvider のサポートされるデータ ソースのリストです。
+
+* DataSet と DataTable
+* IListSource
+* IDataSource
+* IEnumerable（読み取り専用、更新は IList または ICollection でなければなりません）
+
+== 関連トピック
+
+link:webschedulegenericdataprovider-webschedulegenericdataprovider.html[WebScheduleGenericDataProvider]
+
+link:webschedulegenericdataprovider-webschedulegenericdataprovider-smart-tag.html[WebScheduleGenericDataProvider スマートタグ]
+
+link:webschedule-binding-to-access-data-source-using-webschedulegenericdataprovider.html[WebScheduleGenericDataSource を使用して Access データ ソースにバインド]
+
+== 新しい WebSchedule 複数日イベント バナー
+
+WebDayView™、WebMonthView™ および WebSchedule コントロールは複数の日、週、月または年にまたがるイベントのために連続するバナーを表示できます。WebScheduleInfo™ コンポーネントの link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~enablemultidayeventbanner.html[EnableMultiDayEventBanner] プロパティはこの機能を制御し、デフォルトでは True です。EnableMultiDayEventBanner が False に設定されると、複数日イベントは複数日に渡る単一ブロックとして表示します。
+
+link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~enablemultidayeventarrows.html[EnableMultiDayEventArrows] プロパティを設定することにより、そのイベントがまたがる開始日と終了日を示す矢印を表示することも可能です。このプロパティはデフォルトでは True です。
+
+image::images/WebScheduleGenericDataProvider_About_Multi_Day_Event_Banner_01.png[]
+
+== 関連トピック
+
+link:webschedulegenericdataprovider-multi-day-event-banner.html[複数日イベント バナー]
+
+link:webschedulegenericdataprovider-localize-multi-day-event-banner-caption.html[複数日イベント バナー キャプションのローカライズ]
+
+link:webschedulegenericdataprovider-style-multi-day-event-banner.html[複数日イベント バナーのスタイル]
+
+== 新しい WebSchedule のマルチリソース ビュー
+
+WebSchedule™ コントロール（WebDayView™ および WebMonthView™）によって複数リソースからスケジュール情報を表示できます。マルチリソース ビューを有効にするには、WebScheduleInfo コンポーネントの link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~enablemultiresourceview.html[EnableMultiResourceView] プロパティを True に設定します。
+
+== オーバーレイ モード
+
+オーバーレイ モードによってエンドユーザーは異なるリソースのスケジュール情報をひとつのビューで見ることができます。アクティブなリソースは非アクティブなリソースと区別するために一意なスタイルで表示されます。アクティブなリソースと非アクティブなリソースのスタイルのカスタマイズに関する詳細は、 link:webschedule-styling-active-and-inactive-resources.html[「アクティブおよび非アクティブ リソースのスタイル」]を参照してください。
+
+タブ コントロールによって、異なるリソース間を切り替えることができます。 link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webdayview~enablemultiresourcecaption.html[EnableMultiResourceCaption] を True または False に設定してこの動作を制御します。
+
+image::images/WebSchedule_Enable_Multi_Resource_View_01.png[]
+
+図 1 - WebMonthView。
+
+image::images/WebSchedule_Enable_Multi_Resource_View_02.png[]
+
+図 2 - WebDayView。
+
+== 関連トピック
+
+link:webschedule-styling-active-and-inactive-resources.html[アクティブおよび非アクティブ リソースのスタイル]
+
+link:webschedule-set-visible-resources.html[表示可能なリソースを設定]
+
+== その他
+
+== ブラウザーのサポート
+
+すべての弊社の ASP.Net AJAX コントロールは、Internet Explorer 8、Safari 4、Chrome 2.0 および Firefox 3.5 をサポートします。

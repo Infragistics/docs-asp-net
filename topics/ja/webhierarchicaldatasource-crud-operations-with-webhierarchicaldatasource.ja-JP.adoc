@@ -1,0 +1,40 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatasource-crud-operations-with-webhierarchicaldatasource",
+    "controlName": ["WebHierarchicalDataSource"],
+    "tags": ["Data Presentation","Editing","Sample Data Source"],
+    "guid": "{427CCF31-0BD7-4F80-8935-829D17F3016A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHierarchicalDataSource での CRUD 操作
+
+== 概要
+
+WebHierarchicalDataSource™ コンポーネントは、互換性のあるデータ ソースのための Create、Read、Update および Delete (CRUD) 操作をサポートします。WebHierarchicalDataSource と更新可能なデータのこの組み合わせによって、任意の組み合わせでデータ ソースを関連付けて、各データ ソースを更新することができ、これによってアプリケーションで拡張性と柔軟性を高めることができます。データ ソースの更新は、データ バインドされたコントロールに直接バインドするためにデータ ソースが使用されたかのように同じプロセスのままです。
+
+== データ ソース コントロール
+
+WebHierarchicalDataSource は以下のデータ ソース コントロールで CRUD 操作をサポートします。
+
+* SqlDataSource
+* AccessDataSource
+* LinqDataSource
+* ObjectDataSource
+
+WebHierarchicalDataSource はデータ バインドしたコントロールとデータ ソース コントロール間の仲介として動作します。挿入、更新、または削除が実行されると、データ バインドしたコントロールから WebHierarchicalDataSource コンポーネントにこの情報が渡されます。WebHierarchicalDataSource はこの情報を更新される適切なデータ ソースに渡します。データ ソースは、実行するために設定された内容に基づいて、リクエストに対して適切なアクションを内部で実行します。CRUD 操作は自動処理として見なされます。
+
+自動的な CRUD 操作を実行するために、データ ソースごとにいつものように insert、update、および delete コマンドを設定します。コントロールと関係を WebHierarchicalDataSource に追加するだけです。コントロールごとに設定したコマンドによって CRUD 操作が自動的に処理されます。
+
+== カスタムのデータ エンティティとデータ セット
+
+IEnumerable および ICollection インターフェイスを実装するデータ セットとオブジェクトを含むデータ ソースは、自動 CRUD 操作では現在サポートされません。ただし、これらのデータ ソースを手動で更新することは常に可能です。繰り返しになりますが、WebHierarchicalDataSource はデータ バインドされたコントロールとデータ ソース間の仲介レイヤーとしてしか機能しません。つまり、更新リクエストは適切なデータ ソースに渡されます。したがって、更新のプロセスは、これらのデータ ソースに直接バインドされる時と同様に実行されます。
+
+== 効率性
+
+元となるデータ ソースによって CRUD 操作を処理することを可能とすることによって、WebHierarchalDataSource は CRUD 操作を処理する方法を妨げることなく、データ ソースを結合するというシンプルで柔軟な方法を可能とします。

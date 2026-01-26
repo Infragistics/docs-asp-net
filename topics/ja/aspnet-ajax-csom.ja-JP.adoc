@@ -1,0 +1,36 @@
+﻿////
+
+|metadata|
+{
+    "name": "aspnet-ajax-csom",
+    "controlName": [],
+    "tags": ["API","Getting Started","How Do I"],
+    "guid": "{48470BF3-6679-46AB-BA02-6D05B8A03D95}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ASP.NET AJAX コントロール
+
+それぞれの ASP.NET AJAX コントロールのクライアント サイド オブジェクト モデルを表示するには以下のリンクをクリックしてください。
+
+* link:shared.html[共有ライブラリ]
+* link:drag%20and%20drop.html[ドラッグ アンド ドロップ ライブラリ]
+* link:webcaptcha.html[WebCaptcha ライブラリ]
+* link:webdatagrid.html[WebDataGrid ライブラリ]
+* link:webdatamenu.html[WebDataMenu ライブラリ]
+* link:webdatatree.html[WebDataTree ライブラリ]
+* link:webdialogwindow.html[WebDialogWindow ライブラリ]
+* link:webdropdown.html[WebDropDown ライブラリ]
+* link:webexplorerbar.html[WebExplorerBar ライブラリ]
+* link:webhierarchicaldatagrid.html[WebHierarchicalDataGrid ライブラリ]
+* link:webimageviewer.html[WebImageViewer ライブラリー]
+* link:webmonthcalendar.html[WebMonthCalendar ライブラリ]
+* link:webprogressbar.html[WebProgressBar ライブラリー]
+* link:webrating.html[WebRating ライブラリ]
+* link:websplitter.html[WebSplitter ライブラリ]
+* link:webslider.html[WebSlider ライブラリ]
+* link:webtab.html[WebTab ライブラリ]
+* link:webtexteditor.html[WebTextEditor ライブラリ]

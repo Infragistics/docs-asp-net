@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webimagebutton",
+    "controlName": ["WebImageButton"],
+    "tags": [],
+    "guid": "{ABA6E9A8-318A-4A01-9727-22BF6C8E8031}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebImageButton
+
+WebImageButton コントロールに関連した概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションは、コントロールについての概要からアプリケーションで使用する理由、コントロールを使用して共通タスクを達成するための方法の手順などの WebImageButton についての有益な情報を含んでいます。
+
+以下のリンクをクリックして、WebImageButton コントロールについての情報にアクセスします。
+
+== link:webimagebutton-understanding-webimagebutton.html[WebImageButton の理解]
+
+このセクションには WebImageButton コントロールの機能をより理解するための情報があります。なぜアプリケーションのビルドの一部として使用するかも説明します。
+
+== link:web-webimagebutton-using-webimagebutton.html[WebImageButton の使用]
+
+このセクションは、WebImageButton コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+== link:webimagebutton-accessibility-compliance.html[WebImageButton アクセシビリティの遵守]
+
+このトピックは、WebImageButton が第 508 条の要件を満たす方法を概略します。このアクセシビリティの遵守によって、エンド ユーザ、特に障害を持つユーザーが WebImageButton コントロールを使用して構築された Web アプリケーションにアクセスおよび使用することを可能にします。
+
+== link:webimagebutton-api-overview.html[API 概要]
+
+このトピックは、WebImageButton コントロールでプログラミング中に作業する名前空間とクラスをリストします。このトピックにリストされる名前空間とクラスは、{ProductName} ヘルプの link:web-api-reference-guide.html[「API リファレンスガイド」]に便宜上リンクします。
+
+== link:webimagebutton-csom.html[クライアント サイド オブジェクト モデル (CSOM) 概要]
+
+このトピックは、WebImageButton でクライアント側をプログラミング中に作業するユーティリティ関数、オブジェクト、およびイベントのページをリストします。このトピックにリストされるユーティリティ関数、オブジェクト、およびイベントは、{ProductName} ヘルプの「Client-Side Model （CSOM）リファレンスガイド」に便宜上リンクします。

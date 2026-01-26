@@ -1,0 +1,30 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-data-bindings",
+    "controlName": ["WebSchedule"],
+    "tags": [],
+    "guid": "{73777479-DF5D-4F27-A6C0-D105159DF7BA}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-09T00:00:00Z"
+}
+|metadata|
+////
+
+= データ バインディング
+
+WebSchedule™ データ プロバイダーは、Data Binding プロパティを公開します。これによって Activity や Resource などの WebSchedule オブジェクトのプロパティに応じて選択の列名を設定することができます。これらのバインディング メンバー プロパティを使用して、カスタム データ モデルにアクセスする時に WebSchedule データ プロバイダーが検索する列名を変更します。
+
+ストアド プロシージャが事前にコンパイルされているため、動的 SQL で動作するのはデータ バインディング機能のみです。
+
+* link:webschedule-handle-concurrency-conflicts.html[並行処理の競合の処理]
+
+* link:webschedule-connecting-webschedule-to-a-database-in-visual-studio-2005.html[Visual Studio 2005 で WebSchedule をデータベースに接続]
+
+* link:webschedule-binding-to-access-data-source-using-webschedulegenericdataprovider.html[WebScheduleGenericDataSource を使用してアクセス データ ソース コントロールにバインド]
+
+* link:webschedule-binding-to-a-data-set-with-webschedulegenericdataprovider.html[WebScheduleGenericDataProvider で設定したデータへの WebSchedule バインディング]
+
+* link:webschedule-webschedulegenericdataprovider-crud-statements-for-sql-data-source.html[SQL データ ソース用の WebScheduleGenericDataProvider CRUD ステートメント]
+

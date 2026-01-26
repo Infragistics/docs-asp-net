@@ -1,0 +1,79 @@
+﻿////
+
+|metadata|
+{
+    "name": "webtab-overlapping-tabs",
+    "controlName": ["WebTab"],
+    "tags": ["How Do I"],
+    "guid": "{BE800D6E-F910-4542-882B-44F06D552E52}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= タブの重複
+
+WebTab™ は重複機能を提供し、これによって隣接するタブで各タブを重複するように表示することができます。デフォルトでは、タブの重複は無効です。ただし、コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.webtab~enableoverlappingtabs.html[EnableOverlappingTabs]"]  プロパティを True に設定することによって、この動作を有効にできます。独自の Css クラスを  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.webtab~cssclasses.html[CssClasses]"]  オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.tabcssclasses~overlappingtabscssclass.html[OverlappingTabsCssClass]"]  プロパティに指定することによって、この機能についての Css クラスをカスタマイズすることもできます。適用されたクラスは、igtab_XXOverlap Css に結合されます。
+
+*HTML の場合:*
+
+----
+<ig:WebTab ID="WebTab1" runat="server" EnableOverlappingTabs="True" 
+        Height="200px" Width="300px">
+        <Tabs>
+        …
+        </Tabs>
+         <CssClasses OverlappingTabsCssClass="overlap" />
+</ig:WebTab>
+----
+
+*Visual Basic の場合：*
+
+----
+WebTab1.EnableOverlappingTabs = True
+'Css クラスとして重複を想定します。
+WebTab1.CssClasses.OverlappingTabsCssClass = "overlap"
+----
+
+*C# の場合：*
+
+----
+WebTab1.EnableOverlappingTabs = true;
+//Css クラスとして重複を想定します。
+WebTab1.CssClasses.OverlappingTabsCssClass = "overlap";
+----
+
+*注：* EnableOverlappingTabs が有効である場合、OverlappingTabsCssClass は最初の項目に加えて、すべてのタブ項目に適用されます。このクラスはタブがシフトされる位置を定義するだけで、タブ項目の外観に影響を及ぼしません。
+
+== 関連トピック
+
+link:webtab-about-webtab.html[WebTab の理解]
+
+link:webtab-getting-started-with-webtab.html[WebTabで開始]
+
+link:webtab-header-and-content-panes.html[ヘッダー ペイントとコンテンツ ペイン]
+
+link:webtab-tab-states.html[タブの状態]
+
+link:webtab-ajax-indicator-support-for-webtab.html[WebTab の Ajax インジケーターのサポート]
+
+link:webtab-display-modes.html[表示モード]
+
+link:webtab-animations.html[アニメーション]
+
+link:webtab-handling-overflow-in-webtab.html[WebTab でオーバーフローを処理]
+
+link:webtab-load-on-demand.html[ロードオンデマンド]
+
+link:webtab-orientation-and-alignment.html[方向と配置]
+
+link:webtab-tab-moving.html[タブの移動]
+
+link:webtab-scrolling.html[スクロール]
+
+link:webtab-validation-in-webtab.html[WebTab で検証]
+
+link:webtab-api-overview.html[API の概要]
+
+link:webtab-client-side-object-model.html[クライアント サイド オブジェクト モデル（CSOM）の概要]

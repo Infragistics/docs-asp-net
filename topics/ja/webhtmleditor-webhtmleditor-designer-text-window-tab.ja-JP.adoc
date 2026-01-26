@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-webhtmleditor-designer-text-window-tab",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Design Environment","Editing"],
+    "guid": "{622D515A-252F-4825-86C9-26D4A4AE6CA3}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor デザイナ（テキスト ウィンドウ タブ）
+
+[テキスト ウィンドウ] タブを選択すると、WebHtmlEditor のテキスト ウィンドウ領域の初期内容をカスタマイズできます。たとえば、[ウィンドウ テキスト] 編集ボックスにテキストを入力すると、それが WebHtmlEditor の初期画面に表示されます。
+
+image::images/WebHtmlEditor_Using_the_Property_Builder_of_WebHtmlEditor_08.jpg[]
+
+スタイルをデフォルトのウィンドウ テキストに適用するには、HTML マークアップ タグをここで指定するテキストに埋め込みます。たとえば、このデフォルト テキストを灰色で斜体で表示したい場合は、次のテキストを [ウィンドウ テキスト] 編集ボックスに記述します。
+
+----
+<span style='color:gray; font-style: italic;'>Describe your favorite hobbies.</span>
+----
+
+このタブでは、テキスト ウィンドウの背景画像（ウォーターマーク、テクスチャ、インシグニアなど）を指定したり、デフォルトでテキスト ウィンドウの周囲に表示される境界線を非表示にしたりすることもできます。

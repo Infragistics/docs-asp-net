@@ -1,0 +1,66 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdropdown-multi-mode-display",
+    "controlName": ["WebDropDown"],
+    "tags": [],
+    "guid": "{09A7DA98-A28B-4CFD-87ED-89CADC3B1D3C}",  
+    "buildFlags": [],
+    "createdOn": "2009-03-03T13:40:36Z"
+}
+|metadata|
+////
+
+= マルチモード表示
+
+WebDropDown™ によって複数の異なる動作モードのひとつを指定することが可能となります。たとえば、エンドユーザーがドロップダウン エディターに入力することを許可せずにエンドユーザーが値のリストから選択することだけを許可したい場合があります。エンドユーザーがドロップダウン エディターに入力し、オートフィルタリングでリスト項目を見つけるようにしたい場合もあります。読み取り専用の lookup コントロールとして WebDropDown を使用したい場合さえあります。この場合意味のない無関係なキー値をエンドユーザーに提示する必要がないように表示値が lookup テーブルから取得されるユーザーフレンドリーな文字列を表します。これらの動作モードは WebDropDown コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~displaymode.html[DisplayMode]"]  プロパティの機能です。
+
+以下は WebDropDown 表示モードのリストです:
+
+*DropDownList*
+
+** エンドユーザーは値リストから項目を選択することが可能となります。
+** 表示値の編集は許可されません。
+** オート フィルタリングは実行しません。
+** エンドユーザーはドロップダウンを表示できるようになります。
+
+*DropDown*
+
+** エンドユーザーは値リストから項目を選択することが可能となります。
+** 表示値の編集は許可されます。
+** オート フィルタリングは実行できます。
+** エンドユーザーはドロップダウンを表示できるようになります。
+
+*ReadOnly*
+
+** エンドユーザーは値リストから項目を選択することができなくなります。
+** 表示値の編集は許可されません。
+** オート フィルタリングは実行しません。
+** エンドユーザーはドロップダウンを表示できなくなります。
+
+*ReadOnlyList*
+
+** エンドユーザーは値リストから項目を選択することができなくなります。
+** 表示値の編集は許可されません。
+** オート フィルタリングは実行しません。
+** エンドユーザーはドロップダウンを表示できるようになります。
+
+[NOTE]
+====
+*注:* コントロールが表示プロパティおよび値プロパティの両方を提供する時、またはテンプレートが使用される時、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~textfield.html[TextField]"]  プロパティを設定する必要があります。
+====
+
+Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、DisplayMode プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+WebDropDown1.DisplayMode = Infragistics.Web.UI.ListControls.DropDownDisplayMode.ReadOnlyList
+----
+
+*C# の場合：*
+
+----
+WebDropDown1.DisplayMode = Infragistics.Web.UI.ListControls.DropDownDisplayMode.ReadOnlyList;
+----

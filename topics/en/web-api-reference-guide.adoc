@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-api-reference-guide",
+    "controlName": [],
+    "tags": ["API"],
+    "guid": "{99F2DA1D-F1DB-4954-8FDB-F8A73F0775DE}",  
+    "buildFlags": [],
+    "createdOn": "2005-06-10T00:00:00Z"
+}
+|metadata|
+////
+
+= API Reference Guide
+
+The application programming interface (API) is the foundation for all of our ASP.NET controls and components. The API Reference Guide offers a definitive listing of all the {ProductName} classes, enumerations, interfaces, and delegates -- organized by ASP.NET assembly.
+
+* link:{ApiPlatform}webui.documents.excel{ApiVersion}.html[Infragistics.Documents.Excel]
+* link:{ApiPlatform}webui.documents.io{ApiVersion}.html[Infragistics.Documents.IO]
+* link:{ApiPlatform}webui.documents.reports{ApiVersion}.html[Infragistics.Documents.Reports]
+* link:{ApiPlatform}webui.documents.word{ApiVersion}.html[Infragistics.Documents.Word]
+* link:{ApiPlatform}webui.documents.core{ApiVersion}.html[Infragistics.Documents.Core]
+* link:{ApiPlatform}web{ApiVersion}.html[Infragistics.Web]
+* link:{ApiPlatform}web.jquery{ApiVersion}.html[Infragistics.Web.jQuery]
+* link:{ApiPlatform}webui.misc{ApiVersion}.html[Infragistics.WebUI.Misc]
+* link:{ApiPlatform}webui.shared{ApiVersion}.html[Infragistics.WebUI.Shared]
+* link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}.html[Infragistics.WebUI.UltraWebCalcManager]
+* link:{ApiPlatform}webui.ultrawebchart{ApiVersion}.html[Infragistics.WebUI.UltraWebChart]
+* link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}.html[Infragistics.WebUI.UltraWebGauge]
+* link:{ApiPlatform}webui.webdatainput{ApiVersion}.html[Infragistics.WebUI.WebDataInput]
+* link:{ApiPlatform}webui.webhtmleditor{ApiVersion}.html[Infragistics.WebUI.WebHtmlEditor]
+* link:{ApiPlatform}webui.webresizingextender{ApiVersion}.html[Infragistics.WebUI.WebResizingExtender]
+* link:{ApiPlatform}webui.webschedule{ApiVersion}.html[Infragistics.WebUI.WebSchedule]
+* link:{ApiPlatform}webui.webscheduledataprovider{ApiVersion}.html[Infragistics.WebUI.WebScheduleDataProvider]

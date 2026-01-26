@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcaptcha-using-webcaptcha",
+    "controlName": ["WebCaptcha"],
+    "tags": ["API","How Do I","Validation"],
+    "guid": "884840c4-9d87-470c-9af9-d5374580134c",  
+    "buildFlags": [],
+    "createdOn": "2010-05-31T11:50:47.0770544Z"
+}
+|metadata|
+////
+
+= WebCaptcha の使用
+
+このセクションは、WebCaptcha™ コントロールの重要な概念および機能を効果的に使用するためのタスク ベースの情報について説明します。
+
+link:webcaptcha-protection-modes.html[プロテクション モード]
+
+このセクションでは、WebCaptcha でサポートされる 3 つの基本的なモードについて学びます。
+
+link:webcaptcha-dictionary-modes.html[ディクショナリ モード]
+
+WebCaptcha は、テキストをランダムに生成、特定の辞書をファイルから読み込み、または質問を表示します。このセクションのさまざまなモードを使用する方法を学びます。
+
+link:webcaptcha-captcha-validation.html[Captcha 検証]
+
+このセクションでは、WebCaptcha による検証をクライアント側とサーバー側で切り替える方法を説明します。
+
+link:webcaptcha-configuring-captcha-buttons.html[Configuring Captcha ボタンの設定]
+
+WebCaptcha の各ボタンのスタイルを設定できます。このセクションでは、設定方法を学びます。
+
+link:webcaptcha-configuring-captcha-image-properties.html[キャプチャ画像のプロパティの設定]
+
+キャプチャ画像を編集するプロパティが多数あります。このセクションではそれらのプロパティについて学びます。
+
+link:webcaptcha-configuring-captcha-input-field.html[Captcha 入力フィールド]
+
+このセクションでは、WebCaptcha 入力フィールドを設定する方法を学びます。
+
+link:webcaptcha-configuring-captcha-audio.html[Captcha オーディをの設定]
+
+WebCaptcha は、単語や質問を読み上げをサポートします。このセクションではオーディオの設定方法を示します。

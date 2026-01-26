@@ -1,0 +1,50 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-data-model-for-the-resource-table",
+    "controlName": ["WebSchedule"],
+    "tags": ["Getting Started","Scheduling"],
+    "guid": "{D6B9E523-478A-4CFF-9835-44182B173BF2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= リソース テーブルのデータ モデル
+
+Resource の表は、WebSchedule Resource を説明します。これはアクティビティが予定される人、場所、ものです。すべての列は特に明記されていない限り、Resource オブジェクトで同じ名前を持つ .NET プロパティに対応します。
+
+[options="header", cols="a,a,a,a"]
+|====
+|列名|データ型|Null を許可|解説
+
+|ResourceID
+|int
+|いいえ
+|*プライマリ キー。* このリソースを一意に識別する数値。
+
+|ResourceName
+|nvarchar(64)
+|いいえ
+|リソースを一意に識別する名前で、よりユーザー フレンドリなキーになります。
+
+|ResourceDescription
+|ntext
+|はい
+|このリソースを記述する自由書式のテキスト。
+
+|EmailAddress
+|nvarchar(64)
+|はい
+|リソースの電子メール アドレスを含む自由書式のテキスト。
+
+|_ts
+|timestamp
+|はい
+|並行処理の競合を検出するために使用されるタイムスタンプ。
+
+|====
+
+*注：* WebSchedule は、"Unassigned Resource" が存在していることを前提としています。このデータ モデルは、-999 の ResourceID を事前に入力しなければならない Resource の行のひとつの行の存在を必要とすることによって、表間の関係で null 値を持つことを回避します。

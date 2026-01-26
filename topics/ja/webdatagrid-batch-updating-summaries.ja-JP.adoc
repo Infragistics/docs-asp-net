@@ -1,0 +1,80 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-batch-updating-summaries",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Drilldown","Editing","Events","Grids","Summaries"],
+    "guid": "f3053075-8f94-4aff-85e5-20d83bb3a5b6",  
+    "buildFlags": [],
+    "createdOn": "2011-10-26T07:23:53.8214003Z"
+}
+|metadata|
+////
+
+= 集計
+
+このトピックは、一括更新と新しい集計を計算できない特殊なケースを含む Summaries との連携を説明します。
+
+== はじめに
+
+一括更新機能は Summaries と互換性があります。行を変更する場合、列集計は即座に影響を受け、サーバーにポストバックを行わずに、クライアント上で再計算されます。
+
+== 特殊なケース: 集計が計算できない
+
+新しい集計をクライアントで計算できない特殊なケースが 1 つだけあります。これは、ページングが有効になっている場合など、計算に必要なデータがクライアントで使用できない、あるいは使用できない可能性がある場合に発生します。
+
+たとえば、ユーザーが最小値または最大値のいずれかを含む行を削除する、またはそのような値を含むセルを単に編集する場合、最小値または最大値を新たに計算する必要があります。しかし、新しい最小値または最大値がクライアントで使用できない、またはその値が使用できるかどうか確認できない場合は、新しい最小値または最大値を取得することはできません。
+
+そのような場合、「SummaryRowClientEvents-CalculateSummary」という特別なイベントが発生します。t例えば、デベロッパーであるあなたが処理したり、新しい値を設定したり、イベント引数に変更を行ったりしてポストバックを強制的に行い、変更を受け入れることができます。また、クライアント側で削除された変更を元に戻し、ポストバックは行わないようにすることもできます。このイベントをそのままにしておくと、自動ポストバックが内部で呼び出され、新しい極端な値が自動的に計算されます。
+
+Count、Average、Sum など他の集計値については、再計算はすべてクライアント側で行われます。
+
+SummaryRowClientEvents-CalculateSummary イベントに添付するには、コードの以下の行を使用します。
+
+*ASPX の場合:*
+
+----
+<ig:WebDataGrid ID="wdg1" runat="server">
+    <Behaviors>
+        <ig:EditingCore BatchUpdating="true">
+            <Behaviors>
+                <ig:RowAdding/>
+                <ig:RowDeleting/>
+                <ig:CellEditing/>
+            </Behaviors>
+        </ig:EditingCore>
+        <ig:SummaryRow 
+             SummaryRowClientEvents-CalculateSummary="wdg1CalculateSummary">
+        </ig:SummaryRow>
+        <ig:Selection 
+             CellClickAction="Row" RowSelectType="Multiple"></ig:Selection>
+        <ig:Paging></ig:Paging>
+    </Behaviors>
+</ig:WebDataGrid>
+----
+
+また、javascript コードを使用してハンドラーを定義します。
+
+*JavaScript の場合*
+
+----
+function wdg1CalculateSummary(sender, eventArgs) {
+}
+----
+
+SummaryRowClientEvents-CalculateSummary イベントの処理方法に関する実際のコード例については、Batch Update Summary サンプルを参照してください。
+
+== 関連トピック
+
+link:webdatagird-batch-updating-overview.html[WebDataGrid の一括更新の概要]
+
+link:webdatagrid-batch-updating-enabling.html#_enabling_batch_updating[WebDataGrid の一括変更を有効にする]
+
+link:webdatagrid-batch-updating-events.html[WebDataGrid の一括更新イベント]
+
+link:known-issues-known-issues-and-breaking-changes.html[既知の問題と制限]
+
+== 関連サンプル
+
+link:{SamplesURL}/samples/webdatagrid/editingandselection/batchupdatingsummaries/default.aspx?cn=data-grid&sid=0e6ba7c3-04b0-46d7-af6b-d0cadafda185[集計の一括更新]

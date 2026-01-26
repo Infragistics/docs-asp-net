@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-stored-procedures",
+    "controlName": ["WebSchedule"],
+    "tags": [],
+    "guid": "{AC8CAE6C-E44E-45D6-B416-195466E2FF4E}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-09T00:00:00Z"
+}
+|metadata|
+////
+
+= ストアド プロシージャ
+
+WebScheduleSqlDataProvider™ はストアド プロシージャを使用します。ストアド プロシージャはトランザクション（アクティビティの更新など）を実行する SQL コードのコンパイルされた部分です。
+
+WebSchedule のデータの SQL データ プロバイダーによって使用されるストアド プロシージャの情報については、以下のリンクをクリックしてください。
+
+* link:webschedule-overview-of-the-stored-procedures-used-by-the-webschedule-data-providers.html[WebSchedule データ プロバイダーで使用されるストアド プロシージャの概要]
+* link:webschedule-update-data-and-stored-procedures.html[データおよびストアド プロシージャの更新]

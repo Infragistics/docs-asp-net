@@ -1,0 +1,235 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-extending-appointments-and-resources",
+    "controlName": ["WebSchedule"],
+    "tags": ["Extending","How Do I","Scheduling"],
+    "guid": "{B4FA5591-FCA8-4375-95F7-481A0569EA13}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 予定とリソースの拡張
+
+== 始める前に
+
+実際のスケジュール アプリケーションに対するビジネスの需要は、ときにはリソース（電話番号などの連絡先）とアクティビティ（フォローアップ日）に関する基本コンセプトに追加情報を関連付ける必要性が生じます。継承は、追加情報を含むプロパティを追加するためのオブジェクト指向の方法のひとつです。この詳細なガイドでは、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.appointment.html[Appointment]"]  クラスをフォローアップの Date プロパティを使用して拡張する方法について説明し、また新しいプロパティを WebSchedule アプリケーションにシームレスに統合するための他の要件についても学習します。
+
+作業を続行する前に、Webフォーム上で WebSchedule データ プロバイダを共有する複数の WebSchedule ビューを使用する、また Appointment オブジェクトおよび  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.resource.html[Resource]"]  オブジェクトで既存のプロパティで作業をすることが快適に感じる必要があります。また継承を使用して、バーチャルなメンバを無効にし、カスタムの属性を適用して、.NET Framework タイプを拡張することを経験する必要があります。
+
+image::images/WebSchedule_Extending_Appointments_and_Resources_1.png[]
+
+WebSchedule オブジェクト モデルのバックグランドにある程度の知識があると、全体像を把握するのに役立ちます。Appointment と Resource は、ともに一般的な抽象基本型の WebDataObject クラスに拡張できます。WebDataObjects は、収集されて整合性検査にデータバインドされた文字列 Key プロパティによって識別されます。Activity、Appointment、Resource の各クラスは、これらの利点を継承し、そのプロパティをこの基本クラスに付加します。
+
+== 次の手順を実行します。
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに using/imports のディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.WebUI.Shared
+Imports Infragistics.WebUI.WebSchedule
+----
+
+*C# の場合：*
+
+----
+using Infragistics.WebUI.Shared;
+using Infragistics.WebUI.WebSchedule;
+----
+
+[start=2]
+. FollowUpAppointment という新しいクラスを作成して、Appointment クラスを拡張します。
+
+*Visual Basic の場合：*
+
+----
+Public Class FollowUpAppointment
+  Inherits Appointment
+	‘ クラス定義をここで行います。
+End Class
+----
+
+*C# の場合：*
+
+----
+public class FollowUpAppointment : Appointment
+{
+	// クラス定義をここで行います。
+}
+----
+
+[start=3]
+. 
+
+すべての予約はひとつの WebScheduleInfo コンポーネントに属し、このコンポーネントがそのコレクション、管理リソース、クライアント側との通信を管理し、WebSchedule データ プロバイダとのデータ バインドを調整します。Appointment サブクラスには、少なくともひとつのパラメータを受け入れるパブリック コンストラクタと、基本 Appointment コンストラクタをパスするための WebScheduleInfo コンポーネントが必要です。
+
+*Visual Basic の場合：*
+
+----
+‘ クラス定義をここで行います。
+Public Sub New( ByVal info As WebScheduleInfo )
+	MyBase.New( info)
+End Sub
+----
+
+*C# の場合：*
+
+----
+// クラス定義をここで行います。
+public FollowUpAppointment( WebScheduleInfo info) : base( info)
+{
+	;
+}
+----
+
+作成されたコンストラクタには 2 つ以上のパラメータがある場合があります。特に、パラメータがサブクラスが追加する新しいプロパティを初期化した場合は、その可能性が高くなります。
+[start=4]
+. FollowUpAppointment クラスに FollowUpDate プロパティを追加します。このプロパティの値を格納するためにフィールドを追加する必要はありません。WebDataObject が予定のカスタム プロパティの値を管理するからです。
+
+*Visual Basic の場合：*
+
+----
+Public Property FollowUpDate() As DateTime
+	Get
+		‘ フォローアップ日の値を読み取ります。
+	End Get
+	Set
+		‘ フォローアップ日の値を書き込みます。
+	End Set
+End Property
+----
+
+*C# の場合：*
+
+----
+public DateTime FollowUpDate
+{
+	get
+	{
+		// フォローアップ日の値を読み取ります。
+	}
+	set
+	{
+		// フォローアップ日の値を書き込みます。
+	}
+}
+----
+
+*注：* グローバルな Web スケジュール アプリケーションでは、日付と時刻のプロパティはすべて時間帯に縛られないフォーマットで格納する必要があります。このため、値を格納したり、取得したりするときには協定世界時（UTC）への、または UTC からの変換が必要です。ここでは示されていませんが、WebScheduleInfo は Appointment サブクラスに、UTC とアプリケーションに表示される時間帯との間で日付と時刻を変換する 2 つのメソッドを提供します（SmartDate オブジェクトにラップされています）。詳細は、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~convertutctotimezonetime.html[ConvertUtcToTimeZoneTime]"]  および  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~converttimezonetimetoutc.html[ConvertTimeZoneTimeToUtc]"]  メソッドを参照してください。
+
+[start=5]
+. 
+
+静的な FollowUpDateId フィールドを FollowUpAppointment クラスに追加します。
+
+*Visual Basic の場合：*
+
+----
+Private Shared FollowUpDateId As String = "FollowUpDate"
+----
+
+*C# の場合：*
+
+----
+private static string FollowUpDateId = "FollowUpDate";
+----
+
+WebDataObject は、管理するプロパティの値を、プロパティ名（プロパティ ID と呼ぶこともあります）に関連付けます。Appointment サブクラスに追加する各カスタム プロパティでは、格納と取得を行うためにプロパティに名前を指定する文字列識別子を追加する必要があります。
+[start=6]
+. 手順 3 で追加した FollowUpDate プロパティに、プロパティ ゲッター実装を追加します。この WebDataObject に "FollowUpDate" という名前に関連付けられた値を取得するには GetValue メソッドを使用します。この名前でこれまで何の値も格納されていない場合は、GetValue メソッドへの 2 番目の引数をデフォルト値として使用します。
+
+*Visual Basic の場合：*
+
+----
+‘ フォローアップ日の値を読み取ります。
+MyBase.GetValue( _
+  FollowUpAppointment.FollowUpDateId, _
+  DateTime.MaxValue )
+----
+
+*C# の場合：*
+
+----
+// フォローアップ日の値を読み取ります。
+base.GetValue(
+  FollowUpAppointment.FollowUpDateId,
+  DateTime.MaxValue );
+----
+
+[start=7]
+. 手順 3 で追加した FollowUpDate プロパティにプロパティ セッター実装を追加します。FollowUpDateId プロパティを使用してアクセスできる格納された値を初期化するには、SetValue メソッドを使用します。
+
+*Visual Basic の場合：*
+
+----
+‘ フォローアップ日の値を書き込みます。
+MyBase.SetValue( _
+	FollowUpAppointment.FollowUpDateId, _
+	Value, _
+	DateTime.MaxValue )
+----
+
+*C# の場合：*
+
+----
+// フォローアップ日の値を書き込みます。
+base.SetValue(
+  FollowUpAppointment.FollowUpDateId,
+  value, 
+  DateTime.MaxValue );
+----
+
+*注：* SetValue メソッドを使用するときに、コンパイラは正しいオーバーロード メソッドを呼び出すために‘value’引数の型キャストを要求することがあります。
+
+[start=8]
+. WebScheduleInfo コントロールと WebSchedule ビュー コントロールをすでに含む Web アプリケーション プロジェクトにこのクラス定義を追加し、Web フォームの Page_Load イベント ハンドラに次のコードを追加します。
+
+*Visual Basic の場合：*
+
+----
+Protected Sub Page_Load(ByVal sender As System.Object, _
+  ByVal e As System.EventArgs) Handles MyBase.Load
+	' カスタムの予定を作成します。
+	Dim customAppt As FollowUpAppointment
+	customAppt = New FollowUpAppointment(Me.WebScheduleInfo1)
+	' キー プロパティを初期化します。
+	customAppt.Key = "6088100510"
+	customAppt.ResourceKey = _
+	  Me.WebScheduleInfo1.VisibleResources.UnassignedResource.Key
+	customAppt.StartDateTimeUtc = SmartDate.Now
+	customAppt.FollowUpDate = DateTime.Now.AddDays(1.0)
+	' それを Activities コレクションに追加します。
+	Me.WebScheduleInfo1.Activities.Add(customAppt)
+End Sub
+----
+
+*C# の場合：*
+
+----
+protected void Page_Load( object sender, System.EventArgs e)
+{
+	// カスタムの予定を作成します。
+	FollowUpAppointment customAppt;
+	customAppt = new FollowUpAppointment( this.WebScheduleInfo1);
+	// キー プロパティを初期化します。
+	customAppt.Key = "6088100510";
+	customAppt.ResourceKey = 
+	  this.WebScheduleInfo1.VisibleResources.UnassignedResource.Key;
+	customAppt.StartDateTimeUtc = SmartDate.Now;
+	customAppt.FollowUpDate = DateTime.Now.AddDays( 1.0);
+	// それを Activities コレクションに追加します。
+	this.WebScheduleInfo1.Activities.Add( customAppt);
+}
+----
+
+== 復習
+
+上記のコードは、FollowUpAppointment オブジェクトを作成し、それを手順 2 で作成したコンストラクタを使用してページ上の WebScheduleInfo コンポーネントに関連付けます。また、すべての予約に必要な重要なプロパティ（キー、関連付けられたリソースのキー、および StartDateTimeUtc）を設定して、FollowUpAppointment を初期化し、次に手順 3 から 6 で追加したカスタム プロパティを使用して FollowUpDate を今後の 24 時間に設定します。最後に、この予約を Activities コレクションに追加して、この WebScheduleInfo コンポーネントに接続されたすべてのビューに表示されるようにします。
+
+以上で、継承を使用して Appointment クラスにカスタム プロパティを追加し、カスタムの Appointment のインスタンスが WebScheduleInfo の Activities コレクションに追加されました。これでカスタム Appointment が、WebSchedule データ プロバイダを含む他のソースから取得される Appointment とともに表示されます。次のステップでは、新しいカスタム プロパティを Web アプリケーションで表示したり、カスタム Appointment をデータベースに格納したり、それを更新したりできるように WebSchedule データ プロバイダを拡張する操作を覚えてください。

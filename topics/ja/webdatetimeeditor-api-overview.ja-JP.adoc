@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatetimeeditor-api-overview",
+    "controlName": ["WebDateTimeEditor"],
+    "tags": ["API"],
+    "guid": "{AA68D7A7-4F36-4695-8464-6DAA27E496C3}",  
+    "buildFlags": [],
+    "createdOn": "2009-04-06T17:03:11Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションではコントロールに関連する各名前空間を示します。このコントロールでプログラムする間に使用するいくつかのキー クラスも提供します。このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+=== WebDateTimeEditor 名前空間:
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols_namespace.html[Infragistics.Web.UI.EditorContols]
+
+=== キー クラス：
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webdatetimeeditor.html[WebDateTimeEditor]
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.texteditorbuttons.html[TextEditorButtons]

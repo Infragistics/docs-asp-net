@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-effects-tab",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{E6CEB8F8-34F3-41D0-B1FB-C9C2EB5AE4FC}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 効果タブ
+
+[効果] タブはゲージ プロパティのすべてに関連しています。この [効果] タブによって、Gauge コントロールの任意のプロパティにシャドーを追加することができます。ゲージ エクスプローラで任意の項目をクリックする、またはインタラクティブなプレビュー領域でゲージ上の任意の項目をクリックすることによって、このタブにアクセスできます。
+
+このタブは以下の 3 つのペインに分割されています。
+
+* link:webgauge-shadow-pane.html[シャドー]
+* link:webgauge-shadow-brush-pane.html[シャドー ブラシ]
+* link:webgauge-shadow-stroke-pane.html[シャドー ストローク]
+
+image::images/Effects_Tab_01.png[]
+
+以下のスクリーンショットは、上記のスクリーンショットで指定された設定に基づいてスケールのレンジに適用される効果を示しています。
+
+image::images/Effects_Tab_02.png[]

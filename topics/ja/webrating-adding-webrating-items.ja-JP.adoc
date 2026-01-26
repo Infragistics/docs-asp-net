@@ -1,0 +1,69 @@
+﻿////
+
+|metadata|
+{
+    "name": "webrating-adding-webrating-items",
+    "controlName": ["WebRating"],
+    "tags": ["Selection","Styling","Templating"],
+    "guid": "3abce672-c635-4161-9604-0991fc7e1826",  
+    "buildFlags": [],
+    "createdOn": "2010-06-01T05:39:38.8221736Z"
+}
+|metadata|
+////
+
+= WebRating 項目の追加
+
+WebRating™ コントロールによって、ユーザーによる操作に基づき値を記録できます。デフォルトで、コントロールは各星ごとに 1 から 5 の値を示す 5 つの星を表示します。ユーザーが星をクリックすると、そのユーザーのクリックの平均値と回数が記録されます。
+
+固有の評価項目を追加し、固有の値を設定することによって、WebRating の動作をカスタマイズできます。WebRating コントロールは、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.ratingimageitem.html[RatingImageItem]"]  オブジェクトを追加するために使用できる、タイプ  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webratingimagecollection.html[WebRatingImageCollection]"]  の  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webrating~customimages.html[CustomImages]"]  プロパティを公開します。これらのオブジェクトを使用して、カスタムの CSS クラスを設定することによって表示される画像をカスタマイズすることができます。同様に、これらを使用して、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.ratingimageitem~value.html[Value]"]  プロパティを設定することによって各画像に対応する値を設定できます。
+
+評価項目に値を指定する必要はありません。デフォルトで、コントロールは最小値から始まる各評価項目ごとに 1 つずつ値を増やします。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webrating~minimumvalue.html[MinimumValue]"]  プロパティを使用して、最小値を指定できます。デフォルト値は 0 です。WebRating コントロールは、少なくとも 1 つの値を指定すると、個々の項目に指定する値を推測することも行います。たとえば、項目が 3 つあり、最後の項目に 100 を指定すると、項目の値の範囲は 0 から 100 になります。100 は最後の項目の右端になります。
+
+*注：* MinimumValue プロパティは左端の値を決定します。前述のように、右端の値は最後の項目の値によって決定されます。値が指定されない場合、項目は前の項目から 1 増えます。
+
+pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.ratingbaseimage~tooltipformat.html[ToolTipFormat]"]  プロパティを設定することによって、RatingImageItem オブジェクトのカスタム ツールチップを設定することも可能です。このプロパティは以下のプレースホルダーによって文字列を設定できます。
+
+* {0} - 値、選択またはホバー。
+* {1} - 平均値。
+* {2} - 投票数。
+* {3} - 最小値。
+* {4} - 最大値。
+* {5} - 項目数。
+
+以下のコードは、 3 つの RatingImageItem オブジェクトを追加し、値が 0-10 になるように設定する方法を示します。各評価項目ごとの評価キャプションとともに最大値から選択された値を表示するようにツールチップも設定されます。
+
+*HTML の場合:*
+
+----
+<style>
+        .badRating
+        {
+            background: url('images/Splat.png');
+        }
+        .mediumRating
+        {
+            background: url('images/Rotten.png');
+        }
+        .goodRating 
+        {
+            background: url('images/Fresh.png');
+        }
+        .noImage 
+        {
+            cursor: pointer;
+        }
+    </style>
+<ig:webrating ID="WebRating1" runat="server"     
+            Precision="Exact"  
+            ImageHeight="31"
+            ImageWidth="31"
+            MinimumValue="0"          
+             >
+                <CustomImages>
+                    <ig:ratingimageitem ToolTipFormat="{0} out of {4}: Splat" ImageCssClass="badRating" HoveredImageCssClass="noImage" SelectedImageCssClass="noImage" />
+                    <ig:ratingimageitem ToolTipFormat="{0} out of {4}: Rotten" ImageCssClass="mediumRating" HoveredImageCssClass="noImage" SelectedImageCssClass="noImage" />
+                    <ig:ratingimageitem Value="10" ToolTipFormat="{0} out of {4}: Fresh" ImageCssClass="goodRating" HoveredImageCssClass="noImage" SelectedImageCssClass="noImage" />
+                </CustomImages>
+        </ig:webrating>
+----

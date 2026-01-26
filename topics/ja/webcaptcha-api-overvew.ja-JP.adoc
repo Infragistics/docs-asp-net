@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcaptcha-api-overvew",
+    "controlName": ["WebCaptcha"],
+    "tags": ["API","Validation"],
+    "guid": "4dd8386e-5dac-443d-8321-1777364750c8",  
+    "buildFlags": [],
+    "createdOn": "2010-06-07T14:35:12.1908733Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションではコントロールに関連する各名前空間を示します。このコントロールでプログラムする間に使用するいくつかのキー クラスも提供します。このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+=== WebCaptcha 名前空間:
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols_namespace.html[Infragistics.Web.UI.EditorControls]
+
+=== キー クラス：
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webcaptcha.html[WebCaptcha]
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.captchaimage.html[CaptchaImage]
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.captchaimagesettings.html[CaptchaImageSettings]
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.captchaimagehandler.html[CaptchaImageHandler]
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.captchaaudiomanager.html[CaptchaAudioManager]

@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdialogwindow-csom-overview",
+    "controlName": ["WebDialogWindow"],
+    "tags": ["Events"],
+    "guid": "{FF8F9F8C-6ABD-46D8-8057-E91D198A5131}",  
+    "buildFlags": [],
+    "createdOn": "2008-12-01T20:59:37Z"
+}
+|metadata|
+////
+
+= CSOM の概要
+
+WebDialogWindows™ コントロールは、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを提供します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクトで構成され、開発者はサーバー側にポストバックしなくても、ダイアログ ウィンドウに関連する重要な機能単位をプログラムできます。
+
+link:webdialogwindow~infragistics.web.ui_namespace.html[WebDialogWindow CSOM の概要]

@@ -1,0 +1,28 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webmonthview",
+    "controlName": ["WebMonthView"],
+    "tags": [],
+    "guid": "{EE703145-3717-49BB-8BCB-9E12509C9C71}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WebMonthView
+
+WebMonthView コントロールの紹介については以下のリンクをクリックしてください。
+
+* link:webmonthview-understanding-the-webmonthview-control.html[WebMonthView コントロールの理解] --  このセクションには WebMonthView コントロールの機能をより理解するための情報があります。なぜアプリケーションのビルドの一部として使用するかも説明します。
+* link:webschedule-using-webmonthviews-designer.html[WebMonthView のデザイナを使用] -- このセクションは、WebMonthView コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+* link:webschedule-using-webmonthviews-designer.html[WebMonthView のデザイナの使用] -- デザイナを使用してコントロールにプリセットを適用する方法や、[機能の選択] を使用して標準的な機能を設定する方法を学びます。
+* link:webmonthview-accessibility-compliance.html[WebMonthView アクセシビリティの遵守] -- このトピックは、セクション 508 規格の要件を WebMonthView が満たす方法を説明します。このアクセシビリティの遵守によって、エンド ユーザ、特に障害を持つユーザーが WebGridExcelExporter コントロールを使用して構築された Web アプリケーションにアクセスおよび使用することを可能にします。
+* link:webmonthview-api-overview.html[API 概要] -- このトピックでは、WebMonthView コントロールを使ってプログラミングする際に作業する名前空間とクラスをリストします。このトピックにリストされる名前空間とクラスは、{ProductName} ヘルプの link:web-api-reference-guide.html[「API リファレンスガイド」]に便宜上リンクします。
+* link:webmonthview-csom-overview.html[CSOM の概要] -- このトピックは、WebMonthView コントロールのクライアント サイド オブジェクト モデルに関する参照です。
+
+WebMonthView コントロールは、コントロールおよびコンポーネントの WebSchedule グループの一部です。複数の WebSchedule コントロールおよびコンポーネント（WebCalendarView、WebScheduleInfo）に共通する概要/タスクベースの情報を収めているセクションを探している場合には、以下のリンクをクリックします。
+
+* link:web-webschedule.html[WebSchedule]

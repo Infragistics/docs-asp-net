@@ -1,0 +1,60 @@
+﻿////
+
+|metadata|
+{
+    "name": "webimageviewer-adding-text-to-webimageviewers-header-and-footer-areas2",
+    "controlName": ["WebImageViewer"],
+    "tags": ["Editing","Layouts","Styling"],
+    "guid": "{4841F596-0F53-4CE5-96F1-B57E309887B1}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= テキストを WebImageViewer の Header および Footer 領域に追加
+
+== 始める前に
+
+WebImageViewer™ コントロールの画像ビューアには、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webimageviewer~header.html[Header]"]  領域と  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webimageviewer~footer.html[Footer]"]  領域が含まれており、この領域に説明のテキストを配置できます。現在の画像の説明から著作権に関する通知までアプリケーションが必要とするものは何でもこのテキストにすることができます。
+
+== 達成すること
+
+WebImageViewer の Header 領域および Footer 領域にテキストを設定する方法を学習します。
+
+== 次の手順を実行します
+
+[start=1]
+. *新しい ASP.NET AJAX 対応の Web サイトを作成します。*
+
+プロジェクトを作成する時に Visual Studio が ASP.NET Ajax ScriptManager のインスタンスを追加することを確認します。
+[start=2]
+. *Infragistics Application Styling を有効にします。*
+
+アプリケーションでアプリケーション スタイリングが有効になっていることを確認します。アプリケーション スタイリングを有効にするための支援は、 link:web-enabling-application-styling-using-the-web-config-file.html[web.config ファイルを使用してアプリケーション スタイリングを有効にする]を参照してください。
+[start=3]
+. *WebImageViewer を Web フォームに追加します。*
+
+Visual Studio ツールボックスで WebImageViewer コントロールを指定して、Web フォームに追加します。
+[start=4]
+. *WebImageViewer の Header テキストを設定します。*
+
+WebImageViewer を選択して、[プロパティ] ウィンドウで Header プロパティを展開します。以下のプロパティを設定します。
+
+** Text -- Thelma's Landscaping
+** Visible -- True
+
+[start=5]
+. *WebImageViewer の Footer テキストを設定します。*
+
+WebImageViewer を選択したままで、[プロパティ] ウィンドウで Footer プロパティを展開します。以下のプロパティを設定します。
+
+** Text -- © 2008 Thelma's Landscaping. All rights reserved.
+** Visible -- True
+
+[start=6]
+. *アプリケーションを実行します。*
+
+アプリケーションをビルドして実行すると、Header と Footer の両領域にテキストが表示されるのが確認できます。アプリケーションに選択したスタイルによって、Header および Footer のテキストは以下のスクリーン ショットと若干異なる場合があります。
+
+image::images/WebImageViewer_Header_and_Footer_01.png[]

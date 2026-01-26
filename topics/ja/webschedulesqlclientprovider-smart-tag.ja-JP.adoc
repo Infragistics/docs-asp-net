@@ -1,0 +1,46 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedulesqlclientprovider-smart-tag",
+    "controlName": ["WebScheduleSqlProvider"],
+    "tags": ["Data Presentation","Persistence"],
+    "guid": "{EFC3BC64-4385-4ACD-B098-C9E60F7CF847}",  
+    "buildFlags": [],
+    "createdOn": "2007-04-02T21:33:29Z"
+}
+|metadata|
+////
+
+= WebScheduleSqlClientProvider スマート タグ
+
+Visual Studio 2005（.NET Framework 2.0）では、それぞれの {ProductName} コントロール/コンポーネントが固有のスマート タグを備えています。コントロール/コンポーネントを選択するだけで、Smart Tag のアンカーが表示されます。このアンカーをクリックするとポップアップ パネルが表示され、そこからコントロール/コンポーネントの最もよく使用するプロパティや設定にすばやく簡単にアクセスできます。
+
+WebScheduleSqlClientProvider のスマートタグには次のセクションが含まれています。
+
+* アクション -- よく使うタスク（クイック デザイナへのアクセスなど）を実行できます。
+* プロパティ -- よく使うプロパティ（表示モードなど）の容易なアクセスを提供します。
+
+各セクションの項目（フィールド、ドロップダウン リスト、チェックボックスなど）の説明は、下記を参照してください。
+
+image::images/WebScheduleSqlClientProvider_The_WebScheduleSqlClientProvider_Smart_Tag_01.png[]
+
+[options="header", cols="a,a,a"]
+|====
+|アクション|説明|対応するプロパティ
+
+|クイック デザイン
+|[クイック デザイン] をクリックすると、WebScheduleSqlClientProvider デザイナが表示されます。これは、コントロールを右クリックしてコンテキスト メニューから [クイック デザイン] を選択するのと同じです。
+|なし
+
+|====
+
+[options="header", cols="a,a,a"]
+|====
+|プロパティ|説明|対応するプロパティ
+
+|WebScheduleInfoID
+|ドロップダウン リストを使用して WebScheduleSqlClientProvider に関連付けるために WebScheduleInfo を選択します。
+|*WebScheduleInfoID*
+
+|====

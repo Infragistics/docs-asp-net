@@ -1,0 +1,42 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-how-do-i-know-if-a-problem-is-security-policy-related",
+    "controlName": [],
+    "tags": ["Application Scenarios","FAQ"],
+    "guid": "{755CA33D-1B9A-455E-8DCF-6A5735FA2191}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 問題がセキュリティ ポリシーに関係するかどうかを確認する方法とは？
+
+コードアクセスセキュリティポリシーに特化した問題は通常SecurityExceptionを投げます。
+
+Full-trust 環境で non-APTCA {ProductName} アセンブリを使用するために同じコードが機能する場合、問題は Web アプリケーションに与えられたセキュリティ ポリシーに関係します。
+
+SecurityException が投げられたスタックトレースを確認することで権限についてもっとトラブルシューティングすることができます。SecurityException を伴う以下のスタック トレースの例を確認してください。
+
+[source,docX-root]
+----
+System.IO.IsolatedStorage.IsolatedStorageFile.Init(IsolatedStorageScope scope) +45
+System.IO.IsolatedStorage.IsolatedStorageFile.GetStore(IsolatedStorageScope scope, 
+  Type domainEvidenceType, Type assemblyEvidenceType) +61
+System.IO.IsolatedStorage.IsolatedStorageFile.GetUserStoreForAssembly() +11
+Infragistics.Documents.Excel.BIFF8Writer.WriteWorkbookToStream(Workbook workbook, Stream outStream)
+ +255
+Infragistics.WebUI.UltraWebGrid.ExcelExport.UltraWebGridExcelExporter.Export
+ ( UltraWebGrid grid, Worksheet worksheet, Int32 startRow, Int32 startColumn) +302
+ApplicationNamespace.WebFormMain.OnExportButtonClick(object sender, EventArgs e) +156
+----
+
+スタック トレースは、現在のセキュリティ ポリシーで実行するために Web アプリケーションが十分なパーミッションを持たない .NET Framework でメソッドが実行されたことを示します。この例では、IsolatedStorageFile の INit メソッド（切り離されたストレージにアクセスする時に使用される .NET Framework クラス）は、例外をスローしています。
+
+場合によっては、この例では、SecurityException をスローしたメソッド（Init）は文書化されません。このスタックをみると、例外をトリガーした呼び出しのPublicメソッド(GetStore)を見つけることができます。これらの Public メソッドに要求されるセキュリティ権限の一覧は NET Framework SDK ドキュメントにあります。
+
+この例では、WebアプリケーションにIsolatedStoragePermissionが無いようです。デフォルトで medium trust の下に許可されますが、ホスティング プロバイダーは medium trust の正確な定義をカスタマイズできます。
+
+例外を引き起こす権限を見つけた時、サイトのアドミニストレータとセキュリティポリシーを調整する方法についてに相談してください。

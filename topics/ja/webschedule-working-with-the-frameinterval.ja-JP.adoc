@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-working-with-the-frameinterval",
+    "controlName": ["WebSchedule"],
+    "tags": ["Scheduling","Tips and Tricks"],
+    "guid": "{4FFB8A50-E2CB-42D6-B4CA-81CDB7ADB350}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= フレーム間隔で作業
+
+WebSchedule では、フレーム期間の概念を使用して、各 Web ページのライフサイクル間に読み取られるデータベース  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[アクティビティ]"]  レコードの数と範囲を制御および制限します。 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.frameinterval.html[FrameInterval]"]  オブジェクト自体は、4 つの主要なプロパティ、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.frameinterval~startdateutc.html[StarteDateUTC]"] 、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.frameinterval~enddateutc.html[EndDateUTC]"] 、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.frameinterval~startdate.html[StartDate]"] 、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.frameinterval~enddate.html[EndDate]"]  を公開します。
+
+*注：* WebSchedule のすべての日時計算は、サーバーで協定世界時（UTC）を使用して実行されます。次に UTC はクライアント ブラウザに表示するために適切なローカル時間に変換されます。さらに、データソース内のすべての日時の値は UTC 値として処理されます。これは、データソースから適切なアクティビティを選択するために、すべてのクエリがパラメータとして UTC 値を使用して発生することを意味します。
+
+デフォルトで、WebSchedule 内の FrameInterval がクライアントのユーザーにアクティビティを表示するために、WebScheduleInfo に関連付けられた特定のビュー コントロールによって必要に応じて初期化および展開されます。FrameInterval の初期化とサイズ設定は、DataBind プロセス内に発生し、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~frameintervalchanging_ev.html[FrameIntervalChanging]"]  イベントによって、FrameInterval がニーズを満たすために十分な大きさであることを保証することに関心を持つ任意のリスナーに公開されます。WebDayView および WebMonthView などのビュー要素はそれぞれ、 pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.shared.smartdate~utcnow.html[ActiveDayUtc]"]  プロパティを参照して、それぞれに適切な特定の間隔を決定します。
+
+FrameInterval.StartDateUTC プロパティと FrameInterval.EndDateUTC プロパティを設定することによって、FrameInterval はすべての要素に対して必要なサイズに展開されます。FrameInterval サイズは StartDateUTC または EndDateUTC 値のいずれかを設定することによって小さくできません。値が小さくなると無視されるだけです。つまり、FrameInterval は ActiveDay 値で開始し、必要に応じて前方または後方に展開します。
+
+たとえば、ActiveDayUtc プロパティが May 15th, 2000 に設定される場合、3 日を表示する WebDayView は、FrameInterval.StartDateUTC を 5/15/2000 に、FrameInterval.EndDateUTC を 5/17/2000 に設定します。同じ WebScheduleInfo に関連付けられている場合、WebMonthView は FrameInterval.StartDateUTC を 4/30/2000 に、FrameInterval.EndDateUTC を 6/3/2000 に設定します。これによって、WebMonthView は ActiveDayUtc を含む月の先頭日と後続日に対してアクティビティを表示できます。通常、WebSchedule アプリケーションは FrameInterval の設定や問い合わせに関心を持ちません。WebScheduleInfo とそれに関連付けられている特定のビュー要素によって内部的に管理されます。

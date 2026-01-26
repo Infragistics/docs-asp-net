@@ -1,0 +1,180 @@
+﻿////
+
+|metadata|
+{
+    "name": "webscheduleinfo-client-side-events-csom",
+    "controlName": [],
+    "tags": ["API","How Do I","Scheduling"],
+    "guid": "{23CD8B31-EC7A-44AB-A541-43309BAC279B}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebScheduleInfo クライアント側イベント
+
+== Client Events
+
+=== Client Events メソッド
+
+[cols="a,a"]
+|====
+|*ActiveDayChanged* 
+|このイベントは、ActiveDay が変更された後で発生します。 
+
+*パラメータ*
+
+_scheduleInfo_ 
+
+WebScheduleInfo クライアント側オブジェクト。 _evnt_ 
+
+イベントのキャンセル、ポストバックのキャンセルまたは要求を実行するイベント オブジェクト。 _newDate_ 
+
+新しい ActiveDay の日付。
+
+|*ActiveDayChanging* 
+|ActiveDay が変更する前にこのイベントが発生します。 
+
+*パラメータ*
+
+_scheduleInfo_ 
+
+WebScheduleInfo クライアント側オブジェクト。 _evnt_ 
+
+イベントのキャンセル、ポストバックのキャンセルまたは要求を実行するイベント オブジェクト。 _oldDate_ 
+
+以前の ActiveDay の日付。 _newDate_ 
+
+新しい ActiveDay の日付。 
+
+*解説*
+
+このイベントはキャンセル可能です。 
+
+evnt.cancel = true;
+
+|*ActivityAdding* 
+|アクティビティが追加される前にこのイベントが発生します。 
+
+*パラメータ*
+
+_scheduleInfo_ 
+
+WebScheduleInfo クライアント側オブジェクト。 _evnt_ 
+
+イベントのキャンセル、ポストバックのキャンセルまたは要求を実行するイベント オブジェクト。 _activity_ 
+
+追加される activity オブジェクト。 _id_ 
+
+id はイベントを発生させたコントロールの id または addActivity メソッドに渡される文字列値のいずれかを表すフィールドです。 
+
+*解説*
+
+このイベントはキャンセル可能です。 
+
+evnt.cancel = true;
+
+|*ActivityDeleting* 
+|アクティビティが削除される前にこのイベントが発生します。 
+
+*パラメータ*
+
+_scheduleInfo_ 
+
+WebScheduleInfo クライアント側オブジェクト。 _evnt_ 
+
+イベントのキャンセル、ポストバックのキャンセルまたは要求を実行するイベント オブジェクト。 _activity_ 
+
+削除される activity オブジェクト。 _id_ 
+
+id はイベントを発生させたコントロールの id または deleteActivity メソッドに渡される文字列値のいずれかを表すフィールドです。 
+
+*解説*
+
+このイベントはキャンセル可能です。 
+
+evnt.cancel = true;
+
+|*ActivityDialogEdit* 
+|[アクティビティ] ダイアログの [保存して閉じる] ボタンを押した時に、[アクティビティ] ダイアログが閉じる前にこのイベントが発生します。 
+
+*パラメータ*
+
+_scheduleInfo_ 
+
+WebScheduleInfo クライアント側オブジェクト。 _evnt_ 
+
+イベントのキャンセル、ポストバックのキャンセルまたは要求を実行するイベント オブジェクト。 _activityEditProps_ 
+
+[アクティビティ] ダイアログのすべてのコントロールの HTML 要素とその値を含む動的な update オブジェクト。 
+
+*解説*
+
+このイベントはキャンセル可能です。 
+
+evnt.cancel = true;
+
+|*ActivityDialogOpening* 
+|[アクティビティ] ダイアログが開く前にこのイベントが発生します。 
+
+*パラメータ*
+
+_scheduleInfo_ 
+
+WebScheduleInfo クライアント側オブジェクト。 _evnt_ 
+
+イベントのキャンセル、ポストバックのキャンセルまたは要求を実行するイベント オブジェクト。 _dialog_ 
+
+アクティビティ ダイアログ オブジェクト。 _activity_ 
+
+ダイアログで開かれるアクティビティ。 
+
+*解説*
+
+このイベントはキャンセル可能です。 
+
+evnt.cancel = true;
+
+|*ActivityUpdating* 
+|アクティビティが更新される前にこのイベントが発生します。 
+
+*パラメータ*
+
+_scheduleInfo_ 
+
+WebScheduleInfo クライアント側オブジェクト。 _evnt_ 
+
+イベントのキャンセル、ポストバックのキャンセルまたは要求を実行するイベント オブジェクト。 _activityUpdateProps_ 
+
+更新されるアクティビティのフィールドを含む動的な Activity オブジェクト。 _activity_ 
+
+更新される activity オブジェクト。 _id_ 
+
+id はイベントを発生させたコントロールの id または updateActivity メソッドに渡される文字列値のいずれかを表すフィールドです。 
+
+*解説*
+
+このイベントはキャンセル可能です。 
+
+evnt.cancel = true;
+
+|*ReminderDialogOpening* 
+|[アラーム] ダイアログが開く前にこのイベントが発生します。 
+
+*パラメータ*
+
+_scheduleInfo_ 
+
+WebScheduleInfo クライアント側オブジェクト。 _evnt_ 
+
+イベントのキャンセル、ポストバックのキャンセルまたは要求を実行するイベント オブジェクト。 
+
+*解説*
+
+このイベントはキャンセル可能です。 
+
+evnt.cancel = true;
+
+|====
+

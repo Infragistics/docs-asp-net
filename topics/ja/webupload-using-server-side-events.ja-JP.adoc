@@ -1,0 +1,406 @@
+﻿////
+
+|metadata|
+{
+    "name": "webupload-using-server-side-events",
+    "tags": ["How Do I","API","Events"],
+    "controlName": ["WebUpload"],
+    "guid": "f4d8aadd-5ccc-458d-9320-bd6a19c774a8",  
+    "buildFlags": [],
+    "createdOn": "2015-03-30T09:02:59.8970025Z"
+}
+|metadata|
+////
+
+= WebUpload サーバー側イベントの使用
+
+== トピックの概要
+
+このトピックでは、 _WebUpload_   コントロールのさまざまなサーバー側イベントを挙げ、その用途およびイベント処理を紹介します。また、ファイル アップロード プロセスを処理し、サーバー側検証を実装する例を提示します。
+
+== 前提条件
+
+以下の表は、このトピックを理解するための前提条件として必要な概念、トピック、および記事の一覧です。
+
+link:webupload-overview.html[WebUpload 概要]
+
+link:webupload-http-module-and-handler.html[HTTP ハンドラーおよびモジュールの使用 (WebUpload)]
+
+== このトピックの内容
+
+* <<serverEvents,UploadProgressManager とサーバー イベント>>
+
+* <<fileStatusEnum,ファイル状態とエラーのサーバー側列挙体>>
+
+* <<sendingData,クライアントおよびサーバの間に追加データの送信>>
+
+* <<serverValidation,サーバー側検証のチュートリアル>>
+
+[[serverEvents]]
+== UploadProgressManager とサーバー イベント
+
+WebUpload コントロールは、アップロードされたデータを ASP.NET で処理し保存するために、サーバー側実装を Infragistics.Web.jQuery.dll に含みます。これは、アプロード済みのデータを受け取るサーバー イベントを処理する、HTTP モジュールと HTTP ハンドラーで可能になります。 link:webupload-http-module-and-handler.html[「HTTP ハンドラーとモジュール (WebUpload)] の使用」で詳細な情報および構成の例を参照します。
+
+pick:[asp-net="link:{ApiPlatform}web.jquery{ApiVersion}~infragistics.web.ui.editorcontrols.uploadprogressmanager.html[*UploadProgressManager* ]"]  は、ハンドラーとモジュールがプロキシ クラスを使用して通信するよう設計されたサーバー アーキテクチャです。このクラスは、サーバー イベントもトリガーします。これらのイベントでは、ファイル アップロード処理に対して、アップロード済みファイルの削除や移動、アップロードのキャンセル、状態情報の修正などの操作を実行できます。
+
+サーバー イベントの 3 つすべてに 2 つの引数を含みます。一方が sender、他方がイベント引数です。sender は、イベントを発生させる *UploadProgressManager* を含みます。イベント引数は以下の 3 つのイベントのすべてに固有なものであり、各イベント引数が IUploadEventArgs インターフェイスを実装します。
+
+以下のコードは、サーバー イベントにアタッチする方法を示します。下記のイベントがそれぞれ個別のハンドラーを実装します。
+
+最初に、ASP.NET ラッパーを含むアセンブリ - Infragistics.Web.jQuery.dll を追加し、WebUpload のプレフィックスを登録します。
+
+[cols="a"]
+|====
+|*Web.config の場合:*
+
+|---- 
+<system.web> 
+ <pages> 
+ <add tagPrefix="igjq" namespace="Infragistics.Web.UI.EditorControls" 
+ assembly="Infragistics.Web.jQuery"/> 
+ </pages> 
+</system.web>
+----
+
+|====
+
+それから、WebUpload を ASPX ページに追加し、コントロール イベントのハンドラーをアッタッチします。
+
+[cols="a"]
+|====
+|*Web.config の場合:*
+
+|---- 
+<igjq:WebUpload ID="webUpload1" runat="server" 
+ OnUploadFinishing="webUpload1_OnUploadFinishing" 
+ OnUploadFinished="webUpload1_OnUploadFinished" 
+ OnUploadStarting="webUpload1_OnUploadStarting"> 
+</igjq:WebUpload>
+----
+
+|====
+
+[start=1]
+. *FileStarting*: ファイルがアプロードを開始すると、要求ヘッダーのすべての情報を *UploadingStartEventArgs* タイプのイベント引数で利用できます。この情報へのアクセスは、イベント ハンドラーで検証規則を実装しアップロードをキャンセルするかどうかの判断を可能にします。イベント引数の重要なプロパティがもう 1 つあります。*TemporaryFileName* - アプロード中のファイル名。*serverMessage* プロパティは、*FileStarting* にのみ設定できます。その後、プロパティはクライアントに送信されます。
+
+[cols="a"]
+|====
+|*C# の場合:*
+
+|---- 
+protected void webUpload1_OnUploadStarting(object sender, UploadStartingEventArgs e){}
+----
+
+|====
+
+[start=2]
+. *FileFinishing* : この段階では、ファイルはすでにアップロードされていますが、一時的な名前のままです。WebUpload がファイルをリリースしているので、自由に変更できます。
+
+[cols="a"]
+|====
+|*C# の場合:*
+
+|---- 
+protected void webUpload1_OnUploadFinishing(object sender, UploadFinishingEventArgs e){}
+----
+
+|====
+
+[start=3]
+. *FileFinished* : この段階では、ファイルはアップロードされており、オリジナルの名前に変更されています。古いファイル名と同じ名前のファイルがある場合は、古いほうが上書きされ、最後のファイルのみが使用可能になります。
+
+[cols="a"]
+|====
+|*C# の場合:*
+
+|---- 
+protected void webUpload1_OnUploadFinished(object sender, UploadFinishedEventArgs e){}
+----
+
+|====
+
+以下のコードは、FileFinishing イベントを処理し、アプロードされたファイルを削除する方法を示します。この段階では、ファイルは一時的な名前が付けられています。
+
+[cols="a"]
+|====
+|*ASPX の場合:*
+
+|---- 
+<igjq:WebUpload ID="webUpload1" runat="server" 
+ OnUploadFinishing="webUpload1_OnUploadFinishing"> 
+</igjq:WebUpload>
+----
+
+|====
+
+[cols="a"]
+|====
+|*C# の場合:*
+
+|---- 
+protected void webUpload1_OnUploadFinishing(object sender, UploadFinishingEventArgs e) 
+{ 
+ string filePath = String.Format("{0}{1}", e.FolderPath, e.TemporaryFileName); 
+ if (File.Exists(filePath)) 
+ { 
+ try 
+ { 
+ File.Delete(filePath); 
+ } 
+ catch (Exception ex) 
+ { 
+ } 
+ } 
+}
+----
+
+|====
+
+[[fileStatusEnum]]
+== ファイル状態とエラーのサーバー側列挙体
+
+アップロード情報がサーバーからクライアントに転送されるとき、それには現在のアップロードの状態データが含まれています。応答データには次の項目が含まれています。
+
+* アップロード済みバイト数
+* ファイル状態情報
+* 発生する可能性がある例外に関するエラー情報
+
+*表 1* は、アップロード状態の応答の詳細を示し、表 2 は、ファイルのエラー コードを示しています。
+
+記載したデータを含む JSON 応答の例を図 2 に示します。
+
+image::images/WebUpload_Handler_and_Module_01.png[]
+
+*注:* その他の JSON プロパティ (size、serverMessage、bytesUploaded など) は、エラーや状態のようにサーバー上の列挙型として作成する必要はありません。これらは動的に変更できる文字列または数値です。
+
+*表 1:*  pick:[asp-net="link:{ApiPlatform}web.jquery{ApiVersion}~infragistics.web.ui.editorcontrols.uploadstatus.html[*UploadStatus* ]"]  タイプの列挙体
+
+[options="header", cols="a,a"]
+|====
+|値|説明
+
+|0
+|ファイルは開始されていません。
+
+|1
+|ファイルのアップロードが始まりました。
+
+|2
+|ファイルのアップロードが終了しました。
+
+|3
+|ファイルが見つかりません。ディクショナリにキーが見つからない場合この状態を使用します。
+
+|4
+|クライアント コマンドでファイルのアップロードをキャンセルします。
+
+|5
+|ファイル サイズを超えました。
+
+|6
+|ファイルのアップロード時のエラー。
+
+|7
+|サーバー側のイベント ハンドラーからファイルのアップロードをキャンセルします。
+
+|8
+|クライアント接続を切断することによってファイルのアップロードをキャンセルします。
+
+|9
+|すべてのコンテンツがアップロードされていて、ファイル名が一時的なファイル名である場合のファイルの状態。
+
+|====
+
+*表 2:*  pick:[asp-net="link:{ApiPlatform}web.jquery{ApiVersion}~infragistics.web.ui.editorcontrols.fileerror.html[*FileError* ]"]  タイプの列挙体
+
+[options="header", cols="a,a"]
+|====
+|値|説明
+
+|-1
+|エラーなし。
+
+|0
+|要求からファイル名を取得するときにファイル エラーが発生します。
+
+|1
+|MIME の種類の検証に失敗しました。
+
+|2
+|ファイル サイズを超えました。
+
+|3
+|ファイルをアップロードする一時フォルダーが見つかりません。
+
+|4
+|要求ヘッダー解析中のエラー。
+
+|5
+|指定したキーを持つファイルが、要求に存在しません。
+
+|6
+|ファイルの保存に失敗するとエラーが発生します。
+
+|7
+|ファイル コンテンツを書き込もうとするとエラーが発生します。
+
+|8
+|ファイル コンテンツを初めて書き込もうとしたときにエラーが発生しました。
+
+|9
+|ファイルを削除しようとしたときにエラーが発生しました。
+
+|10
+|イベント ハンドラーでファイルのアップロード開始時にアップロードがキャンセルされたときにエラーが発生しました。
+
+|====
+
+[[sendingData]]
+== クライアントおよびサーバの間に追加データの送信
+
+アップロードされたファイルに関連するカスタムのデータをさらにサーバーからクライアントへ、またはクライアントからサーバーへ送信する場合もあります。たとえば、サーバーでカスタムのファイル検証を適用し結果をクライアントで表示する、またはファイル アプロードが完了したときにカスタムのメッセージを表示することがあります。あるいは、クライアント側からアプロード中のファイルに関係のある追加的データ (セキュリティ GUID、クライアント側入力フィールドなど) を送信し、関連するサーバー側イベントでデータにアクセスするケースもあります。以下では、WebUpload を使用してその詳細手順を説明します。
+
+== サーバーからクライアントへの追加的データの送信
+
+カスタム メッセージを追加するには、UploadStarting、UploadFinishing および UploadFinished の ServerMessage イベント引数を使用します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+protected void WebUpload1_UploadStarting(object sender, Infragistics.Web.UI.EditorControls.UploadStartingEventArgs e){          
+            e.ServerMessage =  "Upload of " + e.FileName +  " started.";
+        }
+protected void WebUpload1_UploadFinishing(object sender, Infragistics.Web.UI.EditorControls.UploadFinishingEventArgs e){          
+            e.ServerMessage = "Upload of " + e.FileName + " is about to finish.";
+        }
+protected void WebUpload1_UploadFinished(object sender, Infragistics.Web.UI.EditorControls.UploadFinishedEventArgs e){          
+            e.ServerMessage += "Upload of " + e.FileName + " is finished.";
+        }
+----
+
+この値はクライアント側で、fileUploading および fileUploaded の関連するクライアント側イベントから取得します。uploadInfo イベント引数は、サーバーから送信された serverMessage 値など、追加ファイル情報を含みます。
+
+*JavaScript の場合:*
+
+[source,js]
+----
+function WebUpload1_FileUploading(eventArgs, args){
+      alert(args.fileInfo.serverMessage);
+}
+function WebUpload1_FileUploaded(eventArgs, args){
+      alert(args.fileInfo.serverMessage);
+}
+----
+
+== クライアントからサーバーへの追加データの送信
+
+要求にデータを追加するには onFormDataSubmit クライアント側イベントを使用します。addDataField および addDataFields メソッドでパラメーターを追加します。
+
+*JavaScript の場合:*
+
+[source,js]
+----
+function WebUpload1_OnFormDataSubmit(eventArgs, args){
+      $(e.target).igUpload("addDataField", args.formData, { "name": "paramName", "value": "paramValue" });
+      $(e.target).igUpload("addDataFields", args.formData, [{ "name": "paramName", "value": "paramValue" }]);
+}
+----
+
+サーバー側のデータを取得するには、サーバーに渡されるフィールド名および値のコレクションを含む、UploadStarting、UploadFinishing および UploadFinished の AdditionalDataFields イベント引数を使用します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+protected void WebUpload1_UploadStarting(object sender, Infragistics.Web.UI.EditorControls.UploadStarting e){          
+        foreach (var dataField in e.AdditionalDataFields)
+       {
+           string fieldName = dataField.Name;
+           string fieldValue = dataField.Value;
+       } 
+}
+----
+
+ *注:*  詳細なデータを渡す場合は、e.ServerMessage の一部として JSON 形式で渡し、クライアント側で逆シリアル化します。
+
+[[serverValidation]]
+== サーバー側検証のチュートリアル
+
+== 概要
+
+この手順は  _WebUpload_   で、サーバー側にカスタムの検証を実装する方法を紹介します。
+
+要件
+
+この手順を完成するために、 link:http://broken[WebUpload 概要] トピックの「WebUpload の Web ページへの追加」セクションのステップを参照ください。
+
+この手順は ASP.NET アプリケーションに基本的 WebUpload コントロールを設定する方法を紹介します。
+
+== 手順
+
+*手順 1* WebUpload の UploadStarting イベントにハンドラーをアタッチします。
+
+*手順 2* イベント ハンドラーにカスタムの検証ロジックを追加して、要件が満たされない場合にカスタムの ServerMessage を設定してイベントをキャンセルします。
+
+*C# の場合:*
+
+[source,csharp]
+----
+protected void WebUpload1_UploadStarting(object sender, Infragistics.Web.UI.EditorControls.UploadStartingEventArgs e){
+            // カスタム検証ロジック
+            e.ServerMessage = "Custom error";
+            e.Cancel = true;
+        }
+----
+
+*手順 3* OnError クライアント側イベントを使用し、クライアントにカスタムのサーバー メッセージを表示します。
+
+OnError イベントのクライアント側イベント ハンドラーを追加します。デザイナー、またはコードで追加します。
+
+デザイナーで追加する場合:
+
+デザイン ビューで WebUpload を選択し、[プロパティ] ウィンドウを開き、ClientEvents オプションにナビゲートして展開します。使用可能なクライアント側イベントのリストが表示されます。OnError イベントを選択して、ドロップダウンで[新しいハンドラを追加...]を選択して、イベント ハンドラーを生成します。
+
+WebUpload は新しいクライアント側イベントの定義を含んできました。
+
+*ASPX の場合:*
+
+[source,html]
+----
+<ig:WebUpload ID="WebUpload1" runat="server" OnUploadStarting="WebUpload1_UploadStarting">        <ClientEvents OnError="WebUpload1_OnError" />
+</ig:WebUpload>
+----
+
+同じ名の新しい JavaScript 関数がヘッド セクションに含まれています:
+
+*JavaScript の場合:*
+
+[source,js]
+----
+function WebUpload1_OnError(eventArgs, infoObject)
+{
+      // イベントを処理するためのコードをここに入れます。
+}
+----
+
+カスタムのサーバー メッセージは infoObject から取得し表示できます:
+
+*JavaScript の場合:*
+
+[source,js]
+----
+function WebUpload1_OnError(eventArgs, infoObject){
+      alert(infoObject.serverMessage);
+}
+----
+
+*手順 4* 結果の検証
+
+要件を満たさないファイルをアップロードするとカスタムのエラー メッセージが表示されます。
+
+image::images/WebUpload_Using_Server_Side_Events_1.png[]
+
+== 関連リンク
+
+link:webupload-overview.html[WebUpload 概要]

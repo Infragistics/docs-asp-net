@@ -1,0 +1,63 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-apply-the-solid-brush-element-using-the-gauge-designer",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{52FAAEA0-69BA-4C6B-8D07-5FF160525899}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ゲージ デザイナを使用して単色ブラシ エレメントを適用
+
+ゲージのプロパティが単色になるようにしたい場合には、単色ブラシ エレメントをプロパティに適用します。
+
+*ゲージ デザイナを使用して単色ブラシ エレメントをゲージのプロパティに適用するには、次の手順に従ってください。*
+
+[start=1]
+. ゲージ エクスプローラまたはインタラクティブなプレビュー領域で、単色ブラシ エレメントを適用したいプロパティを選択します。
+[start=2]
+. [プロパティ] パネルの [外観] タブで、[タイプ] ドロップダウン リストから [単色] を選択します。
+[start=3]
+. [詳細] ドロップダウン矢印をクリックします。
+[start=4]
+. カラー ピッカーが表示します。左側で、[Web] をクリックし、次に [黒] を選択します。
+
+image::images/Gauge_Solid_01.png[]
+
+[start=5]
+. 色の指定が終了したら、[ブラシ] ペインの任意の場所をクリックします。
+[start=6]
+. 相対境界線エディター ドロップダウン矢印をクリックします。
+[start=7]
+. 相対境界線ペインで、以下のプロパティを設定します。
+
+** X - 0
+** Y - 0
+** Width - 0
+** Height - 0
+
+[start=8]
+. 相対クリップ境界線ペインで、以下のプロパティを設定します。
+
+** X - 0
+** Y - 0
+** Width - 0
+** Height - 0
+
+image::images/Gauge_Solid_03.png[]
+
+[start=9]
+. インタラクティブなプレビュー領域で、ゲージのプロパティに適用された単色ブラシ エレメントを確認できます。
+
+== 関連トピック
+
+link:webgauge-solid-brush-element.html[単色ブラシ エレメント]
+
+link:webgauge-apply-the-solid-fill-brush-element-at-design-time.html[デザインタイムに単色ブラシ エレメントを適用]
+
+link:webgauge-apply-the-solid-brush-element-at-run-time.html[ランタイムに単色ブラシ エレメントを適用]

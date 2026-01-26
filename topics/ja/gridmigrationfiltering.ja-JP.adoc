@@ -1,0 +1,698 @@
+﻿////
+
+|metadata|
+{
+    "name": "gridmigrationfiltering",
+    "controlName": [],
+    "tags": [],
+    "guid": "751bc4ae-c22e-49ba-b2f5-8cfdea2d03e0",  
+    "buildFlags": [],
+    "createdOn": "2016-03-01T12:44:31.504343Z"
+}
+|metadata|
+////
+
+= グリッドの移行 - フィルタリング
+
+フィルタリングは、グリッドがバインドされるデータをフィルターで処理するグリッドの機能です。フィルタリングは、フィルター条件に一致するより小さいサブセットにデータを分割し、表示します。このため、データがより見やすく、管理しやすくなります。
+
+== UltraWebGrid
+
+[start=1]
+. 行フィルタリングを有効にする
+
+UltraWebGrid は、行フィルタリングを許可します。必要な精度に応じて、さまざまなレベルで行フィルタリングを有効にできます。
+
+* すべてのバンドですべての行に対して行フィルタリングを有効にする
+
+FilterOptionsDefault オブジェクトの [AllowRowFiltering] プロパティを設定すると、DisplayLayout オブジェクトの行フィルタリングを有効にできます。
+
+このレベルで、その機能を有効にすると、あらゆる行に任意のレベルでフィルターを適用できるようになります（そのサンプル コードを次に示します）。
+
+*ASPX の場合:*
+
+[source,html]
+----
+<FilterOptionsDefault AllowRowFiltering="OnClient">
+  </FilterOptionsDefault>
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+protected void UltraWebGrid1_InitializeLayout(object sender, 
+  Infragistics.WebUI.UltraWebGrid.LayoutEventArgs e)
+{
+this.UltraWebGrid1.DisplayLayout.FilterOptionsDefault.AllowRowFiltering = 
+        RowFiltering.OnClient;
+}
+----
+
+* バンド レベルで行フィルタリングを有効にする
+
+*C# の場合:*
+
+[source,csharp]
+----
+private void UltraWebGrid1_InitializeLayout(object sender, 
+  Infragistics.WebUI.UltraWebGrid.LayoutEventArgs e)
+{
+      this.UltraWebGrid1.Bands[0].FilterOptions.AllowRowFiltering = 
+        RowFiltering.OnClient;
+}
+----
+
+* 列レベルで行フィルタリングを無効にする
+
+*C# の場合:*
+
+[source,csharp]
+----
+protected void UltraWebGrid1_InitializeLayout(object sender, 
+  Infragistics.WebUI.UltraWebGrid.LayoutEventArgs e)
+{
+this.UltraWebGrid1.DisplayLayout.FilterOptionsDefault.AllowRowFiltering = 
+        RowFiltering.OnClient;
+this.UltraWebGrid1.Bands[0].Columns.FromKey("ContactName").AllowRowFiltering = 
+        false;
+}
+----
+
+[start=2]
+. フィルター条件
+
+フィルター条件は、フィルタリングする対象、フィルタリングの実行方法（All、Empty、Equals、またはNotEmpty）を決定するために使用されます。関連する [show] プロパティを設定すると、これらの条件がドロップダウン リストに表示されないようにすることができます。デフォルトでは、これらのブール値プロパティはすべて「True」に設定されています。
+
+コード ビハインドからのフィルター条件の設定
+
+*C# の場合:*
+
+[source,csharp]
+----
+private void UltraWebGrid1_InitializeLayout(object sender, 
+  Infragistics.WebUI.UltraWebGrid.LayoutEventArgs e)
+{
+      // バンドでフィルタリングを有効にし、RowFilterMode を設定する。
+      this.UltraWebGrid1.Bands[0].FilterOptions.AllowRowFiltering = RowFiltering.OnClient;
+      this.UltraWebGrid1.Bands[0].FilterOptions.RowFilterMode = 
+        RowFilterMode.SiblingRowsOnly;
+      // FilterCondition を作成する。
+      FilterCondition myConditions = new FilterCondition();
+      myConditions.CompareValue = "HILAA";
+      myConditions.ComparisonOperator = FilterComparisionOperator.Equals;
+      // 列フィルターを ColumnFilters コレクションに追加すると、ColumnFilter が返される。
+      ColumnFilter myFilter = this.UltraWebGrid1.Rows.ColumnFilters.Add(
+        this.UltraWebGrid1.Bands[0].Columns.FromKey("CustomerID"));
+      myFilter.FilterConditions.Add(myConditions);
+}
+----
+
+[start=3]
+. フィルターの操作
+
+WebGrid のドロップダウンフィルターの作成
+
+デフォルトで WebGrid は、列のセルの値を使用して、ドロップダウン フィルターを生成します。ドロップダウン フィルター リストで表示する値のリストを、WebGrid に提供できます。値が静的、または動的かにより、2 つの方法でこれを実行できます。
+
+*静的* : 変化しないデータを含む列（例: 状態、ジョブ タイトル、または国を表示する列など）がある場合は、このリストを静的に使用してグリッドに渡すことができます。この方法では、グリッドがフィルターで何を取得するかすでに認識しているため、実行される処理はありません。
+
+次のコードは、WebGrid でいくつかのプロパティ（例: ロードオンデマンド、有効化された列フィルタリング、列フィルター モードの設定）を初期化し、ContactTitle 列のドロップダウン フィルター値を生成するリストを作成します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+protected void UltraWebGrid1_InitializeLayout(object sender, 
+  Infragistics.WebUI.UltraWebGrid.LayoutEventArgs e)
+{
+      // WebGrid を初期化する。
+      this.UltraWebGrid1.Browser = BrowserLevel.Xml;
+      this.UltraWebGrid1.DisplayLayout.LoadOnDemand = LoadOnDemand.Xml;
+      this.UltraWebGrid1.DisplayLayout.ViewType = ViewType.Flat;
+      this.UltraWebGrid1.Bands[0].FilterOptions.AllowRowFiltering = 
+        RowFiltering.OnServer;
+      this.UltraWebGrid1.Bands[0].FilterOptions.RowFilterMode = 
+        RowFilterMode.SiblingRowsOnly;
+      // All、Empty、NonEmpty オプションをドロップ ダウン フィルターリスト
+      // に表示しない場合は、それらを非表示にする。// これらのプロパティを設定する代わりに、
+      // FilterPopulating イベントで
+      // WorkingListValues を消去することも可能。
+      this.UltraWebGrid1.Bands[0].FilterOptions.ShowAllCondition = 
+        ShowFilterString.No;
+      this.UltraWebGrid1.Bands[0].FilterOptions.ShowEmptyCondition = 
+        ShowFilterString.No;
+      this.UltraWebGrid1.Bands[0].FilterOptions.ShowNonEmptyCondition = 
+        ShowFilterString.No;
+      // CompanyName 列と ContactName 列で行フィルタリングを許可しないこと。
+      this.UltraWebGrid1.Bands[0].Columns.
+        FromKey("CompanyName").AllowRowFiltering = false;
+      this.UltraWebGrid1.Bands[0].Columns.
+        FromKey("ContactName").AllowRowFiltering = false;
+      /* 静的なフィルターを作成する * /      
+      // FilterCollectionValues が返す ArrayList を
+      // 使用し値の追加が可能
+      ValueListItemsCollection myFilterList = this.UltraWebGrid1.Bands[0].Columns.
+        FromKey("ContactTitle").FilterCollectionValues;
+      myFilterList.Add("Accounting Manager","Accounting Manager");
+      …
+      myFilterList.Add("Sales Representative","Sales Representative");
+}
+----
+
+*動的* : 変化する可能性が低い大量のデータを含む列がある場合は、毎回再生成せずに、動的なリストを作成して、そのリストを継続して使用することができます（例: データベースに対して SQL SELECT コマンドを使用してリストを生成した場合など）。
+
+*注* : これが可能なのは、列のドロップダウン フィルターをオーバーライドした場合に、他の列が作成されないためです。
+
+*C# の場合:*
+
+[source,csharp]
+----
+private void UltraWebGrid1_FilterPopulating(object sender,
+  Infragistics.WebUI.UltraWebGrid.FilterDropDownEventArgs e)
+    {
+        /* 動的にフィルターを作成する * /
+        // クリックした列をテストし確認する
+        if (e.Column.Key == "CustomerID")
+        {
+            string strInitialCommand = null;
+            DataTable myDataTable = new DataTable("CustomerID");
+            // 後で復元するために、元の SELECT ステートメントをコピーする
+            strInitialCommand = this.oleDbSelectCommand1.CommandText;
+            // SELECT ステートメントを選択し、
+            // データベースにデータを入れる
+            this.oleDbSelectCommand1.CommandText =
+              "SELECT DISTINCT CustomerID FROM Customers";
+            this.oleDbDataAdapter1.Fill(myDataTable);
+            // WorkingListValues を生成するために、DataTable をループさせ、値を使用する。
+            foreach (DataRow myRow in myDataTable.Rows)
+            {
+                // ドロップダウンに表示するフィルター リストに
+                // 値を追加する。
+                e.WorkingListValues.Add(myRow.ItemArray[0].ToString(), myRow.ItemArray[0].ToString());
+            }
+            // 元の SELECT ステートメントを復元する。
+            this.oleDbSelectCommand1.CommandText = strInitialCommand;
+            // WebGrid にデータを検索しないよう指示する。この設定で
+            // フラグを True にすると、WebGrid は、データのために提供されたリストを使用する。
+            e.Handled = true;
+        }
+    }
+----
+
+_JavaScript の場合:_
+
+このコードは、WebGrid がフィルターの作成で列のセルを処理しないようにします。また、列のフィルター リストがすでに作成されているか確認し、作成されている場合はそのリストを再使用します。作成されていない場合は、リストを作成します。
+
+*注* : True を返す代わりに（ContactTitle ケース）、または作業フィルター リストを最新のリスト（CustomerID ケース）に設定する代わりに、これらの各列の [GatherFilterData] プロパティを「False」に設定できます。これにより、前述のコードを使用する必要がありません。
+
+*JavaScript の場合:*
+
+[source,js]
+----
+function UltraWebGrid1_BeforeFilterPopulated(gridName, oColumnFilter, oColumn, 
+  workingFilterList, lastKnownFilterList){
+      // この列は静的に生成されている。
+      // True を返すことによって、グリッドがデータ
+      // 収集モードに入らず、
+      // 作業リスト プロパティの値を使用する。
+      if (oColumn.Key == "ContactTitle")
+      {
+            return true;
+      }
+      // これは最初に動的に生成されるが、
+      // その後、リストのキャッシュ コピーが使用できる
+      if(oColumn.Key == "CustomerID")
+      {
+            if(lastKnownFilterList != null)
+            {
+                  oColumnFilter.setWorkingFilterList(lastKnownFilterList);
+                  return true;
+            }      
+      }
+}
+----
+
+UltraWebGrid のフィルタリングでの役立つヒント:
+
+*_フィルター適用後のフッターのアップデート_*
+
+推奨されるアプローチでは、クライアント側の AfterFilterClose イベントを処理します。
+
+link:http://help.jp.infragistics.com/NetAdvantage/ASPNET/2010.3?page=WebGrid_Client_Side_Events_CSOM.html[http://help.jp.infragistics.com/NetAdvantage/ASPNET/2010.3?page=WebGrid_Client_Side_Events_CSOM.html]
+
+フッター要素は、ID を igtbl_getDocumentElement ユーティリティ関数に渡すことで、参照できます。ID は.グリッドの ClientID + "_f_" + band.Index + "_" + column.Index で構成されます。
+
+したがって、3 番目の列の最上位のフッターは、「UltraWebGrid1_f_0_2」のようになります。
+
+要素のスタイルを設定すると、他のスタイルがオーバーライドされることに注意してください。
+
+var myFooter = igtbl_getDocumentElement("UltraWebGrid1_f_0_2");
+
+myFooter.style.backgroundImage = "url(none)";
+
+myFooter.style.backgroundColor = "red";
+
+*_フィルターされたレコードの数_*
+
+要素のスタイルを設定すると、他のスタイルがオーバーライドされることに注意してください。
+
+この値を取得するには、データに戻りフィルターを適用する必要があります。これは、フィルタリングとページングがグリッドと動作する方法に起因します。フィルタリングは、異なるタイミングで処理できます。
+
+データ取得中（このとき、リクエストされるデータの量が限定されるように、フィルターが使用可能である場合）、またはレンダリング中に適用できるため、フィルターされたレコードのみが表示されます。レンダリング時間のフィルタリングでは、現在のページのデータ セットのみに適用されるため、不正確な数の行が表示される場合があります。この問題に対処するには、カスタム コードを使用して、サーバー側のフィルタリングを実行します。
+
+*C# の場合:*
+
+[source,csharp]
+----
+DataTable dt = (DataTable)this.UltraWebGrid1.DataSource;
+        DataView dv = dt.DefaultView;
+        StringBuilder sb = new StringBuilder();
+        foreach (ColumnFilter cf in this.UltraWebGrid1.Rows.ColumnFilters)
+        {
+            if (cf.FilterConditions.ContainsAllCondition)
+            {
+            }
+            else if (cf.FilterConditions[0].ComparisonOperator == FilterComparisionOperator.NotEmpty)
+            {
+                sb.Append("AND " + cf.Column.Key + " <> ''");
+            }
+            else if (cf.FilterConditions[0].ComparisonOperator == FilterComparisionOperator.Empty || cf.FilterConditions[0].ComparisonOperator == FilterComparisionOperator.Equals)
+            {
+                sb.Append("AND " + cf.Column.Key + " = '" + cf.FilterConditions[0].CompareValue.ToString() + "'");
+            }
+        }
+        if (sb.Length != 0)
+        {
+            sb.Remove(0, 3);
+        }
+        dv.RowFilter = sb.ToString();
+        this.Label1.Text = dv.Count.ToString();
+----
+
+*このコードは、Label1 の ID を持つラベルのテキストを、フィルターに基づく列の合計数にアップデートします。*
+
+== WebDataGrid
+
+[start=1]
+. 行フィルタリングを有効にする
+
+*ASPX の場合:*
+
+[source,html]
+----
+<Behaviors>
+    <ig:Filtering Enabled="true">
+    </ig:Filtering>
+</Behaviors>
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+Filtering filtering = WebDataGrid1.Behaviors.CreateBehavior<Filtering>();
+filtering.Enabled = true;
+----
+
+* 列のフィルタリングを無効にする
+
+*ASPX の場合:*
+
+[source,html]
+----
+<ig:Filtering Enabled="true">
+    <ColumnSettings>
+        <ig:ColumnFilteringSetting ColumnKey="ColumnKey" Enabled=" />
+    </ColumnSettings>                   
+</ig:Filtering>
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+ColumnFilteringSetting  columnSetting = new ColumnFilteringSetting (WebDataGrid1);
+columnSetting.ColumnKey = "ColumnKey";
+columnSetting.Enabled = false;
+----
+
+[start=2]
+. フィルター条件
+
+特定の日付範囲で、最初のフィルター条件をフィルタ―値に設定する方法:
+
+* [ColumnFilters] プロパティを検索し、省略記号（...）ボタンをクリックして列フィルター エディター ダイアログを起動します。
+* [項目の追加] ボタンをクリックして、列フィルターを追加します。
+* フィルターする列を指定するために、1 つのフィルターの [ColumnKey] プロパティを OrderDate に設定し、もう 1 つのフィルターを CustomerID に設定します。
+* OrderDate 列の [Condition] プロパティの展開インジケーターをクリックします。[Rule] プロパティおよび [Value] プロパティが表示されます。
+* Rule で After を設定し、Value で 12/31/1996 を設定します。
+* CustomerID 列の [Condition] プロパティの展開インジケーターをクリックします。[Rule] プロパティおよび [Value] プロパティが表示されます。
+* Rule で Equals を設定し、Value で "ALFKI" を設定します。WebDataGrid は、注文日が 1996 以降の、顧客 ALFKI のデータのみを表示します。
+* [適用] をクリック、次に [OK] をクリックして、列フィルター エディター ダイアログを閉じます。
+* [適用] をクリック、次に [OK] をクリックして、動作エディター ダイアログを閉じます。
+
+*注* : すべてのケースで、フィルターを適用するメソッドを呼び出す必要があります。呼び出さないと、WebDataGrid は、次のポストバックまでフィルター処理をしません。クライアント側で複数のフィルターを追加する場合は、メソッドを使用して、フィルターの配列として追加する必要があります。
+
+*C# の場合:*
+
+[source,csharp]
+----
+// OrderDate 列の列フィルターを設定する
+RuleDateNode dateTimeCondition = new RuleDateNode(DateTimeFilterRules.After, new DateTime(1996, 12, 31));
+ColumnFilter columnFilter1 = new ColumnFilter();
+columnFilter1.ColumnKey = "OrderDate";
+columnFilter1.Condition = dateTimeCondition;
+// CustomerID 列の列フィルターを設定する
+RuleTextNode textCondition = new RuleTextNode(TextFilterRules.Equals, "ALFKI");
+ColumnFilter columnFilter2 = new ColumnFilter();
+columnFilter2.ColumnKey = "CustomerID";
+columnFilter2.Condition = textCondition;
+this.WebDataGrid1.Behaviors.Filtering.ColumnFilters.Add(columnFilter1);
+this.WebDataGrid1.Behaviors.Filtering.ColumnFilters.Add(columnFilter2);
+// 結果が表示される前に、フィルターを適用することが必要
+this.WebDataGrid1.Behaviors.Filtering.ApplyFilter();
+----
+
+*JavaScript の場合:*
+
+[source,js]
+----
+var grid = $find("WebDataGrid1");
+// OrderDate 列の列フィルターを設定する
+var columnFilter = grid.get_behaviors().get_filtering().create_columnFilter("OrderDate");
+var condition = columnFilter.get_condition();
+condition.set_rule($IG.DateTimeFilterRules.After);
+condition.set_value("12/31/1996");
+// CustomerID 列の列フィルターを設定する
+var columnFilter2 = grid.get_behaviors().get_filtering().create_columnFilter("CustomerID");
+var condition2 = columnFilter2.get_condition();
+condition2.set_rule($IG.TextFilterRules.Equals);
+condition2.set_value("ALFKI");
+// 2 つのフィルターの配列を作成する
+var columnFilters = new Array(columnFilter, columnFilter2);
+// フィルターの配列を追加する
+grid.get_behaviors().get_filtering().add_columnFilterRange(columnFilters);
+// Apply filter を呼び出す
+grid.get_behaviors().get_filtering().applyFilters();
+----
+
+image::images/Grids_Migration_-_Filtering_1.png[]
+
+[start=3]
+. フィルターの操作
+
+WebDataGrid のフィルター ボックスへのエディター プロバイダーの使用
+
+次の手順を実行します。
+
+[start=1]
+. Microsoft® Visual Studio® Toolbox から、ScriptManager コンポーネントと WebDataGrid コントロールをドラッグし、フォームにドロップします。
+[start=2]
+. WebDataGrid を SqlDataSource コンポーネントにバインドし、Northwind データベースから OrderID、OrderDate、CustomerID を取得するように構成します。この手順の詳細は、SQL データ ソースへの　WebDataGrid のバインドのトピックを参照してください。
+[start=3]
+. プロパティ ウィンドウから、WebDataGrid の動作プロパティを検索し、省略記号（...）ボタンをクリックして動作エディター ダイアログを起動します。
+[start=4]
+. 左のリストからフィルタリング動作のチェック ボックスをチェックして、有効にします。
+[start=5]
+. [ColumnSettings] プロパティを検索し、省略記号（...）ボタンをクリックして [列の設定] ダイアログを起動します。
+[start=6]
+. [項目の追加] ボタンをクリックして、[ColumnSetting] プロパティを追加します。
+[start=7]
+. [ColumnKey] プロパティをドロップダウン リストの OrderDate に設定します。
+[start=8]
+. [EditorID] プロパティをクリックし、ドロップダウン リストから Add/Modify EditorProviders リストを選択します。
+[start=9]
+. [+] ボタンをクリックし、ドロップダウン リストから MonthCalendarProvider を選択します。これで、MonthCalendarProvider が EditorProvider として WebDataGrid コントロールに追加されます。
+[start=10]
+. [適用] をクリックして、編集グリッドエディター プロバイダー ダイアログを閉じます。
+[start=11]
+. [列の設定] ダイアログで、[EditorID] プロパティを WebDataGrid1_MonthCalendarProvider1 に設定します。
+[start=12]
+. [適用] と [OK] をクリックして、[列の設定] ダイアログを閉じます。
+[start=13]
+. [適用] と [OK] をクリックして、編集グリッド動作ダイアログを閉じます。
+
+*C# の場合:*
+
+[source,csharp]
+----
+// フィルタリング動作を作成する
+this.WebDataGrid1.Behaviors.CreateBehavior<Filtering>();
+// MonthCalendarProvider を作成し、WebDataGrid の EditorProviders に追加する
+MonthCalendarProvider WebDataGrid1_MonthCalendarProvider1 = new MonthCalendarProvider();
+WebDataGrid1_MonthCalendarProvider1.ID = "WebDataGrid1_MonthCalendarProvider1";
+this.WebDataGrid1.EditorProviders.Add(WebDataGrid1_MonthCalendarProvider1);
+// ColumnFilteringSetting を作成する
+ColumnFilteringSetting settingColumn1 = new ColumnFilteringSetting();
+// ColumnKey を設定する
+settingColumn1.ColumnKey = "OrderDate";
+// EditorID を設定する
+settingColumn1.EditorID = WebDataGrid1_MonthCalendarProvider1.ID;
+// 作成した ColumnSetting を追加する
+this.WebDataGrid1.Behaviors.Filtering.ColumnSettings.Add(settingColumn1);
+----
+
+[start=4]
+. フィルタリングの解除
+
+ボタンのクリックで適用されたフィルターを削除します。
+
+*JavaScript の場合:*
+
+[source,js]
+----
+var grid = $find("<%=WebDataGrid1.ClientID %>");
+var filtering = grid.get_behaviors().get_filtering();
+grid.get_behaviors().get_filtering().clearColumnFilters();
+----
+
+以下のサーバー コードを使用します:
+
+[source,js]
+----
+WebDataGrid1.Behaviors.Filtering.ColumnFilters.Clear();
+WebDataGrid1.Behaviors.Filtering.ApplyFilter();
+----
+
+[start=5]
+. Visibility プロパティ
+
+フィルタリング動作のユーザー インターフェイスを表示するかどうかを決定します。
+
+非表示 - フィルター行は非表示です
+
+表示 - フィルター行が表示されます
+
+[start=6]
+. フィルター アイコンのパスの変更
+
+.. Web.config ファイルで、アプリケーションのスタイルを構成します。構成ファイルの冒頭に次のコードを挿入します。
+
+*XML の場合:*
+
+[source,xaml]
+----
+<configuration>
+    <configSections>
+        <section name="infragistics.web" type="System.Configuration.SingleTagSectionHandler,System, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
+    </configSections>
+    <infragistics.web enableAppStyling="true" styleSetPath="~" styleSetName="MyStyle"/>
+----
+
+この方法は、~/MyStyle/images/$$*$$.gif の画像を検索していることを示します。
+
+デフォルトでは、次のようになります。
+
+*XML の場合:*
+
+[source,xaml]
+----
+<infragistics.web enableAppStyling="true" styleSetPath="~ig_res/" styleSetName="Default"/>
+----
+
+それが、デフォルトのインフラジスティックス スタイリング ディレクトリが ~ig_res/Default/images/$$*$$.gif である理由です。
+
+ただし、この方法でカスタマイズする場合は、画像の名前をデフォルトの画像と同じ名前にする必要があります。
+
+.. WDG フィルタリング タグの次の属性を使用します。
+
+*ASPX の場合:*
+
+[source,html]
+----
+<ig:Filtering FilteringCssClass="css-class1" 
+                          FilterButtonCssClass="css-class2">
+</ig:Filtering>
+----
+
+次に、css を使用してフィルター ボタンの外観をカスタマイズすることができます。また、背景画像を配置することもできます。
+
+次のコードを使用して、ボタン要素の外観をカスタマイズできます。
+
+*JavaScript の場合:*
+
+[source,js]
+----
+<ig:Filtering FilterButtonCssClass="filter-button" >
+<style type="text/css">
+        .filter-button
+        {
+            background: url(/*使用する画像* /);
+        }
+</style>
+----
+
+ブラウザーで表示される HTML を確認すると、次のコードを見つけることができます。
+
+*ASPX の場合:*
+
+[source,html]
+----
+<button tabIndex="-1" class="igg_MyStyleFilterButton filter-button" type="button">
+      <img...../>
+</button>
+----
+
+ボタン内部の画像が表示され、画像を検索できない場合は、エラーが表示されます。そのために、背景画像を非表示にする場合は、次の CSS トリックを使用できます。
+
+*CSS の場合:*
+
+[source,css]
+----
+ .filter-button img
+        {
+            display: none;
+        }
+----
+
+[start=2]
+. フィルター アイコンの隣にテキストを追加します。
+
+必要な結果を得るためには、WebDataGrid のクライアントの初期化イベントを使用します。
+
+*JavaScript の場合:*
+
+[source,js]
+----
+function WebDataGrid1_Grid_Initialize(sender, eventArgs) {
+            var filtering = sender.get_behaviors().get_filtering();
+            var filterRow = filtering._row;
+            var cellCount = filterRow.get_cellCount();
+            var i = 0;
+            for (i = 0; i < cellCount; i++) {
+                // その列に対して、フィルタリングが有効であるかどうかをチェックする
+                if (filtering._row.get_cell(i).get_element().children[0] != null) {
+                    var filterImage = filtering._row.get_cell(i).get_element().children[0];
+                    filterImage.innerHTML += "Filter by";
+                }
+            }
+        }
+----
+
+[start=7]
+. 行カウント合計と現在の行インデックスを表示します。
+
+WebDataGrid のレコードの合計数を取得するには、グリッドがバインドされている DataSource のレコード数を取得する必要があります。WebDataGrid をフィルタリングまたはページングする場合、現在の行カウントにより、現在の ViewState にある行数が返されます。
+
+フィルターされた行数を取得する場合は、WebDataGrid のサーバー側の DataFiltered イベントを使用し、フィルターされた行の現在の数を WebDataGrid.Rows.Count から取得できます。
+
+ページングが有効な場合、次のコードのサンプルに示すように、DataFiltered イベントでページングを無効にします。
+
+この作業は、ページングを有効にして、WebDataGrid のフィルターされた行の数を取得するようにしている場合に必要です。
+
+*C# の場合:*
+
+[source,csharp]
+----
+protected void _dg_DataFiltered(object sender, Infragistics.Web.UI.GridControls.FilteredEventArgs e)
+    {
+        // WebDataGrid DataSource を DataTable にキャストする
+        DataTable dt = this._dg.DataSource as DataTable;
+        // WebDataGrid ページングを無効にする
+        _dg.Behaviors.Paging.Enabled = false;
+        // DataTable の行カウントを取得し、ラベルに表示する
+        label1.Text = "Total Rows in DataTable = " + dt.Rows.Count;
+        // 表示されているWebDataGrid1 の行カウントを取得する
+        label2.Text = "Total Rows in WebDataGrid = " + _dg.Rows.Count;
+        // WebDataGrid ページングを有効にする
+        _dg.Behaviors.Paging.Enabled = true;
+    }
+----
+
+フィルターをクリアすると、グリッドは、DataTable の元の行数に戻る。
+
+[start=8]
+. フィルター条件のローカライズ
+
+Visual Studio で WebDataGridStrings.resx ファイルを変更し、文字列を翻訳します。（フィルター ドロップダウンの文字列のオプションが、“LS_FilterRule_” で始まり、その後にルール名、つまり、LS_FilterRule_After、LS_FilterRule_Before、LS_FilterRule_Equals …などが続く場合）
+
+link:http://community.infragistics.com/forums/p/24594/90116.aspx#90287[http://community.infragistics.com/forums/p/24594/90116.aspx#90287] (英語)
+
+== WebHierarchicalDataGrid
+
+==== _階層データのフィルタリング_
+
+WebHierarchicalDataGrid の各バンドに、フィルタリング動作を割り当てることができます。子バンドが設定を継承できるように、バンドの [EnableInheritance] プロパティを設定できます。これにより、データの各バンドでフィルタリング動作をカスタマイズできます。たとえば、WebHierarchicalDataGrid のすべてのバンドに対してフィルタリングが必要な場合は、ルート レベルでフィルタリング動作を有効にし、EnableInheritance を「True」に設定します。特定の子バンドの動作を無効にする場合は、その特定のバンドの動作を無効にします。
+
+==== _子バンドのフィルタリング_
+
+子バンドのフィルタリングを有効にすると、子コンテナー グリッドは、フィルター アイコンを表示します。このアイコンをクリックして、子データをフィルターできます。その特定のコンテナー グリッドのデータのみがフィルターされます。つまり、子データは、バンドではなく、所属するデータ アイランドによってフィルター処理されます。
+
+行のすべての子行をフィルターで非表示にしている場合、行は展開と縮小ができますが、コンテイナー グリッドは空白になります。
+
+また、UI に依存せずに、コード ビハインドからデータをフィルターすることもできます。これは、WebHierarchicalDataGrid コントロールに読み込む際、フィルターするデータがある場合に便利です。行に子データがある場合に限り、コントロールは展開インジケーターを表示しますが、子行全体がフィルターで非表示に設定されていると、展開できない親行が発生する場合があることに注意してください。
+
+==== _フィルタリングを有効にする_
+
+[start=1]
+. WebHierarchicalDataGrid を WebHierarchicalDataSource コンポーネントにバインドし、Northwind の Customers および Orders テーブルからデータを取得します。詳細は、WebHierarchicalDataSource への WebHierarchicalDataGrid のバインドを参照してください。
+[start=2]
+. Microsoft® Visual Studio™ のプロパティ ウィンドウで、動作のプロパティを検索し、省略記号（...）ボタンをクリックして動作の編集ダイアログを起動します。
+[start=3]
+. 左のリストからアクティブ化動作のチェック ボックスをチェックして、有効にします。
+[start=4]
+. フィルタリング動作をチェックし、Enable と EnableInheritance を「True」に設定します。
+[start=5]
+. 顧客バンドの最初のフィルター条件を、WebHierarchicalDataGrid で営業担当者のデータのみをフィルターするように設定します。
+
+.. [ColumnFilters] プロパティを検索し、省略記号（...）ボタンをクリックして列フィルター エディター ダイアログを起動します。
+.. [項目の追加] ボタンをクリックして、列フィルターを追加します。
+.. フィルターの [ColumnKey] プロパティを ContactTitle に設定します。
+.. [Condition] プロパティのドロップダウンで RuleTextNode を選択します。
+.. 列の [Condition] プロパティの展開インジケーターをクリックします。[Rule] プロパティおよび [Value] プロパティが表示されます。
+.. Rule で Equals を設定し、Value で Sales Representaive を設定します。
+.. [適用] をクリック、次に [OK] をクリックして、列フィルター エディター ダイアログを閉じます。
+.. [適用] をクリック、次に [OK] をクリックして、動作エディター ダイアログを閉じます。
+
+[start=6]
+. 日付が 12/31/1996 のデータのみを WebHierarchicalDataGrid によりフィルターされるように、最初のフィルター条件を子発注バンドに設定します。
+
+[start=1]
+. [Bands] プロパティを選択し、省略記号（…）ボタンをクリックします。バンドの編集ダイアログが表示されます。
+[start=2]
+. [子の追加] ボタンをクリックして、ルート バンドに子バンドを追加します。
+[start=3]
+. Key を Orders に変更します。
+[start=4]
+. DataMember を AccessDataSource2_Orders に設定します。
+[start=5]
+. DataKeyFields を OrderID に設定します。
+[start=6]
+. Behaviors プロパティの省略記号（…）ボタンをクリックします。
+[start=7]
+. フィルタリング動作のチェック ボックスをチェックします。
+[start=8]
+. [ColumnFilters] プロパティの省略記号（…）ボタンをクリックします。
+[start=9]
+. 手順 5 と同様に、列フィルターを追加し、今回は ColumnKeyを OrderDate に、Condition を RuleDateNode に設定します。
+[start=10]
+. Rule で After を設定し、Value で 12/31/1996 を設定します。
+[start=11]
+. [OK] をクリックして、編集動作ダイアログを閉じます。
+[start=12]
+. [OK] をクリックして、編集バンド ダイアログを閉じます。
+
+次のコードを使用して前述の手順を実行することもできます。
+
+注: 特定のケースでは、フィルターを適用する ApplyFilter メソッドを呼び出す必要があります。そうしない場合、WebHierarchicalDataGrid は、次のポストバックまでフィルター処理をしません。クライアント側で複数のフィルターを追加する場合は、メソッドを使用して、フィルターの配列として追加する必要があります。次に示すコード ビハインドでは、マークアップでバンドが定義され、サーバー側イベントが処理されていることを想定しています。

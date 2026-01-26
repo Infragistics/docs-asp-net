@@ -1,0 +1,38 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcalcmanager-logical-functions",
+    "controlName": ["WebCalcManager"],
+    "tags": ["How Do I"],
+    "guid": "{A084B434-BCA5-42F6-988B-FE91A3F1E1C9}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 論理関数
+
+以下は WebCalcManager™ コントロールで提供されるすべての Microsoft® Excel® スタイルの論理関数のリストです。これらの link:https://support.office.com/ja-jp/article/Excel-%E9%96%A2%E6%95%B0-%E6%A9%9F%E8%83%BD%E5%88%A5-5f91f4e9-7b42-46d2-9bd1-63f26a86c0eb?ui=ja-JP&rs=ja-JP&ad=JP#__toc309306713[論理関数] の詳細は、MicrosoftのWeb サイトを参照してください。
+
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionand.html[AND]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionfalse.html[FALSE]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionif.html[IF]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionnot.html[NOT]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionor.html[OR]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctiontrue.html[TRUE]"] 
+
+== 関連トピック
+
+link:webcalcmanager-date-and-time-functions.html[日付&時間関数]
+
+link:webcalcmanager-financial-functions.html[財務関数]
+
+link:webcalcmanager-information-functions.html[情報関数]
+
+link:webcalcmanager-math-functions.html[算術関数]
+
+link:webcalcmanager-statistical-functions.html[統計関数]
+
+link:webcalcmanager-text-and-data-functions.html[テキスト&データ関数]

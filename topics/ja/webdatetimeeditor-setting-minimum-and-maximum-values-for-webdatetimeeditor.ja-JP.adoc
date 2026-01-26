@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatetimeeditor-setting-minimum-and-maximum-values-for-webdatetimeeditor",
+    "controlName": ["WebDateTimeEditor"],
+    "tags": ["Editing","How Do I","Styling"],
+    "guid": "{4E23730A-859A-4124-AF8C-58B381EB2797}",  
+    "buildFlags": [],
+    "createdOn": "2009-04-06T17:09:13Z"
+}
+|metadata|
+////
+
+= WebDateTimeEditor の最大値と最小値を設定
+
+WebDateTimeEditor™ によってコントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webdatetimeeditor~minvalue.html[MinValue]"]  プロパティと  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webdatetimeeditor~maxvalue.html[MaxValue]"]  プロパティを設定するだけでエンドユーザーがエディターに入力できる date/time の範囲を設定できます。エンドユーザーが最大の date/time よりも大きい date/time を入力すると、エディターはその date/time を最大の date/time 値に設定します。同様に、エンドユーザーが最小の date/time 値よりも小さい date/time 値を入力すると、エディターはその date/time を最小の date/time 値に設定します。
+
+Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、MinValue プロパティと MaxValue プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+'最小の date オブジェクトを作成します
+Dim minDate As New DateTime(2004, 1, 1)
+'最大の date オブジェクトを作成します
+Dim maxDate As New DateTime(2010, 1, 1)
+'最小の date オブジェクトを WebDateTimeEditor の MinValue に指定します
+WebDateTimeEditor1.MinValue = minDate
+'最大の date オブジェクトを WebDateTimeEditor の MaxValueに指定します
+WebDateTimeEditor1.MaxValue = maxDate
+----
+
+*C# の場合：*
+
+----
+//最小の date オブジェクトを作成します
+DateTime minDate = new DateTime(2004, 1, 1);
+//最大の date オブジェクトを作成します
+DateTime maxDate = new DateTime(2010, 1, 1);
+//最小の date オブジェクトを WebDateTimeEditor の MinValue に指定します
+WebDateTimeEditor1.MinValue = minDate;
+//最大の date オブジェクトを WebDateTimeEditor の MaxValueに指定します
+WebDateTimeEditor1.MaxValue = maxDate;
+----

@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webimagebutton-using-webimagebutton",
+    "controlName": ["WebImageButton"],
+    "tags": ["Layouts","Styling"],
+    "guid": "{766B30D2-F2F6-4373-87C5-177250CF6162}",  
+    "buildFlags": [],
+    "createdOn": "2007-05-11T14:26:37Z"
+}
+|metadata|
+////
+
+= WebImageButton の使用
+
+このセクションは、WebImageButton™ コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+* link:webimagebuton-create-rounded-images.html[角丸イメージの作成]
+* link:webimagebutton-using-webimagebutton.html[WebImageButton の使用]

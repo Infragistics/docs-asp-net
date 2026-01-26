@@ -1,0 +1,46 @@
+﻿////
+|metadata|
+{
+    "name": "webcalendarview-change-the-style-of-days-outside-of-the-month",
+    "controlName": ["WebCalendarView"],
+    "tags": ["How Do I"],
+    "guid": "{BB6146F7-6A58-4ED8-9829-14F03F0F1087}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= その月以外の日にちのスタイルを変更
+
+WebCalendarView には、月の日を表示されるが実際の月の一部ではない  pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.shared.style.html[スタイル]"] する機能があります。 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webcalendarview~othermonthdaystyle.html[OtherMonthDayStyle]"] を設定すると、実際の月の日と他の月の日の差別化に役立ちます。 
+
+以下のコードは、OtherMonthDayStyle の BackColor を紫に設定します。
+
+image::images/WebSchedule_How_to_Change_Other_Months_Days_Style_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Private Sub Page_Load(ByVal sender As System.Object, ByVal e _
+  As System.EventArgs) Handles MyBase.Load
+        Me.WebCalendarView1.OtherMonthDayStyle.BackColor = Color.Purple
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void Page_Load(object sender, System.EventArgs e)
+{
+        this.WebCalendarView1.OtherMonthDayStyle.BackColor = Color.Purple;
+}
+----
+
+== 関連トピック
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[WebSchedule 名前空間]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webcalendarview.html[WebCalendarView クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.appointment.html[Appointments クラス]"]

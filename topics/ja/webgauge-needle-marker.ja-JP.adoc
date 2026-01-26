@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-needle-marker",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{1D4FEE57-B2DF-4ABD-8493-47A0AD97C1E6}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 針マーカー
+
+針マーカーはスケール上の特定の値を指し示すポインタとして表示されます。
+
+たとえば、時計を表すラジアル ゲージを作成している場合には、時計の針を表示するために針マーカーを使用します。
+
+image::images/Gauge_Add_Needle_Marker_01.png[]
+
+== 関連トピック
+
+link:webgauge-add-a-needle-marker-to-a-gauge.html[針マーカーをゲージに追加]

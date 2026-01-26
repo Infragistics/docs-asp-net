@@ -1,0 +1,111 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-whats-new-in-2010-volume-3",
+    "controlName": [],
+    "tags": ["FAQ","Getting Started"],
+    "guid": "edec60fc-d845-449a-9672-98dea658aa71",  
+    "buildFlags": [],
+    "createdOn": "2010-10-04T12:36:57.8039562Z"
+}
+|metadata|
+////
+
+= 2010 Volume 3 の新機能
+
+{ProductName} 2010 Volume 3 リリースには {ProductName} AJAX フレームワーク上に構築された以下の新しいコントロールおよび機能のコレクションが含まれています。
+
+== 新しい WebDocumentExporter コントロール
+
+新しい WebDocumentExporter™ コントロールは、WebExcelExporter™ コントロールと全く同じように、Grid データを自動的にエクスポートできます。どのような種類の Infragistics DataGrid を使用しているかにかかわらず（WebDataGrid™ または WebHierarchicalDataGrid™）、データを XPS または PDF ファイル形式にエクスポートして取得するという目的を簡単に達成できます。
+
+== 関連トピック
+
+link:webdocumentexporter-about-webdocumentexporter.html[WebDocumentExporter について]
+
+link:webdocumentexporter-getting-started-with-webdocumentexporter.html[WebDocumentExporter で開始]
+
+== 新しい WebDataMenu スクロール機能
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatamenu.html[WebDataMenu] では今回スクロールがサポートされます。これにより、ブラウザーのビューポートに収まらない時にメニュー項目をスクロールできます。スクロールは水平メニューと垂直メニューの両方でサポートされます。この機能は、デフォルトで常に有効になっています。無効にしたい場合、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatamenu~enablescrolling.html[EnableScrolling] プロパティを False に設定します。
+
+以下の使用事例は link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatamenu~enablescrolling.html[EnableScrolling] プロパティで対象とすることができます。
+
+* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatamenu~enablescrolling.html[EnableScrolling] - False
+
+** 高さ/幅が設定されている場合には、スクロール コンテナーは領域の外側にあるコンテンツをクリップし、ボタンは表示されません。コンテンツが画面より大きい場合には、そのまま表示されページにスクロールバーが表示されます。
+
+* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatamenu~enablescrolling.html[EnableScrolling] - True
+
+** link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatamenu~groupsettings.html[GroupSettings] で高さ/幅が設定されている場合にはこれに従い、コンテンツが指定された高さ/幅よりも大きい場合にはスクロール ボタンが表示されます。高さ/幅が画面のサイズよりも大きい場合、コンテンツはページに収まります。メニュー グループが水平方向の場合に限り幅が適用されます。メニュー グループが垂直方向の場合に限り高さが適用されます。
+** メニュー項目のグループに対して高さまたは幅が設定されていない場合、またはコンテンツが画面領域よりも大きい場合には、コンテンツはページに収まり、スクロール ボタンが表示されます。
+
+スクロール可能な領域をどの位の速さで移動するかを制御するために、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatamenu~scrollingspeed.html[ScrollingSpeed] プロパティを使用できます。開発者が指定できる値は 5 つあります。スクロール ボタンをスクロール中にクリックすると速くなります。ScrollingSpeed のデフォルト値は Normal です。スクロール速度は以下のいくつかの変数に基づいて計算されます。
+** スクロールするピクセル - 一定の時間に何ピクセル移動するのかを指定します。
+** 一定時間当たりのスクロール - 一定時間（ミリ秒）にスクロールする速度を定義します。
+** 項目計数当たり - 項目数に基づいて速度が調整します。たとえば、100 項目の通常速度は、1000 項目の通常速度よりも実際には遅くなります。
+
+10.2 では、ホバーするとコントロールはメニュー項目を開き、ホバーを止めるとメニュー項目を閉じます。たとえば、コントロールはアクティブではなく、入力フィールドからフォーカスを奪いません。
+
+10.3 では、新しいプロパティ、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatamenu~activateonhover.html[ActivateOnHover] が追加されました。コントロールがホバーされると、フォーカスを受け取り、メニュー項目を開きます。コントロールのホバーを止めると、フォーカスを元々持っていたページの要素にフォーカスが戻ります。
+
+このプロパティを使用すると、以下のシナリオを達成できます。
+
+*** link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatamenu~activateonhover.html[ActivateOnHover] が True - メニューは現在フォーカスを取得している要素を追跡します。メニューにホバーされると、そのメニューがフォーカスを取得して展開します。この時点でキーボード ナビゲーションも可能です。どのメニュー項目もクリックされず、マウスがメニューから移動する（ホバーを解除）と、メニューは縮小して以前のフォーカスを取得していた要素にフォーカスを戻します。展開後にメニューがクリックされた場合、マウスが移動されると、メニューは縮小してフォーカスはページの本文に移動します。
+*** link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatamenu~activateonhover.html[ActivateOnHover] が False - ホバーされると展開せずに、最上位のメニュー項目のみが強調表示されます。メニューにフォーカスを設定し、1 番目の階層のサブメニューを展開するためには、マウス クリックまたはタブ操作が必要です。これでキーボード ナビゲーションが可能になります。マウスがメニューから移動される（ホバーを解除）と、ユーザーが外側をクリックするか Esc キーを押すまでメニューは開いたままです。デスクトップ メニューとしてメニューを機能させたい時にこのシナリオは役立ちます。通常、デスクトップ メニューはフォーカスを取得し開くためにクリックを必要とします。EnableScrolling が False に設定された項目がメニューに多数ある時も役に立ちます。このようにメニューは開いたままになるため、ページのスクロールバーでページをスクロールして、表示可能な画面領域の外側にある項目にアクセスできます。
+
+関連トピック
+
+link:webdatamenu-scrolling-about.html[スクロール]
+
+== 新しい WebDataMenu プロパティ
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatamenu.html[WebDataMenu] は、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatamenu~activateonhover.html[ActivateOnHover] と link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatamenu~closemenuonclick.html[CloseMenuOnClick] という 2 つのプロパティが追加されました。詳細は
+
+== 関連トピック
+照してください。
+
+関連トピック link:webdatamenu-activateonhover-property.html[ActivateOnHover プロパティ]
+
+link:webdatamenu-closemenuonclick-property.html[CloseOnClick プロパティ]
+
+== 新しい WebDataGrid/WebHierarchicalDataGrid 集計行の機能
+
+新しい集計行機能によって、開発者とエンドユーザーは WebDataGrid と WebHierarchicalDataGrid の両方で任意の列に数値データの集計を表示できます。
+
+== 関連トピック
+
+link:webdatagrid-summary-row.html[集計行について] (WebDataGrid)
+
+link:webdatagrid-adding-custom-summary.html[カスタム集計の追加] (WebDataGrid)
+
+link:webdatagrid-summary-settings.html[集計の設定] (WebDataGrid)
+
+link:webdatagrid-compact-rendering.html[コンパクトな描画] (WebDataGrid)
+
+link:webhierarchicaldatagrid-summary-row.html[集計行について] (WebHierarchicalDataGrid)
+
+== 新しい WebHierarchicalDataGrid 行セレクター機能
+
+行セレクター動作は WebHierarchicalDataGrid™ で使用可能になりました。
+
+== 関連トピック
+
+link:webdatagrid-enabling-row-selectors.html[行セレクターを有効にする]
+
+== Office 2010 Blue スタイル
+
+{ProductName} コントロールは今回 Office 2010 Blue スタイルをサポートします。
+
+== 関連トピック
+
+link:web-application-styling-framework-asf.html[Application Styling Framework (ASF)]
+
+== Version-less アセンブリ
+
+2010 Vol. 3 リリースからは、{ProductName}™ のバージョン番号はファイル名に組み込まれなくなりました。
+
+== 関連トピック
+
+link:aspnet-versionless-assemblies.html[ASP.NET Version-less アセンブリ]

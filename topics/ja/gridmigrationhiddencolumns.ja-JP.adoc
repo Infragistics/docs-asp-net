@@ -1,0 +1,97 @@
+﻿////
+
+|metadata|
+{
+    "name": "gridmigrationhiddencolumns",
+    "controlName": [],
+    "tags": [],
+    "guid": "0221bfa5-d0a6-409e-8ac9-1eee96c50675",  
+    "buildFlags": [],
+    "createdOn": "2016-03-01T12:47:37.6862443Z"
+}
+|metadata|
+////
+
+= グリッドの移行 - 非表示の列
+
+== 非表示の列
+
+非表示の列は、サーバーの情報をクライアントに移動し、グリッド オブジェクト モデルで使用可能にするために使用されますが、ユーザーに対しては非表示です。通常、非表示の列には、データ キー フィールドのように、ユーザーに不要な情報が含まれています。
+
+UltraWebGrid と WebDataGrid (WebHierarchicalDataGrid) には、非表示の列を表示する機能があります。
+
+2 つの違いは、列のすべてのセルを反復する速度ではなく、ブラウザの速度に依存する WebDataGrid の方が高速であることです。WebDataGrid は、*display:none;* 設定を使用して　CSS　クラスを動的に作成し、このクラス名を列の各 TD に割り当てます。
+
+*CSS の場合:*
+
+[source,css]
+----
+.igede12b8d{
+ display:none;
+}
+----
+
+image::images/Grids_Migration_-_Hidden_Columns_1.png[]
+
+列は、1 つのスタイル シート クラスで 1 つの属性を設定するのみで、クライアント上で非表示および表示できます。
+
+このため、クライアント上で JavaScript により非表示になる可能性のある WebDataGrid の列では、[ _Hidden_ ] プロパティを「*False* 」に設定することをお勧めします。この方法で、生成され列の各 TD に割り当てられた CSS クラスが、クライアントで瞬時に非表示になります。この手順を省略した場合、クライアントで作成されたクラスの列を最初に非表示に仕様とすると、グリッドの行の数によりスローになる可能性があります。
+
+UltraWebGrid は、簡易な方法で列を非表示にします。非表示の列の各 TD は、*display:none;* 設定により、スタイル属性を取得します。
+
+image::images/Grids_Migration_-_Hidden_Columns_2.png[]
+
+各操作ですべてのセルを反復することにより、列はクライアントで非表示および表示になります。グリッドの列が多いと、これに長い時間が必要な場合があります。
+
+==== サーバー側のコード
+
+サーバーで列を非表示にするには、[ _Hidden_ ] プロパティを「*True* 」に設定します。
+
+UltraWebGrid:
+
+*C# の場合:*
+
+[source,csharp]
+----
+this.UltraWebGrid1.Columns[0].Hidden = true;
+----
+
+WebDataGrid
+
+*C# の場合:*
+
+[source,csharp]
+----
+this.WebDataGrid1.Columns[0].Hidden = true;
+----
+
+==== サーバー側のコード
+
+次の 2 つのグリッド場合、クライアントでの列の非表示と表示は異なります。
+
+UltraWebGrid
+
+*JavaScript の場合:*
+
+[source,js]
+----
+function UltraWebGrid1_InitializeLayoutHandler(gridName)
+{
+      var ultraWebGrid = igtbl_getGridById(gridName);
+      ultraWebGrid.Bands[0].Columns[0].setHidden(true);
+}
+----
+
+WebDataGrid
+
+*JavaScript の場合:*
+
+[source,js]
+----
+function WebDataGrid1_Grid_Initialize(webDataGrid, eventArgs)
+{
+      ///<param name="webDataGrid" type="Infragistics.Web.UI.WebDataGrid"></param>
+      ///<param name="eventArgs" type="Infragistics.Web.UI.EventArgs"></param>
+      webDataGrid.get_columns().get_column(0).set_hidden(true);
+}
+----

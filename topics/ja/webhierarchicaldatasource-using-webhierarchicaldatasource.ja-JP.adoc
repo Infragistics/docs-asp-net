@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatasource-using-webhierarchicaldatasource",
+    "controlName": ["WebHierarchicalDataSource"],
+    "tags": [],
+    "guid": "{7E914734-B71A-42D7-9F5B-559CCB5D67D0}",  
+    "buildFlags": [],
+    "createdOn": "2008-05-05T11:43:49Z"
+}
+|metadata|
+////
+
+= WebHierarchicalDataSource の使用
+
+このセクションでは、WebHierarchicalDataSource™ コントロールの様々な特長や機能を効果的に使用するための、重要なタスク ベースの情報について説明します。
+
+link:webhierarchicaldatasource-webhierarchicaldatasource-smart-tag.html[WebHierarchicalDataSource スマート タグ]
+
+このトピックでは、 WebHierarchicalDataSource スマート タグのアンカーとポップアップ パネルについて説明します。これはほとんどのコントロール プロパティおよび設定を表示、設定する機能を提供します。
+
+link:webhierarchicaldatasource-add-a-view-to-webhierarchicaldatasource.html[ビューを WebHierarchicalDataSource に追加]
+
+デザイン中およびランタイムにビューを WebHierarchicalDataSource コントロールに追加する方法について説明します。
+
+link:webhierarchicaldatasource-crud-operations-with-webhierarchicaldatasource.html[WebHierarchicalDataSource を使用した CRUD 操作]
+
+このトピックでは、WebHierarchicalDataSource コントロールを使用した CRUD 操作、およびこのコントロールの他のデータ ソース コントロールとの互換性について説明します。
+
+link:webhierarchicaldatasource-add-a-single-parent-to-single-child-relationship.html[1 つの子関係に 1 つの親を追加]
+
+このトピックでは、WebHierarchicalDataSource contol コントロールのビューの間に階層関係を作成する方法について説明します。
+
+link:webhierarchicaldatasource-add-a-parent-to-multiple-child-relationship.html[複数の子関係に 1 つの親を追加]
+
+WebHierarchicalDataSource コントロール内には、1 つの親レコード セットと複数の子レコードセット間に関係を設定することができます。このトピックでは、デザイン中およびランタイムにこれを行う方法を示します。
+
+link:webhierarchicaldatasource-add-a-composite-key-relationship.html[複合キー関係の追加]
+
+このトピックでは、デザイン中およびランタイムに複合キーの関係を設定します。
+
+link:webhierarchicaldatasource-creating-a-self-related-data-relation.html[自己関係的なデータ関係の作成]
+
+この例では、WebHierarchicalDataSource を使用して自己関係的なモデルを表す方法の詳細を説明します。

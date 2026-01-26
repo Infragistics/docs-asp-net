@@ -1,0 +1,54 @@
+﻿////
+|metadata|
+{
+    "name": "classic-control-migration-guide",
+    "controlName": [],
+    "tags": [],
+    "guid": "9f72deb6-71b0-4a08-b276-b67995b3f322",
+    "buildFlags": [],
+    "createdOn": "2011-05-25T15:01:31.2002906Z"
+}
+|metadata|
+////
+
+= {ProductName} クラシック コントロールの移行方法
+
+== 目的
+
+既存のアプリケーションで、WebDataGrid または WebHierarchicalDataGrid のようなクラシック コントロールを UltraWebGrid で置き換える方法です。これらの手順は、廃止されたコントロールの置き換えに適用できます。UltraWebGrid および WebDataGrid は複雑なコントロールで、他のコントロールよりも置き換えに時間がかかるため例として使用しています。廃止されたコントロールでアプリケーションでの置き換えが必要である可能性のあるコントロールの完全なリストは、
+クラシック コントロールをlink:classic-control-migration-control-mapping.html[ ASP.NET AJAX コントロールで置き換える]を参照してください。
+
+== はじめに
+
+WebDataGrid (または他の ASP.NET AJAX コントロール) の使用を開始するには、まずプロジェクトへの参照を設定する必要があります。設定すると、アプリケーションで WebDataGrid の現在のボリュームを使用できます。 簡単なシナリオでは、Infragistics45.Web.v{ProductVersion} のアセンブリおよび依存するドキュメント アセンブリをアプリケーションに追加し、コントロールの使用を開始できます。 次の参照が必要になります:
+
+* Infragistics45.Web.v{ProductVersion}
+* Infragistics45.WebUI.Documents.Word.v{ProductVersion}
+* Infragistics45.WebUI.Documents.Core.v{ProductVersion}
+* Infragistics45.WebUI.Documents.IO.v{ProductVersion}
+* Infragistics45.WebUI.Documents.Reports.v{ProductVersion}
+* Infragistics45.WebUI.Documents.Excel.v{ProductVersion}
+
+前述のアセンブリの以前のバージョンを参照していた場合は、新しい参照を追加するのではなく参照を置き換える必要があります。
+
+この時点でアプリケーションが問題なくビルドして動作する場合は、アプリケーションで WebDataGrid を使用して、UltraWebGrid の置き換えを開始できます。
+
+アプリケーションがビルドしない、あるいは正しく作動しない場合は、このトピックを読み、最も一般的なシナリオにおける対処法をご確認ください。
+
+== UltraWebGridExcelExporter および UltraWebGridDocumentExporter （またはそのいずれか一方）を使用している場合。
+
+複数のオプションを使用できます:
+
+1.  エクスポーターを削除し、関連する UltraWebGrid を WebDataGrid または WebHierarchicalDataGrid で置き換えた後、エクスポート機能を追加します。
+
+2.  使用するエクスポーター アセンブリのソース コードをコンパイルし、Infragistics.Documents.Excel アセンブリまたは Infragistics.Documents.Reports アセンブリの現在のバージョンを参照するようにします。
+
+== まだ使用されている WebSchedule のような ASP.NET AJAX のコントロールのアップグレード方法
+
+これらのコントロールは、UltraWebGrid (また他の廃止されたコントロール) のように、Infragistics.Shared アセンブリを参照するため、すべてのアセンブリを現在のボリュームにアップデートする必要があります。ツールセットに含まれるアセンブリの場合は、参照を変更します。UltraWebGrid のように、使用されていないコントロールのアセンブリの場合は、ツールセットの現在のボリュームの共有アセンブリ向けにこれらのソース コードをコンパイルする必要があります。
+
+**注:** 簡単で推薦される方法は、コントロールをアップグレード前に廃止されたコントロールを置き換えることです。
+
+== 廃止されたコントロールを新しい ASP.NET AJAX コントロールで置き換える最良の方法
+
+これらは異なるコントロールであるため、まず新しいコントロールで必要なビヘイビアを実装する方法、次に既存の再利用できるコードの量を評価します。すべてのコードを再利用する場合、置き換えたコントロールの使用で必要以上に複雑になる場合があります。これは、構造的な違いにより更に複雑となる WebDataGrid と WebHierarchicalDataGrid に特に当てはまります。詳細については、link:gridmigrationoverview.html[UltraWebGrid から WebDataGrid および WebHierarchicalDataGrid への移行]を参照してください。

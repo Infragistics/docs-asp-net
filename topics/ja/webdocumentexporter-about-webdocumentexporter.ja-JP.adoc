@@ -1,0 +1,36 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdocumentexporter-about-webdocumentexporter",
+    "controlName": ["WebDocumentExporter"],
+    "tags": ["Exporting","Getting Started","Grids","How Do I"],
+    "guid": "3ed7a4cb-4e79-4921-95dc-0128cb3ea56a",  
+    "buildFlags": [],
+    "createdOn": "2010-09-29T07:31:51.9353826Z"
+}
+|metadata|
+////
+
+= WebDocumentExporter について
+
+== WebDataGrid / WebHierarchicalDataGrid データを XPS または PDF ドキュメントにエクスポート
+
+WebDocumentExporter™ コントロールは、 link:web-webexcelexporter.html[WebExcelExporter] コントロールと全く同じように、WebDataGrid または WebHierarchicalDataGrid データを自動的にエクスポートできますが、ドキュメントファイル形式でエクスポートします。サポートされるファイル形式は XPS および PDF ドキュメントです。
+
+以下は WebDocumentExporter によって現在サポートされている機能のリストです。
+
+* ファイルは自動的なダウンロードのためにブラウザーに送信することもできますし、ドキュメント インスタンスに保存するだけも可能なので、結果をどうするのかを決定します（ link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.baseexporter~exportmode.html[ExportMode] プロパティ）。
+* グリッド データのみをエクスポートするのか（Paging または VirtualScrolling を有効にした時）、データ ソースにあるデータ全体をエクスポートします( link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.baseexporter~dataexportmode.html[DataExportMode] プロパティ)。
+* XPS または PDF ドキュメント ファイル形式にエクスポートします（ link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webdocumentexporter~format.html[Format] プロパティ）。
+* スタイルをエクスポートします。これによって、アプリケーションのルック アンド フィールを失いません（ link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.baseexporter~enablestylesexport.html[EnableStylesExport] プロパティ）。
+* グリッドがエクスポートされるページ レイアウトをカスタマイズします（ link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webdocumentexporter~margins.html[Margins]、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webdocumentexporter~targetpapersize.html[TargetPaperSize] および  link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webdocumentexporter~targetpaperorientation.html[TargetPaperOrientation] プロパティ）。
+* エクスポートされた各行だけでなく、データがエクスポートされる前後にカスタム ロジックを適用するために処理できるサーバー イベント（ link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webdocumentexporter~cellexporting_ev.html[CellExporting]、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webdocumentexporter~cellexported_ev.html[CellExported]、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webdocumentexporter~rowexporting_ev.html[RowExporting] イベント）。
+
+== 関連トピック
+
+link:webdocumentexporter-getting-started-with-webdocumentexporter.html[WebDocumentExporter で開始]
+
+link:webexcelexporter-saving-all-data-in-the-data-source.html[すべてのデータをデータ ソースに保存]
+
+link:webexcelexporter-saving-exported-data-on-the-server.html[エクスポートしたデータをサーバーに保存]

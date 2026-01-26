@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgroupbox-getting-started-with-webgroupbox",
+    "controlName": ["WebGroupBox"],
+    "tags": ["Getting Started","Layouts"],
+    "guid": "{B871CC79-DAD1-41A9-A7AC-16E943587C8F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebGroupBox で開始
+
+以下のリンクをクリックすると、WebGroupBox コントロールをすばやく起動して実行する方法についての説明が表示されます。
+
+* link:webgroupbox-adding-the-webgroupbox-to-a-form.html[WebGroupBox のフォームへの追加] -- WebGroupBox をフォームに追加し、それにコントロールを追加する方法を説明しています。

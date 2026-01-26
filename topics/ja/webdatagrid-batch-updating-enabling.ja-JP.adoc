@@ -1,0 +1,81 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-batch-updating-enabling",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Drilldown","Editing","Grids","Performance"],
+    "guid": "eb437377-51e6-4538-905e-78d5fac39e54",  
+    "buildFlags": [],
+    "createdOn": "2011-10-26T07:22:20.5024003Z"
+}
+|metadata|
+////
+
+= 一括更新を有効にする
+
+このトピックでは、WebDataGrid™ の一括更新を有効にする方法と、一括更新中に行われた変更をユーザーが元に戻す方法を示しています。
+
+== はじめに
+
+一括更新が有効になっている場合、サーバーを呼び出さなくても、「通常の」編集操作の場合と同様、行を無制限に変更できます。一括更新では、行の追加、更新、削除などすべての変更はクライアントに保存され、最初にポストバックをトリガーしたときにサーバーに送信されます。以下の図は、一括更新機能が有効な状態の igGrid を示しています。
+
+image::images/WebDataGrid_Batch_Updating_Getting_Started_01.png[]
+
+== 一括更新を有効にする
+
+一括更新を有効にするには、マークアップまたはコード ビハインドで BatchUpdate プロパティを true に設定するだけです。子バンドについては、Batch Update モードを個別に有効にする必要がある点に注意してください。これはすべての子機能に当てはまります。すべてのバンドについてバッチ オプションを個別に指定する必要があります。
+
+*ASPX の場合:*
+
+----
+<ig:WebDataGrid ID="wdg1" runat="server">
+    <Behaviors>
+        <ig:Activation/>                 
+        <ig:EditingCore BatchUpdating="true">
+            <Behaviors>
+                <ig:RowAdding/>
+                <ig:RowDeleting/>
+                <ig:CellEditing/>
+            </Behaviors>
+        </ig:EditingCore>
+    </Behaviors>
+</ig:WebDataGrid>
+----
+
+*C# の場合：*
+
+----
+this.wdg1.Behaviors.EditingCore.BatchUpdating = true;
+----
+
+結果を確認するには、Web ブラウザーでそのページを開きます。「はじめに」で示すように、行を一括変更できるはずです。
+
+*注:*
+
+親行を追加する場合、ポストバックを行い、その行をデータベースに保存する必要があります。保存した後でないと、子行を追加、削除、または更新することはできません。
+
+== 元のデータの復元
+
+一括更新機能の大きなメリットは、Batch Update モードにいる、つまり変更がまだサーバーにコミットされていない限り、変更されたあらゆる行データを元の状態に復元できることです。
+
+復元は、復元する行にフォーカスすることで 1 行ずつ行われます。その後、次を行います。
+
+* Ctrl+Z キーを押して、行に行われた編集内容を元に戻します
+* Undo hover ボタンをクリックして、削除された行を復元します
+
+image::images/WebDataGrid_Batch_Updating_Getting_Started_02.png[]
+
+*注:*
+
+マウスのクリックとは別に、Undo ボタンはキーボードの Enter キーまたは Space キーを押して起動できます。
+
+== 関連トピック
+
+link:webdatagird-batch-updating-overview.html[WebDataGrid の一括更新の概要]
+
+link:webdatagrid-batch-updating-events.html[WebDataGrid の一括更新イベント]
+
+link:webdatagrid-batch-updating-summaries.html[WebDataGrid の一括更新集計]
+
+link:known-issues-known-issues-and-breaking-changes-revision-history.html[既知の問題と重大な変更]

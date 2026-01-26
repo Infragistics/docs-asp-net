@@ -1,0 +1,26 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-data-model",
+    "controlName": ["WebSchedule"],
+    "tags": [],
+    "guid": "{F5058822-0A41-44F4-BF0C-B35A53B9BAAD}",  
+    "buildFlags": [],
+    "createdOn": "2005-08-09T00:00:00Z"
+}
+|metadata|
+////
+
+= データ モデル
+
+WebSchedule™ データ プロバイダーは、WebScheduleInfo™ のコレクションのプロパティと WebSchedule データ モデル間をインターフェイスします。
+
+WebSchedule コントロールおよびコンポーネントが正しく動作するため必要となるデータ スキーマについての詳細は、以下のリンクをクリックしてください。
+
+* link:webschedule-data-model-for-webschedule-generic-data-provider.html[WebSchedule の汎用データ プロバイダーのデータ モデル]
+* link:webschedule-data-model-for-the-activity-table.html[Activity テーブル用データ モデル]
+* link:webschedule-data-model-for-the-resource-table.html[Resource テーブル用データ モデル]
+* link:webschedule-data-model-for-the-activityresource-table.html[ActivityResource テーブル用データ モデル]
+* link:webschedule-data-model-for-the-resourcepreference-table.html[ResourcePreference テーブル用データ モデル]
+* link:webschedule-data-model-for-the-recurrence-table.html[Recurrence テーブル用データ モデル]

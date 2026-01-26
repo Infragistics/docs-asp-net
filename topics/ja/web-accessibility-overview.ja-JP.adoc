@@ -1,0 +1,233 @@
+﻿////
+|metadata|
+{
+    "name": "web-accessibility-overview",
+    "controlName": [],
+    "tags": ["Section 508"],
+    "guid": "{30CE7EE7-B5A5-4386-B2BC-531715806CEA}",
+    "buildFlags": [],
+    "createdOn": "2006-01-09T12:16:33Z"
+}
+|metadata|
+////
+
+= アクセシビリティ概要
+
+リハビリテーション法 link:http://www.section508.gov/[第 508 条]連邦議会によって 1998 年に改正され、すべての連邦政府機関は障害を持つ職員が電子情報技術にアクセスできるようにすることを義務付けました。それ以降、第 508 条の準拠は、連邦政府機関の要件であるだけでなく、ソフトウェア ソリューションを提供し、Web ページを設計する際にも重要です。
+
+第 508 条の第 1194 部 22 条は、特に Web ベースのイントラネットおよびインターネット情報およびシステムを対象としており、遵守すべき 16 の規則が含まれています。Infragistics コントロールのアクセシビリティ詳細については、以下の表を参照してください。
+
+以下のマトリックスで、弊社の視覚的コントロール（および関連コンポーネント）によって提供されるアクセシビリティのサポートの高レベルな概要を提供します。個々のコントロール/コンポーネントのアクセシビリティの遵守の詳細は、コントロール/コンポーネント名をクリックしてください。
+
+[options="header", cols="a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a"]
+|====
+|コントロール/コンポーネント
+
+|(a)|(b)|(c)|(d)|(e)|(f)|(g)|(h)|(i)|(j)|(k)|(l)|(m)|(n)|(o)|(p)
+
+| link:webcalendarview-accessibility-compliance.html[WebCalendarView]
+|image::images/greenCheck.png[]
+||||||
+|image::images/greenCheck.png[]
+||||||||
+
+| link:chart-webchart-accessibility-compliance.html[WebChart]
+|image::images/greenCheck.png[]
+||||
+|image::images/greenCheck.png[]
+||||||||||
+
+| link:webcurrencyeditor-accessibility-compliance.html[WebCurrencyEditor]
+|image::images/greenCheck.png[]
+|||||||||||||||
+
+| link:webdatagrid-accessibility-compliance.html[WebDataGrid]
+||
+|image::images/greenCheck.png[]
+||||||||||
+|image::images/greenCheck.png[]
+||
+
+| link:webdatamenu-accessibility-compliance.html[WebDataMenu]
+|image::images/greenCheck.png[]
+|
+|image::images/greenCheck.png[]
+|image::images/greenCheck.png[]
+|||||||
+|image::images/greenCheck.png[]
+||||
+
+| link:webdatatree-accessibility-compliance.html[WebDataTree]
+|image::images/greenCheck.png[]
+|
+|image::images/greenCheck.png[]
+|image::images/greenCheck.png[]
+|||||||
+|image::images/greenCheck.png[]
+|
+|image::images/greenCheck.png[]
+|
+|image::images/greenCheck.png[]
+
+| link:webdatepicker-accessibility-compliance.html[WebDatePicker]
+|image::images/greenCheck.png[]
+|||||||||||||||
+
+| link:webdatetimeeditor-accessibility-compliance.html[WebDateTimeEditor]
+|image::images/greenCheck.png[]
+|||||||||||||||
+
+| link:webdayview-accessibility-compliance.html[WebDayView]
+|image::images/greenCheck.png[]
+||
+|image::images/greenCheck.png[]
+|||
+|image::images/greenCheck.png[]
+|||||
+|image::images/greenCheck.png[]
+||
+
+| link:webdialogwindow-webdialogwindow-accessibility-compliance.html[WebDialogWindow]
+|image::images/greenCheck.png[]
+||||||||||||
+|image::images/greenCheck.png[]
+||
+
+| link:webdropdown-accessibility-compliance.html[WebDropDown]
+|image::images/greenCheck.png[]
+|
+|image::images/greenCheck.png[]
+|image::images/greenCheck.png[]
+|||||||
+|image::images/greenCheck.png[]
+|
+|image::images/greenCheck.png[]
+|
+|image::images/greenCheck.png[]
+
+| link:webgauge-webgauge-accessibility-compliance.html[WebGauge]
+|image::images/greenCheck.png[]
+|||||||||||||||
+
+| link:webgroupbox-accessibility-compliance.html[WebGroupBox]
+|||||||||||||
+|image::images/greenCheck.png[] 
+||
+
+| link:webhierarchicaldatagrid-accessibility-compliance.html[WebHierarchicalDataGrid]
+||
+|image::images/greenCheck.png[]
+||||||||||
+|image::images/greenCheck.png[]
+||
+
+| link:webhtmleditor-accessibility-compliance.html[WebHtmlEditor]
+|image::images/greenCheck.png[]
+|||||||||||
+|image::images/greenCheck.png[]
+|image::images/greenCheck.png[]
+||
+
+| link:webimagebutton-accessibility-compliance.html[WebImageButton]
+|image::images/greenCheck.png[]
+|
+|image::images/greenCheck.png[]
+|||||||||||||
+
+| link:webimageviewer-webimageviewer-accessibility-compliance.html[WebImageViewer]
+|image::images/greenCheck.png[]
+||||||||
+|image::images/greenCheck.png[]
+|||
+|image::images/greenCheck.png[]
+||
+
+| link:webmaskeditor-accessibility-compliance.html[WebMaskEditor]
+|image::images/greenCheck.png[]
+|||||||||||||||
+
+| link:webmonthcalendar-accessibility-compliance.html[WebMonthCalendar]
+|image::images/greenCheck.png[]
+|||||||||||||||
+
+| link:webmonthview-accessibility-compliance.html[WebMonthView]
+|image::images/greenCheck.png[]
+||
+|image::images/greenCheck.png[]
+||
+|image::images/greenCheck.png[]
+|image::images/greenCheck.png[]
+|||||
+|image::images/greenCheck.png[]
+||
+
+| link:webnumericeditor-accessibility-compliance.html[WebNumericEditor]
+|image::images/greenCheck.png[]
+|||||||||||||||
+
+| link:webpercenteditor-accessibility-compliance.html[WebPercentEditor]
+|image::images/greenCheck.png[]
+|||||||||||||||
+
+| link:webprogressbar-accessibility-compliance.html[WebProgressBar]
+|image::images/greenCheck.png[]
+|||||||||||||||
+
+| link:webresizingextender-accessibility-compliance.html[WebResizingExtender]
+|image::images/greenCheck.png[]
+|||||||||||||||
+
+| link:webslider-accessibility-compliance.html[WebSlider]
+|image::images/greenCheck.png[]
+|
+|image::images/greenCheck.png[]
+|
+|image::images/greenCheck.png[]
+|||||||||||
+
+| link:websplitter-websplitter-accessibility-compliance.html[WebSplitter]
+|image::images/greenCheck.png[]
+|||||||||||||||
+
+| link:webtab-accessibility-compliance.html[WebTab]
+|image::images/greenCheck.png[]
+|
+|image::images/greenCheck.png[]
+|||||||||||||
+
+| link:webtexteditor-accessibility-compliance.html[WebTextEditor]
+|image::images/greenCheck.png[]
+|||||||||||||||
+
+| link:webupload.html[WebUpload]
+||
+|image::images/greenCheck.png[]
+|image::images/redX.png[]
+|||||||
+|image::images/greenCheck.png[]
+|
+|image::images/greenCheck.png[]
+|image::images/greenCheck.png[]
+|image::images/greenCheck.png[]
+
+| link:web-webvideoplayer.html[WebVideoPlayer]
+||
+|image::images/greenCheck.png[]
+|image::images/redX.png[]
+|||||
+|image::images/redX.png[]
+|
+|image::images/greenCheck.png[]
+|
+|image::images/greenCheck.png[]
+||
+
+|====
+
+=== 凡例
+
+* image:images/greenCheck.png[] - コントロール/コンポーネントはこの特定の領域で完全にユーザー補助に対応します。
+
+* 「白の領域」 - この特定の規則はコントロールに適用されません。
+
+* image:images/redX.png[] - コントロール/コンポーネントには一部の種類のアクションを実行しない限り、完全にはユーザー補助に対応しません。

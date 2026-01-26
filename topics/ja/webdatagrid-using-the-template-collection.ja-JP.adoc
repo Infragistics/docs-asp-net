@@ -1,0 +1,141 @@
+﻿////
+|metadata|
+{
+    "name": "webdatagrid-using-the-template-collection",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Grids","Templating"],
+    "guid": "{9BBAC0C8-00B8-4B6E-84FA-1EB82072164B}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= テンプレート コレクションの使用
+
+== 始める前に
+
+WebDataGrid™ には共通の再使用できるテンプレートを保存するためにテンプレート コレクションがあります。WebDataGrid コントロールのスマート タグを使用して項目テンプレートをコレクションに追加できます。Templates コレクションを使用してコードでこれを実行することもできます。
+
+WebDataGrid でテンプレート化可能なエレメントとしてテンプレートを使用できます。コレクションは、ユーザーがしばしば使用を予定するテンプレートを保存して素早くアクセスするための場所を提供します。
+
+== 達成すること
+
+一般的に使用されるテンプレートをテンプレート コレクションに追加する方法、そして WebDataGrid で使用するためにそのテンプレートにアクセスする方法を学習します。テンプレートは、多くの異なる作業でユーザーが使用できる送信およびキャンセル ボタンが付いた一般的なテンプレートです。
+
+== 次の手順を実行します
+
+[start=1]
+. WebDataGrid を SqlDataSource コンポーネントにバインドして、Customers テーブルからデータを取得します。実行についての詳細は、 link:webdatagrid-getting-started-with-webdatagrid.html[「WebDataGrid を SQL データ ソースにバインド」]を参照してください。
+[start=2]
+. WebDataGrid のスマート タグをクリックします。
+[start=3]
+. テンプレート コレクションの編集を選択します。テンプレート コレクション エディタが表示します。必要に応じてテンプレートをいくらでも追加できます。
+[start=4]
+. [項目を追加] ボタンをクリックして、空のテンプレートを追加します。
+[start=5]
+. [適用] そして [OK] ボタンをクリックしてエディタを閉じます。
+[start=6]
+. WebDataGrid を右クリックします。
+[start=7]
+. テンプレートの編集にマウスオーバーします。
+[start=8]
+. テンプレート コレクションを選択します。コレクションに存在するテンプレートは、テンプレート エディタに表示されます。
+[start=9]
+. 2 つのボタンを追加したばかりのテンプレート領域にドラッグします。
+[start=10]
+. 1 つのボタンのテキストを送信に設定し、もうひとつをキャンセルに設定します。これでテンプレートを使用できます。
+[start=11]
+. コードで手順 4～10 を実行できます
+
+*Visual Basic の場合：*
+
+----
+' テンプレートを作成します。
+Dim itemTemplate1 As New ItemTemplate()
+' ボタン コントロールが付いたテンプレートをインスタンス化します。
+itemTemplate1.Template = New CustomTemplate()
+' テンプレートをコレクションに追加します。
+Me.WebDataGrid1.Templates.Add(itemTemplate1)
+' テンプレート ID を設定します。
+CType(Me.WebDataGrid1.Templates(0), ItemTemplate).TemplateID = "WebDataGrid1Template1"
+Private Class CustomTemplate Implements ITemplate 
+   Public Sub InstantiateIn(ByVal container As Control)
+      Dim b1 As New Button()
+      Dim b2 As New Button()
+      b1.Text = "Submit"
+      b2.Text = "Cancel"
+      container.Controls.Add(b1)
+      container.Controls.Add(b2)
+   End Sub 
+End Class 
+----
+
+*C# の場合：*
+
+----
+// テンプレートを作成します。
+ItemTemplate itemTemplate1 = new ItemTemplate();
+// ボタン コントロールが付いたテンプレートをインスタンス化します。
+itemTemplate1.Template = new CustomTemplate();
+// テンプレートをコレクションに追加します。
+this.WebDataGrid1.Templates.Add(itemTemplate1);
+// テンプレート ID を設定します。
+((ItemTemplate)this.WebDataGrid1.Templates[0]).TemplateID = "WebDataGrid1Template1";
+private class CustomTemplate : ITemplate
+{
+   #region ITemplate Members
+   public void InstantiateIn(Control container)
+   {
+      Button b1 = new Button();
+      Button b2 = new Button();
+      b1.Text = "Submit";
+      b2.Text = "Cancel";
+      container.Controls.Add(b1);
+      container.Controls.Add(b2);
+   }
+   #endregion
+}
+----
+
+[start=12]
+. 作成したテンプレートの ID を使用して WebDataGrid のテンプレート化可能なエレメントにテンプレートを指定でき、テンプレートの ID をエレメントの TemplateId プロパティに指定して、そのエレメントの代わりにテンプレートを使用できます。
+
+*Visual Basic の場合：*
+
+----
+' テンプレート コレクションからテンプレートにアクセスします。
+Dim itemTemplate As ItemTemplate = CType(Me.WebDataGrid1.Templates(0), ItemTemplate)
+' 行項目に使用するテンプレートを指定します。
+Me.WebDataGrid1.Rows(0).Items(1).TemplateId = "WebDataGrid1Template1"
+----
+
+*C# の場合:*
+
+----
+// テンプレート コレクションからテンプレートにアクセスします。
+ItemTemplate itemTemplate = (ItemTemplate)this.WebDataGrid1.Templates[0];
+// 行項目に使用するテンプレートを指定します。
+this.WebDataGrid1.Rows[0].Items[1].TemplateId = "WebDataGrid1Template1";
+----
+
+[start=13]
+. TemplateId プロパティを持たないエレメントについては（テンプレートのインスタンスをひとつだけ作成するエレメント）、テンプレートの Template プロパティを使用してエレメントに直接テンプレートを指定できます。
+
+*Visual Basic の場合：*
+
+----
+' テンプレート コレクションからテンプレートにアクセスします。
+Dim itemTemplate As ItemTemplate = CType(Me.WebDataGrid1.Templates(0), ItemTemplate)
+' ページングに使用するテンプレートを指定します。
+Me.WebDataGrid1.Behaviors.Paging.PagerTemplate = itemTemplate.Template
+----
+
+*C# の場合：*
+
+----
+// テンプレート コレクションからテンプレートにアクセスします。
+ItemTemplate itemTemplate = (ItemTemplate)this.WebDataGrid1.Templates[0];
+// ページングに使用するテンプレートを指定します。
+this.WebDataGrid1.Behaviors.Paging.PagerTemplate = itemTemplate.Template;
+----

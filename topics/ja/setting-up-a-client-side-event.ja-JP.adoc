@@ -1,0 +1,65 @@
+﻿////
+
+|metadata|
+{
+    "name": "setting-up-a-client-side-event",
+    "controlName": ["WebDialogWindow"],
+    "tags": ["Events"],
+    "guid": "{CD416D7D-0066-4039-A420-6E943CAE81A5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= クライアント側イベントを設定
+
+== 始める前に
+
+{ProductName} コントロールはリッチ クライアント サイド オブジェクト モデルを含んでおり、これによってユーザーのコントロールの対応方法を操作することができます。
+
+*このトピックを完了するために、以下を前提とします。*
+
+* 新しい ASP.NET AJAX 対応の Web サイトを作成している。
+* WebForm 上に ASP.NET AJAX ScriptManager のインスタンスがある。
+* アプリケーションで Infragistics Application Styling を有効にしている。これの実行方法の詳細は、 link:web-enabling-application-styling-using-the-web-config-file.html[web.config ファイルを使用してアプリケーション スタイリングを有効にする]を参照してください。
+* WebSplitter™ のインスタンスはフォーム上にあります。
+
+== 達成すること
+
+WebSplitter コントロールのクライアント側イベントを設定します。
+
+*注:* この手順は、'{ProductName} AJAX Framework' に構築されたすべての {ProductName} コントロールで同様です。
+
+== 次の手順を実行します
+
+[start=1]
+. ソース ビューで、終了の <HEAD> タグを配置してその前に以下のスニペットを配置します。
+
+*JavaScript の場合*
+
+----
+<script type="text/javascript"><!--
+-$$->$$</script>
+----
+
+[start=2]
+. スクリプト ブロック内で、WebSplitter の Expanding イベントの関数を定義します。このイベントは 2 つの引数を受け付けます。これらの引数についての詳細は、クライアント サイド オブジェクト モデル (CSOM) CHM を参照してください。
+
+*JavaScript の場合*
+
+----
+...
+function WebSplitter1_Expanding(sender, splitArgs){
+}
+...
+----
+
+[start=3]
+. デザイン ビューに戻り、WebSplitter コントロールを選択します。
+[start=4]
+. [プロパティ] ウィンドウで、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.websplitter~clientevents.html[ClientEvents]"]  プロパティを指定し展開します。
+[start=5]
+. pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.splitterclientevents~expanding.html[Expanding]"]  プロパティの横に、"WebSplitter1_Expanding" と入力します。これでイベントが定義されました。
+
+*注:* この時点で、展開の時に WebSplitter がタスクを実行するためにコードをイベントに追加する必要があります。

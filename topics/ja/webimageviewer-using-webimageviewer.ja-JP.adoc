@@ -1,0 +1,57 @@
+﻿////
+
+|metadata|
+{
+    "name": "webimageviewer-using-webimageviewer",
+    "controlName": ["WebImageViewer"],
+    "tags": ["How Do I","Layouts","Styling","Templating"],
+    "guid": "{92BD0C03-BE10-438B-AAB3-3AD1679E08DF}",  
+    "buildFlags": [],
+    "createdOn": "2008-12-01T21:03:41Z"
+}
+|metadata|
+////
+
+= WebImageViewer の使用
+
+このセクションは、WebImageViewer™ コントロールの重要な概念および機能を効果的に使用するためのタスク ベースの情報について説明します。
+
+link:webimageviewer-webimageviewer-smart-tag.html[WebImageViewer スマート タグ]
+
+このトピックは WebImageViewer スマート タグ アンカーとポップアップ パネルについて説明し、さまざまなコントロール プロパティと設定について示します。
+
+link:webimageviewer-adding-text-to-webimageviewers-header-and-footer-areas2.html[WebImageViewer のヘッダーおよびフッター領域にテキストを追加する]
+
+このトピックでは、WebImageViewer のヘッダーおよびフッター領域に説明文を設定する方法を説明します。
+
+link:webimageviewer-scroll-animation-types.html[スクロール アニメーション タイプ]
+
+このトピックでは、WebImageViewer のスクロール動作の設定方法およびそのタイプを示します。
+
+link:webimageviewer-change-how-the-image-viewer-scrolls-through-images.html[画像ビューアーのスクロール動作を変更]
+
+このトピックでは、画像スクロール時の WebImageViewer を設定する方法を説明します。
+
+link:webimageviewer-orientation-types.html[方向のタイプ]
+
+このトピックでは、WebImageViewer の向きのタイプとそのコンセプトについて説明します。
+
+link:webimageviewer-change-the-image-viewers-orientation.html[画像ビューアーの向きを変更する]
+
+このトピックでは、画像スクロール時の WebImageViewer の向きを設定する方法を説明します。
+
+link:webimageviewer-adding-images-to-the-webimageviewer-on-the-clientside.html[クライアント側で WebImageViewer に画像を追加する]
+
+このトピックでは、クライアント側で WebImageViewer に画像を追加する方法を説明します。
+
+link:webimageviewer-next-and-previous-buttons.html[次へ/戻るボタン]
+
+このトピックでは、WebImageViewer コントロールの次へ/戻るボタンの設定方法を説明します。
+
+link:webimageviewer-scroll-images-while-dragging-the-mouse.html[マウスドラッグによる画像スクロール]
+
+このトピックでは、WebImageViewer コントロールのドラッグ モードを有効および無効にする方法を説明します。
+
+link:webimageviewer-stop-images-looping-continuously.html[画像ループを停止する]
+
+このトピックではは、WebImageViewer コントロールで画像ループを制限する方法を説明します。

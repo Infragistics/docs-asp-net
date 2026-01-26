@@ -1,0 +1,150 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-creating-a-custom-data-provider",
+    "controlName": ["WebSchedule"],
+    "tags": ["Data Binding","Scheduling","Tips and Tricks"],
+    "guid": "{5A146AF3-C9D2-4A81-874A-34992F0DD523}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= カスタム データ プロバイダの作成
+
+== 始める前に
+
+この詳細なガイドでは、継承を通して WebSchedule のためのシンプルなカスタムのデータ プロバイダ コントロールを作成するための手順を説明します。既存のデータ プロバイダをサブクラス化するとき、データ プロバイダの内部機能のほとんどを制御することができます。以下の手順は、この作業を開始するにあたってのデータ プロバイダの基礎を説明します。
+
+image::images/WebSchedule_Creating_a_Custom_Data_Provider_1.png[]
+
+作業を開始する前に、WebSchedule データ プロバイダのイメージを把握してください。このデータ プロバイダは脳のような重要な機能を果たし、WebScheduleInfo コントロールに最新のアクティビティ、リソース、アラーム情報を提供し、それが WebSchedule ビュー コントロールに渡されます。
+
+保護された API によって、データ プロバイダで次のような多くの強力なカスタマイズを実行できます。
+
+* ConnectionStringDefault プロパティを無効にすることによって、デフォルトのデータベース接続文字列を修正します。
+* CreateConnection メソッドを無効にすることによって、ADO.NET でデータベースへの接続を確立するファクトリ メソッドを変更します。
+* IDataFetch および IDataUpdate インタフェースを実装することによって、Activity および Resource 情報をデータソース間でやり取りする方法を制御します。
+
+WebSchedule の「中枢神経」に変更を加えるには、組み込みのデータ プロバイダの操作履歴を見ると（および WebSchedule アーキテクチャを十分に理解していると）、データ プロバイダ クラスの機能をうまく活用するのに役立ちます。新しいデータ プロバイダを作成することは強力な手段ですが、WebSchedule が正しく機能するために必要な動作を絶対に変更しないように注意する必要があります。
+
+== 次の手順を実行します。
+
+[start=1]
+. Microsoft® Visual Studio® .NET で新しい Web アプリケーション プロジェクトを開きます。
+[start=2]
+. ソリューションを右クリックして、[新規プロジェクトの追加 …] を選択します。
+[start=3]
+. テンプレートのリストから "Web Control Library" を選択し、Web コントロール ライブラリに "CustomProvider" という名前をつけます。これによりテンプレート プロジェクトが "CustomProvider.dll" というアセンブリ ファイルを生成し、この生成ファイルを手順 12 で Web アプリケーション プロジェクトに追加できます。
+
+*注：* Visual Studio .NET 2005 の一部のバージョンでは Web コントロール ライブラリを使用できない場合があります。しかし、その代わりに “Class Library” を選択し、System.Web の名前空間とアセンブリ参照を追加できます。
+
+[start=4]
+. ベースのデータ プロバイダ クラスが依存している以下の Infragistics アセンブリにアセンブリ参照を追加します。
+
+** Infragistics4.WebUI.Shared.v{ProductVersion}.dll
+** Infragistics4.WebUI.WebSchedule.v{ProductVersion}.dll
+** Infragistics4.WebUI.WebScheduleDataProvider.v{ProductVersion}.dll
+
+Web アプリケーションから別のライブラリとしてカスタム データ プロバイダ コントロールを作成するときには、これらのアセンブリの Copy Local フラグが True に設定されていることを確認してください。
+[start=5]
+. Visual Basic .NET では、"CustomProvider" Web コントロール ライブラリのプロパティを編集して、"Example" のデフォルトの Root Namespace を指定する必要があります（C# では、手順 9 で指定したコードによって処理されます）。
+[start=6]
+. ソースファイル "WebCustomControl1.vb"（または "WebCustomControl1.cs"）を開きます。
+[start=7]
+. "Infragistics.WebUI.Data" 名前空間がソース ファイルの先頭になければ追加します。
+[start=8]
+. コントロール クラスの付近に名前空間の宣言がなければ作成してください。この例では、名前空間 "Example" が使用されます。名前空間は、TagPrefix を登録するために必要です（手順 14 を参照）。
+[start=9]
+. コントロール クラス "CustomDataProvider" の名前を変更し、WebScheduleOleDbProviderから 継承するように変更を加えます。事前に生成されたコントロール クラスの使用しないコードのほとんどは削除して、次の本当に必要なクラス定義のみを残すことができます。
+
+*Visual Basic の場合：*
+
+----
+<ToolboxData("<{0}:CustomDataProvider runat='server'></{0}:CustomDataProvider>")> _
+Public Class CustomDataProvider
+  Inherits WebScheduleOleDbProvider
+		‘ さらなるカスタマイズ（コンストラクタ、プロパティ、メソッド）が
+		‘ 必要な場合は、ここで実行します。
+End Class
+----
+
+*C# の場合：*
+
+----
+namespace Example
+{
+	[ToolboxData( "<{0}:CustomDataProvider runat='server'>")]
+	public class CustomDataProvider : WebScheduleOleDbProvider
+	{
+		// さらなるカスタマイズ（コンストラクタ、プロパティ、メソッド）が
+		// が必要な場合は、ここで実行します。
+	}
+}
+----
+
+この例では、データ プロバイダが必要とするすべての機能を組み込みの WebScheduleOleDbProvider コントロールが提供するので、これを拡張します。データ プロバイダのサブクラスを作成するときには、一番適切な組み込みデータ プロバイダを利用し、追加または変更する機能を検討してください。
+
+*注：* リレーショナル データベース管理システムに接続するカスタム データ プロバイダは、WebScheduleDbProvider、またはそのサブクラスからの継承が可能です。動的な SQL と OLE DB を使用するときには、WebScheduleOleDbProvider を選択する必要があります。SQL ストアド プロシージャとベンダー固有の ADO.NET API を使用するときは、通常は WebScheduleSqlClientProvider が最良の選択です。
+
+[start=10]
+. [ソリューション エクスプローラ] ウィンドウで Web Custom Control ライブラリ プロジェクトを右クリックし、[ビルド] を選択します。プロジェクトがうまく作成できないときには、この手順で実行した手順を見直して、必要なアセンブリがすべて参照されていること、およびソース コードで抜けた手順やエラーがないことを確認します。
+[start=11]
+. Web アプリケーション プロジェクトを右クリックして、[参照の追加…] を選択します。
+[start=12]
+. [プロジェクト] タブを選択し、Web アプリケーションに使用する CustomDataProvider コントロールを含む Web Custom Control ライブラリ プロジェクトへの参照を追加します。
+[start=13]
+. "WebForm1.aspx" ファイルをソース ビューで開きます。
+
+*注：* Visual Studio .NET 2005 では、Web サイトのデフォルトの Web フォームの名前の先頭部分は、"WebForm1" ではなく "default" となっている可能性があります。
+
+[start=14]
+. ASPX ページの先頭で、Page ディレクティブの下に、次の Register ディレクティブを追加します。
+
+[source]
+----
+<%@ Register TagPrefix="cc" Namespace="Example" Assembly="CustomProvider" %>
+----
+
+[start=15]
+. <form> タグまでスクロール ダウンして、<form> タグ内のカスタム データ プロバイダ コントロール用に次のタグを追加します。
+
+[source]
+----
+<cc:CustomDataProvider runat='server' id='CustomDataProvider1'></cc:CustomDataProvider>
+----
+
+[start=16]
+. [ソリューション エクスプローラ] ウィンドウで Web フォーム ASPX ファイルを右クリックして [コードを表示] を選択して、"WebForm1.aspx.vb"（または "WebForm1.aspx.cs"）コード ビハインド ファイルを開きます。以下の行があることを確認します。このコードは、手順 15 で使用した ID 属性に一致する CustomDataProvider コントロールを宣言します。
+
+*Visual Basic の場合：*
+
+----
+Protected WithEvents CustomDataProvider1 As Example.CustomDataProvider
+----
+
+*C# の場合：*
+
+----
+protected Example.CustomDataProvider CustomDataProvider1;
+----
+
+[start=17]
+. Web フォームのビューをデザイン ビューに切り替えると、Custom Data Provider コントロールが表示されます。これを選択し、WebSchedule OLE データベース プロバイダのすべてのプロパティを [プロパティ] ウィンドウで使用できることを確認します。
+[start=18]
+. WebScheduleInfo コンポーネントおよび WebSchedule ビュー コントロールを、ツールボックスからデザイン表面にドラッグ アンド ドロップします。
+[start=19]
+. WebSchedule ビューで WebScheduleInfoID プロパティを "WebScheduleInfo1" に設定し、それを WebScheduleInfo コンポーネントに接続します。
+[start=20]
+. WebScheduleInfoID プロパティを Custom Data Provider コントロールに設定し、WebScheduleInfo コンポーネントに接続します。
+
+*注：* この詳細なガイドでは、デフォルトの WebSchedule データベース接続を使用しており、この接続は {ProductName} とともにインストールされた Microsoft Jet データベース ファイルを参照しています。詳細は、 link:webschedule-connecting-webschedule-to-a-database-in-visual-studio-2005.html[「Visual Studio 2005 で WebSchedule をデータベースに接続」] を参照してください。
+
+[start=21]
+. カスタム WebSchedule データ プロバイダを使用して Web アプリケーションを作成し、実行します。  
+
+== 復習
+
+この詳細なガイドでは、継承を使用してカスタム WebSchedule データ プロバイダを作成しました。次に、そのデータ プロバイダを使用して WebSchedule 情報に接続しました。この基本的なカスタム データ プロバイダ コントロールは、WebSchedule のデータ バインドにより高度な変更を加える作業の基礎となります。

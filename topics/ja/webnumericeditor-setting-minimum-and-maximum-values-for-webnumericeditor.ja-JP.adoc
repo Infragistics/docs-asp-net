@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "webnumericeditor-setting-minimum-and-maximum-values-for-webnumericeditor",
+    "controlName": ["WebNumericEditor"],
+    "tags": ["Editing","Error Handling","How Do I"],
+    "guid": "{3FF8A2E2-E2B5-42A0-B039-1B5F82CE0EA9}",  
+    "buildFlags": [],
+    "createdOn": "2009-03-06T10:33:47Z"
+}
+|metadata|
+////
+
+= WebNumericEditor の最小値と最大値を設定
+
+WebNumericEditor™ によって、コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webnumericeditor~minvalue.html[MinValue]"]  および  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webnumericeditor~maxvalue.html[MaxValue]"]  プロパティを設定するだけで、エンドユーザーがエディターに入力できる値の範囲を設定することができます。エンドユーザーが最大値より大きい数を入力すると、エディターはその値を最大値に設定します。同様に、エンドユーザーが最小値より小さい数を入力すると、エディターはその値を最小値に設定します。
+
+Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、MinValue プロパティと MaxValue プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+WebNumericEditor1.MinValue = 10
+WebNumericEditor1.MaxValue = 100
+----
+
+*C# の場合：*
+
+----
+WebNumericEditor1.MinValue = 10;
+WebNumericEditor1.MaxValue = 100;
+----

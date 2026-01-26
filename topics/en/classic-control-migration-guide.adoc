@@ -1,0 +1,53 @@
+﻿////
+|metadata|
+{
+    "name": "classic-control-migration-guide",
+    "controlName": [],
+    "tags": [],
+    "guid": "9f72deb6-71b0-4a08-b276-b67995b3f322",
+    "buildFlags": [],
+    "createdOn": "2011-05-25T15:01:31.2002906Z"
+}
+|metadata|
+////
+
+= {ProductName} Classic Control Migration Guide
+
+== Purpose
+
+Provide an approach to take to replace the classic controls such as UltraWebGrid with the WebDataGrid or WebHierarchicalDataGrid in an existing application.  These steps could be applied to replace any of the retired controls and the UltraWebGrid and WebDataGrid are used as examples as they are complex controls that will take longer to replace than the other controls.  For a full list of controls that are retired and may need to be replaced in your application refer to the link:classic-control-migration-control-mapping.html[ASP.NET AJAX Control Replacements] for Classic Controls.
+
+== Getting Started
+
+To begin using the WebDataGrid (or other ASP.NET AJAX Controls) it is first necessary to set up the references to your project so that you can use the current volume of the WebDataGrid in your application.  In the simplest scenario you can just add the Infragistics45.Web.v{ProductVersion} assembly and the dependent documents assemblies to your application and start using the control.  To do this add the following references:
+
+* Infragistics45.Web.v{ProductVersion}
+* Infragistics45.WebUI.Documents.Word.v{ProductVersion}
+* Infragistics45.WebUI.Documents.Core.v{ProductVersion}
+* Infragistics45.WebUI.Documents.IO.v{ProductVersion}
+* Infragistics45.WebUI.Documents.Reports.v{ProductVersion}
+* Infragistics45.WebUI.Documents.Excel.v{ProductVersion}
+
+Note that if you were referencing an earlier version of any of these assemblies you should be replacing that reference rather than just adding a new reference.
+
+If at this point in time your application builds and runs without issue, you may start using the WebDataGrid in your application to replace the UltraWebGrid.
+
+If your application doesn’t build or doesn’t run correctly, please continue with the rest of this topic to see how to address the most common scenarios.
+
+== What to do if you are using the UltraWebGridExcelExporter and/or UltraWebGridDocumentExporter.
+
+There are a few options that you can use to address this:
+
+1.  Remove the exporters and plan to add the export functionality back after replacing the relevant UltraWebGrid with a WebDataGrid or WebHierarchicalDataGrid.
+
+2.  Compile the source code for exporter assembly you are using so that it is referencing the current version of the Infragistics.Documents.Excel or Infragistics.Documents.Reports assemblies.
+
+== How to upgrade controls that aren’t retired yet other than the ASP.NET AJAX controls like the WebSchedule
+
+As most of these controls references the Infragistics.Shared assembly like the UltraWebGrid (or other retired control) does, it will be necessary to update all assemblies to the current volume.  For the assemblies that are still included in the toolset, simply change the reference.  For the assemblies for the retired controls like the UltraWebGrid it will be necessary to compile the source code for these against the shared assembly in the current volume of the toolset.
+
+**Note:** The recommended approach is to replace all retired controls before upgrading these controls if possible as that approach is simpler.
+
+== The Best Approach to Replacing the retired controls with the newer ASP.NET AJAX Controls
+
+These are different controls and as such it is best to start with how to best accomplish the desired behavior in the new control and then evaluate how much existing code can be reused.  If you start with attempting to reuse all of your code, you may be adding more complexity than needed to using the replacement control.  This is especially true for the more complex controls like the WebDataGrid and WebHierarchicalDataGrid as there are more architectural differences and for those you should also read the link:gridmigrationoverview.html[Migrating from UltraWebGrid to WebDataGrid and WebHierarchicalDataGrid] topic for more details.

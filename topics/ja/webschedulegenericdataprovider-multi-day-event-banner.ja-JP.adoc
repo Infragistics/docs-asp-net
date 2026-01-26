@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedulegenericdataprovider-multi-day-event-banner",
+    "controlName": [],
+    "tags": ["How Do I"],
+    "guid": "{5A97FA96-8F27-46F4-B4D0-F09EA336662D}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 複数日イベント バナー
+
+このセクションは、複数日イベント バナーの特徴を説明します。以下のリンクをクリックすると、それぞれの領域についての説明を読むことができます。
+
+* link:webschedulegenericdataprovider-about-multi-day-event-banner.html[複数日イベント バナーについて]
+* link:webschedulegenericdataprovider-localize-multi-day-event-banner-caption.html[複数日イベント バナー キャプションのローカライズ]
+* link:webschedulegenericdataprovider-style-multi-day-event-banner.html[複数日イベント バナーのスタイル]

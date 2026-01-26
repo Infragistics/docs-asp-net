@@ -1,0 +1,93 @@
+﻿////
+
+|metadata|
+{
+    "name": "webexplorerbar-clientevents",
+    "controlName": ["WebExplorerBar"],
+    "tags": ["Events","How Do I"],
+    "guid": "{34682806-FDD5-4DD3-A3AC-3C593EE0072D}",  
+    "buildFlags": [],
+    "createdOn": "2010-01-03T22:50:44Z"
+}
+|metadata|
+////
+
+= クライアント側イベント
+
+WebExplorerBar™ には多様なクライアント側イベントがあり、インタラクティブなアプリケーションを作成するための柔軟性を開発者に提供します。以下は使用可能なイベントのリストです。
+
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.explorerbarclientevents~itemclick.html[ItemClick]"]  – マウス クリックがグループまたは項目に発生すると常に発生します。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.explorerbarclientevents~itemhovered.html[ItemHovered]"]  – グループまたは項目の上にマウスが移動されると常に発生します。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.explorerbarclientevents~itemunhovered.html[ItemUnhovered]"]  – グループまたは項目の上からマウスが移動されると常に発生します。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.explorerbarclientevents~itemexpanding.html[ItemExpanding]"]  – グループまたは項目が展開されようとする時に常に発生します。これはキャンセルできます。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.explorerbarclientevents~itemexpanded.html[ItemExpanded]"]  – グループまたは項目が展開されたばかりの時に常に発生します。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.explorerbarclientevents~itemcollapsing.html[ItemCollapsing]"]  – グループまたは項目が縮小されようとする時に常に発生します。これはキャンセルできます。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.explorerbarclientevents~itemcollapsed.html[ItemCollapsed]"]  – グループまたは項目が縮小されたばかりの時に常に発生します。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.explorerbarclientevents~itempopulating.html[ItemPopulating]"]  – グループがサーバーから子項目をフェッチする前に発生します。これはキャンセルできます。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.explorerbarclientevents~itempopulated.html[ItemPopulated]"]  – グループがサーバーから子項目をフェッチした後で発生します。
+
+
+*注：* すべてのこれらのクライアント側イベントはグループまたは項目をイベント引数として取得します。 link:webexplorerbar~infragistics.web.ui.explorerbareventargs~getexplorerbaritem.html[getExplorerBarItem] メソッドを呼び出すことによってイベントが発生するグループまたは項目のインスタンスを取得できます。
+
+
+以下の例は、ItemClicked イベントに接続する方法を示します。
+
+*HTML の場合:*
+
+----
+<ig:WebExplorerBar ID="WebExplorerBar1" runat="server">
+  <ClientEvents ItemClick="ItemClickHandler" />
+    <Groups>
+       <ig:ExplorerBarGroup Text="FirstGroup" Selected="true">
+           <Items>
+              <ig:ExplorerBarItem Text="FirstItem">
+              </ig:ExplorerBarItem>
+           </Items>
+       </ig:ExplorerBarGroup>
+    </Groups>
+</ig:WebExplorerBar>
+----
+
+*Visual Basic の場合：*
+
+----
+Me.WebExplorerBar1.ClientEvents.ItemClick = "ItemClickHandler"
+----
+
+*C# の場合：*
+
+----
+this.WebExplorerBar1.ClientEvents.ItemClick = "ItemClickHandler";
+----
+
+*JavaScript の場合：*
+
+----
+function ItemClickHandler(sender, args) {
+    alert("You clicked " + args.getExplorerBarItem().get_text());
+}
+----
+
+== 関連トピック
+
+link:webexplorerbar-smart-tag.html[WebExplorerBar スマートタグ]
+
+link:webexplorerbar-keyboard-navigation.html[キーボード ナビゲーション]
+
+link:webexplorerbar-height-properties.html[WebExplorerBar の高さのプロパティ]
+
+link:webexplorerbar-setting-navigateurl-and-target-properties.html[NavigateURL と Target プロパティの設定]
+
+link:webexplorerbar-binding-to-an-xml-data-source.html[XML データ ソースにバインドする]
+
+link:webexplorerbar-binding-to-webhierarchcialdatasource.html[WebHierarchcialDataSource にバインド]
+
+link:webexplorerbar-serverevents.html[サーバー側イベント]
+
+link:webexplorerbar-selection-behavior.html[選択動作]
+
+link:webexplorerbar-clientside-api.html[ClientSide API]
+
+link:webexplorerbar-clientevents.html[クライアント側イベント]
+
+link:webexplorerbar-styling.html[CSS クラス プロパティ]

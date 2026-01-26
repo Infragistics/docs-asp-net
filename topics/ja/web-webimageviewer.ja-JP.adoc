@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webimageviewer",
+    "controlName": ["WebImageViewer"],
+    "tags": [],
+    "guid": "{9009ABD7-E514-48E4-B648-CCEC8513CC02}",  
+    "buildFlags": [],
+    "createdOn": "2008-12-01T20:41:05Z"
+}
+|metadata|
+////
+
+= WebImageViewer
+
+WebImageViewer™ コントロールに関連した概要/タスクベースの情報のすべてが収められている領域を探しているのであれば、このページをご覧ください。このセクションは、コントロールについての概要からアプリケーションで使用する理由、コントロールを使用して共通タスクを達成するための方法の手順などの WebImageViewer についての有益な情報を含んでいます。
+
+以下のリンクをクリックして、WebImageViewer コントロールについての情報にアクセスします。
+
+== link:webimageviewer-about-webimageviewer.html[WebImageViewer について]
+
+このセクションでは、WebImageViewer コントロールの機能をより良く理解するために助けとなるあらゆる情報や、アプリケーション構築の一環としてこのコントロールの機能を使いたくなる理由が説明されています。
+
+== link:webimageviewer-getting-started-with-the-webimageviewer.html[WebImageViewer で開始]
+
+WebImageViewer コントロールで出来る限り素早く起動して実行するために、コントロール（つまり、フォームに WebImageViewer を追加）を使用する方法についての情報を提供します。
+
+== link:webimageviewer-using-webimageviewer.html[WebImageViewer の使用]
+
+このセクションは、WebImageViewer コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+== link:webimageviewer-webimageviewer-accessibility-compliance.html[WebImageViewer アクセシビリティの遵守]
+
+このトピックは、WebImageViewer が第 508 条の要件を満たす方法を概略します。このアクセシビリティの遵守によって、エンドユーザー、特に障害を持つユーザーが WebImageViewer コントロールを使用して構築された Web アプリケーションにアクセスおよび使用することを可能にします。
+
+== link:webimageviewer-api-overview.html[API の概要]
+
+このトピックは、WebImageViewer コントロールでプログラミング中に作業する名前空間とクラスをリストします。このトピックにリストされる名前空間とクラスは、{ProductName} ヘルプの link:web-api-reference-guide.html[API 参照ガイド]に便宜上リンクします。
+
+== link:webimageviewer~infragistics.web.ui_namespace.html[CSOM の概要]
+
+WebImageViewer™ コントロールは、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを提供します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクトで構成され、開発者はサーバー側にポストバックしなくても、画像ビューアに関連する重要な機能単位をプログラムできます。

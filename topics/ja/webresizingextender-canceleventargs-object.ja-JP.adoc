@@ -1,0 +1,60 @@
+﻿////
+
+|metadata|
+{
+    "name": "webresizingextender-canceleventargs-object",
+    "controlName": [],
+    "tags": ["API","How Do I"],
+    "guid": "{09C3CC53-7F6B-45CE-93F7-219E7C418505}",  
+    "buildFlags": [],
+    "createdOn": "2007-08-02T08:03:51Z"
+}
+|metadata|
+////
+
+= CancelEventArgs オブジェクト
+
+== CancelEventArgs
+
+Infragistics.UI.ExtenderBase オブジェクトのイベント ハンドラ内の 2 番目のパラメータに使用されるクラス。
+
+=== CancelEventArgs メソッド
+
+[cols="a,a"]
+|====
+|*get_cancel* 
+|このメソッドによって、イベントがキャンセルされたかどうかをチェックすることができます。 
+
+*戻り値*
+
+ブール値。
+
+|*getBrowserEvent* 
+|このメソッドによって、ブラウザのイベント オブジェクトへの参照を取得することができます。 
+
+*戻り値*
+
+イベントへの参照、または null。null でない場合、ブラウザの実際のイベントをラップしメンバ変数 rawEvent に配置する Sys.UI.Behavior によって使用されるイベントへの参照となります。 
+
+*解説*
+
+例： 
+
+---- 
+ function myEvntHandler(sender, args)  {  var evt = args.getBrowserEvent();  var rawEvt = evt ? evt.rawEvent : null;  if(rawEvt) 	 alert('Browser event: ' + rawEvt.type);  //if(someCondition)  args.set_cancel(true);  }
+----
+
+|*set_cancel* 
+|このメソッドによってイベントをキャンセルできます。 
+
+*パラメータ*
+
+_value_ 
+
+ブール値。True の値はイベントをキャンセルします。 
+
+*解説*
+
+注：すべてのイベントがキャンセルできるわけではありません。
+
+|====

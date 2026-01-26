@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-webgauge-types",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{F44AD303-0EFB-42A1-96B5-6D4E0312B193}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebGauge タイプ
+
+Gauge コントロールは以下の主要なゲージ タイプを提供します。
+
+* link:webgauge-digital-webgauges.html[デジタル WebGauge] – 自動車のオドメーターに似ています。
+* link:webgauge-linear-gauge.html[リニア ゲージ] – 壁掛けの温度計に似ています。
+* link:webgauge-radial-webgauges.html[放射型 WebGauge] – 自動車のスピードメーターに似ています。

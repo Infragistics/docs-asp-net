@@ -1,0 +1,102 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-infragistics-content-delivery-network-cdn",
+    "controlName": [],
+    "tags": ["API","Performance","Tips and Tricks"],
+    "guid": "2d378609-d01f-444f-9fdc-63fd25a9effb",  
+    "buildFlags": [],
+    "createdOn": "2010-06-05T03:58:16.6107548Z"
+}
+|metadata|
+////
+
+= Infragistics コンテンツ デリバリー ネットワーク (CDN)
+
+{ProductName} コントロールは、コンテンツ デリバリー ネットワーク (CDN) による Javascript、画像 CSS ファイルの配信をサポートします。CDN は全世界に配置されたサーバーの「クラウド」またはネットワークで、オリジナルのホスティング Web サーバーから離れたところに配置されたクライアントにリソースを提供するためにローカル サーバーを提供するようにデザインされています。これらの環境下で CDN の使用を実装することによって、これらの位置に近いサーバー経由でエンドユーザーにリソースをより高速に転送することが可能になります。さらに、Web アプリケーションで CDN のサポートを有効する場合は常に、Web サーバーに CDN リソースを直接保存する必要はありません。これらのリソースは CDN ネットワーク上に存在できます。ただし、{ProductName} CDN はフォールバック モードもサポートします。このモードは、CDN が使用できない場合に、配備されている {ProductName} アセンブリ内に存在するリソースを使用するように戻します。
+
+*注:* デフォルトで、Infragistics はサードパーティの CDN Web サービス プロバイダーを介して CDN のサポートを提供します (変更の対象)。アプリケーションでシームレスな操作と拡張性を可能にするために、{ProductName} CDN 対応のプロパティで以下の URL が使用されます。
+
+* セキュアでない URL - http://cdn-na.infragistics.com/aspnet
+* セキュアな URL - https://secure-cdn-na.infragistics.com/aspnet
+
+現在の CDN プロバイダーへのダイレクトな URL ではなくこれらの URL を用いてすべての CDN 提供のコンテンツを事前に定義することによって、Infragistics は CDN に依存するアプリケーションにネガティブな影響を与えることなくプロバイダーを変更できます。
+
+*注:* CDN 機能のパフォーマンスとアップタイムは Infragistics によって使用されている現在の CDN プロバイダーに依存します。.CDN 機能がベータ版の間、予測できない問題が発生した場合、Infragistics は現在の CDN Web サービス プロバイダーへのリダイレクト サービスの提供を中止する権利を有します。
+
+== CDN のサポートを有効にする
+
+アプリケーション全体に対して Web.config にエントリーすることによって、またはページごとにサポートするために WebScriptManager で構成を設定することによって、CDN のサポートを有効にすることができます。WebScriptManager は {ProductName} コントロールの操作を向上するために、ScriptManager の機能を拡張します。
+
+Web.config で CDN のサポートを有効にするために、以下を追加します。
+
+*HTML の場合:*
+
+----
+<configuration>
+       <configSections>
+        <section name="infragistics.web" type="System.Configuration.SingleTagSectionHandler,System, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/>
+       </configSections>
+<infragistics.web styleSetName="Default" enableCdn="True"/>
+</configuration>
+----
+
+WebScriptManager コンポーネントを使用して CDN を有効にするには、ページのボディに以下を追加します。
+
+*HTML の場合:*
+
+----
+<ig:WebScriptManager runat="server">
+        <InfragisticsCDN Enabled="True"></InfragisticsCDN>
+</ig:WebScriptManager>
+----
+
+アプリケーションに AppStyling を有効にするためにアプリケーション スタイリング コンフィギュレーション ダイアログを使用する時、ローカルでのテストのためにスタイルセット パスとして ~/ig_res/ ディレクトリを使用するオプションがこれまで同様に提供されています。ただし、配備する時、このディレクトリを削除する必要があります。スタイリングに CDN を使用する時はこれは不要になるからです。
+
+== Content
+
+CDN はすべての {ProductName} コントロールのための Javascript、CSS および Image ファイルを提供します。{ProductName} AJAX コントロールでは、すべてのコントロールのための結合した Javascript ファイルを取得するオプションがあります。このオプションは各コントロールの Javascript ファイルに対する複数のリクエストを削減します。WebSchedule、WebHtmlEditor、WebChart、WebGauge、 WebSpellChecker、WebResizingExtender、および WebImageButton コントロールはこのオプションを提供しません。別個の JavaScript ファイルがこれらのコントロールに使用されます。CSS ファイルも結合機能をサポートしません。
+
+結合機能を有効にするには、Web.config ファイルで enableCdnScriptCombining プロパティまたは EnableCombining プロパティ、あるいは WebScriptManager コンポーネントをそれぞれ使用します。
+
+*HTML の場合:*
+
+----
+<infragistics.web styleSetName="Default" enableCdn="True" enableCdnScriptCombining="True"/>
+    <ig:WebScriptManager runat="server">
+        <InfragisticsCDN Enabled="True" EnableCombining="True"></InfragisticsCDN>
+    </ig:WebScriptManager>
+----
+
+すべてのファイルは、サポートするブラウザーのために Gzip を使用して圧縮されて提供されます。これによって送信されるファイルをより小さくすることが可能となり、エンドユーザーのロード時間を短縮できます。エンドユーザーが IE6 のように Gzip 圧縮をサポートしないブラウザーを使用している場合には、圧縮されていないファイルが提供されます。
+
+== CDN の可用性
+
+CDN のアップタイムは 1 日 24 時間です。ただし、サーバーがダウンしている場合、enableCdnFallback プロパティを使用してトラフィックをアプリケーションのサーバーにリダイレクトできます。この設定を有効にすると、CDN に障害が発生した場合、組み込みの JS ファイルが使用され、~/ig_res/ ディレクトリが AppStyling に使用されます。更に ig_common 仮想ディレクトリは、 WebSchedule、WebHtmlEditor、 WebChart、WebGauge、WebSpellChecker、 WebResizingExtender、および WebImageButton コントロールに AppStyling なしに使用されます。
+
+*HTML の場合:*
+
+----
+<infragistics.web styleSetName="Default" enableCdn="True" enableCdnFallback="True"/>
+----
+
+使用したい特定の CDN がある場合、styleSetPath プロパティと javaScriptPath プロパティを使用してこれを指定できます。
+
+*HTML の場合:*
+
+----
+<infragistics.web styleSetName="Default" styleSetPath="http://some.cdn.com/styles/" javaScriptPath="http://some.cdn.com/js/" />
+----
+
+== CDN を使用する利点
+
+* パフォーマンスの向上 - ファイルが CDN にコピーおよび複製されるため、遠隔地からコンテンツにアクセスするエンドユーザーは Web サーバーからコンテンツをダウンロードせずに、その代わりに近くの CDN サーバーからダウンロードします。これによってダウンロードのパフォーマンスが向上します。
+* ネットワーク容量の増加 - 複数の CDN サーバーにわたってファイルが複製される場合、CDN の一部であるこれらのファイルのロードはユーザー固有の Web サーバーではなく、 CDN 全体で共有および配分されます。このため貴重な Web サーバーのリソースを解放するし、結果としてサイトへの同時アクセス件数を増やすことができます。
+* 高い可用性 - CDN にホストされたコンテンツは、戦略的に配置されたネットワーク サーバーのために 100% の可用性とホストされたコンテンツが複製される方法を通常提供できます。
+* ファイルの圧縮 - クライアント コンピュータにファイルは圧縮されたフォーマットで送信されます。これによってダウンロード時間を短縮します。
+* キャッシング - CDN にホストされたコンテンツはキャッシュされます。サポートしている JavaScript、Image および CSS ファイルはクライアント PC にダウンロードされ、クライアントのブラウザーのキャッシュが廃棄されるまで再利用されます。これにより同じファイルを繰り返しダウンロードしなければならないという帯域幅の使用を削減します。
+
+== CDN のサポートを使用しない推奨事例
+
+* 社内イントラネット アプリケーション - ローカルのイントラネット クライアントからアクセスされるアプリケーションは、いくつかの理由から CDN のサポートを使用するように構成すべきではありません。これによって CDN にホストされているコンテンツをダウンロードするためには外部の WWW にアクセスするという依存性が生じます。これがパフォーマンスの低下の原因になります。ローカルのイントラネット コンピューターがローカルのサーバーにアクセスするのではなく、ローカル コンピューターが WWW に接続し、CDN コンテンツを取得しなければならないからです。一部の企業のファイアウォールも WWW アクセスをフィルタリングする場合があります。これによって CDN コンテンツへのアクセスをブロックします。

@@ -1,0 +1,112 @@
+﻿////
+
+|metadata|
+{
+    "name": "webexcelexporter-exporting-data-into-different-file-formats",
+    "controlName": ["WebExcelExporter"],
+    "tags": ["Data Presentation","Exporting","Grids","Persistence"],
+    "guid": "f7dd65a2-b52a-4369-aa83-40e5b4baca8f",  
+    "buildFlags": [],
+    "createdOn": "2010-06-06T07:54:42.6126939Z"
+}
+|metadata|
+////
+
+= データを異なるファイル形式にエクスポート
+
+== 達成すること
+
+WebDataGrid/WebHierarchicalDataGrid データを異なる Excel™ ファイル形式にエクスポートするように WebExcelExporter を設定および使用する方法を学習します。
+
+== 始める前に
+
+ここに示すサンプルをコンパイルおよび実行するためには、{ProductName} をインストールする必要があります。SQL サーバー（Express またはその他任意のエディション）の実行中のインスタンスも必要となりますが、SQL サーバーのインスタンスに NorthWind データベースを添付することも必要となります。 link:http://msdn.microsoft.com/ja-JP/library/8b6y4c7s.aspx[http://msdn.microsoft.com/ja-JP/library/8b6y4c7s.aspx] にある指示に従い NorthWind データベースをインストールするか、 link:http://www.microsoft.com/downloads/details.aspx?familyid=06616212-0356-46a0-8da2-eebc53a68034&displaylang=en[http://www.microsoft.com/downloads/details.aspx?familyid=06616212-0356-46a0-8da2-eebc53a68034&displaylang=en] (英語) から直接データベースをダウンロードすることができます。
+
+WebExcelExporter は Microsoft Office Excel 97-2003 ファイル形式を作成します。ただし同じコントロールを使用して Microsoft Office Excel™ 2007 (以後) ファイル形式でデータをエクスポートすることができます。
+
+== Microsoft Office Excel 2007 形式でデータをエクスポート
+
+以下の手順に従って Microsoft Office Excel™ 2007 ファイル形式でデータをエクスポートします。
+
+[start=1]
+. WebHierarchicalDataGrid を WebHierarchicalDataSource コントロールにバインドして Web ページ（ASP.NET Web フォーム）を作成します。
+
+*HTML の場合:*
+
+----
+<ig:WebHierarchicalDataGrid runat="server" ID="wdgEmpoyees" 
+            DataSourceID="whdsEmployees" 
+            DataKeyFields="EmployeeID" 
+            AutoGenerateColumns="true"
+            >
+</ig:WebHierarchicalDataGrid>
+<asp:SqlDataSource ID="SqlDsEmployees" runat="server" 
+    ConnectionString="<%$ ConnectionStrings:NorthwindConnectionString %>" 
+    SelectCommand="SELECT [EmployeeID], [LastName], [FirstName], [Title], [ReportsTo] FROM [Employees]">
+</asp:SqlDataSource>
+<ig:WebHierarchicalDataSource ID="whdsEmployees" runat="server">
+    <DataViews>
+        <ig:DataView ID="vEmployees" DataSourceID="SqlDsEmployees" />
+    </DataViews>
+    <DataRelations>
+        <ig:DataRelation          ChildDataViewID="vEmployees" ChildColumns="ReportsTo"          ParentDataViewID="vEmployees" ParentColumns="EmployeeID" />
+    </DataRelations>
+</ig:WebHierarchicalDataSource>
+----
+
+[start=2]
+. WebExcelExporter コントロールを Visual Studio Toolbox からページにドラッグします。
+
+.. WebExcelExporter の ExportMode プロパティを Download に設定します。
+.. コントロールの ID プロパティを WebExcelExporter に設定します。
+.. コントロールの DownloadName プロパティを "ExportedData" に設定します。
+
+*HTML の場合:*
+
+----
+<ig:WebExcelExporter runat="server" ID="WebExcelExporter" ExportMode ="Download" DownloadName="ExportedData" />
+----
+
+[start=3]
+. Button コントロールを Visual Studio Toolbox からページにドラッグします。
+
+.. ボタンの ID プロパティを btnExport に設定します。
+.. コントロールの Text プロパティを「データのエクスポート」に設定します。
+.. コントロールの OnClick を btnExport_Click に設定します。
+.. コード ビハインドで btnExport_Click ハンドラーを定義し、WebExcelExporter の Export() メソッド オーバーロードのひとつを呼び出します。
+
+[cols="a"]
+|====
+|コード ビハインド（C#）の場合:
+
+|protected void btnExport_Click(object sender, EventArgs e) 
+
+{ 
+
+Infragistics.Documents.Excel.WorkbookFormat excelFormat = Infragistics.Documents.Excel.WorkbookFormat.Excel2007; 
+
+Infragistics.Documents.Excel.Workbook wBook = new Infragistics.Documents.Excel.Workbook(excelFormat); 
+
+this.WebExcelExporter.Export(this.wdgEmpoyees, wBook); 
+
+}
+
+|====
+
+*HTML の場合:*
+
+----
+<asp:Button runat="server" ID="btnExport" Text="データのエクスポート" OnClick="btnExport_Click" />
+----
+
+[start=4]
+. アプリケーションを実行します。
+[start=5]
+. [データのエクスポート] ボタンをクリックします。
+
+[データのエクスポート] ボタンをクリックした後、ブラウザーで "ExportedData.xls" という名前のファイルを開くのかそれとも保存するのかを尋ねられます。
+
+image::images/WebExcelExporter_Exporting_Data_into_Different_File_Formats_01.png[]
+
+
+*注：* ExportedData.xlsx ファイルは Grid の表示可能なデータしか含みません。

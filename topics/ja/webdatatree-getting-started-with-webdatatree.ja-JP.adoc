@@ -1,0 +1,99 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatatree-getting-started-with-webdatatree",
+    "controlName": ["WebDataTree"],
+    "tags": ["Getting Started"],
+    "guid": "{1F259CE0-8234-4ED7-A605-720FBFF000D5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDataTree で開始
+
+WebDataTree™ によってリッチなユーザー インターフェイス デザイナーを使用してノードを手動で追加できます。外観、動作およびさまざまなその他のプロパティを設定する WebDataTree デザイナーを使用して各ノードをカスタマイズできます。
+
+*デザイナーを使用してノードを WebDataTree に追加するには、次の手順に従ってください。*
+
+[start=1]
+. Visual Studio™ ツールボックスから、ScriptManager コンポーネントと WebDataTree コントロールを WebForm にドラッグ アンド ドロップします。
+[start=2]
+. [プロパティ] ウィンドウで、Nodes プロパティを指定して、省略記号 (...) ボタンをクリックし、WebDataTree デザイナーを起動します。WebDataTree スマート タグで [ノードの編集] をクリックすることによってもデザイナーを起動できます。
+[start=3]
+. [WebDataTree の編集] ダイアログで、[ルートを追加] ボタンをクリックします。これによって新しいルート ノードがノード コレクションに追加されます。以下のプロパティを設定します。
+
+[cols="a,a"]
+|====
+|テキスト|値
+
+|アジア
+|ASIA
+
+|====
+
+[start=4]
+. 作成したばかりのノードを選択し、[子の追加] ボタンをクリックします。これにより子ノードがルート ノードに追加されます。以下のプロパティを設定します。
+
+[cols="a,a"]
+|====
+|テキスト|値
+
+|インド
+|IND
+
+|====
+
+以下を子ノードとして追加するために同じ作業を繰り返します:
+
+[options="header", cols="a,a"]
+|====
+|テキスト|値
+
+|中国
+|CHN
+
+|日本
+|JPN
+
+|====
+
+[start=5]
+. 手順 3 と 4 で示すように以下をルート ノードと子ノードとして追加します。ルート ノード:
+
+[options="header", cols="a,a"]
+|====
+|テキスト|値
+
+|北アメリカ
+|NORTHAMERICA
+
+|====
+
+子のノード:
+
+[options="header", cols="a,a"]
+|====
+|テキスト|値
+
+|アメリカ合衆国
+|USA
+
+|カナダ
+|CND
+
+|====
+
+[start=6]
+. この時点で、[WebDataTree の編集] ダイアログは次のように表示されます。
+
+image::images/WebDataTree_Adding_Nodes_to_WebDataTree_using_the_Designer_01.png[]
+
+[start=7]
+. [OK] をクリックして WebDataTree デザイナーを終了します。
+[start=8]
+. アプリケーションを保存して実行します。この時点で、WebDataTree は次のようになります。
+
+image::images/WebDataTree_Adding_Nodes_to_WebDataTree_using_the_Designer_02.png[]

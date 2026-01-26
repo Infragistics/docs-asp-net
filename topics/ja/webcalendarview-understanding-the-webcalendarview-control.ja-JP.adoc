@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcalendarview-understanding-the-webcalendarview-control",
+    "controlName": ["WebCalendarView"],
+    "tags": ["Getting Started"],
+    "guid": "{22474417-D0FA-4AF8-859B-618C18D7FA8E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebCalendarView コントロールの理解
+
+これは、WebCalendarView コントロール、ならびにその主要な特性と機能についての学習を開始するために絶好の場所です。
+
+* link:webcalendarview-about-webcalendarview.html[WebCalendarView について] -- WebCalendarView コントロールの機能、およびアプリケーション内でこのコントロールを使いたくなる理由について記述します。
+* link:webschedule-navigating-using-next-and-previous-navigational-buttons.html[次におよび前にのナビゲーションボタンを使用してナビゲート] -- このトピックは、使用する表示によって、異なる月、週、日の間をナビゲートする支援をするためにナビゲーション用の矢印を使用する方法を説明します。
+* link:webcalendarview-styling-webcalendarview.html[WebCalendarView をスタイリング] -- このトピックは、WebCalendarView をスタイルするためにさまざまなオブジェクトを使用できる方法を説明します。
+* link:webcalendarview-smart-tag.html[WebCalendarView スマート タグ] -- WebCalendarView スマート タグで使用可能な機能を説明します。

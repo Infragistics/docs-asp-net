@@ -1,0 +1,122 @@
+﻿////
+
+|metadata|
+{
+    "name": "webtab-header-and-content-panes",
+    "controlName": ["WebTab"],
+    "tags": ["How Do I"],
+    "guid": "{10F3AB10-9781-415D-9E12-34223A3D5584}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ヘッダー ペイントとコンテンツ ペイン
+
+WebTab™ によって、アプリケーションに応じて、各タブ項目のヘッダー ペイントとコンテンツ ペインをカスタマイズできます。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.contenttabitem.html[ContentTabItem]"]  オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.contenttabitem~imageurl.html[ImageUrl]"]  プロパティと  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.contenttabitem~text.html[Text]"]  プロパティを設定することによって、タブのヘッダーの画像とテキストを設定できます。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.contenttabitem~imagealignment.html[ImageAlignment]"]  を  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.tabimagealignment.html[TabImageAlignment]"]  列挙体のメンバーのひとつに設定することによって、テキストの前後に画像を配置できます。ContentTabItem オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.contenttabitem~imagealttext.html[ImageAltText]"]  プロパティと  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.layoutpane~tooltip.html[ToolTip]"]  プロパティを使用することによって、画像の代替えテキストとタブのツールチップを設定することもできます。
+
+*Visual Basic の場合：*
+
+----
+Dim Item1 As New ContentTabItem()
+Item1.Text = "tab1"
+Item1.ImageUrl = "~\images\aspNet.gif"
+Item1.ImageAlignment = TabImageAlignment.Trailing 
+Item1.ImageAltText = "IG ASP.NET logo" 
+Item1.ToolTip = "ASP.NET"
+----
+
+*C# の場合：*
+
+----
+ContentTabItem Item1 = new ContentTabItem();
+Item1.Text = "tab1";
+Item1.ImageUrl = "~\\images\\aspNet.gif";
+Item1.ImageAlignment = TabImageAlignment.Trailing;
+Item1.ImageAltText = "IG ASP.NET logo";
+Item1.ToolTip = "ASP.NET";
+----
+
+ContentTabItem オブジェクトの Text プロパティによって html タグの使用が可能となります。これにより、Text プロパティと ImageUrl プロパティによって定義されるテキストと画像に加えて、余分なオブジェクトをタブ ラベルに挿入できます。
+
+*HTML の場合:*
+
+----
+<ig:ContentTabItem Text="IMG object: <img src='images/close.gif' />" ></ig:ContentTabItem>
+----
+
+WebTab は閉じるボタンの使用も可能にします。これによりエンドユーザーはタブを閉じることができます。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.webtab~closebutton.html[CloseButton]"]  オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.tabclosebutton~enabled.html[Enabled]"]  プロパティを True に設定することによって、すべてのタブに閉じるボタンを表示できます。デフォルトでタブの閉じるボタンは無効です。
+
+*HTML の場合:*
+
+----
+<ig:WebTab ID="WebTab1" runat="server" Height="200px" Width="300px">
+        <CloseButton Enabled="True" />
+</ig:WebTab>
+----
+
+*Visual Basic の場合：*
+
+----
+WebTab1.CloseButton.Enabled = true
+----
+
+*C# の場合：*
+
+----
+WebTab1.CloseButton.Enabled = true;
+----
+
+WebTab のコンテンツ ペインは、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.tabcontentpane.html[TabContentPane]"]  クラスのさまざまなプロパティを構成することでカスタマイズできます。TabContentPane オブジェクトの AutoSize プロパティが True に設定されると、WebTab はペインにコンテンツを収めるように自身を調整することができます。
+
+*HTML の場合:*
+
+----
+<ContentPane AutoSize="True">
+</ContentPane>
+----
+
+*Visual Basic の場合：*
+
+----
+WebTab1.ContentPane.AutoSize = true
+----
+
+*C# の場合：*
+
+----
+WebTab1.ContentPane.AutoSize = true;
+----
+
+== 関連トピック
+
+link:webtab-about-webtab.html[WebTab の理解]
+
+link:webtab-getting-started-with-webtab.html[WebTabで開始]
+
+link:webtab-tab-states.html[タブの状態]
+
+link:webtab-ajax-indicator-support-for-webtab.html[WebTab の Ajax インジケーターのサポート]
+
+link:webtab-display-modes.html[表示モード]
+
+link:webtab-animations.html[アニメーション]
+
+link:webtab-handling-overflow-in-webtab.html[WebTab でオーバーフローを処理]
+
+link:webtab-load-on-demand.html[ロードオンデマンド]
+
+link:webtab-orientation-and-alignment.html[方向と配置]
+
+link:webtab-overlapping-tabs.html[タブの重複]
+
+link:webtab-tab-moving.html[タブの移動]
+
+link:webtab-scrolling.html[スクロール]
+
+link:webtab-validation-in-webtab.html[WebTab で検証]
+
+link:webtab-api-overview.html[API の概要]
+
+link:webtab-client-side-object-model.html[クライアント サイド オブジェクト モデル（CSOM）の概要]

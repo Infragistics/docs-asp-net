@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-should-i-use-the-aptca-assemblies-in-visual-studio",
+    "controlName": [],
+    "tags": ["Deployment","Design Environment","FAQ"],
+    "guid": "{85945996-82AF-4A21-BFCE-97E96103AFD8}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Visual Studio で APTCA アセンブリを使用すべきか
+
+Microsoft® Visual Studio® で開発する場合は、AllowPartiallyTrustedCallersAttribute (APTCA) アセンブリを使用する必要はありません。Visual Studio で作業する場合、常に所有しているようにリリース アセンブリ（non-APTCA）が付属するインストーラの実行を続行します。インストーラはリリース アセンブリを、ご使用の開発マシン上の Global Assembly Cache (GAC) に配置して、Full trust で実行することを保証します。Visual Studio でデザイナに提供された拡張されたデザインタイム エクスペリエンスは、現在 Full trust が指定されているかどうか次第です。
+
+Medium trust は、複数ユーザーが共有可能な Web サーバーのリソースをシステム管理者が安全に管理する支援を行うことを目的としてセキュリティ サンドボックスを提供します。ユーザー固有の開発マシンでアプリケーションを設計中の場合、Partial-trust で Visual Studio を実行しても同様のメリットはありません。

@@ -1,0 +1,46 @@
+﻿////
+
+|metadata|
+{
+    "name": "webexplorerbar-keyboard-navigation",
+    "controlName": ["WebExplorerBar"],
+    "tags": ["How Do I","Navigation"],
+    "guid": "{69BB960C-4DD2-488E-9D2A-E69B6FF2F6DD}",  
+    "buildFlags": [],
+    "createdOn": "2010-01-03T22:41:44Z"
+}
+|metadata|
+////
+
+= キーボード ナビゲーション
+
+WebExplorerBar™ は、キーボード ナビゲーションをサポートしており、エンドユーザーがグループと項目間を簡単かつ素早くナビゲートできます。
+
+* 上矢印 / 下矢印 – グループと項目を上/下に移動します。
+* 左矢印 - 選択したグループまたは項目を縮小します。
+* 右矢印 - 選択したグループまたは項目を展開します。
+* Enter – NavigateUrl を起動します。
+
+== 関連トピック
+
+link:webexplorerbar-smart-tag.html[WebExplorerBar スマートタグ]
+
+link:webexplorerbar-keyboard-navigation.html[キーボード ナビゲーション]
+
+link:webexplorerbar-height-properties.html[WebExplorerBar の高さのプロパティ]
+
+link:webexplorerbar-setting-navigateurl-and-target-properties.html[NavigateURL と Target プロパティの設定]
+
+link:webexplorerbar-binding-to-an-xml-data-source.html[XML データ ソースにバインドする]
+
+link:webexplorerbar-binding-to-webhierarchcialdatasource.html[WebHierarchcialDataSource にバインド]
+
+link:webexplorerbar-serverevents.html[サーバー側イベント]
+
+link:webexplorerbar-selection-behavior.html[選択動作]
+
+link:webexplorerbar-clientside-api.html[ClientSide API]
+
+link:webexplorerbar-clientevents.html[クライアント側イベント]
+
+link:webexplorerbar-styling.html[CSS クラス プロパティ]

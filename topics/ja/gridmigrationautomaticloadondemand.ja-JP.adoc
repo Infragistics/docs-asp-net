@@ -1,0 +1,151 @@
+﻿////
+
+|metadata|
+{
+    "name": "gridmigrationautomaticloadondemand",
+    "controlName": [],
+    "tags": [],
+    "guid": "06f07737-5799-4845-8df0-5acc67d3f1ad",  
+    "buildFlags": [],
+    "createdOn": "2016-03-01T09:39:01.2236053Z"
+}
+|metadata|
+////
+
+= グリッドの移行 - 自動ロードオンデマンド
+
+== 自動ロードオンデマンド
+
+クライアントに送信される最初の HTML ページ サイズを縮小するために、WebGrid™ は、ユーザーが要求した場合に限り、LoadOnDemand の 1 つを利用して、親行に対する子行を読み込むことができます。
+
+LoadOnDemand.Xml 設定を使用すると、WebGrid は、子バンドの行を制限し、最上位レベルのバンドで提供される列数を最初に制限することにより、ペイロードをさらに縮小します。
+
+アプリケーションが、データセットを使用してグリッドのデータバインドを行います。はじめに、階層の最上位の 行のみがグリッドに追加されます。データセットに子があるすべてのバンド 0 の行は、[ShowExpand] プロパティが「True」に設定された状態でレンダリングされます。ユーザーが行展開インジケーターをクリックすると、ページがポストバックされ、データバインドが再び実行されます。このとき、展開された行もデータセットから移植されます。展開されていないノードは移植されません。LoadOnDemand の Automatic を使用するには、ポストバックのたびに DataBind() を呼び出す必要があります。
+
+WebHierarchicalDataGrid™ (Aikido) コントロールには、ロードオンデマンド機能があります。このコントロールは、行が展開されたときなど、必要な場合に、データを取得します。InitialDataBindDepth プロパティは、この機能を制御します。このプロパティはデフォルトで 0 に設定され、最初はルート データのみを読み込みます。それ以降の数値は、起動時に読み込むために連続するデータ レベルを決定します。-1 の値はロードオンデマンドを無効にし、すべてのデータ レベルを読み込みます。
+
+[EnableAjax] プロパティは、ロードオンデマンドを使用する場合のデータの受信方法に影響を与えます。このプロパティは、デフォルトで「True」に設定され、非同期でデータを取得できるようにします。このプロパティが「False」の場合は、データ取得はフル ページ ポストバックになります。
+
+このチュートリアルでは、LoadOnDemand.Xml を使用した WebGrid の設定方法を紹介します。
+
+==== 次の手順を実行します。
+
+[start=1]
+. UltraWebGrid オブジェクトの Browser プロパティを Xml に設定します。
+[start=2]
+. DisplayLayout オブジェクトの [LoadOnDemand] プロパティを Xml に設定します。
+[start=3]
+. DisplayLayout オブジェクトの ViewType を Hierarchical に設定します。
+[start=4]
+. InitializeDataSource イベントのサーバー側イベント ハンドラーを追加します。
+
+WebGrid は、InitializeDataSource イベントを使用して、WebGrid にデータを満たします。このイベントで、WebGrid にデータを提供する DataTable または DataSet を生成し、DataSource がデザイン タイムに設定されなかった場合は、WebGrid に接続されていることを確認します。 
+
+InitializeDataSource イベントを作成し、DataTable または DataSet の生成に必要なコードを追加します。デザイン タイムを設定しなかった場合は、次にグリッドの [DataSource] プロパティを設定します。
+
+*注:* 次に使用する関数は、WebGrid の一部ではなく、WebGrid に DataSet オブジェクトを提供する関数です。DataSet オブジェクトの作成については、この記事では説明しません。
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Private Sub UltraWebGrid1_InitializeDataSource(ByVal sender As Object, _
+  ByVal e As Infragistics.WebUI.UltraWebGrid.UltraGridEventArgs) _
+  Handles UltraWebGrid1.InitializeDataSource 
+     Me.UltraWebGrid1.DataSource = makeData()     
+End Sub
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+private void UltraWebGrid1_InitializeDataSource(object sender, 
+  Infragistics.WebUI.UltraWebGrid.UltraGridEventArgs e)
+{ 
+        this.UltraWebGrid1.DataSource = makeData();
+}
+----
+
+5.Band オブジェクトの DataKeyField を設定します。
+
+DataKey は、DataSource の列を識別するために、WebGrid　により使用されます。LoadOnDemand.Xml では、WebGrid が特定の親行に対する子行をすばやく見つけるために DataKey を使用して DataSource をフィルターします。グリッドの InitializeLayout イベントを作成し、次のコードの例を追加します。
+
+コードの例では、Id は親バンドの列、ParentId は子バンドの列です。これは実際に、グリットに対し 2 つのバンドの関係をグリッドに示します。
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Private Sub UltraWebGrid1_InitializeLayout(ByVal sender As Object, _
+  ByVal e As Infragistics.WebUI.UltraWebGrid.LayoutEventArgs) _
+  Handles UltraWebGrid1.InitializeLayout
+    Me.UltraWebGrid1.Bands(0).DataKeyField = "Id"
+    Me.UltraWebGrid1.Bands(1).DataKeyField = "ParentId,Id"
+End Sub
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+private void UltraWebGrid1_InitializeLayout(object sender, 
+  Infragistics.WebUI.UltraWebGrid.LayoutEventArgs e)
+{
+        this.UltraWebGrid1.Bands[0].DataKeyField = "Id";
+        this.UltraWebGrid1.Bands[1].DataKeyField = "ParentId,Id";
+}
+----
+
+*注:*  XML ロードオンデマンドは行ベースであるため、Web アプリケーションのデベロッパーは、UpdateRowBatch イベントを使用する「バッチ」アップデート モデルではなく、UpdateRow イベントを使用することにより、行ベースのアップデート モデルを使用する必要があります。
+
+*復習:*
+
+前述のチュートリアルに従って、LoadOnDemand.Xml を使用するために WebGrid を設定しました。
+
+==== WebHierarchicalDataGrid (Aikido)
+
+WebHierarchicalDataGrid は、オンデマンドで階層データを自動的に読み込みます。デザイン タイムに、グリッドをデータ ソースにバインドし、[InitialDataBindDepth] プロパティを 0 に設定します。その他のプロパティ設定は必要ありません。グリッドは、データバインディングがいつ発生するかをデータ ソースから検出し、必要に応じて、子行をバインドします。
+
+ランタイムにバインドする場合、取得するデータのレベルを WebHierarchicalDataGrid が認識するように、[DataSource/DataSourceID] プロパティをすべてのポストバックで設定する必要があります。これは、ページを読み込むたびに実行できます。または最初にページを読み込む際にデータ バインドを実行できます。その後のデータは、WebHierarchicalDataGrid の RowIslandsPopulating イベントにバインドします。
+
+次に示すコードは、*自動* ロードオンデマンドを有効にします。
+
+*In ASPX:*
+
+[source,html]
+----
+<ig:WebHierarchicalDataGrid ID="WebHierarchicalDataGrid1" runat="server" Height="350px" 
+Width="800px"
+DataKeyFields="CategoryID" DataMember="SqlDataSource1_DefaultView" 
+DataSourceID="WebHierarchicalDataSource1"
+Key="SqlDataSource1_DefaultView" 
+InitialDataBindDepth="0"> 
+</ig:WebHierarchicalDataGrid>
+----
+
+*Visual Basic の場合:*
+
+[source,vb]
+----
+Me.WebHierarchicalDataGrid1.InitialDataBindDepth = 0
+----
+
+*C# の場合:*
+
+[source,csharp]
+----
+this.WebHierarchicalDataGrid1.InitialDataBindDepth = 0;
+----
+
+==== サーバー イベント
+
+RowIslandsPopulating – これは、行アイランドが作成されバインドされる前に発生するキャンセル可能なイベントです。このイベントは、手動のロードオンデマンドに使用できます。キャンセルによって新しい行アイランドが作成されない場合、行はクライアントで展開されません。
+
+RowIslandsPopulated – これは、行アイランドが作成されバインドされた後に発生するイベントです。
+
+==== クライアント イベント
+
+Populating – これはキャンセル可能なイベントで、グリッドがサーバーに対して、子行の読込みの要求を開始する前に発生します。キャンセルすると、行は展開されません。
+
+Populated - これは、子行をサーバーから受信した後、行の展開イベントの前に発生するイベントです。

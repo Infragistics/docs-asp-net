@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-multi-resource-view",
+    "controlName": ["WebSchedule"],
+    "tags": [],
+    "guid": "{6AC9261D-2320-4FF0-B902-896979473A18}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= マルチリソース ビュー
+
+WebSchedule™ コントロールによって、ひとつ以上のリソースおよび対応する予定を表示できます。
+
+この機能の詳細は、以下のリンクをクリックしてください。
+
+* link:webschedule-about-multi-resource-view.html[マルチリソース ビューについて]
+* link:webschedule-set-visible-resources.html[表示可能なリソースを設定]
+* link:webschedule-styling-active-and-inactive-resources.html[アクティブおよび非アクティブ リソースのスタイル]

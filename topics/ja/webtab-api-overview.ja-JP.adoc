@@ -1,0 +1,33 @@
+﻿////
+
+|metadata|
+{
+    "name": "webtab-api-overview",
+    "controlName": ["WebTab"],
+    "tags": ["API"],
+    "guid": "{17E531E1-C970-436C-8410-2786F7525940}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= API の概要
+
+このセクションではコントロールに関連する各名前空間を示します。このコントロールでプログラムに使用するいくつかのキー クラスも提供します。このページの名前空間とクラスは当社の API マニュアルに直接リンクします。
+
+=== WebTab名前空間:
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols_namespace.html[Infragistics.Web.UI.LayoutControls]
+
+=== キー クラス:
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.contenttabitem.html[ContentTabItem]
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.tabcontentpane.html[TabContentPane]
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.webtab.html[WebTab]
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.tabpostbackoptions.html[TabPostBackOptions]
+
+link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.tabcssclasses.html[TabCssClasses]

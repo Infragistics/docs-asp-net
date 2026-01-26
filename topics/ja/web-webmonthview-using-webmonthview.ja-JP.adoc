@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webmonthview-using-webmonthview",
+    "controlName": ["WebMonthView"],
+    "tags": ["Appointments","Recurrences","Scheduling"],
+    "guid": "{9D78656C-61EC-4881-AE7C-C8A1BCDA01AC}",  
+    "buildFlags": [],
+    "createdOn": "2007-05-11T14:29:28Z"
+}
+|metadata|
+////
+
+= WebMonthView の使用
+
+このセクションは、WebMonthView™ コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+各タスクの実行方法については以下のリンクをクリックしてください。
+
+* link:webschedule-format-the-first-day-of-the-month-in-webmonthview.html[WebMonthView で月の最初の日を書式設定]
+* link:webschedule-hide-the-day-of-the-week-header.html[曜日ヘッダを非表示にする]
+* link:webschedule-show-weekends-as-separate-days.html[個別の日として週末を表示]

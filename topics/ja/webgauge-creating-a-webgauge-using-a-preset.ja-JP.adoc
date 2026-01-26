@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-creating-a-webgauge-using-a-preset",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{F632C45C-455B-43DE-9B98-A22671B619D6}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= プリセットを使用して WebGauge を作成
+
+このセクションは、プリセットを使用してゲージを作成する方法について説明します。
+
+* link:webgauge-creating-a-digital-webgauge-using-the-webgauge-presets.html[ゲージ プリセットを使用してデジタル ゲージを作成]
+* link:webgauge-creating-a-linear-webgauge-using-the-webgauge-presets.html[ゲージ プリセットを使用してリニア ゲージを作成]
+* link:webgauge-creating-a-radial-webgauge-using-the-webgauge-presets.html[ゲージ プリセットを使用してラジアル ゲージを作成]

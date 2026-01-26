@@ -1,0 +1,144 @@
+﻿////
+
+|metadata|
+{
+    "name": "persistenceframework-getting-started-with-persistence-framework",
+    "controlName": ["PersistenceFramework"],
+    "tags": ["Persistence"],
+    "guid": "956e076a-43e5-439c-b567-c9c45ecd6560",  
+    "buildFlags": [],
+    "createdOn": "2011-03-31T07:45:31.4975121Z"
+}
+|metadata|
+////
+
+= Persistence Framework で開始
+
+Persistence Framework の使用を開始するには、Web.config ファイルの Infragistics セクションに適切な属性を追加する必要があります。以下の設定はページごとにコンポーネントを有効にします。
+
+[cols="a"]
+|====
+|*Web.config で:*
+
+|---- 
+<infragistics.web enablePersistence="true" 
+ persistenceIgnoreLoadingOnPostBack="true" 
+ persistenceIgnorePasswords="true"/>
+----
+
+|====
+
+ここから、Persistence イベントを処理してデータを保存するために必要なロジックを実装するためのオプションが 2 つあります。最初のアプローチは、Global.asax ファイルのハンドラーを添付し、その中のロジックをすべてのページに対して有効で整合するようにすることです。これは、同じようにページごとにすべてのコントロールを自動的に保存したい場合に優れたアプローチです。
+
+たとえば、以下のメソッドを使用できる XML ファイルですべてのページの状態を保持したいとします。
+
+[cols="a"]
+|====
+|*C# の場合:*
+
+|---- 
+public void Application_Start(object sender, EventArgs e) 
+{ 
+ AppSettings.PersistenceManager.PersistenceLoading += LoadingHandler; 
+ AppSettings.PersistenceManager.PersistenceLoaded += LoadedHandler; 
+ AppSettings.PersistenceManager.PersistenceSaving += SavingHanlder; 
+ AppSettings.PersistenceManager.PersistenceSaved += SavedHandler; 
+}
+----
+
+|====
+
+注*:* ハンドラーの実装の詳細は、以下に説明します。
+
+ページごとにロジックが整合しない場合、Global.asax の使用はパーシステンスを実装するのに適した場所ではありません。したがって、個々のハンドラーを各ページに添付できます。このアプローチはより柔軟で、必要なデータのみを保持して、Global.asax ファイルをクリーンアップするさらなる自由を与えます。
+
+[cols="a"]
+|====
+|*C# の場合:*
+
+|---- 
+protected void Page_Init(object sender, EventArgs e) 
+{ 
+ if (!Page.IsPostBack) 
+ { 
+ if (!IsSubscribed) 
+ { 
+ AppSettings.PersistenceManager.PersistenceLoading += 
+ this.LoadingHandler; 
+ AppSettings.PersistenceManager.PersistenceLoaded += 
+ this.LoadedHandler; 
+ AppSettings.PersistenceManager.PersistenceSaving += 
+ this.SavingHanlder; 
+ AppSettings.PersistenceManager.PersistenceSaved += 
+ this.SavedHandler; 
+ IsSubscribed = true; 
+ } 
+ } 
+} 
+protected bool IsSubscribed 
+{ 
+ get 
+ { 
+ return Convert.ToBoolean(Session["isSubscribed"]); 
+ } 
+ set 
+ { 
+ Session["isSubscribed"] = value; 
+ } 
+}
+----
+
+|====
+
+*注:* ハンドラーが添付されたら、ページが要求されるたびに添付を回避する必要があります。上記の例は、これを実行するひとつの方法です。
+
+いずれは、保持データにアクセスすることができ、保存して再度読み込む機会が与えられます。以下のコードは、Persistence Framework の XML メソッドを使用してデータをシリアル化および逆シリアル化する方法を示します。Persistence Framework もデータを JSON ストリームにシリアル化できるメソッドを装備しています。すでにイベントに添付した場合には、保持のために上記のどのメソッドを使用しているかに基づいて、Global.asax または個々のページのいずれかに次のコード行を実装できます。
+
+[cols="a"]
+|====
+|*C# の場合:*
+
+|---- 
+protected void LoadingHandler (object sender, PersistenceLoadingEventArgs e) 
+{ 
+ if (!string.IsNullOrEmpty(this.StoredData)) 
+ { 
+ e.PersistenceData = PersistenceData.FromXml(this.StoredData); 
+ } 
+} 
+protected void LoadedHandler(object sender, PersistenceEventArgs e) 
+{ 
+} 
+protected void SavingHandler (object sender, PersistenceSavingEventArgs e) 
+{ 
+} 
+protected void SavedHandler (object sender, PersistenceEventArgs e) 
+{ 
+ if (e.PersistenceData == null) 
+ { 
+ return; 
+ } 
+ this.StoredData = e.PersistenceData.ToXml(); 
+} 
+protected string StoredData 
+{ 
+ get 
+ { 
+ return Convert.ToString(Application["PersistedData"]); 
+ } 
+ set 
+ { 
+ Application["PersistedData"] = value; 
+ } 
+}
+----
+
+|====
+
+*注:* この例はアプリケーション オブジェクトを使用してデータを保存します。アプリケーション オブジェクトがアクティブの間にパーシステンスが機能するのはこのためです。保持されたデータをファイルに保存する場合、パーシステンスはアプリケーションから独立して保存します。
+
+== 関連トピック
+
+== 関連リンク
+
+link:persistenceframework-about-persistence-framework.html[Persistence Framework について] link:persistenceframework-exclude-control.html[]

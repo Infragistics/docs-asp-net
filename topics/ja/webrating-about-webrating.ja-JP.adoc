@@ -1,0 +1,51 @@
+﻿////
+
+|metadata|
+{
+    "name": "webrating-about-webrating",
+    "controlName": ["WebRating"],
+    "tags": ["API","Getting Started","How Do I","Selection"],
+    "guid": "aaff47b6-76e2-402a-8886-cde582d63f58",  
+    "buildFlags": [],
+    "createdOn": "2010-06-01T05:35:08.6241565Z"
+}
+|metadata|
+////
+
+= WebRating について
+
+== ユーザー平均および投票数
+
+WebRating™ コントロールによって、エンドユーザーに評価画像を表示して、画像をクリックした時にエンドユーザーの入力を記録することができます。このコントロールは、それぞれ  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webrating~average.html[Average]"]  プロパティと  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webrating~votecount.html[VoteCount]"]  プロパティでユーザーの平均評価と投票数を保存します。評価および対応する投票数は、コントロール ポストバック時に限って記録されます。
+
+pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webrating~autopostbackflags.html[AutoPostBackFlags]"] . pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.ratingautopostbackflags~rated.html[Rated]"]  プロパティを設定することによって、フルページまたは非同期ポストバックを有効にできます。このプロパティが Async または On に設定されている場合、ユーザーが評価画像をクリックするとコントロールはポストバックします。
+
+*注：* Average および VoteCount プロパティは、現在のユーザーの平均および投票数を保存するだけです。この情報を表示したい場合、すべてのユーザーの平均および投票数を決定する必要があります。
+
+== 評価値
+
+WebRating コントロールの平均値は、各評価項目ごとに指定された値によって決定されます。これは、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webratingimagecollection.html[WebRatingImageCollection]"]  コレクションで各  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.ratingimageitem.html[RatingImageItem]"]  オブジェクトごとに  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.ratingimageitem~value.html[Value]"]  プロパティを設定することによって決定されます。平均値はクリックされた画像およびクリック数に基づいて計算されます。
+
+評価値の設定についての詳細は、 link:webrating-adding-webrating-items.html[「WebRating 項目の追加」]を参照してください。
+
+== 評価の選択
+
+WebRating コントロールは、ユーザーが最後にクリックした評価値を選択します。この選択は、その値に至るまで評価画像を塗りつぶす色でスタイルされます。
+
+image::images/WebRating_About_WebRating_01.png[]
+
+この選択は、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webrating~enablecontinuousselection.html[EnableContinuousSelection]"]  プロパティによって制御されます。この値はデフォルトで True になっており、選択した値に先行するすべての項目で選択したスタイルを描画します。このプロパティを False に設定して、選択した項目だけに対して選択したスタイルを描画できます。
+
+image::images/WebRating_About_WebRating_02.png[]
+
+この選択した評価値は、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webrating~precision.html[Precision]"]  プロパティによって制御されます。このプロパティは、Exact、Half、および Whole の 3 つの RatingPrecision 列挙値を取得します。Exact 値によって、エンドユーザーはクリックしたポイントで正確に値を選択できます。Half 値は次の半値に丸め、Whole 値は次の全体値に丸めます。
+
+*注：* Half または Whole RatingPrecision 値で、コードに  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webrating~value.html[Value]"]  プロパティを設定することによって、正確な値を設定できます。
+
+WebRating には  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webrating~enableshowselectiononhover.html[EnableShowSelectionOnHover]"]  と呼ばれるプロパティもあります。これは、マウス オーバーに基づいて選択された評価項目の表示を制御します。このプロパティはデフォルトでは True で、他の値にマウスを重ねると、選択した値を表示します。False に設定すると、マウスが重ねられた場合だけ値を表示します。
+
+== カスタム画像およびスタイル
+
+WebRating コントロールによって、評価項目として独自の画像を指定したり、コントロールの異なる状態にカスタム スタイルを設定できます。デフォルトでは、このコントロールは星として評価画像を表示します。独自の CSS クラスを設定することによって、選択されたスタイルとホバーされたスタイルを変更できます。WebRating は、コントロールのルック アンド フィールをカスタマイズするために、さまざまな CSS プロパティを公開します。
+
+カスタム スタイルについての詳細は、 link:webrating-styling-webrating.html[「WebRating のスタイル」]を参照してください。

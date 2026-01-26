@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatetimeeditor-reducing-day-on-invalid-date-in-webdatetimeeditor",
+    "controlName": ["WebDateTimeEditor"],
+    "tags": ["Editing","How Do I","Tips and Tricks"],
+    "guid": "{D003183C-BFE4-4931-81BC-A913D08D0A22}",  
+    "buildFlags": [],
+    "createdOn": "2009-04-06T17:08:18Z"
+}
+|metadata|
+////
+
+= WebDateTimeEditor で無効な日付で日を削減
+
+一般的なエンドユーザーのシナリオは、その月の日を実際に超えている月の日を入力する時です。WebDateTimeEditor™ によって無効な入力時に月の日の値を自動的に削減することによって的確にこの状況を処理できます。月の日はその月の最後の日に削減されます。WebDateTimeEditor コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webdatetimeeditor~reducedayoninvaliddate.html[ReduceDayOnInvalidDate]"]  プロパティを設定するだけでこの機能は有効になります。たとえばこの機能を有効にした状態で、エンドユーザーが 11 月の日付フィールドに 31 を入力すると、エディターは日付フィールドをその月の最大日である 30 に自動的に設定します。ただし、この機能が有効ではない場合、エディターは日フィールドを 1 に設定し、日付は翌月の 12 月に基本的に進みます。
+
+Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、ReduceDayOnInvalidDate プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+WebDateTimeEditor1.ReduceDayOnInvalidDate = true
+----
+
+*C# の場合：*
+
+----
+WebDateTimeEditor1.ReduceDayOnInvalidDate = true;
+----

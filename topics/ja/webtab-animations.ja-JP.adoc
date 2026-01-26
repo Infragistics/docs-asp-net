@@ -1,0 +1,97 @@
+﻿////
+
+|metadata|
+{
+    "name": "webtab-animations",
+    "controlName": ["WebTab"],
+    "tags": ["How Do I"],
+    "guid": "{9500CD52-55B8-456C-A165-C77079DE80AF}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アニメーション
+
+WebTab™ はタブを閉じたり開いたりする時にアニメーションをサポートし、エンドユーザーに豊富な UI を提供します。新しいタブを開く時のアニメーション効果は、タブ項目のサイズと不透明度を徐々に増やして表示します。これはアニメｰションの時間によって異なります。これは  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.webtab~addnewtabitem.html[AddNewTabItem]"]  オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.tabaddnewitem~animationduration.html[AnimationDuration]"]  プロパティによって設定できます。
+
+*注：* 新しいタブを開くオプションをエンドユーザーに提供するためには、AddNewTabItem オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.tabaddnewitem~enabled.html[Enabled]"]  プロパティを True に設定する必要があります。
+
+*HTML の場合:*
+
+----
+<AddNewTabItem AnimationDuration="1500" Enabled="True">
+----
+
+*Visual Basic の場合：*
+
+----
+WebTab1.AddNewTabItem.Enabled = True 
+WebTab1.AddNewTabItem.AnimationDuration = 1500
+----
+
+*C# の場合：*
+
+----
+WebTab1.AddNewTabItem.Enabled = true;
+WebTab1.AddNewTabItem.AnimationDuration = 1500;
+----
+
+タブを閉じる時のアニメーション効果は、タブ項目のサイズと不透明度を徐々に減らして表示します。これはアニメｰションの時間によって異なります。これは CloseButton オブジェクトの AnimationDuration プロパティによって設定できます。
+
+*注：* タブを閉じるオプションをエンドユーザーに提供するためには、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.webtab~closebutton.html[CloseButton]"]  オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.tabclosebutton~enabled.html[Enabled]"]  プロパティを True に設定する、または link:webtab~infragistics.web.ui.tabitem.html[TabItem] オブジェクトの link:webtab~infragistics.web.ui.tabitem~hidden.html[hidden] プロパティを True に設定する必要があります。
+
+*HTML の場合:*
+
+----
+<CloseButton AnimationDuration="1500" Enabled="True" />
+----
+
+*Visual Basic の場合：*
+
+----
+WebTab1.CloseButton.Enabled = True
+WebTab1.CloseButton.AnimationDuration = 1500
+----
+
+*C# の場合：*
+
+----
+WebTab1.CloseButton.Enabled = true;
+WebTab1.CloseButton.AnimationDuration = 1500;
+----
+
+*注：* アニメーションの時間は 0 から 1500 のミリ秒で設定されます。ただし 30 未満の値はゼロに等しくなります。
+
+== 関連トピック
+
+link:webtab-about-webtab.html[WebTab の理解]
+
+link:webtab-getting-started-with-webtab.html[WebTabで開始]
+
+link:webtab-header-and-content-panes.html[ヘッダー ペイントとコンテンツ ペイン]
+
+link:webtab-tab-states.html[タブの状態]
+
+link:webtab-ajax-indicator-support-for-webtab.html[WebTab の Ajax インジケーターのサポート]
+
+link:webtab-display-modes.html[表示モード]
+
+link:webtab-handling-overflow-in-webtab.html[WebTab でオーバーフローを処理]
+
+link:webtab-load-on-demand.html[ロードオンデマンド]
+
+link:webtab-orientation-and-alignment.html[方向と配置]
+
+link:webtab-overlapping-tabs.html[タブの重複]
+
+link:webtab-tab-moving.html[タブの移動]
+
+link:webtab-scrolling.html[スクロール]
+
+link:webtab-validation-in-webtab.html[WebTab で検証]
+
+link:webtab-api-overview.html[API の概要]
+
+link:webtab-client-side-object-model.html[クライアント サイド オブジェクト モデル（CSOM）の概要]

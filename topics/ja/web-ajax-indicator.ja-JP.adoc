@@ -1,0 +1,99 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-ajax-indicator",
+    "controlName": ["WebAjaxIndicator"],
+    "tags": ["Getting Started","How Do I"],
+    "guid": "{8224439D-CEDE-4EE8-9CFE-5A549FD89E44}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= AJAX インジケーター
+
+このページには、AJAX インジケーター関連の概要/タスクベースの情報がすべて含まれています。
+
+== AJAX インジケーターについて
+
+AJAX インジケーターは、{ProductName} AJAX コントロールはコールバックが完了するのを待機する間、エンドユーザーに待機通知を表示します。インジケーターは、コントロールが AJAX の呼び出しを起動する時に表示し、コールバックが完了すると自動的に非表示になります。AJAX インジケーターは画像または html のいずれかの形式でエンドユーザーに警告するよう構成できます。デフォルトで、すべての Infragistics™ AJAX コントロールには共通のプロパティ設定が行われた共有された Ajax インジケーターが存在します。
+
+AJAX インジケーターを各コントロールに、または web.config ファイルによってアプリケーション全体に対してグローバルに設定できます。共有された AJAX インジケーター設定は、コントロール レベルの AJAX 設定でオーバーライドできます。特定のコントロールに対して設定された AJAX インジケーターでグローバルに設定された AJAX インジケーターとプロパティの競合が発生する場合、コントロール レベルの設定が優先されます。
+
+AJAX インジケーターはタイプが DefaultableBoolean の  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.ajaxindicator~enabled.html[Enabled]"]  プロパティを使用して有効または無効にできます。各 InfragisticsAJAX コントロールの Enabled プロパティはデフォルトで NotSet に設定されます。インジケーターの位置はページ上の任意の場所またはコントロールに関係する任意の場所に配置するように設定できます。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.ajaxindicator~location.html[Location]"]  および  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.ajaxindicator~relativetocontrol.html[RelativeToControl]"]  プロパティ設定を使用してこれを実行できます。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.ajaxindicator~text.html[Text]"]  または  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.ajaxindicator~imageurl.html[ImageUrl]"]  プロパティを使用して待機メッセージを表示することができ、両方のプロパティが設定される場合、Text プロパティは ImageUrl プロパティより優先されます。
+
+== AJAX インジケーターを使用
+
+== コントロール レベルで AJAX インジケーターを構成
+
+Ajax インジケーターは、アプリケーションで使用される各 Ajax コントロールごとに有効または無効に設定できます。デフォルトで共有された Ajax インジケーターは有効です。したがって、任意のコントロールに対して特にインジケーターを無効にしたい場合には、コントロール レベルで Ajax インジケーターの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.ajaxindicator~enabled.html[Enabled]"]  プロパティを False に設定することで無効にできます。コントロール レベルの Ajax インジケーターのプロパティ設定は共有のインジケーターの設定よりも優先されます。
+
+Text および ImageUrl プロパティをそれぞれ使用して設定できるテキストまたは画像のいずれかを表示するようにインジケーターの待機メッセージを構成できます。両方のプロパティが設定される場合、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.ajaxindicator~text.html[Text]"]  プロパティが  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.ajaxindicator~imageurl.html[ImageUrl]"]  プロパティよりも優先されます。Ajax インジケーターに対するすべてのコントロールレベルの設定はデザインタイムとランタイムの両方で設定できます。
+
+image::Images/WebAjaxIndicator_Configuring_Ajax_Indicator_at_Control_level.png[]
+
+*Visual Basic の場合：*
+
+----
+Me.WebDataGrid1.AjaxIndicator.Enabled = Infragistics.Web.UI.DefaultableBoolean.[True] 
+Me.WebDataGrid1.AjaxIndicator.Text = "Ajax Call Wait Indicator" 
+Me.WebDataGrid1.AjaxIndicator.Location = Infragistics.Web.UI.RelativeLocation.AboveCenter 
+' コントロール固有の Ajax インジケーターの位置を設定します 
+Me.WebDataGrid1.AjaxIndicator.RelativeToControl = Infragistics.Web.UI.DefaultableBoolean.[True] 
+' Ajax 呼び出しの間コントロールをブロックまたはグレー表示にします 
+Me.WebDataGrid1.AjaxIndicator.BlockArea = Infragistics.Web.UI.AjaxIndicatorBlockArea.Control
+----
+
+*C# の場合：*
+
+----
+this.WebDataGrid1.AjaxIndicator.Enabled = Infragistics.Web.UI.DefaultableBoolean.True;
+this.WebDataGrid1.AjaxIndicator.Text = "Ajax Call Wait Indicator";
+this.WebDataGrid1.AjaxIndicator.Location = Infragistics.Web.UI.RelativeLocation.AboveCenter;
+// コントロール固有の Ajax インジケーターの位置を設定します
+this.WebDataGrid1.AjaxIndicator.RelativeToControl = Infragistics.Web.UI.DefaultableBoolean.True;
+// Ajax 呼び出しの間コントロールをブロックまたはグレーに表示します
+this.WebDataGrid1.AjaxIndicator.BlockArea = Infragistics.Web.UI.AjaxIndicatorBlockArea.Control;
+----
+
+== グローバルに AJAX インジケーターを構成
+
+Ajax インジケーターは web.config ファイル内の構成設定をサポートします。web.config ファイルによる構成はアプリケーションの全ページの Ajax インジケーターに影響します。以下のプロパティは web.config ファイルの セクション内に指定できます:
+
+* ajaxIndicatorEnabled
+* ajaxIndicatorBlockArea
+* ajaxIndicatorImageUrl
+* ajaxIndicatorText
+
+以下のコード例は全ページ上のすべての Ajax コントロールに対して、アプリケーション全体で Ajax インジケーターを有効にします。また Ajax 呼び出しの間ページ全体を無効またはグレー表示にします。
+
+----
+<infragistics.web styleSetName="Default" styleSetPath="~/ig_res" ajaxIndicatorEnabled="true" ajaxIndicatorBlockArea ="page"/>
+----
+
+デフォルトで、グローバルに共有された Ajax インジケーターはすべての Infragistics™ AJAX コントロールに対して有効で、すべてのコントロールはインジケーターに対応する共通のプロパティ設定を共有します。デフォルトの Ajax インジケーターの画像が以下の Web アプリケーションに配置されるすべてのコントロールに適用されます：*ig_res/(Default)/images/ig_ajaxIndicator.gif* 共有の Ajax インジケーターのこれらのデフォルト設定はサーバー側とクライアント側両方のコードから修正できます。以下のコードはサーバー側とクライアント側のコードによって共有の Ajax インジケーターへの参照を取得する方法を示します。
+
+*Visual Basic の場合：*
+
+----
+Dim ai As Infragistics.Web.UI.AjaxIndicator = Infragistics.Web.UI.Framework.AppSettings.SharedAjaxIndicator
+ai.Location = Infragistics.Web.UI.RelativeLocation.BottomCenter 
+ai.BlockArea = Infragistics.Web.UI.AjaxIndicatorBlockArea.Control
+----
+
+*C# の場合：*
+
+----
+Infragistics.Web.UI.AjaxIndicator ai = Infragistics.Web.UI.Framework.AppSettings.SharedAjaxIndicator;
+ai.Location = Infragistics.Web.UI.RelativeLocation.BottomCenter;
+ai.BlockArea = Infragistics.Web.UI.AjaxIndicatorBlockArea.Control;
+----
+
+*JavaScript の場合：*
+
+----
+var ai = $util.get_ajaxIndicator();
+ai.set_imageUrl('myImage.gif');
+----

@@ -1,0 +1,69 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatatree-using-webdatatree",
+    "controlName": ["WebDataTree"],
+    "tags": [],
+    "guid": "{DD80F8CB-C09C-43A1-9F99-E67EE3494038}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDataTree の使用
+
+このセクションは、WebDataTree™ コントロールの重要な概念および機能を効果的に使用するためのタスク ベースの情報について説明します。
+
+link:webdatatree-webdatatree-smart-tag.html[WebDataTree スマート タグ]
+
+このトピックでは、 WebDataTree スマート タグ アンカーおよびポップアップ パネル、さまざまなコントロール プロパティと設定について説明します。
+
+link:webdatatree-keyboard-navigation.html[キーボード ナビゲーション]
+
+このトピックでは、キーボードを使用した WebDataTree 項目のナビゲーション方法について説明します。
+
+link:webdatatree-animations-for-expanding-and-collapsing-nodes.html[ノードの展開および縮小のアニメーション]
+
+このトピックでは、ノードの展開および縮小時に WebDataTree がサポートする異なるアニメーション タイプについて説明します。
+
+link:webdatatree-binding-to-data.html[データにバインド]
+
+このトピックでは、WebDataTree コントロールをデータソース (Infragistics データソース コントロールを含む) にバインドする方法を示します。
+
+link:webdatatree-connector-lines-in-webdatatree.html[WebDataTree の接続線]
+
+このトピックでは、WebDataTree を設定してノード間にコネクターを描画する方法を説明します。
+
+link:webdatatree-load-on-demand.html[ロード オン デマンド]
+
+このトピックでは、WebDataTree のロードオンデマンド機能、またデータ読み込み時のメッセージをカスタマイズする方法を説明します。
+
+link:webdatatree-node-editing.html[ノード編集]
+
+このトピックでは、WebDataTree ノードの編集を有効または無効にする方法を説明します。
+
+link:webdatatree-node-selection.html[ノード選択]
+
+このトピックでは、WebDataTree ノードで選択タイプを決定する方法を説明します。
+
+link:webdatatree-node-templating.html[ノード テンプレート化]
+
+カスタム テンプレートを設定して、WebDataTree ノードに適用する方法を説明します。
+
+link:webdatatree-using-checkboxes-in-webdatatree.html[WebDataTree でチェックボックスを使用]
+
+このトピックは WebDataTree 内でチェックボックスを使用する方法とその設定方法について説明します。
+
+link:webdatatree-disabling-auto-checking-in-webdatatree.html[WebDataTree で自動チェックを無効にする]
+
+このトピックでは、WebDataTree の自動チェックの管理を設定するために必要な WebDataTree プロパティについて説明します。
+
+link:webdatatree-ajax-indicator-support-for-webdatatree.html[WebDataTree の Ajax インジケーターのサポート]
+
+このトピックでは、WebDataTree に合わせて Ajax インジケーター プロパティをカスタマイズする方法を説明します。
+
+link:webdatatree-drag-and-drop.html[ドラッグ アンド ドロップ]
+
+このセクションは WebDataTree のドラッグ アンド ドロップ機能の詳細について説明します。

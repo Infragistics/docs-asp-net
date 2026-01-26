@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webslider",
+    "controlName": ["WebSlider"],
+    "tags": [],
+    "guid": "{4B2D66B3-F45E-4182-8843-C60A1E39C4F4}",  
+    "buildFlags": [],
+    "createdOn": "2008-08-05T16:24:15Z"
+}
+|metadata|
+////
+
+= WebSlider
+
+このページには、WebSlider™ コントロール関連の概要/タスクベースの情報がすべて含まれています。このセクションは、コントロールについての概要からアプリケーションで使用する理由、コントロールを使用して共通タスクを達成するための方法の手順などの WebSlider についての有益な情報を含んでいます。
+
+以下のリンクをクリックして、WebSlider コントロールについての情報にアクセスします。
+
+== link:webslider-about-webslider.html[WebSlider について]
+
+このセクションには WebSlider コントロールの機能をより理解するための情報があります。なぜアプリケーションのビルドの一部として使用するかも説明します。
+
+== link:webslider-getting-started-with-webslider.html[WebSlider で開始]
+
+WebSlider コントロールでできる限り素早く起動して実行するために、コントロールを使用する方法についての情報を提供します。
+
+== link:webslider-using-webslider.html[WebSlider の使用]
+
+このセクションは、WebSlider コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+== link:webslider-accessibility-compliance.html[WebSlider アクセシビリティの遵守]
+
+このトピックは、WebSlider が第 508 条の要件を満たす方法を概略します。このアクセシビリティの遵守によって、エンドユーザー、特に障害を持つユーザーが WebSlider コントロールを使用して構築された Web アプリケーションにアクセスおよび使用することを可能にします。
+
+== link:webslider-api-overview.html[API の概要]
+
+このトピックは、WebSlider コントロールでプログラミングする間に作業をする名前空間とクラスをリストします。このトピックにリストされている名前空間とクラスは、{ProductName} ヘルプの「API 参照ガイド」セクションに便宜的にリンクされています。
+
+== link:webslider~infragistics.web.ui_namespace.html[CSOM の概要]
+
+WebSlider™ コントロールは、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを提供します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクトで構成され、開発者はサーバー側にポストバックしなくても、画像ビューアに関連する重要な機能単位をプログラムできます。

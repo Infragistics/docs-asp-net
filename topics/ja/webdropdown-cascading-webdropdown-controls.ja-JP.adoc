@@ -1,0 +1,77 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdropdown-cascading-webdropdown-controls",
+    "controlName": ["WebDropDown"],
+    "tags": [],
+    "guid": "{D771B0DA-1C4C-4CE4-9B99-0CC10478BAEF}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDropDown コントロールのカスケード
+
+== 始める前に
+
+カスケーディング リストは一緒に動作する複数のリストのセットです。エンドユーザーは最初に 1 番目のリストから項目を選択します。このアクションによって、1 番目のリストの選択に基づいて 2 番目のリストがフィルタリングされます。後続の選択によって後続のリストが同様にフィルタリングされます。WebDropDown コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.dropdownclientevents~selectionchanging.html[SelectionChanging]"]  または  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.dropdownclientevents~selectionchanged.html[SelectionChanged]"]  クライアント イベントを使用して、任意の数の WebDropDown™ をカスケードできます。
+
+この詳細なガイドでは、Northwind データベースの Products テーブルにバインドされる WebDropDown コントロールは、Northwind データベースの Categories テーブルにバインドされる別の WebDropDown の選択された項目に基づいて値リストをフィルタリングします。
+
+== 達成すること
+
+2 つの WebDropDown コントロールをカスケードする方法を学習します。
+
+== 次の手順を実行します
+
+[start=1]
+. Visual Studio™ ツールボックスから、ひとつの ScriptManager コンポーネント、2 つの WebDropDown コントロール、2 つの標準的な Label コントロールそして 2 つの SqlDataSource コンポーネントをフォームにドラッグ アンド ドロップします。WebDropDown コントロールの link:http://msdn.microsoft.com/query/dev10.query?appId=Dev10IDEF1&l=EN-US&k=k(System.Web.UI.Control.ID)&rd=true[ID] プロパティを "categoryDropDown" と "productDropDown" に設定します。Label1 と Label2 の Text プロパティを "Select a Category:" と "Select a Product:" にそれぞれ設定します。
+[start=2]
+. categoryDropDown が Select a Category Label の隣りに、productsDropDown が Select a Product Label の隣りになるようにコントロールをデザイナーに配置します。
+[start=3]
+. SqlDataSource1 を使用して categoryDropDown を Northwind データベースの Categories テーブルにバインドします。  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~textfield.html[TextField]"]  プロパティを CategoryName に、  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~valuefield.html[ValueField]"]  プロパティを CategoryID に設定します。同様に、SqlDataSource2 を使用して、productDropDown を Northwind データベースの Products テーブルにバインドします。TextField プロパティを ProductName に、ValueField プロパティを ProductID に設定します。WebDropDown を SqlDataSource にバインドする方法の詳細は、 link:webdropdown-binding-webdropdown-to-a-sql-data-source.html[「WebDropDown を SQL データ ソースにバインド」]を参照してください。
+[start=4]
+. categoryDropDown コントロールの SelectionChanged クライアント側イベントのために javascript 関数 "categoryChanged" を追加します。
+
+*JavaScript の場合*
+
+----
+        // クライアント イベント 'SelectionChanged' は、 2 つのパラメーター センダーと e を取得します
+        // センダーはイベントを発生するオブジェクトです
+        // e は DropDownSelectionEventArgs です
+        function categoryChanged(sender, e) {
+            //productDropDown への参照を取得します
+            var productDropDown = $find("productDropDown");
+            productDropDown.loadItems(e.getNewSelection()[0].get_value());
+           }
+----
+
+上記のコードで、 link:webdropdown~infragistics.web.ui.webdropdown~loaditems.html[loadItems] メソッドは、新たに選択された categoryDropDown コントロールの項目の値に基づいて productDropDown で項目をフィルタリングするために productDropDown コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~itemsrequested_ev.html[ItemsRequested]"]  サーバー側イベント（次の手順で実装される）を発生します。
+[start=5]
+. 以下のコードを productDropDown の ItemsRequested サーバー側イベントに追加します:
+
+*Visual Basic の場合：*
+
+----
+         productDropDown.Items.Clear()
+         SqlDataSource2.SelectCommand =
+ "SELECT * FROM [Products] where [CategoryID] = '" & DirectCast(e.Value, String) & 
+"'"
+         productDropDown.DataBind()      
+----
+
+*C# の場合：*
+
+----
+         productDropDown.Items.Clear();
+         SqlDataSource2.SelectCommand = "SELECT * FROM [Products] where [CategoryID] = \'" + (string)e.Value + "\'";
+         productDropDown.DataBind();
+----
+
+上記のコードで、フィルタリングは SelectCommand を使用して categoryDropDown で選択された項目の値に等しい CategoryID を持つ項目を選択することによって productDropDown で実行されます。
+[start=6]
+. アプリケーションを保存して実行します。Grains/Cereals カテゴリーと WebForm は以下の画像のようになります:
+
+image::images/WebDropDown_Cascading_WebDropDown_Controls_01.png[]

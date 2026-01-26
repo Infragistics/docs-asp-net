@@ -1,0 +1,39 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webgroupbox",
+    "controlName": ["WebGroupBox"],
+    "tags": ["Getting Started","How Do I","Layouts"],
+    "guid": "{6132A7EA-A37A-4369-AA33-642F1DBA5CC5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebGroupBox
+
+WebGroupBox™ コントロールに関連する概要/タスク ベースの情報の全てを保存する領域を探している場合、このセクションを参照してください。このセクションは、コントロールについての概要からアプリケーションで使用する理由、コントロールを使用して共通タスクを達成するための方法の手順などのWebGroupBoxについての有益な情報を含んでいます。
+
+以下のリンクをクリックすると、WebGroupBox コントロールに関する情報にアクセスできます。
+
+== link:webgroupbox-understanding-webgroupbox.html[WebGroupBox の理解]
+
+このセクションには、WebGroupBox コントロールの機能や、アプリケーションの構築の一部としてこのコントロールを使用する理由を理解するための役立つ情報が含まれています。
+
+== link:webgroupbox-getting-started-with-webgroupbox.html[WebGroupBox で開始]
+
+WebGroupBox コントロールを使用して出来る限り早く起動して実行できるように、このコントロールを使用して作業を開始する方法に関する情報を提供します (フォームへの WebGroupBox の追加など)。
+
+== link:webgroupbox-using-editable-designer-regions-in-webgroupbox.html[WebGroupBox で編集可能なデザイナ領域を使用]
+
+このトピックはWebGroupBoxの編集可能なデザイナー領域の使用方法を説明します。
+
+== link:webgroupbox-accessibility-compliance.html[WebGroupBox アクセシビリティの遵守]
+
+このトピックは、WebGroupBox が第 508 条の要件を満たす方法を概略します。このアクセシビリティの遵守によって、エンド ユーザ、特に障害を持つユーザーが WebGroupBox コントロールを使用して構築された Web アプリケーションにアクセスおよび使用することを可能にします。
+
+== link:webgroupbox-and-webpanel-api-overview.html[API 概要]
+
+このトピックでは、WebGroupBox コントロールを使用したプログラミング中に扱う名前空間とクラスについて説明します。このトピックに挙げられた名前空間とクラスは、{ProductName} ヘルプの link:web-api-reference-guide.html[API 参照ガイド]にリンクしています。

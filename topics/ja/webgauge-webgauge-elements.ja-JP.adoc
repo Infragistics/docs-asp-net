@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-webgauge-elements",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{E8C91E14-9764-4B1D-A887-5FD35D33E21F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebGauge エレメント
+
+このセクションは、Gauge コントロール内で使用可能なエレメントに関する有用な情報を提供します。以下のリンクをクリックすると、ゲージ エレメントについて学習するだけでなく、ゲージ エレメントに関連したタスクベースの手順にアクセスすることができます。
+
+* link:webgauge-annotations.html[注釈]
+* link:webgauge-scales.html[スケール]
+* link:webgauge-tick-marks.html[目盛]
+* link:webgauge-labels.html[ラベル]
+* link:webgauge-markers.html[マーカー]
+* link:webgauge-ranges.html[レンジ]

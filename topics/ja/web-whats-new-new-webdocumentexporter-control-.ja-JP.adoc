@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-whats-new-new-webdocumentexporter-control ",
+    "controlName": [],
+    "tags": [],
+    "guid": "0c3cd64f-a89b-4093-a41d-76e11711083c",  
+    "buildFlags": [],
+    "createdOn": "2010-09-30T11:49:15.5182038Z"
+}
+|metadata|
+////
+
+= 新しい WebDocumentExporter コントロール
+
+新しい WebDocumentExporter™ コントロールは、WebExcelExporter™ コントロールと全く同じように、Grid データを自動的にエクスポートできます。どのような種類の Infragistics DataGrid を使用しているかにかかわらず（WebDataGrid™ または WebHierarchicalDataGrid™）、データを XPS または PDF ファイル形式にエクスポートして取得するという目的を簡単に達成できます。
+
+== 関連トピック
+
+link:webdocumentexporter-about-webdocumentexporter.html[WebDocumentExporter について]
+
+link:webdocumentexporter-getting-started-with-webdocumentexporter.html[WebDocumentExporter で開始]

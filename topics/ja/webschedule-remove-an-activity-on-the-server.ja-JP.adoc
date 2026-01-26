@@ -1,0 +1,75 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-remove-an-activity-on-the-server",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling"],
+    "guid": "{271671B9-4D93-4DD5-B95A-D1DA60424C40}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-09T00:00:00Z"
+}
+|metadata|
+////
+
+= サーバー上のアクティビティを削除
+
+サーバー側のコードで、データ バインディングの後でWebScheduleInfoの  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~activities.html[Activities]"]  コレクション プロパティから既存の pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[アクティビティ]"] を削除して、現在のページ要求で描画されないようにそのアクティビティを非表示にします。このアクティビティが描画されないようにすることのみが目的であるため、Page クラスの PreRender イベントがこれを配置するのに最良の場所です。
+
+以下のコードの例は、任意の選択基準（例:今日開始する）を満たしたアクティビティを表示しないように非表示するために、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activitiescollection~remove.html[Remove]"]  メソッドの使用方法を示しています。
+
+*注：* アクティビティの削除を含み、Activities コレクションに行われた変更は、現在のページ要求でのアクティビティの描画のみに影響します。Activities コレクションは ViewState では決して保持されません（ViewState が有効な場合でも）。データストアで見つかったスケジュール情報を不必要に複製するため、この動作は設計で設定されています。データストアからプログラムでこのアクティビティを削除したい場合は、 link:webschedule-remove-an-activity-from-the-database.html[「アクティビティをデータベースから削除」]を参照してください。
+
+削除したアクティビティを継続して見る場合には、アクティビティを削除する前に、WebScheduleInfo で  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~databind.html[DataBind]"]  メソッドに呼び出しが行われていることを確認します。アプリケーションが手動でデータバインドを実行しない場合は、WebScheduleInfo は描画の前の最後の可能な瞬間まで待機し、データが自動的にバインドします。この自動データ バインディングは、削除されたと思っているアクティビティの最新のコピーを使用して、データストアからの Activities コレクションを効果的に更新します。
+
+アクティビティを非表示にする別の方法は、 pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity~visible.html[Visible]"]  プロパティを False に設定することです。エンド ユーザーからアクティビティを隠すためにアプリケーションが単に呼び出す場合、Visible プロパティを設定することによって非表示にする方が簡単な場合が多々あります。現在のページ要求の間に Activities コレクションの将来の検索でアクティビティを見つけたくない時には Remove メソッドを使用してください。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.WebUI.Shared
+Imports Infragistics.WebUI.WebSchedule
+...
+	Dim appt As Activity
+	Dim index As Integer
+	'アクティビティをコレクションから削除する前に手動でデータバインドします。
+	Me.WebScheduleInfo1.DataBind()
+	'アクティビティは削除されるので、
+	'逆の順序で WebScheduleInfo 内のアクティビティでループを実行します。前方にループを実行すると、
+	'アクティビティをスキップします。
+	For index = (Me.WebScheduleInfo1.Activities.Count - 1) To 0 Step -1
+		'現在のインデックスにあるアクティビティを取得します。
+		appt = Me.WebScheduleInfo1.Activities(index)
+		'アクティビティをチェックして Today に属してるかどうかを確認します。
+		If (appt.StartDateTime.Date.Value = DateTime.Today) Then
+			'コレクションからアクティビティを削除します。
+			Me.WebScheduleInfo1.Activities.Remove(appt)
+		End If
+	Next index
+----
+
+*C# の場合：*
+
+----
+using Infragistics.WebUI.Shared;
+using Infragistics.WebUI.WebSchedule;
+...
+	Activity appt;
+	int index;
+	// アクティビティをコレクションから削除する前に手動でデータバインドします。
+	this.WebScheduleInfo1.DataBind();
+	// アクティビティは削除されるので、
+	// 逆の順序で WebScheduleInfo 内のアクティビティでループを実行します。前方にループを実行すると、
+	// アクティビティをスキップします。
+	for( index = this.WebScheduleInfo1.Activities.Count - 1; index > 0; --index)
+	{
+		// 現在のインデックスにあるアクティビティを取得します。
+		appt = this.WebScheduleInfo1.Activities[index];
+		// アクティビティをチェックして Today に属してるかどうかを確認します。
+		if (appt.StartDateTime.Date.Value == DateTime.Today)
+		{
+			// コレクションからアクティビティを削除します。
+			this.WebScheduleInfo1.Activities.Remove(appt);
+		}
+	}
+----

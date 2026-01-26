@@ -1,0 +1,28 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webcalendarview",
+    "controlName": ["WebCalendarView"],
+    "tags": ["Getting Started"],
+    "guid": "{555D0D24-02AA-4CFF-AECF-5A051ACA9122}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WebCalendarView
+
+以下のリンクをクリックすると、WebCalendarView コントロールに関する説明を読むことができます。
+
+* link:webcalendarview-understanding-the-webcalendarview-control.html[WebCalendarView コントロールの理解] --  このセクションには WebCalendarView コントロールの機能をより理解するための情報があります。なぜアプリケーションのビルドの一部として使用するかも説明します。
+* link:web-webcalendarview-using-webcalendarview.html[WebCalendarView の使用] -- このセクションは、WebCalendarView コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。  
+* link:webcalendarview-using-webcalendarviews-designer.html[WebCalendarView のデザイナの使用] -- このトピックでは、デザイナを使用してコントロールにプリセットを適用する方法や、[機能の選択] を使用して標準的な機能を設定する方法について学習します。
+* link:webcalendarview-accessibility-compliance.html[WebCalendarView アクセシビリティの遵守] -- このトピックは、WebCalendarView が第 508 条の要件を満たす方法を概略します。このアクセシビリティの遵守によって、エンド ユーザー、特に障害を持つユーザーが WebGridExcelExporter コントロールを使用して構築された Web アプリケーションにアクセスおよび使用することを可能にします。
+link:webcalendarview-api-overview.html[API 概要] -- このトピックでは、WebCalendarView コンポーネントを使ってプログラミングする際に作業する名前空間とクラスをリストします。このトピックにリストされる名前空間とクラスは、{ProductName} ヘルプの link:web-api-reference-guide.html[「API リファレンスガイド」]に便宜上リンクします。
+* link:webcalendarview-csom-overview.html[CSOM 概要] -- このトピックは、WebCalendarView コントロールのクライアント サイド オブジェクト モデル（CSOM）参照です。
+
+WebCalendarView コントロールは、コントロールおよびコンポーネントの WebSchedule グループの一部です。複数の WebSchedule コントロールおよびコンポーネント（WebDayView、WebMonthView、WebScheduleInfo）に共通する概要/タスクベースの情報を収めているセクションを探している場合には、以下のリンクをクリックします。
+
+* link:web-webschedule.html[WebSchedule]

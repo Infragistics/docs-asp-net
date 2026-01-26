@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "webtexteditor-csom-overview",
+    "controlName": ["WebTextEditor"],
+    "tags": ["API"],
+    "guid": "{38CF22C3-ABEF-483C-AEC9-6C20E57DEF92}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= CSOM の概要
+
+WebTextEditor™ コントロールは、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを提供します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクトで構成され、開発者はサーバー側にポストバックしなくても、コントロールに関連する重要な機能単位をプログラムできます。
+
+link:webtexteditor~infragistics.web.ui_namespace.html[WebTextEditor CSOM の概要]

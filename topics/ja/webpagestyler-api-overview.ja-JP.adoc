@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "webpagestyler-api-overview",
+    "controlName": [],
+    "tags": ["API"],
+    "guid": "{21ACD82F-A977-4BD5-AED3-166CF9A804C5}",  
+    "buildFlags": [],
+    "createdOn": "2007-08-02T14:35:57Z"
+}
+|metadata|
+////
+
+= API 概要
+
+このセクションではコントロールに関連する名前空間を示します。また、このコントロールでプログラミングをする時に使用するキー クラスも示します。このページの名前空間とクラスは、弊社の API ドキュメントに直接リンクされています。
+
+=== AppStyling.Runtime 名前空間：
+link:{ApiPlatform}webui.misc{ApiVersion}~infragistics.webui.misc_namespace.html[Infragistics.WebUI.Misc]
+
+=== キー クラス:
+
+link:{ApiPlatform}webui.misc{ApiVersion}~infragistics.webui.misc.webpagestyler.html[WebPageStyler]

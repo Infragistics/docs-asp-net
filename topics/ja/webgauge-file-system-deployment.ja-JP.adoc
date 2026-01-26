@@ -1,0 +1,32 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-file-system-deployment",
+    "controlName": ["WebGauge"],
+    "tags": ["Deployment","How Do I"],
+    "guid": "{817181B8-8F65-4BCE-808B-B4630DA9DC39}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ファイル システム配備
+
+このトピックは、ホスティング Web サーバーのファイル システムで画像を作成するように、WebGauge を設定する方法を示します。
+
+*ファイル システム配備のシナリオのために WebGauge を設定するには、次の手順に従ってください。*
+
+[start=1]
+. Web フォームで WebGauge コントロールを選択します。
+[start=2]
+. [プロパティ] ウィンドウで、 pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.webui.ultrawebgauge.ultragauge~deploymentscenario.html[DeploymentScenario]"]  プロパティを展開します。
+[start=3]
+. pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.webui.ultrawebgauge.webgaugedeploymentscenario~mode.html[Mode]"]  プロパティを FileSystem システムに設定します。これはデフォルト設定です。
+[start=4]
+. アプリケーションのパス内の有効なフォルダに  pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.webui.ultrawebgauge.webgaugedeploymentscenario~imageurl.html[ImageURL]"]  プロパティを設定します。
+[start=5]
+. 約 10 分後に GaugeImages ディレクトリから古い画像ファイルを削除したくない場合には、 pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.webui.ultrawebgauge.webgaugedeploymentscenario~deleteoldimages.html[DeleteOldImages]"]  プロパティを False に設定します。このプロパティはデフォルトで True に設定されています。
+
+*注:* *Default* プロパティは、GaugeImage という名前のフォルダに設定されます。これは Application フォルダのルートに配置されています。この時点で、そのフォルダを作成して、ファイルを作成、更新、および削除するための正しいパーミッションを付与できます。ImageURL プロパティの Gauge_#SEQNUM(100).#EXT 部分は、WebGauge が作成する各ファイルに名前を指定する方法を設定します。自動的に増分するファイル名作成パターンをデフォルトにしておきます。

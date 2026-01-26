@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "webscheduleinfo-client-side-programming",
+    "controlName": ["WebScheduleInfo"],
+    "tags": [],
+    "guid": "{5D9300D3-F95E-49C2-B9ED-93F5917CDAB4}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= クライアント側プログラミング
+
+このセクションのトピックでは、WebScheduleInfo™ を取り扱うときに行うクライアント側プログラミングの一部について説明します。
+
+以下のリンクをクリックすると、詳細な説明を読むことができます。
+
+* link:webscheduleinfo-csom-overview.html[CSOM の概要]
+* link:webscheduleinfo-disable-asynchronous-callbacks-for-reminders.html[アラームの非同期コールバックを無効]
+* link:webscheduleinfo-retrieve-a-reference-to-the-webscheduleinfo-object-on-the-client-side.html[クライアント側で WebScheduleInfo オブジェクトへの参照を取得]

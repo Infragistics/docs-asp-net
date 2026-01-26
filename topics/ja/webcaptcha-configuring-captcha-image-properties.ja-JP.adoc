@@ -1,0 +1,47 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcaptcha-configuring-captcha-image-properties",
+    "controlName": ["WebCaptcha"],
+    "tags": ["Styling","Validation"],
+    "guid": "5ac49f44-6018-4015-8355-24d883db97ab",  
+    "buildFlags": [],
+    "createdOn": "2010-05-31T13:05:47.1878633Z"
+}
+|metadata|
+////
+
+= キャプチャ画像プロパティの構成
+
+WebCaptcha コントロールは、キャプチャ画像を構成するために以下のプロパティを提供します。
+
+* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.captchaimagesettings~linesnoise.html[LinesNoise] - キャプチャ画像にラインとしてランダム ノイズを適用します。
+* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.captchaimagesettings~fontwarping.html[FontWarping] - キャプチャ画像で文字にランダムなワープを適用します。
+* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.captchaimagesettings~backgroundnoise.html[BackgroundNoise] - キャプチャ画像にドットとしてランダム ノイズを適用します。
+* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.captchaimagesettings~rotationnoise.html[RotationNoise] - キャプチャ画像で文字にランダムな回転を適用します。
+* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.captchaimagesettings~width.html[Width]/ link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.captchaimagesettings~height.html[Height] - キャプチャ画像のサイズを設定します。
+* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.captchaimagesettings~characterset.html[CharacterSet] - キャプチャ画像が生成される元となる文字を設定します。たとえば、"0123456789" を CharacterSet プロパティとして設定する場合、生成されたキャプチャ画像には文字しか含まれません。
+* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.captchaimagesettings~enablerandomfonts.html[EnableRandomFonts] - キャプチャ画像に表示される各文字にランダムなフォント スタイルを適用します。これらのフォントは、次のようなフォントの事前に定義されたリストから取得されます。Arial、Verdana、Arial Narrow、Broadway、Calibri、Cambria、Comic Sans MS、Times New Roman、Courier New、Lucida Console および Tahoma です。
+* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.captchaimagesettings~textlength.html[TextLength] - キャプチャ画像に表示される文字数を設定します。
+* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.captchaimagesettings~enableuniquechars.html[EnableUniqueChars] - True に設定される場合、キャプチャ画像から生成されるあらゆる文字は一意です。
+* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.captchaimagesettings~enablecasesensitivity.html[EnableCaseSensitivity] - 入力ボックスに入力されたテキストは画像の文字と大文字小文字まで正確に一致する必要があります。そうでない場合、検証は失敗します。
+* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.captchaimagesettings~backgroundcolor.html[BackgroundColor] - キャプチャ画像の背景色を設定します。
+* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.captchaimagesettings~textcolor.html[TextColor] - キャプチャ画像に表示されるテキストの色を設定します。
+* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.captchaimagesettings~fontstyle.html[FontStyle] - キャプチャ画像に表示される文字のフォント スタイルを設定します。
+* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.captchaimagesettings~fontsize.html[FontSize] - キャプチャ画像に表示される文字のサイズを設定します。
+* link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.captchaimagesettings~fontname.html[FontName] - キャプチャ画像に表示される文字のフォント名を設定します。
+
+== 関連トピック
+
+link:webcaptcha-protection-modes.html[保護モード]
+
+link:webcaptcha-dictionary-modes.html[辞書モード]
+
+link:webcaptcha-captcha-validation.html[キャプチャの検証]
+
+link:webcaptcha-configuring-captcha-buttons.html[キャプチャ ボタンの構成]
+
+link:webcaptcha-configuring-captcha-input-field.html[キャプチャ入力フィールドの構成]
+
+link:webcaptcha-configuring-captcha-audio.html[キャプチャ オーディオの構成]

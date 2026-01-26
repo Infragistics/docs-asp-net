@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-unlit-brush-pane",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{ED1150DB-532F-432E-9E2A-3FAAE64E9B43}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アンリット ブラシ ペイン
+
+[アンリット] ブラシは、値を表示するために使用されないセグメントのブラシ タイプと色を設定します。使用されないセグメントの詳細は、 link:webgauge-working-with-digital-webgauges.html[「デジタル ゲージでの作業」]を参照してください。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.segmenteddigitalgauge~unlitbrushelement.html[ブラシ タイプ]"]  -- このドロップダウン リストによって、デジタル ゲージ上の未使用のセグメントのブラシ タイプを変更することができます。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.segmenteddigitalgauge~unlitbrushelement.html[ブラシの色]"]  -- 選択するブラシのタイプによって、ブラシの色のリストにそのブラシ タイプで使用可能な色が格納されます。
+
+image::images/Unlit_Brush_Pane_01.png[]
+
+== 関連トピック
+
+link:webgauge-digit-appearance-tab.html[数字外観タブ]

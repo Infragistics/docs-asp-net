@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "whdg-row-editing",
+    "controlName": [],
+    "tags": [],
+    "guid": "f8f39d2d-9e5c-46b3-ab01-6a06cd92808d",  
+    "buildFlags": [],
+    "createdOn": "2014-03-10T17:11:00.005988Z"
+}
+|metadata|
+////
+
+= 行編集
+
+== このグループのトピックについて
+
+=== はじめに
+
+このグループのトピックは、  _WebHierarchicalDataGrid_™ の行編集動作およびその使用方法を説明します。
+
+=== トピック
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:whdg-row-editing-overview.html[行編集の概要]
+|このトピックでは、 _WebHierarchicalDataGrid_ の行編集動作の機能の概要を提供します。
+
+| link:whdg-enabling-row-editing.html[行編集を有効にする]
+|このトピックは、 _WebHierarchicalDataGrid_ で行編集動作を有効にする方法を説明します。
+
+|====

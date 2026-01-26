@@ -1,0 +1,75 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatagrid-cell-merging",
+    "controlName": ["WebHierarchicalDataGrid"],
+    "tags": ["Grids","Grouping"],
+    "guid": "dc3edfd0-3572-429b-89e7-eabf64edca01",  
+    "buildFlags": [],
+    "createdOn": "2012-04-12T19:42:25.7364723Z"
+}
+|metadata|
+////
+
+= セルの結合
+
+=== 概要
+
+_WebHierarchicalDataGrid_™ コントロールのセル結合機能を使用すると、ユーザーは、値が同じグリッド セルを視覚的に結合できます。
+
+以下の 2 つの図は、結合前の値 (左) と、結合後の値 (右) を持つ列を示しています。
+
+[cols="a,a"]
+|====
+|image::images/Cell_Merging(WHDG)_1.png[]|image::images/Cell_Merging(WHDG)_2.png[]
+
+|====
+
+=== トピック
+
+セルの結合に関する詳細は、以下のトピックで説明します。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:webhierarchicaldatagrid-cell-merging-overview.html[セル結合の概要]
+|このトピックでは、 _Web_ _Hierarchical_ _DataGrid_ のセル結合機能の概要について説明します。
+
+| link:webhierarchicaldatagrid-enabling-cell-merging.html[セル結合の有効化]
+|このトピックでは、コード例を示して、並べ替えおよびグループ化動作に対し、 _WebHierarchicalDataGrid_ コントロールのセル結合機能を有効にする方法について説明します。
+
+|====
+
+== 関連内容
+
+以下のトピックでは、このトピックに関連する情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|トピック|目的
+
+| link:webhierarchicaldatagrid-sorting.html[並べ替え]
+|このトピックでは、コード例を示して、 _WebHierarchicalDataGrid_ の並べ替え動作を有効にする方法を紹介します。
+
+| link:webhierarchicaldatagrid-about-outlook-groupby.html[Outlook GroupBy について]
+|このトピックでは、 _WebHierarchicalDataGrid_ の Outlook GroupBy 機能について説明し、コード例を示して、それを有効にする方法を紹介します。
+
+|====
+
+=== サンプル
+
+以下のサンプルでは、このトピックに関連する情報を提供しています。
+
+[options="header", cols="a,a"]
+|====
+|サンプル|目的
+
+| link:{SamplesURL}/samples/webhierarchicaldatagrid/organization/sortingcellmerging/default.aspx?cn=hierarchical-data-grid&sid=bec77c3a-c432-4f5f-a526-a6e7bb4cc9c2[セルの結合と並べ替え]
+|このサンプルでは、 _WebHierarchicalDataGrid_ の並べ替え動作のセル結合機能を紹介します。
+
+| link:{SamplesURL}/samples/webhierarchicaldatagrid/organization/groupbycellmerging/default.aspx?cn=hierarchical-data-grid&sid=79b0908a-792b-419f-ae00-c6d3947b2866[グループ化されたセルの結合]
+|このサンプルでは、 _WebHierarchicalDataGrid_ のグループ化のセル結合機能を紹介します。
+
+|====

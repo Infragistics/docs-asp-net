@@ -1,0 +1,17 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-whats-new-2008-2-the-webeditor-controls-now-support-the-safari-browser",
+    "controlName": [],
+    "tags": ["Editing","FAQ","Getting Started"],
+    "guid": "{661472C9-8D16-4D86-AEC9-A90CC3C61ECB}",  
+    "buildFlags": ["docx-online","docx-booklet"],
+    "createdOn": "2008-01-05T15:38:02Z"
+}
+|metadata|
+////
+
+= WebEditor コントロールは Safari ブラウザをサポート
+
+{ProductName} 2008 Volume 2 から開始しましたが、すべての Web エディタは Apple® Safari™ Web ブラウザを完全にサポートします。これらのエディタの広範かつ多様な機能を Safari ブラウザで完全に使用可能となりました。

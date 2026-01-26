@@ -1,0 +1,85 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcalcmanager-summing-two-controls-at-design-time",
+    "controlName": ["WebCalcManager"],
+    "tags": ["Application Scenarios","How Do I"],
+    "guid": "{65271F01-81CB-406D-B97B-A3C1C12FE61E}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= デザインタイムに 2 つのコントロールの値を合計する
+
+== 始める前に
+
+WebCalcManager™ は  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.ultrawebcalcmanager.calcsettings.html[CalcSettings]"]  というエクステンダー プロパティをコントロールに追加します。CalcSettings プロパティ、コントロールを計算ネットワークに組み込むために使用します。これにより、ほとんどすべてのコントロールを計算のソースまたはターゲットとして計算を実行できます。
+
+この詳細なガイドでは 2 つの TextBox の値をとってラベルに結果値を追加および配置する方法を示します。
+
+== 以下の手順を実行します。
+
+[start=1]
+. 始めに、Web フォームに TextBox コントロールを 2 つ配置します。これらのコントロールを sum 計算のソース値として使用します。
+[start=2]
+. Label を Web フォームに追加します。この Label に数式の計算結果を表示します。Labelを使用するのは、ユーザーが数式のターゲットを編集できなくてもよいためです。
+[start=3]
+. Button を Web フォームに追加します。このボタンはサーバへのポストバックに使用します。このボタンをクリックすると、CalcManager によって再計算が実行されます。
+[start=4]
+. UltraCalcManager コンポーネントを WebForm に配置します。この時点で、フォームは次のようになります。
+
+image::Images/WebCalcManager_Summing_Two_Controls_at_Design_Time_01.png[]
+
+[start=5]
+. 数式の中でコントロールを使用するためには、コントロールのどのプロパティをコントロールの値として使用するかを WebCalcManager に知らせる必要があります。これは  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.ultrawebcalcmanager.calcsettings~propertyname.html[CalcSettings.PropertyName]"]  プロパティを使用して指定されます。
+
+フォームでの最初の TextBox (textBox1) で始め、CalcSettings プロパティを見つかります。 このプロパティを展開し、PropertyName プロパティを見つけます。 使用可能で候補なプロパティのリストが表示されるために DropDown 矢印をクリックします。 注: コントロールの各プロパティが使用できます。これは一般的なコントロールのプロパティのリストにすぎません。リストから Text を選択します。
+
+image::Images/WebCalcManager_Summing_Two_Controls_at_Design_Time_02.png[]
+
+TextBox2 および Label1 に同じプロセスを繰り返します。
+[start=6]
+. Label1 のフォーミュラビルダーを開きます。Label の CalcSettings プロパティに移動して、Formula プロパティを見つけます。Label の CalcSettings プロパティの中で Formula プロパティを探し、省略ボタンをクリックして フォーミュラビルダーを起動します。
+
+このダイアログの左側はオペランドのリストです。オペランド リストは、数式で使用できるオブジェクトがツリーです。Controls ノードを展開すると、Label と 2 つの TextBox があります。各項目の後には".Text"が付いていますが、これはそのコントロールのTextプロパティが使用されることを示します。
+
+image::Images/WebCalcManager_Summing_Two_Controls_at_Design_Time_03.png[]
+
+Label1ノードは無効になっている点に注意してください。これは、UltraLabel1 が現在数式を作成している対象のコントロールであるためです。自分自身を参照すると循環参照になるため、 フォーミュラビルダーでは数式作成中のノードは選択できないようになっています。
+
+右上は数式ウィンドウです。ここには、作成中の数式が表示されます。数式ウィンドウの下には、〈+〉、〈-〉、〈/〉、〈$$*$$〉などの便利なボタンが並んでいます。
+
+ボタンの下にあるのが数式ステータスウィンドウです。このウィンドウには数式のステータスが表示され、数式にエラーがあるかどうかがわかります。現在"数式はありません。 "と表示されていますが、これは数式がない（ 数式ウィンドウが空白である）ことを示します。 Label1の数式を作成します。
+[start=7]
+. ［TextBox1.Text］ノードをダブルクリックします。このコントロールへの参照が右側の数式ウィンドウに表示されます。これは参照を示すため、"[//TextBox1]"のように角カッコと２重のスラッシュが付いています。
+
+image::Images/WebCalcManager_Summing_Two_Controls_at_Design_Time_04.png[]
+
+右下の数式ステータスウィンドウが"数式はありません。 "から"数式の構文チェックが成功しました。 "に変わります。参照が１つだけであっても、これは完全に有効な数式です。
+
+次にプラス（+）ボタンをクリックするか、キーボードのプラス（+）キーを押します。
+
+この時点で、数式ステータス ウィンドウの表示が再び変わり、"行:1 列:15 でファイルの想定外の終わりです " というメッセージが表示します。15"のようなメッセージが表示されます。 これは数式が+記号で終わっていて、加算する数値や参照などが後に続いていないためです。
+
+オペランドツリーの［TextBox2.Text］ノードをダブルクリックして、数式を完成させます。数式ステータスウィンドウが再び"数式の構文チェックが成功しました。 "に変わります。 フォーミュラビルダーを終了して結果を確認します。
+
+image::Images/WebCalcManager_Summing_Two_Controls_at_Design_Time_05.png[]
+
+[start=8]
+. 〈OK〉をクリックして数式を適用します。フォーミュラビルダーが閉じ、数式がLabel1のCalcSettingsのFormulaプロパティにコピーされます。
+[start=9]
+. ここでアプリケーションを実行します。
+
+image::Images/WebCalcManager_Summing_Two_Controls_at_Design_Time_06.png[]
+
+[start=10]
+. Label1 は 0 を表示します。TextBox1 および TextBox2 の Text を数値に変換します。各 TextBox コントロールに有効な数値を入力して [再計算] ボタンをクリックすると、2 つの数値の合計が Label に表示されます。
+
+image::Images/WebCalcManager_Summing_Two_Controls_at_Design_Time_07.png[]
+
+== 復習
+
+この詳細なガイドでは編集可能なコントロールで計算を実行するためにWebCalcManagerを使用することがいかに簡単であるかを示しました。

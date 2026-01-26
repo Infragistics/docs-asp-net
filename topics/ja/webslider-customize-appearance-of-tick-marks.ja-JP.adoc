@@ -1,0 +1,52 @@
+﻿////
+
+|metadata|
+{
+    "name": "webslider-customize-appearance-of-tick-marks",
+    "controlName": ["WebSlider"],
+    "tags": ["How Do I","Styling"],
+    "guid": "{FC4D438A-617C-4B1D-8A2B-7305404A8612}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 目盛りの外観をカスタマイズ
+
+仕様に応じて WebSlider™ コントロールの目盛の外観をカスタマイズできます。WebSlider は目盛のスタイル化された外観を可能にするさまざまなプロパティを公開します。
+
+WebSlider の目盛の外観のためにいくつかのオプションを設定できます。
+
+* 主目盛の数 - 値の範囲を大きいセクションに分割します。
+* 補助目盛の数 - 主目盛をより小さいセクションに分割します。
+* ラベルの数 - トラックでセクションの値を表示します。
+* ラベルの位置
+
+*注：* 主目盛の数には終点が含まれます。したがって、設定可能な最小数は 2 です。補助目盛はそれらの目盛が中にある主目盛を含みません。
+
+以下の例のコードは、5 つの主目盛とともに 4 つのラベルが付けられたセクションに WebSlider のトラックを分割する方法を示します。主目盛はそれぞれ 5 つの小さい部分に再分割されます。
+
+image::images/WebSlider_Customize_Appearance_of_Tick_Marks_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Me.WebSlider1.Tickmarks.NumberOfMajorTickmarks = 5
+' 関連付けられた値で各主目盛にラベルを付けます。
+Me.WebSlider1.Tickmarks.NumberOfLabels = 5
+Me.WebSlider1.Tickmarks.NumberOfMinorTickmarks = 4
+----
+
+*C# の場合：*
+
+----
+this.WebSlider1.Tickmarks.NumberOfMajorTickmarks = 5;
+// 関連付けられた値で各主目盛にラベルを付けます。
+this.WebSlider1.Tickmarks.NumberOfLabels = 5;
+this.WebSlider1.Tickmarks.NumberOfMinorTickmarks = 4;
+----
+
+== 関連トピック
+
+link:webslider-set-tick-mark-behavior.html[目盛の動作を設定]

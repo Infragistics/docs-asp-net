@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-csom-overview",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Events","Grids"],
+    "guid": "{B65B0203-73CC-43AE-83F4-1BA81CC5956B}",  
+    "buildFlags": [],
+    "createdOn": "2008-07-10T12:07:38Z"
+}
+|metadata|
+////
+
+= CSOM の概要
+
+WebDataGrid™ コントロールは、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを提供します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクトで構成され、開発者はサーバー側にポストバックしなくても、WebDataGrid コントロールに関連する重要な機能単位をプログラムできます。
+
+link:webdatagrid~infragistics.web.ui_namespace.html[WebDataGrid CSOM の概要]

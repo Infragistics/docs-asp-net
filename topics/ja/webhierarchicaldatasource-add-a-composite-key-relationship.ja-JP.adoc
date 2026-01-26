@@ -1,0 +1,60 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatasource-add-a-composite-key-relationship",
+    "controlName": ["WebHierarchicalDataSource"],
+    "tags": ["Data Presentation","Sample Data Source"],
+    "guid": "{B3152811-64D1-4EF5-A489-BA053C71F5B3}",  
+    "buildFlags": [],
+    "createdOn": "2008-05-05T17:06:26Z"
+}
+|metadata|
+////
+
+= 合成キーの関係を追加
+
+データ関係は複数のキー列で構成できます。デザイン タイムまたはランタイムに WebHierarchicalDataSource™ でこのタイプの関係を作成できます。デザイン タイムに、子データ ソースを構成する時に構成ウィザードで Parent Columns および Child Columns フィールドの複数列を追加できます。ランタイムに、Parent Columns および Child Columns コレクションに文字列配列として列名を追加できます。
+
+*注：* データ関係を追加する時、データ ソースが参照の完全性の規則に従っていることを確認してください。WebHierarchicalDataSource コンポーネントはこれらの規則を強制しないため、規則が守られないときにユーザーに通知しません。たとえば、子データ セットのレコードすべてが親データに関連しているわけではない場合、これは無視されるだけで関連しているデータが表示されます。また、プライマリ キーおよび外部キーのデータ タイプが一致しない場合、親レコードのみが表示されます。
+
+*Visual Basic の場合：*
+
+----
+Dim dr As New Infragistics.Web.UI.DataSourceControls.DataRelation() 
+' 関係する親のビューを指定します。 
+dr.ParentDataViewID = "SqlDataSource_View1" 
+' 2 つの列を使用して複合キーを指定します。 
+dr.ParentColumns = New String() {"FirstName", "LastName"} 
+' 関係する子のビューを指定します。 
+dr.ChildDataViewID = "SqlDataSource_View2" 
+' 子データ ソースで複合キーを指定します。 
+dr.ChildColumns = New String() {"FirstName", "LastName"} 
+' WebHierarchicalDataSource に関係を追加します。 
+Me.WebHierarchicalDataSource1.DataRelations.Add(dr)
+----
+
+*C# の場合：*
+
+----
+Infragistics.Web.UI.DataSourceControls.DataRelation dr = 
+new Infragistics.Web.UI.DataSourceControls.DataRelation();
+// 関係する親のビューを指定します。
+dr.ParentDataViewID = "SqlDataSource_View1";
+// 2 つの列を使用して複合キーを指定します。
+dr.ParentColumns = new string[] { "FirstName", "LastName"};
+// 関係する子のビューを指定します。
+dr.ChildDataViewID = "SqlDataSource_View2";
+// 子データ ソースで複合キーを指定します。
+dr.ChildColumns = new string[] { "FirstName", "LastName"};
+// WebHierarchicalDataSource に関係を追加します。
+this.WebHierarchicalDataSource1.DataRelations.Add(dr);
+----
+
+== 関連トピック
+
+link:webhierarchicaldatasource-add-a-parent-to-multiple-child-relationship.html[単一の親対複数の子の関係を追加]
+
+link:webhierarchicaldatasource-add-a-single-parent-to-single-child-relationship.html[単一の親対単一の子の関係を追加]
+
+link:webhierarchicaldatasource-creating-a-self-related-data-relation.html[自己関係的なデータ関係の作成]

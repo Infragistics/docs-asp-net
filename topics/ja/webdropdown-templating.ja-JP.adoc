@@ -1,0 +1,30 @@
+﻿////
+|metadata|
+{
+    "name": "webdropdown-templating",
+    "controlName": ["WebDropDown"],
+    "tags": ["Templating"],
+    "guid": "{179DADE9-BCA0-4556-8AC8-CBA385D092B2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= テンプレート化
+
+WebDropDown™ はテンプレート化をサポートします。これにより値リスト項目の外観をカスタマイズするために使用できる項目テンプレートを定義することが可能となります。項目テンプレートは ItemTemplate プロパティを使用して定義できます。テンプレートが適用されるときでさえ、WebDropDown でオート コンプリートおよびフィルタリングは実行できます。テンプレート機能を使用して、ドロップダウン コンテナにあるようにカスタム コントロールを定義することも可能です。
+
+
+*注:* 項目リストにカスタム コントロールはひとつしか存在できません。たとえば、ドロップダウン リストに WebCalendar™ コントロールまたは WebGrid™ コントロールのいずれかを持つことができますが両方を持つことはできません。
+
+
+WebDropDown コントロールの値表示を設定するには、基本のコントロールが提供するクライアント側イベントを処理する必要があります。シンプルなリストの代わりに複数項目がテンプレートにある場合、WebDropDown コントロールの link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~textfield.html[TextField] プロパティを値表示に表示したい列名に設定することができます。
+
+WebDropDown はコンテンツの項目テンプレートを設定することが可能なだけでなく、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~headertemplate.html[HeaderTemplate] プロパティと link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~footertemplate.html[FooterTemplate] プロパティを使用してドロップダウン コンテナのヘッダーおよびフッター コンテンツのためのテンプレートを設定することも可能です。 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webdropdown~loadingitemsmessagetemplate.html[LoadingItemsMessageTemplate] プロパティを使用してロードオンデマンド機能が有効な時にテンプレートをローディング メッセージに適用することも可能です。
+
+以下のリンクをクリックして WebDropDown でテンプレート化を使用する方法の詳細を確認します:
+
+* link:webdropdown-assigning-templates-to-individual-items-using-the-templates-collection.html[テンプレート コレクションを使用してテンプレートを個々の項目に指定]
+* link:webdropdown-create-a-multi-column-webdropdown-using-templates.html[テンプレートを使用して複数列の WebDropDown を作成]
+* link:webdropdown-using-loading-items-message-template-in-webdropdown.html[WebDropDown でローディング項目メッセージ テンプレートを使用]

@@ -1,0 +1,114 @@
+﻿////
+
+|metadata|
+{
+    "name": "webprogressbar-using-webprogressbar-inside-webdatagrid-templates-to-display-the-values",
+    "controlName": ["WebProgressBar"],
+    "tags": ["Templating"],
+    "guid": "{A8479D74-6B79-4DE4-8C9B-E271F1E8AA78}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 値を表示するために WebDataGrid テンプレート内で WebProgressBar を使用
+
+== 始める前に
+
+WebProgressBar™ は、グリッドでセルの値を視覚的に表示するために WebDataGrid™ テンプレートに簡単に配置できます。
+
+== 達成すること
+
+グリッドのセル値を表示するために WebDatGrid テンプレート内で WebProgressBar を使用する方法を学びます。
+
+== 次の手順を実行します
+
+[start=1]
+. Visual Studio™ ツールボックスから、ScriptManager コンポーネントと WebDataGrid コントロールをフォームにドラッグ アンド ドロップします。
+[start=2]
+. Page_Load イベントで WebDataGrid に手動でデータをバインドするために以下のコードを追加します。
+
+*Visual Basic の場合：*
+
+----
+        Dim dt As New DataTable()
+        dt.Columns.Add("Column 1", Type.[GetType]("System.Double"))
+        dt.Columns.Add("Column 2")
+        dt.Columns.Add("Column 3")
+        dt.Columns.Add("Column 4")
+        For i As Integer = 1 To 10
+            Dim dr As DataRow = dt.NewRow()
+            dr(0) = i
+            dr(1) = DateTime.Today.AddDays(i)
+            dr(2) = "Test " & i.ToString()
+            dr(3) = (i Mod 2 = 0)
+            dt.Rows.Add(dr)
+        Next
+        Me.WebDataGrid1.DataSource = dt
+        Me.WebDataGrid1.DataBind()
+----
+
+*C# の場合：*
+
+----
+ DataTable dt = new DataTable();
+        dt.Columns.Add("Column 1", Type.GetType("System.Double"));
+        dt.Columns.Add("Column 2");
+        dt.Columns.Add("Column 3");
+        dt.Columns.Add("Column 4");
+        for (int i = 1; i $$<=$$ 10; i++)
+        {
+            DataRow dr = dt.NewRow();
+            dr[0] = i;
+            dr[1] = DateTime.Today.AddDays(i);
+            dr[2] = "Test " + i.ToString();
+            dr[3] = (i % 2 == 0);
+            dt.Rows.Add(dr);
+        }
+        this.WebDataGrid1.DataSource = dt;
+        this.WebDataGrid1.DataBind();
+----
+
+[start=3]
+. この時点で、WebDataGrid はデータを使用して以下のような画像になります。
+
+image::images\WebProgressBar_Using_WebProgressBar_as_an_Editor_Control_in_WebDataGrid_02.png[]
+
+[start=4]
+. プロジェクトを中止し、WebDataGrid のスマート タグから [列の編集] をクリックし、テンプレート化された列を追加します。これによって WebDataGrid デザイナーが開きます。
+[start=5]
+. 利用可能なフィールドから TemplateField を選択し、[フィールドを追加] ボタンをクリックしてテンプレート化された列を追加します。
+[start=6]
+. [選択されたフィールド] 領域から追加されたフィールドを選択し、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.controldatafield~key.html[Key]"]  プロパティを “WPB_Template”、そして  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.gridfieldcaption.html[Header]"]   pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.fieldcaption~text.html[Text]"]  を “WPB” に設定します。
+[start=7]
+. [適用] そして [OK] ボタンをクリックして WebDataGrid デザイナーを閉じます。
+[start=8]
+. このプロパティ ウィンドウで、WebDataGrid の  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webdatagrid~enablerelativelayout.html[EnableRelativeLayout]"]  プロパティを True に設定すると、WebProgressBar はグリッドをオーバーフローしません。
+[start=9]
+. WebDataGrid スマート タグから [テンプレートの編集] をクリックし、テンプレート編集モードでグリッドを開きます。
+[start=10]
+. ドロップダウン リストから WPB_Template を選択してテンプレートを編集します。
+[start=11]
+. [項目テンプレート] 領域で、WebProgressBar コントロールをドラッグ アンド ドロップし、プロパティ ウィンドウを使用して  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.displaycontrols.webprogressbar~maximum.html[Maximum]"]  プロパティを 10 に設定します。
+[start=12]
+. [テンプレート編集の終了] をクリックしてテンプレートの編集を終了します。
+[start=13]
+. ASPX マークアップ ソースで、WebProgressBar の  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.displaycontrols.webprogressbar~value.html[Value]"]  プロパティを DataBinder.Eval メソッドを使用して Column1 のセル値に設定します。
+
+*Visual Basic の場合：*
+
+----
+Value=<%# DataBinder.Eval(CType(Container, Infragistics.Web.UI.TemplateContainer).DataItem, "Column 1") %>
+----
+
+*C# の場合：*
+
+----
+Value=<%# DataBinder.Eval(((Infragistics.Web.UI.TemplateContainer)Container).DataItem, "Column 1") %>
+----
+
+[start=14]
+. アプリケーションを保存して実行します。WebDataGrid は以下の画像のようになります。
+
+image::images\WebProgressBar_Using_WebProgressBar_as_an_Editor_Control_in_WebDataGrid_01.png[]

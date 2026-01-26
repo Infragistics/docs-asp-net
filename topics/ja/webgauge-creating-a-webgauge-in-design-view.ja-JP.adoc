@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-creating-a-webgauge-in-design-view",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{140B50D5-123F-43E9-8C27-CDA1ACFB3E21}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= デザイン ビューで WebGauge を作成
+
+デザイン ビューを使用して異なるタイプの gauges を作成する方法を確認するには、以下のリンクをクリックしてください。
+
+* link:webgauge-creating-a-digital-webgauge-in-design-view.html[デザイン ビューでデジタル ゲージを作成]
+* link:webgauge-creating-a-linear-webgauge-in-design-view.html[デザイン ビューでリニア ゲージを作成]
+* link:webgauge-creating-a-radial-webgauge-in-design-view.html[デザイン ビューでラジアル ゲージを作成]

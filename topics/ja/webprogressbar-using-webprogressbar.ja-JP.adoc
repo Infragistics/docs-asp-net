@@ -1,0 +1,49 @@
+﻿////
+
+|metadata|
+{
+    "name": "webprogressbar-using-webprogressbar",
+    "controlName": ["WebProgressBar"],
+    "tags": [],
+    "guid": "{61AAAC0E-D8CC-46F7-A10C-7908B12CE170}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebProgressBar の使用
+
+このセクションは、WebProgressBar™ コントロールの重要な概念および機能を効果的に使用するためのタスク ベースの情報について説明します。
+
+link:webprogressbar-webprogressbar-smart-tag.html[WebProgressBar スマート タグ]
+
+このトピックは WebProgressBar スマート タグ アンカーとポップアップ パネルについて説明し、さまざまなコントロール プロパティと設定について示します。
+
+link:webprogressbar-animations.html[アニメーション]
+
+このトピックでは、WebProgressBar コントロールでプログレスを示す。
+
+link:webprogressbar-label-format-and-alignment.html[ラベルの書式設定と配列]
+
+WebProgressBar には書式設定が可能なラベルが含まれます。このトピックでは、ラベルの機能について学びます。
+
+link:webprogressbar-orientation.html[オリエンテーション]
+
+このトピックでは、WebProgressBar の向きを水平または垂直に設定する方法を学びます。
+
+link:webprogressbar-tooltip-format.html[ToolTip 書式]
+
+このトピックは、WebProgressBar ツールチップの書式を設定する方法を説明します。
+
+link:webprogressbar-using-webprogressbar-as-an-ajax-progress-indicator.html[WebProgressBar を AJAX プログレス インジケーターとして使用する]
+
+このトピックでは AJAX ポストバックで WebProgressBar コントロールを使用する方法を説明します。
+
+link:webprogressbar-using-webprogressbar-events-to-display-a-custom-formatted-label.html[WebProgressBar イベントを使してカスタム書式設定付きのラベルを使用する]
+
+このトピックでは WebProgressBar コントロールのクライアント側オブジェクトモデルを使用する方法を説明します。
+
+link:webprogressbar-using-webprogressbar-inside-webdatagrid-templates-to-display-the-values.html[WebDataGrid テンプレートで WebProgressBar を使用して値を表示]
+
+このトピックでは WebProgressBar を WebDataGrid と統合する方法を学びます。

@@ -1,0 +1,32 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-checking-for-reminders",
+    "controlName": ["WebSchedule"],
+    "tags": ["Scheduling","Tips and Tricks"],
+    "guid": "{2FC1B5FC-628D-408C-81D8-5C4B018BDFC3}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アラームのチェック
+
+現在、WebSchedule はアラームが期限になったかどうかを確認しません。これは、サーバーにポストバックしていないと、アラームを失う可能性があることになります。以下は一定時間が経過した後ページを自動的に再ロードすることができる 2 つの方法です。これによって、WebSchedule は最新のアクティビティを取得して、アラームが期限になったことを確認します。
+
+[start=1]
+. Meta Refresh タグ  - 以下のタグをヘッダに追加すると自動的に再ロードできます:
+
+<meta http-eqiv="refresh" content="60">
+
+コンテンツ属性は秒で表されます。したがってこれによって毎分ページがポストバックされます。
+[start=2]
+. setTimeout – setTimeout 関数をグローバルに呼び出すことができます。
+
+setTimeout("__doPostBack('','')", 60000);
+
+setTimeout の最初のパラメータは評価する式です。この場合、call __doPostBack によってページがポストバックされます。
+
+2 番目のパラメータは、この式を評価するためにページが待機する時間です。時間はミリ秒単位です。したがって上記のコードによって 1 分でページがポストバックされます。

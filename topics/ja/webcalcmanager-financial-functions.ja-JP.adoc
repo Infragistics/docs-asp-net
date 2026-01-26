@@ -1,0 +1,46 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcalcmanager-financial-functions",
+    "controlName": ["WebCalcManager"],
+    "tags": ["How Do I"],
+    "guid": "{737C7125-20C2-4F81-B75D-B57F5756C2C5}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 財務関数
+
+以下は WebCalcManager™ コントロールで提供されるすべての Microsoft® Excel® スタイルの財務関数のリストです。これらの link:https://support.office.com/ja-jp/article/Excel-%E9%96%A2%E6%95%B0-%E6%A9%9F%E8%83%BD%E5%88%A5-5f91f4e9-7b42-46d2-9bd1-63f26a86c0eb?ui=ja-JP&rs=ja-JP&ad=JP#__toc309306711[財務関数]については、Microsoft の Web サイトを参照してください。
+
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctiondb.html[DB]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionddb.html[DDB]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionfv.html[FV]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionintrate.html[INTRATE]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionipmt.html[IPMT]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionirr.html[IRR]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionnper.html[NPER]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionnpv.html[NPV]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionpmt.html[PMT]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionppmt.html[PPMT]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionpv.html[PV]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionrate.html[RATE]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionsln.html[SLN]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionsyd.html[SYD]"] 
+
+== 関連トピック
+
+link:webcalcmanager-date-and-time-functions.html[日付&時間関数]
+
+link:webcalcmanager-information-functions.html[情報関数]
+
+link:webcalcmanager-logical-functions.html[論理関数]
+
+link:webcalcmanager-math-functions.html[算術関数]
+
+link:webcalcmanager-statistical-functions.html[統計関数]
+
+link:webcalcmanager-text-and-data-functions.html[テキスト&データ関数]

@@ -1,0 +1,27 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-understanding-webhtmleditor",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing","Getting Started"],
+    "guid": "{A168108E-AFBB-4B47-B580-84BCDC52FA19}",  
+    "buildFlags": [],
+    "createdOn": "2006-03-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor の理解
+
+WebHtmlEditor コントロール、およびその主要な特性と機能について解説しています。このセクションのトピックを読むと、アプリケーションで WebHtmlEditor コントロールを使用することの利点を理解できます。
+
+WebHtmlEditor コントロールの概要を理解するには、以下のリンクをクリックしてください。
+
+* link:webhtmleditor-about-webhtmleditor.html[WebHtmlEditor について] -- WebHtmlEditor コントロールの概要を説明しています。
+* link:webhtmleditor-browser-feature-support-of-webhtmleditor.html[WebHtmlEditor のブラウザ機能サポート] -- このトピックでは、一部の機能のブラウザ サポートについて説明しています。
+* link:webhtmleditor-managing-file-uploads.html[ファイル アップロードの管理] -- WebHtmlEditor でエンド ユーザーがアップロードする画像を格納する方法を説明します。
+* link:webhtmleditor-multi-language-support.html[複数言語のサポート] -- 複数言語のサポートについて説明しています。
+* link:webhtmleditor-smart-tag.html[WebHtmlEditor スマート タグ] -- WebHtmlEditor スマート タグで利用可能な機能性について説明しています。
+* link:webhtmleditor-layout-of-webhtmleditor.html[WebHtmlEditor のレイアウト] -- このセクションでは、WebHtmlEditor コントロールのレイアウトについて説明しています。
+* link:webhtmleditor-working-with-webhtmleditors-toolbar.html[WebHtmlEditor のツールバーの機能] -- このセクションでは、WebHtmlEditor のツールバーのボタンを示して、説明しています。

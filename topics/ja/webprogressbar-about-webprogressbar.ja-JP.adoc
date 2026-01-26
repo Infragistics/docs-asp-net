@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "webprogressbar-about-webprogressbar",
+    "controlName": ["WebProgressBar"],
+    "tags": ["Getting Started"],
+    "guid": "{B34B2809-7992-4599-961C-06A9F759AA46}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebProgressBar について
+
+WebProgressBar™ は作業の進行状況を表示するために使用できるコントロールです。WebProgressBar コントロールは、ページの静的バーにするか、クライアント側コードを使用してライブでの進行状況の更新を表示できます。WebProgressBar は優れたパフォーマンスと応答性の高いエンドユーザー エクスペリエンスを促進する証明済みのコード ベースを利用するために {ProductName} AJAX フレームワークの上に構築されます。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.displaycontrols_namespace.html[Infragistics.Web.UI.DisplayControls]"]  名前空間で WebProgressBar を見つけることができます。
+
+WebProgressBar コントロールは、最小値と最大値の間の現在の進行状況を視覚的に示します。コントロールの最小、最大、および初期値は、コントロールのスマート タグを使用して簡単に設定できます。
+
+すべての {ProductName} AJAX コントロールのように、WebProgressBar は Infragistics® Application Styling Framework にシームレスに統合します。CSS ベースのプロパティを使用すると、既存のスタイル シートを利用することによって、WebProgressBar を手動でカスタマイズできます。
+
+WebProgressBar は、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルも公開します。クライアント サイド オブジェクトモデル（CSOM）は、十分な機能を備えたプロパティよびメソッドから構成され、開発者はサーバー側でポストバックしなくても、重要な機能単位をプログラムできます。
+
+WebProgressBar コントロールの特徴の一部には以下のようなものがあります。
+
+* *ハイパフォーマンス* - 軽量のマークアップと最適化されたコードがパフォーマンスを向上します。
+* *データ バインディング* -- WebDataGrid™ でセル データを表示するために使用できるように明確にデータ バインディングすることを可能にします。
+* *WebDataGrid セル内に表示* -- WebDataGrid のセル内に数値データの視覚的表現として使用できます。
+* *方向* -- コントロールの方向は、水平または垂直のいずれかに設定できます。
+* *ラベル* -- 進行状況バーのラベル設定のカスタマイズをサポートします。
+* *Ajax 進行状況インジケータ* -- Ajax ポストバックの進行状況をエンドユーザーは監視できます。
+* *ツールチップ* -- マウスをコントロールの上に置くと、進行状況についての情報を示します。
+
+image::images/WebProgressBar_About_WebProgressBar_01.png[]

@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-upload-buttons-of-webhtmleditors-toolbar",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing","Selection"],
+    "guid": "{83F7FA32-5E48-4668-A829-2B94EA0C5A82}",  
+    "buildFlags": [],
+    "createdOn": "2006-03-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor のツールバーのアップロード ボタン
+
+pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.toolbaruploadbutton.html[ToolbarUploadButton]"]  クラスのインスタンスは、アプリケーションでエンド ユーザーが自分の所有するローカルファイルを指定して Web サーバーに添付ファイルとしてアップロードするためのダイアログ ボックスをポップアップします。エンド ユーザーは、適切に表示されたドキュメントで画像、マルチメディア、その他の種類のファイルの取り込みが必要となったときに、このボタンを利用できます。開発時に、ユーザーに対し、WebHtmlEditor で作成されたドキュメントにどのような種類のファイルを添付することを許すかを決めることができます。添付を禁止するファイルの種類は、その ToolbarUploadButtons を削除します。エンド ユーザーは、ダイアログ ボックスでのみ、アップロードするファイルのローカルソースを指定できます。Web サーバーに格納されたすべてのファイルは、開発者が WebHtmlEditor の  pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.webhtmleditor~uploadedfilesdirectory.html[UploadedFilesDirectory]"]  プロパティで指定した共通フォルダに格納されます。
+
+次の表に、WebHTMLEditor コントロールのツールバーの CategoryName ボタンのリストを示します。各ボタンの説明は、 link:webhtmleditor-list-of-webhtmleditors-toolbar-buttons.html[WebHtmlEditor のツールバー ボタンのリスト]をお読みください。
+
+[options="header", cols="a,a"]
+|====
+|Button|ボタン名
+
+|image::Images/insertflash.gif[] 
+
+|フラッシュの挿入
+
+|image::Images/insertimage.gif[] 
+
+|画像の挿入
+
+|image::Images/insertwindowsmedia.gif[] 
+
+|Windows メディアの挿入
+
+|image::Images/open.gif[] 
+
+|ファイルを開く
+
+|image::Images/upload.gif[] 
+
+|ファイルのアップロード
+
+|====

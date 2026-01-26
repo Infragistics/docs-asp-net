@@ -1,0 +1,69 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcalcmanager-using-formula-builder-to-generate-calculations",
+    "controlName": ["WebCalcManager"],
+    "tags": ["Application Scenarios","How Do I"],
+    "guid": "{F0B4C108-BFB7-4606-926F-746E3F8A7741}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= フォーミュラ ビルダーを使用して計算
+
+== 始める前に
+
+WebCalcManager™ は、フォーム上にあるすべての Infragistics 要素の機能を拡張する非表示コンポーネントです。数式をフォームに実装するには、UltraWebCalcManager コンポーネントをツールボックスからフォームにドラッグします。これが完了すると、フォーム上のすべての Infragistics 要素に以下のプロパティが追加されます。
+
+[options="header", cols="a,a"]
+|====
+|プロパティ名|説明
+
+|Alias
+|コントロールの別名を取得または設定します。
+
+|ErrorValue
+|数式でエラーが発生したときに要素に表示する値を取得または設定します。
+
+|Formula
+|コントロールに関連する計算のソースまたはターゲットとして使用するプロパティ（Text、Tag、Value など。要素によって異なる）を取得または設定します。 
+
+*注:* コントロールを計算のソース値として使用するためには、プロパティのChangedイベントも必要です。たとえば、Text プロパティを使用する場合は、コントロールに TextChanged イベントが存在する必要があります。Changed イベントが存在しない場合、CalcManager はプロパティの変更を検出できません。
+
+|PropertyName
+|コントロールに関連する計算のソースまたはターゲット（または両方）として使用するプロパティの名前を取得または設定します。PropertyNameが設定されていない場合、またはPropertyNameが無効な場合、そのコントロールは計算に使用できず、参照エラーが生成されます。 
+
+CalcManager が計算のソース値としてコントロールのプロパティを使用するためには、そのプロパティが Bindable プロパティと同じ条件を満たしている必要があります。つまり、コントロールがプロパティを公的に公開していて、PropertyChangedイベントも公開されている必要があります。たとえば、 Text プロパティを使用する場合は、コントロールに TextChanged イベントが存在する必要があります。PropertyChangedイベントが存在しない場合、計算は適切に実行されません。この条件が適用されるのはソースプロパティのみです。数式の計算値を格納するターゲットとして使用するだけであれば、コントロールにPropertyChangedイベントは必要ありません。
+
+|====
+
+== 以下の手順を実行します。
+
+[start=1]
+. 
+
+次の図は、WebCalcManager コンポーネントによって拡張された WebTextEdit コントロールのプロパティを示します。
+
+image::Images/WebCalcManager_Using_CalcManager_and_Formulas_01.png[]
+
+[start=2]
+. 数式を要素に追加するには、Formula プロパティの省略ボタンをクリックして フォーミュラ ビルダーを起動します。
+
+image::Images/WebCalcManager_Using_CalcManager_and_Formulas_02.png[]
+
+[start=3]
+. Formula Builder が表示されたら、左の列にタブが 2 つ表示されます。1 つ目のタブには、数式の中で使用できるフォーム上の要素と、カスタムの名前付き参照のリストが表示されます。2 つ目のタブには、使用可能なすべての数式のリストが表示されます。
+
+*注:* フォームのコントロールがコントロール タブ リストの下に表示されない場合、フォームのコントロールを検索し、CalcSettings を展開し、その PropertyName を選択します。
+
+image::Images/WebCalcManager_Using_CalcManager_and_Formulas_03.png[]
+
+[start=4]
+. 数式を作成するには、1 つ目のタブで要素名をダブルクリックするか、リスト中の要素名を数式エディターにドラッグ アンド ドロップします。数式エディターのツールバーを使用して、基本的な数学記号を数式に追加できます。数式エディターで数式を変更すると、バックグラウンドで構文エラーがチェックされます。入力した数式が無効な場合は、変更を行う必要がある列と行が通知されます。
+
+== 復習
+
+このチュートリアルでは、2 つのテキストボックスの計算をするためにフォーミュラ ビルダーを使用する方法を説明しました。

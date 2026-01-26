@@ -1,0 +1,40 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-enabling-application-styling-using-the-webpagestyler-component",
+    "controlName": [],
+    "tags": ["Styling"],
+    "guid": "{BB4E6256-3E33-46E5-A0F4-02C5F19C3307}",  
+    "buildFlags": [],
+    "createdOn": "2006-07-12T11:48:52Z"
+}
+|metadata|
+////
+
+= WebPageStyler コンポーネントを使用してアプリケーション スタイリングを有効にする
+
+アプリケーション スタイリングを使用する間、以下のような疑問を持つかもしれません。「アプリケーション スタイリングを使用したい既存のプロジェクトがあるが、プロジェクト全体でアプリケーション スタイリングをオンにしたくない場合にはどうすればいいか?」このシナリオのソリューションが link:web-webpagestyler.html[WebPageStyler] コンポーネントです。このコンポーネントは、機能およびプロパティが極めてシンプルです。このコンポーネントは以下の 4 つのプロパティを持っています。
+
+*  pick:[asp-net="link:{ApiPlatform}webui.shared{ApiVersion}~infragistics.webui.shared.iprovideappstyling~enableappstyling.html[EnableAppStyling]"]  -- 現在の ASPX ページに限ってアプリケーション スタイリングを有効/無効にします。デフォルト値は NotSet です。
+*  pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.htmlboxprogressbar~enableviewstate.html[EnableViewState]"]  -- ページのポストバックで使用するために、このコンポーネントで ViewState を有効にします。デフォルト値は True です。
+*  pick:[asp-net="link:{ApiPlatform}webui.misc{ApiVersion}~infragistics.webui.misc.webgroupbox~stylesetname.html[StyleSetName]"]  -- ASPX ページに使用されるスタイルセット名。
+*  pick:[asp-net="link:{ApiPlatform}webui.misc{ApiVersion}~infragistics.webui.misc.webgroupbox~stylesetpath.html[StyleSetPath]"]  -- スタイルセットへのパス。デフォルト値は Null です。
+
+*WebPageStyler コンポーネントを使用してアプリケーション スタイリングを有効にするには、次の手順に従ってください。*
+
+
+*注：* この手順は、ASPX ページがすでにページ上に WebGrid を持っており、データ バインドされていることを前提とします。
+
+
+[start=1]
+. ツールボックスから、WebPageStyler コンポーネントをフォームにドラッグします。コンポーネントにランタイム外観がないため、このコンポーネントの場所は重要ではありません。
+[start=2]
+. WebPageStyler コンポーネントの [プロパティ] ウィンドウで、EnableAppStyling プロパティを True に設定します。
+[start=3]
+. StyleSetName プロパティを選択します。ドロップダウン リストが表示して、インポートされたスタイルセットを示します。スタイルセットをインポートしていない場合には、ドロップダウン リストから [インポート] を選択するとダイアログ ボックスが開き、スタイルセットをインポートできます。スタイルセットがインポートされたら、ドロップダウン リストから選択することで、スタイルセットを指定します。
+[start=4]
+. これでアプリケーション スタイリングを使用するようにページが設定されました。ページを実行して、スタイルセットが有効であることを確認します。
+
+
+*注：* デフォルトで、スタイルセットが ig_res というフォルダにインポートされます。またデフォルトで、このフォルダはプロジェクトで一部ではありませんが、[すべてのファイルを表示] を選択すると表示されます。フォルダを右クリックして [プロジェクトに含む] を選択し、フォルダとそのサブフォルダをプロジェクトに一部にすることができます。

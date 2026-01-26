@@ -1,0 +1,28 @@
+﻿////
+|metadata|
+{
+    "name": "webgauge-bar-marker",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "a678dc74-061a-4582-b447-0a0c8923b979",  
+    "buildFlags": [],
+    "createdOn": "2012-04-23T12:21:43.601793Z"
+}
+|metadata|
+////
+
+= バー マーカー
+
+バー マーカーは、ラジアル ゲージとリニア ゲージのスケールで開始点と終了点を持つバーとして表示されます。
+
+たとえば、温度計を表すリニア ゲージを作成している場合には、水銀レベルを表示するためにバー マーカーを使用します。
+
+link:images/gauge-add-bar-marker-01.png[
+
+image::images/gauge-add-bar-marker-01.png[Gauge_Add_Bar_Marker_01.png]
+
+]
+
+== 関連トピック
+
+link:webgauge-add-a-bar-marker-to-a-gauge.html[バー マーカーをゲージに追加]

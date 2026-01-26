@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-whats-new-office2010blue-styles",
+    "controlName": [],
+    "tags": [],
+    "guid": "4c6e20c2-cee0-4871-ab69-d8bdb6c3d5e9",  
+    "buildFlags": [],
+    "createdOn": "2010-09-30T12:04:46.4042831Z"
+}
+|metadata|
+////
+
+= Office 2010 Blue スタイル
+
+Infragistics® ASP.NET コントロールは今回 Office 2010 Blue スタイルをサポートします。
+
+== 関連トピック
+
+link:web-application-styling-framework-asf.html[Application Styling Framework (ASF)]

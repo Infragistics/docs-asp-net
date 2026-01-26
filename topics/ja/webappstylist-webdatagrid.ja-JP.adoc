@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "webappstylist-webdatagrid",
+    "controlName": ["WebAppStylist"],
+    "tags": ["Styling","Theming"],
+    "guid": "{FD657735-5353-402A-9066-8F719CCA9EF6}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDataGrid
+
+WebDataGrid キャンバスに WebDataGrid コントロールを伴うすべてのスタイリング修正を表示します。WebDataGrid キャンバスで以下のコントロールを見つけることができます。
+
+* WebDataGrid
+
+image::images/AppStylist_WebDataGrid_Canvas_01.png[WebDataGrid コントロールのキャンバス。]

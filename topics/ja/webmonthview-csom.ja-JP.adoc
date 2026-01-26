@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "webmonthview-csom",
+    "controlName": [],
+    "tags": ["API","Getting Started"],
+    "guid": "{EC997807-172E-443B-A57B-BEEB79DC61EF}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WebMonthView CSOM
+
+WebMonthView は、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを公開します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクト、イベント、ユーティリティ関数から構成され、開発者はサーバー側にポストバックしなくても、WebMonthView コントロールに関連する重要な機能単位をプログラムできます。
+
+一般的に、オブジェクト モデルは、サーバー上の場合と同じようにオブジェクト モデルから直接派生しています。プロパティ名、イベント、パラメータ、戻り値の意味は、サーバー上のそれらとほとんど同じです。ただし、注が付けられている一部のプロパティはクライアント上では読み取り専用です。これらのプロパティは、情報の提供を目的としており、値を変更することはできません。
+
+WebMonthView コントロールのクライアント サイド オブジェクト モデルに関する参照トピック：
+
+link:webmonthview-utility-functions-csom.html[WebMonthView ユーティリティ関数]
+
+link:webmonthview-object-csom.html[WebMonthView オブジェクト]
+
+____
+link:webmonthview-client-side-events-csom.html[クライアント側イベント]
+____

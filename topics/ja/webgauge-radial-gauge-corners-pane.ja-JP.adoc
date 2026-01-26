@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-radial-gauge-corners-pane",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{3FFC72FB-CBEC-4697-ADDA-5BDEBD806FC4}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 角ペイン
+
+[角] ペインは、ラジアル ゲージ上の角の形状を決定するために使用されます。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.gauge~cornerextent.html[範囲]"]  -- この値を 0 から 100 の整数に設定します。この値は、ラジアル ゲージの角の丸みを決定します。
+
+image::images/Radial_Corners_Pane_01.png[]
+
+== 関連トピック
+
+link:webgauge-radial-gauge.html[ラジアル ゲージ]

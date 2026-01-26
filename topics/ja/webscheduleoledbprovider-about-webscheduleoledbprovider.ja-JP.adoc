@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "webscheduleoledbprovider-about-webscheduleoledbprovider",
+    "controlName": ["WebScheduleOleProvider"],
+    "tags": ["Data Presentation","Persistence"],
+    "guid": "{23D6DD28-BDF1-48DF-AC41-3C94B94682EE}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WebScheduleOleDbProvider について
+
+データ アクセス レイヤに配置されている WebSchedule データ プロバイダは、WebScheduleInfo 内の  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.resource.html[Activity]"]  オブジェクトと  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[Resource]"]  オブジェクトを、データ ストア内のテーブルおよび行にバインディングを実行します。
+
+データ プロバイダ クラス モデルは、拡張性を考慮して作成されています。したがって、データ プロバイダを拡張して、他のデータ ソースや展開されたオブジェクト モデルを処理できます。
+
+image::images/WebScheduleOleDbProvider_About_WebScheduleOleDbProvider_01.png[]

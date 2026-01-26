@@ -1,0 +1,29 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcalendarview-csom-overview",
+    "controlName": ["WebCalendarView"],
+    "tags": ["Getting Started"],
+    "guid": "{A4C17B5C-9D53-4C9D-9D2F-3B1BD93E60E3}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= CSOM 概要
+
+WebCalendarView は、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを公開します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクト、イベント、ユーティリティ関数から構成され、開発者はサーバー側にポストバックしなくても、WebCalendarView コントロールに関連する重要な機能単位をプログラムできます。
+
+一般的に、オブジェクト モデルは、サーバー上の場合と同じようにオブジェクト モデルから直接派生しています。プロパティ名、イベント、パラメータ、戻り値の意味は、サーバー上のそれらとほとんど同じです。ただし、注が付けられている一部のプロパティはクライアント上では読み取り専用です。これらのプロパティは、情報の提供を目的としており、値を変更することはできません。
+
+WebCalendarView コントロールのクライアント サイド オブジェクト モデルに関する参照トピック：
+
+link:webcalendarview-utility-functions-csom.html[WebCalendarView ユーティリティ関数]
+
+link:webcalendarview-object-csom.html[WebCalendarView オブジェクト]
+
+____
+link:webcalendarview-client-side-events-csom.html[クライアント側イベント]
+____

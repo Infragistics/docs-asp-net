@@ -1,0 +1,81 @@
+﻿////
+
+|metadata|
+{
+    "name": "webtab-using-load-on-demand-for-tabs-with-content-url-set",
+    "controlName": ["WebTab"],
+    "tags": ["How Do I","Performance"],
+    "guid": "{2C6C679E-D1BC-4343-8936-047C58069C4A}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= コンテンツ Url を設定してタブにロードオンデマンドを使用
+
+WebTab によって、EnableLoadOnDemandUrl プロパティを True に設定することによって、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.contentpane~contenturl.html[ContentUrl]"]  でタブ項目にロードオンデマンド機能を有効にすることができます。このプロパティは、ContentUrl が jquery.js のようなスクリプトを実行する Web サイトに設定されている場合、つまり html 要素の表示/非表示に関係なく初期化でフォーカスを設定するかオフセットを計算する場合に使用できます。これらのアクションは、JavaScript 例外を発生する結果となる場合があります。これらのバグの回避策は、EnableLoadOnDemandUrl プロパティを True に設定することです。これによって、表示可能な選択した ContentUrl だけをロードできます。
+
+=== ContentUrl でタブにロードオンデマンド機能を有効にするには
+
+[start=1]
+. Visual Studio™ ツールボックスから、ScriptManager コンポーネントと WebTab コントロールをページにドラッグ アンド ドロップします。
+[start=2]
+. link:webtab-getting-started-with-webtab.html[「タブを WebTab に追加」]トピックで説明されているようにタブを WebTab に追加します。
+[start=3]
+. [プロパティ] ウィンドウで  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.webtab~postbackoptions.html[PostBackOptions]"]  を展開し、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.tabpostbackoptions~enableloadondemandurl.html[EnableLoadOnDemandUrl]"]  プロパティを選択して True に設定し、ContentUrl を設定してタブにロードオンデマンド機能を有効にします。以下のコードから、この機能を有効にすることもできます。
+
+*HTML の場合:*
+
+----
+<PostBackOptions EnableLoadOnDemandUrl="True" />
+----
+
+*Visual Basic の場合：*
+
+----
+WebTab1.PostBackOptions.EnableLoadOnDemandUrl = true
+----
+
+*C# の場合：*
+
+----
+WebTab1.PostBackOptions.EnableLoadOnDemandUrl = true;
+----
+
+[start=4]
+. アプリケーションを保存して実行します。タブが選択されると、ContentUrl が設定されたタブのコンテンツがフェッチされます。
+
+== 関連トピック
+
+link:webtab-about-webtab.html[WebTab について]
+
+link:webtab-getting-started-with-webtab.html[WebTabで開始]
+
+link:webtab-header-and-content-panes.html[ヘッダー ペイントとコンテンツ ペイン]
+
+link:webtab-tab-states.html[タブの状態]
+
+link:webtab-ajax-indicator-support-for-webtab.html[WebTab の Ajax インジケーターのサポート]
+
+link:webtab-display-modes.html[表示モード]
+
+link:webtab-animations.html[アニメーション]
+
+link:webtab-handling-overflow-in-webtab.html[WebTab でオーバーフローを処理]
+
+link:webtab-using-load-on-demand-in-webtab.html[WebTab でロードオンデマンドを使用]
+
+link:webtab-orientation-and-alignment.html[方向と配置]
+
+link:webtab-overlapping-tabs.html[タブの重複]
+
+link:webtab-tab-moving.html[タブの移動]
+
+link:webtab-scrolling.html[スクロール]
+
+link:webtab-validation-in-webtab.html[WebTab で検証]
+
+link:webtab-api-overview.html[API の概要]
+
+link:webtab-client-side-object-model.html[クライアント サイド オブジェクト モデル（CSOM）の概要]

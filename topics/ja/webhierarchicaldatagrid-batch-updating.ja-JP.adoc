@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatagrid-batch-updating",
+    "controlName": ["WebHierarchicalDataGrid"],
+    "tags": ["Editing","Getting Started","Grids","Performance"],
+    "guid": "b5d0a125-edd5-4942-a7ff-76b0db932e96",  
+    "buildFlags": [],
+    "createdOn": "2011-10-26T07:50:29.7303328Z"
+}
+|metadata|
+////
+
+= 一括更新
+
+以下のリンクをクリックすると、WebHierarchicalDataGrid のバッチ更新機能を素早く起動して実行する方法に関する情報を参照できます。
+
+* link:webhierarchicaldatagrid-batch-updating-overview.html[概要]
+* link:webhierarchicaldatagrid-batch-updating-enabling.html[一括更新を有効にする]
+* link:webhierarchicaldatagrid-batch-updating-events.html[イベント]
+* link:webhierarchicaldatagrid-batch-updating-summaries.html[集計]
+

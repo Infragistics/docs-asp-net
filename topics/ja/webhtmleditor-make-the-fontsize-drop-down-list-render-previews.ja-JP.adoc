@@ -1,0 +1,126 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-make-the-fontsize-drop-down-list-render-previews",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing","Styling"],
+    "guid": "{752F36CE-0F91-407D-9FBD-FC05B87880BD}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= フォントサイズ ドロップダウン リスト レンダリング プレビューの作成
+
+WebHtmlEditor で提供されている  pick:[asp-net="link:{ApiPlatform}webui.webhtmleditor{ApiVersion}~infragistics.webui.webhtmleditor.webhtmleditor~fontsizelist.html[FontSizeList]"]  プロパティは、ユーザーが選択した一定範囲のテキストのフォント サイズを受け取ります。このプロパティを使用するには、このプロパティに追加する文字列が HTML フォント タグで有効なサイズ属性のものである必要があります。
+
+[cols="a,a"]
+|====
+
+image::images/WebHtmlEditor_How_Do_I_Make_the_FontSize_drop_down_Render_Previews_1.png[]
+
+プレビューなし
+
+image::images/WebHtmlEditor_How_Do_I_Make_the_FontSize_drop_down_Render_Previews_2.png[]
+
+プレビューあり
+
+しかし、ユーザーはこのようなエンコードされた数値を直感的に判断できません。したがって、次のプロシージャを使用して、FontSizeList プロパティからユーザーに対し分かりやすい項目がリストされたドロップダウン リストを開くようにし、その値には適切なサイズ属性をマッピングします。
+
+[start=1]
+. コードの記述を開始する前にコード ビハインドに使用/インポートのディレクティブを配置します。そうすれば、メンバは完全に記述された名前を常に入力する必要がなくなります。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.WebUI.WebHtmlEditor
+----
+
+*C# の場合：*
+
+----
+using Infragistics.WebUI.WebHtmlEditor;
+----
+
+[start=2]
+. WebHtmlEditor コントロールを含む Web フォームに、PreRender イベントのイベント ハンドラを追加します。
+
+*Visual Basic の場合：*
+
+----
+Private Sub Page_PreRender(ByVal sender As System.Object, ByVal e As _ 
+  System.EventArgs) Handles MyBase.PreRender
+	' ドロップダウンにプレビュー項目を格納するコードをここに挿入します。
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void Page_PreRender( object sender, System.EventArgs e)
+{
+	// ドロップダウンにプレビュー項目を格納するコードをここに挿入します。
+}
+. . .
+private void InitializeComponent()
+{    
+	// Page.PreRender イベントを処理します。.
+	this.PreRender += new System.EventHandler(this.Page_PreRender);
+}
+----
+
+[start=3]
+. PreRender イベント ハンドラ内で、FontSizeList Toolbar 項目タイプの ToolbarDropDown オブジェクトを取得し、既存の内容をクリアしてから新しい項目を追加します。
+
+*Visual Basic の場合：*
+
+----
+Dim dropDown As ToolbarDropDown 
+' ToolBar Items コレクション内の FontSize ドロップダウン項目を見つけます。
+dropDown = CType( _
+  Me.WebHtmlEditor1.Toolbar.Items.GetByType(ToolbarItemType.FontSize), _
+  ToolbarDropDown)
+' FontSizeList プロパティからの項目をクリアします。
+dropDown.Items.Clear( )
+' その選択により設定されるフォント サイズをプレビューする項目を追加します。
+dropDown.Items.Add( New ToolbarDropDownItem( _
+  "<font size='1'>xx-small</font>", "1"))
+dropDown.Items.Add( New ToolbarDropDownItem( _
+  "<font size='2'>small</font>", "2"))
+dropDown.Items.Add( New ToolbarDropDownItem( _
+  "<font size='3'>medium</font>", "3"))
+dropDown.Items.Add( New ToolbarDropDownItem( _
+  "<font size='4'>large</font>", "4"))
+dropDown.Items.Add( New ToolbarDropDownItem( _
+  "<font size='5'>x-large</font>", "5"))
+dropDown.Items.Add( New ToolbarDropDownItem( _
+  "<font size='6'>xx-large</font>", "6"))
+----
+
+*C# の場合：*
+
+----
+// ToolBar.Items コレクション内の FontSize ドロップダウン項目を見つけます。
+ToolbarDropDown dropDown = (ToolbarDropDown)
+  this.WebHtmlEditor1.Toolbar.Items.GetByType(
+  ToolbarItemType.FontSize);
+//' FontSizeList プロパティからの項目をクリアします。
+dropDown.Items.Clear( );
+// その選択により設定されるフォント サイズをプレビューする項目を追加します。
+dropDown.Items.Add( new ToolbarDropDownItem( 
+  "<font size='1'>xx-small</font>", "1"));
+dropDown.Items.Add( new ToolbarDropDownItem( 
+  "<font size='2'>small</font>", "2"));
+dropDown.Items.Add( new ToolbarDropDownItem( 
+  "<font size='3'>medium</font>", "3"));
+dropDown.Items.Add( new ToolbarDropDownItem( 
+  "<font size='4'>large</font>", "4"));
+dropDown.Items.Add( new ToolbarDropDownItem( 
+  "<font size='5'>x-large</font>", "5"));
+dropDown.Items.Add( new ToolbarDropDownItem( 
+  "<font size='6'>xx-large</font>", "6"));
+----
+
+各ドロップダウン リスト項目の名前に HTML を使用することにより、プレビューに近い品質を確保することができます。この方法は、FontName ドロップダウン リスト、および WebHtmlEditor がユーザーに対しドロップダウン リスト ボックスとして表示するリスト タイプの他のすべてのプロパティで効果的です。

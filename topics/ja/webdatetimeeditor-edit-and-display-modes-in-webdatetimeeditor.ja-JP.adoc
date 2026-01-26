@@ -1,0 +1,53 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatetimeeditor-edit-and-display-modes-in-webdatetimeeditor",
+    "controlName": ["WebDateTimeEditor"],
+    "tags": ["Editing","How Do I","Localization","Styling"],
+    "guid": "{AE6522A6-0B02-49E1-A256-3E8F6D78E907}",  
+    "buildFlags": [],
+    "createdOn": "2009-04-06T17:07:15Z"
+}
+|metadata|
+////
+
+= WebDateTimeEditor での編集モードと表示モード
+
+WebDateTimeEditor™ によってコントロールが編集モードの時と表示モードの時の異なる書式文字列を指定できます。コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webdatetimeeditor~editmodeformat.html[EditModeFormat]"]  プロパティを設定するだけで、編集モード（コントロールに入力フォーカスがある時）に使用される日付の書式を設定できます。同様に、コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webdatetimeeditor~displaymodeformat.html[DisplayModeFormat]"]  プロパティを設定するだけで、表示モード（コントロールに入力フォーカスがない時）に使用される日付の書式を設定できます。
+
+
+*注：* EditModeFormat プロパティと DisplayModeFormat プロパティは System.Globalization.DateTimeFormatInfo クラスに依存します。
+
+
+Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、EditModeFormat プロパティと DisplayModeFormat プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+'DateTimeFormatInfo オブジェクトを作成します
+Dim format As New System.Globalization.DateTimeFormatInfo()
+'WebDateTimeEditor の EditModeFormat プロパティを希望のパターンに設定します 
+WebDateTimeEditor1.EditModeFormat = format.ShortDatePattern
+'WebDateTimeEditor の DisplayModeFormat プロパティを希望のパターンに設定します
+WebDateTimeEditor1.DisplayModeFormat = format.LongDatePattern
+----
+
+*C# の場合：*
+
+----
+//DateTimeFormatInfo オブジェクトを作成します
+System.Globalization.DateTimeFormatInfo format = new System.Globalization.DateTimeFormatInfo();
+//WebDateTimeEditor の EditModeFormat プロパティを希望のパターンに設定します
+WebDateTimeEditor1.EditModeFormat = format.ShortDatePattern;
+//WebDateTimeEditor の DisplayModeFormat プロパティを希望のパターンに設定します
+WebDateTimeEditor1.DisplayModeFormat = format.LongDatePattern;
+----
+
+== 編集モード:
+
+image::images\WebDateTimeEditor_Edit_and_Display_Modes_in_WebDateTimeEditor_01.png[]
+
+== 表示モード:
+
+image::images\WebDateTimeEditor_Edit_and_Display_Modes_in_WebDateTimeEditor_02.png[]

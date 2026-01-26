@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatagrid-excelstylefiltering-propertyreference",
+    "controlName": ["WebHierarchicalDataGrid"],
+    "tags": ["Filtering","Grids"],
+    "guid": "b3c7c1de-cf50-42ab-a72f-a9639b9ffb3d",  
+    "buildFlags": [],
+    "createdOn": "2012-07-16T12:21:20.6230192Z"
+}
+|metadata|
+////
+
+= Excel フィルタリングのプロパティ リファレンス
+
+== プロパティ リファレンス
+
+=== はじめに
+
+このトピックは、 _WebHierarchicalDataGrid_™ コントロールの link:webhierarchicaldatagrid-excelstylefiltering-landingpage.html[Excel フィルタリング]機能のプロパティについての情報を提供します。
+
+=== プロパティ リファレンス表
+
+以下の表は、 _WebHierarchicalDataGrid_   コントロールの Excel フィルタリングのプロパティの目的と機能を説明します。
+
+[options="header", cols="a,a"]
+|====
+|プロパティ|解説
+
+| link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.columnfilteringsetting~uniquevaluecasing.html[UniqueValueCasing]
+|フィルタリング ドロップダウンの項目の大文字化を設定します。利用可能な値: 
+
+* _Lower_ (デフォルト) – 項目は小文字で表示されます 
+
+* _Upper_ - 項目は大文字で表示されます 
+
+* _Camel_ - 項目は英語の文字の大文字化で表示されます。項目の最初の文字のみは大文字で表示されます。 
+
+__このプロパティ__ __は__ __親レイアウトと子レイアウトの両方、__ __または__ __列レベルに設定できます。__ __列設定は__ __優先__ __が__ __あります。__
+
+| link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.columnfilteringsetting~nullvaluetext.html[NullValueText]
+|データ ソースで Null 値がある列のフィルタリング ドロップダウンの項目の値を設定します。このプロパティは親レイアウトと子レイアウトの両方に設定できます。
+
+|====

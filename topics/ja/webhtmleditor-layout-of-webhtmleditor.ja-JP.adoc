@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-layout-of-webhtmleditor",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing","Layouts"],
+    "guid": "{DBF368A6-DC78-40A9-AD9A-F49278368A8D}",  
+    "buildFlags": [],
+    "createdOn": "2006-04-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor のレイアウト
+
+このセクションでは、WebHtmlEditor コントロールのさまざまな領域について説明します。
+
+以下のリンクをクリックすると、それぞれの領域についての説明を読むことができます。
+
+* link:webhtmleditor-regions-of-webhtmleditor.html[WebHtmlEditor のさまざまな領域]
+* link:webhtmleditor-webhtmleditor-toolbar.html[WebHtmlEditor ツールバー]
+* link:webhtmleditor-webhtmleditor-text-window.html[WebHtmlEditor テキスト ウィンドウ]
+* link:webhtmleditor-webhtmleditor-tab-strip.html[WebHtmlEditor タブ ストリップ]

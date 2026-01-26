@@ -1,0 +1,49 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatetimeeditor-using-webdatetimeeditor",
+    "controlName": ["WebDateTimeEditor"],
+    "tags": [],
+    "guid": "{49F0EA3C-4DD9-4652-9645-A365DA8C2E3B}",  
+    "buildFlags": [],
+    "createdOn": "2009-04-06T17:01:51Z"
+}
+|metadata|
+////
+
+= WebDateTimeEditor の使用
+
+このセクションは、WebDateTimeEditor™ コントロールの重要な概念および機能を効果的に使用するためのタスク ベースの情報について説明します。
+
+link:webdatetimeeditor-edit-and-display-modes-in-webdatetimeeditor.html[WebDateTimeEditor の編集と表示モード]
+
+このセクションでは、WebDateTimeEditor コントロールの編集および表示モードを設定する方法を学びます。
+
+link:webdatetimeeditor-reducing-day-on-invalid-date-in-webdatetimeeditor.html[WebDateTimeEditor で無効な日を設定]
+
+このセクションでは、WebDateTimeEditor コントロールでユーザーが無効な日を選択した場合の処理方法をを学びます。
+
+link:webdatetimeeditor-setting-minimum-and-maximum-values-for-webdatetimeeditor.html[WebDateTimeEditor の最大値/最小値の設定]
+
+このセクションでは、WebDateTimeEditor コントロールに最大値および最小値を設定する方法を学びます。
+
+link:webdatetimeeditor-setting-prompt-character-for-webdatetimeeditor.html[WebDateTimeEditor プロンプト文字の設定]
+
+このセクションでは、WebDateTimeEditor コントロールにプロンプト文字を設定する方法を学びます。
+
+link:webdatetimeeditor-setting-the-culture-of-webdatetimeeditor.html[WebDateTimeEditor カルチャの設定]
+
+このセクションでは、WebDateTimeEditor コントロールに特定のカルチャを設定する方法を示します。
+
+link:webdatetimeeditor-spinning-through-a-list-of-values-in-webdatetimeeditor.html[WebDateTimeEditor で値リストをスピン]
+
+このセクションでは、値リストで回転するスピン ボタンを使用する方法を学びます。
+
+link:webdatetimeeditor-using-custom-button-in-webdatetimeeditor.html[WebDateTimeEditor でカスタム ボタンを使用する]
+
+このセクションでは、カスタマイズされたボタンを実装してカスタムなアクションを実行する方法を学びます。
+
+link:webdatetimeeditor-webdatetimeeditor-smart-tag.html[WebDateTimeEditor スマート タグ]
+
+このセクションでは WebDateTimeEditor スマート タグについて学びます。

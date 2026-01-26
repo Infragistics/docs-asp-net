@@ -1,0 +1,78 @@
+﻿////
+|metadata|
+{
+    "name": "webtab-tab-moving",
+    "controlName": ["WebTab"],
+    "tags": ["How Do I"],
+    "guid": "{2638292F-4A81-4BAD-9CF8-F40946F34B33}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= タブの移動
+
+WebTab™ は、マウス ドラッグを使用したエンドユーザーによるタブ移動をサポートします。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.webtab~tabmoving.html[TabMoving]"]  オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.tabmoving~enabled.html[Enabled]"]  プロパティを True に設定することでこの機能を有効にできます。
+
+*注：* サポートには制約があるので、複数行のタブが有効である場合、この機能を使用することは推奨しません。
+
+TabMoving オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.tabmoving~cssclass.html[CssClass]"]  および  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.tabmoving~markupcssclass.html[MarkUpCssClass]"]  プロパティをそれぞれ使用することによって、タブ項目のメイン html 要素およびマークアップ コピーに独自 CSS クラスを適用することもできます。
+
+*HTML の場合:*
+
+----
+<TabMoving Enabled="True" CssClass="mainCss" MarkUpCssClass="copyCss" />
+----
+
+*Visual Basic の場合：*
+
+----
+WebTab1.TabMoving.Enabled = true
+'mainCss および copyCss を独自の Css クラスと想定します。
+WebTab1.TabMoving.CssClass = "mainCss"
+WebTab1.TabMoving.MarkUpCssClass = "copyCss"
+----
+
+*C# の場合：*
+
+----
+WebTab1.TabMoving.Enabled = true;
+//mainCss および copyCss を独自の Css クラスと想定します。
+WebTab1.TabMoving.CssClass = "mainCss";
+WebTab1.TabMoving.MarkUpCssClass = "copyCss";
+----
+
+*注：* TabMoving 機能は、タブ項目の  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.contenttabitem~visibleindex.html[VisibleIndex]"]  プロパティに影響を及ぼします。このプロパティは、サーバーおよびクライアントの両方に設定できます。
+
+== 関連トピック
+
+link:webtab-about-webtab.html[WebTab の理解]
+
+link:webtab-getting-started-with-webtab.html[WebTabで開始]
+
+link:webtab-header-and-content-panes.html[ヘッダー ペイントとコンテンツ ペイン]
+
+link:webtab-tab-states.html[タブの状態]
+
+link:webtab-ajax-indicator-support-for-webtab.html[WebTab の Ajax インジケーターのサポート]
+
+link:webtab-display-modes.html[表示モード]
+
+link:webtab-animations.html[アニメーション]
+
+link:webtab-handling-overflow-in-webtab.html[WebTab でオーバーフローを処理]
+
+link:webtab-load-on-demand.html[ロードオンデマンド]
+
+link:webtab-orientation-and-alignment.html[方向と配置]
+
+link:webtab-overlapping-tabs.html[タブの重複]
+
+link:webtab-scrolling.html[スクロール]
+
+link:webtab-validation-in-webtab.html[WebTab で検証]
+
+link:webtab-api-overview.html[API の概要]
+
+link:webtab-client-side-object-model.html[クライアント サイド オブジェクト モデル（CSOM）の概要]

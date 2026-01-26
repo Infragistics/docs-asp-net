@@ -1,0 +1,86 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-update-a-recurring-appointment-server-side",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Scheduling"],
+    "guid": "{4A032982-C4A0-4C53-8601-374D1AC26A11}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= サーバー側の定期的な予定をアップデート
+
+繰り返し予定の更新は以下の 3 つの簡単な手順で実行します。
+
+[start=1]
+. 繰り返し pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.activity.html[アクティビティ]"] を取得します。
+[start=2]
+. pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.recurrence.html[繰り返し]"] のルート アクティビティを取得します。
+[start=3]
+. 変更でデータベースを更新します。
+
+繰り返し予定の更新における最初のタスクは、繰り返し予定を含むアクティビティを取得することです。このトピックのために、今日発生する繰り返し予定があると想定します。アクティビティを取得した後で、その繰り返しの RootActivity にアクセスする必要があります（recurrence オブジェクトはアクティビティから作成されるからです）。RootActivity に対する制御を持ったら、繰り返しの更新を開始できます。データベースを変更で更新することで終了します。
+
+*Visual Basic の場合：*
+
+----
+Imports Infragistics.WebUI.Shared
+Imports Infragistics.WebUI.WebSchedule
+...
+' 今日発生する予定を見つけ出すために、GetActivitiesForDate メソッド
+' を使用します。 
+Me.WebScheduleInfo1.DataBind()
+Dim activities As ActivitiesSubsetCollection = _
+  Me.WebScheduleInfo1.GetActivitiesForDate(Me.WebScheduleInfo1.ActiveResource, _
+  New SmartDate(DateTime.Now))
+Dim appointment As Appointment = CType(activities(0), Appointment)
+' 繰り返しのルート アクティビティを取得します。
+appointment = CType(appointment.Recurrence.RootActivity, Appointment)
+' 更新している繰り返し予定。
+appointment.Recurrence.MaxOccurrences = 5
+' データ プロバイダの UpdateActivity メソッドでデータベースを更新します。
+Me.WebScheduleOleDbProvider1.UpdateActivity(appointment)
+' Activities コレクションを更新するために、DataBind を再度呼び出す必要があります。 
+' WebScheduleInfo は、一度呼び出した後では自動的に
+' 呼び出しません。
+Me.WebScheduleInfo1.DataBind()
+----
+
+*C# の場合：*
+
+----
+using Infragistics.WebUI.Shared;
+using Infragistics.WebUI.WebSchedule;
+...
+// 以下の using ディレクティブを使用すると、完全に記述した名前を
+// 毎回入力する必要がありません。 
+using Infragistics.WebUI;
+using Infragistics.WebUI.WebSchedule;
+// 今日発生する予定を見つけ出すために、GetActivitiesForDate メソッド
+// を使用します。 
+this.WebScheduleInfo1.DataBind();
+ActivitiesSubsetCollection activities = 
+  this.WebScheduleInfo1.GetActivitiesForDate(this.WebScheduleInfo1.ActiveResource,
+  new SmartDate(DateTime.Now));
+Appointment appointment = (Appointment)activities[0];
+// 繰り返しのルート アクティビティを取得します。
+appointment = (Appointment)appointment.Recurrence.RootActivity;
+// 更新している繰り返し予定。
+appointment.Recurrence.MaxOccurrences = 5;
+// データ プロバイダの UpdateActivity メソッドでデータベースを更新します。
+this.WebScheduleOleDbProvider1.UpdateActivity(appointment);
+// Activities コレクションを更新するために、DataBind を再度呼び出す必要があります。 
+// WebScheduleInfo は、一度呼び出した後では自動的に
+// 呼び出しません。
+this.WebScheduleInfo1.DataBind();
+----
+
+== 関連トピック
+
+link:webschedule-add-a-recurring-appointment-server-side.html[サーバー側で繰り返し予定を追加]
+
+link:webschedule-delete-a-recurring-appointment-server-side.html[サーバー側で繰り返し予定を削除]

@@ -1,0 +1,31 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-misc-pane",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{20C3E56A-491C-43BA-A44F-563C6FE34C34}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= その他ペイン
+
+[その他] ペインは、リニア ゲージにあるバーの先頭にあるバルブのサイズを決定します。リニア ゲージのバルブの例は、温度計のバルブ部分です。ラジアル ゲージでは、[その他] ペインはバー マーカーの開始角度を決定します。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.lineargaugebarmarker~bulbspan.html[バルブ スパン]"]  -- バルブ スパンの値は数値スライダを使用して、0 から 100 に設定できます。ただし、値をテキスト ボックスに入力することも可能です。この値はバルブのサイズです。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.radialgaugebarmarker~startangle.html[開始角度]"]  -- この値を 0 から 360 の整数に設定します。この値はラジアル ゲージのバー マーカーの開始角度を指定します。
+
+pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.lineargaugebarmarker~segmentspan.html[セグメント スパン]"]  -- セグメント スパンの値は数値スライダを使用して、0 から 100 に設定できます。ただし、値をテキスト ボックスに入力することも可能です。この値は、各セグメントが占めるバー マーカー全体のパーセントです。
+
+image::images/Bar_Marker_Misc_Pane_01.png[]
+
+image::images/Bar_Marker_Misc_Pane_02.png[]
+
+== 関連トピック
+
+link:webgauge-bar-marker-layout-tab.html[バー マーカー レイアウト タブ]

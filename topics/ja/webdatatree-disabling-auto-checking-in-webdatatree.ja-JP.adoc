@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatatree-disabling-auto-checking-in-webdatatree",
+    "controlName": ["WebDataTree"],
+    "tags": [],
+    "guid": "{15E0A985-5717-4907-88B4-091A1CA44310}",  
+    "buildFlags": [],
+    "createdOn": "2009-03-08T15:55:59Z"
+}
+|metadata|
+////
+
+= WebDataTree で自動チェックを無効にする
+
+WebDataTree™ チェックボックス ツリー ノードの自動チェックを無効にできます。たとえば、エンドユーザーが WebDataTree で子ノードをチェックすると、親ノード（チェックされない場合）が部分的にチェックされる（TriState CheckBoxMode）、または完全にチェックされる（すべての子ノードがチェックされる場合）、または親ノードがチェックされる場合、すべての子ノードもチェックされます。ただし、自動チェック機能を無効にすると、この動作が必要とされない状況下では、ツリー ノードのチェックは中止できます。 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.navigationcontrols.webdatatree~enableautochecking.html[EnableAutoChecking]"]  プロパティを False に設定することで、これを行うことができます。デフォルトで、このプロパティは True に設定されます。
+
+*Visual Basic の場合：*
+
+----
+WebDataTree1.EnableAutoChecking = false
+----
+
+*C# の場合：*
+
+----
+WebDataTree1.EnableAutoChecking = false;
+----
+
+*JavaScript の場合：*
+
+----
+$find("WebDataTree1").set_enableAutoChecking(false);
+----
+
+image::images\WebDataTree_Disabling_Auto_Checking_for_WebDataTree_01.png[]

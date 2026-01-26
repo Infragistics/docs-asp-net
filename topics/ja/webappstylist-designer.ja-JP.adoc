@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "webappstylist-designer",
+    "controlName": ["WebAppStylist"],
+    "tags": ["Design Environment","Styling","Theming"],
+    "guid": "{B226AF8E-480E-4C45-90F3-5FC299364384}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= デザイナ
+
+デザイナは、ロールへの CSS 変更（CSS クラスも）を行い、同時にこれらの変更が適用されるのを確認するためのグラフィカルな方法です。デザイナは 6 つのペインにグループ化され、それぞれに似たプロパティが含まれ、すべてが CSS スタイルに変換します。以下のリンクをクリックして、各ペインに含まれるプロパティの詳細を表示します。
+
+* link:webappstylist-background-pane.html[[背景] ペイン] -- 背景の色と画像を修正します。
+* link:webappstylist-border-pane.html[[境界線] ペイン] -- 一度にまたは個々にすべての境界線を修正します。
+* link:webappstylist-font-pane.html[[フォント] ペイン] -- ひとつまたは多数のフォントの色、サイズ、およびその他のフォントのプロパティを選択します。
+* link:webappstylist-margin-pane.html[[マージン] ペイン] -- 4 つのマージンをそれぞれ編集します。
+* link:webappstylist-padding-pane.html[[パディング ペイン]] -- 各側のパディングの量を変更します。
+* link:webappstylist-other-pane.html[[その他のペイン]] -- カーソルや配置などその他のさまざまなプロパティを修正します。

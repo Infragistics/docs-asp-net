@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcalendarview-styling-webcalendarview",
+    "controlName": ["WebCalendarView"],
+    "tags": ["Styling"],
+    "guid": "{B5DD5F65-AFF9-47C4-A87E-53876BCF48EE}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebCalendarView のスタイル
+
+以下の図は、WebCalendarView と WebCalendarView に設定できるさまざまなスタイル オブジェクトを UI にマップする方法を示しています。
+
+link:http://help.jp.infragistics.com/Help/Doc/ASPNET/20{ProductVersion}/CLR4.0/html/WebSchedule_CalendarView.pdf[印刷用の PDF]
+
+image::images\WebSchedule_Related_Topics_Styling_the_WebCalendarView.png[]

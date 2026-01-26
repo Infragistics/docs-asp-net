@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "aspnet-jquery-api",
+    "controlName": [],
+    "tags": ["API"],
+    "guid": "48ca96e7-291a-4089-b15a-cc0dd72a6814",  
+    "buildFlags": [],
+    "createdOn": "2011-07-22T19:49:31.0362596Z"
+}
+|metadata|
+////
+
+= jQuery API
+
+各 ASP.NET コントロールの jQuery API については、以下のリンクをクリックしてください。
+
+* link:{jQueryApiLink}/ui.igupload[WebUpload]
+* link:{jQueryApiLink}/ui.igvideoplayer[WebVideoPlayer]

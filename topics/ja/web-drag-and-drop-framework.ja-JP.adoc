@@ -1,0 +1,34 @@
+﻿////
+|metadata|
+{
+    "name": "web-drag-and-drop-framework",
+    "controlName": ["WebDragandDropFramework"],
+    "tags": ["Application Scenarios"],
+    "guid": "{3CDFF9B3-CEB1-42BF-BC01-620C5F3EFEE1}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ドラッグ アンド ドロップ フレームワーク
+
+このページには、ドラッグ アンド ドロップ フレームワーク関連の概要/タスクベースの情報がすべて含まれています。
+
+以下のリンクをクリックしてドラッグ アンド ドロップ フレームワークに関する重要情報にアクセスします。
+
+== link:draganddropframework-about-drag-and-drop-framework.html[ドラッグ アンド ドロップ フレームワークについて]
+
+このトピックでは、ドラッグ アンド ドロップ フレームワークの機能をより適切に理解する支援となる情報だけでなく、使いたくなる理由を提供します。
+
+== link:draganddropframework-getting-started-with-drag-and-drop.html[ドラッグ アンド ドロップで開始]
+
+ドラッグ アンド ドロップ フレームワークを使用してできる限り素早く起動して実行するために、作業を開始する方法についての情報を提供します。
+
+== link:draganddropframework-using-drag-and-drop-framework.html[ドラッグ アンド ドロップ フレームワークの使用]
+
+このセクションは、ドラッグ アンド ドロップ フレームワークによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+== link:drag%20and%20drop~infragistics.web.ui_namespace.html[CSOM の概要]
+
+ドラッグ アンド ドロップ フレームワークは、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを公開します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクトで構成され、開発者はサーバー側にポストバックしなくても、コントロールに関連する重要な機能単位をプログラムできます。

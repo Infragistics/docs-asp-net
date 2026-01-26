@@ -1,0 +1,22 @@
+﻿////
+
+|metadata|
+{
+    "name": "webmonthview-understanding-the-webmonthview-control",
+    "controlName": ["WebMonthView"],
+    "tags": ["Appointments","Getting Started","Recurrences","Scheduling"],
+    "guid": "{78646EE7-F582-44BB-855F-2AE9C6CA8152}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebMonthView コントロールの理解
+
+WebMonthView コントロール、およびその主要な特性と機能について解説しています。
+
+* link:webmonthview-about-webmonthview.html[WebMonthView について] -- WebMonthView コントロールの機能と、それをアプリケーション内で使用することの利点について説明しています。
+* link:webschedule-navigating-using-next-and-previous-navigational-buttons.html[次のナビゲーション ボタンと前のナビゲーション ボタンを使用してナビゲート] -- コントロールの一番上にあるナビゲーション矢印がどのように機能するかを説明します。
+* link:webmonthview-styling-webmonthview.html[WebMonthView のスタイル] -- このトピックは、WebMonthView をスタイルできる方法を説明します。
+link:webmonthview-smart-tag.html[WebMonthView スマート タグ] -- WebMonthView スマート タグで使用可能な機能を説明します。

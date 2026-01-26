@@ -1,0 +1,48 @@
+﻿////
+|metadata|
+{
+    "name": "webcalendarview-hide-the-drop-down-lists-in-webcalendarview",
+    "controlName": ["WebCalendarView"],
+    "tags": ["Application Scenarios"],
+    "guid": "{3E64A16E-783C-4CF4-86D1-5542F2B99792}",
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebCalendarView でドロップダウンリストを非表示にする
+
+WebCalendarView には一番上に 2 つのドロップダウン リストがあり、月と年を表示します。これらは月または年を簡単にナビゲートするのに役立ちます。 
+
+月や年を表示したいまたは非表示にしたい場合があります。以下のコードは、Month ドロップダウンリストと Year ドロップダウン リストの両方を非表示にする方法を示しています。
+
+image::images\WebSchedule_How_to_Hide_the_DropDowns_on_the_WebCalendarView_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Private Sub Page_Load(ByVal sender As System.Object, ByVal e _
+  As System.EventArgs) Handles MyBase.Load
+	Me.WebCalendarView1.MonthDropDownVisible = False
+	Me.WebCalendarView1.YearDropDownVisible = False
+End Sub
+----
+
+*C# の場合：*
+
+----
+private void Page_Load(object sender, System.EventArgs e)
+{
+	this.WebCalendarView1.MonthDropDownVisible = false;
+	this.WebCalendarView1.YearDropDownVisible = false;
+}
+----
+
+== 関連トピック
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule_namespace.html[WebSchedule 名前空間]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webcalendarview.html[WebCalendarView クラス]"]
+
+pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.appointment.html[Appointments クラス]"]

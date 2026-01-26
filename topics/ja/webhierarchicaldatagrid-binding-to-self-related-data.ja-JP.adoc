@@ -1,0 +1,141 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatagrid-binding-to-self-related-data",
+    "controlName": ["WebHierarchicalDataGrid"],
+    "tags": ["Data Binding","Grids"],
+    "guid": "{DFEE815A-E3D6-4249-AF71-C219D31D2FBD}",  
+    "buildFlags": [],
+    "createdOn": "2009-01-10T14:45:43Z"
+}
+|metadata|
+////
+
+= 自己関係的なデータにバインド
+
+== 始める前に
+
+WebHierarchicalDataGrid™ を自己関係的なデータ ソースにバインドできます。このコントロールは、階層表示でデータを表示します。ただし、含まれるのは 1 バンドだけです。自己関係的なデータ ソースは階層に無限のレベルを持つことができるので、 link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webhierarchicaldatagrid~maxdatabinddepth.html[MaxDataBindDepth] プロパティを使用して最大のデータ バインドの深さを設定できます。
+
+== 達成すること
+
+Northwind データベースから Employees テーブルを使用することで、自己参照的なデータ セットにバインドする方法を学習します。
+
+== 次の手順を実行します
+
+[start=1]
+. ASP.NET Web ページを作成します。
+[start=2]
+. ツールボックスからページに ScriptManager コンポーネントをドラッグします。
+[start=3]
+. ツールボックスからページに WebHierarchicalDataGrid コントロールをドラッグします。
+[start=4]
+. ページの Init イベントを処理します。
+
+.. Northwind データベースへの接続を確立し、Employees テーブルを取得します。
+.. EmployeeID および ReportsTo 列を使用して、自己関係を設定します。
+.. Employees テーブルのプライマリ キー フィールドを設定します。
+.. セッション状態でテーブルを保存します。
+.. 自己参照データを許可するために、WebHierchicalDataGrid の link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.gridcontrols.webhierarchicaldatagrid~isselfreference.html[IsSelfReference] プロパティを True に設定します。
+.. 3 レベルのデータを許可するために、MaxDataBindDepth プロパティを 2 に設定します。このプロパティは 0 の値で 1 レベルのデータ（ルート レベル）を許可し、-1 の値ですべてのレベルを許可します。
+
+*Visual Basic の場合：*
+
+----
+Protected Sub Page_Init(ByVal sender As Object, ByVal e As EventArgs)
+   If Not Page.IsPostBack Then
+' Employees テーブルを取得するために接続およびコマンドを設定します 
+      Dim con As New SqlConnection("Data Source=.\sqlexpress;Initial Catalog=Northwind;Integrated Security=True")
+      Dim com As New SqlCommand("SELECT EmployeeID, FirstName, LastName, Title, ReportsTo FROM EMPLOYEES", con)
+' データでデータセットを埋めるためにデータ アダプタを設定します 
+      Dim da As New SqlDataAdapter(com)
+      Dim employees As New DataSet()
+      con.Open()
+' データを取得します 
+      da.Fill(employees, "Employees")
+      con.Close()
+' EmployeeID および ReportsTo 列で同じテーブルにデータの関係を設定します 
+      Dim rel As New DataRelation("Employees", employees.Tables("Employees").Columns("EmployeeID"), employees.Tables("Employees").Columns("ReportsTo"))
+      employees.Relations.Add(rel)
+' テーブルのプライマリ キー フィールドを設定します
+      employees.Tables("Employees").PrimaryKey = New DataColumn() {employees.Tables("Employees").Columns("EmployeeID")}
+' セッション状態でデータを保存します 
+      Me.Session("Employees") = employees
+      Me.WebHierarchicalDataGrid2.IsSelfReference = True
+      Me.WebHierarchicalDataGrid2.MaxDataBindDepth = 2
+   End If
+   ' TODO: set up data binding 
+End Sub
+----
+
+*C# の場合：*
+
+----
+protected void Page_Init(object sender, EventArgs e)
+{
+   if (!Page.IsPostBack)
+   {
+// Employees テーブルを取得するために接続およびコマンドを設定します
+      SqlConnection con = new SqlConnection(@"Data Source=.\sqlexpress;Initial Catalog=Northwind;Integrated Security=True");
+      SqlCommand com = new SqlCommand("SELECT EmployeeID, FirstName, LastName, Title, ReportsTo FROM EMPLOYEES", con);
+// データでデータセットを埋めるためにデータ アダプタを設定します
+      SqlDataAdapter da = new SqlDataAdapter(com);
+      DataSet employees = new DataSet();
+      con.Open();
+// データを取得します
+      da.Fill(employees, "Employees");
+      con.Close();
+// EmployeeID および ReportsTo 列で同じテーブルにデータの関係を設定します
+      DataRelation rel = new DataRelation("Employees", employees.Tables["Employees"].Columns["EmployeeID"], employees.Tables["Employees"].Columns["ReportsTo"]);
+      employees.Relations.Add(rel);
+// テーブルのプライマリ キー フィールドを設定します
+      employees.Tables["Employees"].PrimaryKey = new DataColumn[] {employees.Tables["Employees"].Columns["EmployeeID"]};
+// セッション状態でデータを保存します
+      this.Session["Employees"] = employees;
+      this.WebHierarchicalDataGrid2.IsSelfReference = true;
+      this.WebHierarchicalDataGrid2.MaxDataBindDepth = 2;
+   }
+// 行うこと：データ バインドを設定します
+}
+----
+
+[start=5]
+. Employees テーブルにバインドするために WebHierarchicalDataGrid を設定します。
+
+*注：* ロードオンデマンドを使用しているので、ポストバック毎にコードのこの部分を実行する必要があります。If ステートメントの外の Page Load イベントにこれを配置しているのはこのためです。これについての詳細は、「ロードオンデマンド」を参照してください。
+
+*Visual Basic の場合：*
+
+----
+' セッション状態からデータを取得します 
+Dim ds As DataSet = TryCast(Me.Session("Employees"), DataSet)
+' データ ソースを設定し、グリッドにバインドします 
+Me.WebHierarchicalDataGrid2.DataSource = ds 
+Me.WebHierarchicalDataGrid2.DataMember = "Employees" 
+Me.WebHierarchicalDataGrid2.DataKeyFields = "EmployeeID" 
+Me.WebHierarchicalDataGrid2.Key = "Employees" 
+Me.WebHierarchicalDataGrid2.DataBind()      
+----
+
+*C# の場合：*
+
+----
+// セッション状態からデータを取得します
+DataSet ds = this.Session["Employees"] as DataSet;
+// データ ソースを設定し、グリッドにバインドします
+this.WebHierarchicalDataGrid2.DataSource = ds;
+this.WebHierarchicalDataGrid2.DataMember = "Employees";
+this.WebHierarchicalDataGrid2.DataKeyFields = "EmployeeID";
+this.WebHierarchicalDataGrid2.Key = "Employees";
+this.WebHierarchicalDataGrid2.DataBind();
+----
+
+[start=6]
+. アプリケーションを実行します。WebHierarchicalDataGrid は、1 つのバンドを使用してデータの階層を表示します。
+
+image::images/WebHierarchicalDataGrid_Binding_to_Self_Related_Data_01.png[]
+
+== 関連トピック
+
+link:webhierarchicaldatagrid-binding-to-xml-data-source.html[Xml データ ソースにバインド]

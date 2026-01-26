@@ -1,0 +1,21 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webdayview-using-webdayview",
+    "controlName": ["WebDayView"],
+    "tags": ["How Do I"],
+    "guid": "{66B5FB09-2937-440A-962D-8CAC82CB98DB}",  
+    "buildFlags": [],
+    "createdOn": "2007-05-11T14:06:11Z"
+}
+|metadata|
+////
+
+= WebDayView の使用
+
+このセクションは、WebDayView™ コントロールによって提供されるさまざまな特徴や機能を効率的に使用するための手助けとなるタスクベースの情報のゲートウェイです。
+
+* link:webdayview-display-multiple-days-in-a-webdayview.html[WebDayView で複数日を表示]
+* link:webschedule-styling-webdayviews-alldayeventarea.html[WebDayViews AllDayEventArea のスタイリング] 
+* link:webschedule-using-webdayviews-designer.html[WebDayViews デザイナの使用]

@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatagrid-cheat-sheet",
+    "controlName": ["WebDataGrid"],
+    "tags": ["Getting Started","Grids","How Do I"],
+    "guid": "ae8b6eb9-a0a7-4fb6-870f-a09e4e6a9e62",  
+    "buildFlags": [],
+    "createdOn": "2011-05-28T07:23:27.323845Z"
+}
+|metadata|
+////
+
+= WebDataGrid チート シート
+
+link:http://dl.infragistics.com/pg/cheat-sheet/InfragisticsASPNETGridCheatSheet.pdf[{ProductName} グリッドチートシート (英語)] は、WebDataGrid™ と WebHierarchicalDataGrid™ の両方にある多種多様な機能のクイック アクセス ガイダンスを提供するための参照に使用できます。
+
+このチート シートは、{ProductName} AJAX グリッド コントロールの機能と動作の使用に対する手順ごとのガイドです。コントロールを簡単に対比するために両方のグリッドの手順とコードが左右に並べて表示されます。
+
+image::images/WebDataGrid_Cheat_Sheet_01.png[]
+
+*図 1: グリッド フィルタリングでの作業を説明するチート シートのスクリーンショット*
+
+link:http://dl.infragistics.com/pg/cheat-sheet/InfragisticsASPNETGridCheatSheet.pdf[チート シート (英語) をここからダウンロードします。]

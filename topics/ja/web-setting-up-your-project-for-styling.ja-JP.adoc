@@ -1,0 +1,24 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-setting-up-your-project-for-styling",
+    "controlName": [],
+    "tags": ["Getting Started","Styling"],
+    "guid": "{38DB96D0-6D86-42D3-AF70-8AD7EE9F431E}",  
+    "buildFlags": [],
+    "createdOn": "2006-01-12T08:29:39Z"
+}
+|metadata|
+////
+
+= スタイリングのためにプロジェクトを設定
+
+アプリケーション スタイリングはグラフィク デザイナのためだけのものではありません。アプリケーション スタイリングはアプリケーション開発者のためのものでもあります。このセクションのトピックは、アプリケーション開発者がデザインタイムおよびランタイムにスタイル ライブラリをロードする、特定のコンポーネントのためにスタイルセットを設定するなどのタスクを実行する支援を行います。これらの作業についての詳細は、以下のリンクを参照してください。
+
+* link:web-preparing-your-application-for-application-styling.html[アプリケーション スタイリング用にアプリケーションを準備する]
+* link:web-enabling-application-styling-at-design-time.html[デザインタイムにアプリケーション スタイリングを有効にする]
+* link:web-enabling-application-styling-at-run-time.html[ランタイムにアプリケーション スタイリングを有効にする]
+* link:web-changing-stylesets-at-run-time.html[ラン タイムにスタイルセットを変更]
+* link:web-changing-stylesets-at-the-control-level.html[コントロール レベルでスタイルセットを変更]
+* link:web-upgrading-web-applications-to-make-use-of-application-styling.html[アプリケーション スタイリングを使用するために Web アプリケーションをアップグレード]

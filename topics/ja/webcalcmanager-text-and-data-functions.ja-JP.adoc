@@ -1,0 +1,48 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcalcmanager-text-and-data-functions",
+    "controlName": ["WebCalcManager"],
+    "tags": ["Getting Started"],
+    "guid": "{31E8A812-D38F-42F0-B85B-E636BAFEAD36}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= テキスト&データ関数
+
+以下は WebCalcManager™ コントロールで提供されるすべての Microsoft® Excel® スタイルのテキストおよびデータ関数のリストです。これらの link:https://support.office.com/ja-jp/article/Excel-%E9%96%A2%E6%95%B0-%E6%A9%9F%E8%83%BD%E5%88%A5-5f91f4e9-7b42-46d2-9bd1-63f26a86c0eb?ui=ja-JP&rs=ja-JP&ad=JP#__toc309306717[テキストおよびデータ関数]の詳細は、Microsoft の Web サイトを参照してください。
+
+[[FUNC_ASC]]
+
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionchar.html[CHAR]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctioncode.html[CODE]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionconcatenate.html[CONCATENATE]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionfind.html[検索]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionfixed.html[FIXED]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionleft.html[LEFT]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionlen.html[LEN]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionlower.html[LOWER]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionmid.html[MID]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionreplace.html[REPLACE]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionright.html[RIGHT]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctiontrim.html[TRIM]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionupper.html[UPPER]"] 
+*  pick:[asp-net="link:{ApiPlatform}webui.ultrawebcalcmanager{ApiVersion}~infragistics.webui.calcengine.ultracalcfunctionvalue.html[VALUE]"] 
+
+== 関連トピック
+
+link:webcalcmanager-date-and-time-functions.html[日付&時間関数]
+
+link:webcalcmanager-financial-functions.html[財務関数]
+
+link:webcalcmanager-information-functions.html[情報関数]
+
+link:webcalcmanager-logical-functions.html[論理関数]
+
+link:webcalcmanager-math-functions.html[算術関数]
+
+link:webcalcmanager-statistical-functions.html[統計関数]

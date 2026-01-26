@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "webdatepicker-using-the-last-valid-date-in-webdatepicker",
+    "controlName": ["WebDatePicker"],
+    "tags": ["Selection","Tips and Tricks"],
+    "guid": "{74D4D6D7-3210-4828-9C47-D422BA870AF2}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebDatePicker で以前の有効な日付を使用
+
+WebDatePicker™ は、エンドユーザーが無効な日付を入力した場合にコントロールがフォーカスを失うとすぐに以前の有効な日付を設定するオプションを提供します。コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.webdatetimeeditor~uselastgooddate.html[UseLastGoodDate]"]  を True に設定するだけでこれを実行できます。デフォルトでこのプロパティは False に設定されます。
+
+Microsoft® Visual Studio® [プロパティ] ウィンドウを使用する、または以下のコードを使用することによって、UseLastGoodDate プロパティを設定できます:
+
+*Visual Basic の場合：*
+
+----
+WebDatePicker1.UseLastGoodDate = true
+----
+
+*C# の場合：*
+
+----
+WebDatePicker1.UseLastGoodDate = true;
+----
+
+*JavaScript の場合：*
+
+----
+$find("WebDatePicker1").set_useLastGoodDate(true);
+----

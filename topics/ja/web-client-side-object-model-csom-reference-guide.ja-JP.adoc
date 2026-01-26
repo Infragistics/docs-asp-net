@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-client-side-object-model-csom-reference-guide",
+    "controlName": [],
+    "tags": ["API"],
+    "guid": "{1E791E6C-0830-4E2E-B24E-0CDED7648053}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-12T00:00:00Z"
+}
+|metadata|
+////
+
+= クライアント側オブジェクト モデル（CSOM）リファレンスガイド
+
+JavaScript ベースのオブジェクト モデルで、クライアント側オブジェクト モデル（CSOM）とも呼ばれます。ASP.NET の個々のコントロールとコンポーネントのクライアントで使用できます。この CSOM を使用すると、サーバーへのポストバックを最小限に抑えた、機能が豊富で 応答性に優れた Web アプリケーションを構築できます。
+
+『CSOM リファレンス ガイド』は、JavaScript のオブジェクト、イベント、ユーティリティ関数、メソッド、プロパティについて説明しており、これらを使用すると、Infragistics の ASP.NET コントロールとコンポーネントを使用した、サーバー側へのポストバックを必要としない Web アプリケーションを構築できます。
+
+以下のリンクをクリックすると、特定の ASP.NET のコントロールとコンポーネントの CSOM についての詳しい説明を読むことができます。
+
+* link:aspnet-ajax-csom.html[ASP.NET AJAX CSOM]
+* link:aspnet-csom.html[ASP.NET CSOM]
+* link:aspnet-jquery-api.html[jQuery API]

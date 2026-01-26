@@ -1,0 +1,23 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhtmleditor-utility-functions-csom",
+    "controlName": [],
+    "tags": ["API"],
+    "guid": "{82394210-BAA6-464C-BEE2-11D4B403C067}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor ユーティリティ関数
+
+ここで説明するユーティリティ関数は、WebHtmlEditor コントロールの JavaScript コードで使用されます。ユーティリティ関数を提供し解説するのは、開発者ができるだけ多くのロジックをクライアント マシン上に実装することで、パフォーマンスと機能性の両面で性能を引き出せるようにすることを意図しています。
+
+*function iged_getById(id)*
+
+この関数は、WebHtmlEditor コントロールで使用します。
+
+var editor = iged_getById().

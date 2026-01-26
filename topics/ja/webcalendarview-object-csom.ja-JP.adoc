@@ -1,0 +1,73 @@
+﻿////
+
+|metadata|
+{
+    "name": "webcalendarview-object-csom",
+    "controlName": [],
+    "tags": ["API","How Do I"],
+    "guid": "{2091B318-0757-4E4E-B989-FEACA8B577FB}",  
+    "buildFlags": [],
+    "createdOn": "2005-07-12T00:00:00Z"
+}
+|metadata|
+////
+
+= WebCalendarView オブジェクト
+
+== WebCalendarView
+
+WebCalendarView オブジェクトは、WebCalendarView コントロールのコントロール レベル機能へのアクセスを提供します。
+
+=== WebCalendarView メソッド
+
+[cols="a,a"]
+|====
+|*getClientID* 
+|WebCalendarView の ClientID を返します。
+
+|*getElement* 
+|WebCalendarView に使われている HTML 要素を返します。
+
+|*getNavigationAnimation* 
+|ビュー コントロールがナビゲートされた時に発生するアニメーションの型。 
+
+*解説*
+
+0－None 
+
+1 - Accelerate 
+
+2 - Decelerate 
+
+3 - AccelDecel 
+
+4 - Linear
+
+|*getUniqueID* 
+|WebCalendarView の UniqueID を返します。
+
+|*isSelected* 
+|過去の日付を選択していないかチェックします。 
+
+*パラメータ*
+
+_year_ 
+
+チェックする日付の年です。 _month_ 
+
+チェックする日付の月です。 _day_ 
+
+チェックする日付の曜日です。 
+
+*戻り値*
+
+過去の日付が選択されると True が返されます。
+
+|====
+
+=== WebCalendarView プロパティ
+
+==== Days
+
+カレンダーの日付をあらわすオブジェクトを含む 42 ビット長の配列です。このメンバ変数とそのすべての要素は読み取り専用で、変更できません。
+

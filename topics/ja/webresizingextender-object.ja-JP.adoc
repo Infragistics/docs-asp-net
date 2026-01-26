@@ -1,0 +1,542 @@
+﻿////
+
+|metadata|
+{
+    "name": "webresizingextender-object",
+    "controlName": [],
+    "tags": ["API","How Do I"],
+    "guid": "{DFE0CFD5-B36C-4E65-884A-DCE5EA65D9A0}",  
+    "buildFlags": [],
+    "createdOn": "2007-08-02T08:02:57Z"
+}
+|metadata|
+////
+
+= WebResizingExtender オブジェクト
+
+== WebResizingExtender
+
+クライアント上の Infragistics.WebUI.WebResizingExtender を表すオブジェクト。
+
+=== WebResizingExtender メソッド
+
+[cols="a,a"]
+|====
+|*add_mouseout* 
+|WebResizingExtender の mouseout イベントを処理するためにリスナー関数を追加します。 
+
+*パラメータ*
+
+_handler_ 
+
+mouseout イベントで呼び出される関数への参照。 
+
+*解説*
+
+注：ハンドラ関数の args パラメータは CancelEventArgs クラスのインスタンスです。例： 
+
+---- 
+ function myFnc(sender, args)  { 	var evt = args.getBrowserEvent(); 	var rawEvt = evt ? evt.rawEvent : null; 	if(rawEvt) 		window.status = 'x=' + rawEvt.clientX;  }  var wre = Sys.Application.findComponent("WebResizingExtender1");  wre.add_mouseout(myFnc);
+----
+
+|*add_mouseover* 
+|WebResizingExtender の mouseover イベントを処理するためにリスナー関数を追加します。 
+
+*パラメータ*
+
+_handler_ 
+
+mouseover イベントで呼び出される関数への参照。 
+
+*解説*
+
+注：ハンドラ関数の args パラメータは CancelEventArgs クラスのインスタンスです。例： 
+
+---- 
+ function myFnc(sender, args)  { 	var evt = args.getBrowserEvent(); 	var rawEvt = evt ? evt.rawEvent : null; 	if(rawEvt) 		window.status = 'x=' + rawEvt.clientX;  }  var wre = Sys.Application.findComponent("WebResizingExtender1");  wre.add_mouseover(myFnc);
+----
+
+|*add_resize* 
+|WebResizingExtender の resize イベントを処理するためにリスナー関数を追加します。このイベントは、マウスを放したリサイズ アクションの終わりに発生します。アプリケーションは、そのイベントをキャンセルまたは最終サイズを修正することができます。 
+
+*パラメータ*
+
+_handler_ 
+
+resize イベントで呼び出される関数への参照。 
+
+*解説*
+
+注：ハンドラ関数の args パラメータは ResizeEventArgs クラスのインスタンスです。例： 
+
+---- 
+ function myFnc(sender, args)  { 	if(args.getWidth() == 20) if(args.getOldWidth() == 100) 		args.set_cancel(true); 	if(args.getHeight() == 20) 		args.setHeight(50);  }  var wre = Sys.Application.findComponent("WebResizingExtender1");  wre.add_resize(myFnc);
+----
+
+|*add_resizing* 
+|WebResizingExtender の resizing イベントを処理するためにリスナー関数を追加します。このイベントは、マウスのドラッグによってリサイズが行われている間に発生します。アプリケーションはこのイベントをキャンセルできます。 
+
+*パラメータ*
+
+_handler_ 
+
+resizing イベントで呼び出される関数への参照。 
+
+*解説*
+
+注：ハンドラ関数の args パラメータは ResizeEventArgs クラスのインスタンスです。例： 
+
+---- 
+ function myFnc(sender, args)  { 	if(args.getWidth() == 20) if(args.getOldWidth() == 100) 		args.set_cancel(true);  }  var wre = Sys.Application.findComponent("WebResizingExtender1");  wre.add_resizing(myFnc);
+----
+
+|*get_handleClass* 
+|このメソッドによって、ハンドラに適用される css クラスの値を取得することができます（リサイジング パネルの右下隅にある四角形）。 
+
+*戻り値*
+
+css クラス名。
+
+|*get_handleImage* 
+|このメソッドによって、ハンドラの IMG に適用される src の値を取得することができます（リサイジング パネルの右下隅にある四角形）。 
+
+*戻り値*
+
+画像に使用される url の名前。
+
+|*get_initialize* 
+|このメソッドによって、初期化イベントを処理するために使用されるハンドラ関数名を取得することができます。 
+
+*戻り値*
+
+関数名。
+
+|*get_maximumHeight* 
+|このメソッドによって、最大の高さの値を取得できます。 
+
+*戻り値*
+
+数値。
+
+|*get_maximumWidth* 
+|このメソッドによって、最大の幅の値を取得できます。 
+
+*戻り値*
+
+数値。
+
+|*get_minimumHeight* 
+|このメソッドによって、最小の高さの値を取得できます。 
+
+*戻り値*
+
+数値。
+
+|*get_minimumWidth* 
+|このメソッドによって、最小の幅の値を取得できます。 
+
+*戻り値*
+
+数値。
+
+|*get_mouseout* 
+|このメソッドによって、mouseout イベントを処理するために使用されるハンドラ関数名を取得することができます。 
+
+*戻り値*
+
+関数名。
+
+|*get_mouseover* 
+|このメソッドによって、mouseover イベントを処理するために使用されるハンドラ関数名を取得することができます。 
+
+*戻り値*
+
+関数名。
+
+|*get_offsetBottom* 
+|このメソッドによって、ターゲットの要素の一番下の端からのリサイジング パネルのオフセット値を取得することができます。 
+
+*戻り値*
+
+数値。
+
+|*get_offsetLeft* 
+|このメソッドによって、ターゲットの要素の左端からのリサイジング パネルのオフセット値を取得することができます。 
+
+*戻り値*
+
+数値。
+
+|*get_offsetRight* 
+|このメソッドによって、ターゲットの要素の右端からのリサイジング パネルのオフセット値を取得することができます。 
+
+*戻り値*
+
+数値。
+
+|*get_offsetTop* 
+|このメソッドによって、ターゲットの要素の一番上の端からのリサイジング パネルのオフセット値を取得することができます。 
+
+*戻り値*
+
+数値。
+
+|*get_parentType* 
+|このメソッドによって、リサイジング パネルの親要素が計算される方法を定義する値を取得することができます。 
+
+*戻り値*
+
+数値。0 - 自動。1 - ターゲット html 要素の子ノード。2 - ターゲット html 要素の親の子ノード。
+
+|*get_resize* 
+|このメソッドによって、resize イベントを処理するために使用されるハンドラ関数名を取得することができます。 
+
+*戻り値*
+
+関数名。
+
+|*get_resizeBorder* 
+|このメソッドによって、リサイジング パネルの境界線に適用される値を取得することができます。 
+
+*戻り値*
+
+"2px solid red" と同様の文字列。
+
+|*get_resizing* 
+|このメソッドによって、resizing イベントを処理するために使用されるハンドラ関数名を取得することができます。 
+
+*戻り値*
+
+関数名。
+
+|*get_targetHtmlElementID* 
+|このメソッドによって、ターゲット html 要素の ID の値を取得することができます。 
+
+*戻り値*
+
+文字列値。
+
+|*remove_mouseout* 
+|add_mouseout メソッドによって設定されたリスナー関数を削除します。 
+
+*パラメータ*
+
+_handler_ 
+
+削除される関数への参照。
+
+|*remove_mouseover* 
+|add_mouseover メソッドによって設定されたリスナー関数を削除します。 
+
+*パラメータ*
+
+_handler_ 
+
+削除される関数への参照。
+
+|*remove_resize* 
+|add_resize メソッドによって設定されたリスナー関数を削除します。 
+
+*パラメータ*
+
+_handler_ 
+
+削除される関数への参照。
+
+|*remove_resizing* 
+|add_resizing メソッドによって設定されたリスナー関数を削除します。 
+
+*パラメータ*
+
+_handler_ 
+
+削除される関数への参照。
+
+|*set_handleClass* 
+|このメソッドによって、ハンドラに適用される css クラスの値を設定することができます（リサイジング パネルの右下隅にある四角形）。 
+
+*パラメータ*
+
+_value_ 
+
+css クラス名。 
+
+*解説*
+
+例： 
+
+---- 
+ var wre = Sys.Application.findComponent("WebResizingExtender1");  wre.set_handleClass('myHandlerCss');
+----
+
+|*set_handleImage* 
+|このメソッドによってハンドラとして使用される html 要素の src 属性の値を設定することができます（リサイジング パネルの右下隅にある四角形）。 
+
+*パラメータ*
+
+_value_ 
+
+src 属性名。 
+
+*解説*
+
+注：IMG 要素が使用される場合に限りこのメソッドが有効です。例： 
+
+---- 
+ var wre = Sys.Application.findComponent("WebResizingExtender1");  wre.set_handleImage('./myHandlerImage.gif');
+----
+
+|*set_initialize* 
+|サポートされません。
+
+|*set_maximumHeight* 
+|このメソッドによって、最大の高さの値を設定できます。 
+
+*パラメータ*
+
+_value_ 
+
+数値。 
+
+*解説*
+
+例： 
+
+---- 
+ var wre = Sys.Application.findComponent("WebResizingExtender1");  wre.set_maximumHeight(300);
+----
+
+|*set_maximumWidth* 
+|このメソッドによって、最大の幅の値を設定できます。 
+
+*パラメータ*
+
+_value_ 
+
+数値。 
+
+*解説*
+
+例： 
+
+---- 
+ var wre = Sys.Application.findComponent("WebResizingExtender1");  wre.set_maximumWidth(300);
+----
+
+|*set_minimumHeight* 
+|このメソッドによって、最小の高さの値を設定できます。 
+
+*パラメータ*
+
+_value_ 
+
+数値。 
+
+*解説*
+
+例： 
+
+---- 
+ var wre = Sys.Application.findComponent("WebResizingExtender1");  wre.set_minimumHeight(100);
+----
+
+|*set_minimumWidth* 
+|このメソッドによって、最小の幅の値を設定できます。 
+
+*パラメータ*
+
+_value_ 
+
+数値。 
+
+*解説*
+
+例： 
+
+---- 
+ var wre = Sys.Application.findComponent("WebResizingExtender1");  wre.set_minimumWidth(100);
+----
+
+|*set_mouseout* 
+|mouseout イベントを処理するために使用することができる関数名を設定します。 
+
+*パラメータ*
+
+_handler_ 
+
+関数名。 
+
+*解説*
+
+注：ハンドラ関数の args パラメータは CancelEventArgs クラスのインスタンスです。例： 
+
+---- 
+ function myFnc(sender, args)  { 	var evt = args.getBrowserEvent(); 	var rawEvt = evt ? evt.rawEvent : null; 	if(rawEvt) 		window.status = 'x=' + rawEvt.clientX;  }  var wre = Sys.Application.findComponent("WebResizingExtender1");  wre.set_mouseout('myFnc');
+----
+
+|*set_mouseover* 
+|mouseover イベントを処理するために使用することができる関数名を設定します。 
+
+*パラメータ*
+
+_handler_ 
+
+関数名。 
+
+*解説*
+
+注：ハンドラ関数の args パラメータは CancelEventArgs クラスのインスタンスです。例： 
+
+---- 
+ function myFnc(sender, args)  { 	var evt = args.getBrowserEvent(); 	var rawEvt = evt ? evt.rawEvent : null; 	if(rawEvt) 		window.status = 'x=' + rawEvt.clientX;  }  var wre = Sys.Application.findComponent("WebResizingExtender1");  wre.set_mouseover('myFnc');
+----
+
+|*set_offsetBottom* 
+|このメソッドによって、ターゲットの要素の一番下の端からのリサイジング パネルのオフセット値を設定することができます。 
+
+*パラメータ*
+
+_value_ 
+
+数値。 
+
+*解説*
+
+値は正または負にすることができます。例： 
+
+---- 
+ var wre = Sys.Application.findComponent("WebResizingExtender1");  wre.set_offsetBottom(-2);
+----
+
+|*set_offsetLeft* 
+|このメソッドによって、ターゲットの要素の左端からのリサイジング パネルのオフセット値を設定することができます。 
+
+*パラメータ*
+
+_value_ 
+
+数値。 
+
+*解説*
+
+値は正または負にすることができます。例： 
+
+---- 
+ var wre = Sys.Application.findComponent("WebResizingExtender1");  wre.set_offsetLeft(2);
+----
+
+|*set_offsetRight* 
+|このメソッドによって、ターゲットの要素の右端からのリサイジング パネルのオフセット値を設定することができます。 
+
+*パラメータ*
+
+_value_ 
+
+数値。 
+
+*解説*
+
+値は正または負にすることができます。例： 
+
+---- 
+ var wre = Sys.Application.findComponent("WebResizingExtender1");  wre.set_offsetRight(-2);
+----
+
+|*set_offsetTop* 
+|このメソッドによって、ターゲットの要素の一番上の端からのリサイジング パネルのオフセット値を設定することができます。 
+
+*パラメータ*
+
+_value_ 
+
+数値。 
+
+*解説*
+
+値は正または負にすることができます。例： 
+
+---- 
+ var wre = Sys.Application.findComponent("WebResizingExtender1");  wre.set_offsetTop(2);
+----
+
+|*set_parentType* 
+|サポートされません。
+
+|*set_resize* 
+|resize イベントを処理するために使用することができる関数名を設定します。 
+
+mouseover イベントを処理するために使用することができる関数名を設定します。 
+
+*パラメータ*
+
+_handler_ 
+
+関数名。 _handler_ 
+
+関数名。 
+
+*解説*
+
+注：ハンドラ関数の args パラメータは ResizeEventArgs クラスのインスタンスです。例： 
+
+---- 
+ function myFnc(sender, args)  { 	if(args.getWidth() == 20) if(args.getOldWidth() == 100) 		args.set_cancel(true); 	if(args.getHeight() == 20) 		args.setHeight(50);  }  var wre = Sys.Application.findComponent("WebResizingExtender1");  wre.set_resize('myFnc');
+----
+
+|*set_resizeBorder* 
+|このメソッドによって、リサイジング パネルの境界線の値を設定できます。 
+
+*パラメータ*
+
+_value_ 
+
+文字列値。 
+
+*解説*
+
+注：値は、境界線の幅を表す数字で始まる必要があります。例： 
+
+---- 
+ var wre = Sys.Application.findComponent("WebResizingExtender1");  wre.set_resizeBorder('4px dotted blue');
+----
+
+|*set_resizing* 
+|resizing イベントを処理するために使用することができる関数名を設定します。 
+
+*パラメータ*
+
+_handler_ 
+
+関数名。 
+
+*解説*
+
+注：ハンドラ関数の args パラメータは ResizeEventArgs クラスのインスタンスです。例： 
+
+---- 
+ function myFnc(sender, args)  { 	if(args.getWidth() == 20) if(args.getOldWidth() == 100) 		args.set_cancel(true);  }  var wre = Sys.Application.findComponent("WebResizingExtender1");  wre.set_resizing('myFnc');
+----
+
+|*set_targetHtmlElementID* 
+|サポートされません。
+
+|*setSize* 
+|このメソッドによって、リサイジング パネルのサイズを設定できます。 
+
+*パラメータ*
+
+_width_ 
+
+数値。 _height_ 
+
+数値。 
+
+*解説*
+
+例： 
+
+---- 
+ var wre = Sys.Application.findComponent("WebResizingExtender1");  wre.setSize(400, 200);
+----
+
+|====

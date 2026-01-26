@@ -1,0 +1,37 @@
+﻿////
+
+|metadata|
+{
+    "name": "webimageviewer-stop-images-looping-continuously",
+    "controlName": ["WebImageViewer"],
+    "tags": ["Layouts","Styling"],
+    "guid": "{5818C707-ED08-4037-9E21-EC6006A519B9}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 画像の連続的なループを中止
+
+エンド ユーザーが [次へ] ボタンまたは [前へ] ボタンを使用して画像をナビゲートしている時に、画像は連続してループします。ただし、場合によっては、エンド ユーザーが連続して画像をループできるようにしたい場合があります。たとえば、インストール プロセスを解説する画像の配列がある場合、最後の画像の後に再度最初の画像を表示するのは誤りです。
+
+デフォルトで、 pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.listcontrols.webimageviewer~wraparound.html[WrapAround]"]  プロパティは True に設定されています。このプロパティを設定可能なのはサーバー上のみです。ただし、get_wrapAround() メソッドを介してクライアントで取得することができます。
+
+以下の例のコードは、WrapAround プロパティを False に設定する方法を示します。
+
+image::images/WebImageViewer_Stop_Images_Looping_Continuously_01.png[WebImageViewer_Stop_Images_Looping_Continuously_01]
+
+*Visual Basic の場合：*
+
+----
+' WrapAround を False に設定します。
+Me.WebImageViewer1.WrapAround = false
+----
+
+*C# の場合：*
+
+----
+// WrapAround を False に設定します。
+this.WebImageViewer1.WrapAround = false;
+----

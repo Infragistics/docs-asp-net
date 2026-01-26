@@ -1,0 +1,43 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-webtab",
+    "controlName": ["WebTab"],
+    "tags": ["Layouts"],
+    "guid": "{84E62C34-C90E-4F95-90AF-FAD6909A4434}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebTab
+
+このページには、WebTab™ コントロール関連の概要/タスクベースの情報がすべて含まれています。このセクションには、コントロールが何を実行するのか、またアプリケーションでなぜコントロールを使用したくなるのかから、コントロールを使用して一般的なタスクを完了する方法に関するステップバイステップの手順まで、コントロールに関する貴重な情報が含まれています。
+
+WebTab コントロールについての詳細は、以下のリンクをクリックしてください。
+
+== link:webtab-about-webtab.html[WebTab について]
+
+このセクションには、WebTab コントロールの機能の理解を深めるのに役立つ情報があります。さらに、コントロールの目的も理解できます。
+
+== link:webtab-getting-started-with-webtab.html[WebTabで開始]
+
+このセクションは、WebTab コントロールを迅速に起動、実行する方法についての情報を提供します。
+
+== link:webtab-using-webtab.html[WebTab の使用]
+
+このセクションは、WebTab の機能を使用する方法を示すタスクベースの情報を提供します。
+
+== link:webtab-accessibility-compliance.html[WebTab アクセシビリティの遵守]
+
+このトピックは、WebTab が第 508 条の要件を満たす方法を概略します。このアクセシビリティの遵守によって、エンド ユーザー、特に障害を持つユーザーが WebTab コントロールを使用して構築された Web アプリケーションにアクセスおよび使用することを可能にします。
+
+== link:webtab-api-overview.html[API の概要]
+
+このトピックは、WebTab コントロールのコードで使用する名前空間とクラスをリストします。このトピックにリストされている名前空間とクラスは、{ProductName} ヘルプの「API 参照ガイド」セクションに便宜的にリンクされています。
+
+== link:webtab~infragistics.web.ui_namespace.html[クライアント側オブジェクト モデル（CSOM）の概要]
+
+WebTab™ コントロールは、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを提供します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクトで構成され、開発者はサーバー側にポストバックしなくても、コントロールに関連する重要な機能単位をプログラムできます。

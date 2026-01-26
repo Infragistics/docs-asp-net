@@ -1,0 +1,30 @@
+﻿////
+
+|metadata|
+{
+    "name": "webscheduleinfo-csom-overview",
+    "controlName": ["WebScheduleInfo"],
+    "tags": [],
+    "guid": "{190B98DC-0C93-4AEE-B6BE-A38D885EF2C6}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= CSOM 概要
+
+WebScheduleInfoは、クライアント側の JavaScript プログラミング環境に強固なオブジェクト モデルを提供します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクト、イベント、ユーティリティ関数から構成され、開発者はサーバー側にポストバックしなくても、WebScheduleInfo コンポーネントに関連する重要な機能単位をプログラムできます。
+
+一般的に、オブジェクト モデルは、サーバー上の場合と同じようにオブジェクト モデルから直接派生しています。プロパティ名、イベント、パラメータ、戻り値の意味は、サーバー上のそれらとほとんど同じです。ただし、注が付けられている一部のプロパティはクライアント上では読み取り専用です。これらのプロパティは、情報の提供を目的としており、値を変更することはできません。
+
+WebScheduleInfo コンポーネントのクライアント サイド オブジェクト モデルに関する参照トピック：
+
+* link:webscheduleinfo-utility-functions-csom.html[WebScheduleInfo ユーティリティ関数]
+* link:webscheduleinfo-object-csom.html[WebScheduleInfo オブジェクト]
+
+** link:webscheduleinfo-client-side-events-csom.html[クライアント側イベント]
+
+*** link:webscheduleinfo-activityeditprops-object-csom.html[ActivityEditProps オブジェクト]
+*** link:webscheduleinfo-activityupdateprops-object.html[ActivityUpdateProps オブジェクト]
+*** link:webscheduleinfo-dialog-object.html[Dialog オブジェクト]

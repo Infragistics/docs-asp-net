@@ -1,0 +1,82 @@
+﻿////
+
+|metadata|
+{
+    "name": "webtab-scrolling",
+    "controlName": ["WebTab"],
+    "tags": ["How Do I"],
+    "guid": "{C3232CEE-3B2F-45FB-980B-2FED7B813205}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= スクロール
+
+pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.webtab~displaymode.html[DisplayMode]"]  が Scrollable に設定されている場合、WebTab™ はタブをナビゲートするためのスクロール ボタンを表示します。これらのスクロール ボタンは、コントロールの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.webtab~scrollbuttons.html[ScrollButtons]"]  プロパティを使用して簡単にカスタマイズできます。ScrollButtons プロパティは、CSS クラスとボタンの画像 URL を設定し、スクロール速度も設定できる数多くのオプションを提供します。ScrollButtons オブジェクトの  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.tabscrollbuttons~scrollposition.html[ScrollPosition]"]  プロパティによって、ピクセル数でタブ項目のスクロール位置を設定できます。
+
+*HTML の場合:*
+
+----
+<ig:WebTab ID="WebTab1" runat="server" DisplayMode="Scrollable" Height="200px" SelectedIndex="3" Width="250px">
+  <Tabs>
+                …
+  </Tabs>
+  <ScrollButtons ScrollPosition="200" AutoHide=" EndSpeed="1000" StartSpeed="100" />
+</ig:WebTab>
+----
+
+*Visual Basic の場合：*
+
+----
+WebTab1.DisplayMode = TabDisplayMode.Scrollable 
+WebTab1.ScrollButtons.ScrollPosition = 200 
+WebTab1.ScrollButtons.AutoHide = false 
+WebTab1.ScrollButtons.StartSpeed = 100 
+WebTab1.ScrollButtons.EndSpeed = 1000
+----
+
+*C# の場合：*
+
+----
+WebTab1.DisplayMode = TabDisplayMode.Scrollable;
+WebTab1.ScrollButtons.ScrollPosition = 200;
+WebTab1.ScrollButtons.AutoHide = false;
+WebTab1.ScrollButtons.StartSpeed = 100;
+WebTab1.ScrollButtons.EndSpeed = 1000;
+----
+
+*注：* pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.tabscrollbuttons~startspeed.html[StartSpeed]"]  および  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.layoutcontrols.tabscrollbuttons~endspeed.html[EndSpeed]"]  プロパティの値は、秒あたりのピクセル数を定義します。最初の 1.5 秒の間、スクロール速度は開始速度から終了速度まで徐々に増加します。
+
+== 関連トピック
+
+link:webtab-about-webtab.html[WebTab の理解]
+
+link:webtab-getting-started-with-webtab.html[WebTabで開始]
+
+link:webtab-header-and-content-panes.html[ヘッダー ペイントとコンテンツ ペイン]
+
+link:webtab-tab-states.html[タブの状態]
+
+link:webtab-ajax-indicator-support-for-webtab.html[WebTab の Ajax インジケーターのサポート]
+
+link:webtab-display-modes.html[表示モード]
+
+link:webtab-animations.html[アニメーション]
+
+link:webtab-handling-overflow-in-webtab.html[WebTab でオーバーフローを処理]
+
+link:webtab-load-on-demand.html[ロードオンデマンド]
+
+link:webtab-orientation-and-alignment.html[方向と配置]
+
+link:webtab-overlapping-tabs.html[タブの重複]
+
+link:webtab-tab-moving.html[タブの移動]
+
+link:webtab-validation-in-webtab.html[WebTab で検証]
+
+link:webtab-api-overview.html[API の概要]
+
+link:webtab-client-side-object-model.html[クライアント サイド オブジェクト モデル（CSOM）の概要]

@@ -1,0 +1,20 @@
+﻿////
+
+|metadata|
+{
+    "name": "webgauge-labels",
+    "controlName": ["WebGauge"],
+    "tags": ["How Do I"],
+    "guid": "{639C7926-5698-40AF-B768-AC16C3469CAF}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= ラベル
+
+このセクションは、ラベルをスケールに追加する方法に関するタスクベースの手順だけでなく、WebGauge コントロールの  pick:[asp-net="link:{ApiPlatform}webui.ultrawebgauge{ApiVersion}~infragistics.ultragauge.resources.labelappearance.html[Labels]"]  プロパティについて役に立つ情報を提供します。
+
+* link:webgauge-about-gauge-labels.html[ゲージ ラベルについて]
+* link:webgauge-add-labels-to-a-gauge.html[ラベルをゲージに追加]

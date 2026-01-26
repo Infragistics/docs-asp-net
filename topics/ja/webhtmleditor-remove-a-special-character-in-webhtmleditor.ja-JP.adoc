@@ -1,0 +1,44 @@
+﻿////
+|metadata|
+{
+    "name": "webhtmleditor-remove-a-special-character-in-webhtmleditor",
+    "controlName": ["WebHtmlEditor"],
+    "tags": ["Editing"],
+    "guid": "{3DF2543B-9D91-4C50-9A5C-806E1AA8C242}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= WebHtmlEditor での特殊文字の削除
+
+WebHtmlEditor では、多くのキーボードでは入力できない特殊文字を、そのコード番号を知らなくてもリストから選択して入力できるようにすることができます。WebHtmlEditor コントロールでは、いくつかのよく使われる特殊文字が入った基本リストが提供されていますが、アプリケーションで基本リストにある項目を削除することができます。
+
+以下のコード例では、特殊文字リストにデフォルトで含まれている通貨記号を削除します。
+
+Web フォームの Page_Load イベント ハンドラで、特殊文字ツールバードロップダウン リストに不要な特殊文字の HTML 文字実体参照を削除してください。
+
+*Visual Basic の場合：*
+
+----
+' 特殊文字ドロップダウンからすべての通貨記号を削除します。
+Me.WebHtmlEditor1.SpecialCharacterList.Remove( "€")
+Me.WebHtmlEditor1.SpecialCharacterList.Remove( "£")
+Me.WebHtmlEditor1.SpecialCharacterList.Remove( "¥")
+----
+
+*C# の場合：*
+
+----
+// 特殊文字ドロップダウンからすべての通貨記号を削除します。
+this.WebHtmlEditor1.SpecialCharacterList.Remove( "€");
+this.WebHtmlEditor1.SpecialCharacterList.Remove( "£");
+this.WebHtmlEditor1.SpecialCharacterList.Remove( "¥");
+----
+
+*注：* すべてのHTML文字実体参照のリストは、W3C® Web サイトの link:http://www.w3.org/TR/1998/REC-html40-19980424/sgml/entities.html[W3C® ウエブサイト] を参照してください。
+
+== 関連トピック
+
+link:webhtmleditor-add-a-special-character-in-webhtmleditor.html[WebHtmlEditor での特殊文字の追加]

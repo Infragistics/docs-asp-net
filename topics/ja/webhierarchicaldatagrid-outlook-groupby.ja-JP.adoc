@@ -1,0 +1,41 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatagrid-outlook-groupby",
+    "controlName": ["WebHierarchicalDataGrid"],
+    "tags": ["Grids","Grouping","How Do I"],
+    "guid": "{3900EC0F-8EF7-4B12-8DD9-ADEB173A0757}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= Outlook GroupBy
+
+WebHierarchicalDataGrid™ コントロールの GroupBy 機能は、エンドユーザーが列の共通の値に基づいてデータをグループ化することができます。 以下のリンクをクリックから Outlook GroupBy 機能の詳細を参照できます。
+
+link:webhierarchicaldatagrid-about-outlook-groupby.html[Outlook GroupBy について]
+
+このセクションでは、 WebHierarchicalDataGrid コントロールの Outlook グループ化機能について説明します。
+
+link:webhierarchicaldatagrid-custom-group-by-name.html[名前によるカスタム グループ]
+
+このセクションでは、デフォルトのグループ化動作をオーバーライドしてカスタムなグループを実装する方法を説明します。
+
+link:webhierarchicaldatagrid-custom-text-in-group-row.html[グループ行のカスタム テキスト]
+
+このセクションでは、グループ行のテキストを変更します。
+
+link:webhierarchicaldatagrid-group-columns-from-code-behind.html[コード ビハインドから列をグループ化]
+
+このセクションはコードビ ハインドから列をグループ化する方法を説明します。
+
+link:webhierarchicaldatagrid-outlook-groupby-with-behaviors.html[動作による Outlook GroupBy]
+
+このセクションでは グループ化が有効なときにサポートされるさまざまな動作について説明します。
+
+link:webhierarchicaldatagrid-referencing-rows-when-using-outlook-groupby.html[Outlook GroupBy を使用する時に行を参照]
+
+このセクションでは Outlook GroupBy が有効なときに行を参照する方法について説明します。

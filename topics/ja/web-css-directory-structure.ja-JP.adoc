@@ -1,0 +1,35 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-css-directory-structure",
+    "controlName": [],
+    "tags": ["FAQ","How Do I","Styling"],
+    "guid": "{564C0901-6B6E-45B2-9698-92710B857F8A}",  
+    "buildFlags": [],
+    "createdOn": "2006-01-12T08:35:57Z"
+}
+|metadata|
+////
+
+= CSS ディレクトリ構造
+
+Application Styling Framework™（ASF）の主要な構成要素のひとつは、スタイリングに必要なすべてのファイルを含むディレクトリ構造です。この構造は厳しく強制されます。コントロールは機能するためには構造が存在すべきであると想定するからです。この構造がなければ、ASF は適切に機能できなくなり、コントロールは適切にルック アンド フィールを描画できなくなります。
+
+この構造はプロジェクトに存在する必要があり、デザインタイムに ASF を有効にする場合に作成されます。ランタイムにアプリケーション スタイリングを有効にすると、必要なフォルダを作成して、フォルダに必要なファイルを配置する必要があります。
+
+ASF によって利用されるデフォルトのディレクトリ構造は以下のとおりです。
+
+~/ig_res/default/images
+
+フォルダ /ig_res は、アプリケーション スタイリングによって使用される StyleSetPath で、スタイル ライブラリとも言われる場合があります。フォルダの名前は、スタイル ライブラリの名前に基づいています。 link:web-netadvantage-application-styling-configuration-tool.html[Infragistics Application Styling Configuration Tool] を使用してアプリケーション スタイリングを有効にすると、/ig_res フォルダが StyleSetPath になります。
+
+このスタイル ライブラリのすぐ下にある各フォルダはスタイルセットで、そのスタイルに関連したファイルおよび画像フォルダを含みます。スタイルライブラリに追加するあらゆるスタイルセットでは、適切なディレクトリ構造がそのスタイルに作成されます。この構造はスタイルセットの構造に従います。ただし、違いは /default フォルダがスタイルセット名に変更される点です（つまり、/aqua、/onyx）。アプリケーションスタイリングを有効にすると、スタイルセットが自動的に使用されます。使用されるスタイルセットの変更方法は、 link:web-netadvantage-application-styling-configuration-tool.html[「Infragistics Application Styling Configuration ツール」]または link:web-changing-stylesets-at-run-time.html[「ランタイムにスタイルセットを変更」]を参照してください。
+
+アプリケーション スタイリングが新しいプロジェクトで有効に設定されると、これ以上の作業は不要です。開発サイクルの後半でプロジェクトでアプリケーション スタイリングを有効にする場合には、コントロールレベルで行ったスタイルの変更によって、コントロールを適切に描画する追加の手順を実行しなければならない場合があります。これらのコントロール レベルのスタイル変更は、アプリケーション スタイリング設定に優先します。
+
+== 関連トピック
+
+link:web-css-file-structure.html[CSS ファイル構造]
+
+link:web-ui-roles.html[UI ロール]

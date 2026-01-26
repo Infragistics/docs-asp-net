@@ -1,0 +1,19 @@
+﻿////
+
+|metadata|
+{
+    "name": "webexplorerbar-client-side-object-model",
+    "controlName": ["WebExplorerBar"],
+    "tags": ["API","Events","How Do I"],
+    "guid": "{1CB80D68-7E2D-402A-8185-0B8FA2D7A539}",  
+    "buildFlags": [],
+    "createdOn": "2010-02-03T23:55:51Z"
+}
+|metadata|
+////
+
+= クライアント サイド オブジェクト モデル（CSOM）の概要
+
+WebExplorerBar™ コントロールは、クライアント側の JavaScript プログラミング環境に堅牢なオブジェクト モデルを提供します。オブジェクト モデルは、十分な機能を備えた JavaScript オブジェクトで構成され、開発者はサーバー側にポストバックしなくても、コントロールに関連する重要な機能単位をプログラムできます。
+
+link:webexplorerbar~infragistics.web.ui_namespace.html[WebExplorerBar CSOM の概要]

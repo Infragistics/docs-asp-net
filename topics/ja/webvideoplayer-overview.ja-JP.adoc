@@ -1,0 +1,113 @@
+﻿////
+
+|metadata|
+{
+    "name": "webvideoplayer-overview",
+    "controlName": ["WebVideoPlayer"],
+    "tags": ["Getting Started"],
+    "guid": "a2b62d1d-482b-4a5c-93bc-1ae667265755",  
+    "buildFlags": [],
+    "createdOn": "2011-04-01T19:29:47.1419809Z"
+}
+|metadata|
+////
+
+= WebVideoPlayer の概要
+
+== ビデオ プレーヤーの概要
+
+{ProductName} Video Player は、堅牢なクロス ブラウザー ユーザー インターフェイスを備え、 Web ページ上でビデオを表示する HTML 5 ビデオ プレーヤーです。ビデオ プレーヤーは HTML 5 ビデオ タグと jQuery UI フレームワークを使用してビルドされており、ブラウザーのプラグインをインストールして使用しなくても、高速ロードが可能な豊富なマルチメディア エクスペリエンスを実現します。
+
+このビデオ プレーヤーは、特定のサーバー バックエンドを使用せずに構成できる豊富な jQuery API を公開しています。同時に、ユーザーはビデオ プレーヤーの ASP.NET サーバー側ラッパーを使用して選択した言語の .NET™ でコントロールを構成できます。
+
+ASP.NET Video Player のスタイリングによって、サポートされるブラウザー間で整合性のとれた外観が提供されます。ビデオ プレーヤーは、既存のスタイル シートを使用したり、jQuery UI のテーマ ローラーを使用してスタイルすることができます。
+
+image::images/WebVideoPlayer_Overview_01.png[]
+
+== 機能
+
+* HTML 5 ビデオ タグを使用して、ブラウザーのプラグインを使用せずにビデオを描画します。
+* カスタマイズ可能な未対応メッセージなど HTML 5 以外のブラウザー向け内蔵フォールバック
+* 対応ブラウザー間で一貫性ある表示を実現するスタイル設定可能な再生コントロール
+* オプションおよびアニメーションを備えた全画面サポート
+* ビデオ広告およびバナー広告などの広告をサポート
+* 目次などのブックマーク サポート
+* JavaScript Playback API
+* キーボード ショートカット
+* 関連ビデオの表示
+
+== ASP.NET Video Player を Web ページに追加
+
+以下のステップは、ASP.NET サーバー コードを使用して Web ページに ASP.NET Video Player の基本的な実装を作成する方法を示します。
+
+image::images/WebVideoPlayer_Overview_02.png[]
+
+[start=1]
+. 最初に、アプリケーションに必要なローカライズ済みのリソースを含めます。
+[start=2]
+. HTML ページまたは ASP.NET View では、必要となる JavaScript ファイル、CSS ファイル、および ASP.NET アセンブリを参照します。
+
+[cols="a"]
+|====
+|*In ASPX:*
+
+|
+
+[source]
+---- 
+<link type="text/css" href="/Styles/css/themes/infragistics/infragistics.theme.css" rel="stylesheet" />
+---- 
+
+[source]
+---- 
+<link type="text/css" href="/Styles/css/structure/infragistics.css" rel="stylesheet" />
+---- 
+
+[source]
+---- 
+<script type="text/javascript" src="/Scripts/jquery.min.js"></script>
+---- 
+
+[source]
+---- 
+<script type="text/javascript" src="/Scripts/jquery-ui.min.js"></script> 
+<script type="text/javascript" src="/Scripts/js/infragistics.js"></
+---- 
+
+script> 
+
+|====
+
+[start=3]
+. 次に、コントロールのサーバー側コードを追加します。
+
+*ASPX の場合:*
+
+----
+<igjq:WebVideoPlayer ID="player1" runat="server" Width="720" Height="270" 
+FullScreen=" BrowserControls=" AutoHide="true" AutoPlay=" 
+Title="Title" PosterUrl="poster.png">
+   <Sources>
+      <igjq:VideoPlayerSource Source="example_video1.mp4" />
+      <igjq:VideoPlayerSource Source="example_video2.webm" />
+      <igjq:VideoPlayerSource Source="example_video3.ogv" />
+   </Sources>
+</igjq:WebVideoPlayer>
+----
+
+上記のコードでは、コントロールのプロパティが明示的に設定されます:
+
+*  pick:[asp-net="link:{ApiPlatform}web.jquery{ApiVersion}~infragistics.web.ui.displaycontrols.webvideoplayer~width.html[Width]"]  および  pick:[asp-net="link:{ApiPlatform}web.jquery{ApiVersion}~infragistics.web.ui.displaycontrols.webvideoplayer~height.html[Height]"]  は、コントロールのサイズを決定し、ブックマークなどのすべての補足的に描画されるコントロールを含みます。width および height を未設定のままにしておくと、ビデオ ソースのコントロールや追加コントロールと等しいサイズでコントロールが描画されます。ビデオ ソースの縦横比は変更されません。
+*  pick:[asp-net="link:{ApiPlatform}web.jquery{ApiVersion}~infragistics.web.ui.displaycontrols.webvideoplayer~fullscreen.html[FullScreen]"]  は、起動時に全画面モードでビデオ プレーヤーが描画されるかどうかを決定します。全画面モードへの移行は、ランタイムにプレーヤーのコントロールで実行できます。
+*  pick:[asp-net="link:{ApiPlatform}web.jquery{ApiVersion}~infragistics.web.ui.displaycontrols.webvideoplayer~browsercontrols.html[BrowserControls]"]  をオンにすると、WebVideoPlayer のすべてのカスタム コントロールが非表示になり、代わりにブラウザーにデフォルトのコントロールが描画されます。
+*  pick:[asp-net="link:{ApiPlatform}web.jquery{ApiVersion}~infragistics.web.ui.displaycontrols.webvideoplayer~autohide.html[AutoHide]"]  は、マウスを一定時間コントロールから移動した時、コントロールが自動的に非表示になるかどうかを決定します。
+*  pick:[asp-net="link:{ApiPlatform}web.jquery{ApiVersion}~infragistics.web.ui.displaycontrols.webvideoplayer~autoplay.html[AutoPlay]"]  をオンにすると、ページが描画される時にビデオの再生が開始されます。
+*  pick:[asp-net="link:{ApiPlatform}web.jquery{ApiVersion}~infragistics.web.ui.displaycontrols.webvideoplayer~posterurl.html[PosterUrl]"]  は、ビデオが再生されるまで表示されるビデオのポスターを追加する機能を提供します。注: Microsoft® Internet Explorer™ 9 はこの機能をサポートしていません。
+* ASP.NET Video Player のビデオ ソースはタグに設定されています。クロス ブラウザーの互換姓で必要となるビデオ タイプの詳細は、 link:webvideoplayer-working-with-html5-video.html[WebVideoPlayer を HTML5 ビデオで使用]トピックを参照してください。
+* HTML 5 で Web ページを実行 - 互換性のあるブラウザーおよびビデオ プレーヤーは、ビデオ選択を読み込みます。
+
+== 関連リンク
+
+link:{SamplesURL}/componentoverview.aspx?cn=video-player[WebVideoPlayer サンプル]
+
+link:webvideoplayer-working-with-html5-video.html[WebVideoPlayer を HTML5 ビデオで使用]

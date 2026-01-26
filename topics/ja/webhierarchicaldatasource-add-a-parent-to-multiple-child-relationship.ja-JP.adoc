@@ -1,0 +1,97 @@
+﻿////
+
+|metadata|
+{
+    "name": "webhierarchicaldatasource-add-a-parent-to-multiple-child-relationship",
+    "controlName": ["WebHierarchicalDataSource"],
+    "tags": ["Data Presentation","Sample Data Source"],
+    "guid": "{EDBC5112-6480-41AA-B040-0C94BA16B93A}",  
+    "buildFlags": [],
+    "createdOn": "2008-05-05T16:42:41Z"
+}
+|metadata|
+////
+
+= 親を複数の子関係に追加
+
+データ ソースは複数の子レコード セットを持つ親レコード セットで構成できます。デザイン タイムまたはランタイムに WebHierarchicalDataSource™ でこのタイプの関係を作成できます。デザイン タイムに、クイック デザイナで同じレベルに複数の子のビューを追加できます。ランタイムに、コードで同じ親へのデータ関係のビューを追加します。
+
+*注：* データ関係を追加する時、データ ソースが参照の完全性の規則に従っていることを確認してください。WebHierarchicalDataSource コンポーネントはこれらの規則を強制しないため、規則が守られないときにユーザーに通知しません。たとえば、子データのレコードすべてが親データに関連しているわけではない場合、これは無視されるだけで関連しているデータが表示されます。また、プライマリ キーおよび外部キーのデータ タイプが一致しない場合、親レコードのみが表示されます。
+
+*Visual Basic の場合：*
+
+----
+Dim view As New Infragistics.Web.UI.DataSourceControls.DataView() 
+' 親のビューを追加します。 
+view.DataSourceID = Me.SqlDataSource1.ID 
+view.ID = "Parent_DataSource_View1" 
+Me.WebHierarchicalDataSource1.DataViews.Add(view) 
+' 子のビュー 1 を追加します。 
+view = New Infragistics.Web.UI.DataSourceControls.DataView() 
+view.DataSourceID = Me.SqlDataSource2.ID 
+view.ID = "Child_DataSource_View1" 
+Me.WebHierarchicalDataSource1.DataViews.Add(view) 
+' 子のビュー 2 を追加します。 
+view = New Infragistics.Web.UI.DataSourceControls.DataView() 
+view.DataSourceID = Me.SqlDataSource3.ID 
+view.ID = "Child_DataSource_View2" 
+Me.WebHierarchicalDataSource1.DataViews.Add(view) 
+' 最初の子の関係を親に追加します。 
+Dim dr As New Infragistics.Web.UI.DataSourceControls.DataRelation() 
+dr.ParentDataViewID = "Parent_DataSource_View1" 
+dr.ParentColumns = New String() {"RegionID"} 
+dr.ChildDataViewID = "Child_DataSource_View1" 
+dr.ChildColumns = New String() {"RegionID"} 
+Me.WebHierarchicalDataSource1.DataRelations.Add(dr) 
+' 二番目の子の関係を親に追加します。 
+dr = New Infragistics.Web.UI.DataSourceControls.DataRelation() 
+dr.ParentDataViewID = "Parent_DataSource_View1" 
+dr.ParentColumns = New String() {"RegionID"} 
+dr.ChildDataViewID = "Child_DataSource_View2" 
+dr.ChildColumns = New String() {"RegionID"} 
+Me.WebHierarchicalDataSource1.DataRelations.Add(dr)
+----
+
+*C# の場合：*
+
+----
+Infragistics.Web.UI.DataSourceControls.DataView view = 
+new Infragistics.Web.UI.DataSourceControls.DataView();
+// 親のビューを追加します。
+view.DataSourceID = this.SqlDataSource1.ID;
+view.ID = "Parent_DataSource_View1";
+this.WebHierarchicalDataSource1.DataViews.Add(view);
+// 子のビュー 1 を追加します。
+view = new Infragistics.Web.UI.DataSourceControls.DataView();
+view.DataSourceID = this.SqlDataSource2.ID;
+view.ID = "Child_DataSource_View1";
+ this.WebHierarchicalDataSource1.DataViews.Add(view);
+// 子のビュー 2 を追加します。
+view = new Infragistics.Web.UI.DataSourceControls.DataView();
+view.DataSourceID = this.SqlDataSource3.ID;
+view.ID = "Child_DataSource_View2";
+this.WebHierarchicalDataSource1.DataViews.Add(view);
+// 最初の子の関係を親に追加します。
+Infragistics.Web.UI.DataSourceControls.DataRelation dr = 
+new Infragistics.Web.UI.DataSourceControls.DataRelation();
+dr.ParentDataViewID = "Parent_DataSource_View1";
+dr.ParentColumns = new string[] { "RegionID" };
+dr.ChildDataViewID = "Child_DataSource_View1";
+dr.ChildColumns = new string[] { "RegionID" };
+this.WebHierarchicalDataSource1.DataRelations.Add(dr);
+// 二番目の子の関係を親に追加します。
+dr = new Infragistics.Web.UI.DataSourceControls.DataRelation();
+dr.ParentDataViewID = "Parent_DataSource_View1";
+dr.ParentColumns = new string[] { "RegionID" };
+dr.ChildDataViewID = "Child_DataSource_View2";
+dr.ChildColumns = new string[] { "RegionID" };
+this.WebHierarchicalDataSource1.DataRelations.Add(dr);
+----
+
+== 関連トピック
+
+link:webhierarchicaldatasource-add-a-single-parent-to-single-child-relationship.html[単一の親対単一の子の関係を追加]
+
+link:webhierarchicaldatasource-add-a-composite-key-relationship.html[複合キーの関係を追加]
+
+link:webhierarchicaldatasource-creating-a-self-related-data-relation.html[自己関係的なデータ関係の作成]

@@ -1,0 +1,25 @@
+﻿////
+
+|metadata|
+{
+    "name": "webschedule-navigating-using-next-and-previous-navigational-buttons",
+    "controlName": ["WebSchedule"],
+    "tags": ["How Do I","Navigation","Scheduling"],
+    "guid": "{9A430307-4DA0-4F13-8B18-3ABDC8B36E4C}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 次のナビゲーション ボタンと前のナビゲーション ボタンを使用してナビゲート
+
+WebSchedule™ ビューには、ユーザーインターフェースのヘッダー領域にナビゲーションの矢印があります。これらのナビゲーションの矢印を使用して、使用するビューによって異なりますが、異なる月、週、日の間をナビゲートできます。コントロールのナビゲーションは、コントロールによって多少異なります。以下は、各コントロールのリスト、および [前へ] または [次へ] のナビゲーション ボタンをクリックした時にどのように各コントロールがナビゲートするのかを示します。
+
+* link:web-webmonthview.html[WebMonthView] -- このコントロールのナビゲーションの矢印は、 [前へ] または[ 次へ] ボタンをクリックした時に前後の月の同じ行/列にナビゲートするように設計されています。
+* link:web-webcalendarview.html[WebCalendarView] -- 別の月に進んだ時に、常に同じ日を選択します。この機能はまた、WebCalendarView では逆に動作します。
+* link:web-webdayview.html[WebDayView] -- 次の日にのみナビゲートします。
+
+*注:* ナビゲーションは、どのコントロールをクリックするかによって異なります。Web フォームに複数のビューがある場合、ナビゲートのためにクリックしているコントロールが、他のコントロールの動作を決定します。
+
+たとえば、フォームにすべてのコントロールがあり、WebMonthView™ を使用して新しい月にナビゲートする場合、WebCalendarView™ は更新して、WebMonthView によって選択された日に基づいて新たに選択された日を表示します。これは、WebScheduleInfo™ で  pick:[asp-net="link:{ApiPlatform}webui.webschedule{ApiVersion}~infragistics.webui.webschedule.webscheduleinfo~activedayclientsynchronization.html[ActiveDayClientSynchronization]"]  を Always に設定した場合に、ランタイムで表示することができます。このプロパティを None に設定すると、ポストバックが発生するまでビューは同期化されません。

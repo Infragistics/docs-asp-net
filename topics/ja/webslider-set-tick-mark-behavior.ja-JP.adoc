@@ -1,0 +1,45 @@
+﻿////
+
+|metadata|
+{
+    "name": "webslider-set-tick-mark-behavior",
+    "controlName": ["WebSlider"],
+    "tags": ["Editing","How Do I"],
+    "guid": "{CDEF42F6-F1A1-4A0C-8F47-E770A6BA8E3F}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= 目盛り動作を設定
+
+エンド ユーザーが WebSlider™ の目盛またはラベルをクリックまたはダブルクリックした時の動作を制御できます。
+
+目盛とラベルのクリック アクションを定義するために Tickmarks オブジェクトによって公開されるいくつかのプロパティを設定できます。
+
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.slidertickmarks~labelclickaction.html[LabelClickAction]"]  - エンド ユーザーがラベルをクリックした時の動作を定義します。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.slidertickmarks~labeldoubleclickaction.html[LabelDoubleClickAction]"]  - エンド ユーザーがラベルをダブルクリックした時の動作を定義します。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.slidertickmarks~tickmarkclickaction.html[TickmarkClickAction]"]  - エンド ユーザーが目盛をクリックした時の動作を定義します。
+*  pick:[asp-net="link:{ApiPlatform}web{ApiVersion}~infragistics.web.ui.editorcontrols.slidertickmarks~tickmarkdoubleclickaction.html[TickmarkDoubleClickAction]"]  - エンド ユーザーが目盛をダブルクリックした時の動作を定義します。
+
+以下の例のコードは、ダブルクリックした時につまみが目盛に移動する方法を示します。
+
+image::images/WebSlider_Customize_Appearance_of_Tick_Marks_01.png[]
+
+*Visual Basic の場合：*
+
+----
+Me.WebSlider1.Tickmarks.TickmarkClickAction = _
+Infragistics.Web.UI.EditorControls.SliderTickmarkClickAction.MoveToTick
+----
+
+*C# の場合：*
+
+----
+this.WebSlider1.Tickmarks.TickmarkClickAction = Infragistics.Web.UI.EditorControls.SliderTickmarkClickAction.MoveToTick;
+----
+
+== 関連トピック
+
+link:webslider-customize-appearance-of-tick-marks.html[目盛の外観をカスタマイズ]

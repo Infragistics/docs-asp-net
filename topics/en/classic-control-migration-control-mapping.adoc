@@ -1,0 +1,83 @@
+////
+
+|metadata|
+{
+    "name": "classic-control-migration-control-mapping",
+    "controlName": [],
+    "tags": [],
+    "guid": "",  
+    "buildFlags": [],
+    "createdOn": ""
+}
+|metadata|
+////
+
+= ASP.NET AJAX Control Replacements for Classic Controls
+
+The following Table  lists all the classic controls that were retired and last including in NetAdvantage 2011 Volume 1 and the best replacements:
+
+[options="header", cols="a,a"]
+|====
+|Classic Control|Migrate To
+
+|WebGrid
+|WebDataGrid/WebHierarchicalDataGrid
+
+|WebCombo
+|WebDropDown
+
+|WebDateChooser
+|WebDatePicker
+
+|WebListBar
+|WebExplorerBar
+
+|WebCalendar
+|WebMonthCalendar
+
+|WebToolbar
+|WebDataMenu
+
+|UltraWebTab
+|WebTab
+
+|WebTextEdit
+|WebTextEditor
+
+|WebMaskEdit
+|WebMaskEditor
+
+|WebNumericEdit
+|WebNumericEditor
+
+|WebDateTimeEdit
+|WebDateTimeEditor
+
+|WebPercentEdit
+|WebPercentEditor
+
+|WebCurrencyEdit
+|WebCurrencyEditor
+
+|WebMenu
+|WebDataMenu
+
+|WebTree
+|WebDataTree
+
+|WebAsyncRefreshPanel
+|ASP.NET AJAX UpdatePanel
+
+|WebPanel
+|WebExplorerBar
+
+|WebNavBar
+|WebDataMenu
+
+|WebGridExcelExporter
+|WebExcelExporter (with WebDataGrid/WebHierarchicalDataGrid)
+
+|WebGridDocumentExporter
+|WebDocumentExporter (with WebDataGrid/WebHierarchicalDataGrid)
+
+|====

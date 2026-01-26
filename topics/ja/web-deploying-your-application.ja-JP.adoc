@@ -1,0 +1,26 @@
+﻿////
+
+|metadata|
+{
+    "name": "web-deploying-your-application",
+    "controlName": [],
+    "tags": ["Deployment"],
+    "guid": "{9A288CD0-00BD-42EB-9238-9C9EBD1F20D0}",  
+    "buildFlags": [],
+    "createdOn": "0001-01-01T00:00:00Z"
+}
+|metadata|
+////
+
+= アプリケーションの配備
+
+{ProductName} のコントロール/コンポーネントからなる .NET アプリケーションをコンパイルしたら、そのアプリケーションを配備する必要があります。
+
+以下のリンクをクリックして、さまざまな配備方法を学習します。
+
+* link:web-deployment-overview.html[配置の概要] -- アプリケーションに特定の {ProductName} コントロール/コンポーネントが組み込まれるときに配備する必要がある固有のリソースを概説するトピックへのリンク リストが含まれます。
+* link:web-deploying-a-web-application-that-uses-netadvantage-for-asp-net-controls.html[{ProductName} コントロールを使用する Web アプリケーションの配備] -- {ProductName} コントロール/コンポーネントを使用する Web アプリケーションを配備する方法を説明します。
+* link:deploying-common-assets.html[共通アセットの配備] – Web サーバーにコントロールを持つ環境で {ProductName} アプリケーションを配備するために実行する必要がある作業を説明します。
+* link:web-deploying-an-application-to-a-hosted-server-environment.html[アプリケーションをホスト サーバー環境に配備] – {ProductName} コントロール/コンポーネントを Internet Information Services (IIS) へのアクセスが制限またはアクセスできない環境に配備するために行う必要が作業についての情報を提供します。
+* link:web-deploying-an-application-to-a-partial-trust-environment.html[部分的に信頼された環境にアプリケーションを配備する]
+* link:web-using-global-assembly-cache-gac-deployment.html[グローバル アセンブリ キャッシュ（GAC）配備の使用] – マシンで動作するアプリケーションのアセンブルを保存するために使用される中央の予約場所であるGACについて説明します。GAC を使用することで、複数のアプリケーション間でアセンブリを共有したり、同一マシン上で複数バージョンのアセンブリをインストールすることが可能になります。アプリケーションの {ProductName} コントロール/コンポーネントを GAC に配備する方法を学んでください。
