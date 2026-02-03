@@ -3,7 +3,7 @@
   "projectTitle": "Infragistics ASP.NET Docs",
   "description": "Docs repository for Infragistics ASP.NET components.",
   "folders": [],
-  "excludeFolders": [],
+  "excludeFolders": [ "topics/ja" ],
   "excludeFiles": [],
   "rules": ["Use repository to get information on how to use Infragistics ASP.NET components."],
   "previousVersions": []
